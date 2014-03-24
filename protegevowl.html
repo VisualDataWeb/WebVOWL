@@ -18,69 +18,61 @@
   </header>
 <hr>
   <p>Prot&eacute;g&eacute;VOWL is a Prot&eacute;g&eacute; plugin for the visualization of ontologies. It implements the
-  <a href="http://purl.org/vowl/">Visual Notation for OWL Ontologies (VOWL)</a> which provides graphical depictions for elements of the Web Ontology Language (OWL) that are combined to a force-directed graph layout representing the ontology.
-  </p>
+  <a href="http://purl.org/vowl/">Visual Notation for OWL Ontologies (VOWL)</a> to a large extent, which provides graphical depictions for elements of the Web Ontology Language (OWL) that are combined to a force-directed graph layout representing the ontology. Prot&eacute;g&eacute;VOWL is based on <a href="http://purl.org/vowl/v2/">version 2.0 of VOWL</a>, i.e. it focuses on the visualization of the ontology schema (i.e. the classes, properties and datatypes, sometimes called TBox), while it does not consider individuals and data values (the ABox) for the time being.</p>
+  <p>Note that the current version of Prot&eacute;g&eacute;VOWL does not implement all visual elements defined in the VOWL specification. Further elements and other improvements will be added to the next version of Prot&eacute;g&eacute;VOWL.</p>
+<hr>
+<p><strong>One-sentence installation instructions: </strong>Download JAR of VOWL, copy it to Prot&eacute;g&eacute; <em>plugins</em> folder, activate the plugin via <em>Window &rarr; Tabs &rarr; VOWL</em>.</p>
 <hr>
 <section>
     <h2>Installation of Prot&eacute;g&eacute;VOWL</h2>
     <ol>
-        <li>Copy Prot&eacute;g&eacute;VOWL to the plugins folder of Prot&eacute;g&eacute;</li>
-		<li>plugin folder of the Prot&eacute;g&eacute; installation.
-        <li>Start Prot&eacute;g&eacute; and Activate the Prot&eacute;g&eacute;VOWL plugin</li>
+        <li>Install Prot&eacute;g&eacute; (if not already installed)</li>
+		<li>Copy Prot&eacute;g&eacute;VOWL to the plugins folder of Prot&eacute;g&eacute;</li>
+        <li>Start Prot&eacute;g&eacute; and activate the VOWL plugin</li>
         <li>Verify Installation</li>
-        <li>Customizing Prot&eacute;g&eacute;VOWL workspace tab</li>
+        <li>Customize Prot&eacute;g&eacute;VOWL</li>
     </ol>
 <hr>
     <article>
-      <h3>1. Copy Prot&eacute;g&eacute;VOWL to the plugins folder of Prot&eacute;g&eacute;</h3>
-      <p>Prot&eacute;g&eacute;VOWL has been developed for ontology editor <a href="http://protege.stanford.edu/">Prot&eacute;g&eacute;</a> that needs to be downloaded and installed first. 
-	  
-	  Can be used with Prot&eacute;g&eacute; version 4.x (or higher)
-	  
-	  Prot&eacute;g&eacute;VOWL requires at least version 4.3 of Prot&eacute;g&eacute; Desktop that is available at <a href="http://protege.stanford.edu">protege.stanford.edu</a> free of charge.</p>
-      <p>Prot&eacute;g&eacute;VOWL consists of a JAR file that can be downloaded below.
-	  
-	  Download and copy the Prot&eacute;g&eacute; inside the <em>&lt;installation_path&gt;\Protege_4.3\plugins\</em> folder. A Download link is provided below.</p>
-      <span id="down"><a href="resources/org.visualdataweb.vowl.jar">Download Prot&eacute;g&eacute;VOWL plugin (beta 0.1) &darr;</a></span>
+	  <h3>1. Install Prot&eacute;g&eacute; (if not already installed)</h3>	  
+      <p>Prot&eacute;g&eacute;VOWL has been developed for the ontology editor <a href="http://protege.stanford.edu/">Prot&eacute;g&eacute;</a> that needs to be downloaded and installed first. Prot&eacute;g&eacute;VOWL requires at least version 4 of Prot&eacute;g&eacute; Desktop that is available at <a href="http://protege.stanford.edu">protege.stanford.edu</a> free of charge.</p>
+    </article>
+    <article>	  
+      <h3>2. Copy Prot&eacute;g&eacute;VOWL to the plugins folder of Prot&eacute;g&eacute;</h3>	  
+      <p>Prot&eacute;g&eacute;VOWL consists of a JAR file that first needs to be downloaded:
+	  <p id="down"><a href="resources/org.visualdataweb.vowl.jar">Download Prot&eacute;g&eacute;VOWL plugin (beta 0.1) &darr;</a></p>
+	  <p>The JAR file has then to be copied to the plugin folder of Prot&eacute;g&eacute; (<em>&lt;installation_path&gt;\Protege_4.3\plugins\</em>).</p>   
     </article>
     <article>
-      <h3>2. Start Prot&eacute;g&eacute; and Activate the Prot&eacute;g&eacute;VOWL plugin</h3>
-      <p>After the first step is completed, we are required to activate the plugin inside Prot&eacute;g&eacute; in order for it to be used.</p>
-      <p>Thus we need to start Prot&eacute;g&eacute; and from the <em>Window</em> menu (<em>Window >> Tabs >> VOWL</em>) we will activate the Prot&eacute;g&eacute;VOWL plugin (see <a href="#fig1">Figure 1</a> for details).</p>
+      <h3>3. Start Prot&eacute;g&eacute; and activate the VOWL plugin</h3>
+      <p>After Prot&eacute;g&eacute; has been started, the VOWL plugin can be activated via the <em>Window</em> menu (see <a href="#fig1">Figure 1</a>).</p>
       <figure id="fig1">
-        <img src="resources/step2.png" alt="step2 installation"/>
-        <figcaption>Figure 1. Activate the Prot&eacute;g&eacute;VOWL plugin.</figcaption>
+        <img style="width:800px" src="resources/activateVOWLplugin.png" alt="Activate VOWL plugin"/>
+        <figcaption>Figure 1. Activate the VOWL plugin in Prot&eacute;g&eacute;</figcaption>
       </figure>
-      <p>A new tab entitled <em>VOWL</em> will be created alongside existing Prot&eacute;g&eacute; tabs.</p>
     </article>
     <article>
-    <h3>3. Verify Installation</h3>
-      <p>After these two steps are finalized we will proceed to load a ontology within Prot&eacute;g&eacute; in oder to make use of the VOWL workspace tab and verify the installation.</p>
-      <p>VOWL workspace tab is structured as follows (see <a href="#fig2">Figure 2</a> for details):</p>
-      <ul>
-        <li>On the left side (canvas area) the loaded ontology can be visualized.</li>
-        <li>On the ride side (menu panel) additional information can be displayed when selecting an element from the visualization.</li>
-        <li>The bottom on the right side of the menu panel, several controls are available in oder to change the ontology visualization options.</li>
-      </ul>
+    <h3>4. Verify Installation</h3>
+      <p>A new tab entitled <em>VOWL</em> is shown next to the other tabs in Prot&eacute;g&eacute; (see <a href="#fig2">Figure 2</a>).</p>
+	  <p>If this tab is selected, the active ontology is visualized as a force-directed graph. If there is no visualization, an ontology needs first to be opened with Prot&eacute;g&eacute; (e.g. by selecting <em>Open from URI...</em> from the <em>File</em> menu and entering the URI http://purl.org/muto/core#).
       <figure id="fig2">
-        <img src="resources/step3.png" alt="step3 installation"/>
+        <img style="width:800px" src="resources/viewsVOWLplugin.png" alt="step3 installation"/>
         <figcaption>Figure 2. Prot&eacute;g&eacute;VOWL plugin Overview.</figcaption>
       </figure>
     </article>
-    <article>
-      <h3>4. Customizing ProtégéVOWL workspace tab</h3>
-      <p>A workspace tab can be customized by utilizing the features offered by Prot&eacute;g&eacute;VOWL under the <em>Window</em> menu (<em>Window >> Views >> Ontology views >> VOWL Controls/VOWL Sidebar/VOWL Viewer</em>) -- see <a href="#fig3">Figure 3</a> for details.</p>
-      <figure id="fig3">
-        <img src="resources/step4.png" alt="step4 installation"/>
-        <figcaption>Figure 3. Activating Ontology views in the Prot&eacute;g&eacute;VOWL plugin.</figcaption>
-      </figure>
+    <article>	  
+      <h3>5. Customize Prot&eacute;g&eacute;VOWL</h3>	  
+	  <p>The user interface of Prot&eacute;g&eacute;VOWL is structured as follows (see <a href="#fig2">Figure 2</a>):</p>
+      <ul>
+        <li><strong>VOWL Viewer - </strong>displays the ontology visualization;</li>
+        <li><strong>VOWL Sidebar - </strong>lists details about the selected element;</li>
+        <li><strong>VOWL Controls - </strong>allow to adapt the force-directed graph layout.</li>
+      </ul>
+      <p>The user interface can be costumized with the small icons in the upper right of the views. They can also be individually (de-)activated via the <em>Window</em> menu (<em>Window &rarr; Views &rarr; Ontology views &rarr; VOWL Controls/Sidebar/Viewer</em>).</p>
     </article>
 <hr>
-<h2>Developers of ProtégéVOWL</h2>
-    <p>David Bold, Steffen Lohmann, Stefan Negru.</p>
-<hr>
-<h2>ProtégéVOWL License</h2>
-    <p>The MIT License (MIT)</p>
+
+	<p>ProtégéVOWL is released under the MIT license<p>
     <p>Copyright (c) 2014 David Bold, Steffen Lohmann, Stefan Negru</p>
     <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
     <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
@@ -90,9 +82,17 @@
   <footer>
   <p>
     <span><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a></span> 
-    <span>This work is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a> license. You are free to copy, distribute, transmit, remix, or adapt the work, as long as you reference the work and its authors.</span>
+    <span>This page is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a> license. You are free to copy, distribute, transmit, remix, or adapt the work, as long as you reference the work and its authors.</span>
   </p>
   </footer>
 </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-12619410-19', 'visualdataweb.org');
+  ga('send', 'pageview');
+</script>
 </body>
 </html>
