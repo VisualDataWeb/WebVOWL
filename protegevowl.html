@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<meta name="author" content="David Bold, Steffen Lohmannm, Stefan Negru"/>
+<meta name="keywords" content="owl, protege, vowl, visual notation, web ontology language, ontology visualization, ontologies, semantic web" />
+<meta name="description" content="ProtegeVOWL: VOWL plugin for protégé." />
+<meta name="robots" content="index,follow"/>
+<link rel="stylesheet" type="text/css" href="css/pagestyle.css" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<title>VOWL Plugin for Prot&eacute;g&eacute; </title>
+</head>
+<body>
+<div id="wrapper">
+  <header>
+    <h1><span>Prot&eacute;g&eacute;VOWL</span>: VOWL Plugin for Prot&eacute;g&eacute;</h1>
+    <span id="visualHome"><a href="spec.html">VOWL Specification &raquo;</a></span>
+  </header>
+<hr>
+  <p>Prot&eacute;g&eacute;VOWL is a Prot&eacute;g&eacute; plugin for the visualization of ontologies. It implements the
+  <a href="http://purl.org/vowl/">Visual Notation for OWL Ontologies (VOWL)</a> which provides graphical depictions for elements of the Web Ontology Language (OWL) that are combined to a force-directed graph layout representing the ontology.
+  </p>
+<hr>
+<section>
+    <h2>Installation of Prot&eacute;g&eacute;VOWL</h2>
+    <ol>
+        <li>Copy Prot&eacute;g&eacute;VOWL to the plugins folder of Prot&eacute;g&eacute;</li>
+		<li>plugin folder of the Prot&eacute;g&eacute; installation.
+        <li>Start Prot&eacute;g&eacute; and Activate the Prot&eacute;g&eacute;VOWL plugin</li>
+        <li>Verify Installation</li>
+        <li>Customizing Prot&eacute;g&eacute;VOWL workspace tab</li>
+    </ol>
+<hr>
+    <article>
+      <h3>1. Copy Prot&eacute;g&eacute;VOWL to the plugins folder of Prot&eacute;g&eacute;</h3>
+      <p>Prot&eacute;g&eacute;VOWL has been developed for ontology editor <a href="http://protege.stanford.edu/">Prot&eacute;g&eacute;</a> that needs to be downloaded and installed first. 
+	  
+	  Can be used with Prot&eacute;g&eacute; version 4.x (or higher)
+	  
+	  Prot&eacute;g&eacute;VOWL requires at least version 4.3 of Prot&eacute;g&eacute; Desktop that is available at <a href="http://protege.stanford.edu">protege.stanford.edu</a> free of charge.</p>
+      <p>Prot&eacute;g&eacute;VOWL consists of a JAR file that can be downloaded below.
+	  
+	  Download and copy the Prot&eacute;g&eacute; inside the <em>&lt;installation_path&gt;\Protege_4.3\plugins\</em> folder. A Download link is provided below.</p>
+      <span id="down"><a href="resources/org.visualdataweb.vowl.jar">Download Prot&eacute;g&eacute;VOWL plugin (beta 0.1) &darr;</a></span>
+    </article>
+    <article>
+      <h3>2. Start Prot&eacute;g&eacute; and Activate the Prot&eacute;g&eacute;VOWL plugin</h3>
+      <p>After the first step is completed, we are required to activate the plugin inside Prot&eacute;g&eacute; in order for it to be used.</p>
+      <p>Thus we need to start Prot&eacute;g&eacute; and from the <em>Window</em> menu (<em>Window >> Tabs >> VOWL</em>) we will activate the Prot&eacute;g&eacute;VOWL plugin (see <a href="#fig1">Figure 1</a> for details).</p>
+      <figure id="fig1">
+        <img src="resources/step2.png" alt="step2 installation"/>
+        <figcaption>Figure 1. Activate the Prot&eacute;g&eacute;VOWL plugin.</figcaption>
+      </figure>
+      <p>A new tab entitled <em>VOWL</em> will be created alongside existing Prot&eacute;g&eacute; tabs.</p>
+    </article>
+    <article>
+    <h3>3. Verify Installation</h3>
+      <p>After these two steps are finalized we will proceed to load a ontology within Prot&eacute;g&eacute; in oder to make use of the VOWL workspace tab and verify the installation.</p>
+      <p>VOWL workspace tab is structured as follows (see <a href="#fig2">Figure 2</a> for details):</p>
+      <ul>
+        <li>On the left side (canvas area) the loaded ontology can be visualized.</li>
+        <li>On the ride side (menu panel) additional information can be displayed when selecting an element from the visualization.</li>
+        <li>The bottom on the right side of the menu panel, several controls are available in oder to change the ontology visualization options.</li>
+      </ul>
+      <figure id="fig2">
+        <img src="resources/step3.png" alt="step3 installation"/>
+        <figcaption>Figure 2. Prot&eacute;g&eacute;VOWL plugin Overview.</figcaption>
+      </figure>
+    </article>
+    <article>
+      <h3>4. Customizing ProtégéVOWL workspace tab</h3>
+      <p>A workspace tab can be customized by utilizing the features offered by Prot&eacute;g&eacute;VOWL under the <em>Window</em> menu (<em>Window >> Views >> Ontology views >> VOWL Controls/VOWL Sidebar/VOWL Viewer</em>) -- see <a href="#fig3">Figure 3</a> for details.</p>
+      <figure id="fig3">
+        <img src="resources/step4.png" alt="step4 installation"/>
+        <figcaption>Figure 3. Activating Ontology views in the Prot&eacute;g&eacute;VOWL plugin.</figcaption>
+      </figure>
+    </article>
+<hr>
+<h2>Developers of ProtégéVOWL</h2>
+    <p>David Bold, Steffen Lohmann, Stefan Negru.</p>
+<hr>
+<h2>ProtégéVOWL License</h2>
+    <p>The MIT License (MIT)</p>
+    <p>Copyright (c) 2014 David Bold, Steffen Lohmann, Stefan Negru</p>
+    <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+    <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</section>
+  <hr />
+  <footer>
+  <p>
+    <span><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a></span> 
+    <span>This work is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a> license. You are free to copy, distribute, transmit, remix, or adapt the work, as long as you reference the work and its authors.</span>
+  </p>
+  </footer>
+</div>
+</body>
+</html>
