@@ -5,7 +5,7 @@ var   graphTag = document.getElementById('graph')
     , linkDistanceLiteralSlider
     , onLoadCalled = false;
 // Set the default graph data
-var jsonURI = "foaf";
+var jsonURI = "foaf_spec";
 
 var graphOptions = function graphOptionsFunct() {
 
