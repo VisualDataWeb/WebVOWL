@@ -1,6 +1,7 @@
 var   foaf = document.getElementById('foaf')
     , muto = document.getElementById('muto')
     , personasonto = document.getElementById('personasonto')
+    , benchmarkonto = document.getElementById('benchmarkonto')
     , graphTag = document.getElementById('graph')
     , exportSvg = document.getElementById('exportSvg')
     , linkDistanceClassSlider
@@ -19,6 +20,9 @@ var bindListners = function() {
     });
     personasonto.addEventListener('click', function () {
         refreshOntology("persona");
+    });
+    benchmarkonto.addEventListener('click', function () {
+        refreshOntology("benchmark");
     });
     exportSvg.addEventListener('click', function () { 
         exportSVGDrawing();
@@ -67,7 +71,7 @@ var loadGraphStyle = function () {
     .style("stroke","#000")  
     .style("stroke-width", "1");
 
-  d3.selectAll(".object")
+  d3.selectAll(".object, .disjoint")
     .style("fill", "#acf");
 
   d3.selectAll(".rdf")
@@ -113,7 +117,7 @@ var loadGraphStyle = function () {
     .style("fill","#f00");
 };
 var removeStyles = function () { 
-    d3.selectAll(".class, .text, .embedded, .subtext, .cardinality, path, .nofill, .nostroke, .special, .dotted, .fineline, .object, .rdf, .external, .deprecated, .label .datatype, .literal, .node .datatype, .symbol, .arrowhead, marker path, .white, .dottedMarker path, .svgGraph .text tspan:only-child, .svgGraph .text:empty, .subclass, .focused")
+    d3.selectAll(".class, .text, .embedded, .subtext, .cardinality, path, .nofill, .nostroke, .special, .dotted, .fineline, .object, .rdf, .external, .deprecated, .label .datatype, .literal, .node .datatype, .symbol, .arrowhead, marker path, .white, .dottedMarker path, .svgGraph .text tspan:only-child, .svgGraph .text:empty, .subclass, .focused, . disjoint")
         .attr("style", null);
 };
 
