@@ -66,7 +66,7 @@
 	
 	<p>The second ingredient of VOWL is a <a href="#colorScheme">color scheme</a> complementing the graphical primitives. It defines colors for the visual elements to allow an easy distinction of different types of classes and properties. Although the color scheme is defined in an abstract way leaving room for customization, concrete color recommendations provide guidance for developers.</p>
 	
-	<p>Finally, the visual elements are combined to a graph that is rendered in a force-directed layout and that represents the ontology. VOWL defines splitting rules to specify which elements are multiplied in the visualization.</p>
+	<p>Finally, the visual elements are combined to a graph that is rendered in a force-directed layout and that represents the ontology. VOWL defines splitting rules to specify which elements are multiplied in the visualization in order to make them less prominent.</p>
 	
 	<p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/2004/OWL/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), though not all language constructs are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>.</p>
 	<!-- ToDo: Is any of the three profiles particularly supported -->
@@ -75,7 +75,7 @@
       <hr>
       <section id="buildingBlocks">
       <h2>Basic Building Blocks <a href="#toc">[back to top]</a></h2>
-	  This section introduces the <a href="#graphicalPrimitives">graphical primitives</a> and <a href="#colorScheme">color scheme </a> that are the basic building blocks of VOWL. It also defines the <a href="#splittingRules">splitting rules</a> for the graph visualization and gives some <a href="#generalRecommendations">general recommendations</a> for using the notation.
+	  This section introduces the <a href="#graphicalPrimitives">graphical primitives</a> and <a href="#colorScheme">color scheme </a> that are the basic building blocks of VOWL. It also defines <a href="#splittingRules">splitting rules</a> for the graph visualization and gives some <a href="#generalRecommendations">general recommendations</a> for using the notation.
 
 		<h3 id="graphicalPrimitives">Graphical Primitives</h3>
 		<!--Table 1 lists the graphical primitives used in VOWL.-->	
@@ -1341,7 +1341,7 @@
       <hr>
       <section id="example">
         <h2>Example <a href="#toc">[back to top]</a></h2>
-        <p>The interactive example below depicts the visual representation of the of the <a href="http://xmlns.com/foaf/spec/">Friend of a Friend (FOAF)</a> vocabulary (version 0.99) using the <a href="webvowl.html">WebVOWL</a> web applications and the <a href="http://d3js.org/">d3 library</a>.</p>
+        <p>The interactive example below depicts the visual representation of the <a href="http://xmlns.com/foaf/spec/">Friend of a Friend (FOAF)</a> vocabulary (version 0.99). It has been created with <a href="webvowl.html">WebVOWL</a>. Visit <a href="webvowl.html">WebVOWL</a> for further examples.</p>
 		    <p>As the FOAF ontology exemplified in this section is not populated, all circles have the same size (except from special types of classes which have a smaller size).</p>
 		
         <div id="graph">
