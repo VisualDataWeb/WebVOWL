@@ -12,14 +12,6 @@
     <title>VOWL: Visual Notation for OWL Ontologies</title>
     <link rel="stylesheet" type="text/css" href="css/vowl.css"/>
     <link rel="stylesheet" type="text/css" href="css/pagestyle.css"/>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	  ga('create', 'UA-12619410-19', 'visualdataweb.org');
-	  ga('send', 'pageview');
-	</script>	
   </head>
   <body>
     <div id="wrapper">
@@ -76,7 +68,7 @@
 	
 	<p>Finally, the visual elements are combined to a graph that is rendered in a force-directed layout and that represents the ontology. VOWL defines splitting rules to specify which elements are multiplied in the visualization.</p>
 	
-	<p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/2004/OWL/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), though not all language contructs are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>.</p>
+	<p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/2004/OWL/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), though not all language constructs are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>.</p>
 	<!-- ToDo: Is any of the three profiles particularly supported -->
 	
       </section>
@@ -105,7 +97,7 @@
 				  <circle class="class nofill embedded" r="20" transform="translate(25,25)"/>		  
 				</svg>					
 			  </td>
-        <td>Each circle represents a class of the ontology. If an ontology contains individuals, the size of each circle corresponds to the numbers of individuals its class contains. VOWL does not specify a particular scaling method for the circle sizes — good results may be achieved with a logarithmic or square-root scaling in most cases. The color of a circle depends on the type of class it represents. Individuals inferred from subclasses are also counted if reasoning is available and not deactivated. If the ontology is not populated or if purely the schema (i.e. the TBox) is considered, all classes have the same default size. An exception are the special classes <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em> that are not scaled but have a fixed size that is smaller than the default size of the other classes. In addition, these two classes have a dashed border and are multiplied in the visualization according to the rules described in <a href="">Table ?</a>.</td>
+        <td>Each circle represents a class of the ontology. If an ontology contains individuals, the size of each circle corresponds to the numbers of individuals its class contains. VOWL does not specify a particular scaling method for the circle sizes - good results may be achieved with a logarithmic or square-root scaling in most cases. The color of a circle depends on the type of class it represents. Individuals inferred from subclasses are also counted if reasoning is available and not deactivated. If the ontology is not populated or if purely the schema (i.e. the TBox) is considered, all classes have the same default size. An exception are the special classes <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em> that are not scaled but have a fixed size that is smaller than the default size of the other classes. In addition, these two classes have a dashed border and are multiplied in the visualization according to the rules described in <a href="">Table ?</a>.</td>
         <td><em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Deprecation">owl:DeprecatedClass</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em></td>        
 			</tr>
 		    <tr>
@@ -116,7 +108,7 @@
 				  <path d="M5,35 C15,25 34,25 44,35"/>
 				</svg>					
 			  </td>
-        <td>Lines are used for properties and set operators. When representing a property, the line has an arrow head (expect for the built-in properties <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#equivalentClass-def">owl:equivalentClass</a></em>), when representing a set operator, it has a dashed line style. The built-in property <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> also has a dashed line style, while subclass properties have a dotted line style. If the same two classes are connected by multiple lines (i.e. if there are multiedges between classes), the lines are curved.</td>  
+        <td>Lines are used for properties and set operators. When representing a property, the line has an arrow head (expect for the built-in properties <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#equivalentClass-def">owl:equivalentClass</a></em>), when representing a set operator, it has a dashed line style. The built-in property <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> also has a dashed line style, while subclass properties have a dotted line style. If the same two classes are connected by multiple lines (i.e. if there are multi-edges between classes), the lines are curved.</td>  
         <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_domain">rdfs:domain</a></em>, <em>
                 <a href="http://www.w3.org/TR/rdf-schema/#ch_range">rdfs:range</a></em>,  <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">rdfs:subClassOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em>,  <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>,
           <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:complementOf</a></em></td>    
@@ -167,7 +159,7 @@
                   </text>		  
 				</svg>					
 			  </td>	
-        <td>Text is used for all kinds of labels defined in ontologies. If no label is given for an element, the last part of the URI is taken, i.e. the string that follows the last slash (/) or hash (#) character. Some property or class type Finally, a textbox with information from the ontology header, such as the title and description of the ontology, may be disaplayed in the visualization.</td>  	  
+        <td>Text is used for all kinds of labels defined in ontologies. If no label is given for an element, the last part of the URI is taken, i.e. the string that follows the last slash (/) or hash (#) character. Some property or class type Finally, a textbox with information from the ontology header, such as the title and description of the ontology, may be displayed in the visualization.</td>  	  
         <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, type of property ("Subclass" for <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>), additional type information in brackets (e.g. deprecated, equivalent, etc.), symbol in schematic illustrations (e.g. union symbol ("&cup;") for <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>)</td><!-- repetition with rdfs:label -->
             </tr>				
 		  </tbody>
@@ -328,7 +320,7 @@
                 href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, it is recommended to take the last / a part of the URI as label, i.e. the part after / the string / characters that follow the last slash (/) or hash (#) character / sign. Labels may be abbreviated if they are too long (e.g. Hieroglyphics → Hierogly…). The full label can be shown on demand (e.g. via tooltips) and/or in another part of the user interface (e.g. a sidebar).
 		</p>
 		<h4>Graph Layout</h4>
-		<p>The graph layout should arrange the elements in an appealing and readable layout. The position of circles should be roughly determined by the number of inbound and outbound property relations, i.e. the more property relations a class has, the more centric the circle in the graph. Force-directed layouts / drawing algorithms / Algorithms for force-directd graph drawing / may be used for this purpose. They can be tailored to the visualized ontology by increasing or decreasing the forces between the classes.</p>
+		<p>The graph layout should arrange the elements in an appealing and readable layout. The position of circles should be roughly determined by the number of inbound and outbound property relations, i.e. the more property relations a class has, the more centric the circle in the graph. Force-directed layouts / drawing algorithms / Algorithms for force-directed graph drawing / may be used for this purpose. They can be tailored to the visualized ontology by increasing or decreasing the forces between the classes.</p>
 		<h4>Circle Sizes</h4>	
 		<!-- seee above -->
 		<p>The size is established by the number of individuals a certain class encompasses (if there are any). The class representation of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> has a fixed size, as it usually does not carry any particular domain information. It is recommended to use multiple representations of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> to avoid giving this element an importance in the visualization that it does not deserve.
@@ -343,7 +335,7 @@
 		<p>We do not recommend to visualize subclass relations of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, as every OWL class is implicitly a subclass of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> [ref], so that the subclass relations would unnecessarily clutter the visualization. Instead, the visual representation of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> should only be used if a property has no domain or range or explicitly uses <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> as its domain or range. The same holds for  <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>. <!-- @SL: Impossible. If a property has no domain or range, then owl:Thing will be displayed - rdfs:resource cannot be displayed at the same time. Either owl:Thing, or rdfs:resource. The last sentence sounds like both are true at a time. -->				
 		</p>
 		External ontologies
-		<p>The elements can either be imported with owl:imports or are simply linked in the / via domain and range axioms. Basically, all elements that have a different base URI than the visualized ontology may be visually marked as external (this feature is optional). Alternatively, developers may define several colors to visually group external elements by namespace, as long as they do not use a color from the scheme and keep the 'inverted style' with the light font color.</p>
+		<p>The elements can either be imported with <em><a href="http://www.w3.org/TR/owl-ref/#imports-def">owl:imports</a></em> or are simply linked in the / via domain and range axioms. Basically, all elements that have a different base URI than the visualized ontology may be visually marked as external (this feature is optional). Alternatively, developers may define several colors to visually group external elements by namespace, as long as they do not use a color from the scheme and keep the 'inverted style' with the light font color.</p>
 		<strong>Highlighting</strong>
 		<p>
 			  VOWL distinguishes two/three modes of direct highlighting:
@@ -367,9 +359,9 @@
           <li>Drag and drop = (re)arranging the elements;</li>
           <li>Other interactions include: zoom, panning.</li>
         </ul>
-		<h4>Conflicts / Sepcial cases:</h4>
+		<h4>Conflicts / Special cases:</h4>
 		<p>- deprecated class from an external ontology? --> color of deprecated, subtext deprecated and external<br>
-		- combination of property types, e.g. symmetric property that is also functional, add all property specifics as a comma-separated list in the subtext (abbreviate accroding to the abbreviation rules)<br/>
+		- combination of property types, e.g. symmetric property that is also functional, add all property specifics as a comma-separated list in the subtext (abbreviate according to the abbreviation rules)<br/>
 		- external class that is defined as equivalent class --> external class notation
 		</p>
 		
@@ -385,7 +377,7 @@
         <hr>
         <section id="notation">
         <h2>Visual Notation <a href="#toc">[back to top]</a></h2>
-        <p>In <a href="#table4">Table 4</a>, <a href="#table5">Table 5</a>, <a href="#table6">Table 6</a>, <a href="#table7">Table 7</a> and <a href="#table8">Table 8</a> we provide an overview of the graphical representations for the different OWL and <a href="http://www.w3.org/TR/rdf-schema/">RDF Schema (RDFS)</a> elements (formatted as <a href="http://www.w3.org/TR/SVG/">Scalable Vector Graphics (SVG)</a> with interactive features<a href="http://d3js.org/"></a>) supported by the VOWL notation. The interactive highlighting is shown on hovering.
+        <p>In <a href="#table4">Table 4</a>, <a href="#table5">Table 5</a>, <a href="#table6">Table 6</a>, <a href="#table7">Table 7</a>, <a href="#table8">Table 8</a> and <a href="#table9">Table 9</a> we provide an overview of the graphical representations for the different OWL and <a href="http://www.w3.org/TR/rdf-schema/">RDF Schema (RDFS)</a> elements (formatted as <a href="http://www.w3.org/TR/SVG/">Scalable Vector Graphics (SVG)</a> with interactive features<a href="http://d3js.org/"></a>) supported by the VOWL notation. The interactive highlighting is shown on hovering.
         </p>
     <!-- @SL: I don't think we need this anymore    
     force-directed layout -> the resulting layout is always different
@@ -727,7 +719,7 @@
                   </g>
                 </svg>
               </td>
-              <td>Property representation with a <strong>(functional)</strong> label for functional properties, on top of the property label. The global cardinality constraint of functional properties is not made explicit in the visualization in order to not confuse it with the cardinality constraints defined with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <br> <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em> that are displayed in the visualization (see below). Note that the background of this property can have different colors. It is shown in the <a>rdf</a> color in this specification, as owl:functionalProperty is a subclass of rdf:Property and can therefor be applied to any property in the ontology (i.e. same notation with different background color for <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>).
+              <td>Property representation with a <strong>(functional)</strong> label for functional properties, on top of the property label. The global cardinality constraint of functional properties is not made explicit in the visualization in order to not confuse it with the cardinality constraints defined with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <br> <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em> that are displayed in the visualization (see below). Note that the background of this property can have different colors. It is shown in the <a>Rdf</a> color in this specification, as owl:functionalProperty is a subclass of rdf:Property and can therefor be applied to any property in the ontology (i.e. same notation with different background color for <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>).
               </td>
             </tr>
             <tr>
@@ -809,7 +801,7 @@
                     <circle class="class" r="30"/>
                     <text class="text" text-anchor="middle" transform="translate(0,-6)">
                       <tspan x="0" y="2">Domain</tspan>
-                      <tspan x="0" y="16">& Range</tspan>
+                      <tspan x="0" y="16">&amp; Range</tspan>
                     </text>
                   </g>
                   <g transform="translate(80, 15)">
@@ -821,15 +813,15 @@
                   </g>
                 </svg>
               </td>
-              <td><!-- only those that are explicitly symetric properties -->Object property representation with identical domain and range, i.e. start and end point of the arrow is the same class. Multiple symmetric properties are represented multiple times.
+              <td><!-- only those that are explicitly symmetric properties -->Object property representation with identical domain and range, i.e. start and end point of the arrow is the same class. Multiple symmetric properties are represented multiple times.
               </td>
             </tr>				
           </tbody>
         </table>
 
-        <table id="tableX">
+        <table id="table6">
           <caption>
-            Table X. Graphical representation of further properties
+            Table 6. Graphical representation of further properties
           </caption>
           <tbody>
             <tr>
@@ -1028,9 +1020,7 @@
                   </g>
                 </svg>
               </td>
-              <td>Line/arc with arrow heads at both ends and annotated with the label of the property and its inverse counterpart
-                (interactive highlighting of direction).
-				In order to emphasize which label denotes which direction in non-interactive contexts, each label may be slightly displaced toward its respective arrowhead.
+              <td>Line/arc with arrow heads at both ends and annotated with the label of the property and its inverse counterpart (interactive highlighting of direction). In order to emphasize which label denotes which direction in non-interactive contexts, each label may be slightly displaced toward its respective arrowhead.
               </td>
             </tr>
             <tr>
@@ -1099,9 +1089,9 @@
           The circles contain the corresponding <a href="http://www.w3.org/2001/sw/SW-FAQ#relDL">Description Logic
           (DL)</a> symbols (&cup;,&cap;, &not;).
         </p>
-        <table id="table6">
+        <table id="table7">
           <caption>
-            Table 6. Graphical representation of set operators.
+            Table 7. Graphical representation of set operators.
           </caption>
           <tbody>
             <tr>
@@ -1214,20 +1204,13 @@
             </tr>
           </tbody>
         </table>
-        <!-- @SL: duplicate paragraph 
-        <p>The basic set operations <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>,
-          <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em> define new (anonymous)
-          classes to describe the union, intersection, or complement of other classes, and are thus represented as circles.
-          The circles contain the corresponding <a href="http://www.w3.org/2001/sw/SW-FAQ#relDL">Description Logic
-          (DL)</a> symbols (&cup;, &cap;, &not;).
-        </p>-->
         <p>As defined by the <a href="http://www.w3.org/TR/swbp-xsch-datatypes/">XML Schema Datatypes in RDF and OWL</a> (W3C working group note), RDF and OWL use simple types from XML Schema. The built-in datatypes are presented in detail in the <a href="http://www.w3.org/TR/xmlschema-2/#built-in-datatypes">XML Schema Part 2: Datatypes</a> (W3C Recommendation).</p>
 		
 		owl:DataRange + owl:oneOf --> also as datatype (additional information on demand (as for XML Schema Types)
        
-	   <table id="table7">
+	   <table id="table8">
           <caption>
-            Table 7. Graphical representation of datatypes.
+            Table 8. Graphical representation of datatypes.
           </caption>
           <tbody>
             <tr>
@@ -1269,10 +1252,10 @@
             </tr>			
           </tbody>
         </table>
-        <p>Despite the fact that the VOWL notation proposes graphical representations for the majority of OWL elements, there are some elements that should only be represented as details on demand. Such elements are presented below in <a href="#table8">Table 8</a>.</p>
-        <table id="table8">
+        <p>Despite the fact that the VOWL notation proposes graphical representations for the majority of OWL elements, there are some elements that should only be represented as details on demand. Such elements are presented below in <a href="#table9">Table 9</a>.</p>
+        <table id="table9">
           <caption>
-            Table 8. Graphical representation of individuals and other / header information.<!-- rename -->
+            Table 9. Graphical representation of individuals and other / header information.<!-- rename -->
           </caption>
           <tbody>
             <tr>
