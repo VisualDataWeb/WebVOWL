@@ -9,75 +9,75 @@
     <meta name="description"
       content="The Visual Notation for OWL Ontologies (VOWL) defines a visual language for the user-oriented representation of ontologies.">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>VOWL: Visual Notation for OWL Ontologies</title>
     <link rel="stylesheet" type="text/css" href="css/vowl.css"/>
     <link rel="stylesheet" type="text/css" href="css/pagestyle.css"/>
+    <title>VOWL: Visual Notation for OWL Ontologies</title>
+
   </head>
   <body>
     <div id="wrapper">
-      <header>
-        <h1>VOWL: Visual Notation for OWL Ontologies</h1>
-        <h2>Specification of Version 2.0 - XX March 2014</h2>
-        <hr>
-		<dl>
-		<dt>This version:</dt>
-		<dd><a href="http://purl.org/vowl/v2/">http://purl.org/vowl/v2/</a></dd>
-		<dt>Latest version</dt>
-		<dd><a href="http://purl.org/vowl/">http://purl.org/vowl/</a></dd>
-		<dt>Previous version:</dt>
-		<dd><a href="http://purl.org/vowl/v1/">http://purl.org/vowl/v1/</a></dd>
-		<dt>Authors:</dt>
-		<dd>
-		<a href="http://www.blankdots.com/">Stefan Negru</a>,
-		Alexandru Ioan Cuza University<br/>
-		<a href="http://steffen-lohmann.de">Steffen Lohmann</a>,
-		University of Stuttgart<br/>
-		<a href="http://www.vis.uni-stuttgart.de/institut/mitarbeiter/florian-haag.html">Florian Haag</a>,
-		University of Stuttgart<br/>
-		</dd>
+    <header>
+      <h1>VOWL: Visual Notation for OWL Ontologies</h1>
+      <h2>Specification of Version 2.0 - XX March 2014</h2>
+      <hr>
+  		<dl>
+  		<dt>This version:</dt>
+  		<dd><a href="http://purl.org/vowl/v2/">http://purl.org/vowl/v2/</a></dd>
+  		<dt>Latest version</dt>
+  		<dd><a href="http://purl.org/vowl/">http://purl.org/vowl/</a></dd>
+  		<dt>Previous version:</dt>
+  		<dd><a href="http://purl.org/vowl/v1/">http://purl.org/vowl/v1/</a></dd>
+  		<dt>Authors:</dt>
+  		<dd>
+    		<a href="http://www.blankdots.com/">Stefan Negru</a>, Alexandru Ioan Cuza University<br/>
+    		<a href="http://steffen-lohmann.de">Steffen Lohmann</a>, University of Stuttgart<br/>
+    		<a href="http://www.vis.uni-stuttgart.de/institut/mitarbeiter/florian-haag.html">Florian Haag</a>,University of Stuttgart<br/>
+		  </dd>
 		</dl>
-        <span id="visualHome"><a href="http://www.visualdataweb.org">visualdataweb.org &raquo;</a></span>
-      </header>
-      <hr>
-      <h2>Abstract</h2>
-      <p>
-      The Visual Notation for OWL Ontologies (VOWL) defines a visual language for the user-oriented representation of ontologies. It provides graphical depictions for elements of the Web Ontology Language (OWL) that are combined to a force-directed graph layout visualizing the ontology.</p>
+    <span id="visualHome"><a href="http://www.visualdataweb.org">visualdataweb.org &raquo;</a></span>
+    </header>
+    <hr>
+    <h2>Abstract</h2>
+    <p>
+    The Visual Notation for OWL Ontologies (VOWL) defines a visual language for the user-oriented representation of ontologies. It provides graphical depictions for elements of the Web Ontology Language (OWL) that are combined to a force-directed graph layout visualizing the ontology.
+    </p>
 	  <p>
-	  This specification focuses on the visualization of the ontology schema (i.e. the classes, properties and datatypes, sometimes called TBox), while it also includes recommendations on how to depict individuals and data values (the ABox). Familiarity with <a href="http://www.w3.org/standards/techs/owl">OWL</a> and other <a href="http://www.w3.org/standards/semanticweb/">Semantic Web</a> technologies is required to understand this specification.</p>
-      <hr>
-      <section id="toc">
-        <h2>Table of Contents</h2>
-        <ol>
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#buildingBlocks">Basic Building Blocks</a></li>
-          <li><a href="#notation">Visual Notation</a></li>    
-          <li><a href="#example">Examples</a></li>
-          <li><a href="#acknowledgments">Acknowledgments</a></li>
-          <li><a href="#changenotes">Change Notes</a></li>
-          <li><a href="#references">References</a></li>
-        </ol>
-      </section>
-      <hr>
-      <section id="overview">
-        <h2>Overview <a href="#toc">[back to top]</a></h2>
+	  This specification focuses on the visualization of the ontology schema (i.e. the classes, properties and datatypes, sometimes called TBox), while it also includes recommendations on how to depict individuals and data values (the ABox). Familiarity with <a href="http://www.w3.org/standards/techs/owl">OWL</a> and other <a href="http://www.w3.org/standards/semanticweb/">Semantic Web</a> technologies is required to understand this specification.
+    </p>
+    <hr>
+    <section id="toc">
+      <h2>Table of Contents</h2>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#buildingBlocks">Basic Building Blocks</a></li>
+        <li><a href="#notation">Visual Notation</a></li>    
+        <li><a href="#example">Examples</a></li>
+        <li><a href="#acknowledgments">Acknowledgments</a></li>
+        <li><a href="#changenotes">Change Notes</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </section>
+    <hr>
+    <section id="overview">
+      <h2>Overview <a href="#toc">[back to top]</a></h2>
+
+    	<!-- ToDo: Reference on tables or sections? -->
+    	<p>VOWL is based on only a handful of <a href="#graphicalPrimitives">graphical primitives</a> forming the alphabet of the visual language: Classes are depicted as circles (<a href="#classTable">Table 4</a>) that are connected by lines and arrows representing the property relations (<a href="#propertyTable">Table 5</a>). Property labels and datatypes are shown in rectangles (<a href="#propertyTable2">Table 6</a>, <a href="#propertyTable3">Table 7</a> and <a href="#datatypeTable">Table 8</a>). Information on individuals and data values is either displayed in the visualization itself or in another part of the user interface (<a href="#otherTable">Table 9</a>).</p>
+    	
+    	<p>The second ingredient of VOWL is a <a href="#colorScheme">color scheme</a> complementing the graphical primitives. It defines colors for the visual elements to allow an easy distinction of different types of classes and properties. Although the color scheme is defined in an abstract way leaving room for customization, concrete color recommendations provide guidance for developers.</p>
+    	
+    	<p>Finally, the visual elements are combined to a graph that is rendered in a force-directed layout and that represents the ontology. VOWL defines splitting rules to specify which elements are multiplied in the visualization in order to make them less prominent.</p>
+    	
+    	<p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/2004/OWL/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), though not all language constructs are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>.</p>
+    	<!-- ToDo: Is any of the three profiles particularly supported -->
 	
-	<!-- ToDo: Reference on tables or sections? -->
-	<p>VOWL is based on only a handful of <a href="#graphicalPrimitives">graphical primitives</a> forming the alphabet of the visual language: Classes are depicted as circles (<a href="#classTable">Table 4</a>) that are connected by lines and arrows representing the property relations (<a href="#propertyTable">Table 5</a>). Property labels and datatypes are shown in rectangles (<a href="#propertyTable2">Table 6</a>, <a href="#propertyTable3">Table 7</a> and <a href="#datatypeTable">Table 8</a>). Information on individuals and data values is either displayed in the visualization itself or in another part of the user interface (<a href="#otherTable">Table 9</a>).</p>
-	
-	<p>The second ingredient of VOWL is a <a href="#colorScheme">color scheme</a> complementing the graphical primitives. It defines colors for the visual elements to allow an easy distinction of different types of classes and properties. Although the color scheme is defined in an abstract way leaving room for customization, concrete color recommendations provide guidance for developers.</p>
-	
-	<p>Finally, the visual elements are combined to a graph that is rendered in a force-directed layout and that represents the ontology. VOWL defines splitting rules to specify which elements are multiplied in the visualization in order to make them less prominent.</p>
-	
-	<p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/2004/OWL/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), though not all language constructs are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>.</p>
-	<!-- ToDo: Is any of the three profiles particularly supported -->
-	
-      </section>
-      <hr>
-      <section id="buildingBlocks">
+    </section>
+    <hr>
+    <section id="buildingBlocks">
       <h2>Basic Building Blocks <a href="#toc">[back to top]</a></h2>
 	  This section introduces the <a href="#graphicalPrimitives">graphical primitives</a> and <a href="#colorScheme">color scheme </a> that are the basic building blocks of VOWL. It also defines <a href="#splittingRules">splitting rules</a> for the graph visualization and gives some <a href="#generalRecommendations">general recommendations</a> for using the notation.
 
-		<h3 id="graphicalPrimitives">Graphical Primitives</h3>
+		  <h3 id="graphicalPrimitives">Graphical Primitives</h3>
 		<!--Table 1 lists the graphical primitives used in VOWL.-->	
         <table id="primitivesTable">
           <caption>
@@ -163,7 +163,7 @@
         <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, type of property ("Subclass" for <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>), additional type information in brackets (e.g. deprecated, equivalent, etc.), symbol in schematic illustrations (e.g. union symbol ("&cup;") for <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>)</td><!-- repetition with rdfs:label -->
             </tr>				
 		  </tbody>
-        </table>		
+    </table>		
 
 		<h3 id="colorScheme">Color Scheme</h3>
     <p><a href="#colorTable">Table 2</a> lists the colors used in VOWL. They are defined in an abstract way, along with a description and a recommendation for a concrete color and its hex code. Developers may choose different colors, as long as they comply with the abstract descriptions. All colors are defined relative to the canvas color which is assumed to be very light. The colors (and color descriptions) may be 'inverted' if the visualization is presented on a dark background.</p>
@@ -691,7 +691,7 @@
               <td>Property representation colored in light gray (same notation for all property types, i.e. for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. Additional p as well as any combination of the other property types, but showing the corresponding labels).</td>
             </tr>
             <tr>
-              <td><em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em></td>
+              <td id="functProp"><em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em></td>
               <td class="tdCenter" id="owlFunctionalProperty">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="260px" height="70px">
                   <g transform="translate(35,35)">
@@ -863,7 +863,13 @@
                   </g>
                 </svg>
               </td>
-              <td>Exact, minimal, and/or maximal cardinality constraints are written near the end of the property arrow that the cardinality refers to. The notation is similar to <a href="http://www.uml.org/">UML</a>, i.e. the letters "x" and "y" in the example represent the minimum and maximum cardinality (for the range). Exact cardinalities are represented by only one number, while the asterisk (*) denotes an unrestricted cardinality. As unrestricted is the default cardinality / arbitrary number (zero or more) of values, the asterisk is optional and usually be omitted / not shown. Examples are "0..1" for a cardinality of 0 to 1, "1..*" for a minimum cardinality of 1, or "3" for a cardinality of exactly 3. Note that the cardinality always refers only to the range of the property axioms, so inverse properties are needed to define cardinality in both directions. The cardinality notation should not be used to depict the <a>global cardinality of functional properties</a> to avoid confusions.
+              <td>
+               <p>
+              Exact, minimal, and/or maximal cardinality constraints are written near the end of the property arrow that the cardinality refers to. The notation is similar to <a href="http://www.uml.org/">UML</a>, i.e. the letters "x" and "y" in the example represent the minimum and maximum cardinality (for the range). Exact cardinalities are represented by only one number, while the asterisk (*) denotes an unrestricted cardinality. As unrestricted is the default cardinality / arbitrary number (zero or more) of values, the asterisk is optional and usually be omitted / not shown.
+              </p>
+              <p>
+              Examples are "0..1" for a cardinality of 0 to 1, "1..*" for a minimum cardinality of 1, or "3" for a cardinality of exactly 3. Note that the cardinality always refers only to the range of the property axioms, so inverse properties are needed to define cardinality in both directions. The cardinality notation should not be used to depict the <a href="#functProp">global cardinality of functional properties</a> to avoid confusions.
+              </p>
 			  <!-- @SL: check cardinality and range -->
 			</td>
             </tr>	
@@ -885,10 +891,8 @@
                   </g>
                   <g transform="translate(118, 35)">
                     <rect class="property object" x="-15" y="-15" width="55" height="30" onmouseover="labelMouseOver('interactionEffect15')" onmouseout="labelMouseOut('interactionEffect15')"></rect>
-                    <g class="embedded">
-                      <circle id="disjoint" class="symbol fineline" r="10"/>
-                      <use x="25" xlink:href="#disjoint" />
-                    </g>
+                    <circle r="10" cx="-10" class="symbol fineline"></circle>
+                    <circle r="10" cx="10" class="symbol fineline"></circle>
                     <text class="text" text-anchor="middle" transform="translate(14,15)">
                       <tspan x="-1" y="10" class="subtext">(disjoint)</tspan>
                     </text>
@@ -1070,14 +1074,14 @@
               </td>
               <td>
                 <p>Class notation with double border (with space in neutral color). The main label is from a class with the same base URI (if there is any). The labels of equivalent classes (from external ontologies or from the same base URI) are added as comma-separated list to the label in square brackets. They are abbreviated according to the rules above.
+                </p>
 				<!-- ToDo: Put these rules in an extra section, as they are valid for equivalent classes and equivalent properties -->
 				- main label = label of main class, i.e.
 					- the only class containing / with the base URI (if there is any)
 					- one of the classes with the base URI (if there are more)
 					- one of the classes (if there is no class with a base URI)
 				<!-- ToDo: What's with the rest of the info of equivalent classes (if there is any) -->
-				This notation may also be used to represent <em><a
-            href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em> in OWL Full where it can be defined between two classes.
+				    <p> This notation may also be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em> in OWL Full where it can be defined between two classes.
                 </p>
               </td>
             </tr>	
