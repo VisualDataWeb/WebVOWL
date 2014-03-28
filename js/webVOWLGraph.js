@@ -1583,7 +1583,9 @@ var setUriLabel = function setUriLabelFunct(element, name, uri) {
 var appendUriLabel = function appendUriLabelFunct(element, name, uri) {
     var tag;
     if (uri) {
-        tag = element.append("a").attr("href", uri);
+        tag = element.append("a")
+        .attr("href", uri)
+        .attr("target", "_blank");
     } else {
         tag = element.append("span");
     }
