@@ -262,6 +262,15 @@ li {
  margin: 5px;
 }
 
+#browserCheck { /* checking for IE where WebVOWl is not working */
+    background-color: #f00;
+    padding: 5px 0px;
+    text-align: center;
+    width: 100%;
+}
+#browserCheck a {color:#fff;}
+#browserCheck a:hover {text-decoration: underline;}
+
 @media screen and (max-width: 955px){
     #visualHome{
         position:relative;
