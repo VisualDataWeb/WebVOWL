@@ -6,8 +6,7 @@
     <meta name="author" content="Stefan Negru, Steffen Lohmann, Florian Haag">
     <meta name="keywords"
     content="owl, vowl, visual notation, web ontology language, ontology visualization, ontologies, semantic web, linked data">
-    <meta name="description"
-    content="The Visual Notation for OWL Ontologies (VOWL) defines a visual language for the user-oriented representation of ontologies.">
+    <meta name="description" content="The Visual Notation for OWL Ontologies (VOWL) defines a visual language for the user-oriented representation of ontologies.">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/vowl.css"/>
     <link rel="stylesheet" type="text/css" href="css/pagestyle.css"/>
@@ -73,13 +72,13 @@
       <hr>
       <section id="buildingBlocks">
         <h2>Basic Building Blocks <a href="#toc">[back to top]</a></h2>
+        <p>
         This section introduces the <a href="#graphicalPrimitives">graphical primitives</a> and <a href="#colorScheme">color scheme </a> that are the basic building blocks of VOWL. It also defines <a href="#splittingRules">splitting rules</a> for the graph visualization and gives some <a href="#generalRecommendations">general recommendations</a> for using the notation.
+        </p>
         <h3 id="graphicalPrimitives">Graphical Primitives</h3>
         <!--Table 1 lists the graphical primitives used in VOWL.-->
         <table id="primitivesTable">
-          <caption>
-          Table 1. Graphical primitives.
-          </caption>
+          <caption>Table 1. Graphical primitives.</caption>
           <tbody>
             <tr>
               <th style="width: 5em">Name</th>
@@ -125,8 +124,8 @@
                 <path class="white" d="m 40,25 -11.5,6.5 0,-13 11.5,6.5 z"/>
                 </svg>
               </td>
-              <td>Arrowheads indicate the direction of properties by pointing to the class or datatype being the range of the property. If multiple ranges are defined for a property, this is represented with an anonymous class and the notation of <a href="#owlIntersectionOf">owl:intersectionOf</a> in the visualization. Furthermore, arrowheads are used to indicate the direction of subclass relations. Arrowheads representing <a href="#rdfsRange">range axioms</a> are filled with the <a href="#colorForeground">foreground color</a> (usually black); arrowheads representing <a href="#rdfsSubclass">subclass relations</a> are filled with the <a href="#colorNeutral">neutral color</a> (usually white).
-                <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_range">rdfs:range</a></em> (with <a href="#colorForeground">foreground color</a>), <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em> (with <a href="#colorNeutral">neutral color</a>)</td>
+              <td>Arrowheads indicate the direction of properties by pointing to the class or datatype being the range of the property. If multiple ranges are defined for a property, this is represented with an anonymous class and the notation of <a href="#owlIntersectionOf">owl:intersectionOf</a> in the visualization. Furthermore, arrowheads are used to indicate the direction of subclass relations. Arrowheads representing <a href="#rdfsRange">range axioms</a> are filled with the <a href="#colorForeground">foreground color</a> (usually black); arrowheads representing <a href="#rdfsSubclass">subclass relations</a> are filled with the <a href="#colorNeutral">neutral color</a> (usually white).</td>
+              <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_range">rdfs:range</a></em> (with <a href="#colorForeground">foreground color</a>), <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em> (with <a href="#colorNeutral">neutral color</a>)</td>
               </tr>
               <tr>
                 <td id="primitiveRectangle">Rectangle</td>
@@ -146,10 +145,10 @@
                   <path class="dotted" d="M5,35 L44,35"/>
                   </svg>
                 </td>
-                <td><p>The lines and borders of some class and property types are dashed or dotted. A dashed line indicates the application of set operators to classes. It can also indicate disjoint classes (<a href="">if this property relation is visualized at all</a>). A dashed border indicates special types of classes (<em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>, and anonymous classes, as used with set operators) and properties (<em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>). A dotted line is reserved for subclass relations.</p>
+                <td>
+                <p>The lines and borders of some class and property types are dashed or dotted. A dashed line indicates the application of set operators to classes. It can also indicate disjoint classes (<a href="">if this property relation is visualized at all</a>). A dashed border indicates special types of classes (<em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>, and anonymous classes, as used with set operators) and properties (<em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>). A dotted line is reserved for subclass relations.</p>
                 </td>
-                <td>dotted line: <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>; dashed line: <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>,
-                  <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em>, and <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em>; dashed border: <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>), <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>, and anonymous classes
+                <td>dotted line: <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>; dashed line: <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em>, and <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em>; dashed border: <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>), <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>, and anonymous classes
                 </td>
               </tr>
               <tr>
@@ -173,11 +172,9 @@
           
           <p>While the colors ease the reading of the visualization, they are not required to understand it. The visualization remains understandable if printed in black and white or read by color-blind people, though some details may not be visible any longer (e.g. if a class is of type <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>). If these details should also be available in black and white prints of the ontology visualization, they may be added as text (e.g. in the class label).</p>
           
-          <p>There may be conflicts in using this color scheme, e.g. when a deprecated class belongs to an external ontology. Such cases are listed and resolved in the <a href="generalRecommendations">general recommendations</a>.
+          <p>There may be conflicts in using this color scheme, e.g. when a deprecated class belongs to an external ontology. Such cases are listed and resolved in the <a href="generalRecommendations">general recommendations</a>.</p>
           <table id="colorTable">
-            <caption>
-            Table 2. Color scheme.
-            </caption>
+            <caption>Table 2. Color scheme.</caption>
             <tbody>
               <tr>
                 <th style="width: 7em;">Abstract color name</th>
@@ -274,11 +271,10 @@
               </tr>
             </tbody>
           </table>
+          
           <h3 id="splittingRules">Splitting Rules</h3>
           <table id="splittingTable">
-            <caption>
-            Table 3. Splitting rules.
-            </caption>
+            <caption>Table 3. Splitting rules.</caption>
             <tbody>
               <tr>
                 <th colspan="2">Level</th>
@@ -317,8 +313,7 @@
           <p>Some of the general guidelines and instructions / recommendations of usage and implementation are listed below:</p>
           <h4>Labels</h4>
           <p>If classes, properties, or individuals / elements do not have an <em><a
-          href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, it is recommended to take the last / a part of the URI as label, i.e. the part after / the string / characters that follow the last slash (/) or hash (#) character / sign. Labels may be abbreviated if they are too long (e.g. Hieroglyphics → Hierogly…). The full label can be shown on demand (e.g. via tooltips) and/or in another part of the user interface (e.g. a sidebar).
-          </p>
+          href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, it is recommended to take the last / a part of the URI as label, i.e. the part after / the string / characters that follow the last slash (/) or hash (#) character / sign. Labels may be abbreviated if they are too long (e.g. Hieroglyphics → Hierogly…). The full label can be shown on demand (e.g. via tooltips) and/or in another part of the user interface (e.g. a sidebar).</p>
           <h4>Graph Layout</h4>
           <p>The graph layout should arrange the elements in an appealing and readable layout. The position of circles should be roughly determined by the number of inbound and outbound property relations, i.e. the more property relations a class has, the more centric the circle in the graph. Force-directed layouts / drawing algorithms / Algorithms for force-directed graph drawing / may be used for this purpose. They can be tailored to the visualized ontology by increasing or decreasing the forces between the classes.</p>
           <h4>Circle Sizes</h4>
@@ -334,7 +329,7 @@
           <!-- @SL: I think there is an example in the FOAF example below. Maybe link to that? -->
           <p>We do not recommend to visualize subclass relations of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, as every OWL class is implicitly a subclass of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> [ref], so that the subclass relations would unnecessarily clutter the visualization. Instead, the visual representation of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> should only be used if a property has no domain or range or explicitly uses <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> as its domain or range. The same holds for  <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>. <!-- @SL: Impossible. If a property has no domain or range, then owl:Thing will be displayed - rdfs:resource cannot be displayed at the same time. Either owl:Thing, or rdfs:resource. The last sentence sounds like both are true at a time. -->
           </p>
-          External ontologies
+          <h4>External ontologies</h4>
           <p>The elements can either be imported with <em><a href="http://www.w3.org/TR/owl-ref/#imports-def">owl:imports</a></em> or are simply linked in the / via domain and range axioms. Basically, all elements that have a different base URI than the visualized ontology may be visually marked as external (this feature is optional). Alternatively, developers may define several colors to visually group external elements by namespace, as long as they do not use a color from the scheme and keep the 'inverted style' with the light font color.</p>
           <strong>Highlighting</strong>
           <p>VOWL distinguishes two/three modes of direct highlighting:</p>
@@ -346,11 +341,9 @@
               Highlight on selection: changes the border color (plus the color of the line and arrow if it has any)
             </li>
           </ol>
-          This is an interactive feature that is dependent from the environment (e.g. the first mode may not make sense in some touch environments). Note that it should also be possible to deselect highlighted elements.
-          Indirect highlighting can be used to indicate a certain type of relationship between elements. It is used in VOWL to dynamically indicate sub- and superproperties of a selected / hovered property. Like the direct highlight on hover, it changes the fill color of the element (plus the color of the line and arrow if it has any) / is changed and is dependent on the interactive environment.
-          <p><strong>Interactive Representation</strong> of the VOWL notation is based on the following events for manipulating
-          OWL ontology elements:
-          </p>
+          <p>This is an interactive feature that is dependent from the environment (e.g. the first mode may not make sense in some touch environments). Note that it should also be possible to deselect highlighted elements.</p>
+          <p>Indirect highlighting can be used to indicate a certain type of relationship between elements. It is used in VOWL to dynamically indicate sub- and superproperties of a selected / hovered property. Like the direct highlight on hover, it changes the fill color of the element (plus the color of the line and arrow if it has any) / is changed and is dependent on the interactive environment.</p>
+          <p><strong>Interactive Representation</strong> of the VOWL notation is based on the following events for manipulatingOWL ontology elements:</p>
           <ul>
             <li>Hover = highlighting details about certain elements e.g. inverse properties;</li>
             <li>Click = details on demand about the ontology elements;</li>
@@ -372,6 +365,7 @@
             </li>
           </ul>
         </section>
+        
         <hr>
         <section id="notation">
           <h2>Visual Notation <a href="#toc">[back to top]</a></h2>
@@ -384,9 +378,7 @@
           
           color scheme - 8 colors - our recommendation as used in this document - owl elements = light color (e.g. light blue), rdf(s) elements = similar color (e.g. violet), imported elements = inverted colors (e.g. dark blue with white font), deprecated elements = gray, non-intrusive representation for owl:Thing and subclass (e.g. white, no color, or color of background), datatype property = different color (e.g. green), also datatype (e.g. yellow), one more defensive color for the symbols (e.g. darker blue), and one color for the highlighting (e.g. red) -->
           <table id="classTable">
-            <caption>
-            Table 4. Graphical representation of classes.
-            </caption>
+            <caption>Table 4. Graphical representation of classes.</caption>
             <tbody>
               <tr>
                 <th>Ontology element</th>
@@ -491,10 +483,9 @@
             <li>Imported and aligned classes can be differently colored <a href="#colorTable">Table 2</a>. See the <a href="#example">Friend-of-a-Friend visualization</a> as reference example.</li>
             <li>Classes form external ontologies may be visualized in a different color, as defined in the <a>color schema</a></li>
           </ul>
+
           <table id="propertyTable">
-            <caption>
-            Table 5. Graphical representation of properties.
-            </caption>
+            <caption>Table 5. Graphical representation of properties.</caption>
             <tbody>
               <tr>
                 <th>Ontology Element</th>
@@ -756,9 +747,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Object property representation with a <strong>(inverseFunctional)</strong> label for inverse functional
-                  properties, on top of the property label
-                </td>
+                <td>Object property representation with a <strong>(inverseFunctional)</strong> label for inverse functional properties, on top of the property label.</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/owl-ref/#TransitiveProperty-def">owl:TransitiveProperty</a></em></td>
@@ -789,9 +778,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Object property representation with a <strong>(transitive)</strong> label for transitive properties, on top of
-                  the property label
-                </td>
+                <td>Object property representation with a <strong>(transitive)</strong> label for transitive properties, on top of the property label.</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/owl-ref/#SymmetricProperty-def">owl:SymmetricProperty</a></em></td>
@@ -817,15 +804,13 @@
                   </g>
                   </svg>
                 </td>
-                <td><!-- only those that are explicitly symmetric properties -->Object property representation with identical domain and range, i.e. start and end point of the arrow is the same class. Multiple symmetric properties are represented multiple times.
-              </td>
+                <td><!-- only those that are explicitly symmetric properties -->Object property representation with identical domain and range, i.e. start and end point of the arrow is the same class. Multiple symmetric properties are represented multiple times.</td>
             </tr>
           </tbody>
         </table>
+
         <table id="propertyTable2">
-          <caption>
-          Table 6. Graphical representation of further properties
-          </caption>
+          <caption>Table 6. Graphical representation of further properties</caption>
           <tbody>
             <tr>
               <th>Ontology Element</th>
@@ -1091,16 +1076,11 @@
           </tbody>
         </table>
         
-        <p>The basic set operations <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>,
-        <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em> define new (anonymous)
-        classes to describe the union, intersection, or complement of other classes, and are thus represented as circles.
-        The circles contain the corresponding <a href="http://www.w3.org/2001/sw/SW-FAQ#relDL">Description Logic
-        (DL)</a> symbols (&cup;,&cap;, &not;).
-        </p>
+        <p>The basic set operations <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em> define new (anonymous) classes to describe the union, intersection, or complement of other classes, and are thus represented as circles.
+        The circles contain the corresponding <a href="http://www.w3.org/2001/sw/SW-FAQ#relDL">Description Logic (DL)</a> symbols (&cup;,&cap;, &not;). </p>
+        
         <table id="propertyTable3">
-          <caption>
-          Table 7. Graphical representation of set operators.
-          </caption>
+          <caption>Table 7. Graphical representation of set operators.</caption>
           <tbody>
             <tr>
               <th>Ontology Element</th>
@@ -1214,7 +1194,7 @@
         </table>
         <p>As defined by the <a href="http://www.w3.org/TR/swbp-xsch-datatypes/">XML Schema Datatypes in RDF and OWL</a> (W3C working group note), RDF and OWL use simple types from XML Schema. The built-in datatypes are presented in detail in the <a href="http://www.w3.org/TR/xmlschema-2/#built-in-datatypes">XML Schema Part 2: Datatypes</a> (W3C Recommendation).</p>
         
-        owl:DataRange + owl:oneOf --> also as datatype (additional information on demand (as for XML Schema Types)
+        <p>owl:DataRange + owl:oneOf --> also as datatype (additional information on demand (as for XML Schema Types)</p>
         
         <table id="datatypeTable">
           <caption>
@@ -1261,10 +1241,9 @@
           </tbody>
         </table>
         <p>Despite the fact that the VOWL notation proposes graphical representations for the majority of OWL elements, there are some elements that should only be represented as details on demand. Such elements are presented below in <a href="#otherTable">Table 9</a>.</p>
+        
         <table id="otherTable">
-          <caption>
-          Table 9. Graphical representation of individuals and other / header information.<!-- rename -->
-          </caption>
+          <caption>Table 9. Graphical representation of individuals and other / header information.<!-- ToDo: rename --></caption>
           <tbody>
             <tr>
               <th>Ontology Element</th>
@@ -1272,8 +1251,7 @@
               <th>Description</th>
             </tr>
             <tr>
-              <td><em><a href="http://www.w3.org/TR/owl-ref/#imports-def">owl:imports</a></em>, <br> <em><a href="http://www.w3.org/TR/owl-ref/#versionInfo-def">owl:versionInfo</a></em>, <br> <em><a href="http://www.w3.org/TR/owl-ref/#priorVersion-def">owl:priorVersion</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#backwardCompatibleWith-def">owl:BackwardCompatibleWith</a></em>,
-                <em><a href="http://www.w3.org/TR/owl-ref/#incompatibleWith-def">owl:incompatibleWith</a></em>
+              <td><em><a href="http://www.w3.org/TR/owl-ref/#imports-def">owl:imports</a></em>, <br> <em><a href="http://www.w3.org/TR/owl-ref/#versionInfo-def">owl:versionInfo</a></em>, <br> <em><a href="http://www.w3.org/TR/owl-ref/#priorVersion-def">owl:priorVersion</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#backwardCompatibleWith-def">owl:BackwardCompatibleWith</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#incompatibleWith-def">owl:incompatibleWith</a></em>
               </td>
               <td class="tdCenter" id="metadata">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="240px" height="138px" viewBox="0 0 253 138">
@@ -1303,9 +1281,7 @@
             <tr>
               <td><em><a href="http://www.w3.org/TR/owl-ref/#Individual">Individual</a></em> owl:oneOf</td>
               <td class="tdCenter" id="owlIndividual">
-                <p>
-                <strong>Details to be added</strong>
-                </p>
+                <p><strong>Details to be added</strong></p>
               </td>
               <!-- @SL: _In_ the circle or _around_ the circle? Possibly add several examples; for example one with a class that has equivalent classes (is the double line outside of the individuals-sections or within?). -->
               <!-- @SL: Is there any equivalent thing for datatypes? It may be interesting to see that an instance of an ontology supports only a certain number of values for a given datatype (with respect to a particular property - assuming the same datatype can appear several times if it is used for several properties (?). -->
@@ -1322,27 +1298,11 @@
             </tr>
           </tbody>
         </table>
-        <p>For elements such as: <em><a href="http://www.w3.org/TR/owl-ref/#allValuesFrom-def">owl:allValuesFrom</a></em>,
-        <em><a href="http://www.w3.org/TR/owl-ref/#someValuesFrom-def">owl:someValuesFrom</a></em>, <em><a
-        href="http://www.w3.org/TR/owl-ref/#hasValue-def">owl:hasValue</a></em>, <em><a
-        href="http://www.w3.org/TR/rdf-schema/#ch_comment">rdfs:comment</a></em>, <em><a
-        href="http://www.w3.org/TR/rdf-schema/#ch_seealso">rdfs:seeAlso</a></em>, <em><a
-        href="http://www.w3.org/TR/rdf-schema/#ch_isdefinedby">rdfs:isDefinedBy</a></em>, <em><a
-        href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em>, and <em><a
-        href="http://www.w3.org/TR/owl-ref/#EnumeratedDatatype">owl:DataRange</a></em> (<em><a
-        href="http://www.w3.org/TR/rdf-schema/#ch_datatype">rdfs:datatype</a></em> in OWL 2) interactive events must
-        be used in order to be displayed (either in a side panel or when hovering a certain class/individual).
+        <p>
+        For elements such as: <em><a href="http://www.w3.org/TR/owl-ref/#allValuesFrom-def">owl:allValuesFrom</a></em>,<em><a href="http://www.w3.org/TR/owl-ref/#someValuesFrom-def">owl:someValuesFrom</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#hasValue-def">owl:hasValue</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_comment">rdfs:comment</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_seealso">rdfs:seeAlso</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_isdefinedby">rdfs:isDefinedBy</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em>, and <em><a href="http://www.w3.org/TR/owl-ref/#EnumeratedDatatype">owl:DataRange</a></em> (<em><a href="http://www.w3.org/TR/rdf-schema/#ch_datatype">rdfs:datatype</a></em> in OWL 2) interactive events must be used in order to be displayed (either in a side panel or when hovering a certain class/individual).
         </p>
-        <p>Elements such as <em><a href="http://www.w3.org/TR/owl-ref/#Ontology-def">owl:Ontology</a></em>, <em><a
-        href="http://www.w3.org/TR/owl-ref/#differentFrom-def">owl:differentFrom</a></em>, <em><a
-        href="http://www.w3.org/TR/owl-ref/#AllDifferent-def">owl:AllDifferent</a></em>, <em><a
-        href="http://www.w3.org/TR/owl-ref/#distinctMembers-def">owl:distinctMembers</a></em>, <em><a
-        href="http://www.w3.org/TR/owl-ref/#Restriction-def">owl:Restriction</a></em>, <em><a
-        href="http://www.w3.org/TR/owl-ref/#onProperty-def">owl:onProperty</a></em>, <em><a
-        href="http://www.w3.org/TR/owl-ref/#AnnotationProperty-def">owl:AnnotationProperty</a></em> and <em><a
-        href="http://www.w3.org/TR/owl-ref/#OntologyProperty-def">owl:OntologyProperty</a></em> serve as containers for
-        other elements or define constraints for populating the ontology. They are not graphically represented by the visual
-        notation.
+        <p>
+        Elements such as <em><a href="http://www.w3.org/TR/owl-ref/#Ontology-def">owl:Ontology</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#differentFrom-def">owl:differentFrom</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#AllDifferent-def">owl:AllDifferent</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#distinctMembers-def">owl:distinctMembers</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Restriction-def">owl:Restriction</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#onProperty-def">owl:onProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#AnnotationProperty-def">owl:AnnotationProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#OntologyProperty-def">owl:OntologyProperty</a></em> serve as containers for other elements or define constraints for populating the ontology. They are not graphically represented by the visual notation.
         </p>
       </section>
       <hr>
@@ -1361,23 +1321,12 @@
       <hr>
       <section id="acknowledgements">
         <h2>Acknowledgments <a href="#toc">[back to top]</a></h2>
-        We would like to thank David Bold, Thomas Ertl, Vincent Link and Eduard Marbach for their valuable feedback
-        and support.
+        <p>We would like to thank David Bold, Thomas Ertl, Vincent Link and Eduard Marbach for their valuable feedback and support.</p>
       </section>
       <hr>
       <section id="changenotes">
         <h2>Change Notes <a href="#toc">[back to top]</a></h2>
-        VOWL 1 distinguished between three layers that may be visualized --> ABox and TBox
-        <a href="http://purl.org/vowl/v1/">Version 1.0</a> of the VOWL specification distinguished between three layers that
-        may be visualized: <strong>Conceptual Layer</strong>, <strong>Instance Layer</strong> and <strong>Integrated
-        Layer</strong> (more information on the layers of the visual notation can be found in <a
-        href="#references">Negru &amp; Lohmann 2013.</a>), therefore
-        in the current version (<a href="http://purl.org/vowl/v2/">Version 2.0</a>) we address the issues of on-demand
-        interactive exploration and scalability of Visual Notation for OWL ontologies -- issues we identified in a
-        comparative user study conducted on the VOWL <a href="http://purl.org/vowl/v1/">Version 1.0</a> and UML
-        representation for RDFS/OWL <a href="http://www.omg.org/spec/ODM/">Ontology Definition Metamodel (ODM)</a> (more
-        details regarding the user study are available in <a
-        href="#references">Negru, Haag, and Lohmann 2013.</a>).
+        <p>VOWL 1 distinguished between three layers that may be visualized --> ABox and TBox <a href="http://purl.org/vowl/v1/">Version 1.0</a> of the VOWL specification distinguished between three layers that may be visualized: <strong>Conceptual Layer</strong>, <strong>Instance Layer</strong> and <strong>Integrated Layer</strong> (more information on the layers of the visual notation can be found in <a href="#references">Negru &amp; Lohmann 2013.</a>), therefore in the current version (<a href="http://purl.org/vowl/v2/">Version 2.0</a>) we address the issues of on-demand interactive exploration and scalability of Visual Notation for OWL ontologies -- issues we identified in a comparative user study conducted on the VOWL <a href="http://purl.org/vowl/v1/">Version 1.0</a> and UML representation for RDFS/OWL <a href="http://www.omg.org/spec/ODM/">Ontology Definition Metamodel (ODM)</a> (more details regarding the user study are available in <a href="#references">Negru, Haag, and Lohmann 2013.</a>).</p>
       </section>
       <!-- @SL: this should be deleted as it is not the case anymore
       <p>We differentiate between two representations of the VOWL notation: </p>
@@ -1404,8 +1353,7 @@
       <hr>
       <footer>
         <p>
-        <span><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a></span>
-        <span>This work is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a> license. You are free to copy, distribute, transmit, remix, or adapt the work, as long as you reference the work and its authors.</span>
+        <span><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a></span> <span>This work is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a> license. You are free to copy, distribute, transmit, remix, or adapt the work, as long as you reference the work and its authors.</span>
         </p>
       </footer>
     </div>
