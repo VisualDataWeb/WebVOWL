@@ -415,3 +415,21 @@ input[type="range"]::-webkit-slider-thumb:active {
 		font-size: 0.5em; 
 	}
 }
+
+@media print{
+	#detailsArea, #optionsArea {
+		display: none;
+	}
+	#canvasArea {
+		width: 100%;
+	}
+	@page {
+    	margin: 1cm 0.5cm 1cm 0.5cm;
+    	size: landscape;
+	}
+    body {
+        margin:0;
+        padding: 0;
+        width: 100%;
+    }
+}
