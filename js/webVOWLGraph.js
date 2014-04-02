@@ -29,6 +29,7 @@ var   GRAPH_WIDTH = window.innerWidth
     , cardinalities
     , node
     , json
+    , lastFocusedNode
     , curveFunction = d3.svg.line()
         .x(function (d) {
             return d.x;
@@ -46,8 +47,7 @@ var   GRAPH_WIDTH = window.innerWidth
         .tension(-1)
     , zoom = d3.behavior.zoom()
         .scaleExtent([0.1, 4])
-        .on("zoom", zoomed)
-    , lastFocusedNode;
+        .on("zoom", zoomed);
 
 
 /* ################################ STARTING GRAPH ################################ */
@@ -299,9 +299,9 @@ var tick = function tickFunct() {
         }
 
         // Calculate these every time to get nicer curved arrows
-        var pathStart = calculateIntersection(l.target, l.source, 1);
-        var pathEnd = calculateIntersection(l.source, l.target, 1);
-        var curvePoint = calculateCurvePoint(pathStart, pathEnd, l);
+        var   pathStart = calculateIntersection(l.target, l.source, 1)
+            , pathEnd = calculateIntersection(l.source, l.target, 1)
+            , curvePoint = calculateCurvePoint(pathStart, pathEnd, l);
         l.curvePoint = curvePoint;
 
         return curveFunction([calculateIntersection(l.curvePoint, l.source, 1),
@@ -313,9 +313,8 @@ var tick = function tickFunct() {
     });
 
     cardinalities.selectAll("g").attr("transform", function (l) {
-        var group = d3.select(this);
-
-        var pos;
+        var   group = d3.select(this)
+            , pos;
         if (group.classed("to")) {
             pos = calculateIntersection(l.curvePoint, l.source, CARDINALITY_HDISTANCE);
         } else {
@@ -333,10 +332,9 @@ var tick = function tickFunct() {
     });
 
     label.selectAll("g").attr("transform", function (l) {
-        var group = d3.select(this);
-
-        var midX = l.curvePoint.x;
-        var midY = l.curvePoint.y;
+        var   group = d3.select(this)
+            , midX = l.curvePoint.x
+            , midY = l.curvePoint.y;
 
         if (l.inverse) {
             if (group.classed("to")) {
@@ -423,10 +421,9 @@ var resetGraph = function resetGraphFunct() {
 /* Initialize various fields */
 var initialize = function initializeFunct() {
     for (var i = 0; i < json.nodes.length; i++) {
-        var node = json.nodes[i];
-
-        var maxTextWidth;
-        var radius;
+        var   node = json.nodes[i]
+            , maxTextWidth
+        	, radius;
         switch (node.type) {
             case "deprecated":
             case "external":
@@ -501,30 +498,30 @@ var initialize = function initializeFunct() {
 /* Calculates the point where the link between the source and target node
  * intersects the border of the target node */
 function calculateIntersection(source, target, additionalDistance) {
-    var dx = target.x - source.x;
-    var dy = target.y - source.y;
+    var   dx = target.x - source.x
+    	, dy = target.y - source.y
+        , innerDistance = target.radius;
 
-    var innerDistance = target.radius;
     if (target.type === "literal" ||
         target.type === "datatype") {
-        var m_link = Math.abs(dy / dx);
-        var m_rect = target.height / target.width;
+        var   m_link = Math.abs(dy / dx)
+        	, m_rect = target.height / target.width;
 
         if (m_link <= m_rect) {
-            var timesX = dx / (target.width / 2);
-            var rectY = dy / timesX;
+            var   timesX = dx / (target.width / 2)
+            	, rectY = dy / timesX;
             innerDistance = Math.sqrt(Math.pow(target.width / 2, 2) + rectY * rectY);
         } else {
-            var timesY = dy / (target.height / 2);
-            var rectX = dx / timesY;
+            var  timesY = dy / (target.height / 2)
+            	, rectX = dx / timesY;
             innerDistance = Math.sqrt(Math.pow(target.height / 2, 2) + rectX * rectX);
         }
     }
 
-    var length = Math.sqrt(dx * dx + dy * dy);
-    var ratio = (length - (innerDistance + additionalDistance)) / length;
-    var x = dx * ratio + source.x;
-    var y = dy * ratio + source.y;
+    var   length = Math.sqrt(dx * dx + dy * dy)
+    	, ratio = (length - (innerDistance + additionalDistance)) / length
+    	, x = dx * ratio + source.x
+    	, y = dy * ratio + source.y;
 
     return {x: x, y: y};
 }
@@ -583,37 +580,37 @@ var changeDistance = function changeDistanceFunct() {
 };
 
 var getCharge = function getChargeFunct() {
-    var nodeCharge = (visibleLinkDistance / DEFAULT_VISIBLE_LINKDISTANCE) * CHARGE;
-    var literalCharge = (visibleLiteralLinkDistance / DEFAULT_VISIBLE_LINKDISTANCE) * CHARGE;
+    var   nodeCharge = (visibleLinkDistance / DEFAULT_VISIBLE_LINKDISTANCE) * CHARGE
+    	, literalCharge = (visibleLiteralLinkDistance / DEFAULT_VISIBLE_LINKDISTANCE) * CHARGE;
     return Math.min(nodeCharge, literalCharge);
 }
 
 /* Calculates the normal vector between two points */
 function calculateNormalVector(source, target, length) {
-    var dx = target.x - source.x;
-    var dy = target.y - source.y;
+    var   dx = target.x - source.x
+    	, dy = target.y - source.y
 
-    var nx = -dy;
-    var ny = dx;
+    	, nx = -dy
+    	, ny = dx
 
-    var vlength = Math.sqrt(nx * nx + ny * ny);
-    var ratio = length / vlength;
+    	, vlength = Math.sqrt(nx * nx + ny * ny)
+    	, ratio = length / vlength;
 
     return {"x": nx * ratio, "y": ny * ratio};
 }
 
 /* Calculates a point between two points for curves */
 function calculateCurvePoint(source, target, l) {
-    var distance = calculateMultiLinkDistance(l);
+    var   distance = calculateMultiLinkDistance(l)
 
     // Find the center of the two points
-    var dx = target.x - source.x;
-    var dy = target.y - source.y;
+    	, dx = target.x - source.x
+    	, dy = target.y - source.y
 
-    var cx = source.x + dx / 2;
-    var cy = source.y + dy / 2;
+    	, cx = source.x + dx / 2
+    	, cy = source.y + dy / 2
 
-    var n = calculateNormalVector(source, target, distance);
+    	, n = calculateNormalVector(source, target, distance);
 
     if (l.source.index < l.target.index) {
         n.x = -n.x;
@@ -630,9 +627,9 @@ function calculateCurvePoint(source, target, l) {
 
 /* Calculate the optimal Multi Link distance */
 function calculateMultiLinkDistance(l) {
-    var level = Math.floor((l.multiLinkIndex - l.multiLinkCount % 2) / 2) + 1;
-    var oddConstant = (l.multiLinkCount % 2) * 15;
-    var distance = 0;
+    var   level = Math.floor((l.multiLinkIndex - l.multiLinkCount % 2) / 2) + 1
+    	, oddConstant = (l.multiLinkCount % 2) * 15
+    	, distance = 0;
     switch (level) {
         case 1:
             distance = 20 + oddConstant;
@@ -659,27 +656,27 @@ function calculateRadian(angle) {
 
 /* Calculates links to itself and stores the point for the labels. Currently only working for circle nodes! */
 function calculateSelfLinkPath(l) {
-    var node = l.source;
+    var   node = l.source
 
-    var loopShiftAngle = 360 / l.selfLinkCount;
-    var loopAngle = Math.min(60, loopShiftAngle * 0.8);
+    	, loopShiftAngle = 360 / l.selfLinkCount
+    	, loopAngle = Math.min(60, loopShiftAngle * 0.8)
 
-    var arcFrom = calculateRadian(loopShiftAngle * l.selfLinkIndex);
-    var arcTo = calculateRadian((loopShiftAngle * l.selfLinkIndex) + loopAngle);
+    	, arcFrom = calculateRadian(loopShiftAngle * l.selfLinkIndex)
+    	, arcTo = calculateRadian((loopShiftAngle * l.selfLinkIndex) + loopAngle)
 
-    var x1 = Math.cos(arcFrom) * node.radius;
-    var y1 = Math.sin(arcFrom) * node.radius;
+    	, x1 = Math.cos(arcFrom) * node.radius
+    	, y1 = Math.sin(arcFrom) * node.radius
 
-    var x2 = Math.cos(arcTo) * node.radius;
-    var y2 = Math.sin(arcTo) * node.radius;
+    	, x2 = Math.cos(arcTo) * node.radius
+    	, y2 = Math.sin(arcTo) * node.radius
 
-    var fixPoint1 = {"x": node.x + x1, "y": node.y + y1};
-    var fixPoint2 = {"x": node.x + x2, "y": node.y + y2};
+    	, fixPoint1 = {"x": node.x + x1, "y": node.y + y1}
+    	, fixPoint2 = {"x": node.x + x2, "y": node.y + y2}
 
-    var distanceMultiplier = 2.5;
-    var dx = ((x1 + x2) / 2) * distanceMultiplier;
-    var dy = ((y1 + y2) / 2) * distanceMultiplier;
-    var curvePoint = {"x": node.x + dx, "y": node.y + dy};
+    	, distanceMultiplier = 2.5
+    	, dx = ((x1 + x2) / 2) * distanceMultiplier
+    	, dy = ((y1 + y2) / 2) * distanceMultiplier
+    	, curvePoint = {"x": node.x + dx, "y": node.y + dy};
     l.curvePoint = curvePoint;
 
     return loopFunction([fixPoint1, curvePoint, fixPoint2]);
@@ -741,7 +738,7 @@ function indirectHighlightOff(tag) {
 }
 
 /* Highlights the marker and link for the given label and direction */
-function labelMouseenter(linkData, direction) {
+function labelMouseEnter(linkData, direction) {
     var inverse = direction === "from";
 
     d3.selectAll("marker#" + getMarkerId(linkData, inverse))
@@ -764,7 +761,7 @@ function labelMouseenter(linkData, direction) {
 }
 
 /* Removes highlighting of marker and link for the given label and direction */
-function labelMouseleave(linkData, direction) {
+function labelMouseLeave(linkData, direction) {
     var inverse = direction === "from";
     d3.selectAll("marker#" + getMarkerId(linkData, inverse))
         .select("path").classed("hovered", false);
@@ -789,11 +786,11 @@ function addLabelRect(label, data, direction) {
         .attr("width", LABEL_WIDTH)
         .attr("height", LABEL_HEIGHT)
         .on("mouseenter", function (linkData) {
-            labelMouseenter(linkData, direction);
+            labelMouseEnter(linkData, direction);
             highlightSubproperties(linkData, direction, true);
         })
         .on("mouseleave", function (linkData) {
-            labelMouseleave(linkData, direction);
+            labelMouseLeave(linkData, direction);
             highlightSubproperties(linkData, direction, false);
         });
 }
@@ -1221,8 +1218,8 @@ function addEquivalentClass(element, data) {
     if (data !== undefined) {
         addTextline(element.select("text"), data.name.truncate(data.maxTextWidth));
 
-        var equivNames = data.equivalentClasses.map(function(node) {return node.name;});
-        var equivNamesString = equivNames.join(", ");
+        var   equivNames = data.equivalentClasses.map(function(node) {return node.name;})
+            , equivNamesString = equivNames.join(", ");
         addSubTextNode(element.select("text"), "[" + equivNamesString.truncate(data.maxTextWidth) + "]");
     } else {
         addTextline(element.select("text"), "EquivalentClass");
@@ -1454,8 +1451,8 @@ var getKindOfElement = function getKindOfElementFunct(element) {
 
 /* Toggles the highlighting of the given node. */
 var toggleNodeFocus = function toggleNodeFocusFunct(node) {
-    var firstChildElement = node.select("*");
-    var hasFocusClass = firstChildElement.classed("focused");
+    var   firstChildElement = node.select("*")
+    	, hasFocusClass = firstChildElement.classed("focused");
 
     if (hasFocusClass) {
         firstChildElement.classed("focused", false);
@@ -1466,9 +1463,9 @@ var toggleNodeFocus = function toggleNodeFocusFunct(node) {
 
 /* Toggles the highlighting of the given label. */
 var toggleLabelFocus = function toggleLabelFocusFunct(labelToHigh) {
-    var inverse = labelToHigh.classed("from");
-    var rectOfNode = labelToHigh.select("rect");
-    var notHasFocusClass = !rectOfNode.classed("focused");
+    var   inverse = labelToHigh.classed("from")
+    	, rectOfNode = labelToHigh.select("rect")
+    	, notHasFocusClass = !rectOfNode.classed("focused");
 
     rectOfNode.classed("focused", notHasFocusClass);
 
@@ -1583,9 +1580,7 @@ var setUriLabel = function setUriLabelFunct(element, name, uri) {
 var appendUriLabel = function appendUriLabelFunct(element, name, uri) {
     var tag;
     if (uri) {
-        tag = element.append("a")
-        .attr("href", uri)
-        .attr("target", "_blank");
+        tag = element.append("a").attr("href", uri);
     } else {
         tag = element.append("span");
     }

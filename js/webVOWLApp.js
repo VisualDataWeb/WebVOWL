@@ -1,6 +1,7 @@
 var   foaf = document.getElementById('foaf')
     , muto = document.getElementById('muto')
     , personasonto = document.getElementById('personasonto')
+    , benchmarkonto = document.getElementById('benchmarkonto')
     , graphTag = document.getElementById('graph')
     , exportSvg = document.getElementById('exportSvg')
     , linkDistanceClassSlider
@@ -19,6 +20,9 @@ var bindListners = function() {
     });
     personasonto.addEventListener('click', function () {
         refreshOntology("persona");
+    });
+    benchmarkonto.addEventListener('click', function () {
+        refreshOntology("benchmark");
     });
     exportSvg.addEventListener('click', function () { 
         exportSVGDrawing();
@@ -101,7 +105,10 @@ var loadGraphStyle = function () {
     .style("dominant-baseline", "central");
 
   d3.selectAll(".subclass")
-    .style("fill", "#ecf0f1");        
+    .style("fill", "#fff");
+
+  d3.selectAll(".focused")
+    .style("stroke", "#f00");
 
   d3.selectAll("rect.focused, circle.focused")
     .style("stroke-width", "4px");
@@ -109,6 +116,7 @@ var loadGraphStyle = function () {
   d3.selectAll(".cardinality.focused, marker path.focused")
     .style("fill","#f00");
 };
+
 var removeStyles = function () { 
     d3.selectAll(".class, .text, .embedded, .subtext, .cardinality, path, .nofill, .nostroke, .special, .dotted, .fineline, .object, .rdf, .external, .deprecated, .label .datatype, .literal, .node .datatype, .symbol, .arrowhead, marker path, .white, .dottedMarker path, .svgGraph .text tspan:only-child, .svgGraph .text:empty, .subclass, .disjoint")
         .attr("style", null);
