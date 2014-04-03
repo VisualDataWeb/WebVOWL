@@ -63,7 +63,7 @@
         
         <p>The second ingredient of VOWL is a <a href="#colorScheme">color scheme</a> complementing the graphical primitives. It defines colors for the visual elements to allow an easy distinction of different types of classes and properties. Although the color scheme is defined in an abstract way leaving room for customization, concrete color recommendations provide guidance for developers.</p>
         
-        <p>Finally, the visual elements are combined to a graph that is rendered in a force-directed layout and that represents the ontology. VOWL defines splitting rules to specify which elements are multiplied in the visualization in order to make them less prominent.</p>
+        <p>Finally, the visual elements are combined to a graph that is rendered in a force-directed layout and that represents the ontology. VOWL defines splitting rules to specify which elements are multiplied in the visualization to improve the overall layout.</p>
         
         <p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/2004/OWL/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), though not all language constructs are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>.</p>
         <!-- ToDo: Is any of the three profiles particularly supported -->
@@ -95,10 +95,10 @@
               </td>
               <td>
                 <p>
-                Each circle represents a class of the ontology. If an ontology contains individuals, the size of each circle corresponds to the numbers of individuals its class contains. VOWL does not specify a particular scaling method for the circle sizes - good results may be achieved with a logarithmic or square-root scaling in most cases. The color of a circle depends on the type of class it represents. Individuals inferred from subclasses are also counted if reasoning is available and not deactivated. If the ontology is not populated or if purely the schema (i.e. the TBox) is considered, all classes have the same default size.
+				Each circle represents a class of the ontology. The color of the circle depend on the type of class it represents. If an ontology contains individuals, the size of the circle corresponds to the number of individuals that are instances of its class. VOWL does not specify a particular method for scaling the circle size - good results may be achieved with a logarithmic or square-root scaling in most cases. Individuals inferred from subclasses are also counted if reasoning is available and not deactivated. If the ontology is not populated or if purely the schema (i.e. the TBox) is considered, all circles have the same default size.
                 </p>
                 <p>
-                An exception are the special classes <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em> that are not scaled but have a fixed size that is smaller than the default size of the other classes. In addition, these two classes have a dashed border and are multiplied in the visualization according to the rules described in <a href="#splittingRules">Table 3</a>.
+                An exception are the circles representing the special classes <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>. They are not scaled but have a fixed size that is smaller than the default size of classes. In addition, the circles of these two classes have a dashed border and are multiplied in the visualization according to the rules described in <a href="#splittingRules">Table 3</a>.
                 </p>
               </td>
               <td><em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Deprecation">owl:DeprecatedClass</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em></td>
@@ -111,7 +111,10 @@
                 <path d="M5,35 C15,25 34,25 44,35"/>
                 </svg>
               </td>
-              <td>Lines are used for properties and set operators. When representing a property, the line has an arrow head (expect for the built-in properties <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#equivalentClass-def">owl:equivalentClass</a></em>), when representing a set operator, it has a dashed line style. The built-in property <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> also has a dashed line style, while subclass properties have a dotted line style. If the same two classes are connected by multiple lines (i.e. if there are multi-edges between classes), the lines are curved.</td>
+              <td>
+                <p>Lines are used to represent property relations. They usually have an arrow head that points to the class or datatype that is defined as the range of that property. When representing a set operator or disjoint relation, it has a dashed line style. Subclass properties have a dotted line style and an unfilled arrowhead indicating its direction.				
+				<!-- work in progress -->
+				When representing a property, the line has an arrow head (except for the built-in properties <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#equivalentClass-def">owl:equivalentClass</a></em>), when representing a set operator, it has a dashed line style. The built-in property <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> also has a dashed line style, while subclass properties have a dotted line style. If the same two classes are connected by multiple lines (i.e. if there are multi-edges between classes), the lines are curved.</p></td>
               <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_domain">rdfs:domain</a></em>, <em>
                 <a href="http://www.w3.org/TR/rdf-schema/#ch_range">rdfs:range</a></em>,  <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">rdfs:subClassOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em>,  <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>,
               <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:complementOf</a></em></td>
@@ -124,7 +127,8 @@
                 <path class="white" d="m 40,25 -11.5,6.5 0,-13 11.5,6.5 z"/>
                 </svg>
               </td>
-              <td>Arrowheads indicate the direction of properties by pointing to the class or datatype being the range of the property. If multiple ranges are defined for a property, this is represented with an anonymous class and the notation of <a href="#owlIntersectionOf">owl:intersectionOf</a> in the visualization. Furthermore, arrowheads are used to indicate the direction of subclass relations. Arrowheads representing <a href="#rdfsRange">range axioms</a> are filled with the <a href="#colorForeground">foreground color</a> (usually black); arrowheads representing <a href="#rdfsSubclass">subclass relations</a> are filled with the <a href="#colorNeutral">neutral color</a> (usually white).</td>
+              <td>
+                <p>Arrowheads indicate the direction of properties by pointing to the class or datatype being the range of the property. If multiple ranges are defined for a property, this is represented with an anonymous class and the notation of <a href="#owlIntersectionOf">owl:intersectionOf</a> in the visualization. Furthermore, arrowheads are used to indicate the direction of subclass relations. Arrowheads representing <a href="#rdfsRange">range axioms</a> are filled with the <a href="#colorForeground">foreground color</a> (usually black); arrowheads representing <a href="#rdfsSubclass">subclass relations</a> are filled with the <a href="#colorNeutral">neutral color</a> (usually white).</p></td>
               <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_range">rdfs:range</a></em> (with <a href="#colorForeground">foreground color</a>), <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em> (with <a href="#colorNeutral">neutral color</a>)</td>
               </tr>
               <tr>
@@ -134,7 +138,8 @@
                   <rect class="class nofill embedded" x="5" y="15" width="38" height="20"></rect>
                   </svg>
                 </td>
-                <td>Property labels and datatypes are shown in rectangles. If used for datatypes, the rectangles have the <a href="#colorForeground">datatype color</a> and a border. If used for property labels, they are borderless and colored according to the property type (<a href="#propertyTable">Table 5</a>).</td>
+              <td>
+                <p>Property labels and datatypes are shown in rectangles. If used for datatypes, the rectangles have the <a href="#colorForeground">datatype color</a> and a border. If used for property labels, they are borderless and colored according to the property type (<a href="#propertyTable">Table 5</a>).</p></td>
                 <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_datatype">rdfs:Datatype</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>, property labels</td>
               </tr>
               <tr>
@@ -162,7 +167,8 @@
                   </text>
                   </svg>
                 </td>
-                <td>Text is used for all kinds of labels defined in ontologies. If no label is given for an element, the last part of the URI is taken, i.e. the string that follows the last slash (/) or hash (#) character. Some property or class type Finally, a textbox with information from the ontology header, such as the title and description of the ontology, may be displayed in the visualization.</td>
+              <td>
+                <p>Text is used for all kinds of labels defined in ontologies. If no label is given for an element, the last part of the URI is taken, i.e. the string that follows the last slash (/) or hash (#) character. Some property or class type Finally, a textbox with information from the ontology header, such as the title and description of the ontology, may be displayed in the visualization.</p></td>
                 <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, type of property ("Subclass" for <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>), additional type information in brackets (e.g. deprecated, equivalent, etc.), symbol in schematic illustrations (e.g. union symbol ("&cup;") for <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>)</td><!-- repetition with rdfs:label -->
               </tr>
             </tbody>
