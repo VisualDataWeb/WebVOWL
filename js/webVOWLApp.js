@@ -1,6 +1,7 @@
 var   foaf = document.getElementById('foaf')
     , muto = document.getElementById('muto')
     , personasonto = document.getElementById('personasonto')
+    , benchmarkonto = document.getElementById('benchmarkonto')
     , graphTag = document.getElementById('graph')
     , exportSvg = document.getElementById('exportSvg')
     , linkDistanceClassSlider
@@ -20,10 +21,13 @@ var bindListners = function() {
     personasonto.addEventListener('click', function () {
         refreshOntology("persona");
     });
+    benchmarkonto.addEventListener('click', function () {
+        refreshOntology("benchmark");
+    });
     exportSvg.addEventListener('click', function () { 
         exportSVGDrawing();
     });
-}
+};
 // adding styles inline to the svg elements
 var loadGraphStyle = function () { 
   
