@@ -327,33 +327,27 @@
           href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, it is recommended to take the last / a part of the URI as label, i.e. the part after / the string / characters that follow the last slash (/) or hash (#) character / sign. Labels may be abbreviated if they are too long (e.g. Hieroglyphics → Hierogly…). The full label can be shown on demand (e.g. via tooltips) and/or in another part of the user interface (e.g. a sidebar).</p><!-- TODO: Not a really long example. Possibly replace "Hieroglyphics". -->
           <h4>Graph Layout</h4>
           <p>The graph layout should arrange the elements in an appealing and readable layout. The position of circles should be roughly determined by the number of inbound and outbound property relations, i.e. the more property relations a class has, the more centric the circle in the graph. Force-directed layouts are recommended for this purpose. They can be tailored to the visualized ontology by increasing or decreasing the forces between the classes.</p>
-          <h4>Special Cases</h4>
-          - no domain or range:
-          1. object property --> <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> (per class)
-          2. datatype property --> <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em> (each a single instance)
-          Every class can have its own visual instance of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, i.e. all properties that have this class as their domain (or range) but do not define an explicit range (or domain) are connected to the same visual instance of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>. In addition, there is one more visual instance of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> that is linked to all properties that do neither define domain nor range axioms or explicitly link to <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>. Alternatively, this extra graph may consist of two or more visual instances of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> -- see <a href="#splittingTable">Table 3</a> for information regarding splitting/multiplication of VOWL nodes; [ToDo: Example]
-          <!-- owl:Class und owl:Thing wie rdfs:Datatype und rdfs:Literal -->
-          <!-- @SL: 'may consist of two or more' I (SN) added 'more' above as two is quite restrictive and often not the case -->
-          <!-- @SL: I think there is an example in the FOAF example below. Maybe link to that? -->
+		  <h4>Properties without Domain or Range</h4>
+		  <p>If no domain or range is provided for a property, the property arrow will be linked to a representation of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>. If the property is a datatype property, and no range is defined, the property arrow will point to a representation of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>.</p>
           <p>We do not recommend to visualize subclass relations of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, as every OWL class is implicitly a subclass of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> [ref], so that the subclass relations would unnecessarily clutter the visualization. Instead, the visual representation of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> should only be used if a property has no domain or range or explicitly uses <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> as its domain or range. The same holds for  <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>. <!-- @SL: Impossible. If a property has no domain or range, then owl:Thing will be displayed - rdfs:resource cannot be displayed at the same time. Either owl:Thing, or rdfs:resource. The last sentence sounds like both are true at a time. -->
           </p>
-          <h4>External ontologies</h4>
-          <p>The elements can either be imported with <em><a href="http://www.w3.org/TR/owl-ref/#imports-def">owl:imports</a></em> or are simply linked in the / via domain and range axioms. Basically, all elements that have a different base URI than the visualized ontology may be visually marked as external (this feature is optional). Alternatively, developers may define several colors to visually group external elements by namespace, as long as they do not use a color from the scheme and keep the 'inverted style' with the light font color.</p>
+          <h4>External Ontologies</h4>
+          <p>The elements can either be imported with <em><a href="http://www.w3.org/TR/owl-ref/#imports-def">owl:imports</a></em> or are simply linked via domain and range axioms. Basically, all elements whose base URI differs from that of the visualized ontology may be visually marked as external (this feature is optional). Alternatively, developers may define several colors to visually group external elements by namespace, as long as they do not use a color from the scheme and keep the 'inverted style' with the light font color.</p>
           <strong>Highlighting</strong>
           <p>VOWL distinguishes two/three modes of direct highlighting:</p>
           <ol>
             <li>
-              Highlight on hover: changes the fill color of the element (plus the color of the line and arrow if it has any)
+              Highlight on hover: changes the fill color of the element (plus the color of the line and arrow if any)
             </li>
             <li>
-              Highlight on selection: changes the border color (plus the color of the line and arrow if it has any)
+              Highlight on selection: changes the border color (plus the color of the line and arrow if any)
             </li>
           </ol>
-          <p>This is an interactive feature that is dependent from the environment (e.g. the first mode may not make sense in some touch environments). Note that it should also be possible to deselect highlighted elements.</p>
-          <p>Indirect highlighting can be used to indicate a certain type of relationship between elements. It is used in VOWL to dynamically indicate sub- and superproperties of a selected / hovered property. Like the direct highlight on hover, it changes the fill color of the element (plus the color of the line and arrow if it has any) / is changed and is dependent on the interactive environment.</p>
-          <p><strong>Interactive Representation</strong> of the VOWL notation is based on the following events for manipulatingOWL ontology elements:</p>
+          <p>This is an interactive feature that is dependent on the environment (e.g. the first mode may not make sense in some touch environments). Note that it should also be possible to deselect highlighted elements.</p>
+          <p>Indirect highlighting can be used to indicate a certain type of relationship between elements. It is used in VOWL to dynamically indicate sub- and superproperties of a highlighted property. Like the direct highlight on hover, it changes the fill color of the element (plus the color of the line and arrow if any).</p>
+          <p>The <strong>Interactive Representation</strong> of the VOWL notation is based on the following events for manipulating OWL ontology elements:</p>
           <ul>
-            <li>Hover = highlighting details about certain elements e.g. inverse properties;</li>
+            <li>Hover = highlighting details about certain elements, e.g. inverse properties;</li>
             <li>Click = details on demand about the ontology elements;</li>
             <li>Drag and drop = (re)arranging the elements;</li>
             <li>Other interactions include: zoom, panning.</li>
