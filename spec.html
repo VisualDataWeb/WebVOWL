@@ -449,7 +449,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Smaller circle with a dashed line, with label "Thing" and a white or no background color. This graphical element is used and multiplied in the visualization according to the rules defined above [ref]. The same notation with label "Nothing" can be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> (though it is not recommended to include owl:Nothing in the visualization).
+                <td>Smaller circle with a dashed line, with label "Thing" and a <a>neutral</a> or no background color. This graphical element is used and multiplied in the visualization according to the rules defined above [ref]. The same notation with label "Nothing" can be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> (though it is not recommended to include owl:Nothing in the visualization).
                 </td>
               </tr>
               <tr>
@@ -464,16 +464,13 @@
                   </g>
                   </svg>
                 </td>
-                <td>Smaller circle with a dashed line, with label "Resource" and the same background color as <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>. Same representations as for <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and as described above [ref].</td>
+                <td>Smaller circle with a dashed line, with label "Resource" and filled with the <a>rdf</a> color. Same representations as for <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and as described above [ref].</td>
               </tr>
             </tbody>
           </table>
           <p>Note that:</p>
           <ul>
-            <li>While "class" is used as a placeholder for the class label, the information in brackets ("imported", "deprecated") is shown and the labels "Thing" and "Resource" are used for <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>.</li>
-            <li>The visual representations of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em> have a smaller size and are split according to the rules defined in <a href="#splittingTable"> Table 3</a></li>
-            <li>Imported and aligned classes can be differently colored <a href="#colorTable">Table 2</a>. See the <a href="#example">Friend-of-a-Friend visualization</a> as reference example.</li>
-            <li>Classes form external ontologies may be visualized in a different color, as defined in the <a>color schema</a></li>
+            <li>While "Class" is used here as a placeholder for the class label, the information in brackets ("imported", "deprecated") is shown literally and the labels "Thing", "Nothing" and "Resource" are used for <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>, respectively.</li>
           </ul>
 
           <table id="propertyTable">
@@ -538,9 +535,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Line or arc annotated with the label of the property. The background color of the label indicates the type of the
-                  property (object or datatype property).
-                </td>
+                <td>Line or arc annotated with the label of the property.</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em></td>
@@ -604,8 +599,7 @@
                   </g>
                   </svg>
                 </td>
-                <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> elements are identified by a
-                  purple background color for the label.
+                <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> elements are identified by the <a>rdf</a> background color for the label.
                 </td>
               </tr>
               <tr>
@@ -637,7 +631,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Property notation with <a>external</a> color (same notation for external <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>).
+                <td>Property notation with the <a>external</a> color (same notation for external <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>).
                 </td>
               </tr>
               <tr>
@@ -669,7 +663,7 @@
                   </svg>
                 </td>
                 <!-- @SL: What is an additional p? -->
-                <td>Property representation colored in light gray (same notation for all property types, i.e. for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. Additional p as well as any combination of the other property types, but showing the corresponding labels).</td>
+                <td>Property representation colored in the <a>deprecated</a> color (same notation for all property types, i.e. for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. Additional p as well as any combination of the other property types, but showing the corresponding labels).</td>
               </tr>
               <tr>
                 <td id="functProp"><em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em></td>
@@ -702,10 +696,10 @@
                 </td>
                 <td>
                   <p>
-                  Property representation with a <strong>(functional)</strong> label for functional properties, on top of the property label. The global cardinality constraint of functional properties is not made explicit in the visualization in order to not confuse it with the cardinality constraints defined with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <br> <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em> that are displayed in the visualization (see <a href="#propertyTable2">Table 6</a>).
+                  Property representation with a <strong>(functional)</strong> label for functional properties, below the property label. The global cardinality constraint of functional properties is not made explicit in the visualization in order to avoid any confusion with the cardinality constraints defined with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <br> <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em> that are displayed in the visualization (see <a href="#propertyTable2">Table 6</a>).
                   </p>
-                  <p>
-                  Note that the background of this property can have different colors. It is shown in the <a href="#colorRdf">Rdf color</a> in this specification, as <em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em> is a subclass of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> and can therefor be applied to any property in the ontology (i.e. same notation with different background color for <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>).
+                  <p><!-- TODO: possibly replace -->
+                  Note that the background of this property can have different colors. It is shown in the <a href="#colorRdf">rdf</a> color in this specification, as <em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em> is a subclass of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> and can therefore be applied to any property in the ontology (i.e. same notation with different background color for <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>).
                   </p>
                 </td>
               </tr>
@@ -739,7 +733,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Object property representation with a <strong>(inverseFunctional)</strong> label for inverse functional properties, on top of the property label.</td>
+                <td>Object property representation with an <strong>(inverseFunctional)</strong> label for inverse functional properties, below of the property label.</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/owl-ref/#TransitiveProperty-def">owl:TransitiveProperty</a></em></td>
@@ -770,7 +764,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Object property representation with a <strong>(transitive)</strong> label for transitive properties, on top of the property label.</td>
+                <td>Object property representation with a <strong>(transitive)</strong> label for transitive properties, below the property label.</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/owl-ref/#SymmetricProperty-def">owl:SymmetricProperty</a></em></td>
