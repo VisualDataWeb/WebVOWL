@@ -356,6 +356,8 @@
 		  <p>The equivalent class notation generally overrides other attributes. If a class defined in the visualized ontology is equivalent to a deprecated or an external class, the class will be displayed like a normal euivalent class from the ontology at hand. The labels of equivalent classes will be displayed using the notation specified for equivalent classes.</p>
 		  <h4>Property Types</h4>
 		  <p>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, as both types are subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. The same applies to properties with specific attributes, such as functional properties [ref].</p>
+		  <h4>Main Labels of Equivalent Elements</h4>
+		  <p>For each set of equivalent elements (such as equivalent classes [ref] and equivalent properties [ref]) a label of one of the equivalent elements is selected as the main label. If any of the elements are from the ontology being visualized (rather than external [ref]), a label from such an element will be preferred.</p>
         </section>
 
         <hr>
@@ -1073,11 +1075,6 @@
               <td>
                 <p>Class notation with double border (with the space colored in the <a>neutral</a> color). The main label is from a class with the same base URI (if there is any). The labels of equivalent classes (from external ontologies or from the same base URI) are added as a comma-separated list to the label in squared brackets.
                 </p>
-                <!-- ToDo: Put these rules in an extra section, as they are valid for equivalent classes and equivalent properties -->
-                - main label = label of main class, i.e.
-                - the only class containing / with the base URI (if there is any)
-                - one of the classes with the base URI (if there are more)
-                - one of the classes (if there is no class with a base URI)
                 <!-- ToDo: What's with the rest of the info of equivalent classes (if there is any) -->
                 <p> This notation may also be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em> in OWL Full, where it can be defined between two classes.
                 </p>
