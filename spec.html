@@ -1079,7 +1079,7 @@
                 - one of the classes with the base URI (if there are more)
                 - one of the classes (if there is no class with a base URI)
                 <!-- ToDo: What's with the rest of the info of equivalent classes (if there is any) -->
-                <p> This notation may also be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em> in OWL Full where it can be defined between two classes.
+                <p> This notation may also be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em> in OWL Full, where it can be defined between two classes.
                 </p>
               </td>
             </tr>
@@ -1087,7 +1087,7 @@
         </table>
         
         <p>The basic set operations <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em> define new (anonymous) classes to describe the union, intersection, or complement of other classes, and are thus represented as circles.
-        The circles contain the corresponding <a href="http://www.w3.org/2001/sw/SW-FAQ#relDL">Description Logic (DL)</a> symbols (&cup;,&cap;, &not;). </p>
+        The circles contain the corresponding <a href="http://www.w3.org/2001/sw/SW-FAQ#relDL">Description Logic (DL)</a> operators (&cup;,&cap;, &not;).</p>
         
         <table id="propertyTable3">
           <caption>Table 7. Graphical representation of set operators.</caption>
@@ -1132,7 +1132,7 @@
                 </svg>
               </td>
               <td>
-                Dashed line/arc with &cup; symbol as label.
+                Dashed line/arc with a symbol of two united sets and the &cup; operator as its label.
               </td>
             </tr>
             <tr>
@@ -1170,7 +1170,7 @@
                 </svg>
               </td>
               <td>
-                Dashed line/arc with &cap; symbol as label.
+                Dashed line/arc with a symbol of two intersected sets and the &cap; operator as its label.
               </td>
             </tr>
             <tr>
@@ -1197,13 +1197,14 @@
                 </svg>
               </td>
               <td>
-                Dashed line/arc with &not; symbol as label.
+                Dashed line/arc with a symbol of a set and the &not; operator as its label.
               </td>
             </tr>
           </tbody>
         </table>
         <p>As defined by the <a href="http://www.w3.org/TR/swbp-xsch-datatypes/">XML Schema Datatypes in RDF and OWL</a> (W3C working group note), RDF and OWL use simple types from XML Schema. The built-in datatypes are presented in detail in the <a href="http://www.w3.org/TR/xmlschema-2/#built-in-datatypes">XML Schema Part 2: Datatypes</a> (W3C Recommendation).</p>
         
+		<!-- @SL: What is this supposed to mean? -->
         <p>owl:DataRange + owl:oneOf --> also as datatype (additional information on demand (as for XML Schema Types)</p>
         
         <table id="datatypeTable">
