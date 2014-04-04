@@ -92,9 +92,9 @@
                 </svg>
               </td>
               <td>
-                <p>Each circle represents a class of the ontology. The color of the circle depends on the type of class it represents. There is a default size for circles.</p>
+                <p>Each circle represents a class of the ontology. The color of the circle depends on the type of class it represents. There is a implementation-specific default size for circles.</p>
 				
-				<p>If an ontology contains individuals and unless purely the schema (i.e. the TBox) is considered, the circle can become larger than the default size - in that case, its size corresponds with the number of individuals that are instances of the class. VOWL does not specify a particular function for mapping the number of individuals to the circle size - good results may be achieved with a logarithmic or square-root scaling in most cases. A maximum size may be imposed.
+				<p>If an ontology contains individuals and unless purely the schema (i.e. the TBox) is considered, the circle can become larger than the default size - in that case, its size corresponds to the number of individuals that are instances of the class. VOWL does not specify a particular function for mapping the number of individuals to the circle size - good results may be achieved with a logarithmic or square-root scaling in most cases. A maximum size may be imposed.
 				Individuals inferred from subclasses are counted as well if reasoning is available and not deactivated.
                 </p>
                 <p>
@@ -112,8 +112,8 @@
                 </svg>
               </td>
               <td>
-                <p>Lines are used to represent property relations. They usually have an arrowhead that points to the object of the property - that is, a class or datatype that is defined as the range of that property, or an instance of the class that is defined as the range of the property. The line style and the arrowhead to use are determined by the type and purpose of the line (see below).
-				If the same two classes are connected by multiple lines (i.e. if there are multi-edges between classes), the lines are curved.</p></td>
+                <p>Lines are used to represent property relations. They usually have an arrowhead (see below). The line style and the arrowhead to use are determined by the type of the property (see below).
+				If the same two classes are connected by multiple lines (i.e. if there are multi-edges between classes), the lines may be curved.</p></td>
               <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_domain">rdfs:domain</a></em>, <em>
                 <a href="http://www.w3.org/TR/rdf-schema/#ch_range">rdfs:range</a></em>,  <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">rdfs:subClassOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em>,  <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>,
               <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:complementOf</a></em></td>
@@ -127,8 +127,8 @@
                 </svg>
               </td>
               <td>
-                <p>Arrowheads indicate the direction of property relations by pointing to the object of the property - that is, a class or datatype that is defined as the range of that property, or an instance of the class that is defined as the range of the property.</p>
-				<p>Arrowheads representing <a href="#rdfsRange">range axioms</a> are filled with the <a href="#colorForeground">foreground color</a> (usually matching the stroke of the arrowhead); arrowheads representing <a href="#rdfsSubclass">subclass relations</a> are filled with the <a href="#colorNeutral">neutral color</a> (usually resulting in a clear arrowhead appearance).</p></td>
+                <p>Arrowheads indicate the direction of property relations by pointing to the object of the property &ndash; i.e., a datatype, class, or class instance that is defined as the range of that property.</p>
+				<p>Arrowheads representing <a href="#rdfsRange">range axioms</a> are filled with the <a href="#colorForeground">foreground color</a> (filled arrowhead); arrowheads representing <a href="#rdfsSubclass">subclass relations</a> are filled with the <a href="#colorNeutral">neutral color</a> (unfilled arrowhead).</p></td>
               <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_range">rdfs:range</a></em> (with <a href="#colorForeground">foreground color</a>), <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em> (with <a href="#colorNeutral">neutral color</a>)</td>
               </tr>
               <tr>
@@ -139,7 +139,7 @@
                   </svg>
                 </td>
               <td>
-                <p>Property labels and datatypes are shown in rectangles. If used for datatypes, the rectangles have the <a href="#colorForeground">datatype color</a> and a border. If used for property labels, they are borderless and colored according to the property type (<a href="#propertyTable">Table 5</a>).</p></td>
+                <p>Property labels and datatypes are shown in rectangles. If representing datatypes, the rectangles have the <a href="#colorDatatype">datatype color</a> and a border. If representing property labels, they are borderless and colored according to the property type (<a href="#propertyTable">Table 5</a>).</p></td>
                 <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_datatype">rdfs:Datatype</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>, property labels</td>
               </tr>
               <tr>
@@ -151,8 +151,7 @@
                   </svg>
                 </td>
                 <td>
-				<!-- TODO: missing/misdirected link -->
-                <p>The lines and borders of some class and property types are dashed or dotted. A dashed line indicates the application of set operators to classes. It can also indicate disjoint classes (<a href="">if this property relation is visualized at all</a>). A dashed border indicates special types of classes (<em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>, and anonymous classes, as used with set operators) as well as properties (<em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>). A dotted line is reserved for subclass relations.</p>
+                <p>The lines and borders of some class and property types are dashed or dotted. A dashed line indicates set operators and class disjointness (<a href="#owlDisjointWith">if visualized</a>). A dashed border indicates special types of classes (<em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>, and anonymous classes, as used with set operators) as well as properties (<em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>). A dotted line is reserved for subclass relations.</p>
                 </td>
                 <td>dotted line: <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>; dashed line: <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em>, and <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em>; dashed border: <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>), <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>, and anonymous classes
                 </td>
