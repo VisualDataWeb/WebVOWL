@@ -352,7 +352,7 @@
             <li>Other interactions include: zoom, panning.</li>
           </ul>
           <h4>Conflicts</h4>
-		  <p>The color of deprecated elements has precedence over the color of external elements. Thus, if a class from an external ontology is deprecated, it will be displayed using the color for deprecated elements. In such cases, the text in the element will still indicate all attributes in a comma-separated list - in this case, <emph>[deprecated, external]</emph>. Likewise, if a property is symmetric and functional, its text will indicate <emph>[symmetric, functional]</emph>.</p>
+		  <p>The color of deprecated elements has precedence over the color of external elements. Thus, if a class from an external ontology is deprecated, it will be displayed using the color for deprecated elements. In such cases, the text in the element will still indicate all attributes in a comma-separated list - in this case, <emph>(deprecated, external)</emph>. Likewise, if a property is symmetric and functional, its text will indicate <emph>(symmetric, functional)</emph>.</p>
 		  <p>The equivalent class notation generally overrides other attributes. If a class defined in the visualized ontology is equivalent to a deprecated or an external class, the class will be displayed like a normal euivalent class from the ontology at hand. The labels of equivalent classes will be displayed using the notation specified for equivalent classes.</p>
 		  <h4>Property Types</h4>
 		  <p>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, as both types are subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. The same applies to properties with specific attributes, such as functional properties [ref].</p>
@@ -389,7 +389,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Circle showing the class label (<em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>) in the selected language. If no label is given, take the last part of the URI, i.e. the part after the last slash (/) or hash (#) character.</td>
+                <td>A circle showing the class label (<em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>) in the selected language.</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em></td>
@@ -403,7 +403,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Class notation with a slightly different color.</td>
+                <td>Class notation with <a>rdf</a> color.</td>
               </tr>
               <tr>
                 <td>External class<br/>(<a href="">different base URI</a>)</td>
@@ -433,7 +433,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Class notation colored in gray, with the indication "deprecated" in brackets (same notation for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>, and imported class, the latter with an additional "imported" in brackets).</td>
+                <td>Class notation with <a>deprecated</a> color, with the indication "deprecated" in brackets (same notation for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>, and imported class, the latter with an additional "imported" in brackets).</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em><br/>
