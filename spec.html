@@ -674,11 +674,7 @@
                   Property representation with a <strong>(functional)</strong> label for functional properties, below the property label. The global cardinality constraint of functional properties is not made explicit in the visualization in order to avoid any confusion with the cardinality constraints defined with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <br> <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em> that are displayed in the visualization (see <a href="#propertyTable2">Table 6</a>).
                   </p>
                   <p><!-- TODO: possibly replace -->
-                  Note that the background of this property can have different colors. It is shown in the <a href="#colorRdf">rdf</a> color in this specification, as <em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em> is a subclass of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> and can therefore be applied to any property in the ontology (i.e. same notation with different background color for <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>).
-		    <li><p>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, as both types are subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. The same applies to properties with specific attributes, such as functional properties [ref].</p></li>	
-		  	<li>Equivalent classes and properties 
-		  
-		  a label of one of the equivalent elements is selected as the main label. If any of the elements are from the ontology being visualized (rather than external [ref]), a label from such an element will be preferred.</p></li>			
+                  Note that the background of this property can have different colors. It is shown in the <a href="#colorRdf">rdf</a> color in this specification, as <em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em> is a subclass of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> and can therefore be applied to any property in the ontology (i.e. same notation with different background color for <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>).		
                   </p>
                 </td>
               </tr>
@@ -796,7 +792,10 @@
             </tr>
           </tbody>
         </table>
-
+          <p>Note that:</p>
+          <ul>		
+			<li><p>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, as both types are subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. The same applies to properties with specific attributes, such as functional properties [ref].</p></li>	
+		  </ul>		
         <table id="propertyTable2">
           <caption>Table 6. Graphical representation of further properties</caption>
           <tbody>
@@ -1060,6 +1059,12 @@
             </tr>
           </tbody>
         </table>
+
+		<p>Note that:</p>
+          <ul>		
+		  	<li>Equivalent classes and properties 
+		  a label of one of the equivalent elements is selected as the main label. If any of the elements are from the ontology being visualized (rather than external [ref]), a label from such an element will be preferred.</p></li>	
+		  </ul>	
         
         <p>The basic set operations <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em> define new (anonymous) classes to describe the union, intersection, or complement of other classes, and are thus represented as circles.
         The circles contain the corresponding <a href="http://www.w3.org/2001/sw/SW-FAQ#relDL">Description Logic (DL)</a> operators (&cup;,&cap;, &not;).</p>
