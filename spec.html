@@ -766,6 +766,30 @@
                 <td>Object property representation with a <strong>(transitive)</strong> label for transitive properties, below the property label.</td>
               </tr>
               <tr>
+                <td>Reflexive Properties (identical domain and range)</td>
+                <td class="tdCenter" id="owlSymmetricProperty">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="175px" height="70px">
+                  <g class="link interactionEffect9">
+                  <path d="M58,55 Q130,30 65,15"/>
+                  <path class="arrowhead" d="m 58,14 12,-4.5 -2,12.5 -10,-8" />
+                  </g>
+                  <g transform="translate(35,35)">
+                  <circle class="class" r="30"></circle>
+                  <text class="text" text-anchor="middle" transform="translate(0,-6)">
+                  <tspan x="0" y="10">Class A</tspan>
+                  </text>
+                  </g>
+                  <g transform="translate(80, 23)">
+                  <rect class="property object" width="90" height="20" onmouseover="labelMouseOver('interactionEffect9')" onmouseout="labelMouseOut('interactionEffect9')"></rect>
+                  <text class="text" text-anchor="middle" transform="translate(46,15)">
+                  <tspan>ObjectProperty</tspan>
+                  </text>
+                  </g>
+                  </svg>
+                </td>
+                <td>Object property representation with identical domain and range, i.e. start and end point of the arrow is the same class. Multiple reflexive properties should be positioned around the class in a way to maintain readability.</td>
+            </tr>
+              <tr>
                 <td><em><a href="http://www.w3.org/TR/owl-ref/#SymmetricProperty-def">owl:SymmetricProperty</a></em></td>
                 <td class="tdCenter" id="owlSymmetricProperty">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="175px" height="70px">
@@ -776,8 +800,7 @@
                   <g transform="translate(35,35)">
                   <circle class="class" r="30"></circle>
                   <text class="text" text-anchor="middle" transform="translate(0,-6)">
-                  <tspan x="0" y="2">Class A,</tspan>
-                  <tspan x="0" y="16">Class B</tspan>
+                  <tspan x="0" y="10">Class A</tspan>
                   </text>
                   </g>
                   <g transform="translate(80, 15)">
@@ -789,7 +812,7 @@
                   </g>
                   </svg>
                 </td>
-                <td><!-- only those that are explicitly symmetric properties -->Object property representation with identical domain and range, i.e. start and end point of the arrow is the same class. Multiple symmetric properties are represented multiple times.</td>
+                <td>Reflexive properties that are explicitly defined as symmetric. They are displayed like reflexive properties, with the additional text <strong>(symmetric)</strong> below the property label.</td>
             </tr>
           </tbody>
         </table>
