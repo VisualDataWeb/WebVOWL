@@ -15,7 +15,7 @@
     <div id="wrapper">
       <header>
         <h1>VOWL: Visual Notation for OWL Ontologies</h1>
-        <h2>Specification of Version 2.0 - XX April 2014</h2>
+        <h2>Specification of Version 2.0 - 04 April 2014</h2>
         <hr>
         <dl>
           <dt>This version:</dt>
@@ -28,7 +28,7 @@
           <dd>
           <a href="http://www.blankdots.com/">Stefan Negru</a>, Alexandru Ioan Cuza University<br/>
           <a href="http://steffen-lohmann.de">Steffen Lohmann</a>, University of Stuttgart<br/>
-          <a href="http://www.vis.uni-stuttgart.de/institut/mitarbeiter/florian-haag.html">Florian Haag</a>,University of Stuttgart<br/>
+          <a href="http://www.vis.uni-stuttgart.de/institut/mitarbeiter/florian-haag.html">Florian Haag</a>, University of Stuttgart<br/>
           </dd>
         </dl>
         <span id="visualHome"><a href="http://www.visualdataweb.org">visualdataweb.org &raquo;</a></span>
@@ -57,14 +57,13 @@
       <hr>
       <section id="overview">
         <h2>Overview <a href="#toc">[back to top]</a></h2>
-        <!-- ToDo: Reference on tables or sections? -->
-        <p>VOWL is based on only a handful of <a href="#graphicalPrimitives">graphical primitives</a> forming the alphabet of the visual language: Classes are depicted as circles (<a href="#classTable">Table 4</a>) that are connected by lines and arrows representing the property relations (<a href="#propertyTable">Table 5</a>). Property labels and datatypes are shown in rectangles (<a href="#propertyTable2">Table 6</a>, <a href="#propertyTable3">Table 7</a> and <a href="#datatypeTable">Table 8</a>). Information on individuals and data values is either displayed in the visualization itself or in another part of the user interface (<a href="#otherTable">Table 9</a>).</p>
-        
+        <p>VOWL is based on only a handful of <a href="#graphicalPrimitives">graphical primitives</a> forming the alphabet of the visual language: Classes are depicted as circles that are connected by lines and arrows representing the property relations. Property labels and datatypes are shown in rectangles. Information on individuals and data values is either displayed in the visualization itself or in another part of the user interface.</p>
+  
         <p>The second ingredient of VOWL is a <a href="#colorScheme">color scheme</a> complementing the graphical primitives. It defines colors for the visual elements to allow for an easy distinction of different types of classes and properties. Although the color scheme is defined in an abstract way leaving room for customization, a set of concrete color recommendations provides guidance for developers.</p>
         
-        <p>Finally, the visual elements are combined to a graph that is rendered in a force-directed or comparable layout and that represents the ontology. VOWL defines splitting rules to specify which elements are multiplied and thus displayed several times in the visualization to improve the overall layout.</p>
+        <p>Finally, the visual elements are combined to a graph that is rendered in a force-directed or comparable layout and that represents the ontology. VOWL defines <a href="#splittingRules">splitting rules</a> to specify which elements are multiplied and thus displayed several times in the visualization to improve the overall layout.</p>
         
-        <p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/2004/OWL/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), although not all language constructs are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>.</p>
+        <p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/TR/owl-ref/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), although not all language constructs are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>.</p>
       </section>
       <hr>
       <section id="buildingBlocks">
@@ -73,7 +72,7 @@
         This section introduces the <a href="#graphicalPrimitives">graphical primitives</a> and <a href="#colorScheme">color scheme </a> that form the basic building blocks of VOWL. It also defines <a href="#splittingRules">splitting rules</a> for the graph visualization and gives some <a href="#generalGuidelines">general guidelines</a> for using the notation.
         </p>
         <h3 id="graphicalPrimitives">Graphical Primitives</h3>
-        <!--Table 1 lists the graphical primitives used in VOWL.-->
+        <a href="#primitivesTable">Table 1</a> lists all graphical primitives used in VOWL.
         <table id="primitivesTable">
           <caption>Table 1. Graphical primitives.</caption>
           <tbody>
@@ -351,7 +350,7 @@
             <li>Other interactions include: zoom, panning.</li>
           </ul>
           <h4>Conflicts</h4>
-		  <p>The color of deprecated elements has precedence over the color of external elements. Thus, if a class from an external ontology is deprecated, it will be displayed using the color for deprecated elements. In such cases, the text in the element will still indicate all attributes in a comma-separated list - in this case, <emph>(deprecated, external)</emph>. Likewise, if a property is symmetric and functional, its text will indicate <emph>(symmetric, functional)</emph>.</p>
+		  <p>The color of deprecated elements has precedence over the color of external elements. Thus, if a class from an external ontology is deprecated, it will be displayed using the color for deprecated elements. In such cases, the text in the element will still indicate all attributes in a comma-separated list - in this case, <em>(deprecated, external)</em>. Likewise, if a property is symmetric and functional, its text will indicate <em>(symmetric, functional)</em>.</p>
 		  <p>The equivalent class notation generally overrides other attributes. If a class defined in the visualized ontology is equivalent to a deprecated or an external class, the class will be displayed like a normal euivalent class from the ontology at hand. The labels of equivalent classes will be displayed using the notation specified for equivalent classes.</p>
 		  <h4>Property Types</h4>
 		  <p>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, as both types are subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. The same applies to properties with specific attributes, such as functional properties [ref].</p>
@@ -408,7 +407,7 @@
               </tr>
               <tr>
                 <td>External class<br/>(<a href="">different base URI</a>)</td>
-                <td class="tdCenter" id="owlImports">
+                <td class="tdCenter" id="externalClass">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="105px" height="105px">
                   <g transform="translate(52.5,52.5)">
                   <circle class="class external" r="50"></circle>
@@ -768,7 +767,7 @@
               </tr>
               <tr>
                 <td>Reflexive Properties<br/> (identical domain and range)</td>
-                <td class="tdCenter" id="owlSymmetricProperty">
+                <td class="tdCenter" id="identicalDomainAndRange">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="175px" height="70px">
                   <g class="link interactionEffect9">
                   <path d="M58,55 Q130,30 65,15"/>
