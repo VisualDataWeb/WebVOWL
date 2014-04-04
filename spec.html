@@ -7,7 +7,7 @@
     <meta name="keywords"
     content="owl, vowl, visual notation, web ontology language, ontology visualization, ontologies, semantic web, linked data">
     <meta name="description" content="The Visual Notation for OWL Ontologies (VOWL) defines a visual language for the user-oriented representation of ontologies.">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="css/vowl.css"/>
     <link rel="stylesheet" type="text/css" href="css/pagestyle.css"/>
     <title>VOWL: Visual Notation for OWL Ontologies</title>
@@ -352,7 +352,7 @@
             <li>Other interactions include: zoom, panning.</li>
           </ul>
           <h4>Conflicts</h4>
-		  <p>The color of deprecated elements has precedence over the color of external elements. Thus, if a class from an external ontology is deprecated, it will be displayed using the color for deprecated elements. In such cases, the text in the element will still indicate all attributes in a comma-separated list - in this case, <emph>(deprecated, external)</emph>. Likewise, if a property is symmetric and functional, its text will indicate <emph>(symmetric, functional)</emph>.</p>
+		  <p>The color of deprecated elements has precedence over the color of external elements. Thus, if a class from an external ontology is deprecated, it will be displayed using the color for deprecated elements. In such cases, the text in the element will still indicate all attributes in a comma-separated list - in this case, <em>(deprecated, external)</em>. Likewise, if a property is symmetric and functional, its text will indicate <em>(symmetric, functional)</em>.</p>
 		  <p>The equivalent class notation generally overrides other attributes. If a class defined in the visualized ontology is equivalent to a deprecated or an external class, the class will be displayed like a normal euivalent class from the ontology at hand. The labels of equivalent classes will be displayed using the notation specified for equivalent classes.</p>
 		  <h4>Property Types</h4>
 		  <p>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, as both types are subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. The same applies to properties with specific attributes, such as functional properties [ref].</p>
@@ -768,8 +768,8 @@
                 <td>Object property representation with a <strong>(transitive)</strong> label for transitive properties, below the property label.</td>
               </tr>
               <tr>
-                <td>Reflexive Properties<br/> (identical domain and range)</td>
-                <td class="tdCenter" id="owlSymmetricProperty">
+                <td>Property with identical domain and range</td>
+                <td class="tdCenter" id="identicalDomainAndRange">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="175px" height="70px">
                   <g class="link interactionEffect9">
                   <path d="M58,55 Q130,30 65,15"/>
@@ -919,9 +919,9 @@
                 <path class="white" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"/>
                 <path class="dotted" d="M66,35 L180,35"/>
                 </g>
-                <g transform="translate(97, 13)">
-                <rect class="property white" width="60" height="20" onmouseover="labelMouseOver('interactionEffect14')" onmouseout="labelMouseOut('interactionEffect14')"></rect>
-                <text class="text" x="0" y="14">
+                <g transform="translate(90, 13)">
+                <rect class="property white" width="70" height="20" onmouseover="labelMouseOver('interactionEffect14')" onmouseout="labelMouseOut('interactionEffect14')"></rect>
+                <text class="text" x="5" y="14">
                 <tspan>Subclass of</tspan>
                 </text>
                 </g>
