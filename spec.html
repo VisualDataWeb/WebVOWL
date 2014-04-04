@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta name="author" content="Stefan Negru, Steffen Lohmann, Florian Haag">
-    <meta name="keywords"
-    content="owl, vowl, visual notation, web ontology language, ontology visualization, ontologies, semantic web, linked data">
-    <meta name="description" content="The Visual Notation for OWL Ontologies (VOWL) defines a visual language for the user-oriented representation of ontologies.">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Stefan Negru, Steffen Lohmann, Florian Haag"/>
+    <meta name="keywords" content="owl, vowl, visual notation, web ontology language, ontology visualization, ontologies, semantic web, linked data"/>
+    <meta name="description" content="The Visual Notation for OWL Ontologies (VOWL) defines a visual language for the user-oriented representation of ontologies."/>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/vowl.css"/>
     <link rel="stylesheet" type="text/css" href="css/pagestyle.css"/>
@@ -323,7 +322,7 @@
           <p>Some general guidelines and recommendations for usage and implementation are listed below:</p>
           <h4>Labels</h4>
           <p>If classes, properties, or any other elements do not have an <em><a
-          href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, it is recommended to take the last / a part of the URI as label, i.e. the part after / the string / characters that follow the last slash (/) or hash (#) character / sign. Labels may be abbreviated if they are too long (e.g. Winnie-the-Pooh → Winnie…). The full label can be shown on demand (e.g. via tooltips) and/or in another part of the user interface (e.g. a sidebar).</p><!-- TODO: Not a really long example. Possibly replace "Hieroglyphics". -->
+          href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, it is recommended to take the last / a part of the URI as label, i.e. the part after / the string / characters that follow the last slash (/) or hash (#) character / sign. Labels may be abbreviated if they are too long (e.g. Winnie-the-Pooh &rarr; Winnie&hellip;). The full label can be shown on demand (e.g. via tooltips) and/or in another part of the user interface (e.g. a sidebar).</p><!-- TODO: Not a really long example. Possibly replace "Hieroglyphics". -->
           <h4>Graph Layout</h4>
           <p>The graph layout should arrange the elements in an appealing and readable layout. The position of circles should be roughly determined by the number of inbound and outbound property relations, i.e. the more property relations a class has, the more centric the circle in the graph. Force-directed layouts are recommended for this purpose. They can be tailored to the visualized ontology by increasing or decreasing the forces between the classes.</p>
 		  <h4>Properties without Domain or Range</h4>
@@ -977,7 +976,7 @@
                 </svg>
               </td>
               <!-- @SL: Add more implicit indicator that subproperties with a different domain and range than their superproperties can only be seen in the interactive visualization at all? -->
-              <td>Sub-/Superproperties are dynamically highlighted on <em>hover</em>.
+              <td>Sub-/Superproperties are dynamically highlighted on <em>hover</em> (bi-directional highlighting)
                 <!-- Those that have same domain and range as their super/-subproperties can alternatively be listed in square brackets within the label of the superproperty. This aggregated representation should be handles with care, as it might hide information about the property, such as the type of subproperties (e.g. functional, etc.). Note: Properties that are subproperties of more than one property are never shown within the labels of their superproperties. ToDo: Ist das feature überhaupt sinnvoll oder sollen wir es lieber ganz weglassen bzw. für equivalent proeprties nehmen? Letztlich gilt dieselbe Einschränkung für equivalent classes
                 Note: Properties that are subproperties of more than one property are never shown within the labels of their superproperties. + Subproperties of more than one property -->
               </td>
