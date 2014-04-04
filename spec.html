@@ -354,15 +354,8 @@
           <h4>Conflicts</h4>
 		  <p>The color of deprecated elements has precedence over the color of external elements. Thus, if a class from an external ontology is deprecated, it will be displayed using the color for deprecated elements. In such cases, the text in the element will still indicate all attributes in a comma-separated list - in this case, <emph>[deprecated, external]</emph>. Likewise, if a property is symmetric and functional, its text will indicate <emph>[symmetric, functional]</emph>.</p>
 		  <p>The equivalent class notation generally overrides other attributes. If a class defined in the visualized ontology is equivalent to a deprecated or an external class, the class will be displayed like a normal euivalent class from the ontology at hand. The labels of equivalent classes will be displayed using the notation specified for equivalent classes.</p>
-		  
-          
-          
-          <p>Particular aspects regarding the graphical representation, which need to be noted:</p>
-          <ul>
-            <li>Combined properties are represented by combining their elements, i.e. a transitive with a functional property [ToDo: Example] </li>
-            <li>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em> are both subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>.</li>
-            <!-- @SL: "Some features of certain visual elements have a higher precedence than the respective features of other elements, ..."? (The labels still get combined, just the colors are overruled.) -->
-          </ul>
+		  <h4>Property Types</h4>
+		  <p>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, as both types are subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. The same applies to properties with specific attributes, such as functional properties [ref].</p>
         </section>
 
         <hr>
