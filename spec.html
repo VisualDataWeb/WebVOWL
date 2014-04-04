@@ -94,8 +94,10 @@
                 </svg>
               </td>
               <td>
-                <p>
-				Each circle represents a class of the ontology. The color of the circle depends on the type of class it represents. If an ontology contains individuals, the size of the circle corresponds to the number of individuals that are instances of its class. VOWL does not specify a particular method for scaling the circle size - good results may be achieved with a logarithmic or square-root scaling in most cases. Individuals inferred from subclasses are also counted if reasoning is available and not deactivated. If the ontology is not populated or if purely the schema (i.e. the TBox) is considered, all circles have the same default (minimum) size.
+                <p>Each circle represents a class of the ontology. The color of the circle depends on the type of class it represents. There is a default size for circles.</p>
+				
+				<p>If an ontology contains individuals and unless purely the schema (i.e. the TBox) is considered, the circle can become larger than the default size - in that case, its size corresponds with the number of individuals that are instances of the class. VOWL does not specify a particular function for mapping the number of individuals to the circle size - good results may be achieved with a logarithmic or square-root scaling in most cases. A maximum size may be imposed.
+				Individuals inferred from subclasses are counted as well if reasoning is available and not deactivated.
                 </p>
                 <p>
                 The circles representing the special classes <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em> are exceptions. They are not scaled but have a fixed size that is smaller than the default size of classes. In addition, the circles of these two classes have a dashed border and are multiplied in the visualization according to the rules described in <a href="#splittingRules">Table 3</a>.
