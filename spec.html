@@ -177,7 +177,7 @@
           <h3 id="colorScheme">Color Scheme</h3>
           <p><a href="#colorTable">Table 2</a> lists the colors used in VOWL. They are defined in an abstract way, along with a description and a recommendation for a concrete color and its hex code. Developers may choose different colors, as long as they comply with the abstract descriptions. All colors are defined relative to the canvas color which is assumed to be very light. The colors (and color descriptions) may be 'inverted' if the visualization is presented on a dark background.</p>
           
-          <p>While the colors ease the reading of the visualization, they are not required to understand it. The visualization remains understandable if printed in black and white or read by color-blind people, though some details may not be visible any longer (e.g. if a class is of type <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>). If these details should also be available in black and white prints of the ontology visualization, they may be added as text (e.g. in the class label).</p>
+          <p>While the colors ease the reading of the visualization, they are not required to understand it. The visualization remains understandable if printed in black and white or read by color-blind people, though some details may not be visible any longer (e.g. if a class is of type <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>). If these details should also be available in black and white prints of the visualization, they may be added as text (e.g. in the class label).</p>
           
           <p>There may be conflicts in using this color scheme, e.g. when a deprecated class belongs to an external ontology. Such cases are listed and resolved in the <a href="generalRecommendations">general recommendations</a>.</p>
           <table id="colorTable">
@@ -194,7 +194,7 @@
                 <td style="background: #fff; width: 2em">#fff</td>
                 <td>white</td>
                 <td>Very light color with a good contrast to all other colors.</td>
-                <td>canvas (background of the visualization)</td>
+                <td>background of the visualization</td>
               </tr>
               <tr>
                 <td id="colorNeutral">Neutral</td>
@@ -208,7 +208,7 @@
                 <td style="background: #000; color: #fff">#000</td>
                 <td>black</td>
                 <td>Very dark color with a good contrast to all other colors, except the <a href="#colorExternal">external</a> color.</td>
-                <td>text, lines, borders, symbol signs, arrowhead of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_range">rdfs:range</a></em></td>
+                <td>text, lines, borders, symbols, arrowheads</td>
               </tr>
               <tr>
                 <td id="colorGeneral">General</td>
@@ -221,7 +221,7 @@
                 <td id="colorRdf">Rdf</td>
                 <td style="background: #c9c">#c9c</td>
                 <td>light purple</td>
-                <td>Color similar to the <a href="#colorGeneral">general</a> color with a good contrast to the foreground color</td>
+                <td>Color similar to the <a href="#colorGeneral">general</a> color with a good contrast to the foreground color.</td>
                 <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> (incl. subclasses)</td>
               </tr>
               <tr>
@@ -236,7 +236,7 @@
                 <td style="background: #36c; color: white">#36c</td>
                 <td>dark blue</td>
                 <td>Dark version of the <a>general</a> color, with the text in the <a>neutral</a> instead of the <a>foreground</a> color.</td>
-                <td>Classes and properties from external ontologies that are linked by the ontology that is visualized.</td>
+                <td>Classes and properties from other ontologies that are linked by the ontology that is visualized.</td>
               </tr>
               <tr>
                 <td id="colorDatatype">Datatype</td>
@@ -249,7 +249,7 @@
                 <td id="colorDatatypeProperty">Datatype Property</td>
                 <td style="background: #9c6">#9c6</td>
                 <td>light green</td>
-                <td>Light color that is clearly different from the other colors</td>
+                <td>Light color that is clearly different from the other colors.</td>
                 <td><em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em></td>
               </tr>
               <tr>
@@ -266,6 +266,7 @@
                 <td>red</td>
                 <td>Very visible color, clearly indicating that an element is hovered or selected.</td>
                 <td>
+				circles, rectangles, lines, borders, arrowheads
                 </td>
               </tr>
               <tr>
@@ -274,6 +275,7 @@
                 <td>orange</td>
                 <td>Color similar to the <a>highlighting</a> color.</td>
                 <td>
+				rectangles, circles
                 </td>
               </tr>
             </tbody>
