@@ -861,10 +861,10 @@
               </td>
               <td>
                 <p>
-                Exact, minimal, and/or maximal cardinality constraints are written near the end of the property arrow that the cardinality refers to. The notation is similar to <a href="http://www.uml.org/">UML</a>, i.e. the letters "x" and "y" in the example represent the minimum and maximum cardinality (for the range). Exact cardinalities are represented by only one number, while the asterisk (*) denotes an unrestricted cardinality. As unrestricted is the default cardinality / arbitrary number (zero or more) of values, the asterisk is optional and usually be omitted / not shown.
+                Exact, minimal, and/or maximal cardinality constraints are written near the end of the property arrow that the cardinality refers to. The notation is similar to <a href="http://www.uml.org/">UML</a>, i.e. the letters "x" and "y" in the example represent the minimum and maximum cardinality (for the range). Exact cardinalities are represented by only one number, while the asterisk (*) denotes an unrestricted cardinality. As the default cardinality is an arbitrary number (zero or more) of values, a sole asterisk is optional and does not need to be shown.
                 </p>
                 <p>
-                Examples are "0..1" for a cardinality of 0 to 1, "1..*" for a minimum cardinality of 1, or "3" for a cardinality of exactly 3. Note that the cardinality always refers only to the range of the property axioms, so inverse properties are needed to define cardinality in both directions. The cardinality notation should not be used to depict the <a href="#functProp">global cardinality of functional properties</a> to avoid confusions.
+                Examples are "0..1" for a cardinality of 0 to 1, "1..*" for a minimum cardinality of 1, or "3" for a cardinality of exactly 3. Note that the cardinality always refers only to the range of the property axioms, so inverse properties are needed to define cardinality in both directions. The cardinality notation should not be used to depict the <a href="#functProp">global cardinality of functional properties</a> to avoid confusion.
                 </p>
                 <!-- @SL: check cardinality and range -->
               </td>
@@ -901,7 +901,7 @@
                 </g>
                 </svg>
               </td>
-              <td>Dashed line/arc with symbol of two disjoint sets as label. Alternatively, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> statements may be presented as details on demand (e.g. in the sidebar), which is recommended as it results in a less cluttered graph.</td>
+              <td>Dashed line/arc with the symbol of two disjoint sets as a label, and the text <strong>(disjoint)</strong> below that label. Alternatively to showing this element in the visualization, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> statements may be presented as details on demand in another part of the user interface, which is recommended as it results in a less cluttered graph.</td>
             </tr>
             <tr>
               <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em></td>
@@ -919,7 +919,7 @@
                 </g>
                 <g transform="translate(97, 13)">
                 <rect class="property white" width="60" height="20" onmouseover="labelMouseOver('interactionEffect14')" onmouseout="labelMouseOut('interactionEffect14')"></rect>
-                <text class="text" x="3" y="14">
+                <text class="text" x="0" y="14">
                 <tspan>Subclass of</tspan>
                 </text>
                 </g>
@@ -931,9 +931,10 @@
                 </g>
                 </svg>
               </td>
-              <td>Dotted line/arc with a white arrow head at the end pointing to the superclass (arrow head like in UML but with a dashed line), with a white or transparent label background.</td>
+              <td>Dotted line/arc with a <a>neutral</a> arrow head at the end pointing to the superclass (arrow head like in UML but with a dashed line), with a <a>neutral</a> or transparent background for the label <strong>Subclass of</strong>.</td>
             </tr>
             <tr>
+			<!-- @SL: fix highlighting -->
               <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_subpropertyof">rdfs:subPropertyOf</a></em></td>
               <td class="tdCenter" id="rdfsSubPropertyOf">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="260px" height="70px">
@@ -974,7 +975,7 @@
                 </svg>
               </td>
               <!-- @SL: Add more implicit indicator that subproperties with a different domain and range than their superproperties can only be seen in the interactive visualization at all? -->
-              <td>Sub-/Superproperties are indirectly / dynamically highlighted on <em>hover</em>.
+              <td>Sub-/Superproperties are dynamically highlighted on <em>hover</em>.
                 <!-- Those that have same domain and range as their super/-subproperties can alternatively be listed in square brackets within the label of the superproperty. This aggregated representation should be handles with care, as it might hide information about the property, such as the type of subproperties (e.g. functional, etc.). Note: Properties that are subproperties of more than one property are never shown within the labels of their superproperties. ToDo: Ist das feature überhaupt sinnvoll oder sollen wir es lieber ganz weglassen bzw. für equivalent proeprties nehmen? Letztlich gilt dieselbe Einschränkung für equivalent classes
                 Note: Properties that are subproperties of more than one property are never shown within the labels of their superproperties. + Subproperties of more than one property -->
               </td>
@@ -1020,7 +1021,7 @@
                 </g>
                 </svg>
               </td>
-              <td>Line/arc with arrow heads at both ends and annotated with the label of the property and its inverse counterpart (interactive highlighting of direction). In order to emphasize which label denotes which direction in non-interactive contexts, each label may be slightly displaced toward its respective arrowhead.
+              <td>Line/arc with arrow heads at both ends, annotated with the label of the property and its inverse counterpart (interactive highlighting of direction). In order to emphasize which label denotes which direction in non-interactive contexts, each label may be slightly displaced toward its respective arrowhead (not shown in the example).
               </td>
             </tr>
             <tr>
@@ -1052,6 +1053,7 @@
                 </g>
                 </svg>
               </td>
+			  <!-- TODO: remark about color -->
               <td>Labels of equivalent properties are listed in squared brackets.<!-- same rule as for equivalentClass --></td>
             </tr>
             <tr>
@@ -1069,7 +1071,7 @@
                 </svg>
               </td>
               <td>
-                <p>Class notation with double border (with space in neutral color). The main label is from a class with the same base URI (if there is any). The labels of equivalent classes (from external ontologies or from the same base URI) are added as comma-separated list to the label in square brackets. They are abbreviated according to the rules above.
+                <p>Class notation with double border (with the space colored in the <a>neutral</a> color). The main label is from a class with the same base URI (if there is any). The labels of equivalent classes (from external ontologies or from the same base URI) are added as a comma-separated list to the label in squared brackets.
                 </p>
                 <!-- ToDo: Put these rules in an extra section, as they are valid for equivalent classes and equivalent properties -->
                 - main label = label of main class, i.e.
