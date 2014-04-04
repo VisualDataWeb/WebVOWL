@@ -352,19 +352,17 @@
             <li>Drag and drop = (re)arranging the elements;</li>
             <li>Other interactions include: zoom, panning.</li>
           </ul>
-          <h4>Conflicts / Special cases:</h4>
-          <p>- deprecated class from an external ontology? --> color of deprecated, subtext deprecated and external<br>
-          - combination of property types, e.g. symmetric property that is also functional, add all property specifics as a comma-separated list in the subtext (abbreviate according to the abbreviation rules)<br/>
-          - external class that is defined as equivalent class --> external class notation
-          </p>
+          <h4>Conflicts</h4>
+		  <p>The color of deprecated elements has precedence over the color of external elements. Thus, if a class from an external ontology is deprecated, it will be displayed using the color for deprecated elements. In such cases, the text in the element will still indicate all attributes in a comma-separated list - in this case, <emph>[deprecated, external]</emph>. Likewise, if a property is symmetric and functional, its text will indicate <emph>[symmetric, functional]</emph>.</p>
+		  <p>The equivalent class notation generally overrides other attributes. If a class defined in the visualized ontology is equivalent to a deprecated or an external class, the class will be displayed like a normal euivalent class from the ontology at hand. The labels of equivalent classes will be displayed using the notation specified for equivalent classes.</p>
+		  
+          
           
           <p>Particular aspects regarding the graphical representation, which need to be noted:</p>
           <ul>
             <li>Combined properties are represented by combining their elements, i.e. a transitive with a functional property [ToDo: Example] </li>
             <li>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em> are both subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>.</li>
             <!-- @SL: "Some features of certain visual elements have a higher precedence than the respective features of other elements, ..."? (The labels still get combined, just the colors are overruled.) -->
-            <li>Some visual elements are "stronger" than others, i.e. imported class notation is used for both <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>, while deprecated class notation is used for all three (<em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>, and imported class). The same holds for the graphical representation of deprecated properties that is visually stronger than the other properties (though the labels remain the same in all cases, pure or combined).
-            </li>
           </ul>
         </section>
 
