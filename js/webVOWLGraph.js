@@ -1631,7 +1631,7 @@ var getTypeLink = function(type){
         case "disjoint":
             return "Disjoint With";
         case "subclass":
-            return "SubClass Of";
+            return "Subclass of";
         default:
             return "Object Property";
     }
