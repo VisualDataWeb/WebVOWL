@@ -169,7 +169,7 @@
                   </svg>
                 </td>
               <td>
-                <p>Text is used for all kinds of labels defined in ontologies. If no label is given for an element, the last part of the URI is taken, i.e. the string that follows the last slash (/) or hash (#) character. Moreover, a textbox with information from the ontology header, such as the title and description of the ontology, may be displayed in the visualization.</p></td>
+                <p>Text is used for all kinds of labels, cardinalities and other texts defined in ontologies. Moreover, a textbox with some information from the ontology header, such as the title and description of the ontology, may be displayed in the visualization.</p></td>
                 <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, type of property ("Subclass" for <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>), additional type information in brackets (e.g. deprecated, equivalent, etc.), symbol in schematic illustrations (e.g. union symbol ("&cup;") for <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>)</td><!-- repetition with rdfs:label -->
               </tr>
             </tbody>
@@ -319,7 +319,7 @@
           </table>
           
           <h3 id="generalRecommendations">General Recommendations</h3>
-          <p>Some of the general guidelines and instructions / recommendations of usage and implementation are listed below:</p>
+          <p>Some general guidelines and recommendations for usage and implementation are listed below:</p>
           <h4>Labels</h4>
           <p>If classes, properties, or any other elements do not have an <em><a
           href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, it is recommended to take the last / a part of the URI as label, i.e. the part after / the string / characters that follow the last slash (/) or hash (#) character / sign. Labels may be abbreviated if they are too long (e.g. Hieroglyphics → Hierogly…). The full label can be shown on demand (e.g. via tooltips) and/or in another part of the user interface (e.g. a sidebar).</p><!-- TODO: Not a really long example. Possibly replace "Hieroglyphics". -->
