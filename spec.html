@@ -319,33 +319,31 @@
           <h3 id="generalGuidelines">General Guidelines</h3>
           <p>Some general guidelines and recommendations for usage and implementation are listed in the following:</p>
           <h4>Labels</h4>
-          <p>If classes, properties, or any other elements do not have an <em><a
-          href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, it is recommended to take the last part of the URI as label, i.e. the part that follows the last slash (/) or hash (#) character. Labels may be abbreviated if they do not fit in the available space (e.g. "Winnie-the-Pooh" &rarr; "Winnie&hellip;"). The full label can be shown on demand (e.g. in a tooltip or sidebar).</p>
+          <p>If elements do not have an <em><a
+          href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em> that can be depicted, it is recommended to take the last part of the URI as label, i.e. the part that follows the last slash (/) or hash (#) character. Labels may be abbreviated if they do not fit in the available space (e.g. "Winnie-the-Pooh" &rarr; "Winnie&hellip;"). The full label can be shown on demand (e.g. in a tooltip or sidebar).</p>
           <h4>Graph Layout</h4>
-          <p>The visual elements are combined to a graph that should be rendered in an appealing and readable layout. The position of circles should be roughly determined by the number of inbound and outbound property relations, i.e. the more property relations a class has, the more centric the circle in the layout. Force-directed layouts are recommended for this purpose (though other layouts may be equally or even more appropriate in certain cases). The users should be enabled to adapt the graph layout to their purposes.</p>
-		  <h4>No Domain and/or Range</h4>
-		  <p>If no domain and/or range for a property is specified, the property is linked to <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>. If the property is a datatype property without a specified range, the end of the line with the arrow is linked to <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>.</p>
-		  <h4>Use of owl:Thing</h4>
-		  <p>The visual representation of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> should only be used if a property has no domain and/or range, or if it explicitly specifies <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> as its domain and/or range.
-          It is not recommended to visualize subclass relations of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, as every OWL class is implicitly a subclass of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and the subclass relations would unnecessarily clutter the visualization.
+          <p>The visual elements are combined to a graph that should be rendered in an appealing and readable layout. The position of circles should be roughly determined by the number of inbound and outbound property relations, i.e. the more property relations a class has, the more centric its circle in the layout. It is recommended to use a force-directed graph layout (though other layouts may be equally or even more appropriate in certain cases). The users should be enabled to adapt the graph layout to their purposes.</p>
+		  <h4>Missing Domain and/or Range Information</h4>
+		  <p>If no domain and/or range for a property is specified, <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> is used as domain and/or range. An exception are datatype properties without a specified range, where <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em> is used as range instead.</p>
+		  <h4>Visual Represention of owl:Thing</h4>
+		  <p>The visual representation of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> should only be used if a property has no domain and/or range, or if <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> is explicitly specified as domain and/or range. It is not recommended to visualize subclass relations of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, as every OWL class is implicitly a subclass of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and the subclass relations would unnecessarily clutter the visualization.
           </p>
           <h4>External Elements</h4>
-          <p>Basically, all elements whose base URI differs from that of the visualized ontology may be visually marked as external (this feature is optional). Alternatively, developers may define several colors to visually group external elements by namespace, as long as they do not use a color from the scheme and adhere to the 'inverted coloring' of external elements characterized by the light font color.</p>
+          <p>Basically, all elements whose base URI differs from that of the visualized ontology may be visually marked as external (this feature is optional). Alternatively, developers may define several colors to visually group external elements by namespace, as long as they adhere to the 'inverted coloring' of external elements (i.e. dark color with light font).</p>
           <strong>Highlighting</strong>
-          <p>VOWL defines three different modes of interactive highlighting, two of which are direct:</p>
+          <p>VOWL defines three modes of interactive highlighting, two of which are direct:</p>
           <ol>
             <li>
-              Highlight on hover: changes the fill color of the hovered element (plus the color of the line and arrow if any) to the <a href="">highlighting</a> color.
+              Highlight on hover: changes the fill color of the hovered element (plus the color of the line and arrow if any) to the <a href="">highlighting</a> color. This highlighting mode is dependent on the environment (e.g., it cannot be usefully applied in many touch environments).
             </li>
             <li>
-              Highlight on selection: changes the border color of the selected element (plus the color of the line and arrow if any) to the <a href="">highlighting</a> color.
+              Highlight on selection: changes the border color of the selected element (plus the color of the line and arrow if any) to the <a href="">highlighting</a> color. Note that it should also be possible to deselect elements that have been selected.
             </li>
           </ol>
-          <p>The third highlighting mode is indirect. It expresses a certain type of relationship between elements, without connecting them by a link. It is used in VOWL to dynamically indicate sub- and superproperties of a highlighted property. Like the direct highlight on hover, it changes the fill color of the element (plus the color of the line and arrow if any), but this time to the <a href="">indirect highlighting</a> color.</p>
-          <p>Highlighting is an interactive feature that is dependent on the environment (e.g. the first mode may not make sense in some touch environments). Note that it should also be possible to deselect elements that have been selected.</p>		  
+          <p>The third highlighting mode is indirect. It expresses some kind of relationship between elements, without connecting them visually by a line. It is used in VOWL to dynamically indicate sub- and superproperties of a highlighted property. Like the <em>highlight on hover</em>, it changes the fill color of the element (plus the color of the line and arrow if any), but this time to the <a href="">indirect highlighting</a> color.</p>	  
           <h4 id="conflicts">Conflicts</h4>
-		  <p>The <a href="">deprecated</a> color has priority over the <a href="">external</a> color, i.e. if a class or property from an external ontology is deprecated, it will be displayed using the <a href="">deprecated</a> color. In such cases, the text in the element will display all attributes in a comma-separated list &ndash; in this case, <em>(deprecated, external)</em>. If a property is symmetric and functional, its text will indicate <em>(symmetric, functional)</em>, and so on.</p>
-		  <p>The equivalent class notation generally overrides other attributes. If a class defined in the visualized ontology is equivalent to a deprecated or an external class, it is nevertheless displayed in the normal <a href="">equivalent class notation</a></p>
+		  <p>The <a href="">deprecated</a> color has priority over the <a href="">external</a> color, i.e. if a class or property from an external ontology is deprecated, it will be visualized in the <a href="">deprecated</a> color. In such cases, the text in the element will display all attributes in a comma-separated form (e.g. "deprecated, external"). If a property is symmetric and functional, the text will indicate "symmetric, functional" accordingly.</p>
+		  <p>The equivalent class notation generally overrides other attributes. If a class in the visualized ontology is equivalent to a deprecated or an external class, it is displayed using the normal <a href="">equivalent class notation</a>.</p>
         </section>
 
         <hr>
@@ -371,7 +369,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Circle in <a href="">general</a> color with the class label (<em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>) in the selected language.</td>
+                <td>Circle in <a href="">general</a> color showing the class label (<em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>) in the selected language.</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em></td>
@@ -383,7 +381,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Class notation with <a>rdf</a> color.</td>
+                <td>Class notation in <a>rdf</a> color.</td>
               </tr>
               <tr>
                 <td>External class<br/>(<a href="">different base URI</a>)</td>
@@ -398,7 +396,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Class notation with <a>external</a> color and indication "external" in brackets (same notation for external <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>).</td>
+                <td>Class notation in <a>external</a> color and with indication "external" in brackets (same notation for external <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>).</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/owl-ref/#DeprecatedClass-def">owl:DeprecatedClass</a></em></td>
@@ -413,11 +411,11 @@
                   </g>
                   </svg>
                 </td>
-                <td>Class notation with <a>deprecated</a> color and indication "deprecated" in brackets (same notation for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>, and external class, the latter additionally indicating "external" in brackets).</td>
+                <td>Class notation in <a>deprecated</a> color and with indication "deprecated" in brackets (same notation for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>). Notation is also used for deprecated external classes, with indication "deprecated, external" in brackets).</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em><br/>
-                  (also <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em>)
+                  (<em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em>)
                 </td>
                 <td class="tdCenter" id="owlThing">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="65px" height="65px">
@@ -427,7 +425,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Smaller circle in <a>neutral</a> color, with a dashed line and label "Thing". This graphical element is multiplied in the visualization according to the <a>splitting rules</a>. The same notation with label "Nothing" can be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> (though it is not recommended to include <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> in the visualization).
+                <td>Smaller circle in <a>neutral</a> color, with a dashed line and label "Thing". This graphical element is multiplied in the visualization according to the <a>splitting rules</a>. The same notation with label "Nothing" may be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> (though it is not recommended to include <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> in the visualization).
                 </td>
               </tr>
               <tr>
@@ -440,14 +438,11 @@
                   </g>
                   </svg>
                 </td>
-                <td>Smaller circle in <a>rdf</a> color, with a dashed line and label "Resource". Aprt form that, it has the same representation and is visualized in the same way as <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em></td>
+                <td>Smaller circle in <a>rdf</a> color, with a dashed line and label "Resource". This graphical element is multiplied in the visualization according to the <a>splitting rules</a>.</td>
               </tr>
             </tbody>
           </table>
-          <p>Note that:</p>
-          <ul>
-            <li>While "Class" is used here as a placeholder for the class label, the information in brackets ("imported", "deprecated") is shown literally and the labels "Thing" and "Resource" are used for <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>, respectively.</li>
-		  </ul>
+          <p>Note that "Class" is used as a placeholder for the class label in the graphical representations. In contrast, the information in brackets ("external", "deprecated") and the labels "Thing" and "Resource" are not placeholders but actually shown in the visualization.</p>
           <table id="propertyTable">
             <caption>Table 5. Graphical representation of properties.</caption>
             <tbody>
