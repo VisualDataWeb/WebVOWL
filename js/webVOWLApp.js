@@ -30,90 +30,90 @@ var bindListners = function() {
 };
 // adding styles inline to the svg elements
 var loadGraphStyle = function () { 
-  
-  d3.selectAll(".text")
+
+    d3.selectAll(".text")
     .style("font-size", "12px")
     .style("font-family", "Helvetica, Arial, sans-serif")
     .style("pointer-events", "none");
- 
-  d3.selectAll(".embedded")
+
+    d3.selectAll(".embedded")
     .style("pointer-events", "none");
 
-  d3.selectAll(".subtext")
+    d3.selectAll(".subtext")
     .style("font-size", "9px");
 
-  d3.selectAll(".cardinality")
+    d3.selectAll(".cardinality")
     .style("font-size", "10px");
 
-  d3.selectAll(".class")
+    d3.selectAll(".class")
     .style("stroke", "#000")
     .style("stroke-width", "2")
     .style("fill", "#acf");
 
-  d3.selectAll("path")
+    d3.selectAll("path")
     .style("stroke", "#000")
     .style("stroke-width", "2")
     .style("fill", "none");
 
-  d3.selectAll(".nofill")
+    d3.selectAll(".nofill")
     .style("fill", "none");
 
-  d3.selectAll(".nostroke")
+    d3.selectAll(".nostroke")
     .style("stroke", "none");
 
-  d3.selectAll(".special")
+    d3.selectAll(".special")
     .style("stroke-dasharray", "8");    
 
-  d3.selectAll(".dotted")
+    d3.selectAll(".dotted")
     .style("stroke-dasharray", "3"); 
 
-  d3.selectAll(".fineline")
+    d3.selectAll(".fineline")
     .style("stroke","#000")  
     .style("stroke-width", "1");
 
-  d3.selectAll(".object, .disjoint")
+    d3.selectAll(".object, .disjoint")
     .style("fill", "#acf");
 
-  d3.selectAll(".rdf")
+    d3.selectAll(".rdf")
     .style("fill", "#c9c");
 
-  d3.selectAll(".external")
+    d3.selectAll(".external")
     .style("fill", "#36c");
 
-  d3.selectAll(".deprecated")
+    d3.selectAll(".deprecated")
     .style("fill", "#ccc");
 
-  d3.selectAll(".label .datatype")
+    d3.selectAll(".label .datatype")
     .style("fill", "#9c6");
 
-  d3.selectAll(".literal, .node .datatype")
+    d3.selectAll(".literal, .node .datatype")
     .style("fill", "#fc3");
 
-  d3.selectAll(".symbol")
+    d3.selectAll(".symbol")
     .style("fill", "#69c"); 
 
-  d3.selectAll(".arrowhead, marker path")
+    d3.selectAll(".arrowhead, marker path")
     .style("fill", "#000");
 
-  d3.selectAll("marker path")
+    d3.selectAll("marker path")
     .style("stroke-dasharray", "50");
 
-  d3.selectAll(".white, .dottedMarker path")
+    d3.selectAll(".white, .dottedMarker path")
     .style("fill", "#fff");
 
-  d3.selectAll(".svgGraph .text tspan:only-child, .svgGraph .text:empty")
+    d3.selectAll(".svgGraph .text tspan:only-child, .svgGraph .text:empty")
     .style("dominant-baseline", "central");
 
-  d3.selectAll(".subclass")
+    d3.selectAll(".subclass")
     .style("fill", "#fff");
 
-  d3.selectAll(".focused")
+    d3.selectAll(".focused")
     .style("stroke", "#f00");
 
-  d3.selectAll("rect.focused, circle.focused")
+    d3.selectAll("rect.focused, circle.focused")
     .style("stroke-width", "4px");
 
-  d3.selectAll(".cardinality.focused, marker path.focused")
+    d3.selectAll(".cardinality.focused, marker path.focused")
     .style("fill","#f00");
 };
 
@@ -212,7 +212,6 @@ var graphOptions = function graphOptionsFunct() {
         .attr("value", DEFAULT_VISIBLE_LINKDISTANCE)
         .attr("step", 10)
         .on("input", changeDistance);
-
 
     d3.select(title)
         .text(json.info[0].title);
