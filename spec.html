@@ -1034,7 +1034,7 @@
             </td>
             <td>
               <p>Labels of equivalent properties are listed in square brackets, with one of the property lables as main label.
-			  
+			  <!-- SL: Will be fixed tonight -->
 			  If any of the equivalent properties is from the visualized ontology, its label is chosen as main label (if there are several such properties, the label of one of them is chosen). If all equivalent properties are external, the label of one of them is chosen too. The color of the rectangle depends on the type of property from which the main label is taken, i.e. <a>general</a> color = <a>owl:ObjectProperty</a>, <a>datatype property</a> color = <a>owl:DatatypeProperty</a>, and <a>rdf color</a> = <a>rdf:Property</a>.</p>
             </td>
           </tr>
@@ -1054,29 +1054,24 @@
             </td>
             <td>
               <p>Class representation with double border, with the space between the double border being colored in the <a>neutral</a> color.
-			  
+			  <!-- SL: Will be fixed tonight -->			  
 			  The main label is from a class with the same base URI (if there is any). The labels of equivalent classes (from external ontologies or from the same base URI) are added as a comma-separated list to the label in squared brackets.
               </p>
 			  Double border independently of how many classes it contains.
               <!-- ToDo: What's with the rest of the info of equivalent classes (if there is any) -->
               <p> This notation may also be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em> in OWL Full, where it can be defined between two classes.
+			  <!-- <p>Note that:</p>
+        <ul>
+          <li>Equivalent classes and properties
+        a label of one of the equivalent elements is selected as the main label. If any of the elements are from the ontology being visualized (rather than external [ref]), a label from such an element will be preferred.</li>
+      </ul> -->
               </p>
             </td>
           </tr>
         </tbody>
-      </table>
-
-      
-      
-      <p>Note that:</p>
-        <ul>
-          <li>Equivalent classes and properties
-        a label of one of the equivalent elements is selected as the main label. If any of the elements are from the ontology being visualized (rather than external [ref]), a label from such an element will be preferred.</li>
-      </ul>
-      
+      </table>      
       <p>The basic set operations <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em> define new (anonymous) classes to describe the union, intersection, or complement of other classes, and are thus represented as circles.
       The circles contain the corresponding <a href="http://www.w3.org/2001/sw/SW-FAQ#relDL">Description Logic (DL)</a> operators (&cup;,&cap;, &not;).</p>
-      
         <table id="setOperatorTable3">
         <caption>Table 7. Graphical representations of set operators.</caption>
           <tbody>
@@ -1244,7 +1239,13 @@
               <text transform="matrix(1 0 0 1 13.6548 15.7842)">
               <tspan x="0" y="0">Name of ontology</tspan>
               <tspan x="0" y="25">Base URI of ontology</tspan>
-              <!-- ToDo: SVG textfield -->
+              <!-- SL: I can try to fix it - Should be similar to 
+			                  <text class="text">
+                <tspan x="0" y="15">text</tspan>
+                <tspan x="0" y="30">number</tspan>
+                <tspan x="0" y="45">symbol</tspan>
+                </text>
+				-->
               <tspan x="0" y="50">Description: This is an example </tspan>
               <tspan x="0" y="63">regarding the info box area where</tspan>
               <tspan x="0" y="75">elements like</tspan>
