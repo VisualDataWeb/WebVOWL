@@ -59,7 +59,7 @@
     <hr>
     <section id="overview">
       <h2>Overview <a href="#toc">[back to top]</a></h2>
-      <p>VOWL is based on only a handful of <a href="#graphicalPrimitives">graphical primitives</a> forming the alphabet of the visual language: Classes are depicted as circles that are connected by lines and arrows representing the property relations. Property labels and datatypes are shown in rectangles. Information on individuals and data values is either displayed in the visualization itself or in another part of the user interface.</p>
+      <p>VOWL, the Visual Notation for OWL Ontologies, is based on only a handful of <a href="#graphicalPrimitives">graphical primitives</a> forming the alphabet of the visual language: Classes are depicted as circles that are connected by lines and arrows representing the property relations. Property labels and datatypes are shown in rectangles. Information on individuals and data values is either displayed in the visualization itself or in another part of the user interface.</p>
         
       <p>The second ingredient of VOWL is a <a href="#colorScheme">color scheme</a> complementing the graphical primitives. It defines colors for the visual elements to allow for an easy distinction of different types of classes and properties. Although the color scheme is defined in an abstract way leaving room for customization, a set of concrete color recommendations provides guidance for developers.</p>
         
@@ -71,7 +71,7 @@
     <section id="buildingBlocks">
       <h2>Basic Building Blocks <a href="#toc">[back to top]</a></h2>
       <p>
-      This section introduces the <a href="#graphicalPrimitives">graphical primitives</a> and <a href="#colorScheme">color scheme </a> that form the basic building blocks of VOWL. It also defines <a href="#splittingRules">splitting rules</a> for the graph visualization and gives some <a href="#generalGuidelines">general guidelines</a> for using the notation.
+      This section introduces the <a href="#graphicalPrimitives">graphical primitives</a> and <a href="#colorScheme">color scheme </a> that form the basic building blocks of VOWL. It also defines <a href="#splittingRules">splitting rules</a> for nodes in the graph visualization and gives some <a href="#generalGuidelines">general guidelines</a> for using the notation.
       </p>
       <h3 id="graphicalPrimitives">Graphical Primitives</h3>
       <p><a href="#primitivesTable">Table 1</a> lists all graphical primitives used in VOWL.</p>
@@ -184,7 +184,7 @@
           </tbody>
         </table>
         <h3 id="colorScheme">Color Scheme</h3>
-        <p><a href="#colorTable">Table 2</a> lists the colors used in VOWL. They are defined in an abstract way, along with a description and a recommendation for a concrete color and its hex code. Developers may choose different colors, as long as they comply with the abstract descriptions. All colors are defined relative to the canvas color which is assumed to be very light. The colors (and color descriptions) may be 'inverted' if the visualization is presented on a dark background.</p>
+        <p><a href="#colorTable">Table 2</a> lists the colors used in VOWL. They are defined in an abstract way, along with a description and a recommendation for a concrete color and its hex code. Developers may choose different colors, as long as they comply with the abstract descriptions. All colors are defined relative to the canvas color, which is assumed to be very light. The colors (and color descriptions) may be 'inverted' if the visualization is presented on a dark background.</p>
         
         <p>While the colors ease the reading of the visualization, they are not required to understand it. The visualization is also understandable if printed in black and white or read by color-blind people, though some details may not be visible any longer (e.g. if a class is of type <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>). If these details should also be available in black and white prints of the visualization, they may be added as text (e.g. in the class label).</p>
         
