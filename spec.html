@@ -409,7 +409,8 @@
         <p>The third highlighting mode is indirect. It expresses some kind of relationship between elements, without connecting them visually by a line. It is used in VOWL to dynamically indicate sub- and superproperties of a hovered property. Like the <em>highlight on hover</em>, it changes the fill color of the element (plus the color of the line and arrow if any), but this time to the <a href="">indirect highlighting</a> color.</p>
         <h4 id="conflicts">Conflicts</h4>
         <p>The <a href="">deprecated</a> color has priority over the <a href="">external</a> color, i.e. if a class or property from an external ontology is deprecated, it will be visualized in the <a href="">deprecated</a> color. In such cases, the text in the element will display all attributes in a comma-separated form (e.g. "deprecated, external"). If a property is symmetric and functional, the text will indicate "symmetric, functional" accordingly.</p>
-        <p>The equivalent class notation generally overrides other attributes. If a class in the visualized ontology is equivalent to a deprecated or an external class, it is displayed using the normal <a href="">equivalent class notation</a>.</p>
+        <p>The equivalent class notation generally overrides any other attributes. If a class in the visualized ontology is equivalent to a deprecated or an external class, it is displayed using the normal <a href="">equivalent class notation</a>.</p>
+		<!-- @SL: Wasn't there a description here about which equivalent element to prioritize for the label? There is a description like that in the equivalent class row, but if it were here, it would apply to all equivalent things, including equivalent properties. -->
       </section>
       <hr>
         <section id="notation">
