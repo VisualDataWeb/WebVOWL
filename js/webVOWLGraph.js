@@ -524,12 +524,12 @@ function calculateIntersection(source, target, additionalDistance) {
     	, y = dy * ratio + source.y;
 
     return {x: x, y: y};
-}
+};
 
 /* Adjusts the containers current scale and position */
 function zoomed() {
     svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-}
+};
 
 /* Calculate the visible link distance */
 var calculateLinkDistance = function calculateLinkDistanceFunct(l, visibleLinkDistance) {
@@ -537,7 +537,7 @@ var calculateLinkDistance = function calculateLinkDistanceFunct(l, visibleLinkDi
     distance += l.target.radius;
     distance += l.source.radius;
     return distance;
-}
+};
 
 /* Returns the link distance of the passed link */
 var getLinkDistance = function getLinkDistanceFunct(l) {
@@ -583,7 +583,7 @@ var getCharge = function getChargeFunct() {
     var   nodeCharge = (visibleLinkDistance / DEFAULT_VISIBLE_LINKDISTANCE) * CHARGE
     	, literalCharge = (visibleLiteralLinkDistance / DEFAULT_VISIBLE_LINKDISTANCE) * CHARGE;
     return Math.min(nodeCharge, literalCharge);
-}
+};
 
 /* Calculates the normal vector between two points */
 function calculateNormalVector(source, target, length) {
@@ -597,7 +597,7 @@ function calculateNormalVector(source, target, length) {
     	, ratio = length / vlength;
 
     return {"x": nx * ratio, "y": ny * ratio};
-}
+};
 
 /* Calculates a point between two points for curves */
 function calculateCurvePoint(source, target, l) {
@@ -623,7 +623,7 @@ function calculateCurvePoint(source, target, l) {
     }
 
     return {"x": cx + n.x, "y": cy + n.y};
-}
+};
 
 /* Calculate the optimal Multi Link distance */
 function calculateMultiLinkDistance(l) {
@@ -639,7 +639,7 @@ function calculateMultiLinkDistance(l) {
             break;
     }
     return distance * (visibleLinkDistance / DEFAULT_VISIBLE_LINKDISTANCE);
-}
+};
 
 /* Calculates the radian of an angle */
 function calculateRadian(angle) {
@@ -652,7 +652,7 @@ function calculateRadian(angle) {
         arc = arc + (2 * Math.PI);
     }
     return arc;
-}
+};
 
 /* Calculates links to itself and stores the point for the labels. Currently only working for circle nodes! */
 function calculateSelfLinkPath(l) {
@@ -680,14 +680,14 @@ function calculateSelfLinkPath(l) {
     l.curvePoint = curvePoint;
 
     return loopFunction([fixPoint1, curvePoint, fixPoint2]);
-}
+};
 
 /* ################ MARKERS ################ */
 
 /* Returns an id to get the marker to the matching link */
 function getMarkerId(l, inverse) {
     return (l.type ? l.type : "normal") + l.id + (inverse ? "inverse" : "");
-}
+};
 
 /* Function that adds markers according to the used links */
 function addMarker(defs, link, inverse) {
@@ -705,7 +705,7 @@ function addMarker(defs, link, inverse) {
         .attr("d", function () {
             return inverse ? "M12,-8L0,0L12,8Z" : "M0,-8L12,0L0,8Z";
         });
-}
+};
 
 /* Methods to create hover effect for the specification */
 function labelMouseOver(tag) {
@@ -716,7 +716,7 @@ function labelMouseOver(tag) {
     d3.selectAll("." + tag)
         .selectAll("path, text")
         .classed("hovered", true);
-}
+};
 function labelMouseOut(tag) {
     d3.selectAll("marker#" + tag)
         .select("path")
@@ -725,17 +725,17 @@ function labelMouseOut(tag) {
     d3.selectAll("." + tag)
         .selectAll("path, text")
         .classed("hovered", false);
-}
+};
 function indirectHighlightOn(tag) {
     d3.selectAll("." + tag)
         .selectAll("rect")
         .classed("indirectHighlighting", true);
-}
+};
 function indirectHighlightOff(tag) {
     d3.selectAll("." + tag)
         .selectAll("rect")
         .classed("indirectHighlighting", false);
-}
+};
 
 /* Highlights the marker and link for the given label and direction */
 function labelMouseEnter(linkData, direction) {
@@ -758,7 +758,7 @@ function labelMouseEnter(linkData, direction) {
             return a.id - b.id; // compare unique values
         }
     });
-}
+};
 
 /* Removes highlighting of marker and link for the given label and direction */
 function labelMouseLeave(linkData, direction) {
@@ -768,7 +768,7 @@ function labelMouseLeave(linkData, direction) {
 
     d3.selectAll("." + getMarkerId(linkData, inverse))
         .selectAll("path, text").classed("hovered", false);
-}
+};
 
 /* Function to add rectangles as label background */
 function addLabelRect(label, data, direction) {
@@ -793,7 +793,7 @@ function addLabelRect(label, data, direction) {
             labelMouseLeave(linkData, direction);
             highlightSubproperties(linkData, direction, false);
         });
-}
+};
 
 /* Add the label to a link in the given direction */
 function addLabel(link, data, direction) {
@@ -814,7 +814,7 @@ function addLabel(link, data, direction) {
     addLabelText(labelText, data, direction);
     addPropertyToLabel(labelText, data, direction);
     addSubPropertyLabel(labelText, data, direction);
-}
+};
 
 /* Adds a new <tspan> to the label */
 function addLabelText(element, d, direction) {
@@ -857,7 +857,7 @@ function addLabelText(element, d, direction) {
             }
             return value.toString().truncate(LABEL_WIDTH);
         });
-}
+};
 
 /* Adds a new <tspan> to the existing <text> in the label position */
 function addPropertyToLabel(label, d, direction) {
@@ -887,7 +887,7 @@ function addPropertyToLabel(label, d, direction) {
         .attr("x", 0).attr("y", 9)
         .attr("class", "subtext")
         .text("(" + trimmedPropertyText.substr(2) + ")");
-}
+};
 
 /* Adds a new <tspan> to the existing <text> in the label position */
 function addSubPropertyLabel(label, d, direction) {
@@ -917,7 +917,7 @@ function addSubPropertyLabel(label, d, direction) {
         .attr("x", 0).attr("y", 9)
         .attr("class", "subtext")
         .text("[" + trimmedPropertyText.substr(2) + "]");
-}
+};
 
 function addDisjointLabel(label) {
     label.append("circle")
@@ -938,7 +938,7 @@ function addDisjointLabel(label) {
     text.append("tspan")
         .classed("subtext", true)
         .text("(disjoint)");
-}
+};
 
 function addCardinality(link, direction) {
     var card = link.append("g")
@@ -954,7 +954,7 @@ function addCardinality(link, direction) {
         .text(function (d) {
             return direction === "to" ? d.cardTo : d.cardFrom;
         });
-}
+};
 
 /* Adds a new line of text to the element. */
 function addTextline(element, word, additionalClass) {
@@ -983,14 +983,14 @@ function addSubTextNode(element, word, additionalClass) {
         .attr("y",function () {
             return (element.property("childNodes").length - 1) * SPACE_BETWEEN_SPANS;
         }).text(word);
-}
+};
 
 /*Adds <text> block to element. */
 function addTextBlock(element) {
     element.append("text")
         .classed("text", true)
         .attr("text-anchor", "middle");
-}
+};
 
 /* Adds new literal. */
 function addLiteral(element, data) {
@@ -1024,7 +1024,7 @@ function addLiteral(element, data) {
     } else {
         addTextline(element.select("text"), "Literal");
     }
-}
+};
 
 /* Adds new literal. */
 function addDatatype(element, data) {
@@ -1057,7 +1057,7 @@ function addDatatype(element, data) {
     } else {
         addTextline(element.select("text"), "Datatype");
     }
-}
+};
 
 /* Appends thing node. */
 function addThing(element, data) {
@@ -1090,7 +1090,7 @@ function addThing(element, data) {
     } else {
         addTextline(element.select("text"), "Thing");
     }
-}
+};
 
 /* Appends rdfs:Resource node. */
 function addRDFSResource(element, data) {
@@ -1123,7 +1123,7 @@ function addRDFSResource(element, data) {
     } else {
         addTextline(element.select("text"), "Resource");
     }
-}
+};
 
 /* Appends class node. */
 function addClass(element, data) {
@@ -1152,7 +1152,7 @@ function addClass(element, data) {
     } else {
         addTextline(element.select("text"), "Class");
     }
-}
+};
 
 /* Appends rdfs:class node. */
 function addRDFSClass(element, data) {
@@ -1183,7 +1183,7 @@ function addRDFSClass(element, data) {
     } else {
         addTextline(element.select("text"), "Class");
     }
-}
+};
 
 
 /* Appends equivalentClass node. */
@@ -1230,7 +1230,7 @@ function addEquivalentClass(element, data) {
     element.select("text").attr("transform", function () {
         return "translate(0,-" + rePositiony + ")";
     });
-}
+};
 
 /* Appends externalClass node.*/
 function addExternalClass(element, data) {
@@ -1268,7 +1268,7 @@ function addExternalClass(element, data) {
     element.select("text").attr("transform", function () {
         return "translate(0,-" + rePositiony + ")";
     });
-}
+};
 
 /* Appends deprecatedClass node.*/
 function addDeprecatedClass(element, data) {
@@ -1306,7 +1306,7 @@ function addDeprecatedClass(element, data) {
     element.select("text").attr("transform", function () {
         return "translate(0,-" + rePositiony + ")";
     });
-}
+};
 
 /* Appends intersectionClass node.*/
 function addIntersectionClass(element, data) {
@@ -1332,8 +1332,7 @@ function addIntersectionClass(element, data) {
             .classed("special", true)
             .attr("r", SPECIAL_OPERATIONS_RADIUS);
     }
-    var symbol = element.append("g")
-        .classed("embedded", true);
+    var symbol = element.append("g").classed("embedded", true);
 
     symbol.append("path")
         .attr("class", "nostroke")
@@ -1351,7 +1350,7 @@ function addIntersectionClass(element, data) {
         .attr("class", "nofill")
         .attr("d", "m 9,5 c 0,-2 0,-4 0,-6 0,0 0,0 0,0 0,0 0,-1.8 -1,-2.3 -0.7,-0.6 -1.7,-0.8 -2.9,-0.8 -1.2,0 -2,0 -3,0.8 -0.7,0.5 -1,1.4 -1,2.3 0,2 0,4 0,6");
     symbol.attr("transform", "translate(-" + (SPECIAL_OPERATIONS_RADIUS - 15) / 5 + ",-" + (SPECIAL_OPERATIONS_RADIUS - 15) / 100 + ")");
-}
+};
 
 /* Appends unionClass node.*/
 function addUnionClass(element, data) {
@@ -1396,7 +1395,7 @@ function addUnionClass(element, data) {
         .attr("class", "link")
         .attr("d", "m 1,-3 c 0,2 0,4 0,6 0,0 0,0 0,0 0,2 2,3 4,3 2,0 4,-1 4,-3 0,-2 0,-4 0,-6");
     symbol.attr("transform", "translate(-" + (SPECIAL_OPERATIONS_RADIUS - 15) / 5 + ",-" + (SPECIAL_OPERATIONS_RADIUS - 15) / 100 + ")");
-}
+};
 
 /* Appends complementClass node.*/
 function addComplementClass(element, data) {
@@ -1422,8 +1421,7 @@ function addComplementClass(element, data) {
             .classed("special", true)
             .attr("r", SPECIAL_OPERATIONS_RADIUS);
     }
-    var symbol = element.append("g")
-        .classed("embedded", true);
+    var symbol = element.append("g").classed("embedded", true);
 
     symbol.append("circle")
         .attr("class", "symbol")
@@ -1433,7 +1431,7 @@ function addComplementClass(element, data) {
         .attr("class", "nofill")
         .attr("d", "m -7,-1.5 12,0 0,6");
     symbol.attr("transform", "translate(-" + (SPECIAL_OPERATIONS_RADIUS - 15) / 100 + ",-" + (SPECIAL_OPERATIONS_RADIUS - 15) / 100 + ")");
-}
+};
 
 /* Returns the type of the selected element, either node or label. */
 var getKindOfElement = function getKindOfElementFunct(element) {
@@ -1587,7 +1585,7 @@ var appendUriLabel = function appendUriLabelFunct(element, name, uri) {
     tag.text(name);
 };
 
-var getTypeNode = function(type){
+var getTypeNode = function(type) {
     switch(type) {
         case "class":
             return "OWL Class";
@@ -1616,7 +1614,7 @@ var getTypeNode = function(type){
     }
 };
 
-var getTypeLink = function(type){
+var getTypeLink = function(type) {
     switch(type) {
         case "object":
             return "Object Property";
@@ -1646,26 +1644,22 @@ var getLinkInfo = function getLinkInfoFunct() {
             hideNodeInfoFields();
             setUriLabel(d3.select("#propname"), l.valueFrom, l.uriFrom);
             d3.select("#typeProp").text(getTypeLink(l.propertyFrom));
-            if (l.inverse === true){
-                d3.select("#inverse")
-                .style("display","block");
+
+            if (l.inverse === true) {
+                d3.select("#inverse").style("display","block");
                 setUriLabel(d3.select("#inverse span"), l.valueTo, l.uriTo);
             } else {
                 d3.select("#inverse").style("display","none");
             }
-            if (l.cardTo !== undefined){
-                d3.select("#minCardinality")
-                .style("display","block");
-                d3.select("#minCardinality span")
-                .text(l.cardFrom);
+            if (l.cardTo !== undefined) {
+                d3.select("#minCardinality").style("display","block");
+                d3.select("#minCardinality span").text(l.cardFrom);
             } else {
                 d3.select("#minCardinality").style("display","none");
             }
-            if (l.cardFrom !== undefined){
-                d3.select("#maxCardinality")
-                .style("display","block");
-                d3.select("#maxCardinality span")
-                .text(l.cardTo);
+            if (l.cardFrom !== undefined) {
+                d3.select("#maxCardinality").style("display","block");
+                d3.select("#maxCardinality span").text(l.cardTo);
             } else {
                 d3.select("#maxCardinality").style("display","none");
             }
@@ -1682,29 +1676,26 @@ var getLinkInfo = function getLinkInfoFunct() {
             hideNodeInfoFields();
             setUriLabel(d3.select("#propname"), l.valueTo, l.uriTo);
             d3.select("#typeProp").text(getTypeLink(l.propertyTo));
-            if (l.inverse === true){
-                d3.select("#inverse")
-                .style("display","block");
+
+            if (l.inverse === true) {
+                d3.select("#inverse").style("display","block");
                 setUriLabel(d3.select("#inverse span"), l.valueFrom, l.uriFrom);
             } else {
                 d3.select("#inverse").style("display","none");
             }
-            if (l.cardTo !== undefined){
-                d3.select("#minCardinality")
-                .style("display","block");
-                d3.select("#minCardinality span")
-                .text(l.cardTo);
+            if (l.cardTo !== undefined) {
+                d3.select("#minCardinality").style("display","block");
+                d3.select("#minCardinality span").text(l.cardTo);
             } else {
                 d3.select("#minCardinality").style("display","none");
             }
-            if (l.cardFrom !== undefined){
-                d3.select("#maxCardinality")
-                .style("display","block");
-                d3.select("#maxCardinality span")
-                .text(l.cardFrom);
+            if (l.cardFrom !== undefined) {
+                d3.select("#maxCardinality").style("display","block");
+                d3.select("#maxCardinality span").text(l.cardFrom);
             } else {
                 d3.select("#maxCardinality").style("display","none");
             }
+
             setUriLabel(d3.select("#domain"), l.source.name, l.source.uri);
             setUriLabel(d3.select("#range"), l.target.name, l.target.uri);
 
@@ -1715,6 +1706,7 @@ var getLinkInfo = function getLinkInfoFunct() {
 /* Highlights related subproperties if they are set */
 var highlightSubproperties = function highlightSubpropertiesFunct(link, direction, classed) {
     var subproperties = link.subpropertiesTo;
+
     if (direction === "from") {
         subproperties = link.subpropertiesFrom;
     }
@@ -1744,7 +1736,7 @@ function refreshOntology(jsonFile) {
     clearCanvas();
     jsonURI = jsonFile;
     loadGraph();
-}
+};
 
 var clearCanvas = function clearCanvasFunct() {
     var   graphTag = document.getElementById('graph')
