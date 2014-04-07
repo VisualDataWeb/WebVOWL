@@ -65,7 +65,7 @@
         
       <p>Finally, the visual elements are combined to a graph that is rendered in a force-directed layout and that represents the ontology. VOWL defines <a href="#splittingRules">splitting rules</a> to specify which elements are multiplied and thus displayed several times in the visualization to improve the overall layout.</p>
         
-      <p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/TR/owl-ref/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), although not all language constructs are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>.</p>
+      <p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/TR/owl-ref/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), although not all language constructs (especially of OWL 2) are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>.</p>
     </section>
     <hr>
     <section id="buildingBlocks">
@@ -1030,24 +1030,13 @@
               </g>
               </svg>
             </td>
-            <!-- TODO: remark about color -->
             <td>
-              <p>Labels of equivalent properties are listed in squared brackets.<!-- same rule as for equivalentClass --></p>
+              <p>Labels of equivalent properties are listed in square brackets, with one of the property lables as main label. If any of the equivalent properties is from the visualized ontology, its label is chosen as main label (if there are several, one is chosen). If all equivalent properties are external, a label from one of them is chosen. The color of the rectangle depends on the type of property from which the main label is taken, i.e. <a>general</a> color = <a>owl:ObjectProperty</a>, <a>datatype property</a> color = <a>owl:DatatypeProperty</a>, and <a>rdf color</a> = <a>rdf:Property</a>.</p>
             </td>
           </tr>
             <tr>
             <td><em><a href="http://www.w3.org/TR/owl-ref/#equivalentClass-def">owl:equivalentClass</a></em></td>
               <td class="tdCenter" id="owlEquivalentClass">
-              <!--<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="71px" height="71px">
-              <g transform="translate(35.5,35.5)">
-              <circle class="class white embedded" r="34" />
-              <circle class="class" r="30" />
-              <text class="text" text-anchor="middle" transform="translate(0,-6)">
-              <tspan x="0" y="4">Class A</tspan>
-              <tspan x="0" y="14" class="subtext">[Class B]</tspan>
-              </text>
-              </g>
-              </svg>-->
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="105px" height="105px">
               <g transform="translate(52.5,52.5)">
               <circle class="class white embedded" r="50" />
@@ -1056,7 +1045,6 @@
               <tspan x="0" y="-7">Class A</tspan>
               <tspan x="0" y="7" class="subtext">[Class B]</tspan>
               </text>
-              <!--<text class="text" text-anchor="middle">Class</text>-->
               </g>
               </svg>
             </td>
