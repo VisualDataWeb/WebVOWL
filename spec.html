@@ -545,7 +545,7 @@
                 </svg>
               </td>
               <td>
-                <p>Solid line starting at the domain with an arrow pointing to the range. This element does never occur on its own, but always in combination with the property it is defined for (<em>property representation</em>).</p>
+                <p>Solid line starting at the domain, having an arrowhead filled with the <a>foreground</a> color that points to the range. This element does never occur on its own, but always in combination with the property it is defined for (<em>property representation</em>).</p>
               </td>
             </tr>
               <tr>
@@ -861,7 +861,7 @@
             </td>
               <td>
               <p>
-              Exact, minimal, and/or maximal cardinality constraints are written near the end of the property arrow that the cardinality refers to. The notation is similar to <a href="http://www.uml.org/">UML</a>, i.e. the letters "x" and "y" in the example represent the minimum and maximum cardinality for that property. Exact cardinalities are represented by only one number, while the asterisk (*) denotes an unrestricted cardinality. Examples are "0..1" for a cardinality of 0 to 1, "1..*" for a minimum cardinality of 1, or "3" for a cardinality of exactly 3.
+              Exact, minimal, and/or maximal cardinality constraints are written near the end of the property arrow that the cardinality refers to. The representation is similar to the <a href="http://www.uml.org/">UML notation for cardinalities</a>, i.e. the letters "x" and "y" in the example represent the minimum and maximum cardinality for that property. Exact cardinalities are represented by only one number, while the asterisk (*) denotes an unrestricted cardinality. Examples are "0..1" for a cardinality of 0 to 1, "1..*" for a minimum cardinality of 1, or "3" for a cardinality of exactly 3.
               </p>
 			  <p>
 			  The default cardinality of most properties is any number (i.e. zero or more) and would be represented by a sole asterisk. However, it is recommended to only visualize cardinalities that are explicitely specified with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em>. Default property cardinalities (incl. the global cardinaility constraints of functional and inverse functional properties) are better not shown in the visualization to avoid confusion and reduce visual clutter.
@@ -897,7 +897,7 @@
               </svg>
             </td>
             <td>
-              <p>Dashed line connecting the two disjoint classes and having the symbol of two disjoint sets as a label. The label has the <a>general</a> color and indication "disjoint" in brackets. As an alternative to showing this element in the visualization, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> statements may be presented as details on demand in another part of the user interface, which is recommended as it results in a less cluttered graph.</p>
+              <p>Dashed line without arrowhead, connecting the disjoint classes and having the symbol of two disjoint sets as a label. The label has the <a>general</a> color and indication "disjoint" in brackets. If several classes are pairwise disjoint, this would be visualized by connecting each two of them. As an alternative to showing this element in the visualization, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> statements may be presented as details on demand in another part of the user interface, which is recommended as it usually results in a less cluttered graph.</p>
             </td>
           </tr>
             <tr>
@@ -923,10 +923,7 @@
               </svg>
             </td>
             <td>
-              <p>Dotted line with a <a>neutral</a> arrow head at the end pointing to the superclass (arrow head like in UML but with a dashed line), with a <a>neutral</a> or transparent background for the label <strong>Subclass of</strong>.</p>
-
-Solid line starting at the domain with an arrow pointing to the range. This element does never occur on its own, but always in combination with the property it is defined for (property representation).			  
-            </td>
+			<p>Dotted line starting at the subclass, having an arrowhead filled with the <a>neutral</a> color that points to the superclass. The representation is similar to the <a href="http://www.uml.org/">UML notation for generalizations</a> but with a dashed line instead of a solid one to allow for an easier identification in the visualization. In addition, it is recommended to add the label "Subclass of" to the representation to clarify its semantics. The label has either a transparant background or is shown in a rectangle that has the <a>neutral</a> color (unless highlighted), which is recommended.</p>	</td>
           </tr>
             <tr>
             <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_subpropertyof">rdfs:subPropertyOf</a></em></td>
