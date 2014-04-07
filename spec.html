@@ -50,7 +50,7 @@
         <li><a href="#overview">Overview</a></li>
         <li><a href="#buildingBlocks">Basic Building Blocks</a></li>
         <li><a href="#notation">Visual Notation</a></li>
-        <li><a href="#example">Examples</a></li>
+        <li><a href="#example">Example</a></li>
         <li><a href="#acknowledgments">Acknowledgments</a></li>
         <li><a href="#changenotes">Change Notes</a></li>
         <li><a href="#references">References</a></li>
@@ -1298,45 +1298,28 @@
     <hr>
       <section id="example">
       <h2>Example <a href="#toc">[back to top]</a></h2>
-      <p>The interactive example below depicts the visual representation of the <a href="http://xmlns.com/foaf/spec/">Friend of a Friend (FOAF)</a> vocabulary (version 0.99). It has been created with <a href="webvowl.html">WebVOWL</a>. Visit <a href="webvowl.html">WebVOWL</a> for further examples.</p>
-      <p id="foafDetails">As the FOAF ontology exemplified in this section is not populated, all circles have the same size<!-- @SL: Ok, understood. --> (except from special types of classes which have a smaller size<!-- @SL: Huh?? -->).</p>
-      
+      <p>The interactive example below uses VOWL to visualize <a href="http://xmlns.com/foaf/spec/20140114.html">version 0.99 of the Friend of a Friend (FOAF) vocabulary</a>. It has been created with <a href="http://vowl.visualdataweb.org">WebVOWL</a>. A demo of WebVOWL with further examples is availabel at <a href="http://vowl.visualdataweb.org">vowl.visualdataweb.org</a>. There is also a <a href="http://vowl.visualdataweb.org">VOWL plugin</a> for the popular ontology editor <a href="http://protege.stanford.edu/">Prot&eacute;g&eacute;</a> that implements this specification to a large extend.</p>  
         <div id="graph">
         <div id="resetOption"></div>
         <div id="sliderOption"></div>
       </div>
       <p id="browserCheck" class="hidden"></p>
-      <p id="controlDetails">Zoom in and out is device-dependent: use mouse wheel, double click (+ shift key), or two fingers zooming gesture (on the canvas, not on nodes).</p>
-      <p>Another tool which makes use of the VOWL specification is <a href="protegevowl.html">Prot&eacute;g&eacute;VOWL</a> a plugin for the <a href="http://protege.stanford.edu/">Prot&eacute;g&eacute;</a> desktop application.</p>
+      <p id="controlDetails">Zoom in and out is device-dependent: use mouse wheel, double click (+ shift key), or two fingers zooming gesture (the latter not on visual elements).</p>
     </section>
     <hr>
       <section id="acknowledgements">
       <h2>Acknowledgments <a href="#toc">[back to top]</a></h2>
-      <p>We would like to thank David Bold, Thomas Ertl, Vincent Link and Eduard Marbach for their valuable feedback and support.</p>
+      <p>We would like to thank David Bold, Thomas Ertl, Vincent Link and Eduard Marbach for their valuable feedback, suggestions, and support.</p>
     </section>
     <hr>
       <section id="changenotes">
       <h2>Change Notes <a href="#toc">[back to top]</a></h2>
       <p>VOWL 1 distinguished between three layers that may be visualized --> ABox and TBox <a href="http://purl.org/vowl/v1/">Version 1.0</a> of the VOWL specification distinguished between three layers that may be visualized: <strong>Conceptual Layer</strong>, <strong>Instance Layer</strong> and <strong>Integrated Layer</strong> (more information on the layers of the visual notation can be found in <a href="#references">Negru &amp; Lohmann 2013.</a>), therefore in the current version (<a href="http://purl.org/vowl/v2/">Version 2.0</a>) we address the issues of on-demand interactive exploration and scalability of Visual Notation for OWL ontologies -- issues we identified in a comparative user study conducted on the VOWL <a href="http://purl.org/vowl/v1/">Version 1.0</a> and UML representation for RDFS/OWL <a href="http://www.omg.org/spec/ODM/">Ontology Definition Metamodel (ODM)</a> (more details regarding the user study are available in <a href="#references">Negru, Haag, and Lohmann 2013.</a>).</p>
     </section>
-    <!-- @SL: this should be deleted as it is not the case anymore
-    <p>We differentiate between two representations of the VOWL notation: </p>
-      <ul>
-        <li><strong>Static Representation:</strong> Provides a visual overview of the OWL ontology via a static
-        representation. Utilizing such a representation is limited to visualizing only conceptual elements of
-        the ontology (classes, properties and literals) excluding instances (individuals) - useful in representing
-        the ontology in a paper report/article/poster;
-      </li>
-        <li><strong>Interactive Representation:</strong> (On-Demand VOWL notation) enriches the <strong>Static
-        Notation</strong> by interactive features.
-      </li>
-    </ul> -->
-    <!-- SN: @SL I tried to come up with a paragraph to solve the issue below.
-    Clarify in preamble that this specification focuses on the conceptual layer only. Our recommendation at the moment is to show information about individuals and data values not in the visualization itself but at another place in the GUI (such as the side bar). Alternatively, one might use the representation for individuals -->
     <hr>
       <section id="references">
       <h2>References <a href="#toc">[back to top]</a></h2>
-      <p>Further information on version 1.0 of VOWL can be found in the following publications:</p>
+      <p>Further information on <a href="http://purl.org/vowl/v1/">version 1.0</a> of VOWL can be found in the following publications:</p>
       <p>Negru, S. and Lohmann, S.: <a href="../v1/VOWL2013.pdf">A Visual Notation for the Integrated Representation of OWL Ontologies</a>. Proceedings of the 9th International Conference on Web Information Systems and Technologies (WEBIST '13). SciTePress 2013; pp. 308-315 <a href="../v1/vowl-bibtex.txt">[BibTex]</a></p>
       <p>Negru, S., Haag F. and Lohmann, S.: <a href="VOWLvsUML2013.pdf">Towards a Unified Visual Notation for OWL Ontologies: Insights from a Comparative User Study</a>. Proceedings of the 9th International Conference on Semantic Systems (I-SEMANTICS '13). ACM 2013; pp. 73-80 <a
       href="VOWLvsUML.txt">[BibTex]</a></p>
