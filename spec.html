@@ -743,8 +743,7 @@
                 </svg>
               </td>
               <td>
-                <p>Object property representation with indication "inverse functional" in brackets. The global cardinality constraint of functional properties is not made explicit in the visualization for the same reason as above.</p>
-				<!-- @SL: link "above"? -->
+                <p>Object property representation with indication "inverse functional" in brackets. The global cardinality constraint of functional properties is not made explicit in the visualization for the same reason as for <a>functional properties</a>.</p>
               </td>
             </tr>
               <tr>
@@ -827,6 +826,9 @@
           </tbody>
         </table>
         <p>Note that the text strings "Property", "ObjectProperty", "DatatypeProperty" and "DeprecatedProperty" are used as placeholders for the actual <a>class label</a> in the graphical representations. In contrast, the text strings in brackets ("functional", "inverse functional", "transitive", and "symmetric") are not placeholders but literally shown in the visualization.</p>
+      <p>
+      Also note that the background of the label in the graphical representation of <a>owl:FunctionalProperty</a> can have different colors. It is shown in the <a href="#colorRdf">rdf</a> color in this specification, as <em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em> is a subclass of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> and can thus be applied to any property in the ontology. The same applies to the graphical representations in the following tables whose label background has the <a href="#colorRdf">rdf</a> color.
+      </p>		
         <table id="propertyTable2">
         <caption>Table 6. Graphical representation of further properties.</caption>
           <tbody>
@@ -1031,7 +1033,9 @@
               </svg>
             </td>
             <td>
-              <p>Labels of equivalent properties are listed in square brackets, with one of the property lables as main label. If any of the equivalent properties is from the visualized ontology, its label is chosen as main label (if there are several, one is chosen). If all equivalent properties are external, a label from one of them is chosen. The color of the rectangle depends on the type of property from which the main label is taken, i.e. <a>general</a> color = <a>owl:ObjectProperty</a>, <a>datatype property</a> color = <a>owl:DatatypeProperty</a>, and <a>rdf color</a> = <a>rdf:Property</a>.</p>
+              <p>Labels of equivalent properties are listed in square brackets, with one of the property lables as main label.
+			  
+			  If any of the equivalent properties is from the visualized ontology, its label is chosen as main label (if there are several such properties, the label of one of them is chosen). If all equivalent properties are external, the label of one of them is chosen too. The color of the rectangle depends on the type of property from which the main label is taken, i.e. <a>general</a> color = <a>owl:ObjectProperty</a>, <a>datatype property</a> color = <a>owl:DatatypeProperty</a>, and <a>rdf color</a> = <a>rdf:Property</a>.</p>
             </td>
           </tr>
             <tr>
@@ -1049,8 +1053,11 @@
               </svg>
             </td>
             <td>
-              <p>Class notation with double border (with the space colored in the <a>neutral</a> color). The main label is from a class with the same base URI (if there is any). The labels of equivalent classes (from external ontologies or from the same base URI) are added as a comma-separated list to the label in squared brackets.
+              <p>Class representation with double border, with the space between the double border being colored in the <a>neutral</a> color.
+			  
+			  The main label is from a class with the same base URI (if there is any). The labels of equivalent classes (from external ontologies or from the same base URI) are added as a comma-separated list to the label in squared brackets.
               </p>
+			  Double border independently of how many classes it contains.
               <!-- ToDo: What's with the rest of the info of equivalent classes (if there is any) -->
               <p> This notation may also be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em> in OWL Full, where it can be defined between two classes.
               </p>
@@ -1058,14 +1065,7 @@
           </tr>
         </tbody>
       </table>
-      <p>Note that:</p>
-        <ul>
-        <li><p>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, as both types are subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. The same applies to properties with specific attributes, such as functional properties [ref].</p></li>
-      </ul>
-	  <!-- @SL: Confusing. What does this refer to? -->
-      <p>
-      Note that the background of this property can have different colors. It is shown in the <a href="#colorRdf">rdf</a> color in this specification, as <em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em> is a subclass of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> and can therefore be applied to any property in the ontology (i.e. same notation with different background color for <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>).
-      </p>
+
       
       
       <p>Note that:</p>
