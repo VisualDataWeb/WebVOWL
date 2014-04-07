@@ -37,7 +37,7 @@
     <section>
       <h2>Abstract</h2>
       <p>
-      The Visual Notation for OWL Ontologies (VOWL) defines a visual language for the user-oriented representation of ontologies. It provides graphical depictions for elements of the Web Ontology Language (OWL) that are combined to a force-directed layout visualizing the ontology.
+      The Visual Notation for OWL Ontologies (VOWL) defines a visual language for the user-oriented representation of ontologies. It provides graphical depictions for elements of the Web Ontology Language (OWL) that are combined to a force-directed graph layout visualizing the ontology.
       </p>
       <p>
         This specification focuses on the visualization of the ontology schema (i.e. the classes, properties and datatypes, sometimes called TBox), while it also includes recommendations on how to depict individuals and data values (the ABox). Familiarity with <a href="http://www.w3.org/standards/techs/owl">OWL</a> and other <a href="http://www.w3.org/standards/semanticweb/">Semantic Web</a> technologies is required to understand this specification.
@@ -59,11 +59,11 @@
     <hr>
     <section id="overview">
       <h2>Overview <a href="#toc">[back to top]</a></h2>
-      <p>VOWL, the Visual Notation for OWL Ontologies, is based on only a handful of <a href="#graphicalPrimitives">graphical primitives</a> forming the alphabet of the visual language: Classes are depicted as circles that are connected by lines and arrows representing the property relations. Property labels and datatypes are shown in rectangles. Information on individuals and data values is either displayed in the visualization itself or in another part of the user interface.</p>
+      <p>The Visual Notation for OWL Ontologies (VOWL) is based on only a handful of <a href="#graphicalPrimitives">graphical primitives</a> forming the alphabet of the visual language: Classes are depicted as circles that are connected by lines and arrows representing the property relations. Property labels and datatypes are shown in rectangles. Information on individuals and data values is either displayed in the visualization itself or in another part of the user interface.</p>
         
       <p>The second ingredient of VOWL is a <a href="#colorScheme">color scheme</a> complementing the graphical primitives. It defines colors for the visual elements to allow for an easy distinction of different types of classes and properties. Although the color scheme is defined in an abstract way leaving room for customization, a set of concrete color recommendations provides guidance for developers.</p>
         
-      <p>Finally, the visual elements are combined to a graph that is rendered in a force-directed layout and that represents the ontology. VOWL defines <a href="#splittingRules">splitting rules</a> to specify which elements are multiplied and thus displayed several times in the visualization to improve the overall layout.</p>
+      <p>Finally, the visual elements are combined to a graph that is rendered in a force-directed layout and represents the ontology. VOWL defines <a href="#splittingRules">splitting rules</a> to specify which elements are multiplied and thus displayed several times in the visualization to improve the overall layout.</p>
         
       <p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/TR/owl-ref/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), although not all language constructs (especially of OWL 2) are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="#rdfProperty">rdf:Property</a></em> or <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em>.</p>
     </section>
@@ -71,7 +71,7 @@
     <section id="buildingBlocks">
       <h2>Basic Building Blocks <a href="#toc">[back to top]</a></h2>
       <p>
-      This section introduces the <a href="#graphicalPrimitives">graphical primitives</a> and <a href="#colorScheme">color scheme </a> that form the basic building blocks of VOWL. It also defines <a href="#splittingRules">splitting rules</a> for nodes in the graph visualization and gives some <a href="#generalGuidelines">general guidelines</a> for using the notation.
+      This section introduces the <a href="#graphicalPrimitives">graphical primitives</a> and <a href="#colorScheme">color scheme </a> that form the basic building blocks of VOWL. It also defines <a href="#splittingRules">splitting rules</a> for elements in the graph visualization and gives some <a href="#generalGuidelines">general guidelines</a> for using the notation.
       </p>
       <h3 id="graphicalPrimitives">Graphical Primitives</h3>
       <p><a href="#primitivesTable">Table 1</a> lists all graphical primitives used in VOWL.</p>
@@ -128,7 +128,7 @@
               </td>
               <td>
                 <p>Arrowheads indicate the direction of property relations by pointing to the object of the property &ndash; i.e., a datatype, class, or class instance that is defined as the range of that property.</p>
-                <p>Arrowheads representing <a href="#rdfsRange">range axioms</a> are filled with the <a href="#colorForeground">foreground</a> color; arrowheads representing <a href="#rdfsSubclass">subclass relations</a> are filled with the <a href="#colorNeutral">neutral color</a>.</p>
+                <p>Arrowheads representing <a href="#rdfsRange">range axioms</a> are filled with the <a href="#colorForeground">foreground color</a>; arrowheads representing <a href="#rdfsSubclass">subclass relations</a> are filled with the <a href="#colorNeutral">neutral color</a>.</p>
               </td>
               <td>
               <p><em><a href="#rdfsRange">rdfs:range</a></em> (with <a href="#colorForeground">foreground color</a>), <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em> (with <a href="#colorNeutral">neutral color</a>)</p>
@@ -184,17 +184,17 @@
           </tbody>
         </table>
         <h3 id="colorScheme">Color Scheme</h3>
-        <p><a href="#colorTable">Table 2</a> lists the colors used in VOWL. They are defined in an abstract way, along with a description and a recommendation for a concrete color and its hex code. Developers may choose different colors, as long as they comply with the abstract descriptions. All colors are defined relative to the canvas color, which is assumed to be very light. The colors (and color descriptions) may be 'inverted' if the visualization is presented on a dark background.</p>
+        <p><a href="#colorTable">Table 2</a> lists the colors used in VOWL. They are defined in an abstract way, along with a description and a recommendation for a concrete color and its hex code. Developers may choose different colors, as long as they comply with the abstract descriptions. All colors are defined relative to the <a href="#colorCanvas">canvas color</a>, which is assumed to be very light. The colors (and color descriptions) may be 'inverted' if the visualization is presented on a dark background.</p>
         
-        <p>While the colors ease the reading of the visualization, they are not required to understand it. The visualization is also understandable if printed in black and white or read by color-blind people, though some details may not be visible any longer (e.g. if a class is of type <em><a href="#owlClass">owl:Class</a></em> or <em><a href="#rdfsClass">rdfs:Class</a></em>). If these details should also be available in black and white prints of the visualization, they may be added as text (e.g. in the class label).</p>
+        <p>While the colors ease the reading of the visualization, they are not required to understand it. The visualization is also understandable if printed in black and white or read by color-blind people, though some details may not be visible any longer (e.g. if a class is of type <em><a href="#owlClass">owl:Class</a></em> or <em><a href="#rdfsClass">rdfs:Class</a></em>). If these details should also be available in black and white prints of the visualization, they may be added as text (e.g. in the label of the element).</p>
         
-        <p>There may be <a href="#conflicts">conflicts</a> in using this color scheme, e.g. when a deprecated class belongs to an external ontology. They should be resolved by giving one of the colors a higher priority and adding all information in the label and/or another part of the user interface (e.g. the sidebar). Some recommendations are listed in the <a href="#conflicts">general guidelines</a></p>
+        <p>There may be <a href="#conflicts">conflicts</a> in using this color scheme, e.g. when a deprecated class belongs to an external ontology. They should be resolved by giving one of the colors a higher priority and adding all information in the label and/or another part of the user interface (e.g. the sidebar). Recommendations are given in the <a href="#conflicts">general guidelines</a></p>
           <table id="colorTable">
           <caption>Table 2. Color scheme.</caption>
             <tbody>
               <tr>
-              <th style="width: 7em;">Abstract Color Name</th>
-              <th colspan="2">Concrete Color Recommendation</th>
+              <th style="width: 7em;">Abstract color name</th>
+              <th colspan="2">Concrete color recommendation</th>
               <th>Description</th>
               <th style="width: 20em;">Application</th>
             </tr>
@@ -247,7 +247,7 @@
               <td style="background: #c9c">#c9c</td>
               <td>light purple</td>
               <td>
-                <p>Color similar to the <a href="#colorGeneral">general</a> color with a good contrast to the <a href="#colorForeground">foreground color</a>.</p>
+                <p>Color similar to the <a href="#colorGeneral">general color</a> with a good contrast to the <a href="#colorForeground">foreground color</a>.</p>
               </td>
               <td>
                 <p><em><a href="#rdfsClass">rdfs:Class</a></em>, <em><a href="#rdfsResource">rdfs:Resource</a></em>, <em><a href="#rdfProperty">rdf:Property</a></em> (incl. subclasses)</p>
@@ -334,8 +334,7 @@
         </table>
         
         <h3 id="splittingRules">Splitting Rules</h3>
-		<!-- @SL: second part of sentence added - ok? -->
-        <p>In some cases, elements of an ontology are connected to many other elements in the ontology, because they are very generic rather than very important to the linked elements. By displaying each of these relations, a large number of lines would point to the node representing such an ontology element, possibly resulting in a large number of crossing graph edges. <a href="#colorTable">Table 3</a> defines a number of rules that allow splitting up a node, so a single ontology element (such as a class) is represented by several nodes. Each relation linked to such an ontology element is then displayed only for one of the representations.
+        <p>In some cases, elements of an ontology are connected to many other elements, because they are very generic rather than very important. By displaying each of these links in the graph visualization, a large number of edges would point to the node representing such an ontology element, resulting in visual clutter caused by many edge crossings. In addition, the node would tend to stand out among the other nodes in a force-directed graph layout, giving it an emphasis that does not properly reflect its importance for the ontology. <a href="#splittingTable">Table 3</a> defines which ontology elements are split up, so they are represented by multiple nodes in the graph visualization. Each link to such an ontology element is then displayed only for one of the representations.
         </p>
           <table id="splittingTable">
           <caption>Table 3. Splitting rules.</caption>
@@ -347,9 +346,10 @@
             </tr>
               <tr>
               <td>0</td>
+			  <!-- aggregation for Equivalent class -->
               <td>no splitting</td>
               <td>
-                <p>The node appears is displayed only once. Any edge connected to the node is linked to the one graphical representation.</p>
+                <p>The ontology element is represented by a single node.<!-- Any edge linked with the element is connected to this node.--></p>
               </td>
               <td>
                 <p>classes</p>
@@ -359,7 +359,8 @@
               <td>1</td>
               <td>splitting by class</td>
               <td>
-                <p>The node appears once for every class it is connected to. If the node is linked to two classes, two representations of the node will be displayed. If the node is linked to one class by more than one property, all of those properties will be displayed with separate edges, but linking the class to the same graphical representation of the node.</p>
+                <p>The ontology element is represented by a single node
+				The node appears once for every class it is connected to. If the node is linked to two classes, two representations of the node will be displayed. If the node is linked to one class by more than one property, all of those properties will be displayed with separate edges, but linking the class to the same graphical representation of the node.</p>
               </td>
               <td>
                 <p><em><a href="#owlThing">owl:Thing</a></em>, <em><a href="#rdfsResource">rdfs:Resource</a></em></p>
@@ -400,17 +401,15 @@
         <p>VOWL defines three modes of interactive highlighting, two of which are direct:</p>
           <ol>
             <li>
-            Highlight on hover: changes the fill color of the hovered element (plus the color of the line and arrow if any) to the <a href="#colorDirectHighlight">highlighting</a> color. This highlighting mode is dependent on the environment (e.g., it cannot be usefully applied in many touch environments).
+            Highlight on hover: changes the fill color of the hovered element (plus the color of the line and arrow if any) to the <a href="#colorDirectHighlight">highlighting color</a>. This highlighting mode is dependent on the environment (e.g., it cannot be usefully applied in many touch environments).
           </li>
             <li>
-            Highlight on selection: changes the border color of the selected element (plus the color of the line and arrow if any) to the <a href="#colorDirectHighlight">highlighting</a> color. Note that it should also be possible to deselect elements that have been selected.
+            Highlight on selection: changes the border color of the selected element (plus the color of the line and arrow if any) to the <a href="#colorDirectHighlight">highlighting color</a>. Note that it should also be possible to deselect elements that have been selected.
           </li>
         </ol>
-        <p>The third highlighting mode is indirect. It expresses some kind of relationship between elements, without connecting them visually by a line. It is used in VOWL to dynamically indicate sub- and superproperties of a hovered property. Like the <em>highlight on hover</em>, it changes the fill color of the element (plus the color of the line and arrow if any), but this time to the <a href="#colorIndirectHighlight">indirect highlighting</a> color.</p>
+        <p>The third highlighting mode is indirect. It expresses some kind of relationship between elements, without connecting them visually by a line. It is used in VOWL to dynamically indicate sub- and superproperties of a hovered property. Like the <em>highlight on hover</em>, it changes the fill color of the element (plus the color of the line and arrow if any), but this time to the <a href="#colorIndirectHighlight">indirect highlighting color</a>.</p>
         <h4 id="conflicts">Conflicts</h4>
         <p>The <a href="#colorDeprecated">deprecated color</a> has priority over the <a href="#colorExternal">external color</a>, i.e. if a class or property from an external ontology is deprecated, it will be visualized in the <a href="#colorDeprecated">deprecated color</a>. In such cases, the text in the element will display all attributes in a comma-separated form (e.g. "deprecated, external"). If a property is symmetric and functional, the text will indicate "symmetric, functional" accordingly.</p>
-        <p>The equivalent class notation generally overrides any other attributes. If a class in the visualized ontology is equivalent to a deprecated or an external class, it is displayed using the normal <a href="#owlEquivalentClass">equivalent class notation</a>.</p>
-		<!-- @SL: Wasn't there a description here about which equivalent element to prioritize for the label? There is a description like that in the equivalent class row, but if it were here, it would apply to all equivalent things, including equivalent properties. -->
       </section>
       <hr>
         <section id="notation">
@@ -421,8 +420,8 @@
           <caption>Table 4. Graphical representations of classes.</caption>
             <tbody>
               <tr>
-              <th>Ontology Element</th>
-              <th>Graphical Representation</th>
+              <th>Ontology element</th>
+              <th>Graphical representation</th>
               <th>Description</th>
             </tr>
               <tr>
@@ -524,8 +523,8 @@
           <caption>Table 5. Graphical representations of properties.</caption>
             <tbody>
               <tr>
-              <th>Ontology Element</th>
-              <th>Graphical Representation</th>
+              <th>Ontology element</th>
+              <th>Graphical representation</th>
               <th>Description</th>
             </tr>
               <tr>
@@ -548,7 +547,7 @@
                 </svg>
               </td>
               <td>
-                <p>Solid line starting at the domain, having an arrowhead filled with the <a href="#colorForeground">foreground color</a> that points to the range. This element does never occur on its own, but always in combination with the property it is defined for (<em>property representation</em>).</p>
+                <p>Solid line starting at the domain, having an arrowhead filled with the <a href="#colorForeground">foreground color</a> that points to the range. This graphical representation does never occur on its own, but always in combination with the property it is defined for (<em>property representation</em>).</p>
               </td>
             </tr>
               <tr>
@@ -833,8 +832,8 @@
         <caption>Table 6. Graphical representation of further properties.</caption>
           <tbody>
             <tr>
-            <th>Ontology Element</th>
-            <th>Graphical Representation</th>
+            <th>Ontology element</th>
+            <th>Graphical representation</th>
             <th>Description</th>
           </tr>
             <tr>
@@ -1035,10 +1034,8 @@
               </svg>
             </td>
             <td>
-              <p>Labels of equivalent properties are listed in square brackets, with one of the property labels as main label.
-			  <!-- SL: Will be fixed tonight -->
-			       If any of the equivalent properties is from the visualized ontology, its label is chosen as main label (if there are several such properties, the label of one of them is chosen). If all equivalent properties are external, the label of one of them is chosen too. The color of the rectangle depends on the type of property from which the main label is taken, i.e. <a href="#colorGeneral">general color</a> = <a href="#owlObjectProperty">owl:ObjectProperty</a>, <a href="#colorDatatype">datatype property color</a> = <a href="#owlDatatypeProperty">owl:DatatypeProperty</a>, and <a href="#colorRdf">rdf color</a> = <a href="#rdfProperty">rdf:Property</a>.
-             </p>
+              <p>This graphical representation is used for two or more properties that are defined to be equivalent. One of the <a>property labels</a> is the main label, while the rest is listed in square brackets (<a>abbreviated</a> if they do not all fit). The main label is taken from a property with the same base URI as the ontology. If there is no such property (i.e. all proprties are <a>external</a>, it is taken from one of the other properties.</p>
+			  <p>The color of the rectangle reflects the type of property from which the main label is taken, i.e. <a href="#colorGeneral">general color</a> = <a href="#owlObjectProperty">owl:ObjectProperty</a>, <a href="#colorDatatype">datatype property color</a> = <a href="#owlDatatypeProperty">owl:DatatypeProperty</a>, and <a href="#colorRdf">rdf color</a> = <a href="#rdfProperty">rdf:Property</a>.</p>
             </td>
           </tr>
             <tr>
@@ -1047,7 +1044,7 @@
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="105px" height="105px">
               <g transform="translate(52.5,52.5)">
               <circle class="class white embedded" r="50" />
-              <circle class="class" r="45"/>
+              <circle class="class rdf" r="45"/>
               <text class="text" text-anchor="middle">
               <tspan x="0" y="-7">Class A</tspan>
               <tspan x="0" y="7" class="subtext">[Class B]</tspan>
@@ -1056,31 +1053,26 @@
               </svg>
             </td>
             <td>
-              <p>Class representation with double border, with the space between the double border being colored in the <a href="#colorNeutral">neutral color</a>.
-			  <!-- SL: Will be fixed tonight -->			  
-			  The main label is from a class with the same base URI (if there is any). The labels of equivalent classes (from external ontologies or from the same base URI) are added as a comma-separated list to the label in squared brackets.
-              </p>
-			       <p>Double border independently of how many classes it contains.</p>
-              <!-- ToDo: What's with the rest of the info of equivalent classes (if there is any) -->
-              <p> This notation may also be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em> in OWL Full, where it can be defined between two classes.
-			  <!-- <p>Note that:</p>
-        <ul>
-          <li>Equivalent classes and properties
-        a label of one of the equivalent elements is selected as the main label. If any of the elements are from the ontology being visualized (rather than external [ref]), a label from such an element will be preferred.</li>
-      </ul> -->
-              </p>
+              <p>Class representation having a double border, with the space between the two borders being colored in the <a href="#colorNeutral">neutral color</a>. This graphical representation is used for two or more classes that are defined to be equivalent. One of the <a>class labels</a> is the main label, while the rest is listed in square brackets (<a>abbreviated</a> if they do not all fit). The main label is taken from a class with the same base URI as the ontology. If there is no such class, it is taken from one of the other classes. Note that the graphical representation has always a double broder, independently of how many classes it represents.</p>
+			  <p>The color of the circle reflects the type of class from which the main label is taken, i.e. <a href="#colorGeneral">general color</a> = <a href="#owlClass">owl:Class</a>, <a href="#colorRdf">datatype property color</a> = <a href="#rdfsClass">rdfs:Class</a>, <a href="#colorExternal">external color</a> = <a href="#externalClass">external Class</a>, and <a href="#colorDeprecated">deprecated color</a> = <a href="#deprecatedClass">owl:deprecatedClass</a>.
             </td>
           </tr>
         </tbody>
-      </table>      
+      </table>  
+	  <p>
+	  
+	  This notation may also be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em> in OWL Full, where this property relation can be defined.</p>
+              <p>This notation may also be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em> in OWL Full, where this property relation can be defined.
+              </p>	  
+	  
       <p>The basic set operations <em><a href="#owlIntersectionOf">owl:intersectionOf</a></em>, <em><a href="#owlUnionOf">owl:unionOf</a></em> and <em><a href="#owlComplementOf">owl:ComplementOf</a></em> define new (anonymous) classes to describe the union, intersection, or complement of other classes, and are thus represented as circles.
       The circles contain the corresponding <a href="http://www.w3.org/2001/sw/SW-FAQ#relDL">Description Logic (DL)</a> operators (&cup;,&cap;, &not;).</p>
         <table id="setOperatorTable3">
         <caption>Table 7. Graphical representations of set operators.</caption>
           <tbody>
             <tr>
-            <th>Ontology Element</th>
-            <th>Graphical Representation</th>
+            <th>Ontology element</th>
+            <th>Graphical representation</th>
             <th>Description</th>
           </tr>
             <tr>
@@ -1189,8 +1181,8 @@
         </caption>
           <tbody>
             <tr>
-            <th>Ontology Element</th>
-            <th>Graphical Representation</th>
+            <th>Ontology element</th>
+            <th>Graphical representation</th>
             <th>Description</th>
           </tr>
             <tr>
@@ -1229,40 +1221,23 @@
         <caption>Table 9. Graphical representation of individuals and other / header information.<!-- ToDo: rename --></caption>
           <tbody>
             <tr>
-            <th>Ontology Element</th>
-            <th>Graphical Representation</th>
+            <th>Ontology element</th>
+            <th>Graphical representation</th>
             <th>Description</th>
           </tr>
             <tr>
               <td><em><a href="http://www.w3.org/TR/owl-ref/#imports-def">owl:imports</a></em>, <br> <em><a href="http://www.w3.org/TR/owl-ref/#versionInfo-def">owl:versionInfo</a></em>, <br> <em><a href="http://www.w3.org/TR/owl-ref/#priorVersion-def">owl:priorVersion</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#backwardCompatibleWith-def">owl:BackwardCompatibleWith</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#incompatibleWith-def">owl:incompatibleWith</a></em>
             </td>
               <td class="tdCenter" id="metadata">
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="240px" height="138px" viewBox="0 0 253 138">
-              <rect x="0.5" y="0.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="252.207" height="137.041"/>
-              <text transform="matrix(1 0 0 1 13.6548 15.7842)">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="240px" height="130px">
+              <rect x="2" y="2" width="236" height="126" class="class white text" />
+              <text class="text" transform="translate(20, 25)">
               <tspan x="0" y="0">Name of ontology</tspan>
-              <tspan x="0" y="25">Base URI of ontology</tspan>
-              <!-- SL: I can try to fix it - Should be similar to 
-			                  <text class="text">
-                <tspan x="0" y="15">text</tspan>
-                <tspan x="0" y="30">number</tspan>
-                <tspan x="0" y="45">symbol</tspan>
-                </text>
-				-->
-              <tspan x="0" y="50">Description: This is an example </tspan>
-              <tspan x="0" y="63">regarding the info box area where</tspan>
-              <tspan x="0" y="75">elements like</tspan>
-              <tspan x="0" y="86" font-family="'MyriadPro-It'" font-size="11.7769">
-              owl:imports, owl:versionInfo, owl:priorVersion,
-              </tspan>
-              <tspan x="0" y="99" font-family="'MyriadPro-It'" font-size="11.7769">
-              owl:BackwardCompatibleWith and
-              </tspan>
-              <tspan x="0" y="114" font-family="'MyriadPro-It'" font-size="11.7769">
-              owl:incompatibleWith
-              </tspan>
-              <tspan x="106.79" y="114">might be placed.</tspan>
-              </text>
+              <tspan x="0" y="25">Ontology URI</tspan>
+              <tspan x="0" y="50">Description: This is an example of how</tspan>
+              <tspan x="0" y="65">an infobox with information from the</tspan>
+              <tspan x="0" y="80">ontology header may look like.</tspan>
+              </text>  
               </svg>
             </td>
             <td>
