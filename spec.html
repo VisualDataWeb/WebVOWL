@@ -404,7 +404,7 @@
             Highlight on selection: changes the border color of the selected element (plus the color of the line and arrow if any) to the <a href="">highlighting</a> color. Note that it should also be possible to deselect elements that have been selected.
           </li>
         </ol>
-        <p>The third highlighting mode is indirect. It expresses some kind of relationship between elements, without connecting them visually by a line. It is used in VOWL to dynamically indicate sub- and superproperties of a highlighted property. Like the <em>highlight on hover</em>, it changes the fill color of the element (plus the color of the line and arrow if any), but this time to the <a href="">indirect highlighting</a> color.</p>
+        <p>The third highlighting mode is indirect. It expresses some kind of relationship between elements, without connecting them visually by a line. It is used in VOWL to dynamically indicate sub- and superproperties of a hovered property. Like the <em>highlight on hover</em>, it changes the fill color of the element (plus the color of the line and arrow if any), but this time to the <a href="">indirect highlighting</a> color.</p>
         <h4 id="conflicts">Conflicts</h4>
         <p>The <a href="">deprecated</a> color has priority over the <a href="">external</a> color, i.e. if a class or property from an external ontology is deprecated, it will be visualized in the <a href="">deprecated</a> color. In such cases, the text in the element will display all attributes in a comma-separated form (e.g. "deprecated, external"). If a property is symmetric and functional, the text will indicate "symmetric, functional" accordingly.</p>
         <p>The equivalent class notation generally overrides other attributes. If a class in the visualized ontology is equivalent to a deprecated or an external class, it is displayed using the normal <a href="">equivalent class notation</a>.</p>
@@ -706,7 +706,7 @@
               </td>
               <td>
                 <p>
-                Property representation with indication "functional" in brackets. The color of the rectangle depends on the type of property: It has the <a>general</a> color for <a>owl:ObjectProperty</a>, the <a>datatype property</a> color for <a>owl:DatatypeProperty</a> and the <a>rdf color</a> for <a>rdf:Property</a>.
+                Property representation with indication "functional" in brackets. The color of the rectangle depends on the type of property, i.e. <a>general</a> color = <a>owl:ObjectProperty</a>, <a>datatype property</a> color = <a>owl:DatatypeProperty</a>, and <a>rdf color</a> = <a>rdf:Property</a>.
                 </p>
                 <p>
                 The global cardinality constraint of functional properties is not made explicit in the visualization in order to avoid any confusion with cardinality constraints defined with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em> that are displayed in the visualization (see <a href="#propertyTable2">Table 6</a>).
@@ -861,10 +861,12 @@
             </td>
               <td>
               <p>
-              Exact, minimal, and/or maximal cardinality constraints are written near the end of the property arrow that the cardinality refers to. The representation is similar to the <a href="http://www.uml.org/">UML notation for cardinalities</a>, i.e. the letters "x" and "y" in the example represent the minimum and maximum cardinality for that property. Exact cardinalities are represented by only one number, while the asterisk (*) denotes an unrestricted cardinality. Examples are "0..1" for a cardinality of 0 to 1, "1..*" for a minimum cardinality of 1, or "3" for a cardinality of exactly 3.
+              Exact, minimal, and/or maximal cardinality constraints are written as numbers near the end of the property arrow. The representation is similar to the <a href="http://www.uml.org/">UML notation for cardinalities</a>, i.e. the letters "x" and "y" in the example represent the minimum and maximum cardinality for that property. Exact cardinalities are represented by only one number, while the asterisk (*) denotes an unrestricted cardinality. Examples are "0..1" for a cardinality of 0 to 1, "1..*" for a minimum cardinality of 1, or "3" for a cardinality of exactly 3.
               </p>
 			  <p>
-			  The default cardinality of most properties is any number (i.e. zero or more) and would be represented by a sole asterisk. However, it is recommended to only visualize cardinalities that are explicitely specified with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em>. Default property cardinalities (incl. the global cardinaility constraints of functional and inverse functional properties) are better not shown in the visualization to avoid confusion and reduce visual clutter.
+			  The default cardinality of most properties is any number (i.e. zero or more) and would be represented by a sole asterisk. However, it is recommended to only visualize cardinalities that are explicitely specified with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em>. Default property cardinalities (incl. the global cardinaility constraints of functional and inverse functional properties) are better not shown in the visualization to avoid confusion and reduce visual clutter.</p>
+			  <p>
+			  The color of the rectangle depends on the type of property, i.e. <a>general</a> color = <a>owl:ObjectProperty</a>, <a>datatype property</a> color = <a>owl:DatatypeProperty</a>, and <a>rdf color</a> = <a>rdf:Property</a>.
 			  </p>
             </td>
           </tr>
@@ -923,7 +925,7 @@
               </svg>
             </td>
             <td>
-			<p>Dotted line starting at the subclass, having an arrowhead filled with the <a>neutral</a> color that points to the superclass. The representation is similar to the <a href="http://www.uml.org/">UML notation for generalizations</a> but with a dashed line instead of a solid one to make it clearly distinguishable from other property relations. In addition, it is recommended to add the label "Subclass of" to the representation to clarify its semantics. The label has either a transparant background or is shown in a rectangle that has the <a>neutral</a> color (unless highlighted), which is recommended.</p>	</td>
+			<p>Dotted line starting at the subclass, having an arrowhead filled with the <a>neutral</a> color that points to the superclass. The representation is similar to the <a href="http://www.uml.org/">UML notation for generalizations</a> but with a dashed line instead of a solid one to make it clearly distinguishable from other property relations. In addition, it is recommended to add the label "Subclass of" to the representation to clarify the semantics of the relation. The label has either a transparant background or is shown in a rectangle that has the <a>neutral</a> color (unless highlighted), which is recommended.</p></td>
           </tr>
             <tr>
             <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_subpropertyof">rdfs:subPropertyOf</a></em></td>
@@ -957,11 +959,9 @@
               </g>
               </svg>
             </td>
-            <!-- @SL: Add more implicit indicator that subproperties with a different domain and range than their superproperties can only be seen in the interactive visualization at all? -->
             <td>
-              <p>Sub-/Superproperties are dynamically highlighted on <em>hover</em> (bi-directional highlighting)</p>
-              <!-- Those that have same domain and range as their super/-subproperties can alternatively be listed in square brackets within the label of the superproperty. This aggregated representation should be handles with care, as it might hide information about the property, such as the type of subproperties (e.g. functional, etc.). Note: Properties that are subproperties of more than one property are never shown within the labels of their superproperties. ToDo: Ist das feature überhaupt sinnvoll oder sollen wir es lieber ganz weglassen bzw. für equivalent proeprties nehmen? Letztlich gilt dieselbe Einschränkung für equivalent classes
-              Note: Properties that are subproperties of more than one property are never shown within the labels of their superproperties. + Subproperties of more than one property -->
+			<p>
+			If a property is hovered, its sub- and superproperties (if any) are dynamically highlighted using the indirect highligthing <a>color</a> and <a>mode</a>. The color of the rectangle depends on the type of property, i.e. <a>general</a> color = <a>owl:ObjectProperty</a>, <a>datatype property</a> color = <a>owl:DatatypeProperty</a>, and <a>rdf color</a> = <a>rdf:Property</a>.
             </td>
           </tr>
             <tr>
@@ -998,7 +998,7 @@
               </svg>
             </td>
             <td>
-                <p>Line/arc with arrow heads at both ends, annotated with the label of the property and its inverse counterpart (interactive highlighting of direction). In order to emphasize which label denotes which direction in non-interactive contexts, each label may be slightly displaced toward its respective arrowhead (not shown in the example).</p>
+                <p>Object property representation with arrowheads at both ends, annotated with the label of the property and its inverse counterpart (interactive highlighting of direction). In order to emphasize which label denotes which direction in non-interactive contexts, each label may be slightly displaced toward its respective arrowhead (not shown in the example).</p>
             </td>
           </tr>
             <tr>
