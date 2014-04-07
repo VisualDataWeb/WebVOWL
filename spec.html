@@ -415,7 +415,7 @@
         <p>The following tables list the graphical representations for the different OWL (and some reused RDF, RDFS) elements. They are provided as interactive <a href="http://www.w3.org/TR/SVG/">SVG</a> graphics) and implement the <a href="">highlight on hover</a> effect.
         </p>
           <table id="classTable">
-          <caption>Table 4. Graphical representation of classes.</caption>
+          <caption>Table 4. Graphical representations of classes.</caption>
             <tbody>
               <tr>
               <th>Ontology element</th>
@@ -518,7 +518,7 @@
         </table>
         <p>Note that the text string "Class" is used as a placeholder for the actual <a>class label</a> in the graphical representations. In contrast, the text strings in brackets ("external" and "deprecated") and the labels "Thing" and "Resource" are not placeholders but literally shown in the visualization.</p>
           <table id="propertyTable"> 
-          <caption>Table 5. Graphical representation of properties.</caption>
+          <caption>Table 5. Graphical representations of properties.</caption>
             <tbody>
               <tr>
               <th>Ontology Element</th>
@@ -823,7 +823,7 @@
           </tbody>
         </table>
         <p>Note that the text strings "Property", "ObjectProperty", "DatatypeProperty" and "DeprecatedProperty" are used as placeholders for the actual <a>class label</a> in the graphical representations. In contrast, the text strings in brackets ("functional", "inverse functional", "transitive", and "symmetric") are not placeholders but literally shown in the visualization.</p>
-        <table id="propertyTable2"><!-- ToDo: rename -->
+        <table id="propertyTable2">
         <caption>Table 6. Graphical representation of further properties</caption>
           <tbody>
             <tr>
@@ -897,7 +897,15 @@
               </svg>
             </td>
             <td>
-              <p>Dashed line/arc with the symbol of two disjoint sets as a label, and the text <strong>(disjoint)</strong> below that label. Alternatively to showing this element in the visualization, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> statements may be presented as details on demand in another part of the user interface, which is recommended as it results in a less cluttered graph.</p>
+              <p>Dashed line connecting the two disjoint classes and having the symbol of two disjoint sets as a label, which is in the general color and displays the indication "disjoint" in brackets.
+			  
+			  The label has the <a>general</a> color and 
+			  
+Property representation showing the property label in a rectangle having the general color.			  
+			  
+			  the property label in a rectangle having the general color.
+			  
+			   and . As an alternative to showing this element in the visualization, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> statements may be presented as details on demand in another part of the user interface, which is recommended as it results in a less cluttered graph.</p>
             </td>
           </tr>
             <tr>
@@ -912,9 +920,9 @@
               <path class="white" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"/>
               <path class="dotted" d="M66,35 L180,35"/>
               </g>
-              <g transform="translate(97, 13)">
-              <rect class="property white" width="60" height="20" onmouseover="labelMouseOver('interactionEffect14')" onmouseout="labelMouseOut('interactionEffect14')"/>
-              <text class="text" x="0" y="14">Subclass of</text>
+              <g transform="translate(94, 13)">
+              <rect class="property white" width="70" height="20" onmouseover="labelMouseOver('interactionEffect14')" onmouseout="labelMouseOut('interactionEffect14')"/>
+              <text class="text" x="4" y="14">Subclass of</text>
               </g>
               <g transform="translate(225,35)">
               <circle class="class" r="30"/>
@@ -923,11 +931,12 @@
               </svg>
             </td>
             <td>
-              <p>Dotted line/arc with a <a>neutral</a> arrow head at the end pointing to the superclass (arrow head like in UML but with a dashed line), with a <a>neutral</a> or transparent background for the label <strong>Subclass of</strong>.</p>
+              <p>Dotted line with a <a>neutral</a> arrow head at the end pointing to the superclass (arrow head like in UML but with a dashed line), with a <a>neutral</a> or transparent background for the label <strong>Subclass of</strong>.</p>
+
+Solid line starting at the domain with an arrow pointing to the range. This element does never occur on its own, but always in combination with the property it is defined for (property representation).			  
             </td>
           </tr>
             <tr>
-            <!-- @SL: fix highlighting -->
             <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_subpropertyof">rdfs:subPropertyOf</a></em></td>
               <td class="tdCenter" id="rdfsSubPropertyOf">
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
@@ -1086,8 +1095,8 @@
       <p>The basic set operations <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em> define new (anonymous) classes to describe the union, intersection, or complement of other classes, and are thus represented as circles.
       The circles contain the corresponding <a href="http://www.w3.org/2001/sw/SW-FAQ#relDL">Description Logic (DL)</a> operators (&cup;,&cap;, &not;).</p>
       
-        <table id="propertyTable3">
-        <caption>Table 7. Graphical representation of set operators.</caption>
+        <table id="setOperatorTable3">
+        <caption>Table 7. Graphical representations of set operators.</caption>
           <tbody>
             <tr>
             <th>Ontology Element</th>
