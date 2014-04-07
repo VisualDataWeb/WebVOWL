@@ -369,7 +369,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Circle in <a href="">general</a> color showing the class label in the selected language.</td>
+                <td>Circle in <a href="">general</a> color showing the <a>class label</a> in the selected language.</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em></td>
@@ -442,7 +442,7 @@
               </tr>
             </tbody>
           </table>
-          <p>Note that "Class" is used as a placeholder for the class label in the graphical representations. In contrast, the information in brackets ("external", "deprecated") and the labels "Thing" and "Resource" are not placeholders but actually shown in the visualization.</p>
+          <p>Note that "Class" is used as a placeholder for the <a>class label</a> in the graphical representations. In contrast, the information in brackets ("external" and "deprecated") and the labels "Thing" and "Resource" are not placeholders but actually shown in the visualization.</p>
           <table id="propertyTable">
             <caption>Table 5. Graphical representation of properties.</caption>
             <tbody>
@@ -494,7 +494,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Property representation showing the property label in a rectangle having the <a>general</a> color.</td>
+                <td>Property representation showing the <a>property label</a> in a rectangle having the <a>general</a> color.</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em></td>
@@ -518,7 +518,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Property representation showing the property label in a rectangle having the <a>datatype property</a> color.</td>
+                <td>Property representation showing the <a>property label</a> in a rectangle having the <a>datatype property</a> color.</td>
               </tr>
               <tr>
                 <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em></td>
@@ -542,7 +542,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Property representation showing the property label in a rectangle having the <a>rdf</a> color.</td>
+                <td>Property representation showing the <a>property label</a> in a rectangle having the <a>rdf</a> color.</td>
               </tr>
               <tr>
                 <td>External property <br/>(<a href="">different base URI</a>)</td>
@@ -567,7 +567,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Property representation showing the property label in a rectangle having the <a>external</a> color (same representation for external <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>).
+                <td>Property representation showing the <a>property label</a> in a rectangle having the <a>external</a> color (same representation for external <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>).
                 </td>
               </tr>
               <tr>
@@ -592,7 +592,7 @@
                   </g>
                   </svg>
                 </td>
-                <td>Property representation showing the property label in a rectangle having the <a>deprecated</a> color (same representation for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>, and for <a>external properties</a>.)</td>
+                <td>Property representation showing the <a>property label</a> in a rectangle having the <a>deprecated</a> color (same representation for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>, and for <a>external properties</a>.)</td>
               </tr>
               <tr>
                 <td id="functProp"><em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em></td>
@@ -621,7 +621,10 @@
                 </td>
                 <td>
                   <p>
-                  Property representation with indication "functional" in brackets. The color of the rectangle depends on the type of property (see below). The global cardinality constraint of functional properties is not made explicit in the visualization in order to avoid any confusion with cardinality constraints defined with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em> that are displayed in the visualization (see <a href="#propertyTable2">Table 6</a>).
+                  Property representation with indication "functional" in brackets. The color of the rectangle depends on the type of property: It has the <a>general</a> color for <a>owl:ObjectProperty</a>, the <a>datatype property</a> color for <a>owl:DatatypeProperty</a> and the <a>rdf color</a> for <a>rdf:Property</a>.
+				  </p>
+				  <p>
+				  The global cardinality constraint of functional properties is not made explicit in the visualization in order to avoid any confusion with cardinality constraints defined with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em> that are displayed in the visualization (see <a href="#propertyTable2">Table 6</a>).
                   </p>
                 </td>
               </tr>
@@ -726,14 +729,8 @@
             </tr>
           </tbody>
         </table>
-          <p>Note that:</p>
-          <ul>		
-			<li><p>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, as both types are subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. The same applies to properties with specific attributes, such as functional properties [ref].</p></li>	
-		  </ul>	
-                  <p>
-                  Note that the background of this property can have different colors. It is shown in the <a href="#colorRdf">rdf</a> color in this specification, as <em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em> is a subclass of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> and can therefore be applied to any property in the ontology (i.e. same notation with different background color for <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>).		
-                  </p>		  
-        <table id="propertyTable2">
+          <p>Note that "Property", "ObjectProperty", "DatatypeProperty" and "DeprecatedProperty" are used as placeholders for the <a>property labels</a> in the graphical representations. In contrast, the information / keywords in brackets ("functional", "inverse functional", "transitive", and "symmetric") are not placeholders but actually shown in the visualization.</p>		
+        <table id="propertyTable2"><!-- ToDo: rename -->
           <caption>Table 6. Graphical representation of further properties</caption>
           <tbody>
             <tr>
@@ -972,6 +969,15 @@
           </tbody>
         </table>
 
+		<p>Note that:</p>
+          <ul>		
+			<li><p>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, as both types are subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. The same applies to properties with specific attributes, such as functional properties [ref].</p></li>	
+		  </ul>	
+                  <p>
+                  Note that the background of this property can have different colors. It is shown in the <a href="#colorRdf">rdf</a> color in this specification, as <em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em> is a subclass of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> and can therefore be applied to any property in the ontology (i.e. same notation with different background color for <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>).		
+                  </p>	
+		
+		
 		<p>Note that:</p>
           <ul>		
 		  	<li>Equivalent classes and properties 
