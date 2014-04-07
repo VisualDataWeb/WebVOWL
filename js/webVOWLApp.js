@@ -23,7 +23,7 @@ var bindListners = function() {
     exportSvg.addEventListener('click', function () { 
         exportSVGDrawing();
     });
-}
+};
 // adding styles inline to the svg elements
 var loadGraphStyle = function () { 
   
