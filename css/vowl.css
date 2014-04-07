@@ -71,7 +71,7 @@ rect.focused, circle.focused {
 path, .nofill {
 	fill: none;
 }
-.class:hover, .property:hover, path.arrowhead.hovered, .cardinality.hovered, marker path.hovered, .cardinality.focused, marker path.focused {
+.class:hover, .property:hover, path.arrowhead.hovered, .cardinality.hovered, .normalMarker path.hovered, .cardinality.focused, .normalMarker path.focused {
     fill: #f00;
     cursor: pointer;
 }
