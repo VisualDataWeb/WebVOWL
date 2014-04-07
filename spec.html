@@ -65,7 +65,7 @@
         
       <p>Finally, the visual elements are combined to a graph that is rendered in a force-directed layout and that represents the ontology. VOWL defines <a href="#splittingRules">splitting rules</a> to specify which elements are multiplied and thus displayed several times in the visualization to improve the overall layout.</p>
         
-      <p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/TR/owl-ref/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), although not all language constructs (especially of OWL 2) are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>.</p>
+      <p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/TR/owl-ref/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>), although not all language constructs (especially of OWL 2) are included in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="#rdfProperty">rdf:Property</a></em> or <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em>.</p>
     </section>
     <hr>
     <section id="buildingBlocks">
@@ -98,10 +98,10 @@
                 Individuals inferred from subclasses are counted as well if reasoning is available and not deactivated.
                 </p>
                 <p>
-                The circles representing the special classes <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em> are exceptions. They are not scaled but have a fixed size that is smaller than the default size of classes. In addition, the circles of these two classes have a dashed border and are multiplied in the visualization according to the rules described in <a href="#splittingRules">Table 3</a>.
+                The circles representing the special classes <em><a href="#owlThing">owl:Thing</a></em> and <em><a href="#rdfsResource">rdfs:Resource</a></em> are exceptions. They are not scaled but have a fixed size that is smaller than the default size of classes. In addition, the circles of these two classes have a dashed border and are multiplied in the visualization according to the rules described in <a href="#splittingRules">Table 3</a>.
                 </p>
               </td>
-              <td><em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Deprecation">owl:DeprecatedClass</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em></td>
+              <td><em><a href="#owlClass">owl:Class</a></em>, <em><a href="#rdfsClass">rdfs:Class</a></em>, <em><a href="#owlDeprecatedClass">owl:DeprecatedClass</a></em>, <em><a href="#rdfsResource">rdfs:Resource</a></em>, <em><a href="#owlThing">owl:Thing</a></em></td>
             </tr>
               <tr>
               <td id="primitiveLine">Line</td>
@@ -114,9 +114,9 @@
                 <td>
               <p>Lines are used to represent property relations. They usually have an arrowhead. The line style and arrowhead to use are determined by the type of the property (see below). If the same two classes are connected by multiple lines (i.e. if there are multi-edges between classes), the lines may be curved.</p>
               </td>
-                <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_domain">rdfs:domain</a></em>, <em>
-                <a href="http://www.w3.org/TR/rdf-schema/#ch_range">rdfs:range</a></em>,  <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">rdfs:subClassOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em>,  <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>,
-              <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:complementOf</a></em></td>
+                <td><em><a href="#rdfsRange">rdfs:domain</a></em>, <em>
+                <a href="#rdfsRange">rdfs:range</a></em>,  <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em>, <em><a href="#owlDisjointWith">owl:disjointWith</a></em>,  <em><a href="#owlIntersectionOf">owl:intersectionOf</a></em>,
+              <em><a href="#owlUnionOf">owl:unionOf</a></em>, <em><a href="#owlComplementOf">owl:complementOf</a></em></td>
             </tr>
               <tr>
               <td id="primitiveArrowhead">Arrowhead</td>
@@ -131,7 +131,7 @@
                 <p>Arrowheads representing <a href="#rdfsRange">range axioms</a> are filled with the <a href="#colorForeground">foreground</a> color; arrowheads representing <a href="#rdfsSubclass">subclass relations</a> are filled with the <a href="#colorNeutral">neutral</a> color.</p>
               </td>
               <td>
-              <p><em><a href="http://www.w3.org/TR/rdf-schema/#ch_range">rdfs:range</a></em> (with <a href="#colorForeground">foreground</a> color), <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em> (with <a href="#colorNeutral">neutral</a> color)</p>
+              <p><em><a href="#rdfsRange">rdfs:range</a></em> (with <a href="#colorForeground">foreground</a> color), <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em> (with <a href="#colorNeutral">neutral</a> color)</p>
               </td>
             </tr>
               <tr>
@@ -145,7 +145,7 @@
                 <p>Property labels and datatypes are shown in rectangles. If representing datatypes, the rectangles have the <a href="#colorDatatype">datatype</a> color and a border. If representing property labels, they are borderless and colored according to the property type.</p>
               </td>
               <td>
-                <p><em><a href="http://www.w3.org/TR/rdf-schema/#ch_datatype">rdfs:Datatype</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>, property labels</p>
+                <p><em><a href="#rdfsDatatype">rdfs:Datatype</a></em>, <em><a href="#rdfsLiteral">rdfs:Literal</a></em>, property labels</p>
               </td>
             </tr>
               <tr>
@@ -160,7 +160,7 @@
                 <p>The lines and borders of some class and property types are dashed or dotted. A dashed line indicates set operators and class disjointness (<a href="#owlDisjointWith">if visualized</a>). A dashed border indicates special types of classes as well as literals. A dotted line is reserved for subclass relations.</p>
               </td>
               <td>
-                <p>dotted line: <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>;<br/>dashed line: <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em>;<br/>dashed border: <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em>, and anonymous classes</p>
+                <p>dotted line: <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em>;<br/>dashed line: <em><a href="#owlIntersectionOf">owl:intersectionOf</a></em>, <em><a href="#owlUnionOf">owl:unionOf</a></em>, <em><a href="#owlComplementOf">owl:ComplementOf</a></em>, <em><a href="#owlDisjointWith">owl:disjointWith</a></em>;<br/>dashed border: <em><a href="#owlThing">owl:Thing</a></em>, <em><a href="#rdfsResource">rdfs:Resource</a></em>, <em><a href="#rdfsLiteral">rdfs:Literal</a></em>, and anonymous classes</p>
               </td>
             </tr>
               <tr>
@@ -178,7 +178,7 @@
                 <p>Text is used for all kinds of labels, cardinalities and other text strings, numbers, and symbols defined in ontologies. Moreover, a textbox with some information from the ontology header, such as the title and description of the ontology, may be displayed in the visualization.</p>
               </td>
               <td>
-                <p><em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, type of property ("Subclass of" for <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>), additional type information in brackets (e.g. "deprecated", "functional", etc.), symbols in schematic illustrations (e.g. union symbol ("&cup;") for <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>)</p>
+                <p><em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, type of property ("Subclass of" for <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em>), additional type information in brackets (e.g. "deprecated", "functional", etc.), symbols in schematic illustrations (e.g. union symbol ("&cup;") for <em><a href="#owlUnionOf">owl:unionOf</a></em>)</p>
               </td>
             </tr>
           </tbody>
@@ -186,7 +186,7 @@
         <h3 id="colorScheme">Color Scheme</h3>
         <p><a href="#colorTable">Table 2</a> lists the colors used in VOWL. They are defined in an abstract way, along with a description and a recommendation for a concrete color and its hex code. Developers may choose different colors, as long as they comply with the abstract descriptions. All colors are defined relative to the canvas color, which is assumed to be very light. The colors (and color descriptions) may be 'inverted' if the visualization is presented on a dark background.</p>
         
-        <p>While the colors ease the reading of the visualization, they are not required to understand it. The visualization is also understandable if printed in black and white or read by color-blind people, though some details may not be visible any longer (e.g. if a class is of type <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em> or <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>). If these details should also be available in black and white prints of the visualization, they may be added as text (e.g. in the class label).</p>
+        <p>While the colors ease the reading of the visualization, they are not required to understand it. The visualization is also understandable if printed in black and white or read by color-blind people, though some details may not be visible any longer (e.g. if a class is of type <em><a href="#owlClass">owl:Class</a></em> or <em><a href="#rdfsClass">rdfs:Class</a></em>). If these details should also be available in black and white prints of the visualization, they may be added as text (e.g. in the class label).</p>
         
         <p>There may be <a href="#conflicts">conflicts</a> in using this color scheme, e.g. when a deprecated class belongs to an external ontology. They should be resolved by giving one of the colors a higher priority and adding all information in the label and/or another part of the user interface (e.g. the sidebar). Some recommendations are listed in the <a href="#conflicts">general guidelines</a></p>
           <table id="colorTable">
@@ -217,7 +217,7 @@
                 <p>Light color with a good contrast to all other colors (usually similar or identical to the <a href="#colorCanvas">canvas</a> color).</p>
               </td>
               <td>
-                <p><em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, arrowhead of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>, double border of <em><a href="http://www.w3.org/TR/owl-ref/#equivalentClass-def">owl:equivalentClass</a></em></p>
+                <p><em><a href="#owlThing">owl:Thing</a></em>, arrowhead of <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em>, double border of <em><a href="#owlEquivalentClass">owl:equivalentClass</a></em></p>
               </td>
             </tr>
               <tr>
@@ -239,7 +239,7 @@
                 <p>Light color with a good contrast to the foreground color.</p>
               </td>
               <td>
-                <p><em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> (incl. subclasses), <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em></p>
+                <p><em><a href="#owlClass">owl:Class</a></em>, <em><a href="#owlObjectProperty">owl:ObjectProperty</a></em> (incl. subclasses), <em><a href="#owlDisjointWith">owl:disjointWith</a></em></p>
               </td>
             </tr>
               <tr>
@@ -250,7 +250,7 @@
                 <p>Color similar to the <a href="#colorGeneral">general</a> color with a good contrast to the foreground color.</p>
               </td>
               <td>
-                <p><em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> (incl. subclasses)</p>
+                <p><em><a href="#rdfsClass">rdfs:Class</a></em>, <em><a href="#rdfsResource">rdfs:Resource</a></em>, <em><a href="#rdfProperty">rdf:Property</a></em> (incl. subclasses)</p>
               </td>
             </tr>
               <tr>
@@ -261,7 +261,7 @@
                 <p>Color that is clearly different from the other colors and that calls little attention.</p>
               </td>
               <td>
-                <p><em><a href="http://www.w3.org/TR/owl-ref/#Deprecation">owl:DeprecatedClass</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Deprecation">owl:DeprecatedProperty</a></em></p>
+                <p><em><a href="#owlDeprecatedClass">owl:DeprecatedClass</a></em>, <em><a href="#owlDeprecatedProperty">owl:DeprecatedProperty</a></em></p>
               </td>
             </tr>
               <tr>
@@ -269,7 +269,7 @@
               <td style="background: #36c; color: white">#36c</td>
               <td>dark blue</td>
               <td>
-                <p>Dark version of the <a>general</a> color, with the text in the <a>neutral</a> instead of the <a>foreground</a> color.</p>
+                <p>Dark version of the <a href="#colorGeneral">general color</a>, with the text in the <a href="#colorNeutral">neutral color</a> instead of the <a href="#colorForeground">foreground color</a>.</p>
               </td>
               <td>
                 <p>Classes and properties from other ontologies that are linked in the ontology that is visualized.</p>
@@ -283,7 +283,7 @@
                 <p>Light color that is clearly different from the other colors.</p>
               </td>
               <td>
-                <p><em><a href="http://www.w3.org/TR/rdf-schema/#ch_datatype">rdfs:Datatype</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em></p>
+                <p><em><a href="#rdfsDatatype">rdfs:Datatype</a></em>, <em><a href="#rdfsLiteral">rdfs:Literal</a></em></p>
               </td>
             </tr>
               <tr>
@@ -294,7 +294,7 @@
                 <p>Light color that is clearly different from the other colors.</p>
               </td>
               <td>
-                <p><em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em></p>
+                <p><em><a href="#owlDatatypeProperty">owl:DatatypeProperty</a></em></p>
               </td>
             </tr>
               <tr>
@@ -305,7 +305,7 @@
                 <p>Darkened version of the <a href="#colorGeneral">general</a> color.</p>
               </td>
               <td>
-                <p>Schematic illustrations in <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em></p>
+                <p>Schematic illustrations in <em><a href="#owlDisjointWith">owl:disjointWith</a></em>, <em><a href="#owlIntersectionOf">owl:intersectionOf</a></em>, <em><a href="#owlUnionOf">owl:unionOf</a></em>, <em><a href="#owlComplementOf">owl:ComplementOf</a></em></p>
               </td>
             </tr>
               <tr>
@@ -324,7 +324,7 @@
               <td style="background: #f90">#f90</td>
               <td>orange</td>
               <td>
-                <p>Color similar to the <a>highlighting</a> color.</p>
+                <p>Color similar to the <a href="#colorDirectHighlight">highlighting color</a>.</p>
               </td>
               <td>
                 <p>rectangles, circles</p>
@@ -362,7 +362,7 @@
                 <p>The node appears once for every class it is connected to. If the node is linked to two classes, two representations of the node will be displayed. If the node is linked to one class by more than one property, all of those properties will be displayed with separate edges, but linking the class to the same graphical representation of the node.</p>
               </td>
               <td>
-                <p><em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em></p>
+                <p><em><a href="#owlThing">owl:Thing</a></em>, <em><a href="#rdfsResource">rdfs:Resource</a></em></p>
               </td>
             </tr>
 			<!-- @SL: rename to "splitting by edge/relation", to make this definition more generic? -->
@@ -375,7 +375,7 @@
               <!--@SL: Not that clear. What you want to say is that a Literal (as a range of a several properties) is multiplied even though the domain (the class/concept) is the same ?
               I wouldn't use this rule for 2 or more (multiple as we don't really know how many Literals there might be, or how many properties). -->
               <td>
-                <p><em><a href="http://www.w3.org/TR/rdf-schema/#ch_datatype">rdfs:Datatype</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em></p>
+                <p><em><a href="#rdfsDatatype">rdfs:Datatype</a></em>, <em><a href="#rdfsLiteral">rdfs:Literal</a></em></p>
               </td>
               <!-- @SL: Isn't it also default for Datatypes? -->
             </tr>
@@ -390,9 +390,9 @@
         <h4>Graph Layout</h4>
         <p>The visual elements are combined to a graph that should be rendered in an appealing and readable layout. The position of circles should be roughly determined by the number of inbound and outbound property relations, i.e. the more property relations a class has, the more centric its circle in the layout. It is recommended to use a force-directed graph layout (though other layouts may be equally or even more appropriate in certain cases). The users should be enabled to adapt the graph layout to their purposes.</p>
         <h4>Missing Domain and/or Range Information</h4>
-        <p>If no domain and/or range for a property is specified, <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> is used as domain and/or range. An exception are datatype properties without a specified range, where <em><a href="http://www.w3.org/TR/rdf-schema/#ch_literal">rdfs:Literal</a></em> is used as range instead.</p>
+        <p>If no domain and/or range for a property is specified, <em><a href="#owlThing">owl:Thing</a></em> is used as domain and/or range. An exception are datatype properties without a specified range, where <em><a href="#rdfsLiteral">rdfs:Literal</a></em> is used as range instead.</p>
         <h4>Visual Represention of owl:Thing</h4>
-        <p>The visual representation of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> should only be used if a property has no domain and/or range, or if <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> is explicitly specified as domain and/or range. It is not recommended to visualize subclass relations of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em>, as every OWL class is implicitly a subclass of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> and the subclass relations would unnecessarily clutter the visualization.
+        <p>The visual representation of <em><a href="#owlThing">owl:Thing</a></em> should only be used if a property has no domain and/or range, or if <em><a href="#owlThing">owl:Thing</a></em> is explicitly specified as domain and/or range. It is not recommended to visualize subclass relations of <em><a href="#owlThing">owl:Thing</a></em>, as every OWL class is implicitly a subclass of <em><a href="#owlThing">owl:Thing</a></em> and the subclass relations would unnecessarily clutter the visualization.
         </p>
         <h4>External Elements</h4>
         <p>Basically, all elements whose base URI differs from that of the visualized ontology may be visually marked as external (this feature is optional). Alternatively, developers may define several colors to visually group external elements by namespace, as long as they adhere to the 'inverted coloring' of external elements (i.e. dark color with light font).</p>
@@ -400,22 +400,22 @@
         <p>VOWL defines three modes of interactive highlighting, two of which are direct:</p>
           <ol>
             <li>
-            Highlight on hover: changes the fill color of the hovered element (plus the color of the line and arrow if any) to the <a href="">highlighting</a> color. This highlighting mode is dependent on the environment (e.g., it cannot be usefully applied in many touch environments).
+            Highlight on hover: changes the fill color of the hovered element (plus the color of the line and arrow if any) to the <a href="#colorDirectHighlight">highlighting</a> color. This highlighting mode is dependent on the environment (e.g., it cannot be usefully applied in many touch environments).
           </li>
             <li>
-            Highlight on selection: changes the border color of the selected element (plus the color of the line and arrow if any) to the <a href="">highlighting</a> color. Note that it should also be possible to deselect elements that have been selected.
+            Highlight on selection: changes the border color of the selected element (plus the color of the line and arrow if any) to the <a href="#colorDirectHighlight">highlighting</a> color. Note that it should also be possible to deselect elements that have been selected.
           </li>
         </ol>
-        <p>The third highlighting mode is indirect. It expresses some kind of relationship between elements, without connecting them visually by a line. It is used in VOWL to dynamically indicate sub- and superproperties of a hovered property. Like the <em>highlight on hover</em>, it changes the fill color of the element (plus the color of the line and arrow if any), but this time to the <a href="">indirect highlighting</a> color.</p>
+        <p>The third highlighting mode is indirect. It expresses some kind of relationship between elements, without connecting them visually by a line. It is used in VOWL to dynamically indicate sub- and superproperties of a hovered property. Like the <em>highlight on hover</em>, it changes the fill color of the element (plus the color of the line and arrow if any), but this time to the <a href="#colorIndirectHighlight">indirect highlighting</a> color.</p>
         <h4 id="conflicts">Conflicts</h4>
-        <p>The <a href="">deprecated</a> color has priority over the <a href="">external</a> color, i.e. if a class or property from an external ontology is deprecated, it will be visualized in the <a href="">deprecated</a> color. In such cases, the text in the element will display all attributes in a comma-separated form (e.g. "deprecated, external"). If a property is symmetric and functional, the text will indicate "symmetric, functional" accordingly.</p>
-        <p>The equivalent class notation generally overrides any other attributes. If a class in the visualized ontology is equivalent to a deprecated or an external class, it is displayed using the normal <a href="">equivalent class notation</a>.</p>
+        <p>The <a href="#colorDeprecated">deprecated</a> color has priority over the <a href="#colorExternal">external</a> color, i.e. if a class or property from an external ontology is deprecated, it will be visualized in the <a href="#colorDeprecated">deprecated</a> color. In such cases, the text in the element will display all attributes in a comma-separated form (e.g. "deprecated, external"). If a property is symmetric and functional, the text will indicate "symmetric, functional" accordingly.</p>
+        <p>The equivalent class notation generally overrides any other attributes. If a class in the visualized ontology is equivalent to a deprecated or an external class, it is displayed using the normal <a href="#owlEquivalentClass">equivalent class notation</a>.</p>
 		<!-- @SL: Wasn't there a description here about which equivalent element to prioritize for the label? There is a description like that in the equivalent class row, but if it were here, it would apply to all equivalent things, including equivalent properties. -->
       </section>
       <hr>
         <section id="notation">
         <h2>Visual Notation <a href="#toc">[back to top]</a></h2>
-        <p>The following tables list the graphical representations for the different OWL (and some reused RDF, RDFS) elements. They are provided as interactive <a href="http://www.w3.org/TR/SVG/">SVG</a> graphics) and implement the <a href="">highlight on hover</a> effect.
+        <p>The following tables list the graphical representations for the different OWL (and some reused RDF, RDFS) elements. They are provided as interactive <a href="http://www.w3.org/TR/SVG/">SVG</a> graphics) and implement the <a href="#colorDirectHighlight">highlight on hover</a> effect.
         </p>
           <table id="classTable">
           <caption>Table 4. Graphical representations of classes.</caption>
@@ -436,7 +436,7 @@
                 </svg>
               </td>
               <td>
-                <p>Circle in <a href="">general</a> color showing the <a>class label</a> in the selected language.</p>
+                <p>Circle in <a href="#colorGeneral">general</a> color showing the <a href="#primitiveText">class label</a> in the selected language.</p>
               </td>
             </tr>
               <tr>
@@ -450,11 +450,11 @@
                 </svg>
               </td>
               <td>
-                <p>Class representation in <a>rdf</a> color.</p>
+                <p>Class representation in <a href="#colorRdf">rdf</a> color.</p>
               </td>
             </tr>
               <tr>
-              <td>External class<br/>(<a href="">different base URI</a>)</td>
+              <td>External class<br/>(<a href="#colorRdf">different base URI</a>)</td>
                 <td class="tdCenter" id="externalClass">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="105px" height="105px">
                 <g transform="translate(52.5,52.5)">
@@ -467,7 +467,7 @@
                 </svg>
               </td>
               <td>
-                <p>Class representation in <a>external</a> color and with indication "external" in brackets (same representation for external <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>).</p>
+                <p>Class representation in <a href="#colorExternal">external</a> color and with indication "external" in brackets (same representation for external <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em> and <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>).</p>
               </td>
             </tr>
               <tr>
@@ -484,7 +484,7 @@
                 </svg>
               </td>
               <td>
-                <p>Class representation in <a>deprecated</a> color and with indication "deprecated" in brackets (same representation for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>). Representation is also used for deprecated external classes, with indication "deprecated, external" in brackets).</p>
+                <p>Class representation in <a href="#colorDeprecated">deprecated</a> color and with indication "deprecated" in brackets (same representation for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em>). Representation is also used for deprecated external classes, with indication "deprecated, external" in brackets).</p>
               </td>
             </tr>
               <tr>
@@ -500,7 +500,7 @@
                 </svg>
               </td>
               <td>
-                <p>Smaller circle in <a>neutral</a> color, with a dashed line and label "Thing". This graphical representation is multiplied in the visualization according to the <a>splitting rules</a>. The same representation with label "Nothing" may be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> (though it is not recommended to include <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> in the visualization).</p>
+                <p>Smaller circle in <a href="#colorNeutral">neutral</a> color, with a dashed line and label "Thing". This graphical representation is multiplied in the visualization according to the <a href="#splittingRules">splitting rules</a>. The same representation with label "Nothing" may be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> (though it is not recommended to include <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> in the visualization).</p>
               </td>
             </tr>
               <tr>
@@ -514,12 +514,12 @@
                 </svg>
               </td>
               <td>
-                <p>Smaller circle in <a>rdf</a> color, with a dashed line and label "Resource". This graphical element is multiplied in the visualization according to the <a>splitting rules</a>.</p>
+                <p>Smaller circle in <a href="#colorRdf">rdf</a> color, with a dashed line and label "Resource". This graphical element is multiplied in the visualization according to the <a href="#splittingRules">splitting rules</a>.</p>
               </td>
             </tr>
           </tbody>
         </table>
-        <p>Note that the text string "Class" is used as a placeholder for the actual <a>class label</a> in the graphical representations. In contrast, the text strings in brackets ("external" and "deprecated") and the labels "Thing" and "Resource" are not placeholders but literally shown in the visualization.</p>
+        <p>Note that the text string "Class" is used as a placeholder for the actual <a href="#primitiveText">class label</a> in the graphical representations. In contrast, the text strings in brackets ("external" and "deprecated") and the labels "Thing" and "Resource" are not placeholders but literally shown in the visualization.</p>
           <table id="propertyTable"> 
           <caption>Table 5. Graphical representations of properties.</caption>
             <tbody>
@@ -548,7 +548,7 @@
                 </svg>
               </td>
               <td>
-                <p>Solid line starting at the domain, having an arrowhead filled with the <a>foreground</a> color that points to the range. This element does never occur on its own, but always in combination with the property it is defined for (<em>property representation</em>).</p>
+                <p>Solid line starting at the domain, having an arrowhead filled with the <a href="#colorForeground">foreground</a> color that points to the range. This element does never occur on its own, but always in combination with the property it is defined for (<em>property representation</em>).</p>
               </td>
             </tr>
               <tr>
@@ -574,7 +574,7 @@
                 </svg>
               </td>
               <td>
-                <p>Property representation showing the <a>property label</a> in a rectangle having the <a>general</a> color.</p>
+                <p>Property representation showing the <a href="#primitiveText">property label</a> in a rectangle having the <a href="#colorGeneral">general</a> color.</p>
               </td>
             </tr>
               <tr>
@@ -600,7 +600,7 @@
                 </svg>
               </td>
               <td>
-                <p>Property representation showing the <a>property label</a> in a rectangle having the <a>datatype property</a> color.</p>
+                <p>Property representation showing the <a href="#primitiveText">property label</a> in a rectangle having the <a href="#colorDatatypeProperty">datatype property</a> color.</p>
               </td>
             </tr>
               <tr>
@@ -626,11 +626,11 @@
                 </svg>
               </td>
               <td>
-                <p>Property representation showing the <a>property label</a> in a rectangle having the <a>rdf</a> color.</p>
+                <p>Property representation showing the <a href="#primitiveText">property label</a> in a rectangle having the <a href="#colorRdf">rdf</a> color.</p>
               </td>
             </tr>
               <tr>
-              <td>External property <br/>(<a href="">different base URI</a>)</td>
+              <td>External property <br/>(<a href="http://www.w3.org/TR/owl-guide/#owl_imports">different base URI</a>)</td>
                 <td class="tdCenter" id="externalProperty">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="260px" height="70px">
                 <g transform="translate(35,35)">
@@ -653,7 +653,7 @@
                 </svg>
               </td>
               <td>
-                <p>Property representation showing the <a>property label</a> in a rectangle having the <a>external</a> color (same representation for external <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>).</p>
+                <p>Property representation showing the <a href="#primitiveText">property label</a> in a rectangle having the <a href="#colorExternal">external</a> color (same representation for external <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>).</p>
               </td>
             </tr>
               <tr>
@@ -679,7 +679,7 @@
                 </svg>
               </td>
               <td>
-                <p>Property representation showing the <a>property label</a> in a rectangle having the <a>deprecated</a> color (same representation for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>, and for <a>external properties</a>.)</p>
+                <p>Property representation showing the <a href="#primitiveText">property label</a> in a rectangle having the <a href="#colorDeprecated">deprecated</a> color (same representation for deprecated <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>, and for <a href="#externalProperty">external properties</a>.)</p>
               </td>
             </tr>
               <tr>
@@ -709,7 +709,7 @@
               </td>
               <td>
                 <p>
-                Property representation with indication "functional" in brackets. The color of the rectangle depends on the type of property, i.e. <a>general</a> color = <a>owl:ObjectProperty</a>, <a>datatype property</a> color = <a>owl:DatatypeProperty</a>, and <a>rdf color</a> = <a>rdf:Property</a>.
+                Property representation with indication "functional" in brackets. The color of the rectangle depends on the type of property, i.e. <a href="#colorGeneral">general color</a> = <a href="#owlObjectProperty">owl:ObjectProperty</a>, <a href="#colorDatatype">datatype property color</a> = <a href="#owlDatatypeProperty">owl:DatatypeProperty</a>, and <a href="#colorRdf">rdf color</a> = <a href="#rdfProperty">rdf:Property</a>.
                 </p>
                 <p>
                 The global cardinality constraint of functional properties is not made explicit in the visualization in order to avoid any confusion with cardinality constraints defined with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em> that are displayed in the visualization (see <a href="#propertyTable2">Table 6</a>).
@@ -743,7 +743,7 @@
                 </svg>
               </td>
               <td>
-                <p>Object property representation with indication "inverse functional" in brackets. The global cardinality constraint of functional properties is not made explicit in the visualization for the same reason as for <a>functional properties</a>.</p>
+                <p>Object property representation with indication "inverse functional" in brackets. The global cardinality constraint of functional properties is not made explicit in the visualization for the same reason as for <a href="#functProp">functional properties</a>.</p>
               </td>
             </tr>
               <tr>
@@ -825,9 +825,9 @@
             </tr>
           </tbody>
         </table>
-        <p>Note that the text strings "Property", "ObjectProperty", "DatatypeProperty" and "DeprecatedProperty" are used as placeholders for the actual <a>class label</a> in the graphical representations. In contrast, the text strings in brackets ("functional", "inverse functional", "transitive", and "symmetric") are not placeholders but literally shown in the visualization.</p>
+        <p>Note that the text strings "Property", "ObjectProperty", "DatatypeProperty" and "DeprecatedProperty" are used as placeholders for the actual <a href="#primitiveText">class label</a> in the graphical representations. In contrast, the text strings in brackets ("functional", "inverse functional", "transitive", and "symmetric") are not placeholders but literally shown in the visualization.</p>
       <p>
-      Also note that the background of the label in the graphical representation of <a>owl:FunctionalProperty</a> can have different colors. It is shown in the <a href="#colorRdf">rdf</a> color in this specification, as <em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em> is a subclass of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> and can thus be applied to any property in the ontology. The same applies to the graphical representations in the following tables whose label background has the <a href="#colorRdf">rdf</a> color.
+      Also note that the background of the label in the graphical representation of <a href="#owlFunctionalProperty">owl:FunctionalProperty</a> can have different colors. It is shown in the <a href="#colorRdf">rdf</a> color in this specification, as <em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em> is a subclass of <em><a href="#rdfProperty">rdf:Property</a></em> and can thus be applied to any property in the ontology. The same applies to the graphical representations in the following tables whose label background has the <a href="#colorRdf">rdf</a> color.
       </p>		
         <table id="propertyTable2">
         <caption>Table 6. Graphical representation of further properties.</caption>
@@ -872,7 +872,7 @@
 			  <p>
 			  The default cardinality of most properties is any number (i.e. zero or more) and would be represented by a sole asterisk. However, it is recommended to only visualize cardinalities that are explicitely specified with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em>. Default property cardinalities (incl. the global cardinaility constraints of functional and inverse functional properties) are better not shown in the visualization to avoid confusion and reduce visual clutter.</p>
 			  <p>
-			  The color of the rectangle depends on the type of property, i.e. <a>general</a> color = <a>owl:ObjectProperty</a>, <a>datatype property</a> color = <a>owl:DatatypeProperty</a>, and <a>rdf color</a> = <a>rdf:Property</a>.
+			  The color of the rectangle depends on the type of property, i.e. <a href="#colorGeneral">general color</a> = <a href="#owlObjectProperty">owl:ObjectProperty</a>, <a href="#colorDatatype">datatype property color</a> = <a href="#owlDatatypeProperty">owl:DatatypeProperty</a>, and <a href="#colorRdf">rdf color</a> = <a href="#rdfProperty">rdf:Property</a>.
 			  </p>
             </td>
           </tr>
@@ -905,7 +905,7 @@
               </svg>
             </td>
             <td>
-              <p>Dashed line without arrowhead, connecting the disjoint classes and having the symbol of two disjoint sets as a label. The label has the <a>general</a> color and indication "disjoint" in brackets. If several classes are pairwise disjoint, this would be visualized by connecting each two of them. As an alternative to showing this element in the visualization, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> statements may be presented as details on demand in another part of the user interface, which is recommended as it usually results in a less cluttered graph.</p>
+              <p>Dashed line without arrowhead, connecting the disjoint classes and having the symbol of two disjoint sets as a label. The label has the <a href="#colorGeneral">general</a> color and indication "disjoint" in brackets. If several classes are pairwise disjoint, this would be visualized by connecting each two of them. As an alternative to showing this element in the visualization, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em> statements may be presented as details on demand in another part of the user interface, which is recommended as it usually results in a less cluttered graph.</p>
             </td>
           </tr>
             <tr>
@@ -931,7 +931,7 @@
               </svg>
             </td>
             <td>
-			<p>Dotted line starting at the subclass, having an arrowhead filled with the <a>neutral</a> color that points to the superclass. The representation is similar to the <a href="http://www.uml.org/">UML notation for generalizations</a> but with a dashed line instead of a solid one to make it clearly distinguishable from other property relations. In addition, it is recommended to add the label "Subclass of" to the representation to clarify the semantics of the relation. The label has either a transparent background or is shown in a rectangle that has the <a>neutral</a> color (unless highlighted), which is recommended.</p></td>
+			<p>Dotted line starting at the subclass, having an arrowhead filled with the <a href="#colorNeutral">neutral</a> color that points to the superclass. The representation is similar to the <a href="http://www.uml.org/">UML notation for generalizations</a> but with a dashed line instead of a solid one to make it clearly distinguishable from other property relations. In addition, it is recommended to add the label "Subclass of" to the representation to clarify the semantics of the relation. The label has either a transparent background or is shown in a rectangle that has the <a  href="#colorNeutral">neutral</a> color (unless highlighted), which is recommended.</p></td>
           </tr>
             <tr>
             <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_subpropertyof">rdfs:subPropertyOf</a></em></td>
@@ -967,7 +967,9 @@
             </td>
             <td>
 			<p>
-			If a property is hovered, its sub- and superproperties (if any) are dynamically highlighted using the indirect highligthing <a>color</a> and <a>mode</a>. The color of the rectangle depends on the type of property, i.e. <a>general</a> color = <a>owl:ObjectProperty</a>, <a>datatype property</a> color = <a>owl:DatatypeProperty</a>, and <a>rdf color</a> = <a>rdf:Property</a>.
+			If a property is hovered, its sub- and superproperties (if any) are dynamically highlighted using the <a href="#colorIndirectHighlight">indirect highligthing color</a> and <a href="">mode</a>.
+      <!--@SL what mode <a>mode</a> ? -->
+      The color of the rectangle depends on the type of property, i.e. <a href="#colorGeneral">general color</a> = <a href="#owlObjectProperty">owl:ObjectProperty</a>, <a href="#colorDatatype">datatype property color</a> = <a href="#owlDatatypeProperty">owl:DatatypeProperty</a>, and <a href="#colorRdf">rdf color</a> = <a href="#rdfProperty">rdf:Property</a>.
             </td>
           </tr>
             <tr>
@@ -1035,7 +1037,8 @@
             <td>
               <p>Labels of equivalent properties are listed in square brackets, with one of the property lables as main label.
 			  <!-- SL: Will be fixed tonight -->
-			  If any of the equivalent properties is from the visualized ontology, its label is chosen as main label (if there are several such properties, the label of one of them is chosen). If all equivalent properties are external, the label of one of them is chosen too. The color of the rectangle depends on the type of property from which the main label is taken, i.e. <a>general</a> color = <a>owl:ObjectProperty</a>, <a>datatype property</a> color = <a>owl:DatatypeProperty</a>, and <a>rdf color</a> = <a>rdf:Property</a>.</p>
+			       If any of the equivalent properties is from the visualized ontology, its label is chosen as main label (if there are several such properties, the label of one of them is chosen). If all equivalent properties are external, the label of one of them is chosen too. The color of the rectangle depends on the type of property from which the main label is taken, i.e. <a href="#colorGeneral">general color</a> = <a href="#owlObjectProperty">owl:ObjectProperty</a>, <a href="#colorDatatype">datatype property color</a> = <a href="#owlDatatypeProperty">owl:DatatypeProperty</a>, and <a href="#colorRdf">rdf color</a> = <a href="#rdfProperty">rdf:Property</a>.
+             </p>
             </td>
           </tr>
             <tr>
@@ -1053,7 +1056,7 @@
               </svg>
             </td>
             <td>
-              <p>Class representation with double border, with the space between the double border being colored in the <a>neutral</a> color.
+              <p>Class representation with double border, with the space between the double border being colored in the <a href="#colorNeutral">neutral</a> color.
 			  <!-- SL: Will be fixed tonight -->			  
 			  The main label is from a class with the same base URI (if there is any). The labels of equivalent classes (from external ontologies or from the same base URI) are added as a comma-separated list to the label in squared brackets.
               </p>
@@ -1070,7 +1073,7 @@
           </tr>
         </tbody>
       </table>      
-      <p>The basic set operations <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em> define new (anonymous) classes to describe the union, intersection, or complement of other classes, and are thus represented as circles.
+      <p>The basic set operations <em><a href="#owlIntersectionOf">owl:intersectionOf</a></em>, <em><a href="#owlUnionOf">owl:unionOf</a></em> and <em><a href="#owlComplementOf">owl:ComplementOf</a></em> define new (anonymous) classes to describe the union, intersection, or complement of other classes, and are thus represented as circles.
       The circles contain the corresponding <a href="http://www.w3.org/2001/sw/SW-FAQ#relDL">Description Logic (DL)</a> operators (&cup;,&cap;, &not;).</p>
         <table id="setOperatorTable3">
         <caption>Table 7. Graphical representations of set operators.</caption>
@@ -1201,7 +1204,7 @@
               </svg>
             </td>
             <td>
-              <p>Represented by a rectangle colored in the <a>datatype</a> color. The Full list of built-in datatypes is presented in the <a href="http://www.w3.org/TR/xmlschema-2/#built-in-datatypes">XML Schema Part 2: Datatypes</a> (W3C Recommendation).</p>
+              <p>Represented by a rectangle colored in the <a href="#colorDatatype">datatype color</a>. The Full list of built-in datatypes is presented in the <a href="http://www.w3.org/TR/xmlschema-2/#built-in-datatypes">XML Schema Part 2: Datatypes</a> (W3C Recommendation).</p>
             </td>
           </tr>
             <tr>
@@ -1215,7 +1218,7 @@
               </svg>
             </td>
             <td>
-              <p>A rectangle like datatype [ref] with a dashed border and the label <em>Literal</em>.</p>
+              <p>A rectangle like <a href="#rdfsDatatype">datatype</a> with a dashed border and the label <em>Literal</em>.</p>
             </td>
           </tr>
         </tbody>
@@ -1275,7 +1278,7 @@
             <!-- @SL: _In_ the circle or _around_ the circle? Possibly add several examples; for example one with a class that has equivalent classes (is the double line outside of the individuals-sections or within?). -->
             <!-- @SL: Is there any equivalent thing for datatypes? It may be interesting to see that an instance of an ontology supports only a certain number of values for a given datatype (with respect to a particular property - assuming the same datatype can appear several times if it is used for several properties (?). -->
             <td>
-              <p>Individuals may be represented as sections in the circles. Individuals inferred from subclasses are usually also counted (if reasoning is available and not deactivated). In case of inference or multi-membership the individuals are shown in a different color (e.g. the <a>deprecated</a> color as in <a href="http://vowl.visualdataweb.org/v1/#tfhover">VOWL 1.0</a>).</p>
+              <p>Individuals may be represented as sections in the circles. Individuals inferred from subclasses are usually also counted (if reasoning is available and not deactivated). In case of inference or multi-membership the individuals are shown in a different color (e.g. the <a href="#colorDeprecated">deprecated color</a>  as in <a href="http://vowl.visualdataweb.org/v1/#tfhover">VOWL 1.0</a>).</p>
             </td>
           </tr>
             <tr>
@@ -1290,7 +1293,7 @@
         </tbody>
       </table>
       <p>
-      Elements such as <em><a href="http://www.w3.org/TR/owl-ref/#allValuesFrom-def">owl:allValuesFrom</a></em>,<em><a href="http://www.w3.org/TR/owl-ref/#someValuesFrom-def">owl:someValuesFrom</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#hasValue-def">owl:hasValue</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_comment">rdfs:comment</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_seealso">rdfs:seeAlso</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_isdefinedby">rdfs:isDefinedBy</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em>, and <em><a href="http://www.w3.org/TR/owl-ref/#EnumeratedDatatype">owl:DataRange</a></em> (<em><a href="http://www.w3.org/TR/rdf-schema/#ch_datatype">rdfs:datatype</a></em> in OWL 2) can only be displayed with interactive events (either in a side panel or when hovering a certain class/individual).
+      Elements such as <em><a href="http://www.w3.org/TR/owl-ref/#allValuesFrom-def">owl:allValuesFrom</a></em>,<em><a href="http://www.w3.org/TR/owl-ref/#someValuesFrom-def">owl:someValuesFrom</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#hasValue-def">owl:hasValue</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_comment">rdfs:comment</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_seealso">rdfs:seeAlso</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_isdefinedby">rdfs:isDefinedBy</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em>, and <em><a href="http://www.w3.org/TR/owl-ref/#EnumeratedDatatype">owl:DataRange</a></em> (<em><a href="rdfsDatatype">rdfs:datatype</a></em> in OWL 2 which has a representation in the current specification) can only be displayed with interactive events (either in a side panel or when hovering a certain class/individual).
       </p>
       <p>
       Elements such as <em><a href="http://www.w3.org/TR/owl-ref/#Ontology-def">owl:Ontology</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#differentFrom-def">owl:differentFrom</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#AllDifferent-def">owl:AllDifferent</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#distinctMembers-def">owl:distinctMembers</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Restriction-def">owl:Restriction</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#onProperty-def">owl:onProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#AnnotationProperty-def">owl:AnnotationProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#OntologyProperty-def">owl:OntologyProperty</a></em> serve as containers for other elements or define constraints for populating the ontology. They are not graphically represented by the visual notation.
