@@ -743,7 +743,8 @@
                 </svg>
               </td>
               <td>
-                <p>Object property representation with indication "inverse functional" in brackets. The global cardinality constraint of functional properties is not made explicit in the visualization for the above reason.</p>
+                <p>Object property representation with indication "inverse functional" in brackets. The global cardinality constraint of functional properties is not made explicit in the visualization for the same reason as above.</p>
+				<!-- @SL: link "above"? -->
               </td>
             </tr>
               <tr>
@@ -795,7 +796,7 @@
                 </svg>
               </td>
               <td>
-                <p>Object property representation with the line starting and ending at the same class (<em>reflexive property representation</em>). If there are multiple of these properties, their representations should be positioned around the class in a way that maintains readability.</p>
+                <p>Object property representation with the line starting and ending at the same class (<em>reflexive property representation</em>). If there are several of these properties, their representations should be positioned around the class in a way that maintains readability.</p>
               </td>
             </tr>
               <tr>
@@ -827,7 +828,7 @@
         </table>
         <p>Note that the text strings "Property", "ObjectProperty", "DatatypeProperty" and "DeprecatedProperty" are used as placeholders for the actual <a>class label</a> in the graphical representations. In contrast, the text strings in brackets ("functional", "inverse functional", "transitive", and "symmetric") are not placeholders but literally shown in the visualization.</p>
         <table id="propertyTable2">
-        <caption>Table 6. Graphical representation of further properties</caption>
+        <caption>Table 6. Graphical representation of further properties.</caption>
           <tbody>
             <tr>
             <th>Ontology Element</th>
@@ -864,7 +865,7 @@
             </td>
               <td>
               <p>
-              Exact, minimal, and/or maximal cardinality constraints are written as numbers near the end of the property arrow. The representation is similar to the <a href="http://www.uml.org/">UML notation for cardinalities</a>, i.e. the letters "x" and "y" in the example represent the minimum and maximum cardinality for that property. Exact cardinalities are represented by only one number, while the asterisk (*) denotes an unrestricted cardinality. Examples are "0..1" for a cardinality of 0 to 1, "1..*" for a minimum cardinality of 1, or "3" for a cardinality of exactly 3.
+              Exact, minimal, and/or maximal cardinality constraints are written as numbers near the end of the property arrow. The representation is similar to the <a href="http://www.uml.org/">UML notation for cardinalities</a>, i.e. the letters "x" and "y" in the example represent the minimum and maximum cardinalities for that property. Exact cardinalities are represented by only one number, while the asterisk (*) denotes an unrestricted cardinality. Examples are "0..1" for a cardinality of 0 to 1, "1..*" for a minimum cardinality of 1, or "3" for a cardinality of exactly 3.
               </p>
 			  <p>
 			  The default cardinality of most properties is any number (i.e. zero or more) and would be represented by a sole asterisk. However, it is recommended to only visualize cardinalities that are explicitely specified with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em>. Default property cardinalities (incl. the global cardinaility constraints of functional and inverse functional properties) are better not shown in the visualization to avoid confusion and reduce visual clutter.</p>
@@ -928,7 +929,7 @@
               </svg>
             </td>
             <td>
-			<p>Dotted line starting at the subclass, having an arrowhead filled with the <a>neutral</a> color that points to the superclass. The representation is similar to the <a href="http://www.uml.org/">UML notation for generalizations</a> but with a dashed line instead of a solid one to make it clearly distinguishable from other property relations. In addition, it is recommended to add the label "Subclass of" to the representation to clarify the semantics of the relation. The label has either a transparant background or is shown in a rectangle that has the <a>neutral</a> color (unless highlighted), which is recommended.</p></td>
+			<p>Dotted line starting at the subclass, having an arrowhead filled with the <a>neutral</a> color that points to the superclass. The representation is similar to the <a href="http://www.uml.org/">UML notation for generalizations</a> but with a dashed line instead of a solid one to make it clearly distinguishable from other property relations. In addition, it is recommended to add the label "Subclass of" to the representation to clarify the semantics of the relation. The label has either a transparent background or is shown in a rectangle that has the <a>neutral</a> color (unless highlighted), which is recommended.</p></td>
           </tr>
             <tr>
             <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_subpropertyof">rdfs:subPropertyOf</a></em></td>
@@ -1073,6 +1074,7 @@
         <ul>
         <li><p>The visual representations of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> can always be instantiated by its more specific subclasses <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>, as both types are subclasses of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em>. The same applies to properties with specific attributes, such as functional properties [ref].</p></li>
       </ul>
+	  <!-- @SL: Confusing. What does this refer to? -->
       <p>
       Note that the background of this property can have different colors. It is shown in the <a href="#colorRdf">rdf</a> color in this specification, as <em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em> is a subclass of <em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em> and can therefore be applied to any property in the ontology (i.e. same notation with different background color for <em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em>).
       </p>
