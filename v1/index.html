@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<meta name="publisher" content=""/>
+<meta name="author" content="Stefan Negru, Steffen Lohmann"/>
+<meta name="keywords" content="owl, vowl, visual notation, web ontology language, ontology visualization, ontologies, semantic web" />
+<meta name="description" content="The Visual Notation for OWL ontologies is a specification for the graphical representation of ontologies." />
+<meta name="robots" content="index,follow"/>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<title>VOWL: Visual Notation for OWL Ontologies</title>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-12619410-19']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+<div id="wrapper">
+  <header>
+    <h1>VOWL: Visual Notation for OWL Ontologies</h1>
+    <h2>Specification of Version 1.0 - 28 January 2013</h2>
+    <hr />
+    <p><strong>Latest version:</strong> <a href="http://purl.org/vowl/">http://purl.org/vowl/</a></p>
+    <p><strong>This version:</strong> <a href="http://purl.org/vowl/v1/">http://purl.org/vowl/v1/</a></p>
+    <p><strong>Authors:</strong> <a href="http://www.infoiasi.ro/~stefan.negru/">Stefan Negru</a> and <a href="http://steffen-lohmann.de">Steffen Lohmann</a></p>
+    <hr />
+    <h2>Abstract</h2>
+    <p>The Visual Notation for OWL ontologies (VOWL - pronounced &quot;vowel&quot; [vou-<em>uh</em> l]) provides graphical representations for elements of the Web Ontology Language (OWL). It allows for an integrated view on ontologies that visualizes classes (circles) along with their individuals (sections in the circles) and property relations (connecting lines and arrows).</p>
+  </header>
+  <hr />
+  <section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#layers">Visual Layers</a></li>
+      <li><a href="#notation">Visual Notation</a></li>
+      <li><a href="#example">Example</a></li>
+      <li><a href="#acknowledgments">Acknowledgments</a></li>
+      <li><a href="#references">References</a></li>
+    </ol>
+  </section>
+  <hr />
+  <section id="layers">
+    <h2>Visual Layers <a href="#toc">[back to top]</a></h2>
+    <p>VOWL distinguishes between three layers that may be visualized:</p>
+    <ul>
+      <li><strong>Conceptual Layer:</strong> Represents the classes, properties, and their relationships;</li>
+      <li><strong>Instance Layer:</strong> Represents the individuals and their relationships;</li>
+      <li><strong>Integrated Layer:</strong> Represents the classes populated with individuals.</li>
+    </ul>
+    <p>Familiarity with <a href="http://www.w3.org/2004/OWL/">OWL 1</a> and/or <a href="http://www.w3.org/2007/OWL/wiki/OWL_Working_Group">OWL 2</a> is recommeded before using this notation. More information on the visual notation and related work can be found in <a href="#references">Negru &amp; Lohmann 2013.</a></p>    
+  </section>
+  <hr />
+  <section id="notation">
+    <h2>Visual Notation <a href="#toc">[back to top]</a></h2>
+    <p>The notation is based on  four types of graphical elements:</p>
+   <ul>
+      <li>classes = circles (size indicates the connectivity of a class);</li>
+      <li>individuals = sections in the circles;</li>
+      <li>properties = lines/arcs (with different arrow heads, line types, etc.);</li>
+    <li>literals, data types and values = rectangles.</li>
+    </ul>
+    <p><a href="#tfhover">Table 1</a> provides an overview of the graphical representations for the different OWL elements (formatted as <a href="http://www.w3.org/TR/SVG/">Scalable Vector Graphics (SVG)</a>). Note that some of the elements are from <a href="http://www.w3.org/TR/rdf-schema/">RDF Schema (RDFS)</a> – they are included in the notation, as they are reused in OWL.</p>
+    <table id="tfhover" class="tftable" border="1">
+      <caption>
+      Table 1. Graphical representations of OWL elements
+      </caption>
+      <tr>
+        <th>Element</th>
+        <th>Graphical representation</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="120" height="120" viewBox="0 0 159.289 159.289" enable-background="new 0 0 159.289 159.289" xml:space="preserve">
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-width="3" stroke-miterlimit="10" cx="79.645" cy="79.645" r="78.144"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-width="2" stroke-miterlimit="10" cx="79.645" cy="79.321" r="35.843"/>
+              <rect x="50.908" y="73.236" fill="none" width="57.479" height="12.271"/>
+              <rect x="46.939" y="74.111" fill="none" width="68.687" height="13.131"/>
+              <text transform="matrix(1 0 0 1 46.9395 84.0508)" font-family="'MyriadPro-Regular'" font-size="14">Class Label</text>
+            </g>
+          </svg></td>
+        <td>Circle with round label (<em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>) in the middle. Classes from imported ontologies are displayed entirely in gray (incl. the label background).</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 68.71 68.709" enable-background="new 0 0 68.71 68.709" xml:space="preserve">
+            <g>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-width="2" stroke-miterlimit="10" cx="34.355" cy="34.354" r="33.355"/>
+              <rect x="7.447" y="28.939" fill="none" width="53.487" height="11.418"/>
+              <text transform="matrix(1 0 0 1 19.0703 37.8843)" fill="#010101" font-family="'MyriadPro-Regular'" font-size="12.6">Thing</text>
+            </g>
+          </svg></td>
+        <td>Simple circle with label Thing.</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3.org/TR/owl-ref/#Individual">Individuals</a>, <a href="http://www.w3.org/TR/owl-ref/#EnumeratedClass">enumerations</a> (e.g. <em><a href="http://www.w3.org/TR/owl-ref/#oneOf-def">owl:oneOf</a></em>)</td>
+        <td class="tdCenter"><svg version="1.1" id="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="160px" height="160px" viewBox="0 0 104.667 96.667" enable-background="new 0 0 104.667 96.667"
+           xml:space="preserve">
+            <g>
+              <g>
+                <g>
+                  <g>
+                    <path fill="#7D469B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M52.333,47.945L9.444,34.01
+                  C15.602,15.06,32.409,2.849,52.333,2.849V47.945z"/>
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <path fill="#D1D3D4" stroke="#808080" stroke-width="2" stroke-miterlimit="10" d="M52.333,47.945L25.826,84.43
+                  C9.707,72.717,3.287,52.959,9.444,34.01L52.333,47.945z"/>
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <path fill="#D1D3D4" stroke="#808080" stroke-width="2" stroke-miterlimit="10" d="M52.333,47.945L78.841,84.43
+                  c-16.121,11.711-36.895,11.711-53.015,0L52.333,47.945z"/>
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <path fill="#3B54A5" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M52.333,47.945L95.222,34.01
+                  c6.158,18.949-0.262,38.707-16.381,50.42L52.333,47.945z"/>
+                  </g>
+                </g>
+                <g>
+                  <g>
+                    <path fill="#6690CB" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M52.333,47.945V2.849
+                  c19.925,0,36.732,12.211,42.889,31.161L52.333,47.945z"/>
+                  </g>
+                </g>
+              </g>
+              <g>
+                <g> </g>
+                <g> </g>
+                <g> </g>
+                <g> </g>
+                <g> </g>
+              </g>
+            </g>
+            <circle fill="#FFFFFF" stroke="#010101" stroke-miterlimit="10" cx="52.333" cy="48.021" r="21.168"/>
+            <rect x="29.686" y="54.447" fill="none" width="45.444" height="7.247"/>
+            <text transform="matrix(1 0 0 1 36.4404 59.417)" fill="#010101" font-family="'MyriadPro-Regular'" font-size="7">Class Label</text>
+            <rect x="37.191" y="34.329" fill="none" width="29.684" height="18.217"/>
+            <text transform="matrix(1 0 0 1 39.3203 38.2334)">
+              <tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="5.5">3 instances</tspan>
+              <tspan x="1.642" y="6.601" font-family="'MyriadPro-Regular'" font-size="5.5">+ 2 inferred</tspan>
+              <tspan x="1.994" y="13.2" font-family="'MyriadPro-Regular'" font-size="5.5">instances</tspan>
+            </text>
+          </svg></td>
+        <td>Individuals are visualized as sections of the circle that represents the class the individuals belong to.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="180px" height="135px" viewBox="0 0 130.25 78" enable-background="new 0 0 130.25 78" xml:space="preserve">
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-miterlimit="10" cx="17.476" cy="23.378" r="15.622"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-miterlimit="10" cx="17.476" cy="23.378" r="9.912"/>
+              <rect x="6.773" y="20.943" fill="none" width="20.196" height="4.668"/>
+              <rect x="8.049" y="21.446" fill="none" width="19.123" height="5.438"/>
+              <text transform="matrix(1 0 0 1 8.0488 25.335)" font-family="'MyriadPro-Regular'" font-size="5.4774">Domain</text>
+            </g>
+            <path d="M91.451,19.098l3.303,2.905c0,0,0.402,0.475,0.395,0.933c-0.008,0.453-0.443,0.936-0.443,0.936l-3.352,2.802
+          c0,0-0.598,0.595-1.178-0.043c-0.602-0.661,0.193-1.27,0.193-1.27l1.537-1.333l1.314-1.117l-1.623-1.418l-1.334-1.143
+          c0,0-0.65-0.596,0.012-1.24C90.961,18.445,91.451,19.098,91.451,19.098z"/>
+            <line fill="none" stroke="#010101" stroke-width="2" stroke-miterlimit="10" x1="33.159" y1="23.101" x2="94.113" y2="23.101"/>
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-miterlimit="10" cx="111.025" cy="23.619" r="15.623"/>
+              <path fill="#FFFFFF" stroke="#010101" stroke-miterlimit="10" d="M120.938,23.62c0,5.472-4.438,9.91-9.913,9.91
+            s-9.911-4.438-9.911-9.91c0-5.477,4.437-9.914,9.911-9.914S120.938,18.143,120.938,23.62z"/>
+              <rect x="101.934" y="20.982" fill="none" width="17.579" height="4.871"/>
+              <rect x="102.51" y="21.687" fill="none" width="17.512" height="5.438"/>
+              <text transform="matrix(1 0 0 1 104.0488 25.5752)" font-family="'MyriadPro-Regular'" font-size="5.4774">Range</text>
+            </g>
+            <rect x="35.212" y="12.192" fill="#C7EAFB" width="48.788" height="10.126"/>
+            <rect x="36.732" y="14.518" fill="none" width="47.15" height="6.463"/>
+            <text transform="matrix(1 0 0 1 36.7319 19.376)" font-family="'MyriadPro-Regular'" font-size="6.8429">Object Property</text>
+            <rect x="94.666" y="55.75" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="28.033" height="9.666"/>
+            <rect x="99.018" y="57.684" fill="none" width="22.715" height="6.766"/>
+            <text transform="matrix(1 0 0 1 99.0176 62.3164)" font-family="'MyriadPro-Regular'" font-size="6.5248">Range</text>
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-miterlimit="10" cx="17.726" cy="59.878" r="15.622"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-miterlimit="10" cx="17.726" cy="59.879" r="9.912"/>
+              <rect x="7.023" y="57.443" fill="none" width="20.196" height="4.668"/>
+              <rect x="8.299" y="57.945" fill="none" width="19.123" height="5.438"/>
+              <text transform="matrix(1 0 0 1 8.2988 61.835)" font-family="'MyriadPro-Regular'" font-size="5.4774">Domain</text>
+            </g>
+            <line fill="none" stroke="#010101" stroke-width="2" stroke-miterlimit="10" x1="33.409" y1="59.601" x2="94.363" y2="59.601"/>
+            <rect x="35.462" y="48.691" fill="#B8D876" width="54.538" height="10.127"/>
+            <rect x="36.982" y="51.018" fill="none" width="52.9" height="6.463"/>
+            <text transform="matrix(1 0 0 1 36.9819 55.876)" font-family="'MyriadPro-Regular'" font-size="6.8429">Datatype Property</text>
+          </svg></td>
+        <td>Line or arc annotated with the label of the property. The label's background color indicates the type of the property (object or datatype property).</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_subclassof">rdfs:subClassOf</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_subpropertyof">rdfs:subPropertyOf</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="85px" viewBox="0 0 159.333 86" enable-background="new 0 0 159.333 86" xml:space="preserve">
+            <line fill="none" stroke="#010101" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="3" x1="18.666" y1="14.667" x2="148.391" y2="14.667"/>
+            <polygon fill="#FFFFFF" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" points="5.272,15.209 19.587,21.773 
+          19.427,8.054 "/>
+            <rect x="6.273" y="47.98" fill="#C7EAFB" width="146.727" height="31.759"/>
+            <rect x="10.238" y="54.87" fill="none" width="139.152" height="21.712"/>
+            <text transform="matrix(1 0 0 1 10.2373 66.9238)">
+              <tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="15.2798">Property</tspan>
+              <tspan x="55.679" y="0" font-family="'MyriadPro-Regular'" font-size="16.9776"> </tspan>
+              <tspan x="59.278" y="0" font-family="'MyriadPro-Regular'" font-size="13.5821">[Subproperty]</tspan>
+            </text>
+            <rect x="132.058" y="26.667" fill="none" width="17.333" height="15.333"/>
+            <text transform="matrix(1 0 0 1 132.0566 35.1875)" font-family="'MyriadPro-Regular'" font-size="12">or</text>
+          </svg></td>
+        <td>Dotted line/arc with an unfilled arrow head at the end pointing to the superclass or superproperty. Subproperties having the same domain and range as their superproperties can alternatively be listed in square brackets within the label of the superproperty.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_domain">rdfs:domain</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_range">rdfs:range</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="180px" height="60px" viewBox="0 0 143.673 43.25" enable-background="new 0 0 143.673 43.25" xml:space="preserve">
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-miterlimit="10" cx="21.558" cy="22.629" r="19.621"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-miterlimit="10" cx="21.559" cy="22.63" r="12.449"/>
+              <rect x="8.116" y="19.571" fill="none" width="25.366" height="5.863"/>
+              <rect x="9.719" y="20.204" fill="none" width="24.018" height="6.829"/>
+              <text transform="matrix(1 0 0 1 9.7178 25.0879)" font-family="'MyriadPro-Regular'" font-size="6.8795">Domain</text>
+            </g>
+            <path d="M99.035,18.098l3.302,2.905c0,0,0.403,0.475,0.396,0.933c-0.008,0.453-0.443,0.936-0.443,0.936l-3.353,2.802
+          c0,0-0.598,0.595-1.177-0.043c-0.603-0.661,0.193-1.27,0.193-1.27l1.536-1.333l1.314-1.117l-1.623-1.419l-1.334-1.142
+          c0,0-0.649-0.597,0.013-1.241C98.544,17.445,99.035,18.098,99.035,18.098z"/>
+            <line fill="none" stroke="#010101" stroke-width="2" stroke-miterlimit="10" x1="40.743" y1="22.101" x2="101.696" y2="22.101"/>
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-miterlimit="10" cx="122.726" cy="22.618" r="19.622"/>
+              <path fill="#FFFFFF" stroke="#010101" stroke-miterlimit="10" d="M135.177,22.619c0,6.874-5.574,12.448-12.45,12.448
+            s-12.448-5.574-12.448-12.448c0-6.878,5.572-12.45,12.448-12.45S135.177,15.741,135.177,22.619z"/>
+              <rect x="111.308" y="19.306" fill="none" width="22.078" height="6.118"/>
+              <rect x="112.03" y="20.192" fill="none" width="21.994" height="6.829"/>
+              <text transform="matrix(1 0 0 1 113.9629 25.0762)" font-family="'MyriadPro-Regular'" font-size="6.8795">Range</text>
+            </g>
+            <rect x="44.161" y="8.871" fill="#C7EAFB" width="36.089" height="13.196"/>
+            <rect x="44.813" y="11.019" fill="none" width="34.005" height="7.518"/>
+            <text transform="matrix(1 0 0 1 46.1626 17.1182)" font-family="'MyriadPro-Regular'" font-size="8.5908">Property</text>
+          </svg></td>
+        <td>Arrow starting at the domain and pointing to the range. Datatype properties do not need an arrow, as they are always directed to the literal or data value.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#inverseOf-def">owl:inverseOf</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="200px" height="60px" viewBox="0 0 143.672 43.25" enable-background="new 0 0 143.672 43.25" xml:space="preserve">
+            <rect x="41.667" y="9.25" fill="#C7EAFB" width="50" height="12.688"/>
+            <rect x="42.396" y="11.315" fill="none" width="37.194" height="7.229"/>
+            <text transform="matrix(1 0 0 1 44.7622 17.7051)" font-family="'MyriadPro-Regular'" font-size="9">Property</text>
+            <polygon stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" points="89.405,15.345 83.292,12.692 83.479,18.495 "/>
+            <rect x="37.167" y="21.779" fill="#C7EAFB" width="71.5" height="11.124"/>
+            <rect x="38.964" y="24.784" fill="none" width="61.928" height="6.878"/>
+            <text transform="matrix(1 0 0 1 38.9644 31.1738)" font-family="'MyriadPro-Regular'" font-size="9">Inverse Property</text>
+            <polygon stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" points="101.142,28.377 106.611,30.949 106.601,25.683 
+          "/>
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="15.609" cy="21.66" r="11.902"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="15.609" cy="21.66" r="7.552"/>
+              <rect x="7.455" y="19.803" fill="none" width="15.386" height="3.558"/>
+              <rect x="8.428" y="20.188" fill="none" width="14.568" height="4.142"/>
+              <text transform="matrix(1 0 0 1 8.4277 23.1509)" font-family="'MyriadPro-Regular'" font-size="4.1729">Domain</text>
+            </g>
+            <path d="M113.579,16.868l3.563,3.134c0,0,0.435,0.512,0.427,1.006c-0.01,0.489-0.479,1.009-0.479,1.009l-3.615,3.021
+          c0,0-0.645,0.644-1.271-0.045c-0.649-0.713,0.208-1.37,0.208-1.37l1.659-1.438l1.418-1.205l-1.751-1.53l-1.439-1.232
+          c0,0-0.702-0.643,0.013-1.338C113.049,16.165,113.579,16.868,113.579,16.868z"/>
+            <line fill="none" stroke="#010101" stroke-width="2" stroke-miterlimit="10" x1="28.485" y1="21.187" x2="116.058" y2="21.187"/>
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="129.507" cy="21.843" r="11.902"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="129.509" cy="21.843" r="7.552"/>
+              <rect x="122.582" y="19.834" fill="none" width="13.393" height="3.71"/>
+              <rect x="123.02" y="20.372" fill="none" width="13.342" height="4.142"/>
+              <text transform="matrix(1 0 0 1 124.1929 23.334)" font-family="'MyriadPro-Regular'" font-size="4.1729">Range</text>
+            </g>
+            <path d="M31.437,25.049l-3.563-3.134c0,0-0.435-0.513-0.427-1.007c0.01-0.489,0.479-1.009,0.479-1.009l3.615-3.021
+          c0,0,0.645-0.644,1.271,0.045c0.649,0.713-0.208,1.37-0.208,1.37l-1.659,1.438l-1.418,1.205l1.751,1.53l1.439,1.232
+          c0,0,0.702,0.643-0.013,1.338C31.966,25.753,31.437,25.049,31.437,25.049z"/>
+          </svg></td>
+        <td>Line/arc with arrow heads at both ends and annotated with the label of the property and its inverse counterpart. Filled arrow heads at the end of the labels indicate the direction of the properties (i.e. their range).</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="60px" viewBox="0 0 202.667 64" enable-background="new 0 0 202.667 64" xml:space="preserve">
+            <line fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="12" x1="8.686" y1="34.263" x2="191.515" y2="34.263"/>
+            <g>
+              <rect x="79.722" y="18.934" fill="#C7EAFB" width="39.351" height="30.843"/>
+              <line fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" x1="90.359" y1="22.389" x2="96.742" y2="47.116"/>
+              <line fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" x1="98.335" y1="21.989" x2="104.719" y2="46.718"/>
+            </g>
+          </svg></td>
+        <td>Dashed line/arc with <em>\\</em> symbol as label.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#InverseFunctionalProperty-def">owl:InverseFunctionalProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#TransitiveProperty-def">owl:TransitiveProperty</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="230px" height="180px" viewBox="0 0 130.25 92.75" enable-background="new 0 0 130.25 92.75" xml:space="preserve">
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="12.136" cy="20.039" r="11.032"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="12.136" cy="20.039" r="7"/>
+              <rect x="4.578" y="18.319" fill="none" width="14.263" height="3.297"/>
+              <rect x="5.479" y="18.674" fill="none" width="13.505" height="3.84"/>
+              <text transform="matrix(1 0 0 1 5.4785 21.4204)" font-family="'MyriadPro-Regular'" font-size="3.8682">Domain</text>
+            </g>
+            <path d="M102.951,15.598l3.303,2.905c0,0,0.402,0.475,0.395,0.933c-0.008,0.453-0.443,0.936-0.443,0.936l-3.352,2.802
+          c0,0-0.598,0.595-1.178-0.043c-0.602-0.661,0.193-1.27,0.193-1.27l1.537-1.333l1.314-1.117l-1.623-1.418l-1.334-1.143
+          c0,0-0.65-0.596,0.012-1.24C102.461,14.945,102.951,15.598,102.951,15.598z"/>
+            <line fill="none" stroke="#010101" stroke-width="2" stroke-miterlimit="10" x1="23" y1="19.601" x2="105.25" y2="19.601"/>
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="117.717" cy="20.208" r="11.033"/>
+              <path fill="#FFFFFF" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" d="M124.719,20.209
+            c0,3.864-3.135,6.999-7.001,6.999s-6.999-3.134-6.999-6.999c0-3.868,3.133-7.001,6.999-7.001S124.719,16.341,124.719,20.209z"/>
+              <rect x="111.297" y="18.347" fill="none" width="12.415" height="3.439"/>
+              <rect x="111.704" y="18.844" fill="none" width="12.366" height="3.84"/>
+              <text transform="matrix(1 0 0 1 112.791 21.5903)" font-family="'MyriadPro-Regular'" font-size="3.8682">Range</text>
+            </g>
+            <rect x="33.462" y="8.692" fill="#C7EAFB" width="57.788" height="10.126"/>
+            <rect x="34.232" y="11.018" fill="none" width="56.65" height="6.463"/>
+            <text transform="matrix(1 0 0 1 34.2319 15.876)" font-family="'MyriadPro-Regular'" font-size="6.8429">Functional Property</text>
+            <rect x="50.5" y="1.5" fill="none" width="7.25" height="6.75"/>
+            <text transform="matrix(1 0 0 1 50.4995 7.8901)" font-family="'MyriadPro-Regular'" font-size="9">F</text>
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="12.386" cy="50.039" r="11.032"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="12.386" cy="50.039" r="7"/>
+              <rect x="4.828" y="48.318" fill="none" width="14.263" height="3.298"/>
+              <rect x="5.729" y="48.674" fill="none" width="13.505" height="3.84"/>
+              <text transform="matrix(1 0 0 1 5.7285 51.4199)" font-family="'MyriadPro-Regular'" font-size="3.8682">Domain</text>
+            </g>
+            <path d="M103.201,45.598l3.303,2.905c0,0,0.402,0.475,0.395,0.933c-0.008,0.453-0.443,0.936-0.443,0.936l-3.352,2.802
+          c0,0-0.598,0.595-1.178-0.043c-0.602-0.661,0.193-1.27,0.193-1.27l1.537-1.333l1.314-1.117l-1.623-1.418l-1.334-1.143
+          c0,0-0.65-0.596,0.012-1.24C102.711,44.945,103.201,45.598,103.201,45.598z"/>
+            <line fill="none" stroke="#010101" stroke-width="2" stroke-miterlimit="10" x1="23.25" y1="49.601" x2="105.5" y2="49.601"/>
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="117.967" cy="50.209" r="11.033"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="117.969" cy="50.209" r="7"/>
+              <rect x="111.547" y="48.347" fill="none" width="12.415" height="3.439"/>
+              <rect x="111.954" y="48.844" fill="none" width="12.366" height="3.84"/>
+              <text transform="matrix(1 0 0 1 113.041 51.5898)" font-family="'MyriadPro-Regular'" font-size="3.8682">Range</text>
+            </g>
+            <rect x="24.212" y="38.691" fill="#C7EAFB" width="78.038" height="10.127"/>
+            <rect x="24.232" y="41.018" fill="none" width="78.4" height="6.463"/>
+            <text transform="matrix(1 0 0 1 24.2319 45.876)" font-family="'MyriadPro-Regular'" font-size="6.8429">Inverse Functional Property</text>
+            <rect x="41.5" y="31.5" fill="none" width="16.5" height="6.75"/>
+            <text transform="matrix(1 0 0 1 41.4995 37.8906)" font-family="'MyriadPro-Regular'" font-size="9">InvF</text>
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="12.136" cy="80.039" r="11.032"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="12.136" cy="80.039" r="7"/>
+              <rect x="4.578" y="78.318" fill="none" width="14.263" height="3.298"/>
+              <rect x="5.479" y="78.674" fill="none" width="13.505" height="3.84"/>
+              <text transform="matrix(1 0 0 1 5.4785 81.4199)" font-family="'MyriadPro-Regular'" font-size="3.8682">Domain</text>
+            </g>
+            <path d="M102.951,75.598l3.303,2.905c0,0,0.402,0.475,0.395,0.933c-0.008,0.453-0.443,0.936-0.443,0.936l-3.352,2.802
+          c0,0-0.598,0.595-1.178-0.043c-0.602-0.661,0.193-1.27,0.193-1.27l1.537-1.333l1.314-1.117l-1.623-1.418l-1.334-1.143
+          c0,0-0.65-0.596,0.012-1.24C102.461,74.945,102.951,75.598,102.951,75.598z"/>
+            <line fill="none" stroke="#010101" stroke-width="2" stroke-miterlimit="10" x1="23" y1="79.601" x2="105.25" y2="79.601"/>
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="117.717" cy="80.209" r="11.033"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="117.719" cy="80.209" r="7"/>
+              <rect x="111.297" y="78.347" fill="none" width="12.415" height="3.439"/>
+              <rect x="111.704" y="78.844" fill="none" width="12.366" height="3.84"/>
+              <text transform="matrix(1 0 0 1 112.791 81.5898)" font-family="'MyriadPro-Regular'" font-size="3.8682">Range</text>
+            </g>
+            <rect x="33.962" y="68.691" fill="#C7EAFB" width="57.038" height="10.127"/>
+            <rect x="35.482" y="71.018" fill="none" width="55.15" height="6.463"/>
+            <text transform="matrix(1 0 0 1 35.4819 75.876)" font-family="'MyriadPro-Regular'" font-size="6.8429">Transitive Property</text>
+            <rect x="41.25" y="61.5" fill="none" width="7.5" height="6.75"/>
+            <text transform="matrix(1 0 0 1 41.2495 67.8906)" font-family="'MyriadPro-Regular'" font-size="9">T</text>
+          </svg></td>
+        <td>Object property representation with an <strong>F</strong> for functional properties, <strong>InvF</strong> for inverse functional properties, and <strong>T</strong> for transitive properties on top of the property label.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#SymmetricProperty-def">owl:SymmetricProperty</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="130px" height="130px" viewBox="0 0 124 137.333" enable-background="new 0 0 124 137.333" xml:space="preserve">
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-width="3" stroke-miterlimit="10" cx="51.644" cy="86.313" r="42.145"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-width="2" stroke-miterlimit="10" cx="51.644" cy="86.137" r="19.331"/>
+              <rect x="36.146" y="82.856" fill="none" width="31" height="6.616"/>
+              <rect x="34.006" y="83.328" fill="none" width="37.042" height="7.08"/>
+              <text transform="matrix(1 0 0 1 34.0063 88.688)" font-family="'MyriadPro-Regular'" font-size="7.5504">Class Label</text>
+            </g>
+            <path fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M52.025,38.364c0,0,8.109-18.224,29.542-10.741
+          c21.431,7.485,7.799,40.101,7.799,40.101"/>
+            <path d="M46.514,30.888l3.484,10.116c0,0,0.694,1.348,1.732,1.753c1.025,0.401,2.515-0.131,2.515-0.131l9.401-4.954
+          c0,0,1.891-0.802,0.992-2.687c-0.928-1.97-3.032-0.74-3.032-0.74l-4.42,2.221l-3.728,1.927l-1.694-4.96l-1.336-4.062
+          c0,0-0.741-2.014-2.803-1.119C45.501,29.184,46.514,30.888,46.514,30.888z"/>
+            <rect x="14.629" y="6.827" fill="#C7EAFB" width="105.376" height="20.185"/>
+            <rect x="19.586" y="11.142" fill="none" width="99.011" height="12.889"/>
+            <text transform="matrix(1 0 0 1 19.5859 19.6616)" font-family="'MyriadPro-Regular'" font-size="12">Symmetric Property</text>
+          </svg></td>
+        <td>Object property representation with identical domain and range, i.e. start and end point of the arrow is the same class.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="230px" height="130px" viewBox="0 0 130.25 33.75" enable-background="new 0 0 130.25 33.75" xml:space="preserve">
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="12.136" cy="20.039" r="11.032"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="12.136" cy="20.039" r="7"/>
+              <rect x="4.578" y="18.319" fill="none" width="14.263" height="3.297"/>
+              <rect x="5.479" y="18.674" fill="none" width="13.505" height="3.84"/>
+              <text transform="matrix(1 0 0 1 5.4785 21.4204)" font-family="'MyriadPro-Regular'" font-size="3.8682">Domain</text>
+            </g>
+            <path d="M102.951,15.598l3.303,2.905c0,0,0.402,0.475,0.395,0.933c-0.008,0.453-0.443,0.936-0.443,0.936l-3.352,2.802
+          c0,0-0.598,0.595-1.178-0.043c-0.602-0.661,0.193-1.27,0.193-1.27l1.537-1.333l1.314-1.117l-1.623-1.418l-1.334-1.143
+          c0,0-0.65-0.596,0.012-1.24C102.461,14.945,102.951,15.598,102.951,15.598z"/>
+            <line fill="none" stroke="#010101" stroke-width="2" stroke-miterlimit="10" x1="23" y1="19.601" x2="105.25" y2="19.601"/>
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" cx="117.717" cy="20.208" r="11.033"/>
+              <path fill="#FFFFFF" stroke="#010101" stroke-width="0.5" stroke-miterlimit="10" d="M124.719,20.209
+            c0,3.864-3.135,6.999-7.001,6.999s-6.999-3.134-6.999-6.999c0-3.868,3.133-7.001,6.999-7.001S124.719,16.341,124.719,20.209z"/>
+              <rect x="111.297" y="18.347" fill="none" width="12.415" height="3.439"/>
+              <rect x="111.704" y="18.844" fill="none" width="12.366" height="3.84"/>
+              <text transform="matrix(1 0 0 1 112.791 21.5903)" font-family="'MyriadPro-Regular'" font-size="3.8682">Range</text>
+            </g>
+            <rect x="38.212" y="8.692" fill="#C7EAFB" width="52.038" height="10.126"/>
+            <rect x="39.482" y="11.018" fill="none" width="50.9" height="6.463"/>
+            <text transform="matrix(1 0 0 1 39.4819 15.2773)" font-family="'MyriadPro-Regular'" font-size="6">Cardinality Property</text>
+            <rect x="40" y="2.75" fill="none" width="15.5" height="6"/>
+            <text transform="matrix(1 0 0 1 39.9995 7.0098)" font-family="'MyriadPro-Regular'" font-size="6">min:1</text>
+            <rect x="72.75" y="3" fill="none" width="15.5" height="6"/>
+            <text transform="matrix(1 0 0 1 72.7495 7.2598)" font-family="'MyriadPro-Regular'" font-size="6">max:1</text>
+          </svg></td>
+        <td>Exact, minimal, and/or maximal cardinality constraints are written above the property label.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#equivalentClass-def">owl:equivalentClass</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="140px" height="140px" viewBox="0 0 113.667 113" enable-background="new 0 0 113.667 113" xml:space="preserve">
+            <g>
+              <g>
+                <g>
+                  <ellipse fill="#4DB748" stroke="#4DB748" stroke-width="3" stroke-miterlimit="10" cx="58.383" cy="56.881" rx="47.777" ry="47.707"/>
+                </g>
+                <ellipse fill="#74A0D5" stroke="#010101" stroke-width="3" stroke-miterlimit="10" cx="58.382" cy="56.879" rx="45.154" ry="45.09"/>
+                <ellipse fill="#FFFFFF" stroke="#010101" stroke-width="2" stroke-miterlimit="10" cx="58.382" cy="56.879" rx="26.289" ry="26.252"/>
+                <polygon fill="none" points="83.649,65.857 56.917,65.857 33.115,65.857 33.115,47.901 83.649,47.901    "/>
+                <text transform="matrix(1.0014 0 0 1 41.6675 52.8711)">
+                  <tspan x="0" y="0" fill="#010101" font-family="'MyriadPro-Regular'" font-size="7">Class Label, </tspan>
+                  <tspan x="-6.856" y="8.4" fill="#4DB748" font-family="'MyriadPro-Regular'" font-size="7">Equivalent Class</tspan>
+                  <tspan x="8.856" y="16.4" fill="#4DB748" font-family="'MyriadPro-Regular'" font-size="7">Label</tspan>
+                </text>
+              </g>
+            </g>
+          </svg></td>
+        <td><p>Colored ring around a class. The labels of equivalent classes are shown as comma-separated list in the label, each colored in the same font as the corresponding ring.</p></td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150" height="60px" viewBox="0 0 202.667 64" enable-background="new 0 0 202.667 64" xml:space="preserve">
+            <line fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="12" x1="8.686" y1="34.263" x2="191.515" y2="34.263"/>
+            <circle fill="#C7EAFB" stroke="#000000" stroke-miterlimit="10" cx="99.333" cy="34" r="20"/>
+            <g>
+              <polyline fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" points="90.147,23.855 90.147,44.855 
+            108.647,44.855 108.647,23.855   "/>
+            </g>
+          </svg></td>
+        <td>Dashed line/arc with &cup; symbol as label.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="60px" viewBox="0 0 202.667 64" enable-background="new 0 0 202.667 64" xml:space="preserve">
+            <line fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="12" x1="8.686" y1="34.263" x2="191.515" y2="34.263"/>
+            <circle fill="#C7EAFB" stroke="#000000" stroke-miterlimit="10" cx="99.666" cy="33" r="20"/>
+            <g>
+              <polyline fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" points="90.147,44.855 90.147,23.855 
+            108.647,23.855 108.647,44.855   "/>
+            </g>
+          </svg></td>
+        <td>Dashed line/arc with &cap; symbol as label.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:complementOf</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="60px" viewBox="0 0 202.667 64" enable-background="new 0 0 202.667 64" xml:space="preserve">
+            <line fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" stroke-dasharray="12" x1="8.686" y1="34.263" x2="115.666" y2="34.263"/>
+            <circle fill="#C7EAFB" stroke="#000000" stroke-miterlimit="10" cx="99" cy="32.333" r="20"/>
+            <g>
+              <polyline fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" points="81.814,29.945 114,29.945 114,42.124  "/>
+            </g>
+          </svg></td>
+        <td>Dashed line/arc with &not; symbol as label.</td>
+      </tr>
+      <tr>
+        <td><a href="http://www.w3.org/TR/rdf-concepts/#section-Literals">Literals, </a><a href="http://www.w3.org/TR/owl-ref/#Datatype">data types and values</a></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="50px" viewBox="0 0 54.75 27.5" enable-background="new 0 0 54.75 27.5" xml:space="preserve">
+            <rect x="6.75" y="6.719" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="40.449" height="13.947"/>
+            <rect x="13.028" y="9.509" fill="none" width="32.775" height="9.762"/>
+            <text transform="matrix(1 0 0 1 13.0273 16.1934)" font-family="'MyriadPro-Regular'" font-size="9.4147">Literal</text>
+          </svg></td>
+        <td>Rectangle containing the literal, data type or value.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#DeprecatedClass-def">owl:DeprecatedClass</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"  width="120px" height="120px" viewBox="0 0 159.289 159.289" enable-background="new 0 0 159.289 159.289" xml:space="preserve">
+            <g>
+              <circle fill="#6D6E71" stroke="#010101" stroke-width="3" stroke-miterlimit="10" cx="79.645" cy="79.645" r="78.144"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-width="2" stroke-miterlimit="10" cx="79.645" cy="79.321" r="35.843"/>
+              <rect x="50.908" y="73.236" fill="none" width="57.479" height="12.271"/>
+              <rect x="46.939" y="74.111" fill="none" width="68.687" height="13.131"/>
+              <text transform="matrix(1 0 0 1 46.9395 84.0508)" font-family="'MyriadPro-Regular'" font-size="14">Class Label</text>
+            </g>
+          </svg></td>
+        <td>Class representation colored in dark gray (with white label background).</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#DeprecatedProperty-def">owl:DeprecatedProperty</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="180px" height="60px" viewBox="0 0 143.673 43.25" enable-background="new 0 0 143.673 43.25" xml:space="preserve">
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-miterlimit="10" cx="21.558" cy="22.629" r="19.621"/>
+              <circle fill="#FFFFFF" stroke="#010101" stroke-miterlimit="10" cx="21.559" cy="22.63" r="12.449"/>
+              <rect x="8.116" y="19.571" fill="none" width="25.366" height="5.863"/>
+              <rect x="9.719" y="20.204" fill="none" width="24.018" height="6.829"/>
+              <text transform="matrix(1 0 0 1 9.7173 25.0879)" font-family="'MyriadPro-Regular'" font-size="6.8795">Domain</text>
+            </g>
+            <path fill="#6D6E71" d="M99.035,18.098l3.302,2.905c0,0,0.403,0.475,0.396,0.933c-0.008,0.453-0.443,0.936-0.443,0.936l-3.353,2.802
+          c0,0-0.598,0.595-1.177-0.043c-0.603-0.661,0.193-1.27,0.193-1.27l1.536-1.333l1.314-1.117l-1.623-1.419l-1.334-1.142
+          c0,0-0.649-0.597,0.013-1.241C98.544,17.445,99.035,18.098,99.035,18.098z"/>
+            <line fill="#6D6E71" stroke="#6D6E71" stroke-width="2" stroke-miterlimit="10" x1="40.743" y1="22.101" x2="101.696" y2="22.101"/>
+            <g>
+              <circle fill="#74A0D5" stroke="#010101" stroke-miterlimit="10" cx="122.726" cy="22.618" r="19.622"/>
+              <path fill="#FFFFFF" stroke="#010101" stroke-miterlimit="10" d="M135.177,22.619c0,6.874-5.574,12.448-12.45,12.448
+            s-12.448-5.574-12.448-12.448c0-6.878,5.572-12.45,12.448-12.45S135.177,15.741,135.177,22.619z"/>
+              <rect x="111.308" y="19.306" fill="none" width="22.078" height="6.118"/>
+              <rect x="112.03" y="20.192" fill="none" width="21.994" height="6.829"/>
+              <text transform="matrix(1 0 0 1 113.9629 25.0762)" font-family="'MyriadPro-Regular'" font-size="6.8795">Range</text>
+            </g>
+            <rect x="44.161" y="8.871" fill="#6D6E71" width="36.089" height="13.196"/>
+            <rect x="44.813" y="11.019" fill="none" width="34.005" height="7.518"/>
+            <text transform="matrix(1 0 0 1 46.1621 17.1182)" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="8.5908">property</text>
+          </svg></td>
+        <td>Object/datatype property representation colored in dark gray.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#equivalentProperty-def">owl:equivalentProperty</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="180px" height="40px" viewBox="0 0 184 44" enable-background="new 0 0 184 44" xml:space="preserve">
+            <rect x="15.186" y="10.49" fill="#C7EAFB" width="154" height="23.02"/>
+            <rect x="9.09" y="17.38" fill="none" width="167.151" height="16.13"/>
+            <text transform="matrix(1 0 0 1 27.5596 27.3193)" font-family="'MyriadPro-Regular'" font-size="14">{property1, property2}</text>
+          </svg></td>
+        <td>Labels of equivalent properties are listed in curly brackets.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_comment">rdfs:comment</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_seealso">rdfs:seeAlso</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_isdefinedby">rdfs:isDefinedBy</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="70px" height="45px" viewBox="0 0 77.333 44" enable-background="new 0 0 77.333 44" xml:space="preserve">
+            <rect x="7.065" y="10.076" width="61.601" height="23.848"/>
+            <text transform="matrix(1 0 0 1 21.106 27.3965)" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="17.0484">label</text>
+          </svg></td>
+        <td>Inverted literal representation (i.e. black rectangle with white font).</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em></td>
+        <td class="tdCenter"><svg version="1.1" class="svgLayer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="185px" height="60px" viewBox="0 0 232.667 44" enable-background="new 0 0 232.667 44" xml:space="preserve">
+            <rect x="4" y="10.076" width="220" height="23.848"/>
+            <text transform="matrix(1 0 0 1 12.1055 27.3965)" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="16">individual1 sameAs individual2</text>
+          </svg></td>
+        <td> Inverted literal representation listing the labels of the individuals connected with the keyword `sameAs'.</td>
+      </tr>
+      <tr>
+        <td><em><a href="http://www.w3.org/TR/owl-ref/#imports-def">owl:imports</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#versionInfo-def">owl:versionInfo</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#priorVersion-def">owl:priorVersion</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#backwardCompatibleWith-def">owl:BackwardCompatibleWith</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#incompatibleWith-def">owl:incompatibleWith</a></em></td>
+        <td class="tdCenter"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="240px" height="138px" viewBox="0 0 253.207 138.041" enable-background="new 0 0 253.207 138.041"
+           xml:space="preserve">
+            <rect x="0.5" y="0.5" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="252.207" height="137.041"/>
+            <text transform="matrix(1 0 0 1 13.6548 15.7842)">
+              <tspan x="0" y="0" font-family="'MyriadPro-Regular'" font-size="11.7769">Title: Ontology vocabulary</tspan>
+              <tspan x="0" y="28.265" font-family="'MyriadPro-Regular'" font-size="11.7769">About: URI reference</tspan>
+              <tspan x="0" y="56.529" font-family="'MyriadPro-Regular'" font-size="11.7769">Description: This is an example regarding the </tspan>
+              <tspan x="0" y="70.661" font-family="'MyriadPro-Regular'" font-size="11.7769">info box. area where elements like </tspan>
+              <tspan x="169.549" y="70.661" font-family="'MyriadPro-It'" font-size="11.7769">owl:imports, </tspan>
+              <tspan x="0" y="84.794" font-family="'MyriadPro-It'" font-size="11.7769">owl:versionInfo, owl:priorVersion, </tspan>
+              <tspan x="0" y="98.926" font-family="'MyriadPro-It'" font-size="11.7769">owl:BackwardCompatibleWith and </tspan>
+              <tspan x="0" y="113.058" font-family="'MyriadPro-It'" font-size="11.7769">owl:incompatibleWith </tspan>
+              <tspan x="106.79" y="113.058" font-family="'MyriadPro-Regular'" font-size="11.7769">might be placed</tspan>
+            </text>
+          </svg></td>
+        <td>Text  in an infobox complementing the visualization.</td>
+      </tr>
+    </table>
+    <p>The basic set operations <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em> and <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:ComplementOf</a></em> define new (anonymous) classes to describe the union, intersection, or complement of other classes, and are thus represented as circles. The circles contain the corresponding <a href="http://www.w3.org/2001/sw/SW-FAQ#relDL">Description Logic (DL)</a> symbols (&cup;,&cap;, &not;).</p>
+    <p>Elements such as <em><a href="http://www.w3.org/TR/owl-ref/#Ontology-def">owl:Ontology</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#differentFrom-def">owl:differentFrom</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#AllDifferent-def">owl:AllDifferent</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#distinctMembers-def">owl:distinctMembers</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Restriction-def">owl:Restriction</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#onProperty-def">owl:onProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#allValuesFrom-def">owl:allValuesFrom</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#someValuesFrom-def">owl:someValuesFrom</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#hasValue-def">owl:hasValue</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#AnnotationProperty-def">owl:AnnotationProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#OntologyProperty-def">owl:OntologyProperty</a></em>, and <em><a href="http://www.w3.org/TR/owl-ref/#EnumeratedDatatype">owl:DataRange</a></em> (<em><a href="http://www.w3.org/TR/rdf-schema/#ch_datatype">rdfs:datatype</a></em> in OWL 2) serve as containers for other elements or define constraints for populating the ontology. They are not graphically represented by the visual notation.</p>
+    <p>The size of the circles is determined by the number of incoming and outgoind property relations (the more relations, the larger the circle). The class representation of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> has a fixed size, as it usually does not carry particular domain information. It is recommended to use multiple representations of <em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em> to not give this element an importance in the visualization that it does not deserve.</p>
+    <p>If certain classes, properties, or individuals do not have an <em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, it is recommended to display a part of the URI as label (e.g. the characters that follow the last slash or number sign).</p>
+  </section>
+  <hr />
+  <section id="example">
+    <h2>Example <a href="#toc">[back to top]</a></h2>
+    <p><a href="#figConceptual">Figure 1</a> depicts the visual representation of the <a href="#layers">Conceptual Layer</a> of the <a href="http://xmlns.com/foaf/spec/">Friend of a Friend  (FOAF)</a> vocabulary (version 0.98) as an illustration of VOWL.
+      <figure id="figConceptual"><img src="FOAF_concept_view.png" alt="demo conceptual view VOWL FOAF ontology">
+        <figcaption>Figure 1. Visual Representation of the <a href="#layers">Conceptual Layer</a> of the FOAF ontology (version 0.98).</figcaption>
+      </figure>
+    <p><a href="#figIntegrated">Figure 2</a> visualizes the <a href="#layers">Integrated Layer</a> of the <a href="http://xmlns.com/foaf/spec/">Friend of a Friend  (FOAF)</a> vocabulary using the VOWL notation and some sample data. The sample data consists of 28 individuals that are distributed on the FOAF classes as follows: 5 x Person, 7 x Document, 5 x Image, 2 x Group, and 9 x Organization. Though all these individuals are represented as sections in the circles, the property relations of only one selected individual are shown (namely, &quot;Jane Doe&quot;). The FOAF profile of that individual in <a href="http://www.w3.org/TR/REC-rdf-syntax/">RDF/XML syntax</a> is as follows:</p>
+      <code> &lt;rdf:RDF <br />
+    &nbsp;xmlns:rdf=<span class="uri">"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span><br />
+    &nbsp;xmlns:foaf=<span class="uri">"http://xmlns.com/foaf/0.1/"</span>&gt;<br />
+    &lt;foaf:Person rdf:ID="janedoe"&gt;<br />
+    &nbsp;&nbsp;&lt;foaf:name&gt;<span class="data">jane doe</span> &lt;/foaf:name&gt;<br />
+    &nbsp;&nbsp;&lt;foaf:title&gt;<span class="data">Mrs.</span> &lt;/foaf:title&gt;<br />
+    &nbsp;&nbsp;&lt;foaf:givenname&gt;<span class="data">jane</span> &lt;/foaf:givenname&gt;<br />
+    &nbsp;&nbsp;&lt;foaf:family_name&gt;<span class="data">doe</span> &lt;/foaf:family_name&gt;<br />
+    &nbsp;&nbsp;&lt;foaf:nick&gt; <span class="data">jane</span> &lt;/foaf:nick&gt;<br />
+    &nbsp;&nbsp;&lt;foaf:mbox rdf:resource=<span class="data">"mailto:janedoe@example.com"</span>/&gt;<br />
+    &nbsp;&nbsp;&lt;foaf:homepage rdf:resource=<span class="data">"www.example.com/janedoe"</span>/&gt;<br />
+    &nbsp;&nbsp;&lt;foaf:depiction rdf:resource=<span class="data">"janedoe.jpg"</span>/&gt;<br />
+    &nbsp;&nbsp;&lt;foaf:workplaceHomepage rdf:resource=<span class="data">"www.work.com/janedoe"</span>/&gt;<br />
+    &nbsp;&nbsp;&lt;foaf:knows&gt;<br />
+    &nbsp;&nbsp;&nbsp;&lt;foaf:Person&gt;<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;foaf:name&gt;<span class="data">john doe</span> &lt;/foaf:name&gt;<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;foaf:mbox rdf:resource=<span class="data">"mailto:johndoe@xample.com"</span>/&gt;<br />
+    &nbsp;&nbsp;&nbsp;&lt;/foaf:Person&gt;<br />
+    &nbsp;&nbsp;&lt;/foaf:knows&gt;<br />
+    &lt;/foaf:Person&gt;<br />
+    &lt;/rdf:RDF&gt; </code>
+      <figure id="figIntegrated"> <img src="FOAF_integrated_view.png" alt="demo integrated view VOWL FOAF ontology">
+        <figcaption>Figure 2. Visual Representation of the <a href="#layers">Integrated Layer</a> of the FOAF ontology (with sample data).</figcaption>
+      </figure>
+    <p>The visual representations of the example are also available in SVG format: <a href="FOAF_concept_view.svg">Conceptual Layer</a> and <a href="FOAF_integrated_view.svg">Integrated Layer</a>.</p>
+  </section>
+  <hr />
+  <section id="acknowledgments">
+    <h2>Acknowledgments <a href="#toc">[back to top]</a></h2>
+    <p>This work was partially supported by the <a href="http://www.docpaideia.ro/">European Social Fund in Romania</a>, under the responsibility of the Managing Authority for the Sectorial Operational Program for Human Resources Development 2007-2013 (grant POSDRU/107/1.5/S/78342).</p>
+  </section>
+  <hr />
+  <section id="references">
+    <h2>References <a href="#toc">[back to top]</a></h2>
+    <p>Negru, S. and Lohmann, S.: <a href="VOWL2013.pdf">A Visual Notation for the Integrated Representation of OWL Ontologies</a>. Proceedings of the 9th International Conference on Web Information Systems and Technologies (WEBIST '13). SciTePress 2013; pp. 308-315 <a href="vowl-bibtex.txt">[BibTex]</a></p>
+  </section>
+  <hr />
+  <footer><p><span><a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a></span> <br />
+    <span>This work is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0</a> license. You are free to copy, distribute, transmit, remix, or adapt the work, as long as you reference the work and its authors.</span></p></footer>
+</div>
+</body>
+</html>
