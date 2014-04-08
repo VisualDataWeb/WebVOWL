@@ -923,11 +923,13 @@ function addDisjointLabel(label) {
     label.append("circle")
         .classed("symbol", true)
         .classed("fineline", true)
+        .classed("embedded", true)		
         .attr("cx", -12.5)
         .attr("r", 10);
     label.append("circle")
         .classed("symbol", true)
         .classed("fineline", true)
+        .classed("embedded", true)		
         .attr("cx", 12.5)
         .attr("r", 10);
 
