@@ -1,0 +1,109 @@
+{
+	"info": [
+
+	],
+	"namespaces": [
+		{
+			"": "baseUri"
+		},
+		{
+			"foaf": "http://www.w3.org/2000/01/rdf-schema#"
+		},
+		{
+			"literal": "http://www.w3.org/2000/01/rdf-schema#Literal"
+		},
+	],
+	"classes": [
+		{
+			"id": "classNumber1",
+			"type": "owl:Class"
+		},
+		{
+			"id": "classNumber2",
+			"type": "owl:Thing"
+		}
+	],
+	"classAttributes": [
+		{
+			"id": "classNumber1",
+			"label": "Klasse",
+			"uri": ":Klasse",
+			"equivalent": [
+				"classNumber2", "classNumber3"
+			],
+			"instances": 13
+		},
+		{
+			"id": "classNumber2",
+			"label": "Thing",
+			"uri": ":Thing",
+			"comment": "Bla blabla bla."
+		}
+	],
+	"datatypes": [
+		{
+			"id": "datatypeX",
+			"type": "rdfs:Datatype"
+		},
+		{
+			"id": "literalY",
+			"type": "rdfs:Literal"
+		}
+	],
+	"datatypeAttributes": [
+		{
+			"id": "datatypeX",
+			"label": "String",
+			"uri": "foaf:String"
+		},
+		{
+			"id": "literalY",
+			"uri": "literal"
+		}
+	],
+	"properties": [
+		{
+			"id": "objProp13",
+			"type": "owl:DeprecatedProperty"
+		},
+		{
+			"id": "objProp17",
+			"type": "owl:FunctionalProperty"
+		},
+		{
+			"id": "abcSubclass",
+			"uri": ":SubclassOf"
+		},
+		{
+			"id": "abcDisjoint",
+			"uri": ":Disjoint"
+		},
+		{
+			"id": "cardinalityProperty",
+			"cardinality": "1..4"
+		}
+	],
+	"propertyAttributes": [
+		{
+			"id": "objProp13",
+			"domain": "classNumber1",
+			"range": "literalY",
+			"label": "",
+			"inverse": "objProp17",
+			"subProperties": [  // TODO kann auch super property sein
+				"objProp17"
+			]
+		},
+		{
+			"id": "abcSubclass",
+			"type": "rdfs:subClassOf",
+			"comment": "very nice subclass"
+		},
+		{
+			"id": "otherProperty",
+			"equivalent": [
+				"abcSubclass"
+			]
+		}
+	]
+}
