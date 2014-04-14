@@ -1,0 +1,164 @@
+{
+	"namespace": [ // shorter terminology can be used instead of "namespace" = "ns"
+		{
+			"": "baseUri"
+		},
+		{
+			"foaf": "http://www.w3.org/2000/01/rdf-schema#"
+		},
+		{
+			"literal": "http://www.w3.org/2000/01/rdf-schema#Literal"
+		},
+	],
+	"header": [
+		{
+			"title": "OntologyTitle",
+            "uri": "baseUri",
+            "version": "",
+            "authors": "",
+            "description": ""
+		}
+	],
+	"class": [
+		{
+			"id": "classNumber1",
+			"type": "owl:Class"
+		},
+		{
+			"id": "classNumber2",
+			"type": "owl:Thing"
+		}
+	],
+	"classAttribute": [
+		{
+			"id": "classNumber1",
+			"label": "Klasse",
+			"uri": ":Klasse",
+			"equivalent": [
+				"classNumber2", "classNumber3"
+			],
+			"instances": 13
+		},
+		{
+			"id": "classNumber2",
+			"label": "Thing",
+			"uri": ":Thing",
+			"comment": "Bla blabla bla."
+		}
+	],
+	"datatype": [
+		{
+			"id": "datatypeX",
+			"type": "rdfs:Datatype"
+		},
+		{
+			"id": "literalY",
+			"type": "rdfs:Literal"
+		}
+	],
+	"datatypeAttribute": [
+		{
+			"id": "datatypeX",
+			"label": "String",
+			"uri": "foaf:String"
+		},
+		{
+			"id": "literalY",
+			"uri": "literal"
+		}
+	],
+	// A separation between ObjectProeprties and DatatypeProperties is suggested
+	"objectProperty": [
+		{
+			"id": "objProp13",
+			"type": "owl:DeprecatedProperty"
+		},
+		{
+			"id": "objProp17",
+			"type": "owl:FunctionalProperty"
+		},
+		{
+			"id": "abcDisjoint",
+			"uri": ":Disjoint"
+		},
+		{
+			"id": "cardinalityProperty",
+			"cardinality": "1..4"
+		}
+	],
+	"objectPropertyAttribute": [
+		{
+			"id": "objProp13",
+			"domain": "classNumber1",
+			"range": "classX",
+			"label": "",
+			"inverse": "objProp17",
+			"subProperties": [  // TODO kann auch super property sein
+				"objProp17"
+			]
+		},
+		{
+			"id": "abcSubclass",
+			"type": "rdfs:subClassOf",
+			"comment": "very nice subclass"
+		},
+		{
+			"id": "otherProperty",
+			"equivalent": [
+				"abcSubclass"
+			]
+		}
+	],
+	"datatypeProperty": [
+		{
+			"id": "objProp13",
+			"type": "owl:DeprecatedProperty"
+		},
+		{
+			"id": "objProp17",
+			"type": "owl:FunctionalProperty"
+		},
+		{
+			"id": "abcDisjoint",
+			"uri": ":Disjoint"
+		},
+		{
+			"id": "cardinalityProperty",
+			"cardinality": "1..4"
+		}
+	],
+	"datatypePropertyAttribute": [
+		{
+			"id": "objProp13",
+			"domain": "classNumber1",
+			"range": "literalY",
+			"label": "",
+			"inverse": "objProp17",
+			"subProperties": [  // TODO kann auch super property sein
+				"objProp17"
+			]
+		},
+		{
+			"id": "abcSubclass",
+			"type": "rdfs:subClassOf",
+			"comment": "very nice subclass"
+		},
+		{
+			"id": "otherProperty",
+			"equivalent": [
+				"abcSubclass"
+			]
+		}
+	],
+	"property": [
+		{
+			"id": "abcSubclass",
+			"uri": ":SubclassOf"
+		},
+	],
+	"propertyAttribute": [ // only if required
+		{
+
+		}
+	]
+}
