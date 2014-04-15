@@ -85,7 +85,7 @@
         {"source": 17, "target": 15, "valueTo": "tipjar", "uriTo": "http://xmlns.com/foaf/0.1/tipjar", "subpropertiesTo" : [{"id": 29, "direction": "to"}]},
         {"source": 17, "target": 15, "valueTo": "weblog", "typeTo": "inverse functional", "uriTo": "http://xmlns.com/foaf/0.1/weblog", "subpropertiesTo" : [{"id": 29, "direction": "to"}]},
         {"source": 17, "target": 15, "valueTo": "openid", "uriTo": "http://xmlns.com/foaf/0.1/openid", "subpropertiesTo" : [{"id": 30, "direction": "to"}]},
-        {"source": 18, "target": 15, "valueTo": "homepage", "typeTo": "inverse functional", "uriTo": "http://xmlns.com/foaf/0.1/homepage", "subpropertiesTo" : [{"id": 29, "direction": "to"}, {"id": 117, "direction": "to"}]},
+        {"source": 18, "target": 15, "valueTo": "homepage", "typeTo": "inverse functional", "uriTo": "http://xmlns.com/foaf/0.1/homepage", "subpropertiesTo" : [{"id": 29, "direction": "to"}, {"id": 30, "direction": "to"}]},
         {"source": 18, "target": 15, "valueTo": "page", "inverse": true, "valueFrom": "topic", "uriTo": "http://xmlns.com/foaf/0.1/page", "uriFrom": "http://xmlns.com/foaf/0.1/topic", "subpropertiesTo" : [{"id": 28}, {"id": 30}, {"id": 26}, {"id": 25}]},    
         {"source": 18, "target": 15, "valueTo": "is primary topic of", "inverse": true, "valueFrom": "primary topic", "typeTo": "functional", "properytFrom": "object", "typeFrom": "inverse functional", "uriTo": "http://xmlns.com/foaf/0.1/isPrimaryTopicOf", "uriFrom": "http://xmlns.com/foaf/0.1/primaryTopic", "subpropertiesTo" : [{"id": 29, "direction": "to"}, {"id": 28}, {"id": 27}]},
         {"source": 15, "target": 42, "valueTo": "sha1sum (hex)", "propertyTo": "datatype", "uriTo": "http://xmlns.com/foaf/0.1/sha1"},
