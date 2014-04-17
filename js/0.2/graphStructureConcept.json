@@ -1,8 +1,5 @@
 {
-	"info": [
-
-	],
-	"namespaces": [
+	"namespace": [
 		{
 			"": "baseUri"
 		},
@@ -11,9 +8,18 @@
 		},
 		{
 			"literal": "http://www.w3.org/2000/01/rdf-schema#Literal"
-		},
+		}
 	],
-	"classes": [
+	"header": [
+		{
+			"title": "OntologyTitle",
+			"uri": "baseUri",
+			"version": "",
+			"author": "",
+			"description": ""
+		}
+	],
+	"class": [
 		{
 			"id": "classNumber1",
 			"type": "owl:Class"
@@ -23,7 +29,7 @@
 			"type": "owl:Thing"
 		}
 	],
-	"classAttributes": [
+	"classAttribute": [
 		{
 			"id": "classNumber1",
 			"label": "Klasse",
@@ -40,7 +46,7 @@
 			"comment": "Bla blabla bla."
 		}
 	],
-	"datatypes": [
+	"datatype": [
 		{
 			"id": "datatypeX",
 			"type": "rdfs:Datatype"
@@ -50,7 +56,7 @@
 			"type": "rdfs:Literal"
 		}
 	],
-	"datatypeAttributes": [
+	"datatypeAttribute": [
 		{
 			"id": "datatypeX",
 			"label": "String",
@@ -61,36 +67,61 @@
 			"uri": "literal"
 		}
 	],
-	"properties": [
+	"property": [
 		{
 			"id": "objProp13",
-			"type": "owl:DeprecatedProperty"
+			"attribute": [
+				"transitive",
+				"deprecated",
+				"datatype"
+			]
 		},
 		{
 			"id": "objProp17",
-			"type": "owl:FunctionalProperty"
+			"attribute": [
+				"functional",
+				"symmetric",
+				"transitive"
+			]
 		},
 		{
 			"id": "abcSubclass",
-			"uri": ":SubclassOf"
+			"uri": ":SubclassOf",
+			"attribute": [
+				"subclass"
+			]
 		},
 		{
 			"id": "abcDisjoint",
-			"uri": ":Disjoint"
+			"uri": ":Disjoint",
+			"attribute": [
+				"disjoint"
+			]
 		},
 		{
 			"id": "cardinalityProperty",
 			"cardinality": "1..4"
+		},
+		{
+			"id": "rdfProperty",
+			"cardinality": "1..4"
+		},
+		{
+			"id": "objectProperty",
+			"cardinality": "1..4",
+			"attribute": [
+				"object"
+			]
 		}
 	],
-	"propertyAttributes": [
+	"propertyAttribute": [
 		{
 			"id": "objProp13",
 			"domain": "classNumber1",
 			"range": "literalY",
 			"label": "",
 			"inverse": "objProp17",
-			"subProperties": [  // TODO kann auch super property sein
+			"subProperties": [
 				"objProp17"
 			]
 		},
