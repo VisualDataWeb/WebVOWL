@@ -118,17 +118,17 @@ ul#optionsMenu > li {
 	position: relative;
 	vertical-align: center;
 }
-ul#optionsMenu > li > a:hover, #resetOption #reset:hover {
+ul#optionsMenu > li > a:hover, #resetOption #reset:hover, #pauseOption #pause:hover {
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;
 	background: rgb(27, 37, 46); 
 	color:#bdc3c7;
 }
-ul#optionsMenu > li .sliderOption, ul#optionsMenu > li#resetOption {
+ul#optionsMenu > li .sliderOption, ul#optionsMenu > li#resetOption, ul#optionsMenu > li#pauseOption {
 	margin: 0 10px 0 5px;
 }
-ul#optionsMenu > li > a, #optionsMenu #reset {
+ul#optionsMenu > li > a, #optionsMenu #reset, #optionsMenu #pause {
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;
@@ -194,7 +194,7 @@ ul#optionsMenu > li:hover .aboutMenu {
 .toolTipMenu > li {
     border-top: solid 1px #bdc3c7;
 }
-.toolTipMenu li a, #classDistanceSlider, #literalDistanceSlider {
+.toolTipMenu li a, #classDistanceSlider, #datatypeDistanceSlider {
 	color:#2980b9; 
 	display: block;
 }
@@ -207,7 +207,7 @@ ul#optionsMenu > li:hover .aboutMenu {
 .gravity { 
 	min-width:160px;
 } 
-#reset, #optionsMenu #classDistanceSlider, #optionsMenu #literalDistanceSlider {
+#reset, #pause, #optionsMenu #classDistanceSlider, #optionsMenu #datatypeDistanceSlider {
 	bottom: 0;
 	display: inline-block;
 	position: static;
@@ -240,6 +240,12 @@ a#reset::before {
 	margin: 0;
 	padding: 0 5px 0 0;
 }
+a#pause::before {
+	content: "\2225";
+	font-size: 1em;
+	margin: 0;
+	padding: 0 5px 0 0;
+}
 #export > a::before{
 	content: "\25BC";
 	font-size: 1em;
@@ -252,15 +258,15 @@ a#reset::before {
 	margin: 0;
 	padding: 0 5px 0 0;
 }
-#classDistanceSlider, #literalDistanceSlider {
+#classDistanceSlider, #datatypeDistanceSlider {
 	position: relative;
 }
-#classDistanceSlider label, #literalDistanceSlider label {
+#classDistanceSlider label, #datatypeDistanceSlider label {
 	bottom: 5px;
 	left: 10px;
 	position: absolute;
 }
-label#rangeClassValue, label#rangeLiteralValue {
+label#rangeClassValue, label#rangeDatatypeValue {
 	left:115px;
 	top:10px;
 }
