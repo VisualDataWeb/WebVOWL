@@ -272,6 +272,12 @@ a#pause:not(.paused)::before {
 	margin: 0;
 	padding: 0 5px 0 0;
 }
+#filterOption > a::before {
+	content: "\25BC";
+	font-size: 1em;
+	margin: 0;
+	padding: 0 5px 0 0;
+}
 #aboutMenu > a::before{
 	content: "\24D8";
 	font-size: 1em;
