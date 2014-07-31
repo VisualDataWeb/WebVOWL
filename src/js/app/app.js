@@ -3,7 +3,8 @@ var graph,
 	untouchedOptions = webvowl.options(),
 	classDistanceOptionSelector = "#classSliderOption",
 	datatypeDistanceOptionSelector = "#datatypeSliderOption",
-	collapsingOptionSelector = "#collapsingOption",
+	datatypeCollapsingOptionSelector = "#datatypeCollapsingOption",
+	subclassCollapsingOptionSelector = "#subclassCollapsingOption",
 	exportButtonSelector = "#exportSvg",
 	pauseOptionSelector = "#pauseOption",
 	resetOptionSelector = "#resetOption",
@@ -13,7 +14,8 @@ var graph,
 	classSliderLabel,
 	datatypeSliderLabel,
 	jsonURI = "benchmark",
-	collapser,
+	datatypeCollapser,
+	subclassCollapser,
 	statistics;
 
 function displayGraphStatistics() {
@@ -139,27 +141,35 @@ function datatypeSliderChanged() {
 }
 
 function bindFilters() {
-	var collapsingOptionContainer,
-		collapsingCheckbox;
+	function bindFilter(filter, filterName, filterNamePlural, selector) {
+		var collapsingOptionContainer,
+			collapsingCheckbox,
+			identifier = filterName.toLowerCase();
 
-	collapsingOptionContainer = d3.select(collapsingOptionSelector)
-		.append("div")
-		.attr("id", "collapsingCheckboxContainer");
+		collapsingOptionContainer = d3.select(selector)
+			.append("div")
+			.classed("collapsingCheckboxContainer", true)
+			.attr("id", identifier + "CollapsingCheckboxContainer");
 
-	collapsingCheckbox = collapsingOptionContainer.append("input")
-		.attr("id", "collapsingCheckbox")
-		.attr("type", "checkbox")
-		.attr("value", "collapsing");
+		collapsingCheckbox = collapsingOptionContainer.append("input")
+			.classed("collapsingCheckbox", true)
+			.attr("id", identifier + "CollapsingCheckbox")
+			.attr("type", "checkbox")
+			.attr("value", identifier + "Collapsing");
 
-	collapsingCheckbox.on("click", function() {
-		var isEnabled = collapsingCheckbox.property("checked");
-		collapser.enabled(isEnabled);
-		graph.update();
-	});
+		collapsingCheckbox.on("click", function () {
+			var isEnabled = collapsingCheckbox.property("checked");
+			filter.enabled(isEnabled);
+			graph.update();
+		});
 
-	collapsingOptionContainer.append("label")
-		.attr("for", "collapsingCheckbox")
-		.text("Toggle Collapsing");
+		collapsingOptionContainer.append("label")
+			.attr("for", identifier + "CollapsingCheckbox")
+			.text("Hide " + filterNamePlural);
+	}
+
+	bindFilter(datatypeCollapser, "datatype", "Datatypes", datatypeCollapsingOptionSelector);
+	bindFilter(subclassCollapser, "subclass", "Subclasses", subclassCollapsingOptionSelector);
 }
 
 /**
@@ -446,14 +456,16 @@ function setExportButton() {
 function initialize() {
 	// Custom additional webvowl modules
 	var selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(applyInformation);
-	collapser = webvowl.modules.collapser();
+	datatypeCollapser = webvowl.modules.datatypeCollapser();
+	subclassCollapser = webvowl.modules.subclassCollapser();
 	statistics = webvowl.modules.statistics();
 
 	graph = new webvowl.Graph();
 	options = graph.getGraphOptions();
 	options.graphContainerSelector(graphSelector);
 	options.clickModules().push(selectionDetailDisplayer);
-	options.filterModules().push(collapser);
+	options.filterModules().push(datatypeCollapser);
+	options.filterModules().push(subclassCollapser);
 	options.filterModules().push(statistics);
 	loadGraph();
 
