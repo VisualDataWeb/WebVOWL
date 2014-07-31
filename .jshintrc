@@ -1,0 +1,37 @@
+{
+	"globals": {
+		"d3": false,
+		"webvowl": false,
+		"describe": false,
+		"it": false,
+		"before": false,
+		"beforeEach": false,
+		"after": false,
+		"afterEach": false,
+		"expect": false,
+		"module": false
+	},
+
+	"bitwise"       : true,     // Prohibit bitwise operators (&, |, ^, etc.).
+	"eqeqeq"        : true,     // Require triple equals i.e. `===`.
+	"forin"         : true,     // Tolerate `for in` loops without `hasOwnPrototype`.
+	"immed"         : true,     // Require immediate invocations to be wrapped in parens e.g. `( function(){}() );`
+	"latedef"       : true,     // Prohibit variable use before definition.
+	"quotmark"      : "double", // Enforce double quotation marks
+	"newcap"        : true,     // Require capitalization of all constructor functions e.g. `new F()`.
+	"noarg"         : true,     // Prohibit use of `arguments.caller` and `arguments.callee`.
+	"noempty"       : true,     // Prohibit use of empty blocks.
+	"nonew"         : true,     // Prohibit use of constructors for side-effects.
+	"undef"         : true,     // Require all non-global variables be declared before they are used.
+	"strict"        : false,    // Require `use strict` pragma in every file.
+	"trailing"      : true,     // Prohibit trailing whitespaces.
+
+	"eqnull"        : true,     // Tolerate use of `== null`.
+	"globalstrict"  : true,     // Allow global "use strict" (also enables 'strict').
+	"smarttabs"     : true,     // Tolerate mixed tabs and spaces when the latter are used for alignmnent only.
+	"sub"           : true,     // Tolerate all forms of subscript notation besides dot notation e.g. `dict['key']` instead of `dict.key`.
+
+	"browser"       : true,     // Standard browser globals e.g. `window`, `document`.
+	"devel"         : true,     // Allow development statements e.g. `console.log();`.
+	"jquery"        : true      // Enable globals exposed by jQuery JavaScript library.
+}

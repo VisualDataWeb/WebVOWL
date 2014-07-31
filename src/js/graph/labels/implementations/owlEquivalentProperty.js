@@ -1,0 +1,13 @@
+webvowl.labels.owlequivalentproperty = (function () {
+
+	var o = function () {
+		webvowl.labels.BaseLabel.call(this);
+
+		this.styleClass("equivalentproperty")
+			.type("owl:equivalentProperty");
+	};
+	o.prototype = Object.create(webvowl.labels.BaseLabel.prototype);
+	o.prototype.constructor = o;
+
+	return o;
+}());

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="author" content="Vincent Link, Steffen Lohmann, Eduard Marbach, Stefan Negru"/>
+	<meta name="keywords"
+	      content="webvowl, vowl, visual notation, web ontology language, owl, rdf, ontology visualization, ontologies, semantic web"/>
+	<meta name="description" content="WebVOWL - Visualizing Ontologies with VOWL"/>
+	<meta name="robots" content="noindex,nofollow"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" type="text/css" href="css/vowl.css"/>
+	<link rel="stylesheet" type="text/css" href="css/toolstyle.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.4.custom.min.css"/>
+	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<title>WebVOWL</title>
+</head>
+<body>
+<main>
+	<section id="canvasArea">
+		<div id="graph"></div>
+	</section>
+	<aside id="detailsArea">
+		<section id="generalDetails">
+			<h1 id="title"></h1>
+			<span><a id="about" href=""></a></span>
+			<h5>Version: <span id="version"></span></h5>
+			<h5>Authors: <span id="authors"></span></h5>
+			<div id="accordion">
+				<h3>Description</h3>
+				<div>
+					<p id="description"></p>
+				</div>
+				<h3>Statistics</h3>
+				<div>
+					<p class="statisticDetails">Node Count: <span id="statNodes"></span></p>
+					<p class="statisticDetails">Class Count: <span id="statClass"></span></p>
+					<p class="statisticDetails">Datatype Count: <span id="statDatatypes"></span></p>
+					<p class="statisticDetails">Property Count: <span id="statProp"></span></p>
+				</div>
+				<h3>Selection Details</h3>
+				<div id="otherDetails">
+					<div id="class" class="hidden">
+						<p class="propDetails">Name: <span id="name"></span></p>
+						<p class="propDetails">Type: <span id="typeNode"></span></p>
+						<p class="propDetails">Equiv.: <span id="classEquivUri"></span></p>
+						<p class="propDetails">Disjoint: <span id="disjointNodes"></span></p>
+					</div>
+					<div id="prop" class="hidden">
+						<p class="propDetails">Name: <span id="propname"></span></p>
+						<p class="propDetails">Type: <span id="typeProp"></span></p>
+						<p id="inverse" class="propDetails">Inverse: <span></span></p>
+						<p class="propDetails">Domain: <span id="domain"></span></p>
+						<p class="propDetails">Range: <span id="range"></span></p>
+						<p id="infoCardinality" class="propDetails">Cardinality: <span></span></p>
+						<p id="minCardinality" class="propDetails">Min. cardinality: <span></span></p>
+						<p id="maxCardinality" class="propDetails">Max. cardinality: <span></span></p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</aside>
+	<nav id="optionsArea">
+		<ul id="optionsMenu">
+			<li id="aboutMenu"><a href="#">About</a>
+				<ul class="toolTipMenu aboutMenu">
+					<li><a href="license.txt">MIT License Copyright &copy; 2014</a></li>
+					<li>WebVOWL Developers:<br/>
+						Vincent Link, Steffen Lohmann, Eduard Marbach, Stefan Negru
+					</li>
+					<li><a href="http://purl.org/vowl/">VOWL Specification &raquo;</a></li>
+				</ul>
+			</li>
+			<li id="pauseOption"></li>
+			<li id="resetOption"></li>
+			<li id="filterOption"><a href="#">Filter</a>
+				<ul class="toolTipMenu filter">
+					<li class="toggleOption" id="collapsingOption"></li>
+				</ul>
+			</li>
+			<li id="gravityOption"><a href="#">Gravity Options</a>
+				<ul class="toolTipMenu gravity">
+					<li class="slideOption" id="classSliderOption"></li>
+					<li class="slideOption" id="datatypeSliderOption"></li>
+				</ul>
+			</li>
+			<li id="export"><a href="#">Export</a>
+				<ul class="toolTipMenu export">
+					<li><a href="#" download id="exportSvg">Export as SVG</a></li>
+				</ul>
+			</li>
+			<li id="select"><a href="#">Select Ontology</a>
+				<ul class="toolTipMenu select">
+					<li><a href="#" id="foaf">Friend of a Friend (FOAF) vocabulary</a></li>
+					<li><a href="#" id="muto">Modular and Unified Tagging Ontology (MUTO)</a></li>
+					<li><a href="#" id="personasonto">Personas Ontology (PersonasOnto)</a></li>
+					<li><a href="#" id="benchmarkonto">Benchmark Graph for VOWL</a></li>
+				</ul>
+			</li>
+			<li id="logo">
+				<!-- build:process -->
+				<h2>WebVOWL<span> beta <%= version %></span></h2>
+				<!-- /build -->
+			</li>
+		</ul>
+	</nav>
+</main>
+<script src="js/d3.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/webvowl.js"></script>
+<script src="js/webvowl-app.js"></script></body>
+</html>
