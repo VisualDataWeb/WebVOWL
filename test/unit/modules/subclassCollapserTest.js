@@ -1,4 +1,4 @@
-describe("Collapsing", function () {
+describe("Collapsing of subclassOf properties", function () {
 	var collapser;
 
 	beforeEach(function () {
@@ -10,23 +10,8 @@ describe("Collapsing", function () {
 	});
 
 	beforeEach(function () {
-		collapser = webvowl.modules.collapser();
+		collapser = webvowl.modules.subclassCollapser();
 		collapser.enabled(true);
-	});
-
-
-	it("should remove datatypes with their properties", function () {
-		var domain = new webvowl.nodes.owlclass(),
-			datatypeProperty = new webvowl.labels.owldatatypeproperty(),
-			datatypeClass = new webvowl.nodes.rdfsdatatype();
-
-		datatypeProperty.domain(domain).range(datatypeClass);
-
-		collapser.filter([domain, datatypeClass], [datatypeProperty]);
-
-		expect(collapser.filteredNodes().length).toBe(1);
-		expect(collapser.filteredNodes()[0]).toBeInstanceOf(webvowl.nodes.owlclass);
-		expect(collapser.filteredProperties().length).toBe(0);
 	});
 
 

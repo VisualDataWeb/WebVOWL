@@ -1,4 +1,4 @@
-webvowl.modules.collapser = function () {
+webvowl.modules.subclassCollapser = function () {
 
 	var collapser = {},
 		nodes,
@@ -9,7 +9,7 @@ webvowl.modules.collapser = function () {
 
 
 	/**
-	 * If enabled, all datatypes, literals and subclasses inclyare filtered.
+	 * If enabled subclasses that have only subclass properties are filtered.
 	 * @param untouchedNodes
 	 * @param untouchedProperties
 	 */
@@ -18,62 +18,12 @@ webvowl.modules.collapser = function () {
 		properties = untouchedProperties;
 
 		if (this.enabled()) {
-			removeDatatypesAndLiterals();
 			hideSubclassesWithoutOwnProperties();
 		}
 
 		filteredNodes = nodes;
 		filteredProperties = properties;
 	};
-
-	function removeDatatypesAndLiterals() {
-		var removedElements = [],
-			cleanedNodes = [],
-			cleanedProperties = [];
-
-		nodes.forEach(function (node) {
-			if (isDatatypeOrLiteral(node)) {
-				removedElements.push(node);
-			} else {
-				cleanedNodes.push(node);
-			}
-		});
-
-		properties.forEach(function (property) {
-			var isDangling = false;
-			for (var i = 0, l = removedElements.length; i < l; ++i) {
-				var removedElement = removedElements[i];
-
-				if (isDanglingProperty(property, removedElement)) {
-					isDangling = true;
-					break;
-				}
-			}
-
-			if (!isDangling) {
-				cleanedProperties.push(property);
-			}
-		});
-
-		nodes = cleanedNodes;
-		properties = cleanedProperties;
-	}
-
-	function isDatatypeOrLiteral(node) {
-		if (node instanceof webvowl.nodes.rdfsdatatype ||
-			node instanceof webvowl.nodes.rdfsliteral) {
-			return true;
-		}
-		return false;
-	}
-
-	function isDanglingProperty(property, removedElement) {
-		if (property.domain() === removedElement ||
-			property.range() === removedElement) {
-			return true;
-		}
-		return false;
-	}
 
 	function hideSubclassesWithoutOwnProperties() {
 		var unneededProperties = [],

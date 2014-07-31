@@ -138,12 +138,12 @@ ul#optionsMenu > li > a {
     margin: 0;
     padding:12px 5px 5px;
 }
-ul#optionsMenu li > ul.toolTipMenu li a, #collapsingCheckboxContainer {
+ul#optionsMenu li > ul.toolTipMenu li a, .collapsingCheckboxContainer {
 	display: block;
 	float:none;
 	padding: 8px 5px;
 }
-#collapsingCheckbox {
+.collapsingCheckbox {
 	vertical-align: middle;
 }
 ul#optionsMenu li > ul.toolTipMenu li a:hover {
@@ -197,7 +197,7 @@ ul#optionsMenu > li:hover .aboutMenu {
 .toolTipMenu > li {
     border-top: solid 1px #bdc3c7;
 }
-.toolTipMenu li a, #classDistanceSlider, #datatypeDistanceSlider, #collapsingCheckboxContainer {
+.toolTipMenu li a, #classDistanceSlider, #datatypeDistanceSlider, .collapsingCheckboxContainer {
 	color:#2980b9;
 	display: block;
 }
