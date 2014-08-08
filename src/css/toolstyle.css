@@ -138,12 +138,12 @@ ul#optionsMenu > li > a {
     margin: 0;
     padding:12px 5px 5px;
 }
-ul#optionsMenu li > ul.toolTipMenu li a, .collapsingCheckboxContainer {
+ul#optionsMenu li > ul.toolTipMenu li a, .checkboxContainer {
 	display: block;
 	float:none;
 	padding: 8px 5px;
 }
-.collapsingCheckbox {
+.collapsingCheckbox, .moduleCheckbox {
 	vertical-align: middle;
 }
 ul#optionsMenu li > ul.toolTipMenu li a:hover {
@@ -197,7 +197,7 @@ ul#optionsMenu > li:hover .aboutMenu {
 .toolTipMenu > li {
     border-top: solid 1px #bdc3c7;
 }
-.toolTipMenu li a, #classDistanceSlider, #datatypeDistanceSlider, .collapsingCheckboxContainer {
+.toolTipMenu li a, #classDistanceSlider, #datatypeDistanceSlider, .checkboxContainer {
 	color:#2980b9;
 	display: block;
 }
@@ -210,7 +210,7 @@ ul#optionsMenu > li:hover .aboutMenu {
 .gravity {
 	min-width:160px;
 }
-.filter {
+.filter, .module {
 	min-width: 150px;
 }
 #reset, #pause, #optionsMenu #classDistanceSlider, #optionsMenu #datatypeDistanceSlider {
@@ -274,6 +274,12 @@ a#pause:not(.paused)::before {
 }
 #filterOption > a::before {
 	content: "\25BC";
+	font-size: 1em;
+	margin: 0;
+	padding: 0 5px 0 0;
+}
+#moduleOption > a::before {
+	content: "\2699";
 	font-size: 1em;
 	margin: 0;
 	padding: 0 5px 0 0;

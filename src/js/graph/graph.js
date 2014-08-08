@@ -118,8 +118,7 @@ webvowl.Graph = (function () {
 			dragBehaviour = d3.behavior.drag()
 				.on("dragstart", function (d) {
 					d3.event.sourceEvent.stopPropagation(); // Prevent panning
-					d._fixed = d.fixed;
-					d.fixed = true;
+					d.locked(true);
 				})
 				.on("drag", function (d) {
 					d.px = d3.event.x;
@@ -127,7 +126,7 @@ webvowl.Graph = (function () {
 					force.resume();
 				})
 				.on("dragend", function (d) {
-					d.fixed = d._fixed;
+					d.locked(false);
 				});
 
 			// Apply the zooming factor.
@@ -195,7 +194,7 @@ webvowl.Graph = (function () {
 		 */
 		this.freeze = function freezeF() {
 			nodes.forEach(function (n) {
-				n.fixed = true;
+				n.frozen(true);
 			});
 		};
 
@@ -204,7 +203,7 @@ webvowl.Graph = (function () {
 		 */
 		this.unfreeze = function unfreezeF() {
 			nodes.forEach(function (n) {
-				n.fixed = false;
+				n.frozen(false);
 			});
 			force.resume();
 		};

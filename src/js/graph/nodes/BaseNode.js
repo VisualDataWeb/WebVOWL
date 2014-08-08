@@ -24,6 +24,10 @@ webvowl.nodes.BaseNode = (function () {
 			styleClass,
 			textAttribute,
 			visible = true,
+		// Fixed Location attributes
+			locked = false,
+			frozen = false,
+			pinned = false,
 		// Element containers
 			nodeElement;
 
@@ -142,6 +146,37 @@ webvowl.nodes.BaseNode = (function () {
 			visible = p;
 			return this;
 		};
+
+
+		// Functions
+		this.locked = function (p) {
+			if (!arguments.length) return locked;
+			locked = p;
+			applyFixedLocationAttributes();
+			return this;
+		};
+
+		this.frozen = function (p) {
+			if (!arguments.length) return frozen;
+			frozen = p;
+			applyFixedLocationAttributes();
+			return this;
+		};
+
+		this.pinned = function (p) {
+			if (!arguments.length) return pinned;
+			pinned = p;
+			applyFixedLocationAttributes();
+			return this;
+		};
+
+		function applyFixedLocationAttributes() {
+			if (that.locked() || that.frozen() || that.pinned()) {
+				that.fixed = true;
+			} else {
+				that.fixed = false;
+			}
+		}
 
 
 		// Reused functions TODO refactor
