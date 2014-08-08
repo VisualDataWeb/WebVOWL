@@ -3,6 +3,10 @@ webvowl.modules.focuser = function () {
 		focusedElement;
 
 	focuser.handle = function (clickedElement) {
+		if (d3.event.defaultPrevented) {
+			return;
+		}
+
 		if (focusedElement !== undefined) {
 			focusedElement.toggleFocus();
 		}
