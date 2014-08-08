@@ -4,7 +4,8 @@ webvowl.nodes.RoundNode = (function () {
 		webvowl.nodes.BaseNode.call(this);
 
 		var that = this,
-			radius = 50;
+			radius = 50,
+			pinGroupElement;
 
 
 		// Properties
@@ -26,24 +27,29 @@ webvowl.nodes.RoundNode = (function () {
 		};
 
 		this.drawPin = function () {
-			var pinGroup = that.nodeElement().append("g")
-				.classed("pinGroup", true)
+			pinGroupElement = that.nodeElement().append("g")
 				.attr("transform", "translate(20,-35)");
 
-			pinGroup.append("circle")
+			pinGroupElement.append("circle")
 				.classed("class pin feature", true)
 				.attr("r", 12)
 				.on("click", function () {
-					that.pinned(false);
-					pinGroup.remove();
+					that.removePin();
 					d3.event.stopPropagation();
 				});
 
-			pinGroup.append("line")
+			pinGroupElement.append("line")
 				.attr("x1", 0)
 				.attr("x2", 0)
 				.attr("y1", 12)
 				.attr("y2", 16);
+		};
+
+		this.removePin = function () {
+			that.pinned(false);
+			if (pinGroupElement) {
+				pinGroupElement.remove();
+			}
 		};
 
 		// Reused TODO refactor

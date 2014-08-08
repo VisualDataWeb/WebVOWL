@@ -192,7 +192,6 @@ function bindModules() {
 		moduleCheckbox.on("click", function () {
 			var isEnabled = moduleCheckbox.property("checked");
 			module.enabled(isEnabled);
-			graph.update();
 		});
 
 		moduleOptionContainer.append("label")
