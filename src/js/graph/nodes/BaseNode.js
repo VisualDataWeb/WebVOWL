@@ -144,6 +144,14 @@ webvowl.nodes.BaseNode = (function () {
 		};
 
 
+		// Functions
+		this.pinned = function (p) {
+			if (!arguments.length) return this.fixed;
+			this.fixed = p;
+			return this;
+		};
+
+
 		// Reused functions TODO refactor
 		this.addMouseListeners = function () {
 			// Empty node

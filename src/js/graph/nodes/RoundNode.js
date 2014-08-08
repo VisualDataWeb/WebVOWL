@@ -25,6 +25,27 @@ webvowl.nodes.RoundNode = (function () {
 			that.nodeElement().select("circle").classed("focused", that.focused());
 		};
 
+		this.drawPin = function () {
+			var pinGroup = that.nodeElement().append("g")
+				.classed("pinGroup", true)
+				.attr("transform", "translate(20,-35)");
+
+			pinGroup.append("circle")
+				.classed("class pin feature", true)
+				.attr("r", 12)
+				.on("click", function () {
+					that.pinned(false);
+					pinGroup.remove();
+					d3.event.stopPropagation();
+				});
+
+			pinGroup.append("line")
+				.attr("x1", 0)
+				.attr("x2", 0)
+				.attr("y1", 12)
+				.attr("y2", 16);
+		};
+
 		// Reused TODO refactor
 		this.drawNode = function (element, cssClasses, additionalFunction) {
 			that.nodeElement(element);
