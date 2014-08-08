@@ -5,6 +5,7 @@ var graph,
 	datatypeDistanceOptionSelector = "#datatypeSliderOption",
 	datatypeCollapsingOptionSelector = "#datatypeCollapsingOption",
 	subclassCollapsingOptionSelector = "#subclassCollapsingOption",
+	pickAndPinOptionSelector = "#pickAndPinOption",
 	exportButtonSelector = "#exportSvg",
 	pauseOptionSelector = "#pauseOption",
 	resetOptionSelector = "#resetOption",
@@ -16,7 +17,8 @@ var graph,
 	jsonURI = "benchmark",
 	datatypeCollapser,
 	subclassCollapser,
-	statistics;
+	statistics,
+	pickAndPin;
 
 function displayGraphStatistics() {
 	d3.select("#statNodes")
@@ -141,14 +143,13 @@ function datatypeSliderChanged() {
 }
 
 function bindFilters() {
-	function bindFilter(filter, filterName, filterNamePlural, selector) {
+	function bindFilter(filter, identifier, filterNamePlural, selector) {
 		var collapsingOptionContainer,
-			collapsingCheckbox,
-			identifier = filterName.toLowerCase();
+			collapsingCheckbox;
 
 		collapsingOptionContainer = d3.select(selector)
 			.append("div")
-			.classed("collapsingCheckboxContainer", true)
+			.classed("checkboxContainer", true)
 			.attr("id", identifier + "CollapsingCheckboxContainer");
 
 		collapsingCheckbox = collapsingOptionContainer.append("input")
@@ -170,6 +171,36 @@ function bindFilters() {
 
 	bindFilter(datatypeCollapser, "datatype", "Datatypes", datatypeCollapsingOptionSelector);
 	bindFilter(subclassCollapser, "subclass", "Subclasses", subclassCollapsingOptionSelector);
+}
+
+function bindModules() {
+	function bindModule(module, identifier, moduleName, selector) {
+		var moduleOptionContainer,
+			moduleCheckbox;
+
+		moduleOptionContainer = d3.select(selector)
+			.append("div")
+			.classed("checkboxContainer", true)
+			.attr("id", identifier + "ModuleCheckboxContainer");
+
+		moduleCheckbox = moduleOptionContainer.append("input")
+			.classed("moduleCheckbox", true)
+			.attr("id", identifier + "ModuleCheckbox")
+			.attr("type", "checkbox")
+			.attr("value", identifier + "Module");
+
+		moduleCheckbox.on("click", function () {
+			var isEnabled = moduleCheckbox.property("checked");
+			module.enabled(isEnabled);
+			graph.update();
+		});
+
+		moduleOptionContainer.append("label")
+			.attr("for", identifier + "ModuleCheckbox")
+			.text(moduleName);
+	}
+
+	bindModule(pickAndPin, "pickandpin", "Pick & Pin", pickAndPinOptionSelector);
 }
 
 /**
@@ -459,11 +490,13 @@ function initialize() {
 	datatypeCollapser = webvowl.modules.datatypeCollapser();
 	subclassCollapser = webvowl.modules.subclassCollapser();
 	statistics = webvowl.modules.statistics();
+	pickAndPin = webvowl.modules.pickAndPin();
 
 	graph = new webvowl.Graph();
 	options = graph.getGraphOptions();
 	options.graphContainerSelector(graphSelector);
 	options.clickModules().push(selectionDetailDisplayer);
+	options.clickModules().push(pickAndPin);
 	options.filterModules().push(datatypeCollapser);
 	options.filterModules().push(subclassCollapser);
 	options.filterModules().push(statistics);
@@ -472,6 +505,7 @@ function initialize() {
 	d3.select(window).on("resize", adjustSize);
 	bindSliders();
 	bindFilters();
+	bindModules();
 	setExportButton();
 	setResetButton();
 	setPauseButton();
