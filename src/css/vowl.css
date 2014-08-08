@@ -18,7 +18,7 @@
 }
 
 /*------- Strokes ------*/
-.class, path {
+.class, path, line {
 	stroke-width: 2;
 }
 .fineline {
@@ -62,7 +62,7 @@ rect.focused, circle.focused {
 .arrowhead, marker path {
 	fill: #000;
 }
-.class, path, .fineline {
+.class, path, line, .fineline {
 	stroke: #000;
 }
 .white, .subclass, .dottedMarker path, .subclassproperty {
@@ -71,14 +71,14 @@ rect.focused, circle.focused {
 path, .nofill {
 	fill: none;
 }
-.class.hovered, .property.hovered,  path.arrowhead.hovered, .cardinality.hovered, .normalMarker path.hovered, .cardinality.focused, .normalMarker path.focused {
+.class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .normalMarker path.hovered, .cardinality.focused, .normalMarker path.focused, circle.pin {
     fill: #f00;
     cursor: pointer;
 }
 .focused, path.hovered {
 	stroke: #f00;
 }
-.label .indirectHighlighting {
+.label .indirectHighlighting, .feature:hover {
     fill: #f90;
 }
 
