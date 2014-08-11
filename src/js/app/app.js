@@ -205,19 +205,12 @@ function bindModules() {
 /**
  * Shows the information of the clicked element in the right info panel.
  */
-function applyInformation(isSelected) {
+function applyInformation(isAnythingSelected) {
 	function toggleAccordion() {
-		if (isSelected) {
-			if (d3.select("#ui-accordion-accordion-header-2").attr("aria-selected") !== "true") {
-				// Select the correct item from accordion menu and open it.
-				d3.select("#ui-accordion-accordion-header-2").node().click();
-			}
-		} else {
-			if (d3.select("#ui-accordion-accordion-header-2").attr("aria-selected") === "true") {
-				// Select the correct item from accordion menu and close it.
-				d3.select("#ui-accordion-accordion-header-2").node().click();
-			}
+		var isTriggerActive = d3.select("#selection-details-trigger").classed("accordion-trigger-active");
 
+		if (isAnythingSelected && !isTriggerActive || !isAnythingSelected && isTriggerActive) {
+			d3.select("#selection-details-trigger").node().click();
 		}
 	}
 

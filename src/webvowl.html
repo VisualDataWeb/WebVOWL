@@ -11,7 +11,6 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="stylesheet" type="text/css" href="css/vowl.css"/>
 	<link rel="stylesheet" type="text/css" href="css/toolstyle.css"/>
-	<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.4.custom.min.css"/>
 	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 	<title>WebVOWL</title>
 </head>
@@ -26,36 +25,34 @@
 			<span><a id="about" href=""></a></span>
 			<h5>Version: <span id="version"></span></h5>
 			<h5>Authors: <span id="authors"></span></h5>
-			<div id="accordion">
-				<h3>Description</h3>
-				<div>
-					<p id="description"></p>
+			<h3 class="accordion-trigger">Description</h3>
+			<div class="accordion-container">
+				<p id="description"></p>
+			</div>
+			<h3 class="accordion-trigger">Statistics</h3>
+			<div class="accordion-container">
+				<p class="statisticDetails">Nodes: <span id="statNodes"></span></p>
+				<p class="statisticDetails">Classes: <span id="statClass"></span></p>
+				<p class="statisticDetails">Datatypes: <span id="statDatatypes"></span></p>
+				<p class="statisticDetails">Properties: <span id="statProp"></span></p>
+			</div>
+			<h3 class="accordion-trigger" id="selection-details-trigger">Selection Details</h3>
+			<div class="accordion-container" id="otherDetails">
+				<div id="class" class="hidden">
+					<p class="propDetails">Name: <span id="name"></span></p>
+					<p class="propDetails">Type: <span id="typeNode"></span></p>
+					<p class="propDetails">Equiv.: <span id="classEquivUri"></span></p>
+					<p class="propDetails">Disjoint: <span id="disjointNodes"></span></p>
 				</div>
-				<h3>Statistics</h3>
-				<div>
-					<p class="statisticDetails">Nodes: <span id="statNodes"></span></p>
-					<p class="statisticDetails">Classes: <span id="statClass"></span></p>
-					<p class="statisticDetails">Datatypes: <span id="statDatatypes"></span></p>
-					<p class="statisticDetails">Properties: <span id="statProp"></span></p>
-				</div>
-				<h3>Selection Details</h3>
-				<div id="otherDetails">
-					<div id="class" class="hidden">
-						<p class="propDetails">Name: <span id="name"></span></p>
-						<p class="propDetails">Type: <span id="typeNode"></span></p>
-						<p class="propDetails">Equiv.: <span id="classEquivUri"></span></p>
-						<p class="propDetails">Disjoint: <span id="disjointNodes"></span></p>
-					</div>
-					<div id="prop" class="hidden">
-						<p class="propDetails">Name: <span id="propname"></span></p>
-						<p class="propDetails">Type: <span id="typeProp"></span></p>
-						<p id="inverse" class="propDetails">Inverse: <span></span></p>
-						<p class="propDetails">Domain: <span id="domain"></span></p>
-						<p class="propDetails">Range: <span id="range"></span></p>
-						<p id="infoCardinality" class="propDetails">Cardinality: <span></span></p>
-						<p id="minCardinality" class="propDetails">Min. cardinality: <span></span></p>
-						<p id="maxCardinality" class="propDetails">Max. cardinality: <span></span></p>
-					</div>
+				<div id="prop" class="hidden">
+					<p class="propDetails">Name: <span id="propname"></span></p>
+					<p class="propDetails">Type: <span id="typeProp"></span></p>
+					<p id="inverse" class="propDetails">Inverse: <span></span></p>
+					<p class="propDetails">Domain: <span id="domain"></span></p>
+					<p class="propDetails">Range: <span id="range"></span></p>
+					<p id="infoCardinality" class="propDetails">Cardinality: <span></span></p>
+					<p id="minCardinality" class="propDetails">Min. cardinality: <span></span></p>
+					<p id="maxCardinality" class="propDetails">Max. cardinality: <span></span></p>
 				</div>
 			</div>
 		</section>
@@ -113,7 +110,6 @@
 </main>
 <script src="js/d3.min.js"></script>
 <script src="js/jquery.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
 <script src="js/webvowl.js"></script>
 <script src="js/webvowl-app.js"></script></body>
 </html>
