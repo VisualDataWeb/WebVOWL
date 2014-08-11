@@ -206,6 +206,10 @@ function bindModules() {
  * Shows the information of the clicked element in the right info panel.
  */
 function applyInformation(isAnythingSelected) {
+	if (d3.event.defaultPrevented) {
+		return;
+	}
+
 	var isTriggerActive = d3.select("#selection-details-trigger").classed("accordion-trigger-active");
 	if (isAnythingSelected && !isTriggerActive) {
 		d3.select("#selection-details-trigger").node().click();
