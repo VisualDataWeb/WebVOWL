@@ -206,23 +206,38 @@ function bindModules() {
  * Shows the information of the clicked element in the right info panel.
  */
 function applyInformation(isAnythingSelected) {
-	function toggleAccordion() {
-		var isTriggerActive = d3.select("#selection-details-trigger").classed("accordion-trigger-active");
-
-		if (isAnythingSelected && !isTriggerActive || !isAnythingSelected && isTriggerActive) {
-			d3.select("#selection-details-trigger").node().click();
-		}
+	var isTriggerActive = d3.select("#selection-details-trigger").classed("accordion-trigger-active");
+	if (isAnythingSelected && !isTriggerActive) {
+		d3.select("#selection-details-trigger").node().click();
+	} else if (!isAnythingSelected && isTriggerActive) {
+		d3.select("#selection-details-trigger").node().click();
+		showSelectionAdvice();
+		return;
 	}
 
-	toggleAccordion.call(this);
+	function setSelectionInformationVisibility(showClasses, showProperties, showAdvice) {
+		d3.select("#classSelectionInformation").classed("hidden", !showClasses);
+		d3.select("#propertySelectionInformation").classed("hidden", !showProperties);
+		d3.select("#noSelectionInformation").classed("hidden", !showAdvice);
+	}
+	function showClassInformations() {
+		setSelectionInformationVisibility(true, false, false);
+	}
+	function showPropertyInformations() {
+		setSelectionInformationVisibility(false, true, false);
+	}
+	function showSelectionAdvice() {
+		console.log("whaat")
+		setSelectionInformationVisibility(false, false, true);
+	}
 
 	if (this === undefined) {
-		hideInformationPanel();
+		showSelectionAdvice();
 		return;
 	}
 
 	if (this instanceof webvowl.labels.BaseLabel) {
-		hideNodeInformations();
+		showPropertyInformations();
 
 		setUriLabel(d3.select("#propname"), this.label(), this.uri());
 		d3.select("#typeProp").text(this.type());
@@ -260,8 +275,8 @@ function applyInformation(isAnythingSelected) {
 		setUriLabel(d3.select("#domain"), this.range().label(), this.range().uri());
 		setUriLabel(d3.select("#range"), this.domain().label(), this.domain().uri());
 	} else if (this instanceof webvowl.nodes.BaseNode) {
-		d3.select("#class").classed("hidden", false);
-		d3.select("#prop").classed("hidden", true);
+		showClassInformations();
+
 		setUriLabel(d3.select("#name"), this.label(), this.uri());
 
 		/* Equivalent stuff. */
@@ -303,18 +318,8 @@ function applyInformation(isAnythingSelected) {
 		}
 
 	} else {
-		hideInformationPanel();
+		showSelectionAdvice();
 	}
-}
-
-function hideNodeInformations() {
-	d3.select("#prop").classed("hidden", false);
-	d3.select("#class").classed("hidden", true);
-}
-
-function hideInformationPanel() {
-	d3.select("#prop").classed("hidden", true);
-	d3.select("#class").classed("hidden", true);
 }
 
 /**
