@@ -44,17 +44,11 @@ function loadGraph() {
 function displayGraphInfo(data) {
 	var header = data.header;
 
-	d3.select("#title")
-	  .text(header.title);
-	d3.select("#about")
-	  .attr("href", header.uri)
-	  .text(header.uri);
-	d3.select("#version")
-	  .text(header.version);
-	d3.select("#authors")
-	  .text(header.author);
-	d3.select("#description")
-	  .text(header.description);
+	d3.select("#title").text(header.title);
+	d3.select("#about").attr("href", header.uri).text(header.uri);
+	d3.select("#version").text(header.version);
+	d3.select("#authors").text(header.author);
+	d3.select("#description").text(header.description);
 }
 
 function adjustSize() {
@@ -224,12 +218,15 @@ function applyInformation(isAnythingSelected) {
 		d3.select("#propertySelectionInformation").classed("hidden", !showProperties);
 		d3.select("#noSelectionInformation").classed("hidden", !showAdvice);
 	}
+
 	function showClassInformations() {
 		setSelectionInformationVisibility(true, false, false);
 	}
+
 	function showPropertyInformations() {
 		setSelectionInformationVisibility(false, true, false);
 	}
+
 	function showSelectionAdvice() {
 		console.log("whaat")
 		setSelectionInformationVisibility(false, false, true);
