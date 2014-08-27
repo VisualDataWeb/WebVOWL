@@ -2,10 +2,10 @@
  * Contains the logic for the reset button.
  *
  * @param graph the associated webvowl graph
- * @param gravityMenu the gravity menu
+ * @param resettableMenues menues that can be resetted
  * @returns {{}}
  */
-webvowlApp.resetMenu = function (graph, gravityMenu) {
+webvowlApp.resetMenu = function (graph, resettableMenues) {
 
 	var resetMenu = {},
 		options = graph.getGraphOptions(),
@@ -34,14 +34,10 @@ webvowlApp.resetMenu = function (graph, gravityMenu) {
 		graph.reset();
 		graph.updateStyle();
 
-		gravityMenu.reset();
+		resettableMenues.forEach(function(menu) {
+			menu.reset();
+		});
 	}
-
-	/**
-	 * Exists for compatibility reasons.
-	 */
-	resetMenu.reset = function () {
-	};
 
 
 	return resetMenu;
