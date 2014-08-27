@@ -3,18 +3,22 @@ webvowl.modules.selectionDetailsDisplayer = function (handlerFunction) {
 		lastSelectedElement;
 
 	viewer.handle = function (selectedElement) {
-		var isSelected = true;
+		var isSelection = true;
 
 		// Deselection of the focused element
 		if (lastSelectedElement === selectedElement) {
-			isSelected = false;
+			isSelection = false;
 		}
 
 		if (handlerFunction instanceof Function) {
-			handlerFunction.call(selectedElement, isSelected);
+			if (isSelection) {
+				handlerFunction(selectedElement);
+			} else {
+				handlerFunction(null);
+			}
 		}
 
-		if (isSelected) {
+		if (isSelection) {
 			lastSelectedElement = selectedElement;
 		} else {
 			lastSelectedElement = null;
