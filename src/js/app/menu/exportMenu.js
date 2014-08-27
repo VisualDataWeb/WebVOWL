@@ -89,12 +89,6 @@ webvowlApp.exportMenu = function (graphSelector, ontologyName) {
 			"#width-test, .vowlGraph .text tspan:only-child, .vowlGraph .cardinality, marker path").attr("style", null);
 	}
 
-	/**
-	 * Exists for compatibility reasons.
-	 */
-	exportMenu.reset = function () {
-	};
-
 
 	return exportMenu;
 };

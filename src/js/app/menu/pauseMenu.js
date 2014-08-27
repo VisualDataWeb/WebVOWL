@@ -49,13 +49,6 @@ webvowlApp.pauseMenu = function (graph) {
 		}
 	}
 
-	/**
-	 * Exists for compatibility reasons.
-	 * The pause button is currently not resetted.
-	 */
-	pauseMenu.reset = function () {
-	};
-
 
 	return pauseMenu;
 };

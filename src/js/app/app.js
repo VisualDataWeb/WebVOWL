@@ -36,7 +36,7 @@ webvowlApp.app = function () {
 		gravityMenu = webvowlApp.gravityMenu(graph);
 		filterMenu = webvowlApp.filterMenu(graph, datatypeCollapser, subclassCollapser);
 		modeMenu = webvowlApp.modeMenu(pickAndPin);
-		resetMenu = webvowlApp.resetMenu(graph, gravityMenu);
+		resetMenu = webvowlApp.resetMenu(graph, [gravityMenu, filterMenu, modeMenu]);
 		pauseMenu = webvowlApp.pauseMenu(graph);
 
 		d3.select(window).on("resize", adjustSize);
