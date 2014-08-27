@@ -1,5 +1,5 @@
 /**
- * Contains the logic for the pause and resume button.
+ * Contains the logic for the export button.
  *
  * @param graphSelector the associated graph svg selector
  * @param ontologyName the ontology name used in the export filename
