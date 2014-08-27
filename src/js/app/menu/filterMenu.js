@@ -9,17 +9,15 @@
 webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
 
 	var filterMenu = {},
-		checkboxes = [],
-		datatypeFilterContainerSelector = "#datatypeCollapsingOption",
-		subclassFilterCotnainerSelector = "#subclassCollapsingOption";
+		checkboxes = [];
 
 
 	/**
 	 * Connects the website with graph filters.
 	 */
 	filterMenu.setup = function () {
-		addFilterItem(datatypeFilter, "datatype", "Datatypes", datatypeFilterContainerSelector);
-		addFilterItem(subclassFilter, "subclass", "Subclasses", subclassFilterCotnainerSelector);
+		addFilterItem(datatypeFilter, "datatype", "Datatypes", "#datatypeCollapsingOption");
+		addFilterItem(subclassFilter, "subclass", "Subclasses", "#subclassCollapsingOption");
 	};
 
 	function addFilterItem(filter, identifier, pluralNameOfFilteredItems, selector) {
@@ -34,6 +32,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
 			.classed("filterCheckbox", true)
 			.attr("id", identifier + "FilterCheckbox")
 			.attr("type", "checkbox");
+
 		// Store for easier resetting
 		checkboxes.push(filterCheckbox);
 
