@@ -37,6 +37,8 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
 		checkboxes.push(filterCheckbox);
 
 		filterCheckbox.on("click", function () {
+			// There might be no parameters passed because of a manual
+			// invocation when resetting the filters
 			var isEnabled = filterCheckbox.property("checked");
 			filter.enabled(isEnabled);
 			graph.update();
