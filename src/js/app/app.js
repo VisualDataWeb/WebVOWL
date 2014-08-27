@@ -3,8 +3,6 @@ var graph,
 	untouchedOptions = webvowl.options(),
 	classDistanceOptionSelector = "#classSliderOption",
 	datatypeDistanceOptionSelector = "#datatypeSliderOption",
-	datatypeCollapsingOptionSelector = "#datatypeCollapsingOption",
-	subclassCollapsingOptionSelector = "#subclassCollapsingOption",
 	pickAndPinOptionSelector = "#pickAndPinOption",
 	exportButtonSelector = "#exportSvg",
 	pauseOptionSelector = "#pauseOption",
@@ -18,7 +16,8 @@ var graph,
 	datatypeCollapser,
 	subclassCollapser,
 	statistics,
-	pickAndPin;
+	pickAndPin,
+	filterMenu;
 
 function displayGraphStatistics() {
 	d3.select("#statNodes")
@@ -134,37 +133,6 @@ function classSliderChanged() {
 function datatypeSliderChanged() {
 	var distance = datatypeSlider.property("value");
 	datatypeSliderLabel.html(distance);
-}
-
-function bindFilters() {
-	function bindFilter(filter, identifier, filterNamePlural, selector) {
-		var collapsingOptionContainer,
-			collapsingCheckbox;
-
-		collapsingOptionContainer = d3.select(selector)
-			.append("div")
-			.classed("checkboxContainer", true)
-			.attr("id", identifier + "CollapsingCheckboxContainer");
-
-		collapsingCheckbox = collapsingOptionContainer.append("input")
-			.classed("collapsingCheckbox", true)
-			.attr("id", identifier + "CollapsingCheckbox")
-			.attr("type", "checkbox")
-			.attr("value", identifier + "Collapsing");
-
-		collapsingCheckbox.on("click", function () {
-			var isEnabled = collapsingCheckbox.property("checked");
-			filter.enabled(isEnabled);
-			graph.update();
-		});
-
-		collapsingOptionContainer.append("label")
-			.attr("for", identifier + "CollapsingCheckbox")
-			.text("Hide " + filterNamePlural);
-	}
-
-	bindFilter(datatypeCollapser, "datatype", "Datatypes", datatypeCollapsingOptionSelector);
-	bindFilter(subclassCollapser, "subclass", "Subclasses", subclassCollapsingOptionSelector);
 }
 
 function bindModules() {
@@ -500,9 +468,11 @@ function initialize() {
 	options.filterModules().push(statistics);
 	loadGraph();
 
+	filterMenu = webvowlApp.filterMenu(graph, datatypeCollapser, subclassCollapser);
+
 	d3.select(window).on("resize", adjustSize);
 	bindSliders();
-	bindFilters();
+	filterMenu.setup();
 	bindModules();
 	setExportButton();
 	setResetButton();
