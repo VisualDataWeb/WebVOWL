@@ -32,11 +32,12 @@ webvowlApp.resetMenu = function (graph, resettableMenues) {
 		options.gravity(untouchedOptions.gravity());
 		options.linkStrength(untouchedOptions.linkStrength());
 		graph.reset();
-		graph.updateStyle();
 
 		resettableMenues.forEach(function(menu) {
 			menu.reset();
 		});
+
+		graph.updateStyle();
 	}
 
 
