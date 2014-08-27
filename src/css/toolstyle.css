@@ -197,7 +197,7 @@ ul#optionsMenu > li:hover .aboutMenu {
 .toolTipMenu > li {
     border-top: solid 1px #bdc3c7;
 }
-.toolTipMenu li a, #classDistanceSlider, #datatypeDistanceSlider, .checkboxContainer {
+.toolTipMenu li a, .distanceSliderContainer , .checkboxContainer {
 	color:#2980b9;
 	display: block;
 }
@@ -213,7 +213,7 @@ ul#optionsMenu > li:hover .aboutMenu {
 .filter, .module {
 	min-width: 150px;
 }
-#reset, #pause, #optionsMenu #classDistanceSlider, #optionsMenu #datatypeDistanceSlider {
+#reset, #pause {
 	bottom: 0;
 	display: inline-block;
 	position: static;
@@ -290,17 +290,15 @@ a#pause:not(.paused)::before {
 	margin: 0;
 	padding: 0 5px 0 0;
 }
-#classDistanceSlider, #datatypeDistanceSlider {
-	position: relative;
-}
-#classDistanceSlider label, #datatypeDistanceSlider label {
+.distanceSliderLabel {
+	position: absolute;
 	bottom: 5px;
 	left: 10px;
-	position: absolute;
 }
-label#rangeClassValue, label#rangeDatatypeValue {
-	left:115px;
+.distanceSliderValue {
+	position: absolute;
 	top:10px;
+	left:115px;
 }
 input[type="range"] {
   	-webkit-appearance: none !important;
