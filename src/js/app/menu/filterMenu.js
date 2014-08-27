@@ -9,6 +9,7 @@
 webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
 
 	var filterMenu = {},
+		checkboxes = [],
 		datatypeFilterContainerSelector = "#datatypeCollapsingOption",
 		subclassFilterCotnainerSelector = "#subclassCollapsingOption";
 
@@ -33,6 +34,8 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
 			.classed("filterCheckbox", true)
 			.attr("id", identifier + "FilterCheckbox")
 			.attr("type", "checkbox");
+		// Store for easier resetting
+		checkboxes.push(filterCheckbox);
 
 		filterCheckbox.on("click", function () {
 			var isEnabled = filterCheckbox.property("checked");
@@ -44,6 +47,21 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
 			.attr("for", identifier + "FilterCheckbox")
 			.text("Hide " + pluralNameOfFilteredItems);
 	}
+
+	/**
+	 * Resets the filters (and also filtered elements) to their default.
+	 */
+	filterMenu.reset = function () {
+		checkboxes.forEach(function (checkbox) {
+			var isChecked = checkbox.property("checked");
+			if (isChecked) {
+				checkbox.property("checked", false);
+				// Call onclick event handlers programmatically
+				checkbox.on("click")();
+			}
+		});
+	};
+
 
 	return filterMenu;
 };
