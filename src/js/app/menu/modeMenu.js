@@ -17,13 +17,14 @@ webvowlApp.modeMenu = function (pickAndPin) {
 		addModeItem(pickAndPin, "pickandpin", "Pick & Pin", "#pickAndPinOption");
 	};
 
-	function addModeItem(mode, identifier, modeName, selector) {
+	function addModeItem(module, identifier, modeName, selector) {
 		var moduleOptionContainer,
 			moduleCheckbox;
 
 		moduleOptionContainer = d3.select(selector)
 			.append("div")
-			.classed("checkboxContainer", true);
+			.classed("checkboxContainer", true)
+			.datum({module:module});
 
 		moduleCheckbox = moduleOptionContainer.append("input")
 			.classed("moduleCheckbox", true)
@@ -33,9 +34,9 @@ webvowlApp.modeMenu = function (pickAndPin) {
 		// Store for easier resetting all modes
 		checkboxes.push(moduleCheckbox);
 
-		moduleCheckbox.on("click", function () {
+		moduleCheckbox.on("click", function (d) {
 			var isEnabled = moduleCheckbox.property("checked");
-			mode.enabled(isEnabled);
+			d.module.enabled(isEnabled);
 		});
 
 		moduleOptionContainer.append("label")
@@ -52,8 +53,11 @@ webvowlApp.modeMenu = function (pickAndPin) {
 			if (isChecked) {
 				checkbox.property("checked", false);
 				// Call onclick event handlers programmatically
-				checkbox.on("click")();
+				checkbox.on("click")(checkbox.datum());
 			}
+
+			// Reset the module that is connected with the checkbox
+			checkbox.datum().module.reset();
 		});
 	};
 
