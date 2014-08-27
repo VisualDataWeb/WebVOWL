@@ -2,7 +2,6 @@ var graph,
 	options,
 	untouchedOptions = webvowl.options(),
 	exportButtonSelector = "#exportSvg",
-	pauseOptionSelector = "#pauseOption",
 	resetOptionSelector = "#resetOption",
 	graphSelector = "#graph",
 	jsonURI = "benchmark",
@@ -12,7 +11,8 @@ var graph,
 	pickAndPin,
 	filterMenu,
 	modeMenu,
-	gravityMenu;
+	gravityMenu,
+	pauseMenu;
 
 function displayGraphStatistics() {
 	d3.select("#statNodes")
@@ -232,41 +232,6 @@ function setResetButton() {
 	}
 }
 
-function setPauseButton() {
-	var pauseButton = d3.select(pauseOptionSelector)
-		.append("a")
-		.datum({paused: false})
-		.attr("id", "pause")
-		.attr("href", "#")
-		.on("click", function (d) {
-			if (d.paused) {
-				graph.unfreeze();
-			} else {
-				graph.freeze();
-			}
-			d.paused = !d.paused;
-			setPauseButtonText();
-			setPauseButtonClass();
-		});
-	// Set these properties the first time manually
-	setPauseButtonClass();
-	setPauseButtonText();
-
-	function setPauseButtonClass() {
-		pauseButton.classed("paused", function (d) {
-			return d.paused;
-		});
-	}
-
-	function setPauseButtonText() {
-		if (pauseButton.datum().paused) {
-			pauseButton.text("Resume");
-		} else {
-			pauseButton.text("Pause");
-		}
-	}
-}
-
 function setExportButton() {
 	var exportButton = d3.select(exportButtonSelector)
 		.on("click", exportSVG);
@@ -362,6 +327,7 @@ function initialize() {
 	gravityMenu = webvowlApp.gravityMenu(graph);
 	filterMenu = webvowlApp.filterMenu(graph, datatypeCollapser, subclassCollapser);
 	modeMenu = webvowlApp.modeMenu(pickAndPin);
+	pauseMenu = webvowlApp.pauseMenu(graph);
 
 	d3.select(window).on("resize", adjustSize);
 	gravityMenu.setup();
@@ -369,6 +335,6 @@ function initialize() {
 	modeMenu.setup();
 	setExportButton();
 	setResetButton();
-	setPauseButton();
+	pauseMenu.setup();
 }
 window.onload = initialize;
