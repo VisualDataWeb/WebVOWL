@@ -1,18 +1,17 @@
 var graph,
 	options,
-	untouchedOptions = webvowl.options(),
-	resetOptionSelector = "#resetOption",
 	graphSelector = "#graph",
 	jsonURI = "benchmark",
 	datatypeCollapser,
 	subclassCollapser,
 	statistics,
 	pickAndPin,
+	exportMenu,
+	gravityMenu,
 	filterMenu,
 	modeMenu,
-	gravityMenu,
-	pauseMenu,
-	exportMenu;
+	resetMenu,
+	pauseMenu;
 
 function displayGraphStatistics() {
 	d3.select("#statNodes")
@@ -210,28 +209,6 @@ function appendUriLabel(element, name, uri) {
 	tag.text(name);
 }
 
-function setResetButton() {
-	d3.select(resetOptionSelector)
-		.append("a")
-		.attr("id", "reset")
-		.attr("href", "#")
-		.property("type", "reset")
-		.text("Reset")
-		.on("click", resetGraph);
-
-	function resetGraph() {
-		options.classDistance(untouchedOptions.classDistance());
-		options.datatypeDistance(untouchedOptions.datatypeDistance());
-		options.charge(untouchedOptions.charge());
-		options.gravity(untouchedOptions.gravity());
-		options.linkStrength(untouchedOptions.linkStrength());
-		graph.reset();
-		graph.updateStyle();
-
-		gravityMenu.reset();
-	}
-}
-
 function initialize() {
 	// Custom additional webvowl modules
 	var selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(applyInformation);
@@ -254,6 +231,7 @@ function initialize() {
 	gravityMenu = webvowlApp.gravityMenu(graph);
 	filterMenu = webvowlApp.filterMenu(graph, datatypeCollapser, subclassCollapser);
 	modeMenu = webvowlApp.modeMenu(pickAndPin);
+	resetMenu = webvowlApp.resetMenu(graph, gravityMenu);
 	pauseMenu = webvowlApp.pauseMenu(graph);
 
 	d3.select(window).on("resize", adjustSize);
@@ -261,7 +239,7 @@ function initialize() {
 	filterMenu.setup();
 	modeMenu.setup();
 	exportMenu.setup();
-	setResetButton();
+	resetMenu.setup();
 	pauseMenu.setup();
 }
 window.onload = initialize;
