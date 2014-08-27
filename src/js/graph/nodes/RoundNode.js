@@ -27,6 +27,7 @@ webvowl.nodes.RoundNode = (function () {
 		};
 
 		this.drawPin = function () {
+			that.pinned(true);
 			pinGroupElement = that.nodeElement().append("g")
 				.attr("transform", "translate(20,-35)");
 

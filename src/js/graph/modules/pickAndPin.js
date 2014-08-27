@@ -9,7 +9,6 @@ webvowl.modules.pickAndPin = function () {
 		}
 
 		if (clickedElement instanceof webvowl.nodes.RoundNode && !clickedElement.pinned()) {
-			clickedElement.pinned(true);
 			clickedElement.drawPin();
 			pinnedNodes.push(clickedElement);
 		}
