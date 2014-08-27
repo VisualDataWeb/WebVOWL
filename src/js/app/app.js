@@ -1,23 +1,18 @@
 var graph,
 	options,
 	untouchedOptions = webvowl.options(),
-	classDistanceOptionSelector = "#classSliderOption",
-	datatypeDistanceOptionSelector = "#datatypeSliderOption",
 	exportButtonSelector = "#exportSvg",
 	pauseOptionSelector = "#pauseOption",
 	resetOptionSelector = "#resetOption",
 	graphSelector = "#graph",
-	classSlider,
-	datatypeSlider,
-	classSliderLabel,
-	datatypeSliderLabel,
 	jsonURI = "benchmark",
 	datatypeCollapser,
 	subclassCollapser,
 	statistics,
 	pickAndPin,
 	filterMenu,
-	modeMenu;
+	modeMenu,
+	gravityMenu;
 
 function displayGraphStatistics() {
 	d3.select("#statNodes")
@@ -61,78 +56,6 @@ function adjustSize() {
 	options.width(width)
 		.height(height);
 	graph.updateStyle();
-}
-
-function bindSliders() {
-	var classSliderDiv,
-		datatypeSliderDiv;
-
-	// Append the link distance slider for classes
-	classSliderDiv = d3.select(classDistanceOptionSelector)
-		.append("div")
-		.attr("id", "classDistanceSlider");
-
-	classSliderLabel = classSliderDiv.append("label")
-		.attr("id", "rangeClassValue")
-		.attr("for", "rangeClassSlider")
-		.text(options.classDistance());
-
-	classSliderDiv.append("label")
-		.attr("for", "rangeClassSlider")
-		.text("Class Distance");
-
-	classSlider = classSliderDiv.append("input")
-		.attr("id", "rangeClassSlider")
-		.attr("type", "range")
-		.attr("min", 10)
-		.attr("max", 600)
-		.attr("value", options.classDistance())
-		.attr("step", 10);
-
-	classSlider.on("input", function () {
-		classSliderChanged();
-		options.classDistance(classSlider.property("value"));
-		graph.updateStyle();
-	});
-
-
-	// Append the link distance slider for datatypes
-	datatypeSliderDiv = d3.select(datatypeDistanceOptionSelector)
-		.append("div")
-		.attr("id", "datatypeDistanceSlider");
-
-	datatypeSliderLabel = datatypeSliderDiv.append("label")
-		.attr("id", "rangeDatatypeValue")
-		.attr("for", "rangeDatatypeSlider")
-		.text(options.datatypeDistance());
-
-	datatypeSliderDiv.append("label")
-		.attr("for", "rangeDatatypeSlider")
-		.text("Datatype Distance");
-
-	datatypeSlider = datatypeSliderDiv.append("input")
-		.attr("id", "rangeDatatypeSlider")
-		.attr("type", "range")
-		.attr("min", 10)
-		.attr("max", 600)
-		.attr("value", options.datatypeDistance())
-		.attr("step", 10);
-
-	datatypeSlider.on("input", function () {
-		datatypeSliderChanged();
-		options.datatypeDistance(datatypeSlider.property("value"));
-		graph.updateStyle();
-	});
-}
-
-function classSliderChanged() {
-	var distance = classSlider.property("value");
-	classSliderLabel.html(distance);
-}
-
-function datatypeSliderChanged() {
-	var distance = datatypeSlider.property("value");
-	datatypeSliderLabel.html(distance);
 }
 
 /**
@@ -305,10 +228,7 @@ function setResetButton() {
 		graph.reset();
 		graph.updateStyle();
 
-		classSlider.property("value", options.classDistance());
-		classSliderChanged();
-		datatypeSlider.property("value", options.datatypeDistance());
-		datatypeSliderChanged();
+		gravityMenu.reset();
 	}
 }
 
@@ -439,11 +359,12 @@ function initialize() {
 	options.filterModules().push(statistics);
 	loadGraph();
 
+	gravityMenu = webvowlApp.gravityMenu(graph);
 	filterMenu = webvowlApp.filterMenu(graph, datatypeCollapser, subclassCollapser);
 	modeMenu = webvowlApp.modeMenu(pickAndPin);
 
 	d3.select(window).on("resize", adjustSize);
-	bindSliders();
+	gravityMenu.setup();
 	filterMenu.setup();
 	modeMenu.setup();
 	setExportButton();
