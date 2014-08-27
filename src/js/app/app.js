@@ -3,7 +3,6 @@ var graph,
 	untouchedOptions = webvowl.options(),
 	classDistanceOptionSelector = "#classSliderOption",
 	datatypeDistanceOptionSelector = "#datatypeSliderOption",
-	pickAndPinOptionSelector = "#pickAndPinOption",
 	exportButtonSelector = "#exportSvg",
 	pauseOptionSelector = "#pauseOption",
 	resetOptionSelector = "#resetOption",
@@ -17,7 +16,8 @@ var graph,
 	subclassCollapser,
 	statistics,
 	pickAndPin,
-	filterMenu;
+	filterMenu,
+	modeMenu;
 
 function displayGraphStatistics() {
 	d3.select("#statNodes")
@@ -133,35 +133,6 @@ function classSliderChanged() {
 function datatypeSliderChanged() {
 	var distance = datatypeSlider.property("value");
 	datatypeSliderLabel.html(distance);
-}
-
-function bindModules() {
-	function bindModule(module, identifier, moduleName, selector) {
-		var moduleOptionContainer,
-			moduleCheckbox;
-
-		moduleOptionContainer = d3.select(selector)
-			.append("div")
-			.classed("checkboxContainer", true)
-			.attr("id", identifier + "ModuleCheckboxContainer");
-
-		moduleCheckbox = moduleOptionContainer.append("input")
-			.classed("moduleCheckbox", true)
-			.attr("id", identifier + "ModuleCheckbox")
-			.attr("type", "checkbox")
-			.attr("value", identifier + "Module");
-
-		moduleCheckbox.on("click", function () {
-			var isEnabled = moduleCheckbox.property("checked");
-			module.enabled(isEnabled);
-		});
-
-		moduleOptionContainer.append("label")
-			.attr("for", identifier + "ModuleCheckbox")
-			.text(moduleName);
-	}
-
-	bindModule(pickAndPin, "pickandpin", "Pick & Pin", pickAndPinOptionSelector);
 }
 
 /**
@@ -469,11 +440,12 @@ function initialize() {
 	loadGraph();
 
 	filterMenu = webvowlApp.filterMenu(graph, datatypeCollapser, subclassCollapser);
+	modeMenu = webvowlApp.modeMenu(pickAndPin);
 
 	d3.select(window).on("resize", adjustSize);
 	bindSliders();
 	filterMenu.setup();
-	bindModules();
+	modeMenu.setup();
 	setExportButton();
 	setResetButton();
 	setPauseButton();
