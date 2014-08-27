@@ -9,42 +9,40 @@
 webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
 
 	var filterMenu = {},
-		datatypeCollapsingOptionSelector = "#datatypeCollapsingOption",
-		subclassCollapsingOptionSelector = "#subclassCollapsingOption";
+		datatypeFilterContainerSelector = "#datatypeCollapsingOption",
+		subclassFilterCotnainerSelector = "#subclassCollapsingOption";
 
 
 	/**
 	 * Connects the website with graph filters.
 	 */
 	filterMenu.setup = function () {
-		bindFilter(datatypeFilter, "datatype", "Datatypes", datatypeCollapsingOptionSelector);
-		bindFilter(subclassFilter, "subclass", "Subclasses", subclassCollapsingOptionSelector);
+		addFilterItem(datatypeFilter, "datatype", "Datatypes", datatypeFilterContainerSelector);
+		addFilterItem(subclassFilter, "subclass", "Subclasses", subclassFilterCotnainerSelector);
 	};
 
-	function bindFilter(filter, identifier, filterNamePlural, selector) {
-		var collapsingOptionContainer,
-			collapsingCheckbox;
+	function addFilterItem(filter, identifier, pluralNameOfFilteredItems, selector) {
+		var filterContainer,
+			filterCheckbox;
 
-		collapsingOptionContainer = d3.select(selector)
+		filterContainer = d3.select(selector)
 			.append("div")
-			.classed("checkboxContainer", true)
-			.attr("id", identifier + "CollapsingCheckboxContainer");
+			.classed("checkboxContainer", true);
 
-		collapsingCheckbox = collapsingOptionContainer.append("input")
-			.classed("collapsingCheckbox", true)
-			.attr("id", identifier + "CollapsingCheckbox")
-			.attr("type", "checkbox")
-			.attr("value", identifier + "Collapsing");
+		filterCheckbox = filterContainer.append("input")
+			.classed("filterCheckbox", true)
+			.attr("id", identifier + "FilterCheckbox")
+			.attr("type", "checkbox");
 
-		collapsingCheckbox.on("click", function () {
-			var isEnabled = collapsingCheckbox.property("checked");
+		filterCheckbox.on("click", function () {
+			var isEnabled = filterCheckbox.property("checked");
 			filter.enabled(isEnabled);
 			graph.update();
 		});
 
-		collapsingOptionContainer.append("label")
-			.attr("for", identifier + "CollapsingCheckbox")
-			.text("Hide " + filterNamePlural);
+		filterContainer.append("label")
+			.attr("for", identifier + "FilterCheckbox")
+			.text("Hide " + pluralNameOfFilteredItems);
 	}
 
 	return filterMenu;
