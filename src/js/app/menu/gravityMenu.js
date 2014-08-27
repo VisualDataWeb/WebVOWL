@@ -7,6 +7,7 @@
 webvowlApp.gravityMenu = function (graph) {
 
 	var gravityMenu = {},
+		sliders = [],
 		options = graph.getGraphOptions(),
 		classSlider,
 		datatypeSlider,
@@ -18,86 +19,59 @@ webvowlApp.gravityMenu = function (graph) {
 	 * Adds the gravity sliders to the website.
 	 */
 	gravityMenu.setup = function () {
-		addClassDistanceSlider();
-		addDatatypeDistanceSlider();
+		addDistanceSlider("#classSliderOption", "class", "Class Distance", options.classDistance);
+		addDistanceSlider("#datatypeSliderOption", "datatype", "Datatype Distance", options.datatypeDistance);
 	};
 
-	function addClassDistanceSlider() {
-		var classSliderDiv = d3.select("#classSliderOption")
+	function addDistanceSlider(selector, identifier, label, distanceFunction) {
+		var sliderContainer,
+			sliderValueLabel;
+
+		sliderContainer = d3.select(selector)
 			.append("div")
-			.attr("id", "classDistanceSlider");
+			.datum({distanceFunction: distanceFunction}) // connect the options-function with the slider
+			.classed("distanceSliderContainer", true);
 
-		classSliderLabel = classSliderDiv.append("label")
-			.attr("id", "rangeClassValue")
-			.attr("for", "rangeClassSlider")
-			.text(options.classDistance());
+		sliderValueLabel = sliderContainer.append("label")
+			.classed("distanceSliderValue", true)
+			.attr("for", identifier + "DistanceSlider")
+			.text(distanceFunction());
 
-		classSliderDiv.append("label")
-			.attr("for", "rangeClassSlider")
-			.text("Class Distance");
+		sliderContainer.append("label")
+			.classed("distanceSliderLabel", true)
+			.attr("for", identifier + "DistanceSlider")
+			.text(label);
 
-		classSlider = classSliderDiv.append("input")
-			.attr("id", "rangeClassSlider")
+		var slider = sliderContainer.append("input")
+			.attr("id", identifier + "DistanceSlider")
 			.attr("type", "range")
 			.attr("min", 10)
 			.attr("max", 600)
-			.attr("value", options.classDistance())
+			.attr("value", distanceFunction())
 			.attr("step", 10);
 
-		classSlider.on("input", function () {
-			classSliderChanged();
-			options.classDistance(classSlider.property("value"));
+		// Store slider for easier resetting
+		sliders.push(slider);
+
+		slider.on("input", function () {
+			var distance = slider.property("value");
+			distanceFunction(distance);
+			sliderValueLabel.text(distance);
 			graph.updateStyle();
 		});
-	}
-
-	function addDatatypeDistanceSlider() {
-		var datatypeSliderDiv = d3.select("#datatypeSliderOption")
-			.append("div")
-			.attr("id", "datatypeDistanceSlider");
-
-		datatypeSliderLabel = datatypeSliderDiv.append("label")
-			.attr("id", "rangeDatatypeValue")
-			.attr("for", "rangeDatatypeSlider")
-			.text(options.datatypeDistance());
-
-		datatypeSliderDiv.append("label")
-			.attr("for", "rangeDatatypeSlider")
-			.text("Datatype Distance");
-
-		datatypeSlider = datatypeSliderDiv.append("input")
-			.attr("id", "rangeDatatypeSlider")
-			.attr("type", "range")
-			.attr("min", 10)
-			.attr("max", 600)
-			.attr("value", options.datatypeDistance())
-			.attr("step", 10);
-
-		datatypeSlider.on("input", function () {
-			datatypeSliderChanged();
-			options.datatypeDistance(datatypeSlider.property("value"));
-			graph.updateStyle();
-		});
-	}
-
-	function classSliderChanged() {
-		var distance = classSlider.property("value");
-		classSliderLabel.html(distance);
-	}
-
-	function datatypeSliderChanged() {
-		var distance = datatypeSlider.property("value");
-		datatypeSliderLabel.html(distance);
 	}
 
 	/**
 	 * Resets the gravity sliders to their default.
 	 */
 	gravityMenu.reset = function () {
-		classSlider.property("value", options.classDistance());
-		classSliderChanged();
-		datatypeSlider.property("value", options.datatypeDistance());
-		datatypeSliderChanged();
+		sliders.forEach(function (slider) {
+			slider.property("value", function (d) {
+				// Simply reload the distance from the options
+				return d.distanceFunction();
+			});
+			slider.on("input")();
+		});
 	};
 
 
