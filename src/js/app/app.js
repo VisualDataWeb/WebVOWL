@@ -1,74 +1,74 @@
-var graph,
-	options,
-	graphSelector = "#graph",
-	jsonURI = "benchmark",
-	datatypeCollapser,
-	subclassCollapser,
-	statistics,
-	pickAndPin,
-	exportMenu,
-	gravityMenu,
-	filterMenu,
-	modeMenu,
-	resetMenu,
-	pauseMenu,
-	sidebar;
+webvowlApp.app = function () {
 
-function loadGraph() {
-	d3.json("js/data/" + jsonURI + ".json", function (error, data) {
-		options.data(data);
-		graph.start();
-		sidebar.updateOntologyInformation(data, statistics);
-		adjustSize();
-	});
-}
+	var app = {},
+		graph,
+		options,
+		graphSelector = "#graph",
+		jsonURI = "benchmark",
+	// Modules for the webvowl app
+		exportMenu,
+		gravityMenu,
+		filterMenu,
+		modeMenu,
+		resetMenu,
+		pauseMenu,
+		sidebar = webvowlApp.sidebar(),
+		menuModules,
+	// Graph modules
+		statistics = webvowl.modules.statistics(),
+		selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
+		datatypeCollapser = webvowl.modules.datatypeCollapser(),
+		subclassCollapser = webvowl.modules.subclassCollapser(),
+		pickAndPin = webvowl.modules.pickAndPin();
 
-function adjustSize() {
-	var svg = d3.select(graphSelector).select("svg"),
-		height = window.innerHeight - 40,
-		width = window.innerWidth - (window.innerWidth * 0.22);
+	app.initialize = function () {
+		graph = new webvowl.Graph();
+		options = graph.getGraphOptions();
+		options.graphContainerSelector(graphSelector);
+		options.clickModules().push(selectionDetailDisplayer);
+		options.clickModules().push(pickAndPin);
+		options.filterModules().push(datatypeCollapser);
+		options.filterModules().push(subclassCollapser);
+		options.filterModules().push(statistics);
+		loadGraph();
 
-	svg.attr("width", width)
-		.attr("height", height);
+		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector(), jsonURI);
+		gravityMenu = webvowlApp.gravityMenu(graph);
+		filterMenu = webvowlApp.filterMenu(graph, datatypeCollapser, subclassCollapser);
+		modeMenu = webvowlApp.modeMenu(pickAndPin);
+		resetMenu = webvowlApp.resetMenu(graph, gravityMenu);
+		pauseMenu = webvowlApp.pauseMenu(graph);
 
-	options.width(width)
-		.height(height);
-	graph.updateStyle();
-}
+		d3.select(window).on("resize", adjustSize);
 
-function initialize() {
-	statistics = webvowl.modules.statistics();
-	sidebar = webvowlApp.sidebar(statistics);
+		// setup all bottom bar modules
+		menuModules = [exportMenu, gravityMenu, filterMenu, modeMenu, resetMenu, pauseMenu];
+		menuModules.forEach(function (menu) {
+			menu.setup();
+		});
+	};
 
-	// Custom additional webvowl modules
-	var selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation);
-	datatypeCollapser = webvowl.modules.datatypeCollapser();
-	subclassCollapser = webvowl.modules.subclassCollapser();
-	pickAndPin = webvowl.modules.pickAndPin();
+	function loadGraph() {
+		d3.json("js/data/" + jsonURI + ".json", function (error, data) {
+			options.data(data);
+			graph.start();
+			sidebar.updateOntologyInformation(data, statistics);
+			adjustSize();
+		});
+	}
 
-	graph = new webvowl.Graph();
-	options = graph.getGraphOptions();
-	options.graphContainerSelector(graphSelector);
-	options.clickModules().push(selectionDetailDisplayer);
-	options.clickModules().push(pickAndPin);
-	options.filterModules().push(datatypeCollapser);
-	options.filterModules().push(subclassCollapser);
-	options.filterModules().push(statistics);
-	loadGraph();
+	function adjustSize() {
+		var svg = d3.select(graphSelector).select("svg"),
+			height = window.innerHeight - 40,
+			width = window.innerWidth - (window.innerWidth * 0.22);
 
-	exportMenu = webvowlApp.exportMenu(options.graphContainerSelector(), jsonURI);
-	gravityMenu = webvowlApp.gravityMenu(graph);
-	filterMenu = webvowlApp.filterMenu(graph, datatypeCollapser, subclassCollapser);
-	modeMenu = webvowlApp.modeMenu(pickAndPin);
-	resetMenu = webvowlApp.resetMenu(graph, gravityMenu);
-	pauseMenu = webvowlApp.pauseMenu(graph);
+		svg.attr("width", width)
+			.attr("height", height);
 
-	d3.select(window).on("resize", adjustSize);
-	gravityMenu.setup();
-	filterMenu.setup();
-	modeMenu.setup();
-	exportMenu.setup();
-	resetMenu.setup();
-	pauseMenu.setup();
-}
-window.onload = initialize;
+		options.width(width)
+			.height(height);
+		graph.updateStyle();
+	}
+
+	return app;
+};
