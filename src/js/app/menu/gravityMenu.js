@@ -8,7 +8,7 @@ webvowlApp.gravityMenu = function (graph) {
 
 	var gravityMenu = {},
 		sliders = [],
-		options = graph.getGraphOptions(),
+		options = graph.graphOptions(),
 		classSlider,
 		datatypeSlider,
 		classSliderLabel,

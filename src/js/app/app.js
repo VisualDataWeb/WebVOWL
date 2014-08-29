@@ -22,8 +22,8 @@ webvowlApp.app = function () {
 		pickAndPin = webvowl.modules.pickAndPin();
 
 	app.initialize = function () {
-		graph = new webvowl.Graph();
-		options = graph.getGraphOptions();
+		graph = webvowl.graph();
+		options = graph.graphOptions();
 		options.graphContainerSelector(graphSelector);
 		options.clickModules().push(selectionDetailDisplayer);
 		options.clickModules().push(pickAndPin);

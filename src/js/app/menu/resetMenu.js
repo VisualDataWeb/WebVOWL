@@ -8,7 +8,7 @@
 webvowlApp.resetMenu = function (graph, resettableMenues) {
 
 	var resetMenu = {},
-		options = graph.getGraphOptions(),
+		options = graph.graphOptions(),
 		untouchedOptions = webvowl.options();
 
 
