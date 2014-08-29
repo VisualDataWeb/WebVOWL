@@ -24,12 +24,8 @@ webvowl.parser = function () {
 
 		combinedProperties = combineProperties(ontologyData.property, ontologyData.propertyAttribute, webvowl.labels);
 
-		function mapElements(element) {
-			return element.id();
-		}
-
-		classMap = mapArray(combinedClassesAndDatatypes, mapElements);
-		propertyMap = mapArray(combinedProperties, mapElements);
+		classMap = mapElements(combinedClassesAndDatatypes);
+		propertyMap = mapElements(combinedProperties);
 
 		// Process the graph data
 		convertTypesToUris(combinedClassesAndDatatypes, ontologyData.namespace);
@@ -419,14 +415,13 @@ webvowl.parser = function () {
 	/**
 	 * Creates a map by mapping the array with the passed function.
 	 * @param array the array
-	 * @param mapFunction a function that returns an id of every object
 	 * @returns {{}}
 	 */
-	function mapArray(array, mapFunction) {
+	function mapElements(array) {
 		var map = {};
 		for (var i = 0, length = array.length; i < length; i++) {
 			var element = array[i];
-			map[mapFunction(element)] = element;
+			map[element.id()] = element;
 		}
 		return map;
 	}
