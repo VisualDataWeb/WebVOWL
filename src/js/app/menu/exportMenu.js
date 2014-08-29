@@ -27,6 +27,7 @@ webvowlApp.exportMenu = function (graphSelector, ontologyName) {
 
 		// inline the styles, so that the exported svg code contains the css rules
 		inlineVowlStyles();
+		hideNotExportableElements();
 
 		graphSvgCode = graphSvg.attr("version", 1.1)
 			.attr("xmlns", "http://www.w3.org/2000/svg")
@@ -40,6 +41,7 @@ webvowlApp.exportMenu = function (graphSelector, ontologyName) {
 
 		// remove graphic styles for interaction to go back to normal
 		removeVowlInlineStyles();
+		showNotExportableElements();
 	}
 
 	function inlineVowlStyles() {
@@ -72,8 +74,19 @@ webvowlApp.exportMenu = function (graphSelector, ontologyName) {
 		d3.selectAll("marker path").style("stroke-dasharray", "50");
 	}
 
+	/**
+	 * For example the pin of the pick&pin module should be invisible in the exported graphic.
+	 */
+	function hideNotExportableElements() {
+		d3.selectAll(".hidden-in-export").style("display", "none");
+	}
+
 	function removeVowlInlineStyles() {
 		d3.selectAll(".text, .subtext, .cardinality, .text, .embedded, .class, path, line, .fineline, .special, .dotted, rect.focused, circle.focused, .nostroke, .class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .label .datatype, .datatypeproperty, .rdf, .rdfproperty, .literal, .node .datatype, .deprecated, .deprecatedproperty, .external, .externalproperty, .symbol, .arrowhead, marker path, .class, path, line, .fineline, .white, .subclass, .dottedMarker path, .subclassproperty, path, .nofill, .class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .normalMarker path.hovered, .cardinality.focused, .normalMarker path.focused, circle.pin, .focused, path.hovered, .label .indirectHighlighting, .feature:hover, #width-test, .vowlGraph .text tspan:only-child, .vowlGraph .cardinality, marker path").attr("style", null);
+	}
+
+	function showNotExportableElements() {
+		d3.selectAll(".hidden-in-export").style("display", null);
 	}
 
 
