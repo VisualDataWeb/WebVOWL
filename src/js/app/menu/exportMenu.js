@@ -60,10 +60,10 @@ webvowlApp.exportMenu = function (graphSelector, ontologyName) {
 		d3.selectAll(".deprecated, .deprecatedproperty").style("fill", "#ccc");
 		d3.selectAll(".external, .externalproperty").style("fill", "#36c");
 		d3.selectAll(".symbol").style("fill", "#69c");
+		d3.selectAll("path, .nofill").style("fill", "none");
 		d3.selectAll(".arrowhead, marker path").style("fill", "#000");
 		d3.selectAll(".class, path, line, .fineline").style("stroke", "#000");
 		d3.selectAll(".white, .subclass, .dottedMarker path, .subclassproperty").style("fill", "#fff");
-		d3.selectAll("path, .nofill").style("fill", "none");
 		d3.selectAll(".class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .normalMarker path.hovered, .cardinality.focused, .normalMarker path.focused, circle.pin").style("fill", "#f00").style("cursor", "pointer");
 		d3.selectAll(".focused, path.hovered").style("stroke", "#f00");
 		d3.selectAll(".label .indirectHighlighting, .feature:hover").style("fill", "#f90");

@@ -59,6 +59,9 @@ rect.focused, circle.focused {
 .symbol {
     fill: #69c;
 }
+path, .nofill {
+	fill: none;
+}
 .arrowhead, marker path {
 	fill: #000;
 }
@@ -67,9 +70,6 @@ rect.focused, circle.focused {
 }
 .white, .subclass, .dottedMarker path, .subclassproperty {
     fill: #fff;
-}
-path, .nofill {
-	fill: none;
 }
 .class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .normalMarker path.hovered, .cardinality.focused, .normalMarker path.focused, circle.pin {
     fill: #f00;
