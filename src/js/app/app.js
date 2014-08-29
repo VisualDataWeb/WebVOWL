@@ -16,6 +16,7 @@ webvowlApp.app = function () {
 		menuModules,
 	// Graph modules
 		statistics = webvowl.modules.statistics(),
+		focuser = webvowl.modules.focuser(),
 		selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
 		datatypeCollapser = webvowl.modules.datatypeCollapser(),
 		subclassCollapser = webvowl.modules.subclassCollapser(),
@@ -25,6 +26,7 @@ webvowlApp.app = function () {
 		graph = webvowl.graph();
 		options = graph.graphOptions();
 		options.graphContainerSelector(graphSelector);
+		options.clickModules().push(focuser);
 		options.clickModules().push(selectionDetailDisplayer);
 		options.clickModules().push(pickAndPin);
 		options.filterModules().push(datatypeCollapser);
