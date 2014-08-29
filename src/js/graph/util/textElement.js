@@ -14,7 +14,7 @@ webvowl.util.textElement = function (element) {
 	/**
 	 * Repositions the textblock according to its own offsetHeight.
 	 */
-	textElement.repositionTextBlock = function repositionTextBlockFunct() {
+	textElement.repositionTextBlock = function () {
 		// Testing which browser is
 		var FIREFOX = /Firefox/i.test(navigator.userAgent);
 		var OPERA = /Opera/i.test(navigator.userAgent);
@@ -59,7 +59,7 @@ webvowl.util.textElement = function (element) {
 	};
 
 	/* Adds a new line of text to the element. */
-	textElement.addTextline = function addTextlineFunct(word, additionalClass) {
+	textElement.addTextline = function (word, additionalClass) {
 		if (word === undefined) {
 			return;
 		}
@@ -80,7 +80,7 @@ webvowl.util.textElement = function (element) {
 	};
 
 	/* Adds a new line of text to the element. */
-	textElement.addEquivalentSpan = function addEquivalentSpan(word) {
+	textElement.addEquivalentSpan = function (word) {
 		if (word === undefined) {
 			return;
 		}
@@ -103,7 +103,7 @@ webvowl.util.textElement = function (element) {
 	};
 
 	/* Adds a new line of text to the element. */
-	textElement.addSubTextNode = function addSubTextNode(word, additionalClass) {
+	textElement.addSubTextNode = function (word, additionalClass) {
 		if (word === undefined) {
 			return;
 		}

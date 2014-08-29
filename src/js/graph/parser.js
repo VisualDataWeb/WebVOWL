@@ -24,9 +24,10 @@ webvowl.parser = function () {
 
 		combinedProperties = combineProperties(ontologyData.property, ontologyData.propertyAttribute, webvowl.labels);
 
-		var mapElements = function mapPropertiesF(element) {
+		function mapElements(element) {
 			return element.id();
-		};
+		}
+
 		classMap = mapArray(combinedClassesAndDatatypes, mapElements);
 		propertyMap = mapArray(combinedProperties, mapElements);
 
@@ -41,24 +42,23 @@ webvowl.parser = function () {
 	/**
 	 * @return {Array} the preprocessed nodes
 	 */
-	parser.nodes = function() {
+	parser.nodes = function () {
 		return nodes;
 	};
 
 	/**
 	 * @returns {Array} the preprocessed properties
 	 */
-	parser.properties = function() {
+	parser.properties = function () {
 		return properties;
 	};
-
 
 
 	/**
 	 * Combines the passed objects with its attributes and prototypes. This also applies
 	 * attributes defined in the base of the prototype.
 	 */
-	var combineClasses = function combineGraphDataFunct(baseObjects, attributes, prototypes) {
+	function combineClasses(baseObjects, attributes, prototypes) {
 		var combinations = [];
 
 		baseObjects.forEach(function (element) {
@@ -99,9 +99,9 @@ webvowl.parser = function () {
 		});
 
 		return combinations;
-	};
+	}
 
-	var combineProperties = function combineGraphDataFunct(baseObjects, attributes, prototypes) {
+	function combineProperties(baseObjects, attributes, prototypes) {
 		var combinations = [];
 
 		baseObjects.forEach(function (element) {
@@ -153,7 +153,7 @@ webvowl.parser = function () {
 		});
 
 		return combinations;
-	};
+	}
 
 	/**
 	 * Checks all attributes which have to be rewritten.
@@ -162,7 +162,7 @@ webvowl.parser = function () {
 	 * object instead of the ID so we swap the ID's with the correct object reference and can delete it from drawing
 	 * because it is not necessary.
 	 */
-	var createNodeStructure = function createNodeStructureF(rawNodes, classMap) {
+	function createNodeStructure(rawNodes, classMap) {
 		var nodes = [];
 
 		// Set the default values
@@ -184,7 +184,7 @@ webvowl.parser = function () {
 		});
 
 		return nodes;
-	};
+	}
 
 	/**
 	 * Sets the disjoint attribute of the nodes if a disjoint label is found.
@@ -221,7 +221,7 @@ webvowl.parser = function () {
 	 * @param classMap a map of all classes
 	 * @param propertyMap the properties in a map
 	 */
-	var createPropertyStructure = function createPropertyStructureF(rawProperties, classMap, propertyMap) {
+	function createPropertyStructure(rawProperties, classMap, propertyMap) {
 		var properties = [],
 			i, // loop index
 			l; // array length
@@ -332,14 +332,14 @@ webvowl.parser = function () {
 		});
 
 		return properties;
-	};
+	}
 
 	/**
 	 * Generates and adds properties for links to set operators.
 	 * @param classes unprocessed classes
 	 * @param properties unprocessed properties
 	 */
-	var addSetOperatorProperties = function addSetOperatorPropertiesF(classes, properties) {
+	function addSetOperatorProperties(classes, properties) {
 		var i, // index
 			l; // array length
 
@@ -364,7 +364,7 @@ webvowl.parser = function () {
 			addProperties(clss.id(), clss.intersection());
 			addProperties(clss.id(), clss.union());
 		});
-	};
+	}
 
 	/**
 	 * Replaces the ids of equivalent nodes/properties with the matching objects, cross references them
@@ -372,7 +372,7 @@ webvowl.parser = function () {
 	 * @param element a node or a property
 	 * @param elementMap a map where nodes/properties can be looked up
 	 */
-	var processEquivalentIds = function processEquivalentIdsF(element, elementMap) {
+	function processEquivalentIds(element, elementMap) {
 		var eqIds = element.equivalent();
 		if (!eqIds || element._eqProcessed) {
 			element._eqProcessed = true;
@@ -400,21 +400,21 @@ webvowl.parser = function () {
 		}
 
 		element._eqProcessed = true;
-	};
+	}
 
 	/**
 	 * Tries to convert the type to an uri and sets it.
 	 * @param elements classes or properties
 	 * @param namespaces an array of namespaces
 	 */
-	var convertTypesToUris = function convertTypesToUriF(elements, namespaces) {
+	function convertTypesToUris(elements, namespaces) {
 		elements.forEach(function (element) {
 			// Don't overwrite an existing uri
 			if (typeof element.uri() === "undefined") {
 				element.uri(replaceNamespace(element.type(), namespaces));
 			}
 		});
-	};
+	}
 
 	/**
 	 * Creates a map by mapping the array with the passed function.
@@ -422,14 +422,14 @@ webvowl.parser = function () {
 	 * @param mapFunction a function that returns an id of every object
 	 * @returns {{}}
 	 */
-	var mapArray = function mapArrayF(array, mapFunction) {
+	function mapArray(array, mapFunction) {
 		var map = {};
 		for (var i = 0, length = array.length; i < length; i++) {
 			var element = array[i];
 			map[mapFunction(element)] = element;
 		}
 		return map;
-	};
+	}
 
 	/**
 	 * Adds the attributes of the additional object to the base object, but doesn't
@@ -439,7 +439,7 @@ webvowl.parser = function () {
 	 * @param addition the object with additional data
 	 * @returns the combination is also returned
 	 */
-	var addAdditionalAttributes = function addAdditionalAttributesFunct(base, addition) {
+	function addAdditionalAttributes(base, addition) {
 		// Check for an undefined value
 		addition = addition || {};
 
@@ -450,7 +450,7 @@ webvowl.parser = function () {
 			}
 		}
 		return base;
-	};
+	}
 
 	/**
 	 * Replaces the namespace (and the separator) if one exists and returns the new value.
@@ -458,7 +458,7 @@ webvowl.parser = function () {
 	 * @param namespaces an array of namespaces
 	 * @returns {string} the processed address with the (possibly) replaced namespace
 	 */
-	var replaceNamespace = function replaceNamespaceF(address, namespaces) {
+	function replaceNamespace(address, namespaces) {
 		var separatorIndex = address.indexOf(":");
 		if (separatorIndex === -1) {
 			return address;
@@ -474,7 +474,7 @@ webvowl.parser = function () {
 		}
 
 		return address;
-	};
+	}
 
 	/**
 	 * Looks whether the passed object is already the id or if it was replaced
@@ -482,7 +482,7 @@ webvowl.parser = function () {
 	 * @param object an id, a class or a property
 	 * @returns {string} the id of the passed object or undefined
 	 */
-	var findId = function findIdF(object) {
+	function findId(object) {
 		if (typeof object === "undefined") {
 			return undefined;
 		} else if (typeof object === "string") {
@@ -493,7 +493,7 @@ webvowl.parser = function () {
 			console.warn("No Id was found for this object: " + object);
 			return undefined;
 		}
-	};
+	}
 
 
 	return parser;
