@@ -13,7 +13,7 @@ webvowl.options = function () {
 		linkStrength = 0.7,
 		height = 600,
 		width = 800,
-		clickModules = [],
+		selectionModules = [],
 		filterModules = [],
 		minMagnification = 0.1,
 		maxMagnification = 4;
@@ -24,9 +24,9 @@ webvowl.options = function () {
 	};
 
 	/* Properties with read-write access */
-	options.clickModules = function (p) {
-		if (!arguments.length) return clickModules;
-		clickModules = p;
+	options.selectionModules = function (p) {
+		if (!arguments.length) return selectionModules;
+		selectionModules = p;
 		return options;
 	};
 

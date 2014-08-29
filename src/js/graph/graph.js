@@ -320,9 +320,9 @@ webvowl.graph = function (graphContainerSelector) {
 	 * Applies click listeneres to nodes and properties.
 	 */
 	function addClickEvents() {
-		function executeModules(clickedElement) {
-			options.clickModules().forEach(function (module) {
-				module.handle(clickedElement);
+		function executeModules(selectedElement) {
+			options.selectionModules().forEach(function (module) {
+				module.handle(selectedElement);
 			});
 		}
 

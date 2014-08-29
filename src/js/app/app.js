@@ -26,9 +26,9 @@ webvowlApp.app = function () {
 		graph = webvowl.graph();
 		options = graph.graphOptions();
 		options.graphContainerSelector(graphSelector);
-		options.clickModules().push(focuser);
-		options.clickModules().push(selectionDetailDisplayer);
-		options.clickModules().push(pickAndPin);
+		options.selectionModules().push(focuser);
+		options.selectionModules().push(selectionDetailDisplayer);
+		options.selectionModules().push(pickAndPin);
 		options.filterModules().push(datatypeCollapser);
 		options.filterModules().push(subclassCollapser);
 		options.filterModules().push(statistics);
