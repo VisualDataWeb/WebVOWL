@@ -28,7 +28,9 @@ webvowl.nodes.RoundNode = (function () {
 
 		this.drawPin = function () {
 			that.pinned(true);
-			pinGroupElement = that.nodeElement().append("g")
+			pinGroupElement = that.nodeElement()
+				.append("g")
+				.classed("hidden-in-export", true)
 				.attr("transform", function () {
 					var dx = (2 / 5) * that.radius(),
 						dy = (-7 / 10) * that.radius();
