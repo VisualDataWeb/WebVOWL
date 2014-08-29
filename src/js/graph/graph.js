@@ -341,7 +341,9 @@ webvowl.Graph = (function () {
 
 
 			nodeElements.on("click", function (clickedNode) {
-				executeModules(clickedNode);
+				if (!d3.event.defaultPrevented) {
+					executeModules(clickedNode);
+				}
 			});
 
 			labelGroupElements.selectAll(".label").on("click", function (clickedProperty) {
