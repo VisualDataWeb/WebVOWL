@@ -1,10 +1,7 @@
 "use strict";
 
 webvowl.Graph = (function () {
-	var DEFAULT_VISIBLE_LINKDISTANCE = 160, // TODO move into options
-		visibleLinkDistance = DEFAULT_VISIBLE_LINKDISTANCE,
-		visibleLiteralLinkDistance = DEFAULT_VISIBLE_LINKDISTANCE,
-		CARDINALITY_HDISTANCE = 20,
+	var CARDINALITY_HDISTANCE = 20,
 		CARDINALITY_VDISTANCE = 10,
 		curveFunction = d3.svg.line()
 			.x(function (d) {
@@ -12,15 +9,8 @@ webvowl.Graph = (function () {
 			})
 			.y(function (d) {
 				return d.y;
-			}).interpolate("cardinal"),
-		loopFunction = d3.svg.line()
-			.x(function (d) {
-				return d.x;
 			})
-			.y(function (d) {
-				return d.y;
-			}).interpolate("cardinal")
-			.tension(-1);
+			.interpolate("cardinal");
 
 	/**
 	 * Creates a new graph object.
@@ -66,17 +56,20 @@ webvowl.Graph = (function () {
 			// Set link paths and calculate additional informations
 			linkPathElements.attr("d", function (l) {
 				if (l.domain() === l.range()) {
-					return calculateLoopPath(l);
+					return webvowl.util.math().calculateLoopPath(l);
 				}
 
 				// Calculate these every time to get nicer curved paths
-				var pathStart = calculateIntersection(l.range(), l.domain(), 1),
-					pathEnd = calculateIntersection(l.domain(), l.range(), 1),
-					curvePoint = calculateCurvePoint(pathStart, pathEnd, l);
+				var pathStart = webvowl.util.math().calculateIntersection(l.range(), l.domain(), 1),
+					pathEnd = webvowl.util.math().calculateIntersection(l.domain(), l.range(), 1),
+					linkDistance = getVisibleLinkDistance(l),
+					curvePoint = webvowl.util.math().calculateCurvePoint(pathStart, pathEnd, l,
+						linkDistance/options.defaultLinkDistance());
+
 				l.curvePoint(curvePoint);
 
-				return curveFunction([calculateIntersection(l.curvePoint(), l.domain(), 1),
-					curvePoint, calculateIntersection(l.curvePoint(), l.range(), 1)]);
+				return curveFunction([webvowl.util.math().calculateIntersection(l.curvePoint(), l.domain(), 1),
+					curvePoint, webvowl.util.math().calculateIntersection(l.curvePoint(), l.range(), 1)]);
 			});
 
 			// Set label group positions
@@ -91,8 +84,8 @@ webvowl.Graph = (function () {
 			// Set cardinality positions
 			cardinalityElements.attr("transform", function (p) {
 				var curve = p.link().curvePoint(),
-					pos = calculateIntersection(curve, p.range(), CARDINALITY_HDISTANCE),
-					normalV = calculateNormalVector(curve, p.domain(), CARDINALITY_VDISTANCE);
+					pos = webvowl.util.math().calculateIntersection(curve, p.range(), CARDINALITY_HDISTANCE),
+					normalV = webvowl.util.math().calculateNormalVector(curve, p.domain(), CARDINALITY_VDISTANCE);
 
 				return "translate(" + (pos.x + normalV.x) + "," + (pos.y + normalV.y) + ")";
 			});
@@ -217,13 +210,19 @@ webvowl.Graph = (function () {
 		};
 
 		/**
-		 * Calculate the visible link distance.
-		 * @param l The current link.
+		 * Calculate the complete link distance. The visual link distance does
+		 * not contain e.g. radii of round nodes.
+		 * @param link the link
 		 * @returns {*}
 		 */
-		var calculateLinkDistance = function calculateLinkDistanceF(l) {
-			var distance;
+		var calculateLinkDistance = function calculateLinkDistanceF(link) {
+			var distance = getVisibleLinkDistance(link);
+			distance += link.domain().radius();
+			distance += link.range().radius();
+			return distance;
+		};
 
+		function getVisibleLinkDistance(link) {
 			function isDatatype(node) {
 				if (node instanceof webvowl.nodes.rdfsdatatype ||
 					node instanceof webvowl.nodes.rdfsliteral) {
@@ -232,16 +231,12 @@ webvowl.Graph = (function () {
 				return false;
 			}
 
-			if (isDatatype(l.domain()) || isDatatype(l.range())) {
-				distance = options.datatypeDistance();
+			if (isDatatype(link.domain()) || isDatatype(link.range())) {
+				return options.datatypeDistance();
 			} else {
-				distance = options.classDistance();
+				return options.classDistance();
 			}
-
-			distance += l.domain().radius();
-			distance += l.range().radius();
-			return distance;
-		};
+		}
 
 		/**
 		 * Empties the last graph container and draws a new one with respect to the
@@ -892,140 +887,6 @@ webvowl.Graph = (function () {
 			}
 		});
 		return links;
-	};
-
-	// TODO eventuell diese Funktionen in labelDefinition auslagern
-	/* Calculates the normal vector between two points */
-	var calculateNormalVector = function calculateNormalVectorFunct(source, target, length) {
-		var dx = target.x - source.x,
-			dy = target.y - source.y,
-
-			nx = -dy,
-			ny = dx,
-
-			vlength = Math.sqrt(nx * nx + ny * ny),
-			ratio = length / vlength;
-
-		return {"x": nx * ratio, "y": ny * ratio};
-	};
-
-	/* Calculates a point between two points for curves */
-	var calculateCurvePoint = function calculateCurvePointFunct(source, target, link) {
-		var distance = calculateLayeredLinkDistance(link),
-
-		// Find the center of the two points,
-			dx = target.x - source.x,
-			dy = target.y - source.y,
-
-			cx = source.x + dx / 2,
-			cy = source.y + dy / 2,
-
-			n = calculateNormalVector(source, target, distance);
-
-		// Every second link shoud be drawn on the opposite of the center
-		if (link.layerIndex() % 2 !== 0) {
-			n.x = -n.x;
-			n.y = -n.y;
-		}
-
-		/*
-		 If there is a link from A to B, the normal vector will point to the left
-		 in movement direction.
-		 It there is a link from B to A, the normal vector should point to the of his
-		 own direction to not overlay the other link.
-		 */
-		if (link.domain().index < link.range().index) {
-			n.x = -n.x;
-			n.y = -n.y;
-		}
-
-		return {"x": cx + n.x, "y": cy + n.y};
-	};
-
-	var calculateLayeredLinkDistance = function calculateLayeredLinkDistanceFunct(link) {
-		var level = Math.floor((link.layerIndex() - link.layerCount() % 2) / 2) + 1,
-			distance = 0;
-		switch (level) {
-			case 1:
-				distance = 20;
-				break;
-			case 2:
-				distance = 45;
-				break;
-		}
-		return distance * (visibleLinkDistance / DEFAULT_VISIBLE_LINKDISTANCE);
-	};
-
-	/* Calculates the radian of an angle */
-	var calculateRadian = function calculateRadianFunct(angle) {
-		angle = angle % 360;
-		if (angle < 0) {
-			angle = angle + 360;
-		}
-		var arc = (2 * Math.PI * angle) / 360;
-		if (arc < 0) {
-			arc = arc + (2 * Math.PI);
-		}
-		return arc;
-	};
-
-	/* Calculates links to itself and stores the point for the labels. Currently only working for circle nodes! */
-	var calculateLoopPath = function calculateLoopPathFunct(l) {
-		var node = l.domain(),
-			loopShiftAngle = 360 / l.loopCount(),
-			loopAngle = Math.min(60, loopShiftAngle * 0.8),
-
-			arcFrom = calculateRadian(loopShiftAngle * l.loopIndex()),
-			arcTo = calculateRadian((loopShiftAngle * l.loopIndex()) + loopAngle),
-
-			x1 = Math.cos(arcFrom) * node.radius(),
-			y1 = Math.sin(arcFrom) * node.radius(),
-
-			x2 = Math.cos(arcTo) * node.radius(),
-			y2 = Math.sin(arcTo) * node.radius(),
-
-			fixPoint1 = {"x": node.x + x1, "y": node.y + y1},
-			fixPoint2 = {"x": node.x + x2, "y": node.y + y2},
-
-			distanceMultiplier = 2.5,
-			dx = ((x1 + x2) / 2) * distanceMultiplier,
-			dy = ((y1 + y2) / 2) * distanceMultiplier,
-			curvePoint = {"x": node.x + dx, "y": node.y + dy};
-		l.curvePoint(curvePoint);
-
-		return loopFunction([fixPoint1, curvePoint, fixPoint2]);
-	};
-
-	/* Calculates the point where the link between the source and target node
-	 * intersects the border of the target node */
-	var calculateIntersection = function calculateIntersectionFunct(source, target, additionalDistance) {
-		var dx = target.x - source.x,
-			dy = target.y - source.y,
-			innerDistance;
-
-		if (target instanceof webvowl.nodes.RoundNode) {
-			innerDistance = target.radius();
-		} else {
-			var m_link = Math.abs(dy / dx),
-				m_rect = target.height() / target.width();
-
-			if (m_link <= m_rect) {
-				var timesX = dx / (target.width() / 2),
-					rectY = dy / timesX;
-				innerDistance = Math.sqrt(Math.pow(target.width() / 2, 2) + rectY * rectY);
-			} else {
-				var timesY = dy / (target.height() / 2),
-					rectX = dx / timesY;
-				innerDistance = Math.sqrt(Math.pow(target.height() / 2, 2) + rectX * rectX);
-			}
-		}
-
-		var length = Math.sqrt(dx * dx + dy * dy),
-			ratio = (length - (innerDistance + additionalDistance)) / length,
-			x = dx * ratio + source.x,
-			y = dy * ratio + source.y;
-
-		return {x: x, y: y};
 	};
 
 	/**
