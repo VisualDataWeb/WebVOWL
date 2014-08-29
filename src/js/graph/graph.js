@@ -326,11 +326,8 @@ webvowl.graph = function (graphContainerSelector) {
 			});
 		}
 
-
 		nodeElements.on("click", function (clickedNode) {
-			if (!d3.event.defaultPrevented) {
-				executeModules(clickedNode);
-			}
+			executeModules(clickedNode);
 		});
 
 		labelGroupElements.selectAll(".label").on("click", function (clickedProperty) {
