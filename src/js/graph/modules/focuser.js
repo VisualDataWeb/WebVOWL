@@ -2,7 +2,7 @@ webvowl.modules.focuser = function () {
 	var focuser = {},
 		focusedElement;
 
-	focuser.handle = function (clickedElement) {
+	focuser.handle = function (selectedElement) {
 		// Don't display details on a drag event, which will be prevented
 		if (d3.event.defaultPrevented) {
 			return;
@@ -12,9 +12,9 @@ webvowl.modules.focuser = function () {
 			focusedElement.toggleFocus();
 		}
 
-		if (focusedElement !== clickedElement) {
-			clickedElement.toggleFocus();
-			focusedElement = clickedElement;
+		if (focusedElement !== selectedElement) {
+			selectedElement.toggleFocus();
+			focusedElement = selectedElement;
 		} else {
 			focusedElement = undefined;
 		}

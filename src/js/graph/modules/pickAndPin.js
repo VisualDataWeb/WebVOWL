@@ -3,14 +3,14 @@ webvowl.modules.pickAndPin = function () {
 		enabled = false,
 		pinnedNodes = [];
 
-	pap.handle = function (clickedElement) {
+	pap.handle = function (selectedElement) {
 		if (!enabled) {
 			return;
 		}
 
-		if (clickedElement instanceof webvowl.nodes.RoundNode && !clickedElement.pinned()) {
-			clickedElement.drawPin();
-			pinnedNodes.push(clickedElement);
+		if (selectedElement instanceof webvowl.nodes.RoundNode && !selectedElement.pinned()) {
+			selectedElement.drawPin();
+			pinnedNodes.push(selectedElement);
 		}
 	};
 
