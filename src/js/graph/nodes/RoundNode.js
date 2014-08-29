@@ -29,7 +29,11 @@ webvowl.nodes.RoundNode = (function () {
 		this.drawPin = function () {
 			that.pinned(true);
 			pinGroupElement = that.nodeElement().append("g")
-				.attr("transform", "translate(20,-35)");
+				.attr("transform", function () {
+					var dx = (2 / 5) * that.radius(),
+						dy = (-7 / 10) * that.radius();
+					return "translate(" + dx + "," + dy + ")";
+				});
 
 			pinGroupElement.append("circle")
 				.classed("class pin feature", true)
