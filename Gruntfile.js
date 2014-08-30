@@ -130,7 +130,7 @@ module.exports = function (grunt) {
 				tasks: ["htmlbuild"]
 			},
 			scripts: {
-				files: ["src/js/**/*.js"],
+				files: ["src/js/**/*"],
 				tasks: ["build"]
 			}
 		}
