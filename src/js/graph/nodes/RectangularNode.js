@@ -44,7 +44,6 @@ webvowl.nodes.RectangularNode = (function () {
 			element.append("rect")
 				.classed(that.styleClass(), true)
 				.classed("class", true)
-				.classed("special", true)
 				.attr("x", -that.width() / 2)
 				.attr("y", -that.height() / 2)
 				.attr("width", that.width())
