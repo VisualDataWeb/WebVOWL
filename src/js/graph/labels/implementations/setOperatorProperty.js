@@ -4,6 +4,7 @@ webvowl.labels.setoperatorproperty = (function () {
 		webvowl.labels.BaseLabel.call(this);
 
 		this.markerType("special")
+			.labelVisible(false)
 			.linkType("special")
 			.styleClass("setoperatorproperty")
 			.type("setOperatorProperty");
