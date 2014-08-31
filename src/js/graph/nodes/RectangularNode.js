@@ -37,36 +37,22 @@ webvowl.nodes.RectangularNode = (function () {
 			that.nodeElement().select("rect").classed("focused", that.focused());
 		};
 
-		// Reused TODO refactor
-		this.drawNode = function (element, cssClasses, additionalFunction) {
-			that.nodeElement(element);
+		/**
+		 * Draws the rectangular node.
+		 * @param parentElement the element to which this node will be appended
+		 * @param cssClasses additional css classes
+		 */
+		this.drawNode = function (parentElement, cssClasses) {
+			var drawTools = webvowl.nodes.drawTools(),
+				textBlock;
 
-			element.append("rect")
-				.classed(that.styleClass(), true)
-				.classed("class", true)
-				.attr("x", -that.width() / 2)
-				.attr("y", -that.height() / 2)
-				.attr("width", that.width())
-				.attr("height", that.height());
+			that.nodeElement(parentElement);
 
-			// Add all additional classes to the <circle> element which are needed by the specific class.
-			if (cssClasses !== undefined) {
-				cssClasses.forEach(function (cssClass) {
-					if (typeof cssClass === "string") {
-						element.select("rect").classed(cssClass, true);
-					} else {
-						console.log(cssClass + " is not a valid String to set class! - Element: " + element);
-					}
-				});
-			}
+			drawTools.appendRectangularClass(parentElement, that.width(), that.height(),
+				that.styleClass(), cssClasses);
 
-			// If some additional style or element is need. For example equivalent class needs a second circle.
-			if (additionalFunction instanceof Function) {
-				additionalFunction();
-			}
-
-			var textBlock = webvowl.util.textElement(element);
-			textBlock.addTextline(that.label());
+			textBlock = webvowl.util.textElement(parentElement);
+			textBlock.addTextline(that.label(), null);
 
 			that.addMouseListeners();
 		};

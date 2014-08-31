@@ -59,46 +59,23 @@ webvowl.nodes.RoundNode = (function () {
 			}
 		};
 
-		// Reused TODO refactor
-		this.drawNode = function (element, cssClasses, additionalFunction) {
-			that.nodeElement(element);
+		/**
+		 * Draws a circular node.
+		 * @param parentElement the element to which this node will be appended
+		 * @param cssClasses additional css classes
+		 */
+		this.drawNode = function (parentElement, cssClasses) {
+			var drawTools = webvowl.nodes.drawTools(),
+				textBlock;
 
-			// Default circle element. The base for nearly all nodes.
-			element.append("circle")
-				.classed("class", true)
-				.classed(that.styleClass(), true)
-				.attr("r", that.radius());
+			that.nodeElement(parentElement);
 
-			// Add all additional classes to the <circle> element which are needed by the specific class.
-			if (cssClasses !== undefined) {
-				cssClasses.forEach(function (cssClass) {
-					if (typeof cssClass === "string") {
-						element.select("circle").classed(cssClass, true);
-					} else {
-						console.log(cssClass + " is not a valid String to set class! - Element: " + element);
-					}
-				});
-			}
+			drawTools.appendCircularClass(parentElement, that.radius(), that.styleClass(), cssClasses);
 
-			// If some additional style or element is need. For example equivalent class needs a second circle.
-			if (additionalFunction instanceof Function) {
-				additionalFunction();
-			}
-
-			// Adding the text to the node
-			var textBlock = webvowl.util.textElement(element);
+			// Add the text to the node
+			textBlock = webvowl.util.textElement(parentElement);
 			textBlock.addTextline(that.label(), that.textAttribute());
 			textBlock.addSubTextNode(that.indication(), that.textAttribute());
-
-			if (that.equivalent()) {
-				var equivNames = that.equivalent().map(function (node) {
-						return node.label();
-					}),
-					equivNamesString = equivNames.join(", ");
-
-				// TODO unused parameter
-				textBlock.addEquivalentSpan(equivNamesString, that.textAttribute());
-			}
 
 			textBlock.repositionTextBlock();
 			that.addMouseListeners();
