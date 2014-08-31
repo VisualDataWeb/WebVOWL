@@ -21,10 +21,10 @@
 		"karma-phantomjs-launcher": "~0.1.4"
 	},
 	"scripts": {
-		"package": "node_modules/.bin/grunt package",
-		"postinstall": "node_modules/.bin/bower install",
-		"postupdate": "node_modules/.bin/bower update",
-		"webserver": "node_modules/.bin/grunt webserver"
+		"package": "grunt package",
+		"postinstall": "bower install",
+		"postupdate": "bower update",
+		"webserver": "grunt webserver"
 	},
 	"dependencies": {},
 	"license": "MIT",
