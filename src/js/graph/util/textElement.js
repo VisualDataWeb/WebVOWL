@@ -16,6 +16,12 @@ webvowl.util.textElement = function (element) {
 	 * Repositions the textblock according to its own offsetHeight.
 	 */
 	textElement.repositionTextBlock = function () {
+		// Nothing to do if no child elements exist
+		var textBlockChildCount = textBlock.property("childElementCount");
+		if (textBlockChildCount < 1) {
+			return;
+		}
+
 		// Testing which browser is
 		var FIREFOX = /Firefox/i.test(navigator.userAgent);
 		var OPERA = /Opera/i.test(navigator.userAgent);
@@ -94,7 +100,7 @@ webvowl.util.textElement = function (element) {
 
 	function addTextline(text, additionalCssClass, subtextCssClass) {
 		if (typeof text === "undefined") {
-			text = "";
+			return;
 		}
 
 		subtextCssClass = subtextCssClass || "text";
