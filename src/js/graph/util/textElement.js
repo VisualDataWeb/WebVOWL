@@ -94,7 +94,7 @@ webvowl.util.textElement = function (element) {
 
 	function addTextline(text, additionalCssClass, subtextCssClass) {
 		if (typeof text === "undefined") {
-			return;
+			text = "";
 		}
 
 		subtextCssClass = subtextCssClass || "text";

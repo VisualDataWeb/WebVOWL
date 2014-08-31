@@ -84,7 +84,7 @@ webvowl.parser = function () {
 					.id(element.id)
 					.instances(element.instances)
 					.intersection(element.intersection)
-					.label(element.label || "unset")
+					.label(element.label)
 					// .type(element.type) Ignore, because we predefined it
 					.union(element.union);
 
