@@ -103,6 +103,12 @@ webvowl.labels.BaseLabel = (function () {
 			return this;
 		};
 
+		this.label = function (p) {
+			if (!arguments.length) return label;
+			label = p || "DEFAULT_LABEL";
+			return this;
+		};
+
 		this.labelElement = function (p) {
 			if (!arguments.length) return labelElement;
 			labelElement = p;
@@ -130,12 +136,6 @@ webvowl.labels.BaseLabel = (function () {
 		this.linkType = function (p) {
 			if (!arguments.length) return linkType;
 			linkType = p;
-			return this;
-		};
-
-		this.label = function (p) {
-			if (!arguments.length) return label;
-			label = p;
 			return this;
 		};
 

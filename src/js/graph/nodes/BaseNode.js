@@ -95,7 +95,7 @@ webvowl.nodes.BaseNode = (function () {
 
 		this.label = function (p) {
 			if (!arguments.length) return label;
-			label = p;
+			label = p || "DEFAULT_LABEL";
 			return this;
 		};
 
