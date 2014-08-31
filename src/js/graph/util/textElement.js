@@ -27,30 +27,25 @@ webvowl.util.textElement = function (element) {
 		var OPERA = /Opera/i.test(navigator.userAgent);
 		var moveup;
 
-		/* According to the used browser different methods are used.
-		 * Calculation method:
-		 * The first textline is positioned correctly that means it's the middle point lies also in the middle of the box.
-		 * Now if more elements exists we remove the complete first block. Now the middle line lies not on top of
-		 * our left box. So we need to remove again half of the first box to move it further up. Now we can half it and
-		 * this is what we need to move up.
-		 */
-		if (FIREFOX || OPERA) {
-			// If has only one <tspan> ignore.
-			if (textBlock.property("children").length === 1) {
-				moveup = 0;
-			} else {
+
+		// If has only one <tspan> ignore.
+		if (textBlockChildCount === 1) {
+			moveup = 0;
+		} else {
+			/* According to the used browser different methods are used.
+			 * Calculation method:
+			 * The first textline is positioned correctly that means it's the middle point lies also in the middle of the box.
+			 * Now if more elements exists we remove the complete first block. Now the middle line lies not on top of
+			 * our left box. So we need to remove again half of the first box to move it further up. Now we can half it and
+			 * this is what we need to move up.
+			 */
+			if (FIREFOX || OPERA) {
 				var textbbox = textBlock.node().getBoundingClientRect();
 				moveup = textbbox.height;
 				// Because x, y is the lower left corner and the first child is not in middle!
 				var firstChildBbox = textBlock.property("firstChild").getBoundingClientRect();
 				moveup -= 1.5 * firstChildBbox.height;
 				moveup /= 2;
-			}
-
-		} else {
-			// If has only one <tspan> ignore.
-			if (textBlock.property("children").length === 1) {
-				moveup = 0;
 			} else {
 				moveup = textBlock.property("offsetHeight");
 				// Because x, y is the lower left corner and the first child is not in middle!

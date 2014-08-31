@@ -245,7 +245,7 @@ webvowl.labels.BaseLabel = (function () {
 				} else if (property instanceof webvowl.labels.owlexternalproperty) {
 					textBox.addTextline(property.label(), "white");
 				} else {
-					textBox.addTextline(property.label());
+					textBox.addTextline(property.label(), null);
 				}
 
 				property.addAttributesToLabel(textBox);
@@ -368,7 +368,7 @@ webvowl.labels.BaseLabel = (function () {
 				.attr("cx", 12.5)
 				.attr("r", 10);
 
-			textTag.addSubTextNode("disjoint");
+			textTag.addSubTextNode("disjoint", null);
 			textTag.setTranslation(0, 20);
 		};
 		this.addAttributesToLabel = function (textBox) {
@@ -396,7 +396,7 @@ webvowl.labels.BaseLabel = (function () {
 				});
 				equivalentString = equivalentLabels.join(", ");
 
-				textBox.addEquivalentSpan(equivalentString);
+				textBox.addEquivalentSpan(equivalentString, null);
 			}
 		};
 		this.drawCardinality = function (cardinalityGroup) {
