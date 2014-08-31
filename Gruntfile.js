@@ -67,7 +67,7 @@ module.exports = function (grunt) {
 			dependencies: {
 				files: [
 					{expand: true, cwd: "<%= bowerrc.directory %>/d3/", src: ["d3*.js"], dest: deployPath + "/js/"},
-					{expand: true, cwd: "<%= bowerrc.directory %>/jquery/dist/", src: ["jquery*.js"], dest: deployPath + "/js/"}
+					{expand: true, cwd: "<%= bowerrc.directory %>/jquery/", src: ["jquery.min.js", "jquery.min.js"], dest: deployPath + "/js/"}
 				]
 			},
 			static: {
