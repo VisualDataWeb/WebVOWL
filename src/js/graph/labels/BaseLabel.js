@@ -34,6 +34,7 @@ webvowl.labels.BaseLabel = (function () {
 			mouseEntered = false,
 			styleClass,
 			visible = true,
+			labelVisible = true,
 		// Element containers
 			cardinalityElement,
 			labelElement,
@@ -105,6 +106,12 @@ webvowl.labels.BaseLabel = (function () {
 		this.labelElement = function (p) {
 			if (!arguments.length) return labelElement;
 			labelElement = p;
+			return this;
+		};
+
+		this.labelVisible = function (p) {
+			if (!arguments.length) return labelVisible;
+			labelVisible = p;
 			return this;
 		};
 
@@ -248,7 +255,7 @@ webvowl.labels.BaseLabel = (function () {
 			}
 
 			// Draw no label by default
-			if (this.label() === undefined) {
+			if (!this.labelVisible()) {
 				return undefined;
 			}
 
