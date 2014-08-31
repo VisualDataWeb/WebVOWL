@@ -33,7 +33,7 @@ webvowlApp.resetMenu = function (graph, resettableMenues) {
 		options.linkStrength(untouchedOptions.linkStrength());
 		graph.reset();
 
-		resettableMenues.forEach(function(menu) {
+		resettableMenues.forEach(function (menu) {
 			menu.reset();
 		});
 

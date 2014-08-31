@@ -24,7 +24,7 @@ webvowlApp.modeMenu = function (pickAndPin) {
 		moduleOptionContainer = d3.select(selector)
 			.append("div")
 			.classed("checkboxContainer", true)
-			.datum({module:module});
+			.datum({module: module});
 
 		moduleCheckbox = moduleOptionContainer.append("input")
 			.classed("moduleCheckbox", true)

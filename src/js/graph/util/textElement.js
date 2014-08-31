@@ -7,6 +7,7 @@ webvowl.util.textElement = function (element) {
 
 	var textElement = {},
 		SPACE_BETWEEN_SPANS = 12,
+		SUBTEXT_CSS_CLASS = "subtext",
 		textBlock = element.append("text")
 			.classed("text", true)
 			.attr("text-anchor", "middle");
@@ -58,17 +59,52 @@ webvowl.util.textElement = function (element) {
 		});
 	};
 
-	/* Adds a new line of text to the element. */
-	textElement.addTextline = function (word, additionalClass) {
-		if (word === undefined) {
+	/**
+	 * Adds a new line of text to the element.
+	 * @param text
+	 * @param additionalCssClass
+	 */
+	textElement.addTextline = function (text, additionalCssClass) {
+		addTextline(text, additionalCssClass);
+	};
+
+	/**
+	 * Adds a line of text in subproperty style.
+	 * @param text
+	 * @param additionalCssClass
+	 */
+	textElement.addSubTextNode = function (text, additionalCssClass) {
+		if (typeof text === "undefined") {
+			return;
+		}
+		addTextline("(" + text + ")", additionalCssClass, SUBTEXT_CSS_CLASS);
+	};
+
+	/**
+	 * Adds a line of text in equivalent node listing style.
+	 * @param text
+	 * @param additionalCssClass
+	 */
+	textElement.addEquivalentSpan = function (text, additionalCssClass) {
+		if (typeof text === "undefined") {
+			return;
+		}
+		addTextline("[" + text + "]", additionalCssClass, SUBTEXT_CSS_CLASS);
+	};
+
+	function addTextline(text, additionalCssClass, subtextCssClass) {
+		if (typeof text === "undefined") {
 			return;
 		}
 
-		textBlock.append("tspan")
-			.attr("class", additionalClass)
+		subtextCssClass = subtextCssClass || "text";
+
+		var tspan = textBlock.append("tspan")
 			.classed("text", true)
+			.classed(additionalCssClass, true)
+			.classed(subtextCssClass, true)
 			.attr("x", 0)
-			.attr("dy",function () {
+			.attr("dy", function () {
 				var childNum = textBlock.property("children").length;
 
 				if (childNum < 2) {
@@ -76,58 +112,12 @@ webvowl.util.textElement = function (element) {
 				} else {
 					return SPACE_BETWEEN_SPANS;
 				}
-			}).text(word.truncate(element.datum().textWidth()));
-	};
+			})
+			.text(text.truncate(element.datum().textWidth()), subtextCssClass);
+	}
 
-	/* Adds a new line of text to the element. */
-	textElement.addEquivalentSpan = function (word) {
-		if (word === undefined) {
-			return;
-		}
-
-		var _word = "[" + word + "]";
-
-		textBlock.append("tspan")
-			.classed("text", true)
-			.classed("subtext", true)
-			.attr("x", 0)
-			.attr("dy",function () {
-				var childNum = textBlock.property("children").length;
-
-				if (childNum < 2) {
-					return 0;
-				} else {
-					return SPACE_BETWEEN_SPANS;
-				}
-			}).text(_word.truncate(element.datum().textWidth()), "subtext");
-	};
-
-	/* Adds a new line of text to the element. */
-	textElement.addSubTextNode = function (word, additionalClass) {
-		if (word === undefined) {
-			return;
-		}
-
-		var _word = "(" + word + ")";
-
-		textBlock.append("tspan")
-			.attr("class", additionalClass)
-			.classed("text", true)
-			.classed("subtext", true)
-			.attr("x", 0)
-			.attr("dy",function () {
-				var childNum = textBlock.property("children").length;
-
-				if (childNum < 2) {
-					return 0;
-				} else {
-					return SPACE_BETWEEN_SPANS;
-				}
-			}).text(_word.truncate(element.datum().textWidth()), "subtext");
-	};
-
-	textElement.setTranslation = function (first, second) {
-		textBlock.attr("transform", "translate(" + first + ", " + second + ")");
+	textElement.setTranslation = function (x, y) {
+		textBlock.attr("transform", "translate(" + x + ", " + y + ")");
 	};
 
 	return textElement;

@@ -443,6 +443,7 @@ webvowl.labels.BaseLabel = (function () {
 
 			that.mouseEntered(true);
 		}
+
 		function onMouseOut() {
 			that.labelElement().select("rect").classed("hovered", false);
 			that.linkElement().selectAll("path, text").classed("hovered", false);
