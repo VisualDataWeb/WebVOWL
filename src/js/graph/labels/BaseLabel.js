@@ -392,7 +392,7 @@ webvowl.labels.BaseLabel = (function () {
 					equivalentString;
 
 				equivalentLabels = this.equivalent().map(function (property) {
-					return property.label;
+					return property.label();
 				});
 				equivalentString = equivalentLabels.join(", ");
 
