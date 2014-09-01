@@ -75,10 +75,9 @@ webvowl.util.textElement = function (element) {
 	 * @param additionalCssClass
 	 */
 	textElement.addSubTextNode = function (text, additionalCssClass) {
-		if (typeof text === "undefined") {
-			return;
+		if (text) {
+			addTextline("(" + text + ")", additionalCssClass, SUBTEXT_CSS_CLASS);
 		}
-		addTextline("(" + text + ")", additionalCssClass, SUBTEXT_CSS_CLASS);
 	};
 
 	/**
@@ -87,10 +86,9 @@ webvowl.util.textElement = function (element) {
 	 * @param additionalCssClass
 	 */
 	textElement.addEquivalentSpan = function (text, additionalCssClass) {
-		if (typeof text === "undefined") {
-			return;
+		if (text) {
+			addTextline("[" + text + "]", additionalCssClass, SUBTEXT_CSS_CLASS);
 		}
-		addTextline("[" + text + "]", additionalCssClass, SUBTEXT_CSS_CLASS);
 	};
 
 	function addTextline(text, additionalCssClass, subtextCssClass) {
