@@ -29,8 +29,7 @@
     "links": [
         {"source": 0, "target": 1, "valueTo": "tag meaning", "inverse": true, "valueFrom": "meaning of", "subpropertiesTo" : [{"id": 1, "direction": "to"}], "uriTo": "http://purl.org/muto/core#tagMeaning", "uriFrom": "http://purl.org/muto/core#meaningOf"},
         {"source": 0, "target": 1, "valueTo": "automatic tag meaning", "subpropertiesTo" : [{"id": 0, "direction": "to"}], "uriTo": "http://purl.org/muto/core#autoMeaning"},
-        {"source": 0, "target": 0, "valueTo": "next tag", "typeTo": "functional", "uriTo": "http://purl.org/muto/core#nextTag"},
-        {"source": 0, "target": 0, "valueTo": "previous tag", "typeTo": "functional", "uriTo": "http://purl.org/muto/core#previousTag"},
+        {"source": 0, "target": 0, "valueTo": "next tag", "typeTo": "functional", "inverse": true, "valueFrom": "previous tag", "typeFrom": "functional", "uriTo": "http://purl.org/muto/core#nextTag", "uriFrom": "http://purl.org/muto/core#previousTag"},		
         {"source": 0, "target": 2, "valueTo": "tag created", "propertyTo": "datatype", "uriTo": "http://purl.org/muto/core#tagCreated", "subpropertiesTo":[{"id": 17, "direction": "to"}]},
         {"source": 0, "target": 3, "valueTo": "tag label", "propertyTo": "datatype", "uriTo": "http://purl.org/muto/core#tagLabel"},
         {"source": 0, "target": 4, "type": "dotted", "valueTo": "Subclass of", "propertyTo": "subclass"},
