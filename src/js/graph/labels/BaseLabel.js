@@ -8,7 +8,7 @@ webvowl.labels.BaseLabel = (function () {
 
 	// Constructor, private variables and privileged methods
 	var base = function () {
-		webvowl.BaseElement.call(this);
+		webvowl.elements.BaseElement.call(this);
 
 		var that = this,
 		// Basic attributes
@@ -388,7 +388,7 @@ webvowl.labels.BaseLabel = (function () {
 		};
 	};
 
-	base.prototype = Object.create(webvowl.BaseElement.prototype);
+	base.prototype = Object.create(webvowl.elements.BaseElement.prototype);
 	base.prototype.constructor = base;
 
 	base.prototype.labelHeight = function () {
