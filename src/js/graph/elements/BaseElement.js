@@ -1,7 +1,7 @@
 /**
  * The base element for all visual elements of webvowl.
  */
-webvowl.BaseElement = (function () {
+webvowl.elements.BaseElement = (function () {
 
 	var base = function () {
 		// Basic attributes
