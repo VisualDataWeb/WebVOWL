@@ -2,28 +2,19 @@ webvowl.nodes.BaseNode = (function () {
 
 	// Constructor, private variables and privileged methods
 	var base = function () {
+		webvowl.BaseElement.call(this);
+
 		var that = this,
 		// Basic attributes
 			complement,
-			equivalent,
-			id,
 			instances,
 			intersection,
-			label,
-			type,
 			union,
-			uri,
 		// Additional attributes
-			comment,
 			disjointWith,
-			equivalentBase,
 		// Style attributes
-			focused = false,
 			indication,
-			mouseEntered = false,
-			styleClass,
 			textAttribute,
-			visible = true,
 		// Fixed Location attributes
 			locked = false,
 			frozen = false,
@@ -33,12 +24,6 @@ webvowl.nodes.BaseNode = (function () {
 
 
 		// Properties
-		this.comment = function (p) {
-			if (!arguments.length) return comment;
-			comment = p;
-			return this;
-		};
-
 		this.complement = function (p) {
 			if (!arguments.length) return complement;
 			complement = p;
@@ -48,30 +33,6 @@ webvowl.nodes.BaseNode = (function () {
 		this.disjointWith = function (p) {
 			if (!arguments.length) return disjointWith;
 			disjointWith = p;
-			return this;
-		};
-
-		this.equivalent = function (p) {
-			if (!arguments.length) return equivalent;
-			equivalent = p;
-			return this;
-		};
-
-		this.equivalentBase = function (p) {
-			if (!arguments.length) return equivalentBase;
-			equivalentBase = p;
-			return this;
-		};
-
-		this.focused = function (p) {
-			if (!arguments.length) return focused;
-			focused = p;
-			return this;
-		};
-
-		this.id = function (p) {
-			if (!arguments.length) return id;
-			id = p;
 			return this;
 		};
 
@@ -93,27 +54,9 @@ webvowl.nodes.BaseNode = (function () {
 			return this;
 		};
 
-		this.label = function (p) {
-			if (!arguments.length) return label;
-			label = p || "DEFAULT_LABEL";
-			return this;
-		};
-
-		this.mouseEntered = function (p) {
-			if (!arguments.length) return mouseEntered;
-			mouseEntered = p;
-			return this;
-		};
-
 		this.nodeElement = function (p) {
 			if (!arguments.length) return nodeElement;
 			nodeElement = p;
-			return this;
-		};
-
-		this.styleClass = function (p) {
-			if (!arguments.length) return styleClass;
-			styleClass = p;
 			return this;
 		};
 
@@ -123,27 +66,9 @@ webvowl.nodes.BaseNode = (function () {
 			return this;
 		};
 
-		this.type = function (p) {
-			if (!arguments.length) return type;
-			type = p;
-			return this;
-		};
-
 		this.union = function (p) {
 			if (!arguments.length) return union;
 			union = p;
-			return this;
-		};
-
-		this.uri = function (p) {
-			if (!arguments.length) return uri;
-			uri = p;
-			return this;
-		};
-
-		this.visible = function (p) {
-			if (!arguments.length) return visible;
-			visible = p;
 			return this;
 		};
 
@@ -216,6 +141,7 @@ webvowl.nodes.BaseNode = (function () {
 
 	};
 
+	base.prototype = Object.create(webvowl.BaseElement.prototype);
 	base.prototype.constructor = base;
 
 	// Define d3 properties
