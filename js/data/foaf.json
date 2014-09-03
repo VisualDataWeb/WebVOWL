@@ -54,13 +54,15 @@
 		{"name": "Literal", "type": "literal", "uri": "http://www.w3.org/2000/01/rdf-schema#Literal"},
         {"name": "Literal", "type": "literal", "uri": "http://www.w3.org/2000/01/rdf-schema#Literal"},
         {"name": "Literal", "type": "literal", "uri": "http://www.w3.org/2000/01/rdf-schema#Literal"},
-        {"name": "Literal", "type": "literal", "uri": "http://www.w3.org/2000/01/rdf-schema#Literal"}		
+        {"name": "Literal", "type": "literal", "uri": "http://www.w3.org/2000/01/rdf-schema#Literal"},
+        {"name": "Literal", "type": "literal", "uri": "http://www.w3.org/2000/01/rdf-schema#Literal"}	
     ],
     "links": [
-        {"source": 0, "target": 1, "valueTo": "focus", "propertyTo": "datatype", "uriTo": "http://xmlns.com/foaf/0.1/focus"},
+        {"source": 0, "target": 1, "valueTo": "focus", "uriTo": "http://xmlns.com/foaf/0.1/focus"},
         {"source": 2, "target": 3, "valueTo": "lastName", "propertyTo": "datatype", "uriTo": "http://xmlns.com/foaf/0.1/lastName"},
         {"source": 2, "target": 4, "valueTo": "geekcode", "propertyTo": "datatype", "uriTo": "http://xmlns.com/foaf/0.1/geekcode"},
         {"source": 2, "target": 5, "valueTo": "familyName", "propertyTo": "datatype", "uriTo": "http://xmlns.com/foaf/0.1/familyName"},
+        {"source": 2, "target": 46, "valueTo": "family_name", "propertyTo": "datatype", "uriTo": "http://xmlns.com/foaf/0.1/family_name"},		
         {"source": 2, "target": 6, "valueTo": "firstName", "propertyTo": "datatype", "uriTo": "http://xmlns.com/foaf/0.1/firstName"},
         {"source": 2, "target": 7, "valueTo": "myersBriggs", "propertyTo": "datatype", "uriTo": "http://xmlns.com/foaf/0.1/myersBriggs"},
         {"source": 2, "target": 8, "valueTo": "plan", "propertyTo": "datatype", "uriTo": "http://xmlns.com/foaf/0.1/plan"},
