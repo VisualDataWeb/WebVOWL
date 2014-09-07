@@ -1,4 +1,4 @@
-webvowl.modules.pickAndPin = function () {
+webvowl.modules.pickAndPin = function (graph) {
 	var pap = {},
 		enabled = false,
 		pinnedNodes = [];
@@ -9,7 +9,7 @@ webvowl.modules.pickAndPin = function () {
 		}
 
 		if (selectedElement instanceof webvowl.nodes.RoundNode && !selectedElement.pinned()) {
-			selectedElement.drawPin();
+			selectedElement.drawPin(graph.updateStyle);
 			pinnedNodes.push(selectedElement);
 		}
 	};
