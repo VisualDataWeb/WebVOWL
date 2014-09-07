@@ -26,7 +26,13 @@ webvowl.nodes.RoundNode = (function () {
 			that.nodeElement().select("circle").classed("focused", that.focused());
 		};
 
-		this.drawPin = function () {
+		/**
+		 * Draws the pin on a round node on a position depending on its radius.
+		 * Because of the possibility to remove a pin on click, we need to be able to pass
+		 * a function for post removal process here.
+		 * @param [postRemoveAction] a function that will be executed after the deletion of the pin
+		 */
+		this.drawPin = function (postRemoveAction) {
 			that.pinned(true);
 			pinGroupElement = that.nodeElement()
 				.append("g")
@@ -41,7 +47,7 @@ webvowl.nodes.RoundNode = (function () {
 				.classed("class pin feature", true)
 				.attr("r", 12)
 				.on("click", function () {
-					that.removePin();
+					that.removePin(postRemoveAction);
 					d3.event.stopPropagation();
 				});
 
@@ -52,10 +58,18 @@ webvowl.nodes.RoundNode = (function () {
 				.attr("y2", 16);
 		};
 
-		this.removePin = function () {
+		/**
+		 * Removes the pin.
+		 * After the pin removal, the passed function will be executed to e.g. refresh the graph.
+		 * @param [postRemoveAction]
+		 */
+		this.removePin = function (postRemoveAction) {
 			that.pinned(false);
 			if (pinGroupElement) {
 				pinGroupElement.remove();
+			}
+			if (postRemoveAction instanceof Function) {
+				postRemoveAction();
 			}
 		};
 

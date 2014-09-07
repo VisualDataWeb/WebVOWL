@@ -1,8 +1,8 @@
 webvowlApp.app = function () {
 
 	var app = {},
-		graph,
-		options,
+		graph = webvowl.graph(),
+		options = graph.graphOptions(),
 		graphSelector = "#graph",
 		jsonURI = "benchmark",
 	// Modules for the webvowl app
@@ -20,11 +20,9 @@ webvowlApp.app = function () {
 		selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
 		datatypeCollapser = webvowl.modules.datatypeCollapser(),
 		subclassCollapser = webvowl.modules.subclassCollapser(),
-		pickAndPin = webvowl.modules.pickAndPin();
+		pickAndPin = webvowl.modules.pickAndPin(graph);
 
 	app.initialize = function () {
-		graph = webvowl.graph();
-		options = graph.graphOptions();
 		options.graphContainerSelector(graphSelector);
 		options.selectionModules().push(focuser);
 		options.selectionModules().push(selectionDetailDisplayer);
