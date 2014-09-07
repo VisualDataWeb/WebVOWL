@@ -20,5 +20,15 @@ webvowl.modules.focuser = function () {
 		}
 	};
 
+	/**
+	 * Removes the focus if an element is focussed.
+	 */
+	focuser.reset = function () {
+		if (focusedElement) {
+			focusedElement.toggleFocus();
+			focusedElement = undefined;
+		}
+	};
+
 	return focuser;
 };

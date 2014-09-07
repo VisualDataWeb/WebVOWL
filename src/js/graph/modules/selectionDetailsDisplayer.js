@@ -19,14 +19,24 @@ webvowl.modules.selectionDetailsDisplayer = function (handlerFunction) {
 			if (isSelection) {
 				handlerFunction(selectedElement);
 			} else {
-				handlerFunction(null);
+				handlerFunction(undefined);
 			}
 		}
 
 		if (isSelection) {
 			lastSelectedElement = selectedElement;
 		} else {
-			lastSelectedElement = null;
+			lastSelectedElement = undefined;
+		}
+	};
+
+	/**
+	 * Resets the displayed information to its default.
+	 */
+	viewer.reset = function () {
+		if (lastSelectedElement) {
+			handlerFunction(undefined);
+			lastSelectedElement = undefined;
 		}
 	};
 
