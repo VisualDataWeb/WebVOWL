@@ -9,6 +9,47 @@ webvowlApp.sidebar = function () {
 
 
 	/**
+	 * Setup the menu bar.
+	 */
+	sidebar.setup = function () {
+		setupCollapsing();
+	};
+
+	function setupCollapsing() {
+		// adapted version of this example: http://www.normansblog.de/simple-jquery-accordion/
+		function collapseContainers(containers) {
+			containers.style("display", "none");
+		}
+
+		function expandContainers(containers) {
+			containers.style("display", null);
+		}
+
+		var triggers = d3.selectAll(".accordion-trigger");
+
+		// Collapse all inactive triggers on startup
+		collapseContainers(d3.selectAll(".accordion-trigger:not(.accordion-trigger-active) + div"));
+
+		triggers.on("click", function () {
+			var selectedTrigger = d3.select(this),
+				activeTriggers = d3.selectAll(".accordion-trigger-active");
+
+			if (selectedTrigger.classed("accordion-trigger-active")) {
+				// Collapse the active (which is also the selected) trigger
+				collapseContainers(d3.select(selectedTrigger.node().nextElementSibling));
+				selectedTrigger.classed("accordion-trigger-active", false);
+			} else {
+				// Collapse the other trigger ...
+				collapseContainers(d3.selectAll(".accordion-trigger-active + div"));
+				activeTriggers.classed("accordion-trigger-active", false);
+				// ... and expand the selected one
+				expandContainers(d3.select(selectedTrigger.node().nextElementSibling));
+				selectedTrigger.classed("accordion-trigger-active", true);
+			}
+		});
+	}
+
+	/**
 	 * Updates the information of the passed ontology.
 	 * @param data the graph data
 	 * @param statistics the statistics module
