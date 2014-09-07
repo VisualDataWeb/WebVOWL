@@ -86,13 +86,14 @@ webvowl.util.math = (function () {
 	 */
 	function calculateLayeredLinkDistance(link, linkDistanceMultiplier) {
 		var level = Math.floor((link.layerIndex() - link.layerCount() % 2) / 2) + 1,
+			isOddLayerCountAsFlag = (link.layerCount() % 2) * 15,
 			distance = 0;
 		switch (level) {
 			case 1:
-				distance = 20;
+				distance = 20 + isOddLayerCountAsFlag;
 				break;
 			case 2:
-				distance = 45;
+				distance = 50 + isOddLayerCountAsFlag;
 				break;
 		}
 		return distance * linkDistanceMultiplier;
