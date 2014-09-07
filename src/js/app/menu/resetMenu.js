@@ -2,10 +2,10 @@
  * Contains the logic for the reset button.
  *
  * @param graph the associated webvowl graph
- * @param resettableMenues menues that can be resetted
+ * @param resettableModules modules that can be resetted
  * @returns {{}}
  */
-webvowlApp.resetMenu = function (graph, resettableMenues) {
+webvowlApp.resetMenu = function (graph, resettableModules) {
 
 	var resetMenu = {},
 		options = graph.graphOptions(),
@@ -33,8 +33,8 @@ webvowlApp.resetMenu = function (graph, resettableMenues) {
 		options.linkStrength(untouchedOptions.linkStrength());
 		graph.reset();
 
-		resettableMenues.forEach(function (menu) {
-			menu.reset();
+		resettableModules.forEach(function (module) {
+			module.reset();
 		});
 
 		graph.updateStyle();
