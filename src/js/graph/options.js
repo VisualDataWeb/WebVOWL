@@ -5,7 +5,7 @@ webvowl.options = function () {
 	var options = {},
 		data,
 		graphContainerSelector,
-		defaultLinkDistance = 260,
+		defaultLinkDistance = 160,
 		classDistance = defaultLinkDistance,
 		datatypeDistance = defaultLinkDistance,
 		charge = -1000,
