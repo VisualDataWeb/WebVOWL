@@ -13,7 +13,7 @@ webvowlApp.app = function () {
 		resetMenu,
 		pauseMenu,
 		sidebar = webvowlApp.sidebar(),
-		menuModules,
+		setupableMenues,
 	// Graph modules
 		statistics = webvowl.modules.statistics(),
 		focuser = webvowl.modules.focuser(),
@@ -43,8 +43,8 @@ webvowlApp.app = function () {
 		d3.select(window).on("resize", adjustSize);
 
 		// setup all bottom bar modules
-		menuModules = [exportMenu, gravityMenu, filterMenu, modeMenu, resetMenu, pauseMenu];
-		menuModules.forEach(function (menu) {
+		setupableMenues = [exportMenu, gravityMenu, filterMenu, modeMenu, resetMenu, pauseMenu, sidebar];
+		setupableMenues.forEach(function (menu) {
 			menu.setup();
 		});
 	};
