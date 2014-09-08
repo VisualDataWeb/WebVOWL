@@ -245,6 +245,11 @@
 			"label": "Class Feature Test",
 			"instances": 1,
 			"comment": "Class Feature Test comment"
+		},
+		{
+			"id": "UriPropertyTest1",
+			"uri": "http://vowl.visualdataweb.org/v2/",
+			"label": "VOWL-Spec URL"
 		}
 	],
 	"datatype": [
@@ -943,7 +948,8 @@
 			"domain": "UriPropertyTest1",
 			"range": "UriPropertyTest2",
 			"type": "owl:ObjectProperty",
-			"label": "Uri Property"
+			"label": "Uri Property",
+			"uri": "rdf:Group"
 		},
 		{
 			"id": "DatatypeTestProperty",
