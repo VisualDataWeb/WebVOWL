@@ -12,6 +12,7 @@ webvowl.elements.BaseElement = (function () {
 			uri,
 		// Additional attributes
 			attribute,
+			visualAttribute,
 			comment,
 			equivalentBase,
 		// Style attributes
@@ -91,6 +92,12 @@ webvowl.elements.BaseElement = (function () {
 		this.visible = function (p) {
 			if (!arguments.length) return visible;
 			visible = p;
+			return this;
+		};
+
+		this.visualAttribute = function (p) {
+			if (!arguments.length) return visualAttribute;
+			visualAttribute = p;
 			return this;
 		};
 	};
