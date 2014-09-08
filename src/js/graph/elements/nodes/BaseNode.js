@@ -11,8 +11,6 @@ webvowl.nodes.BaseNode = (function () {
 			union,
 		// Additional attributes
 			disjointWith,
-		// Style attributes
-			indication,
 		// Fixed Location attributes
 			locked = false,
 			frozen = false,
@@ -31,12 +29,6 @@ webvowl.nodes.BaseNode = (function () {
 		this.disjointWith = function (p) {
 			if (!arguments.length) return disjointWith;
 			disjointWith = p;
-			return this;
-		};
-
-		this.indication = function (p) {
-			if (!arguments.length) return indication;
-			indication = p;
 			return this;
 		};
 
