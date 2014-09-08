@@ -3,8 +3,7 @@ webvowl.nodes.owlequivalentclass = (function () {
 	var o = function () {
 		webvowl.nodes.RoundNode.call(this);
 
-		var that = this,
-			superDrawFunction = this.drawNode;
+		var that = this;
 
 		this.styleClass("equivalentclass")
 			.type("owl:equivalentClass");
