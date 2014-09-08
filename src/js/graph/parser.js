@@ -78,7 +78,8 @@ webvowl.parser = function () {
 				addAdditionalAttributes(element, prototypes[elementType]);
 
 				var node = new prototypes[elementType]();
-				node.comment(element.comment)
+				node.attribute(element.attribute)
+					.comment(element.comment)
 					.complement(element.complement)
 					.equivalent(element.equivalent)
 					.id(element.id)
@@ -130,7 +131,8 @@ webvowl.parser = function () {
 			if (elementType in prototypes) {
 				// Create the matching object and set the properties
 				var property = new prototypes[elementType]();
-				property.cardinality(element.cardinality)
+				property.attribute(element.attribute)
+					.cardinality(element.cardinality)
 					.comment(element.comment)
 					.domain(element.domain)
 					.equivalent(element.equivalent)
