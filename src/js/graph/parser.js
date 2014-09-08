@@ -116,15 +116,6 @@ webvowl.parser = function () {
 			}
 			addAdditionalAttributes(element, matchingAttribute);
 
-			// Deprecated and external attributes are more important than the others
-			if (element.attribute) {
-				if (element.attribute.contains("deprecated")) {
-					element.type = "owl:DeprecatedProperty";
-				} else if (element.attribute.contains("external")) {
-					element.type = "owl:ExternalProperty";
-				}
-			}
-
 			// Then look for a prototype to add its properties
 			elementType = element.type.replace(":", "").toLowerCase();
 
@@ -174,6 +165,8 @@ webvowl.parser = function () {
 		rawNodes.forEach(function (node) {
 			// Merge and connect the equivalent nodes
 			processEquivalentIds(node, classMap);
+
+			findAndSetVisualAttribute(node);
 		});
 
 		// Collect all nodes that should be displayed
@@ -308,6 +301,8 @@ webvowl.parser = function () {
 		rawProperties.forEach(function (property) {
 			processEquivalentIds(property, propertyMap);
 			processDisjoints(property);
+
+			findAndSetVisualAttribute(property);
 		});
 
 		// Add additional information to the links
@@ -490,6 +485,24 @@ webvowl.parser = function () {
 		} else {
 			console.warn("No Id was found for this object: " + object);
 			return undefined;
+		}
+	}
+
+	function findAndSetVisualAttribute(element) {
+		if (!(element.attribute() instanceof Array)) {
+			return;
+		}
+
+		if (element.attribute().contains("deprecated")) {
+			element.visualAttribute("deprecated");
+		} else if (element.attribute().contains("external")) {
+			element.visualAttribute("external");
+		} else if (element.attribute().contains("datatype")) {
+			element.visualAttribute("datatype");
+		} else if (element.attribute().contains("object")) {
+			element.visualAttribute("object");
+		} else if (element.attribute().contains("rdf")) {
+			element.visualAttribute("rdf");
 		}
 	}
 
