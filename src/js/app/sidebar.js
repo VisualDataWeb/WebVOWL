@@ -63,7 +63,7 @@ webvowlApp.sidebar = function () {
 		var header = data.header;
 
 		d3.select("#title").text(header.title);
-		d3.select("#about").attr("href", header.uri).text(header.uri);
+		d3.select("#about").attr("href", header.uri).attr("target", "_blank").text(header.uri);
 		d3.select("#version").text(header.version);
 		d3.select("#authors").text(header.author);
 		d3.select("#description").text(header.description);
@@ -170,7 +170,7 @@ webvowlApp.sidebar = function () {
 		var tag;
 
 		if (uri) {
-			tag = element.append("a").attr("href", uri);
+			tag = element.append("a").attr("href", uri).attr("target", "_blank");
 		} else {
 			tag = element.append("span");
 		}
