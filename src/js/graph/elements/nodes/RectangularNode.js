@@ -40,16 +40,19 @@ webvowl.nodes.RectangularNode = (function () {
 		/**
 		 * Draws the rectangular node.
 		 * @param parentElement the element to which this node will be appended
-		 * @param cssClasses additional css classes
+		 * @param [additionalCssClasses] additional css classes
 		 */
-		this.drawNode = function (parentElement, cssClasses) {
+		this.drawNode = function (parentElement, additionalCssClasses) {
 			var drawTools = webvowl.nodes.drawTools(),
-				textBlock;
+				textBlock,
+				cssClasses = that.collectCssClasses();
 
 			that.nodeElement(parentElement);
 
-			drawTools.appendRectangularClass(parentElement, that.width(), that.height(),
-				that.styleClass(), cssClasses);
+			if (additionalCssClasses instanceof Array) {
+				cssClasses = cssClasses.concat(additionalCssClasses);
+			}
+			drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses);
 
 			textBlock = webvowl.util.textElement(parentElement);
 			textBlock.addTextline(that.label(), null);

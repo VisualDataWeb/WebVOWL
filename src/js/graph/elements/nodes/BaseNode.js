@@ -1,6 +1,5 @@
 webvowl.nodes.BaseNode = (function () {
 
-	// Constructor, private variables and privileged methods
 	var base = function () {
 		webvowl.elements.BaseElement.call(this);
 
@@ -102,6 +101,24 @@ webvowl.nodes.BaseNode = (function () {
 				that.fixed = false;
 			}
 		}
+
+		/**
+		 * Returns css classes generated from the data of this object.
+		 * @returns {Array}
+		 */
+		that.collectCssClasses = function () {
+			var cssClasses = [];
+
+			if (typeof that.styleClass() === "string") {
+				cssClasses.push(that.styleClass());
+			}
+
+			if (typeof that.visualAttribute() === "string") {
+				cssClasses.push(that.visualAttribute());
+			}
+
+			return cssClasses;
+		};
 
 
 		// Reused functions TODO refactor
