@@ -407,9 +407,8 @@ webvowl.parser = function () {
 	 */
 	function convertTypesToUris(elements, namespaces) {
 		elements.forEach(function (element) {
-			// Don't overwrite an existing uri
-			if (typeof element.uri() === "undefined") {
-				element.uri(replaceNamespace(element.type(), namespaces));
+			if (typeof element.uri() === "string") {
+				element.uri(replaceNamespace(element.uri(), namespaces));
 			}
 		});
 	}
