@@ -17,6 +17,7 @@ webvowl.elements.BaseElement = (function () {
 			equivalentBase,
 		// Style attributes
 			focused = false,
+			indication,
 			mouseEntered = false,
 			styleClass,
 			visible = true;
@@ -56,6 +57,12 @@ webvowl.elements.BaseElement = (function () {
 		this.id = function (p) {
 			if (!arguments.length) return id;
 			id = p;
+			return this;
+		};
+
+		this.indication = function (p) {
+			if (!arguments.length) return indication;
+			indication = p;
 			return this;
 		};
 

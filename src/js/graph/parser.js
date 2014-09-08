@@ -134,7 +134,7 @@ webvowl.parser = function () {
 					.maxCardinality(element.maxCardinality)
 					.range(element.range)
 					.subproperty(element.subproperty)
-				// .type(element.type) Ignore, because we predefined it
+					// .type(element.type) Ignore, because we predefined it
 					.uri(element.uri);
 				combinations.push(property);
 			} else {
@@ -166,7 +166,7 @@ webvowl.parser = function () {
 			// Merge and connect the equivalent nodes
 			processEquivalentIds(node, classMap);
 
-			findAndSetVisualAttribute(node);
+			parseAttributes(node);
 		});
 
 		// Collect all nodes that should be displayed
@@ -302,7 +302,7 @@ webvowl.parser = function () {
 			processEquivalentIds(property, propertyMap);
 			processDisjoints(property);
 
-			findAndSetVisualAttribute(property);
+			parseAttributes(property);
 		});
 
 		// Add additional information to the links
@@ -488,7 +488,7 @@ webvowl.parser = function () {
 		}
 	}
 
-	function findAndSetVisualAttribute(element) {
+	function parseAttributes(element) {
 		if (!(element.attribute() instanceof Array)) {
 			return;
 		}
@@ -496,7 +496,8 @@ webvowl.parser = function () {
 		if (element.attribute().contains("deprecated")) {
 			element.visualAttribute("deprecated");
 		} else if (element.attribute().contains("external")) {
-			element.visualAttribute("external");
+			element.indication("external")
+				.visualAttribute("external");
 		} else if (element.attribute().contains("datatype")) {
 			element.visualAttribute("datatype");
 		} else if (element.attribute().contains("object")) {
