@@ -86,7 +86,8 @@ webvowl.parser = function () {
 					.intersection(element.intersection)
 					.label(element.label)
 					// .type(element.type) Ignore, because we predefined it
-					.union(element.union);
+					.union(element.union)
+					.uri(element.uri);
 
 				combinations.push(node);
 			} else {
@@ -139,8 +140,9 @@ webvowl.parser = function () {
 					.minCardinality(element.minCardinality)
 					.maxCardinality(element.maxCardinality)
 					.range(element.range)
-					.subproperty(element.subproperty);
+					.subproperty(element.subproperty)
 				// .type(element.type) Ignore, because we predefined it
+					.uri(element.uri);
 				combinations.push(property);
 			} else {
 				console.error("Unknown element type: " + elementType);
