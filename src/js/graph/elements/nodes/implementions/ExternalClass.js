@@ -5,7 +5,6 @@ webvowl.nodes.externalclass = (function () {
 
 		this.indication("external")
 			.styleClass("external")
-			.textAttribute("white")
 			.type("ExternalClass");
 	};
 	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);

@@ -63,35 +63,32 @@ webvowl.util.textElement = function (element) {
 	/**
 	 * Adds a new line of text to the element.
 	 * @param text
-	 * @param additionalCssClass
 	 */
-	textElement.addTextline = function (text, additionalCssClass) {
-		addTextline(text, additionalCssClass);
+	textElement.addTextline = function (text) {
+		addTextline(text);
 	};
 
 	/**
 	 * Adds a line of text in subproperty style.
 	 * @param text
-	 * @param additionalCssClass
 	 */
-	textElement.addSubTextNode = function (text, additionalCssClass) {
+	textElement.addSubTextNode = function (text) {
 		if (text) {
-			addTextline("(" + text + ")", additionalCssClass, SUBTEXT_CSS_CLASS);
+			addTextline("(" + text + ")", SUBTEXT_CSS_CLASS);
 		}
 	};
 
 	/**
 	 * Adds a line of text in equivalent node listing style.
 	 * @param text
-	 * @param additionalCssClass
 	 */
-	textElement.addEquivalentSpan = function (text, additionalCssClass) {
+	textElement.addEquivalentSpan = function (text) {
 		if (text) {
-			addTextline("[" + text + "]", additionalCssClass, SUBTEXT_CSS_CLASS);
+			addTextline("[" + text + "]", SUBTEXT_CSS_CLASS);
 		}
 	};
 
-	function addTextline(text, additionalCssClass, subtextCssClass) {
+	function addTextline(text, subtextCssClass) {
 		if (typeof text === "undefined") {
 			return;
 		}
@@ -100,7 +97,6 @@ webvowl.util.textElement = function (element) {
 
 		var tspan = textBlock.append("tspan")
 			.classed("text", true)
-			.classed(additionalCssClass, true)
 			.classed(subtextCssClass, true)
 			.attr("x", 0)
 			.attr("dy", function () {

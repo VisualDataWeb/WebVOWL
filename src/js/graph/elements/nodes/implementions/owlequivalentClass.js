@@ -20,8 +20,8 @@ webvowl.nodes.owlequivalentclass = (function () {
 
 			// Add the text to the node
 			textBlock = webvowl.util.textElement(parentElement);
-			textBlock.addTextline(that.label(), that.textAttribute());
-			textBlock.addSubTextNode(that.indication(), that.textAttribute());
+			textBlock.addTextline(that.label());
+			textBlock.addSubTextNode(that.indication());
 			appendEquivalentClasses(textBlock, that.equivalent());
 
 			textBlock.repositionTextBlock();
@@ -41,7 +41,7 @@ webvowl.nodes.owlequivalentclass = (function () {
 			});
 			equivalentNamesString = equivalentNames.join(", ");
 
-			textBlock.addEquivalentSpan(equivalentNamesString, that.textAttribute());
+			textBlock.addEquivalentSpan(equivalentNamesString);
 		}
 	};
 	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);
