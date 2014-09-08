@@ -9,14 +9,12 @@ webvowl.nodes.drawTools = (function () {
 	 * Append a circular class node with the passed attributes.
 	 * @param parent the parent element to which the circle will be appended
 	 * @param radius
-	 * @param styleClass a css class that defines the elements style
 	 * @param cssClasses an array of additional css classes
 	 * @returns {*}
 	 */
-	tools.appendCircularClass = function (parent, radius, styleClass, cssClasses) {
+	tools.appendCircularClass = function (parent, radius, cssClasses) {
 		var circle = parent.append("circle")
 			.classed("class", true)
-			.classed(styleClass, true)
 			.attr("r", radius);
 
 		addCssClasses(circle, cssClasses);
@@ -37,14 +35,12 @@ webvowl.nodes.drawTools = (function () {
 	 * @param parent the parent element to which the rectangle will be appended
 	 * @param width
 	 * @param height
-	 * @param styleClass a css class that defines the elements style
 	 * @param cssClasses an array of additional css classes
 	 * @returns {*}
 	 */
-	tools.appendRectangularClass = function (parent, width, height, styleClass, cssClasses) {
+	tools.appendRectangularClass = function (parent, width, height, cssClasses) {
 		var rectangle = parent.append("rect")
 			.classed("class", true)
-			.classed(styleClass, true)
 			.attr("x", -width / 2)
 			.attr("y", -height / 2)
 			.attr("width", width)

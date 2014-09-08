@@ -76,15 +76,19 @@ webvowl.nodes.RoundNode = (function () {
 		/**
 		 * Draws a circular node.
 		 * @param parentElement the element to which this node will be appended
-		 * @param cssClasses additional css classes
+		 * @param [additionalCssClasses] additional css classes
 		 */
-		this.drawNode = function (parentElement, cssClasses) {
+		this.drawNode = function (parentElement, additionalCssClasses) {
 			var drawTools = webvowl.nodes.drawTools(),
-				textBlock;
+				textBlock,
+				cssClasses = that.collectCssClasses();
 
 			that.nodeElement(parentElement);
 
-			drawTools.appendCircularClass(parentElement, that.radius(), that.styleClass(), cssClasses);
+			if (additionalCssClasses instanceof Array) {
+				cssClasses = cssClasses.concat(additionalCssClasses);
+			}
+			drawTools.appendCircularClass(parentElement, that.radius(), cssClasses);
 
 			// Add the text to the node
 			textBlock = webvowl.util.textElement(parentElement);
