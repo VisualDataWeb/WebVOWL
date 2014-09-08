@@ -55,7 +55,7 @@ webvowl.nodes.RectangularNode = (function () {
 			drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses);
 
 			textBlock = webvowl.util.textElement(parentElement);
-			textBlock.addTextline(that.label(), null);
+			textBlock.addTextline(that.label());
 
 			that.addMouseListeners();
 		};

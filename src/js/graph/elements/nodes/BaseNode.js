@@ -13,7 +13,6 @@ webvowl.nodes.BaseNode = (function () {
 			disjointWith,
 		// Style attributes
 			indication,
-			textAttribute,
 		// Fixed Location attributes
 			locked = false,
 			frozen = false,
@@ -56,12 +55,6 @@ webvowl.nodes.BaseNode = (function () {
 		this.nodeElement = function (p) {
 			if (!arguments.length) return nodeElement;
 			nodeElement = p;
-			return this;
-		};
-
-		this.textAttribute = function (p) {
-			if (!arguments.length) return textAttribute;
-			textAttribute = p;
 			return this;
 		};
 

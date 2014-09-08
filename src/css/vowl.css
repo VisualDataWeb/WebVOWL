@@ -68,7 +68,7 @@ path, .nofill {
 .class, path, line, .fineline {
 	stroke: #000;
 }
-.white, .subclass, .dottedMarker path, .subclassproperty {
+.white, .subclass, .dottedMarker path, .subclassproperty, .external + text {
     fill: #fff;
 }
 .class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .normalMarker path.hovered, .cardinality.focused, .normalMarker path.focused, circle.pin {

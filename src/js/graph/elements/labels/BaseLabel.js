@@ -159,10 +159,8 @@ webvowl.labels.BaseLabel = (function () {
 				if (property instanceof webvowl.labels.owldisjointwith) {
 					property.addDisjointLabel(labelGroup, textBox);
 					return label;
-				} else if (property instanceof webvowl.labels.owlexternalproperty) {
-					textBox.addTextline(property.label(), "white");
 				} else {
-					textBox.addTextline(property.label(), null);
+					textBox.addTextline(property.label());
 				}
 
 				property.addAttributesToLabel(textBox);
