@@ -494,7 +494,8 @@ webvowl.parser = function () {
 		}
 
 		if (element.attribute().contains("deprecated")) {
-			element.visualAttribute("deprecated");
+			element.indication("deprecated")
+				.visualAttribute("deprecated");
 		} else if (element.attribute().contains("external")) {
 			element.indication("external")
 				.visualAttribute("external");
