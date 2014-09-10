@@ -73,9 +73,7 @@ webvowl.util.textElement = function (element) {
 	 * @param text
 	 */
 	textElement.addSubTextNode = function (text) {
-		if (text) {
-			addTextline("(" + text + ")", SUBTEXT_CSS_CLASS);
-		}
+		addTextline(text, SUBTEXT_CSS_CLASS, "(", ")");
 	};
 
 	/**
@@ -83,19 +81,20 @@ webvowl.util.textElement = function (element) {
 	 * @param text
 	 */
 	textElement.addEquivalentSpan = function (text) {
-		if (text) {
-			addTextline("[" + text + "]", SUBTEXT_CSS_CLASS);
-		}
+		addTextline(text, SUBTEXT_CSS_CLASS, "[", "]");
 	};
 
-	function addTextline(text, subtextCssClass) {
-		if (typeof text === "undefined") {
+	function addTextline(text, subtextCssClass, prefix, postfix) {
+		if (!text) {
 			return;
 		}
 
-		subtextCssClass = subtextCssClass || "text";
+		var truncatedText, tspan;
 
-		var tspan = textBlock.append("tspan")
+		subtextCssClass = subtextCssClass || "text";
+		truncatedText = text.truncate(element.datum().textWidth());
+
+		tspan = textBlock.append("tspan")
 			.classed("text", true)
 			.classed(subtextCssClass, true)
 			.attr("x", 0)
@@ -108,7 +107,17 @@ webvowl.util.textElement = function (element) {
 					return SPACE_BETWEEN_SPANS;
 				}
 			})
-			.text(text.truncate(element.datum().textWidth()), subtextCssClass);
+			.text(applyPreAndPostFix(truncatedText, prefix, postfix), subtextCssClass);
+	}
+
+	function applyPreAndPostFix(text, prefix, postfix) {
+		if (prefix) {
+			text = prefix + text;
+		}
+		if (postfix) {
+			text += postfix;
+		}
+		return text;
 	}
 
 	textElement.setTranslation = function (x, y) {
