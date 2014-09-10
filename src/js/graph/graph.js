@@ -244,6 +244,8 @@ webvowl.graph = function (graphContainerSelector) {
 	 * Redraws all elements like nodes, links, ...
 	 */
 	function redrawContent() {
+		var markerContainer;
+
 		// Empty the graph container
 		graphContainer.selectAll("*").remove();
 
@@ -252,6 +254,9 @@ webvowl.graph = function (graphContainerSelector) {
 		cardinalityContainer = graphContainer.append("g").classed("cardinalityContainer", true);
 		labelContainer = graphContainer.append("g").classed("labelContainer", true);
 		nodeContainer = graphContainer.append("g").classed("nodeContainer", true);
+
+		// Add an extra container for all markers
+		markerContainer = linkContainer.append("defs");
 
 		// Draw nodes
 		nodeElements = nodeContainer.selectAll(".node")
@@ -297,9 +302,6 @@ webvowl.graph = function (graphContainerSelector) {
 			}
 		});
 
-		// Add an extra container for all markers
-		linkContainer.append("defs");
-
 		// Draw links
 		linkElements = linkContainer.selectAll(".link")
 			.data(links).enter()
@@ -307,7 +309,7 @@ webvowl.graph = function (graphContainerSelector) {
 			.classed("link", true);
 
 		linkElements.each(function (link) {
-			link.property().drawLink(d3.select(this), graphContainer);
+			link.drawLink(d3.select(this), markerContainer);
 		});
 
 		// Select the path for direct access to receive a better performance
@@ -406,7 +408,7 @@ webvowl.graph = function (graphContainerSelector) {
 
 		properties.forEach(function (property) {
 			if (!property._addedToLink) {
-				var link = webvowl.util.link();
+				var link = webvowl.elements.link();
 				link.property(property);
 				link.domain(property.domain());
 				link.range(property.range());
