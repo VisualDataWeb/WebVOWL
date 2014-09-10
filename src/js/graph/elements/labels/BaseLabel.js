@@ -192,65 +192,6 @@ webvowl.labels.BaseLabel = (function () {
 			return this.labelElement();
 		};
 
-		this.drawLink = function (linkGroup, graphContainer) {
-			this.linkElement(linkGroup);
-			if (this.inverse()) {
-				this.inverse().linkElement(linkGroup);
-			}
-
-			// Add required markers
-			var markerDef = graphContainer.select("defs");
-
-			// Marker for this property
-			this.markerElement(markerDef.append("marker")
-				.datum(this)
-				.attr("id", this.markerId())
-				.attr("viewBox", "0 -8 14 16")
-				.attr("refX", 12)
-				.attr("refY", 0)
-				.attr("markerWidth", 12)  // ArrowSize
-				.attr("markerHeight", 12)
-				.attr("markerUnits", "userSpaceOnUse")
-				.attr("orient", "auto")  // Orientation of Arrow
-				.attr("class", this.markerType() + "Marker"));
-			this.markerElement()
-				.append("path")
-				.attr("d", "M0,-8L12,0L0,8Z");
-
-			// Marker for the inverse property
-			if (this.inverse()) {
-				var inverseMarker = markerDef.append("marker")
-					.datum(this.inverse())
-					.attr("id", this.inverse().markerId())
-					.attr("viewBox", "0 -8 14 16")
-					.attr("refX", 0)
-					.attr("refY", 0)
-					.attr("markerWidth", 12)  // ArrowSize
-					.attr("markerHeight", 12)
-					.attr("markerUnits", "userSpaceOnUse")
-					.attr("orient", "auto")  // Orientation of Arrow
-					.attr("class", this.inverse().markerType() + "Marker");
-				inverseMarker.append("path").attr("d", "M12,-8L0,0L12,8Z");
-				this.inverse().markerElement(inverseMarker);
-			}
-
-			// Draw the link
-			linkGroup.append("path")
-				.classed("link-path", true)
-				.classed(this.linkType(), true)
-				.attr("marker-end", function (l) {
-					if (!l.property().isSpecialLink()) {
-						return "url(#" + l.property().markerId() + ")";
-					}
-					return "";
-				})
-				.attr("marker-start", function (l) {
-					if (l.inverse() && !l.inverse().isSpecialLink()) {
-						return "url(#" + l.inverse().markerId() + ")";
-					}
-					return "";
-				});
-		};
 		this.addRect = function (groupTag) {
 			groupTag.append("rect")
 				.classed(this.styleClass(), true)
