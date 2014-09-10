@@ -157,7 +157,7 @@ webvowl.labels.BaseLabel = (function () {
 					textBox.addTextline(property.label());
 				}
 
-				property.addAttributesToLabel(textBox);
+				textBox.addSubTextNode(property.indicationString());
 				property.addEquivalentsToLabel(textBox);
 
 				return label;
@@ -219,21 +219,6 @@ webvowl.labels.BaseLabel = (function () {
 
 			textTag.addSubTextNode("disjoint");
 			textTag.setTranslation(0, 20);
-		};
-		this.addAttributesToLabel = function (textBox) {
-			var subAttributes = "";
-
-			if (this.attribute()) {
-				this.attribute().forEach(function (currentAttribute) {
-					if (attributesToWrite.contains(currentAttribute)) {
-						subAttributes = subAttributes.concat(currentAttribute);
-					}
-				});
-			}
-
-			if (subAttributes) {
-				textBox.addSubTextNode(subAttributes);
-			}
 		};
 		this.addEquivalentsToLabel = function (textBox) {
 			if (this.equivalent()) {

@@ -3,7 +3,7 @@ webvowl.nodes.externalclass = (function () {
 	var o = function () {
 		webvowl.nodes.RoundNode.call(this);
 
-		this.indication("external")
+		this.attribute(["external"])
 			.styleClass("external")
 			.type("ExternalClass");
 	};

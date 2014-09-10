@@ -11,13 +11,13 @@ webvowl.elements.BaseElement = (function () {
 			type,
 			uri,
 		// Additional attributes
-			attribute,
+			attribute = [],
 			visualAttribute,
 			comment,
 			equivalentBase,
 		// Style attributes
 			focused = false,
-			indication,
+			indications = [],
 			mouseEntered = false,
 			styleClass,
 			visible = true;
@@ -60,9 +60,9 @@ webvowl.elements.BaseElement = (function () {
 			return this;
 		};
 
-		this.indication = function (p) {
-			if (!arguments.length) return indication;
-			indication = p;
+		this.indications = function (p) {
+			if (!arguments.length) return indications;
+			indications = p;
 			return this;
 		};
 
@@ -106,6 +106,10 @@ webvowl.elements.BaseElement = (function () {
 			if (!arguments.length) return visualAttribute;
 			visualAttribute = p;
 			return this;
+		};
+
+		this.indicationString = function() {
+			return this.indications().join(", ");
 		};
 	};
 

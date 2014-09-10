@@ -3,7 +3,8 @@ webvowl.labels.owltransitiveproperty = (function () {
 	var o = function () {
 		webvowl.labels.BaseLabel.call(this);
 
-		this.styleClass("transitiveproperty")
+		this.attribute(["transitive"])
+			.styleClass("transitiveproperty")
 			.type("owl:TransitiveProperty");
 	};
 	o.prototype = Object.create(webvowl.labels.BaseLabel.prototype);

@@ -21,7 +21,7 @@ webvowl.nodes.owlequivalentclass = (function () {
 			// Add the text to the node
 			textBlock = webvowl.util.textElement(parentElement);
 			textBlock.addTextline(that.label());
-			textBlock.addSubTextNode(that.indication());
+			textBlock.addSubTextNode(that.indicationString());
 			appendEquivalentClasses(textBlock, that.equivalent());
 
 			textBlock.repositionTextBlock();
