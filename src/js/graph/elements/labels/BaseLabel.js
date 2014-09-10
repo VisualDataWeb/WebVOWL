@@ -217,7 +217,7 @@ webvowl.labels.BaseLabel = (function () {
 				.attr("cx", 12.5)
 				.attr("r", 10);
 
-			textTag.addSubTextNode("disjoint", null);
+			textTag.addSubTextNode("disjoint");
 			textTag.setTranslation(0, 20);
 		};
 		this.addAttributesToLabel = function (textBox) {
@@ -245,7 +245,7 @@ webvowl.labels.BaseLabel = (function () {
 				});
 				equivalentString = equivalentLabels.join(", ");
 
-				textBox.addEquivalentSpan(equivalentString, null);
+				textBox.addEquivalentSpan(equivalentString);
 			}
 		};
 		this.drawCardinality = function (cardinalityGroup) {
@@ -273,13 +273,6 @@ webvowl.labels.BaseLabel = (function () {
 			}
 
 			return this.cardinalityElement();
-		};
-		this.hasAttribute = function (attributeToSearch) {
-			if (!this.attribute() || !attributeToSearch) {
-				return false;
-			}
-
-			return this.attribute().contains(attributeToSearch);
 		};
 		function onMouseOver() {
 			if (that.mouseEntered()) {
