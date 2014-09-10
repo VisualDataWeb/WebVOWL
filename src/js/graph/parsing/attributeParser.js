@@ -3,31 +3,85 @@
  * @returns {Function}
  */
 webvowl.parsing.attributeParser = (function () {
-	var attributeParser = {};
+	var attributeParser = {},
+	// Style
+		DEPRECATED = "deprecated",
+		EXTERNAL = "external",
+		DATATYPE = "datatype",
+		OBJECT = "object",
+		RDF = "rdf",
+	// Representations
+		FUNCTIONAL = "functional",
+		INVERSE_FUNCTIONAL = "inverse functional",
+		TRANSITIVE = "transitive",
+		SYMMETRIC = "symmetric";
 
 	/**
-	 * Parses and sets the elements attributes.
-	 * @param element
+	 * Parses and sets the attributes of a class.
+	 * @param clazz
 	 */
-	attributeParser.parse = function (element) {
-		if (!(element.attribute() instanceof Array)) {
+	attributeParser.parseClassAttributes = function (clazz) {
+		if (!(clazz.attribute() instanceof Array)) {
 			return;
 		}
 
-		if (element.attribute().contains("deprecated")) {
-			element.indication("deprecated")
-				.visualAttribute("deprecated");
-		} else if (element.attribute().contains("external")) {
-			element.indication("external")
-				.visualAttribute("external");
-		} else if (element.attribute().contains("datatype")) {
-			element.visualAttribute("datatype");
-		} else if (element.attribute().contains("object")) {
-			element.visualAttribute("object");
-		} else if (element.attribute().contains("rdf")) {
-			element.visualAttribute("rdf");
-		}
+		parseVisualAttributes(clazz);
+		parseClassIndications(clazz);
 	};
+
+	function parseVisualAttributes(element) {
+		var orderedAttributes = [DEPRECATED, EXTERNAL, DATATYPE, OBJECT, RDF],
+			i, l, attribute;
+
+		for (i = 0, l = orderedAttributes.length; i < l; i++) {
+			attribute = orderedAttributes[i];
+			if (element.attribute().contains(attribute)) {
+				element.visualAttribute(attribute);
+
+				// Just a single attribute is possible
+				break;
+			}
+		}
+	}
+
+	function parseClassIndications(clazz) {
+		var indications = [DEPRECATED, EXTERNAL],
+			i, l, indication;
+
+		for (i = 0, l = indications.length; i < l; i++) {
+			indication = indications[i];
+
+			if (clazz.attribute().contains(indication)) {
+				clazz.indications().push(indication);
+			}
+		}
+	}
+
+	/**
+	 * Parses and sets the attributes of a property.
+	 * @param property
+	 */
+	attributeParser.parsePropertyAttributes = function (property) {
+		if (!(property.attribute() instanceof Array)) {
+			return;
+		}
+
+		parseVisualAttributes(property);
+		parsePropertyIndications(property);
+	};
+
+	function parsePropertyIndications(property) {
+		var indications = [FUNCTIONAL, INVERSE_FUNCTIONAL, SYMMETRIC, TRANSITIVE],
+			i, l, indication;
+
+		for (i = 0, l = indications.length; i < l; i++) {
+			indication = indications[i];
+
+			if (property.attribute().contains(indication)) {
+				property.indications().push(indication);
+			}
+		}
+	}
 
 
 	return function () {

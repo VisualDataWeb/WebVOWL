@@ -93,7 +93,7 @@ webvowl.nodes.RoundNode = (function () {
 			// Add the text to the node
 			textBlock = webvowl.util.textElement(parentElement);
 			textBlock.addTextline(that.label());
-			textBlock.addSubTextNode(that.indication());
+			textBlock.addSubTextNode(that.indicationString());
 
 			textBlock.repositionTextBlock();
 			that.addMouseListeners();

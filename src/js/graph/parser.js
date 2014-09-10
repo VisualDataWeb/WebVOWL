@@ -80,8 +80,7 @@ webvowl.parser = function () {
 				addAdditionalAttributes(element, prototypes[elementType]);
 
 				var node = new prototypes[elementType]();
-				node.attribute(element.attribute)
-					.comment(element.comment)
+				node.comment(element.comment)
 					.complement(element.complement)
 					.equivalent(element.equivalent)
 					.id(element.id)
@@ -91,6 +90,11 @@ webvowl.parser = function () {
 					// .type(element.type) Ignore, because we predefined it
 					.union(element.union)
 					.uri(element.uri);
+
+				if (element.attribute) {
+					var deduplicatedAttributes = d3.set(element.attribute.concat(node.attribute()));
+					node.attribute(deduplicatedAttributes.values());
+				}
 
 				combinations.push(node);
 			} else {
@@ -124,8 +128,7 @@ webvowl.parser = function () {
 			if (elementType in prototypes) {
 				// Create the matching object and set the properties
 				var property = new prototypes[elementType]();
-				property.attribute(element.attribute)
-					.cardinality(element.cardinality)
+				property.cardinality(element.cardinality)
 					.comment(element.comment)
 					.domain(element.domain)
 					.equivalent(element.equivalent)
@@ -138,6 +141,12 @@ webvowl.parser = function () {
 					.subproperty(element.subproperty)
 					// .type(element.type) Ignore, because we predefined it
 					.uri(element.uri);
+
+				if (element.attribute) {
+					var deduplicatedAttributes = d3.set(element.attribute.concat(property.attribute()));
+					property.attribute(deduplicatedAttributes.values());
+				}
+
 				combinations.push(property);
 			} else {
 				console.error("Unknown element type: " + elementType);
@@ -168,7 +177,7 @@ webvowl.parser = function () {
 			// Merge and connect the equivalent nodes
 			processEquivalentIds(node, classMap);
 
-			attributeParser.parse(node);
+			attributeParser.parseClassAttributes(node);
 		});
 
 		// Collect all nodes that should be displayed
@@ -304,7 +313,7 @@ webvowl.parser = function () {
 			processEquivalentIds(property, propertyMap);
 			processDisjoints(property);
 
-			attributeParser.parse(property);
+			attributeParser.parsePropertyAttributes(property);
 		});
 
 		// Add additional information to the links
