@@ -188,6 +188,7 @@ webvowl.labels.BaseLabel = (function () {
 		this.addRect = function (groupTag) {
 			groupTag.append("rect")
 				.classed(this.styleClass(), true)
+				.classed(this.visualAttribute(), true)
 				.classed("property", true)
 				.attr("x", -this.labelWidth() / 2)
 				.attr("y", -this.labelHeight() / 2)
