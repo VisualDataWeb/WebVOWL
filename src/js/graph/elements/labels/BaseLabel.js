@@ -132,10 +132,6 @@ webvowl.labels.BaseLabel = (function () {
 			return "marker" + that.id();
 		};
 
-		this.propertyClass = function () {
-			return "property" + that.id();
-		};
-
 		this.toggleFocus = function () {
 			that.focused(!that.focused());
 			labelElement.select("rect").classed("focused", that.focused());
@@ -145,13 +141,11 @@ webvowl.labels.BaseLabel = (function () {
 		// Reused functions TODO refactor
 		this.drawProperty = function (labelGroup) {
 			function attachLabel(property) {
-				labelGroup.classed(property.id(), true);
-
 				// Draw the label and its background
 				var label = labelGroup.append("g")
 					.datum(property)
 					.classed("label", true)
-					.attr("id", property.propertyClass());
+					.attr("id", property.id());
 				property.addRect(label);
 
 				// Attach the text and perhaps special elements
@@ -169,7 +163,6 @@ webvowl.labels.BaseLabel = (function () {
 				return label;
 			}
 
-			// Draw no label by default
 			if (!this.labelVisible()) {
 				return undefined;
 			}
@@ -263,8 +256,7 @@ webvowl.labels.BaseLabel = (function () {
 			}
 
 			// Drawing cardinality groups
-			this.cardinalityElement(cardinalityGroup.classed("cardinality", true)
-				.classed(this.propertyClass(), true));
+			this.cardinalityElement(cardinalityGroup.classed("cardinality", true));
 
 			var cardText = cardinalityGroup.append("text")
 				.classed("cardinality", true)
