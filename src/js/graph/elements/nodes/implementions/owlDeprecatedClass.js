@@ -3,7 +3,7 @@ webvowl.nodes.owldeprecatedclass = (function () {
 	var o = function () {
 		webvowl.nodes.RoundNode.call(this);
 
-		this.attribute(["deprecated"])
+		this.attributes(["deprecated"])
 			.styleClass("deprecated")
 			.type("owl:DeprecatedClass");
 	};

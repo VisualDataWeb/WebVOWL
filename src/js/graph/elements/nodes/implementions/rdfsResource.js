@@ -5,7 +5,7 @@ webvowl.nodes.rdfsresource = (function () {
 
 		var superDrawFunction = this.drawNode;
 
-		this.attribute(["rdf"])
+		this.attributes(["rdf"])
 			.label("Resource")
 			.radius(30)
 			.styleClass("rdfsresource")

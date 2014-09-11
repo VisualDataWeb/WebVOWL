@@ -91,9 +91,9 @@ webvowl.parser = function () {
 					.union(element.union)
 					.uri(element.uri);
 
-				if (element.attribute) {
-					var deduplicatedAttributes = d3.set(element.attribute.concat(node.attribute()));
-					node.attribute(deduplicatedAttributes.values());
+				if (element.attributes) {
+					var deduplicatedAttributes = d3.set(element.attributes.concat(node.attributes()));
+					node.attributes(deduplicatedAttributes.values());
 				}
 
 				combinations.push(node);
@@ -142,9 +142,9 @@ webvowl.parser = function () {
 					// .type(element.type) Ignore, because we predefined it
 					.uri(element.uri);
 
-				if (element.attribute) {
-					var deduplicatedAttributes = d3.set(element.attribute.concat(property.attribute()));
-					property.attribute(deduplicatedAttributes.values());
+				if (element.attributes) {
+					var deduplicatedAttributes = d3.set(element.attributes.concat(property.attributes()));
+					property.attributes(deduplicatedAttributes.values());
 				}
 
 				combinations.push(property);

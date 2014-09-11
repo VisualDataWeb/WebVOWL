@@ -3,7 +3,7 @@ webvowl.labels.owldatatypeproperty = (function () {
 	var o = function () {
 		webvowl.labels.BaseLabel.call(this);
 
-		this.attribute(["datatype"])
+		this.attributes(["datatype"])
 			.styleClass("datatypeproperty")
 			.type("owl:DatatypeProperty");
 	};

@@ -3,7 +3,7 @@ webvowl.labels.rdfproperty = (function () {
 	var o = function () {
 		webvowl.labels.BaseLabel.call(this);
 
-		this.attribute(["rdf"])
+		this.attributes(["rdf"])
 			.styleClass("rdfproperty")
 			.type("rdf:Property");
 	};

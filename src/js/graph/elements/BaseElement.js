@@ -11,7 +11,7 @@ webvowl.elements.BaseElement = (function () {
 			type,
 			uri,
 		// Additional attributes
-			attribute = [],
+			attributes = [],
 			visualAttribute,
 			comment,
 			equivalentBase,
@@ -24,9 +24,9 @@ webvowl.elements.BaseElement = (function () {
 
 
 		// Properties
-		this.attribute = function (p) {
-			if (!arguments.length) return attribute;
-			attribute = p;
+		this.attributes = function (p) {
+			if (!arguments.length) return attributes;
+			attributes = p;
 			return this;
 		};
 
