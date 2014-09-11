@@ -3,7 +3,7 @@ webvowl.labels.owlsymmetricproperty = (function () {
 	var o = function () {
 		webvowl.labels.BaseLabel.call(this);
 
-		this.attribute(["symmetric"])
+		this.attributes(["symmetric"])
 			.styleClass("symmetricproperty")
 			.type("owl:SymmetricProperty");
 	};

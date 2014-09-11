@@ -3,7 +3,7 @@ webvowl.nodes.rdfsdatatype = (function () {
 	var o = function () {
 		webvowl.nodes.RectangularNode.call(this);
 
-		this.attribute(["datatype"])
+		this.attributes(["datatype"])
 			.styleClass("datatype")
 			.type("rdfs:Datatype");
 	};

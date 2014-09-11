@@ -3,7 +3,7 @@ webvowl.labels.owlfunctionalproperty = (function () {
 	var o = function () {
 		webvowl.labels.BaseLabel.call(this);
 
-		this.attribute(["functional"])
+		this.attributes(["functional"])
 			.styleClass("functionalproperty")
 			.type("owl:FunctionalProperty");
 	};

@@ -3,7 +3,7 @@ webvowl.nodes.rdfsclass = (function () {
 	var o = function () {
 		webvowl.nodes.RoundNode.call(this);
 
-		this.attribute(["rdf"])
+		this.attributes(["rdf"])
 			.styleClass("rdf")
 			.type("rdfs:Class");
 	};
