@@ -6,7 +6,7 @@ webvowl.nodes.rdfsliteral = (function () {
 		var superDrawFunction = this.drawNode,
 			superLabelFunction = this.label;
 
-		this.attribute(["datatype"])
+		this.attributes(["datatype"])
 			.label("Literal")
 			.styleClass("literal")
 			.type("rdfs:Literal");

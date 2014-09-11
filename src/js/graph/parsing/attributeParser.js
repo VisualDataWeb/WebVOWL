@@ -21,7 +21,7 @@ webvowl.parsing.attributeParser = (function () {
 	 * @param clazz
 	 */
 	attributeParser.parseClassAttributes = function (clazz) {
-		if (!(clazz.attribute() instanceof Array)) {
+		if (!(clazz.attributes() instanceof Array)) {
 			return;
 		}
 
@@ -35,7 +35,7 @@ webvowl.parsing.attributeParser = (function () {
 
 		for (i = 0, l = orderedAttributes.length; i < l; i++) {
 			attribute = orderedAttributes[i];
-			if (element.attribute().contains(attribute)) {
+			if (element.attributes().contains(attribute)) {
 				element.visualAttribute(attribute);
 
 				// Just a single attribute is possible
@@ -51,7 +51,7 @@ webvowl.parsing.attributeParser = (function () {
 		for (i = 0, l = indications.length; i < l; i++) {
 			indication = indications[i];
 
-			if (clazz.attribute().contains(indication)) {
+			if (clazz.attributes().contains(indication)) {
 				clazz.indications().push(indication);
 			}
 		}
@@ -62,7 +62,7 @@ webvowl.parsing.attributeParser = (function () {
 	 * @param property
 	 */
 	attributeParser.parsePropertyAttributes = function (property) {
-		if (!(property.attribute() instanceof Array)) {
+		if (!(property.attributes() instanceof Array)) {
 			return;
 		}
 
@@ -77,7 +77,7 @@ webvowl.parsing.attributeParser = (function () {
 		for (i = 0, l = indications.length; i < l; i++) {
 			indication = indications[i];
 
-			if (property.attribute().contains(indication)) {
+			if (property.attributes().contains(indication)) {
 				property.indications().push(indication);
 			}
 		}

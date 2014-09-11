@@ -3,7 +3,7 @@ webvowl.labels.owlobjectproperty = (function () {
 	var o = function () {
 		webvowl.labels.BaseLabel.call(this);
 
-		this.attribute(["object"])
+		this.attributes(["object"])
 			.styleClass("objectproperty")
 			.type("owl:ObjectProperty");
 	};

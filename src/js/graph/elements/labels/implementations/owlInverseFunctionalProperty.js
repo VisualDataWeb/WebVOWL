@@ -3,7 +3,7 @@ webvowl.labels.owlinversefunctionalproperty = (function () {
 	var o = function () {
 		webvowl.labels.BaseLabel.call(this);
 
-		this.attribute(["inverse functional"])
+		this.attributes(["inverse functional"])
 			.styleClass("inversefunctionalproperty")
 			.type("owl:InverseFunctionalProperty");
 	};

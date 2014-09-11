@@ -3,7 +3,7 @@ webvowl.labels.owlexternalproperty = (function () {
 	var o = function () {
 		webvowl.labels.BaseLabel.call(this);
 
-		this.attribute(["external"])
+		this.attributes(["external"])
 			.styleClass("externalproperty")
 			.type("owl:ExternalProperty");
 	};
