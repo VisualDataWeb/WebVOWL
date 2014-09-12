@@ -29,14 +29,15 @@
     "links": [
         {"source": 0, "target": 1, "valueTo": "tag meaning", "inverse": true, "valueFrom": "meaning of", "subpropertiesTo" : [{"id": 1, "direction": "to"}], "uriTo": "http://purl.org/muto/core#tagMeaning", "uriFrom": "http://purl.org/muto/core#meaningOf"},
         {"source": 0, "target": 1, "valueTo": "automatic tag meaning", "subpropertiesTo" : [{"id": 0, "direction": "to"}], "uriTo": "http://purl.org/muto/core#autoMeaning"},
-        {"source": 0, "target": 0, "valueTo": "next tag", "typeTo": "functional", "inverse": true, "valueFrom": "previous tag", "typeFrom": "functional", "uriTo": "http://purl.org/muto/core#nextTag", "uriFrom": "http://purl.org/muto/core#previousTag"},		
+        {"source": 0, "target": 0, "valueTo": "next tag", "typeTo": "functional", "inverse": true, "valueFrom": "previous tag", "typeFrom": "functional", "uriTo": "http://purl.org/muto/core#nextTag", "uriFrom": "http://purl.org/muto/core#previousTag"},	
+        {"source": 13, "target": 13, "valueTo": "has_creator", "propertyTo": "external", "uriTo": "http://rdfs.org/sioc/ns#has_creator", "subpropertiesTo":[{"id": 8, "direction": "from"}]},		
         {"source": 0, "target": 2, "valueTo": "tag created", "propertyTo": "datatype", "uriTo": "http://purl.org/muto/core#tagCreated", "subpropertiesTo":[{"id": 17, "direction": "to"}]},
         {"source": 0, "target": 3, "valueTo": "tag label", "propertyTo": "datatype", "uriTo": "http://purl.org/muto/core#tagLabel"},
         {"source": 0, "target": 4, "type": "dotted", "valueTo": "Subclass of", "propertyTo": "subclass"},
         {"source": 5, "target": 0, "type": "dotted", "valueTo": "Subclass of", "propertyTo": "subclass"},
-        {"source": 6, "target": 7, "valueTo": "creator of", "inverse": true, "valueFrom": "has creator", "typeFrom": "functional", "uriTo": "http://purl.org/muto/core#creatorOf", "uriFrom": "http://purl.org/muto/core#hasCreator", "subpropertiesTo":[{"id": 19, "direction": "to"}], "subpropertiesFrom": [{"id": 20, "direction": "to"}]},
+        {"source": 6, "target": 7, "valueTo": "creator of", "inverse": true, "valueFrom": "has creator", "typeFrom": "functional", "uriTo": "http://purl.org/muto/core#creatorOf", "uriFrom": "http://purl.org/muto/core#hasCreator", "subpropertiesTo":[{"id": 19, "direction": "to"}], "subpropertiesFrom": [{"id": 3, "direction": "to"}]},
         {"source": 7, "target": 0, "valueTo": "has tag", "inverse": true, "valueFrom": "tag of", "typeFrom": "functional", "uriTo": "http://purl.org/muto/core#hasTag", "uriFrom": "http://purl.org/muto/core#tagOf"},
-        {"source": 7, "target": 9, "valueTo": "tagged resource", "inverse": true, "valueFrom": "tagged with", "typeTo": "functional", "uriTo": "http://purl.org/muto/core#taggedResource", "uriFrom": "http://purl.org/muto/core#taggedWith"},
+        {"source": 7, "target": 9, "valueTo": "tagged resource", "inverse": true, "valueFrom": "tagged with", "typeTo": "functional", "uriTo": "http://purl.org/muto/core#taggedResource", "uriFrom": "http://purl.org/muto/core#taggedWith", "subpropertiesTo" : [{"id": 18, "direction": "to"}]},
         {"source": 7, "target": 9, "valueTo": "grant access", "inverse": true, "valueFrom": "has access", "uriTo": "http://purl.org/muto/core#grantAccess", "uriFrom": "http://purl.org/muto/core#hasAccess"},
         {"source": 7, "target": 10, "type": "dotted", "valueTo": "Subclass of", "propertyTo": "subclass"},
         {"source": 7, "target": 11, "valueTo": "tagging created", "propertyTo": "datatype", "uriTo": "http://purl.org/muto/core#taggingCreated", "subpropertiesTo":[{"id": 17, "direction": "to"}]},
@@ -45,7 +46,6 @@
         {"source": 13, "target": 14, "valueTo": "modified", "propertyTo": "external", "uriTo": "http://purl.org/dc/terms/modified", "subpropertiesTo":[{"id": 14, "direction": "to"}]},
         {"source": 13, "target": 15, "valueTo": "created", "propertyTo": "external", "subpropertiesTo" : [{"id": 13, "direction": "to"}, {"id": 4}], "uriTo": "http://purl.org/dc/terms/created"},
         {"source": 13, "target": 13, "valueTo": "about", "propertyTo": "external", "subpropertiesTo" : [{"id": 10, "direction": "to"}], "uriTo": "http://rdfs.org/sioc/ns#about"},
-        {"source": 13, "target": 13, "valueTo": "creator_of", "propertyTo": "external", "uriTo": "http://rdfs.org/sioc/ns#creator_of", "subpropertiesTo":[{"id": 8, "direction": "to"}]},
-        {"source": 13, "target": 13, "valueTo": "has_creator", "propertyTo": "external", "uriTo": "http://rdfs.org/sioc/ns#has_creator", "subpropertiesTo":[{"id": 8, "direction": "from"}]}		
+        {"source": 13, "target": 13, "valueTo": "creator_of", "propertyTo": "external", "uriTo": "http://rdfs.org/sioc/ns#creator_of", "subpropertiesTo":[{"id": 8, "direction": "to"}]}
     ]
 }
