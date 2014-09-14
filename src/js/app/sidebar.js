@@ -158,6 +158,8 @@ webvowlApp.sidebar = function () {
 
 		setUriLabel(d3.select("#domain"), property.range().label(), property.range().uri());
 		setUriLabel(d3.select("#range"), property.domain().label(), property.domain().uri());
+
+		displayAttributes(property.attributes(), d3.select("#propAttributes"));
 	}
 
 	function showPropertyInformations() {
@@ -178,6 +180,18 @@ webvowlApp.sidebar = function () {
 			tag = element.append("span");
 		}
 		tag.text(name);
+	}
+
+	function displayAttributes(attributes, textSpan) {
+		var spanParent = d3.select(textSpan.node().parentNode);
+
+		if (attributes && attributes.length > 0) {
+			textSpan.text(attributes.join(", "));
+
+			spanParent.classed("hidden", false);
+		} else {
+			spanParent.classed("hidden", true);
+		}
 	}
 
 	function displayNodeInformation(node) {
@@ -209,6 +223,8 @@ webvowlApp.sidebar = function () {
 		} else {
 			disjointNodesParent.classed("hidden", true);
 		}
+
+		displayAttributes(node.attributes(), d3.select("#classAttributes"));
 	}
 
 	function showClassInformations() {
