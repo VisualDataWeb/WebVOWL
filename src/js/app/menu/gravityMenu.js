@@ -9,10 +9,8 @@ webvowlApp.gravityMenu = function (graph) {
 	var gravityMenu = {},
 		sliders = [],
 		options = graph.graphOptions(),
-		classSlider,
-		datatypeSlider,
-		classSliderLabel,
-		datatypeSliderLabel;
+		defaultCharge = options.charge(),
+		defaultLinkDistance = options.defaultLinkDistance();
 
 
 	/**
@@ -56,9 +54,18 @@ webvowlApp.gravityMenu = function (graph) {
 		slider.on("input", function () {
 			var distance = slider.property("value");
 			distanceFunction(distance);
+			adjustCharge();
 			sliderValueLabel.text(distance);
 			graph.updateStyle();
 		});
+	}
+
+	function adjustCharge() {
+		var greaterDistance = Math.max(options.classDistance(), options.datatypeDistance()),
+			ratio = greaterDistance / defaultLinkDistance,
+			newCharge = defaultCharge * ratio;
+
+		options.charge(newCharge);
 	}
 
 	/**
