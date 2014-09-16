@@ -59,48 +59,52 @@ webvowl.parser = function () {
 	function combineClasses(baseObjects, attributes, prototypes) {
 		var combinations = [];
 
-		baseObjects.forEach(function (element) {
-			var matchingAttribute,
-				elementType;
+		if (baseObjects) {
+			baseObjects.forEach(function (element) {
+				var matchingAttribute,
+					elementType;
 
-			// Look for an attribute with the same id and merge them
-			for (var i = 0; i < attributes.length; i++) {
-				var attribute = attributes[i];
-				if (element.id === attribute.id) {
-					matchingAttribute = attribute;
-					break;
-				}
-			}
-			addAdditionalAttributes(element, matchingAttribute);
-
-			// Then look for a prototype to add its properties
-			elementType = element.type.replace(":", "").toLowerCase();
-
-			if (elementType in prototypes) {
-				addAdditionalAttributes(element, prototypes[elementType]);
-
-				var node = new prototypes[elementType]();
-				node.comment(element.comment)
-					.complement(element.complement)
-					.equivalent(element.equivalent)
-					.id(element.id)
-					.instances(element.instances)
-					.intersection(element.intersection)
-					.label(element.label)
-					// .type(element.type) Ignore, because we predefined it
-					.union(element.union)
-					.uri(element.uri);
-
-				if (element.attributes) {
-					var deduplicatedAttributes = d3.set(element.attributes.concat(node.attributes()));
-					node.attributes(deduplicatedAttributes.values());
+				if (attributes) {
+					// Look for an attribute with the same id and merge them
+					for (var i = 0; i < attributes.length; i++) {
+						var attribute = attributes[i];
+						if (element.id === attribute.id) {
+							matchingAttribute = attribute;
+							break;
+						}
+					}
+					addAdditionalAttributes(element, matchingAttribute);
 				}
 
-				combinations.push(node);
-			} else {
-				console.error("Unknown element type: " + elementType);
-			}
-		});
+				// Then look for a prototype to add its properties
+				elementType = element.type.replace(":", "").toLowerCase();
+
+				if (elementType in prototypes) {
+					addAdditionalAttributes(element, prototypes[elementType]);
+
+					var node = new prototypes[elementType]();
+					node.comment(element.comment)
+						.complement(element.complement)
+						.equivalent(element.equivalent)
+						.id(element.id)
+						.instances(element.instances)
+						.intersection(element.intersection)
+						.label(element.label)
+						// .type(element.type) Ignore, because we predefined it
+						.union(element.union)
+						.uri(element.uri);
+
+					if (element.attributes) {
+						var deduplicatedAttributes = d3.set(element.attributes.concat(node.attributes()));
+						node.attributes(deduplicatedAttributes.values());
+					}
+
+					combinations.push(node);
+				} else {
+					console.error("Unknown element type: " + elementType);
+				}
+			});
+		}
 
 		return combinations;
 	}
@@ -108,51 +112,55 @@ webvowl.parser = function () {
 	function combineProperties(baseObjects, attributes, prototypes) {
 		var combinations = [];
 
-		baseObjects.forEach(function (element) {
-			var matchingAttribute,
-				elementType;
+		if (baseObjects) {
+			baseObjects.forEach(function (element) {
+				var matchingAttribute,
+					elementType;
 
-			// Look for an attribute with the same id and merge them
-			for (var i = 0; i < attributes.length; i++) {
-				var attribute = attributes[i];
-				if (element.id === attribute.id) {
-					matchingAttribute = attribute;
-					break;
-				}
-			}
-			addAdditionalAttributes(element, matchingAttribute);
-
-			// Then look for a prototype to add its properties
-			elementType = element.type.replace(":", "").toLowerCase();
-
-			if (elementType in prototypes) {
-				// Create the matching object and set the properties
-				var property = new prototypes[elementType]();
-				property.cardinality(element.cardinality)
-					.comment(element.comment)
-					.domain(element.domain)
-					.equivalent(element.equivalent)
-					.id(element.id)
-					.inverse(element.inverse)
-					.label(element.label)
-					.minCardinality(element.minCardinality)
-					.maxCardinality(element.maxCardinality)
-					.range(element.range)
-					.subproperty(element.subproperty)
-					// .type(element.type) Ignore, because we predefined it
-					.uri(element.uri);
-
-				if (element.attributes) {
-					var deduplicatedAttributes = d3.set(element.attributes.concat(property.attributes()));
-					property.attributes(deduplicatedAttributes.values());
+				if (attributes) {
+					// Look for an attribute with the same id and merge them
+					for (var i = 0; i < attributes.length; i++) {
+						var attribute = attributes[i];
+						if (element.id === attribute.id) {
+							matchingAttribute = attribute;
+							break;
+						}
+					}
+					addAdditionalAttributes(element, matchingAttribute);
 				}
 
-				combinations.push(property);
-			} else {
-				console.error("Unknown element type: " + elementType);
-			}
+				// Then look for a prototype to add its properties
+				elementType = element.type.replace(":", "").toLowerCase();
 
-		});
+				if (elementType in prototypes) {
+					// Create the matching object and set the properties
+					var property = new prototypes[elementType]();
+					property.cardinality(element.cardinality)
+						.comment(element.comment)
+						.domain(element.domain)
+						.equivalent(element.equivalent)
+						.id(element.id)
+						.inverse(element.inverse)
+						.label(element.label)
+						.minCardinality(element.minCardinality)
+						.maxCardinality(element.maxCardinality)
+						.range(element.range)
+						.subproperty(element.subproperty)
+						// .type(element.type) Ignore, because we predefined it
+						.uri(element.uri);
+
+					if (element.attributes) {
+						var deduplicatedAttributes = d3.set(element.attributes.concat(property.attributes()));
+						property.attributes(deduplicatedAttributes.values());
+					}
+
+					combinations.push(property);
+				} else {
+					console.error("Unknown element type: " + elementType);
+				}
+
+			});
+		}
 
 		return combinations;
 	}
