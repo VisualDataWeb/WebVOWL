@@ -86,6 +86,18 @@ webvowlApp.app = function () {
 		d3.select("#benchmarkonto").on("click", function () {
 			loadOntology("benchmark.json");
 		});
+		d3.select("#geonames").on("click", function () {
+			loadOntology("geonames.json");
+		});
+		d3.select("#marine").on("click", function () {
+			loadOntology("marinetlo.json");
+		});
+		d3.select("#marine2").on("click", function () {
+			loadOntology("marinetloimarine.json");
+		});
+		d3.select("#sioc").on("click", function () {
+			loadOntology("sioc.json");
+		});
 	}
 
 	return app;
