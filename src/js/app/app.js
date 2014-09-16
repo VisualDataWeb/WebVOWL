@@ -4,7 +4,7 @@ webvowlApp.app = function () {
 		graph = webvowl.graph(),
 		options = graph.graphOptions(),
 		graphSelector = "#graph",
-		jsonURI = "benchmark",
+		defaultJsonFilename = "benchmark.json", // This file is loaded by default
 	// Modules for the webvowl app
 		exportMenu,
 		gravityMenu,
@@ -30,9 +30,9 @@ webvowlApp.app = function () {
 		options.filterModules().push(datatypeCollapser);
 		options.filterModules().push(subclassCollapser);
 		options.filterModules().push(statistics);
-		loadGraph();
+		loadOntology(defaultJsonFilename);
 
-		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector(), jsonURI);
+		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector(), "export");
 		gravityMenu = webvowlApp.gravityMenu(graph);
 		filterMenu = webvowlApp.filterMenu(graph, datatypeCollapser, subclassCollapser);
 		modeMenu = webvowlApp.modeMenu(pickAndPin);
@@ -47,10 +47,12 @@ webvowlApp.app = function () {
 		setupableMenues.forEach(function (menu) {
 			menu.setup();
 		});
+
+		setOntologySelectionButtons();
 	};
 
-	function loadGraph() {
-		d3.json("js/data/" + jsonURI + ".json", function (error, data) {
+	function loadOntology(jsonFilename) {
+		d3.json("js/data/" + jsonFilename, function (error, data) {
 			options.data(data);
 			graph.start();
 			sidebar.updateOntologyInformation(data, statistics);
@@ -69,6 +71,21 @@ webvowlApp.app = function () {
 		options.width(width)
 			.height(height);
 		graph.updateStyle();
+	}
+
+	function setOntologySelectionButtons() {
+		d3.select("#foaf").on("click", function () {
+			loadOntology("foaf.json");
+		});
+		d3.select("#muto").on("click", function () {
+			loadOntology("muto.json");
+		});
+		d3.select("#personasonto").on("click", function () {
+			loadOntology("personasonto.json");
+		});
+		d3.select("#benchmarkonto").on("click", function () {
+			loadOntology("benchmark.json");
+		});
 	}
 
 	return app;
