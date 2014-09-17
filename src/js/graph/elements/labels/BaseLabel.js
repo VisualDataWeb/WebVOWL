@@ -266,7 +266,9 @@ webvowl.labels.BaseLabel = (function () {
 			}
 
 			var selectedLabelGroup = that.labelElement().node().parentNode,
-				labelContainer = selectedLabelGroup.parentNode;
+				labelContainer = selectedLabelGroup.parentNode,
+				selectedLinkGroup = that.linkGroup().node(),
+				linkContainer = that.linkGroup().node().parentNode;
 
 			that.labelElement().select("rect").classed("hovered", true);
 			that.linkGroup().selectAll("path, text").classed("hovered", true);
@@ -274,6 +276,7 @@ webvowl.labels.BaseLabel = (function () {
 
 			// Append hovered element as last child to the container list.
 			labelContainer.appendChild(selectedLabelGroup);
+			linkContainer.appendChild(selectedLinkGroup);
 
 			that.mouseEntered(true);
 		}
