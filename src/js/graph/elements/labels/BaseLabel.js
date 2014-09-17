@@ -27,7 +27,7 @@ webvowl.labels.BaseLabel = (function () {
 		// Element containers
 			cardinalityElement,
 			labelElement,
-			linkElement,
+			linkGroup,
 			markerElement;
 
 
@@ -74,9 +74,9 @@ webvowl.labels.BaseLabel = (function () {
 			return this;
 		};
 
-		this.linkElement = function (p) {
-			if (!arguments.length) return linkElement;
-			linkElement = p;
+		this.linkGroup = function (p) {
+			if (!arguments.length) return linkGroup;
+			linkGroup = p;
 			return this;
 		};
 
@@ -269,7 +269,7 @@ webvowl.labels.BaseLabel = (function () {
 				labelContainer = selectedLabelGroup.parentNode;
 
 			that.labelElement().select("rect").classed("hovered", true);
-			that.linkElement().selectAll("path, text").classed("hovered", true);
+			that.linkGroup().selectAll("path, text").classed("hovered", true);
 			that.markerElement().select("path").classed("hovered", true);
 
 			// Append hovered element as last child to the container list.
@@ -280,7 +280,7 @@ webvowl.labels.BaseLabel = (function () {
 
 		function onMouseOut() {
 			that.labelElement().select("rect").classed("hovered", false);
-			that.linkElement().selectAll("path, text").classed("hovered", false);
+			that.linkGroup().selectAll("path, text").classed("hovered", false);
 			that.markerElement().select("path").classed("hovered", false);
 
 			that.mouseEntered(false);

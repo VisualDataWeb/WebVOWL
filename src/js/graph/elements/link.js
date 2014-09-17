@@ -89,9 +89,9 @@ webvowl.elements.link = function () {
 
 
 	l.drawLink = function (linkGroup, markerContainer) {
-		property.linkElement(linkGroup);
+		property.linkGroup(linkGroup);
 		if (inverse) {
-			inverse.linkElement(linkGroup);
+			inverse.linkGroup(linkGroup);
 		}
 
 		// Marker for this property

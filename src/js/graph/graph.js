@@ -23,7 +23,7 @@ webvowl.graph = function (graphContainerSelector) {
 	// Visual elements
 		nodeElements,
 		labelGroupElements,
-		linkElements,
+		linkGroups,
 		linkPathElements,
 		cardinalityElements,
 	// Internal data
@@ -303,17 +303,17 @@ webvowl.graph = function (graphContainerSelector) {
 		});
 
 		// Draw links
-		linkElements = linkContainer.selectAll(".link")
+		linkGroups = linkContainer.selectAll(".link")
 			.data(links).enter()
 			.append("g")
 			.classed("link", true);
 
-		linkElements.each(function (link) {
+		linkGroups.each(function (link) {
 			link.drawLink(d3.select(this), markerContainer);
 		});
 
 		// Select the path for direct access to receive a better performance
-		linkPathElements = linkElements.selectAll("path");
+		linkPathElements = linkGroups.selectAll("path");
 
 		addClickEvents();
 	}
