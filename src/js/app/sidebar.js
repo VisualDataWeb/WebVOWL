@@ -234,7 +234,7 @@ webvowlApp.sidebar = function () {
 	function displayEquivalentElements(equivalentElements, equivalentUriSpan) {
 		var equivalentUriSpanParent = d3.select(equivalentUriSpan.node().parentNode);
 
-		if (equivalentElements !== undefined) {
+		if (equivalentElements && equivalentElements.length) {
 			equivalentUriSpan.selectAll("*").remove();
 			equivalentElements.forEach(function (element, index) {
 				if (index > 0) {
