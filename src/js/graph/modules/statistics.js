@@ -1,17 +1,19 @@
 webvowl.modules.statistics = function () {
 
 	var statistics = {},
-		nodeCount = 0,
+		nodeCount,
 		occurencesOfNodeTypes = {},
-		propertyCount = 0,
+		propertyCount,
 		occurencesOfPropertyTypes = {},
-		classCount = 0,
-		datatypeCount = 0,
+		classCount,
+		datatypeCount,
 		filteredNodes,
 		filteredProperties;
 
 
 	statistics.filter = function (nodes, properties) {
+		resetStoredData();
+
 		storeTotalCounts(nodes, properties);
 		storeClassAndDatatypeCount(nodes);
 
@@ -21,6 +23,13 @@ webvowl.modules.statistics = function () {
 		filteredNodes = nodes;
 		filteredProperties = properties;
 	};
+
+	function resetStoredData() {
+		nodeCount = 0;
+		propertyCount = 0;
+		classCount = 0;
+		datatypeCount = 0;
+	}
 
 	function storeTotalCounts(nodes, properties) {
 		nodeCount = nodes.length;
