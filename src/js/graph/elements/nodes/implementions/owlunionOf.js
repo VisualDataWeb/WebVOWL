@@ -1,14 +1,11 @@
 webvowl.nodes.owlunionof = (function () {
 
-	var radius = 40;
-
 	var o = function () {
-		webvowl.nodes.RoundNode.call(this);
+		webvowl.nodes.SetOperatorNode.call(this);
 
 		var that = this;
 
-		this.radius(radius)
-			.styleClass("unionof")
+		this.styleClass("unionof")
 			.type("owl:unionOf");
 
 		this.drawNode = function (element) {
@@ -43,7 +40,7 @@ webvowl.nodes.owlunionof = (function () {
 			that.postDrawActions();
 		};
 	};
-	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);
+	o.prototype = Object.create(webvowl.nodes.SetOperatorNode.prototype);
 	o.prototype.constructor = o;
 
 	return o;

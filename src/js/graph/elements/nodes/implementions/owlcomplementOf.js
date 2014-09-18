@@ -1,14 +1,11 @@
 webvowl.nodes.owlcomplementof = (function () {
 
-	var radius = 40;
-
 	var o = function () {
-		webvowl.nodes.RoundNode.call(this);
+		webvowl.nodes.SetOperatorNode.call(this);
 
 		var that = this;
 
-		this.radius(radius)
-			.styleClass("intersectionof")
+		this.styleClass("intersectionof")
 			.type("owl:intersectionOf");
 
 		this.drawNode = function (element) {
@@ -35,7 +32,7 @@ webvowl.nodes.owlcomplementof = (function () {
 			that.postDrawActions();
 		};
 	};
-	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);
+	o.prototype = Object.create(webvowl.nodes.SetOperatorNode.prototype);
 	o.prototype.constructor = o;
 
 	return o;
