@@ -61,7 +61,7 @@ webvowl.modules.subclassCollapser = function () {
 	}
 
 	/**
-	 * Looks recursively for connected properties. Because just subproperties are relevant,
+	 * Looks recursively for connected properties. Because just subclasses are relevant,
 	 * we just look recursively for their properties.
 	 *
 	 * @param node
