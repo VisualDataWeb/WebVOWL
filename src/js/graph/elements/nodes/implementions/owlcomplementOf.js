@@ -32,7 +32,7 @@ webvowl.nodes.owlcomplementof = (function () {
 			symbol.attr("transform", "translate(-" + (that.radius() - 15) / 100 + ",-" +
 				(that.radius() - 15) / 100 + ")");
 
-			that.addMouseListeners();
+			that.postDrawActions();
 		};
 	};
 	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);

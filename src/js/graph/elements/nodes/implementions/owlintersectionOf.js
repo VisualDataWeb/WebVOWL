@@ -42,7 +42,7 @@ webvowl.nodes.owlintersectionof = (function () {
 			symbol.attr("transform", "translate(-" + (that.radius() - 15) / 5 + ",-" +
 				(that.radius() - 15) / 100 + ")");
 
-			that.addMouseListeners();
+			that.postDrawActions();
 		};
 	};
 	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);
