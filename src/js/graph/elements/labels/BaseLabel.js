@@ -19,7 +19,7 @@ webvowl.labels.BaseLabel = (function () {
 			minCardinality,
 			maxCardinality,
 			range,
-			subproperty,
+			subproperties,
 		// Style attributes
 			linkType = "normal",
 			markerType = "normal",
@@ -116,9 +116,9 @@ webvowl.labels.BaseLabel = (function () {
 			return this;
 		};
 
-		this.subproperty = function (p) {
-			if (!arguments.length) return subproperty;
-			subproperty = p;
+		this.subproperties = function (p) {
+			if (!arguments.length) return subproperties;
+			subproperties = p;
 			return this;
 		};
 
@@ -274,8 +274,8 @@ webvowl.labels.BaseLabel = (function () {
 			that.linkGroup().selectAll("path, text").classed("hovered", enable);
 			that.markerElement().select("path").classed("hovered", enable);
 
-			if (that.subproperty()) {
-				that.subproperty().forEach(function (property) {
+			if (that.subproperties()) {
+				that.subproperties().forEach(function (property) {
 					property.labelElement().select("rect")
 						.classed("indirectHighlighting", enable);
 				});

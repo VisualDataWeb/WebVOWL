@@ -145,7 +145,7 @@ webvowl.parser = function () {
 						.minCardinality(element.minCardinality)
 						.maxCardinality(element.maxCardinality)
 						.range(element.range)
-						.subproperty(element.subproperty)
+						.subproperties(element.subproperty)
 						// .type(element.type) Ignore, because we predefined it
 						.uri(element.uri);
 
@@ -300,7 +300,7 @@ webvowl.parser = function () {
 			}
 
 			// Reference subproperties
-			var subpropertyIds = property.subproperty();
+			var subpropertyIds = property.subproperties();
 			if (subpropertyIds) {
 				for (i = 0, l = subpropertyIds.length; i < l; ++i) {
 					var subpropertyId = findId(subpropertyIds[i]);
@@ -308,7 +308,7 @@ webvowl.parser = function () {
 
 					if (subproperty) {
 						// Replace id with object
-						property.subproperty()[i] = subproperty;
+						property.subproperties()[i] = subproperty;
 					} else {
 						console.warn("No subproperty was found for id: " + subpropertyId);
 					}
