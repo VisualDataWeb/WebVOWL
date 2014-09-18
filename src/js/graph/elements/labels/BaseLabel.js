@@ -196,11 +196,9 @@ webvowl.labels.BaseLabel = (function () {
 				.attr("height", this.labelHeight())
 				.on("mouseover", function () {
 					onMouseOver();
-					highlightSubproperties(true);
 				})
 				.on("mouseout", function () {
 					onMouseOut();
-					highlightSubproperties(false);
 				});
 		};
 		this.addDisjointLabel = function (groupTag, textTag) {
@@ -264,41 +262,46 @@ webvowl.labels.BaseLabel = (function () {
 			if (that.mouseEntered()) {
 				return;
 			}
+			that.mouseEntered(true);
 
+			setHighlighting(true);
+
+			that.foreground();
+		}
+
+		function setHighlighting(enable) {
+			that.labelElement().select("rect").classed("hovered", enable);
+			that.linkGroup().selectAll("path, text").classed("hovered", enable);
+			that.markerElement().select("path").classed("hovered", enable);
+
+			if (that.subproperty()) {
+				that.subproperty().forEach(function (property) {
+					property.labelElement().select("rect")
+						.classed("indirectHighlighting", enable);
+				});
+			}
+		}
+
+		/**
+		 * Foregrounds the property, its inverse and the link.
+		 */
+		this.foreground = function () {
 			var selectedLabelGroup = that.labelElement().node().parentNode,
 				labelContainer = selectedLabelGroup.parentNode,
 				selectedLinkGroup = that.linkGroup().node(),
 				linkContainer = that.linkGroup().node().parentNode;
 
-			that.labelElement().select("rect").classed("hovered", true);
-			that.linkGroup().selectAll("path, text").classed("hovered", true);
-			that.markerElement().select("path").classed("hovered", true);
-
 			// Append hovered element as last child to the container list.
 			labelContainer.appendChild(selectedLabelGroup);
 			linkContainer.appendChild(selectedLinkGroup);
-
-			that.mouseEntered(true);
-		}
+		};
 
 		function onMouseOut() {
-			that.labelElement().select("rect").classed("hovered", false);
-			that.linkGroup().selectAll("path, text").classed("hovered", false);
-			that.markerElement().select("path").classed("hovered", false);
-
 			that.mouseEntered(false);
+
+			setHighlighting(false);
 		}
 
-		var highlightSubproperties = function (classed) {
-			if (that.subproperty() === undefined) {
-				return;
-			}
-
-			that.subproperty().forEach(function (property) {
-				property.labelElement().select("rect")
-					.classed("indirectHighlighting", classed);
-			});
-		};
 	};
 
 	base.prototype = Object.create(webvowl.elements.BaseElement.prototype);
