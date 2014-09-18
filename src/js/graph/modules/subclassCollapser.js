@@ -87,7 +87,7 @@ webvowl.modules.subclassCollapser = function () {
 				 * property (1) because we didn't see the datatype property (3).
 				 */
 
-				/* Look only subclass properties, because these can't create a loop and
+				/* Look only for subclass properties, because these can't create a loop and
 				 * these are the relevant properties */
 				if (property instanceof webvowl.labels.rdfssubclassof) {
 					// If we have the range, there might be a nested property on the domain
