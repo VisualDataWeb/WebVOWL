@@ -45,7 +45,7 @@ webvowl.modules.subclassCollapser = function () {
 
 		for (i = 0, l = subclasses.length; i < l; i++) {
 			subclass = subclasses[i];
-			connectedProperties = findConnectedProperties(subclass, properties);
+			connectedProperties = findRelevantConnectedProperties(subclass, properties);
 
 			// Only remove the node and its properties, if they're all subclassOf properties
 			var canBeRemoved = areOnlySubclassProperties(connectedProperties);
@@ -60,18 +60,42 @@ webvowl.modules.subclassCollapser = function () {
 		properties = removeUnneededElements(properties, unneededProperties);
 	}
 
-	function findConnectedProperties(node, properties) {
+	/**
+	 * Looks recursively for connected properties. Because just subproperties are relevant,
+	 * we just look recursively for their properties.
+	 *
+	 * @param node
+	 * @param allProperties
+	 * @returns {Array}
+	 */
+	function findRelevantConnectedProperties(node, allProperties) {
 		var connectedProperties = [],
 			property,
 			i,
 			l;
 
-		for (i = 0, l = properties.length; i < l; i++) {
-			property = properties[i];
+		for (i = 0, l = allProperties.length; i < l; i++) {
+			property = allProperties[i];
 			if (property.domain() === node ||
 				property.range() === node) {
 
 				connectedProperties.push(property);
+
+
+				/* Special case: SuperClass <-(1) Subclass <-(2) Subclass ->(3) e.g. Datatype
+				 * We need to find the last property recursivly. Otherwise, we would remove the subClassOf
+				 * property (1) because we didn't see the datatype property (3).
+				 */
+
+				/* Look only subclass properties, because these can't create a loop and
+				 * these are the relevant properties */
+				if (property instanceof webvowl.labels.rdfssubclassof) {
+					// If we have the range, there might be a nested property on the domain
+					if (node === property.range()) {
+						var nestedConnectedProperties = findRelevantConnectedProperties(property.domain(), allProperties);
+						connectedProperties = connectedProperties.concat(nestedConnectedProperties);
+					}
+				}
 			}
 		}
 
