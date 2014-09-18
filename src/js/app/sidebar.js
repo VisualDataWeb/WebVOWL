@@ -70,14 +70,16 @@ webvowlApp.sidebar = function () {
 	}
 
 	function displayGraphStatistics(statistics) {
-		d3.select("#statNodes")
-			.text(statistics.nodeCount());
-		d3.select("#statClass")
+		d3.select("#classCount")
 			.text(statistics.classCount());
-		d3.select("#statDatatypes")
+		d3.select("#datatypeCount")
 			.text(statistics.datatypeCount());
-		d3.select("#statProp")
+		d3.select("#propertyCount")
 			.text(statistics.propertyCount());
+		d3.select("#nodeCount")
+			.text(statistics.nodeCount());
+		d3.select("#edgeCount")
+			.text(statistics.edgeCount());
 	}
 
 	/**

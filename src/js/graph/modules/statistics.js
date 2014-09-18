@@ -2,41 +2,44 @@ webvowl.modules.statistics = function () {
 
 	var statistics = {},
 		nodeCount,
-		occurencesOfNodeTypes = {},
-		propertyCount,
+		occurencesOfClassAndDatatypeTypes = {},
+		edgeCount,
 		occurencesOfPropertyTypes = {},
 		classCount,
 		datatypeCount,
+		propertyCount,
 		filteredNodes,
 		filteredProperties;
 
 
-	statistics.filter = function (nodes, properties) {
+	statistics.filter = function (classesAndDatatypes, properties) {
 		resetStoredData();
 
-		storeTotalCounts(nodes, properties);
-		storeClassAndDatatypeCount(nodes);
+		storeTotalCounts(classesAndDatatypes, properties);
+		storeClassAndDatatypeCount(classesAndDatatypes);
+		storePropertyCount(properties);
 
-		storeOccurencesOfTypes(nodes, occurencesOfNodeTypes);
+		storeOccurencesOfTypes(classesAndDatatypes, occurencesOfClassAndDatatypeTypes);
 		storeOccurencesOfTypes(properties, occurencesOfPropertyTypes);
 
-		filteredNodes = nodes;
+		filteredNodes = classesAndDatatypes;
 		filteredProperties = properties;
 	};
 
 	function resetStoredData() {
 		nodeCount = 0;
-		propertyCount = 0;
+		edgeCount = 0;
 		classCount = 0;
 		datatypeCount = 0;
+		propertyCount = 0;
 	}
 
-	function storeTotalCounts(nodes, properties) {
-		nodeCount = nodes.length;
-		propertyCount = properties.length;
+	function storeTotalCounts(classesAndDatatypes, properties) {
+		nodeCount = classesAndDatatypes.length;
+		edgeCount = properties.length;
 	}
 
-	function storeClassAndDatatypeCount(nodes) {
+	function storeClassAndDatatypeCount(classesAndDatatypes) {
 		function isDatatype(node) {
 			if (node instanceof webvowl.nodes.rdfsdatatype ||
 				node instanceof webvowl.nodes.rdfsliteral) {
@@ -45,11 +48,21 @@ webvowl.modules.statistics = function () {
 			return false;
 		}
 
-		nodes.forEach(function (node) {
+		classesAndDatatypes.forEach(function (node) {
 			if (isDatatype(node)) {
 				datatypeCount += 1;
 			} else {
 				classCount += 1;
+			}
+		});
+	}
+
+	function storePropertyCount(properties) {
+		properties.forEach(function (property) {
+			propertyCount += 1;
+
+			if (property.inverse()) {
+				propertyCount += 1;
 			}
 		});
 	}
@@ -73,12 +86,12 @@ webvowl.modules.statistics = function () {
 		return nodeCount;
 	};
 
-	statistics.occurencesOfNodeTypes = function () {
-		return occurencesOfNodeTypes;
+	statistics.occurencesOfClassAndDatatypeTypes = function () {
+		return occurencesOfClassAndDatatypeTypes;
 	};
 
-	statistics.propertyCount = function () {
-		return propertyCount;
+	statistics.edgeCount = function () {
+		return edgeCount;
 	};
 
 	statistics.occurencesOfPropertyTypes = function () {
@@ -91,6 +104,10 @@ webvowl.modules.statistics = function () {
 
 	statistics.datatypeCount = function () {
 		return datatypeCount;
+	};
+
+	statistics.propertyCount = function () {
+		return propertyCount;
 	};
 
 
