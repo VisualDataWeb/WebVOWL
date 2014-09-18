@@ -156,8 +156,8 @@ webvowlApp.sidebar = function () {
 			d3.select("#maxCardinality").style("display", "none");
 		}
 
-		setUriLabel(d3.select("#domain"), property.range().label(), property.range().uri());
-		setUriLabel(d3.select("#range"), property.domain().label(), property.domain().uri());
+		setUriLabel(d3.select("#domain"), property.domain().label(), property.domain().uri());
+		setUriLabel(d3.select("#range"), property.range().label(), property.range().uri());
 
 		displayAttributes(property.attributes(), d3.select("#propAttributes"));
 	}
