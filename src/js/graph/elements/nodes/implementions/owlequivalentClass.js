@@ -43,6 +43,14 @@ webvowl.nodes.owlequivalentclass = (function () {
 
 			textBlock.addEquivalentSpan(equivalentNamesString);
 		}
+
+		/**
+		 * Sets the hover highlighting of this node.
+		 * @param enable
+		 */
+		that.setHoverHighlighting = function (enable) {
+			that.nodeElement().selectAll("circle:last-of-type").classed("hovered", enable);
+		};
 	};
 	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);
 	o.prototype.constructor = o;
