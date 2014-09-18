@@ -149,6 +149,14 @@ webvowl.nodes.BaseNode = (function () {
 			that.mouseEntered(false);
 		}
 
+		/**
+		 * Generates a distinct css class for a node id.
+		 * @returns {string}
+		 */
+		this.cssClassOfNode = function () {
+			return "node" + that.id();
+		};
+
 	};
 
 	base.prototype = Object.create(webvowl.elements.BaseElement.prototype);
