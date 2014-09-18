@@ -80,4 +80,25 @@ describe("Collapsing of subclassOf properties", function () {
 		expect(collapser.filteredProperties()).toEqual(properties);
 	});
 
+	it("should not collapse if a subclass has a subclass with non-subclass properties", function() {
+		var superClass = new webvowl.nodes.owlclass(),
+			subProperty = new webvowl.labels.rdfssubclassof(),
+			subclass = new webvowl.nodes.owldeprecatedclass(),
+			subSubclassProperty = new webvowl.labels.rdfssubclassof(),
+			subSubclass = new webvowl.nodes.owldeprecatedclass(),
+			otherProperty = new webvowl.labels.owlobjectproperty(),
+			otherNode = new webvowl.nodes.owlthing(),
+			nodes = [superClass, subclass, subSubclass, otherNode],
+			properties = [subProperty, subSubclassProperty, otherProperty];
+
+		subProperty.domain(subclass).range(superClass);
+		subSubclassProperty.domain(subSubclass).range(subclass);
+		otherProperty.domain(otherNode).range(subSubclass);
+
+		collapser.filter(nodes, properties);
+
+		expect(collapser.filteredNodes()).toEqual(nodes);
+		expect(collapser.filteredProperties()).toEqual(properties);
+	});
+
 });
