@@ -25,7 +25,7 @@ webvowl.nodes.owlequivalentclass = (function () {
 			appendEquivalentClasses(textBlock, that.equivalent());
 
 			textBlock.repositionTextBlock();
-			that.addMouseListeners();
+			that.postDrawActions();
 		};
 
 		function appendEquivalentClasses(textBlock, equivalentClasses) {

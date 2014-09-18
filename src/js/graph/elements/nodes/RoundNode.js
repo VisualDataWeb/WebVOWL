@@ -5,7 +5,8 @@ webvowl.nodes.RoundNode = (function () {
 
 		var that = this,
 			radius = 50,
-			pinGroupElement;
+			pinGroupElement,
+			postUnpinAction;
 
 
 		// Properties
@@ -34,6 +35,8 @@ webvowl.nodes.RoundNode = (function () {
 		 */
 		this.drawPin = function (postRemoveAction) {
 			that.pinned(true);
+			postUnpinAction = postRemoveAction || postUnpinAction;
+
 			pinGroupElement = that.nodeElement()
 				.append("g")
 				.classed("hidden-in-export", true)
@@ -47,7 +50,7 @@ webvowl.nodes.RoundNode = (function () {
 				.classed("class pin feature", true)
 				.attr("r", 12)
 				.on("click", function () {
-					that.removePin(postRemoveAction);
+					that.removePin();
 					d3.event.stopPropagation();
 				});
 
@@ -61,15 +64,14 @@ webvowl.nodes.RoundNode = (function () {
 		/**
 		 * Removes the pin.
 		 * After the pin removal, the passed function will be executed to e.g. refresh the graph.
-		 * @param [postRemoveAction]
 		 */
-		this.removePin = function (postRemoveAction) {
+		this.removePin = function () {
 			that.pinned(false);
 			if (pinGroupElement) {
 				pinGroupElement.remove();
 			}
-			if (postRemoveAction instanceof Function) {
-				postRemoveAction();
+			if (postUnpinAction instanceof Function) {
+				postUnpinAction();
 			}
 		};
 
@@ -96,7 +98,17 @@ webvowl.nodes.RoundNode = (function () {
 			textBlock.addSubTextNode(that.indicationString());
 
 			textBlock.repositionTextBlock();
+			that.postDrawActions();
+		};
+
+		/**
+		 * Common actions that should be invoked after drawing a node.
+		 */
+		this.postDrawActions = function() {
 			that.addMouseListeners();
+			if (that.pinned()) {
+				that.drawPin();
+			}
 		};
 	};
 	o.prototype = Object.create(webvowl.nodes.BaseNode.prototype);
