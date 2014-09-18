@@ -302,9 +302,11 @@ webvowl.labels.BaseLabel = (function () {
 		 * This is separated from the foreground-function to prevent endless loops.
 		 */
 		function foregroundSubproperties() {
-			that.subproperties().forEach(function (subproperty) {
-				subproperty.foreground();
-			});
+			if (that.subproperties()) {
+				that.subproperties().forEach(function (subproperty) {
+					subproperty.foreground();
+				});
+			}
 		}
 
 		function onMouseOut() {
