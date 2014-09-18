@@ -112,7 +112,7 @@ webvowl.elements.link = function () {
 
 		// Marker for the inverse property
 		if (inverse) {
-			var inverseMarker = markerContainer.append("marker")
+			inverse.markerElement(markerContainer.append("marker")
 				.datum(inverse)
 				.attr("id", inverse.markerId())
 				.attr("viewBox", "0 -8 14 16")
@@ -122,14 +122,16 @@ webvowl.elements.link = function () {
 				.attr("markerHeight", 12)
 				.attr("markerUnits", "userSpaceOnUse")
 				.attr("orient", "auto")  // Orientation of Arrow
-				.attr("class", inverse.markerType() + "Marker");
-			inverseMarker.append("path").attr("d", "M12,-8L0,0L12,8Z");
-			inverse.markerElement(inverseMarker);
+				.attr("class", inverse.markerType() + "Marker"));
+			inverse.markerElement().append("path")
+				.attr("d", "M12,-8L0,0L12,8Z");
 		}
 
 		// Draw the link
 		linkGroup.append("path")
 			.classed("link-path", true)
+			.classed(domain.cssClassOfNode(), true)
+			.classed(range.cssClassOfNode(), true)
 			.classed(property.linkType(), true)
 			.attr("marker-end", function (l) {
 				if (!l.property().isSpecialLink()) {
