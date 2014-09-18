@@ -267,6 +267,7 @@ webvowl.labels.BaseLabel = (function () {
 			setHighlighting(true);
 
 			that.foreground();
+			foregroundSubproperties();
 		}
 
 		function setHighlighting(enable) {
@@ -295,6 +296,16 @@ webvowl.labels.BaseLabel = (function () {
 			labelContainer.appendChild(selectedLabelGroup);
 			linkContainer.appendChild(selectedLinkGroup);
 		};
+
+		/**
+		 * Foregrounds the subproperties of this property.
+		 * This is separated from the foreground-function to prevent endless loops.
+		 */
+		function foregroundSubproperties() {
+			that.subproperties().forEach(function (subproperty) {
+				subproperty.foreground();
+			});
+		}
 
 		function onMouseOut() {
 			that.mouseEntered(false);
