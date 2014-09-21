@@ -246,7 +246,8 @@ webvowl.labels.BaseLabel = (function () {
 
 			var cardText = cardinalityGroup.append("text")
 				.classed("cardinality", true)
-				.attr("text-anchor", "middle");
+				.attr("text-anchor", "middle")
+				.attr("dy", "0.5ex");
 
 			if (this.minCardinality() !== undefined) {
 				var cardString = this.minCardinality();
