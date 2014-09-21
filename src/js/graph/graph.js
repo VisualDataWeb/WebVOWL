@@ -140,9 +140,9 @@ webvowl.graph = function (graphContainerSelector) {
 		loadGraphData();
 		refreshGraphData();
 		redrawGraph();
-		redrawContent();
 		refreshGraphStyle();
 		force.start();
+		redrawContent();
 	};
 
 	/**
