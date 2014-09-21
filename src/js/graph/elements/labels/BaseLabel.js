@@ -1,8 +1,7 @@
 webvowl.labels.BaseLabel = (function () {
 
 	// Static variables
-	var attributesToWrite = ["functional", "inverseFunctional", "transitive", "symmetric"],
-		labelHeight = 28,
+	var labelHeight = 28,
 		labelWidth = 80;
 
 
@@ -186,9 +185,8 @@ webvowl.labels.BaseLabel = (function () {
 		};
 
 		this.addRect = function (groupTag) {
-			groupTag.append("rect")
+			var rect = groupTag.append("rect")
 				.classed(this.styleClass(), true)
-				.classed(this.visualAttribute(), true)
 				.classed("property", true)
 				.attr("x", -this.labelWidth() / 2)
 				.attr("y", -this.labelHeight() / 2)
@@ -200,6 +198,10 @@ webvowl.labels.BaseLabel = (function () {
 				.on("mouseout", function () {
 					onMouseOut();
 				});
+
+			if (this.visualAttribute()) {
+				rect.classed(this.visualAttribute(), true);
+			}
 		};
 		this.addDisjointLabel = function (groupTag, textTag) {
 			groupTag.append("circle")
