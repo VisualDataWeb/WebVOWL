@@ -6,7 +6,8 @@
 webvowl.util.textElement = function (element) {
 
 	var textElement = {},
-		SPACE_BETWEEN_SPANS = 12,
+		DEFAULT_DY = 0.5,
+		SPACE_BETWEEN_SPANS = 0.25,
 		SUBTEXT_CSS_CLASS = "subtext",
 		textBlock = element.append("text")
 			.classed("text", true)
@@ -22,42 +23,13 @@ webvowl.util.textElement = function (element) {
 			return;
 		}
 
-		// Testing which browser is
-		var FIREFOX = /Firefox/i.test(navigator.userAgent);
-		var OPERA = /Opera/i.test(navigator.userAgent);
-		var moveup;
+		var textBlockHeight,
+		// the first element is correct, but with multiple tspans a reposition is required
+			additionalChildCount = textBlockChildCount - 1;
 
+		textBlockHeight = additionalChildCount * (1 /*text height itself*/ + SPACE_BETWEEN_SPANS);
 
-		// If has only one <tspan> ignore.
-		if (textBlockChildCount === 1) {
-			moveup = 0;
-		} else {
-			/* According to the used browser different methods are used.
-			 * Calculation method:
-			 * The first textline is positioned correctly that means it's the middle point lies also in the middle of the box.
-			 * Now if more elements exists we remove the complete first block. Now the middle line lies not on top of
-			 * our left box. So we need to remove again half of the first box to move it further up. Now we can half it and
-			 * this is what we need to move up.
-			 */
-			if (FIREFOX || OPERA) {
-				var textbbox = textBlock.node().getBoundingClientRect();
-				moveup = textbbox.height;
-				// Because x, y is the lower left corner and the first child is not in middle!
-				var firstChildBbox = textBlock.property("firstChild").getBoundingClientRect();
-				moveup -= 1.5 * firstChildBbox.height;
-				moveup /= 2;
-			} else {
-				moveup = textBlock.property("offsetHeight");
-				// Because x, y is the lower left corner and the first child is not in middle!
-				var firstChild = textBlock.property("firstChild");
-				moveup -= 1.5 * firstChild.offsetHeight;
-				moveup /= 2;
-			}
-		}
-
-		textBlock.attr("transform", function () {
-			return "translate(0," + (-1) * moveup + ")";
-		});
+		textBlock.attr("y", -textBlockHeight / 2 + "ex");
 	}
 
 	/**
@@ -99,13 +71,13 @@ webvowl.util.textElement = function (element) {
 			.classed(subtextCssClass, true)
 			.attr("x", 0)
 			.attr("dy", function () {
-				var childNum = textBlock.property("children").length;
+				var dy = DEFAULT_DY,
+					siblingCount = textBlock.property("childElementCount") - 1;
 
-				if (childNum < 2) {
-					return 0;
-				} else {
-					return SPACE_BETWEEN_SPANS;
+				if (siblingCount > 0) {
+					dy += DEFAULT_DY + 1 + SPACE_BETWEEN_SPANS;
 				}
+				return dy + "ex";
 			})
 			.text(applyPreAndPostFix(truncatedText, prefix, postfix), subtextCssClass);
 

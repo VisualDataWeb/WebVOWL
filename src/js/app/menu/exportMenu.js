@@ -70,7 +70,6 @@ webvowlApp.exportMenu = function (graphSelector, ontologyName) {
 		d3.selectAll(".focused, path.hovered").style("stroke", "#f00");
 		d3.selectAll(".label .indirectHighlighting, .feature:hover").style("fill", "#f90");
 		d3.selectAll("#width-test").style("position", "absolute").style("float", "left").style("white-space", "nowrap").style("visibility", "hidden");
-		d3.selectAll(".vowlGraph .text tspan:only-child, .vowlGraph .cardinality").style("dominant-baseline", "central");
 		d3.selectAll("marker path").style("stroke-dasharray", "50");
 	}
 
@@ -82,7 +81,7 @@ webvowlApp.exportMenu = function (graphSelector, ontologyName) {
 	}
 
 	function removeVowlInlineStyles() {
-		d3.selectAll(".text, .subtext, .cardinality, .text, .embedded, .class, path, line, .fineline, .special, .dotted, rect.focused, circle.focused, .nostroke, .class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .label .datatype, .datatypeproperty, .rdf, .rdfproperty, .literal, .node .datatype, .deprecated, .deprecatedproperty, .external, .externalproperty, .symbol, path, .nofill, .arrowhead, marker path, .class, path, line, .fineline, .white, .subclass, .dottedMarker path, .subclassproperty, .external + text, .class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .normalMarker path.hovered, .cardinality.focused, .normalMarker path.focused, circle.pin, .focused, path.hovered, .label .indirectHighlighting, .feature:hover, #width-test, .vowlGraph .text tspan:only-child, .vowlGraph .cardinality, marker path").attr("style", null);
+		d3.selectAll(".text, .subtext, .cardinality, .text, .embedded, .class, path, line, .fineline, .special, .dotted, rect.focused, circle.focused, .nostroke, .class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .label .datatype, .datatypeproperty, .rdf, .rdfproperty, .literal, .node .datatype, .deprecated, .deprecatedproperty, .external, .externalproperty, .symbol, path, .nofill, .arrowhead, marker path, .class, path, line, .fineline, .white, .subclass, .dottedMarker path, .subclassproperty, .external + text, .class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .normalMarker path.hovered, .cardinality.focused, .normalMarker path.focused, circle.pin, .focused, path.hovered, .label .indirectHighlighting, .feature:hover, #width-test, marker path").attr("style", null);
 	}
 
 	function showNotExportableElements() {

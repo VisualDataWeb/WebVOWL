@@ -94,10 +94,6 @@ path, .nofill {
     visibility: hidden;
 }
 
-.vowlGraph .text tspan:only-child, .vowlGraph .cardinality { /* labels with one line and nodes */
-    dominant-baseline: central; /* not supported by IE 11 */
-}
-
 marker path {
     /* Safari and Chrome workaround for inheriting the style of its link.
        Use any value that is larger than the length of the marker path. */
