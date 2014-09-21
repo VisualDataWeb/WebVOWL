@@ -53,6 +53,7 @@ webvowl.modules.statistics = function () {
 				datatypeCount += 1;
 			} else if (!(node instanceof webvowl.nodes.SetOperatorNode)) {
 				classCount += 1;
+				classCount += countEquivalentElements(node.equivalent());
 			}
 		});
 	}
@@ -60,11 +61,15 @@ webvowl.modules.statistics = function () {
 	function storePropertyCount(properties) {
 		properties.forEach(function (property) {
 			propertyCount += 1;
-
-			if (property.inverse()) {
-				propertyCount += 1;
-			}
+			propertyCount += countEquivalentElements(property.equivalent());
 		});
+	}
+
+	function countEquivalentElements(equivalents) {
+		if (equivalents) {
+			return equivalents.length;
+		}
+		return 0;
 	}
 
 	function storeOccurencesOfTypes(elements, storage) {
