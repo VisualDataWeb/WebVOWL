@@ -97,7 +97,6 @@ webvowl.nodes.RoundNode = (function () {
 			textBlock.addTextline(that.label());
 			textBlock.addSubTextNode(that.indicationString());
 
-			textBlock.repositionTextBlock();
 			that.postDrawActions();
 		};
 
