@@ -24,7 +24,6 @@ webvowl.nodes.owlequivalentclass = (function () {
 			textBlock.addSubTextNode(that.indicationString());
 			appendEquivalentClasses(textBlock, that.equivalent());
 
-			textBlock.repositionTextBlock();
 			that.postDrawActions();
 		};
 

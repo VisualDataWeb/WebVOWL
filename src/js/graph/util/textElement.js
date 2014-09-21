@@ -15,7 +15,7 @@ webvowl.util.textElement = function (element) {
 	/**
 	 * Repositions the textblock according to its own offsetHeight.
 	 */
-	textElement.repositionTextBlock = function () {
+	function repositionTextBlock() {
 		// Nothing to do if no child elements exist
 		var textBlockChildCount = textBlock.property("childElementCount");
 		if (textBlockChildCount < 1) {
@@ -58,7 +58,7 @@ webvowl.util.textElement = function (element) {
 		textBlock.attr("transform", function () {
 			return "translate(0," + (-1) * moveup + ")";
 		});
-	};
+	}
 
 	/**
 	 * Adds a new line of text to the element.
@@ -108,6 +108,8 @@ webvowl.util.textElement = function (element) {
 				}
 			})
 			.text(applyPreAndPostFix(truncatedText, prefix, postfix), subtextCssClass);
+
+		repositionTextBlock();
 	}
 
 	function applyPreAndPostFix(text, prefix, postfix) {
