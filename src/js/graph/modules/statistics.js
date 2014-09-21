@@ -36,7 +36,19 @@ webvowl.modules.statistics = function () {
 
 	function storeTotalCounts(classesAndDatatypes, properties) {
 		nodeCount = classesAndDatatypes.length;
-		edgeCount = properties.length;
+
+		var seenProperties = d3.set(), i, l, property;
+		for (i = 0, l = properties.length; i < l; i++) {
+			property = properties[i];
+			if (!seenProperties.has(property.id())) {
+				edgeCount += 1;
+			}
+
+			seenProperties.add(property.id());
+			if (property.inverse()) {
+				seenProperties.add(property.inverse().id());
+			}
+		}
 	}
 
 	function storeClassAndDatatypeCount(classesAndDatatypes) {
