@@ -102,6 +102,9 @@ webvowl.graph = function (graphContainerSelector) {
 			.on("tick", recalculatePositions);
 
 		dragBehaviour = d3.behavior.drag()
+			.origin(function (d) {
+				return d;
+			})
 			.on("dragstart", function (d) {
 				d3.event.sourceEvent.stopPropagation(); // Prevent panning
 				d.locked(true);
