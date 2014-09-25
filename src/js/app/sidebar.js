@@ -56,7 +56,7 @@ webvowlApp.sidebar = function () {
 	 */
 	sidebar.updateOntologyInformation = function (data, statistics) {
 		displayGraphInformation(data);
-		displayGraphStatistics(statistics);
+		displayGraphStatistics(data.metrics, statistics);
 	};
 
 	function displayGraphInformation(data) {
@@ -69,13 +69,16 @@ webvowlApp.sidebar = function () {
 		d3.select("#description").text(header.description);
 	}
 
-	function displayGraphStatistics(statistics) {
+	function displayGraphStatistics(deliveredMetrics, statistics) {
+		// Metrics are optional and may be undefined
+		deliveredMetrics = deliveredMetrics || {};
+
 		d3.select("#classCount")
-			.text(statistics.classCount());
+			.text(deliveredMetrics.classCount || statistics.classCount());
 		d3.select("#datatypeCount")
-			.text(statistics.datatypeCount());
+			.text(deliveredMetrics.datatypeCount || statistics.datatypeCount());
 		d3.select("#propertyCount")
-			.text(statistics.propertyCount());
+			.text(deliveredMetrics.propertyCount || statistics.propertyCount());
 		d3.select("#nodeCount")
 			.text(statistics.nodeCount());
 		d3.select("#edgeCount")
