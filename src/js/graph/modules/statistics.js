@@ -63,7 +63,7 @@ webvowl.modules.statistics = function () {
 		classesAndDatatypes.forEach(function (node) {
 			if (isDatatype(node)) {
 				datatypeCount += 1;
-			} else if (!(node instanceof webvowl.nodes.SetOperatorNode)) {
+			} else if (!(node instanceof webvowl.nodes.SetOperatorNode) && !(node instanceof webvowl.nodes.owlthing)) {
 				classCount += 1;
 				classCount += countEquivalentElements(node.equivalent());
 			}
