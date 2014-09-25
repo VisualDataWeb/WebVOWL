@@ -46,7 +46,7 @@ describe("Collapsing of subclassOf properties", function () {
 		expect(collapser.filteredProperties().length).toBe(0);
 	});
 
-	it("should not remove if a subclass is domain of another property", function() {
+	it("should not remove if a subclass is domain of another property", function () {
 		var superClass = new webvowl.nodes.owlclass(),
 			subProperty = new webvowl.labels.rdfssubclassof(),
 			subclass = new webvowl.nodes.owldeprecatedclass(),
@@ -63,7 +63,7 @@ describe("Collapsing of subclassOf properties", function () {
 		expect(collapser.filteredProperties()).toEqual(properties);
 	});
 
-	it("should not remove if a subclass is range of another property", function() {
+	it("should not remove if a subclass is range of another property", function () {
 		var superClass = new webvowl.nodes.owlclass(),
 			subProperty = new webvowl.labels.rdfssubclassof(),
 			subclass = new webvowl.nodes.owldeprecatedclass(),
@@ -80,7 +80,7 @@ describe("Collapsing of subclassOf properties", function () {
 		expect(collapser.filteredProperties()).toEqual(properties);
 	});
 
-	it("should not collapse if a subclass has a subclass with non-subclass properties", function() {
+	it("should not collapse if a subclass has a subclass with non-subclass properties", function () {
 		var superClass = new webvowl.nodes.owlclass(),
 			subProperty = new webvowl.labels.rdfssubclassof(),
 			subclass = new webvowl.nodes.owldeprecatedclass(),
@@ -94,6 +94,24 @@ describe("Collapsing of subclassOf properties", function () {
 		subProperty.domain(subclass).range(superClass);
 		subSubclassProperty.domain(subSubclass).range(subclass);
 		otherProperty.domain(otherNode).range(subSubclass);
+
+		collapser.filter(nodes, properties);
+
+		expect(collapser.filteredNodes()).toEqual(nodes);
+		expect(collapser.filteredProperties()).toEqual(properties);
+	});
+
+	it("should not collapse if a subclass has multiple superclasses", function () {
+		var superClass1 = new webvowl.nodes.owlclass(),
+			subProperty1 = new webvowl.labels.rdfssubclassof(),
+			superClass2 = new webvowl.nodes.owlclass(),
+			subProperty2 = new webvowl.labels.rdfssubclassof(),
+			subclass = new webvowl.nodes.owldeprecatedclass(),
+			nodes = [superClass1, superClass2, subclass],
+			properties = [subProperty1, subProperty2];
+
+		subProperty1.domain(subclass).range(superClass1);
+		subProperty2.domain(subclass).range(superClass2);
 
 		collapser.filter(nodes, properties);
 
