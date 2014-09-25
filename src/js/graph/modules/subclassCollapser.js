@@ -48,9 +48,9 @@ webvowl.modules.subclassCollapser = function () {
 			connectedProperties = findRelevantConnectedProperties(subclass, properties);
 
 			// Only remove the node and its properties, if they're all subclassOf properties
-			var canBeRemoved = areOnlySubclassProperties(connectedProperties);
+			if (areOnlySubclassProperties(connectedProperties) &&
+				doesNotInheritFromMultipleClasses(subclass, connectedProperties)) {
 
-			if (canBeRemoved) {
 				unneededProperties = unneededProperties.concat(connectedProperties);
 				unneededClasses.push(subclass);
 			}
@@ -118,6 +118,24 @@ webvowl.modules.subclassCollapser = function () {
 		}
 
 		return onlySubclassProperties;
+	}
+
+	function doesNotInheritFromMultipleClasses(subclass, connectedProperties) {
+		var superClassCount = 0;
+
+		for (var i = 0, l = connectedProperties.length; i < l; i++) {
+			var property = connectedProperties[i];
+
+			if (property.domain() === subclass) {
+				superClassCount += 1;
+			}
+
+			if (superClassCount > 1) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	function removeUnneededElements(array, removableElements) {
