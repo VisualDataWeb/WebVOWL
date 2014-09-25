@@ -6,8 +6,7 @@
 webvowl.util.textElement = function (element) {
 
 	var textElement = {},
-		DEFAULT_DY = 0.5,
-		SPACE_BETWEEN_SPANS = 0.25,
+		LINE_DISTANCE = 1,
 		SUBTEXT_CSS_CLASS = "subtext",
 		textBlock = element.append("text")
 			.classed("text", true)
@@ -23,13 +22,8 @@ webvowl.util.textElement = function (element) {
 			return;
 		}
 
-		var textBlockHeight,
-		// the first element is correct, but with multiple tspans a reposition is required
-			additionalChildCount = textBlockChildCount - 1;
-
-		textBlockHeight = additionalChildCount * (1 /*text height itself*/ + SPACE_BETWEEN_SPANS);
-
-		textBlock.attr("y", -textBlockHeight / 2 + "ex");
+		var textBlockHeight = getSvgElementHeight(textBlock.node());
+		textBlock.attr("y", -textBlockHeight * 0.6 + "px");
 	}
 
 	/**
@@ -69,17 +63,15 @@ webvowl.util.textElement = function (element) {
 		tspan = textBlock.append("tspan")
 			.classed("text", true)
 			.classed(subtextCssClass, true)
+			.text(applyPreAndPostFix(truncatedText, prefix, postfix), subtextCssClass)
 			.attr("x", 0)
 			.attr("dy", function () {
-				var dy = DEFAULT_DY,
-					siblingCount = textBlock.property("childElementCount") - 1;
+				var heightInPixels = getSvgElementHeight(this),
+					siblingCount = textBlock.property("childElementCount") - 1,
+					lineDistance = siblingCount > 0 ? LINE_DISTANCE : 0;
+				return heightInPixels + lineDistance + "px";
+			});
 
-				if (siblingCount > 0) {
-					dy += DEFAULT_DY + 1 + SPACE_BETWEEN_SPANS;
-				}
-				return dy + "ex";
-			})
-			.text(applyPreAndPostFix(truncatedText, prefix, postfix), subtextCssClass);
 
 		repositionTextBlock();
 	}
@@ -92,6 +84,20 @@ webvowl.util.textElement = function (element) {
 			text += postfix;
 		}
 		return text;
+	}
+
+	function getSvgElementHeight(domElement) {
+		var heightInPixels;
+		/* Chrome returns wrong values in its bounding client rect, but correct ones with offsetWidth.
+		 * Firefox doesn't support the offsetWidth property here, but the bounding client rect. */
+		if ("offsetWidth" in domElement) {
+			// e.g. Chrome
+			heightInPixels = domElement.offsetHeight;
+		} else {
+			// e.g. Firefox
+			heightInPixels = domElement.getBoundingClientRect().height;
+		}
+		return heightInPixels;
 	}
 
 	textElement.setTranslation = function (x, y) {
