@@ -141,11 +141,8 @@ webvowl.graph = function (graphContainerSelector) {
 	graph.start = function () {
 		force.stop();
 		loadGraphData();
-		refreshGraphData();
 		redrawGraph();
-		refreshGraphStyle();
-		force.start();
-		redrawContent();
+		graph.update();
 	};
 
 	/**
@@ -166,9 +163,9 @@ webvowl.graph = function (graphContainerSelector) {
 	 */
 	graph.update = function () {
 		refreshGraphData();
-		redrawContent();
 		refreshGraphStyle();
 		force.start();
+		redrawContent();
 	};
 
 	/**
