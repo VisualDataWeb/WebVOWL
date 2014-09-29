@@ -34,7 +34,6 @@ webvowl.graph = function (graphContainerSelector) {
 		links,
 	// Graph behaviour
 		force,
-		drawingContentFinished = false,
 		dragBehaviour,
 		zoom;
 
@@ -42,10 +41,6 @@ webvowl.graph = function (graphContainerSelector) {
 	 * Recalculates the positions of nodes, links, ... and updates them.
 	 */
 	function recalculatePositions() {
-		if (!drawingContentFinished) {
-			return;
-		}
-
 		// Set node positions
 		nodeElements.attr("transform", function (node) {
 			return "translate(" + node.x + "," + node.y + ")";
@@ -146,8 +141,11 @@ webvowl.graph = function (graphContainerSelector) {
 	graph.start = function () {
 		force.stop();
 		loadGraphData();
+		refreshGraphData();
 		redrawGraph();
-		this.update();
+		refreshGraphStyle();
+		force.start();
+		redrawContent();
 	};
 
 	/**
@@ -167,15 +165,10 @@ webvowl.graph = function (graphContainerSelector) {
 	 * Updates the graphs displayed data and style.
 	 */
 	graph.update = function () {
-		drawingContentFinished = false; // value is used in recalculatePositions
 		refreshGraphData();
+		redrawContent();
 		refreshGraphStyle();
 		force.start();
-		for (var i = 0, l = nodes.length; i < l; i++) {
-			force.tick();
-		}
-		redrawContent();
-		drawingContentFinished = true;
 	};
 
 	/**
