@@ -57,6 +57,8 @@ webvowlApp.sidebar = function () {
 	sidebar.updateOntologyInformation = function (data, statistics) {
 		displayGraphInformation(data);
 		displayGraphStatistics(data.metrics, statistics);
+		// Reset the sidebar selection
+		sidebar.updateSelectionInformation(undefined);
 	};
 
 	function displayGraphInformation(data) {
@@ -91,7 +93,7 @@ webvowlApp.sidebar = function () {
 	 */
 	sidebar.updateSelectionInformation = function (selectedElement) {
 		// Click event was prevented when dragging
-		if (d3.event.defaultPrevented) {
+		if (d3.event && d3.event.defaultPrevented) {
 			return;
 		}
 
