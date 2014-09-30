@@ -99,6 +99,12 @@ webvowlApp.app = function () {
 		d3.select("#sioc").on("click", function () {
 			loadOntology("sioc.json");
 		});
+		d3.select("#completeBenchmark").on("click", function () {
+			loadOntology("BenchmarkOntology.json");
+		});
+		d3.select("#prov").on("click", function () {
+			loadOntology("prov.json");
+		});
 	}
 
 	return app;
