@@ -32,7 +32,7 @@ webvowlApp.app = function () {
 		options.filterModules().push(statistics);
 		loadOntology(defaultJsonFilename);
 
-		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector(), "export");
+		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
 		gravityMenu = webvowlApp.gravityMenu(graph);
 		filterMenu = webvowlApp.filterMenu(graph, datatypeCollapser, subclassCollapser);
 		modeMenu = webvowlApp.modeMenu(pickAndPin);
@@ -56,6 +56,7 @@ webvowlApp.app = function () {
 			options.data(data);
 			graph.start();
 			sidebar.updateOntologyInformation(data, statistics);
+			exportMenu.setFilename(jsonFilename.split(".")[0] + ".svg");
 			adjustSize();
 		});
 	}
