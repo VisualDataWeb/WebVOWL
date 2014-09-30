@@ -2,13 +2,13 @@
  * Contains the logic for the export button.
  *
  * @param graphSelector the associated graph svg selector
- * @param ontologyName the ontology name used in the export filename
  * @returns {{}}
  */
-webvowlApp.exportMenu = function (graphSelector, ontologyName) {
+webvowlApp.exportMenu = function (graphSelector) {
 
 	var exportMenu = {},
-		exportButton;
+		exportButton,
+		exportFilename;
 
 
 	/**
@@ -17,6 +17,10 @@ webvowlApp.exportMenu = function (graphSelector, ontologyName) {
 	exportMenu.setup = function () {
 		exportButton = d3.select("#exportSvg")
 			.on("click", exportSVG);
+	};
+
+	exportMenu.setFilename = function (filename) {
+		exportFilename = filename;
 	};
 
 	function exportSVG() {
@@ -37,7 +41,7 @@ webvowlApp.exportMenu = function (graphSelector, ontologyName) {
 		encodedGraphSvgCode = "data:image/svg+xml;base64," + btoa(graphSvgCode);
 
 		exportButton.attr("href", encodedGraphSvgCode)
-			.attr("download", ontologyName + ".svg");
+			.attr("download", exportFilename);
 
 		// remove graphic styles for interaction to go back to normal
 		removeVowlInlineStyles();
