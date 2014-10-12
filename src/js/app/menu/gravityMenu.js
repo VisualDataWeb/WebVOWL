@@ -17,8 +17,8 @@ webvowlApp.gravityMenu = function (graph) {
 	 * Adds the gravity sliders to the website.
 	 */
 	gravityMenu.setup = function () {
-		addDistanceSlider("#classSliderOption", "class", "Class Distance", options.classDistance);
-		addDistanceSlider("#datatypeSliderOption", "datatype", "Datatype Distance", options.datatypeDistance);
+		addDistanceSlider("#classSliderOption", "class", "Class distance", options.classDistance);
+		addDistanceSlider("#datatypeSliderOption", "datatype", "Datatype distance", options.datatypeDistance);
 	};
 
 	function addDistanceSlider(selector, identifier, label, distanceFunction) {

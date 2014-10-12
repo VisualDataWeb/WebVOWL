@@ -16,8 +16,8 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
 	 * Connects the website with graph filters.
 	 */
 	filterMenu.setup = function () {
-		addFilterItem(datatypeFilter, "datatype", "Datatypes", "#datatypeCollapsingOption");
-		addFilterItem(subclassFilter, "subclass", "Subclasses", "#subclassCollapsingOption");
+		addFilterItem(datatypeFilter, "datatype", "all datatypes", "#datatypeFilteringOption");
+		addFilterItem(subclassFilter, "subclass", "sel. subclass.", "#subclassFilteringOption");
 	};
 
 	function addFilterItem(filter, identifier, pluralNameOfFilteredItems, selector) {
