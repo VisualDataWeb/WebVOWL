@@ -16,8 +16,8 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
 	 * Connects the website with graph filters.
 	 */
 	filterMenu.setup = function () {
-		addFilterItem(datatypeFilter, "datatype", "all datatypes", "#datatypeFilteringOption");
-		addFilterItem(subclassFilter, "subclass", "sel. subclass.", "#subclassFilteringOption");
+		addFilterItem(datatypeFilter, "datatype", "All datatypes", "#datatypeFilteringOption");
+		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
 	};
 
 	function addFilterItem(filter, identifier, pluralNameOfFilteredItems, selector) {
@@ -46,7 +46,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
 
 		filterContainer.append("label")
 			.attr("for", identifier + "FilterCheckbox")
-			.text("Hide " + pluralNameOfFilteredItems);
+			.text("" + pluralNameOfFilteredItems);
 	}
 
 	/**
