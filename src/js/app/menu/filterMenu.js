@@ -46,7 +46,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
 
 		filterContainer.append("label")
 			.attr("for", identifier + "FilterCheckbox")
-			.text("" + pluralNameOfFilteredItems);
+			.text(pluralNameOfFilteredItems);
 	}
 
 	/**
