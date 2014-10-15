@@ -149,6 +149,6 @@ module.exports = function (grunt) {
 	grunt.registerTask("build", ["clean", "copy", "concat", "htmlbuild"]);
 	grunt.registerTask("default", ["package"]);
 	grunt.registerTask("package", ["build", "uglify"]);
-	grunt.registerTask("webserver", ["build", "connect:devserver", "watch"]);
+	grunt.registerTask("webserver", ["package", "connect:devserver", "watch"]);
 	grunt.registerTask("test", ["karma"]);
 };
