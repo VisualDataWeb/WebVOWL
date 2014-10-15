@@ -22,7 +22,7 @@ webvowl.util.textElement = function (element) {
 			return;
 		}
 
-		var textBlockHeight = getSvgElementHeight(textBlock.node());
+		var textBlockHeight = getTextBlockHeight(textBlock);
 		textBlock.attr("y", -textBlockHeight * 0.6 + "px");
 	}
 
@@ -66,7 +66,7 @@ webvowl.util.textElement = function (element) {
 			.text(applyPreAndPostFix(truncatedText, prefix, postfix), subtextCssClass)
 			.attr("x", 0)
 			.attr("dy", function () {
-				var heightInPixels = getSvgElementHeight(this),
+				var heightInPixels = getPixelHeightOfTextLine(d3.select(this)),
 					siblingCount = textBlock.property("childElementCount") - 1,
 					lineDistance = siblingCount > 0 ? LINE_DISTANCE : 0;
 				return heightInPixels + lineDistance + "px";
@@ -86,18 +86,32 @@ webvowl.util.textElement = function (element) {
 		return text;
 	}
 
-	function getSvgElementHeight(domElement) {
-		var heightInPixels;
-		/* Chrome returns wrong values in its bounding client rect, but correct ones with offsetWidth.
-		 * Firefox doesn't support the offsetWidth property here, but the bounding client rect. */
-		if ("offsetWidth" in domElement) {
-			// e.g. Chrome
-			heightInPixels = domElement.offsetHeight;
+	function getPixelHeightOfTextLine(textElement) {
+		/* Due to browser incompatibilities this has to be hardcoded. This is because Firefox has no
+		 * "offsetHeight" attribute like Chrome to retrieve the absolute pixel height. */
+		if (textElement.classed("subtext")) {
+			return 10;
 		} else {
-			// e.g. Firefox
-			heightInPixels = domElement.getBoundingClientRect().height;
+			return 14;
 		}
-		return heightInPixels;
+	}
+
+	function getTextBlockHeight(textBlock) {
+		/* Hardcoded due to the same reasons like in the getPixelHeightOfTextLine function. */
+
+		var children = textBlock.selectAll("*"),
+			childCount = children.size();
+		if (childCount === 0) {
+			return 0;
+		}
+
+		// Values retrieved by testing
+		var pixelHeight = childCount * LINE_DISTANCE;
+		children.each(function () {
+			pixelHeight += getPixelHeightOfTextLine(d3.select(this));
+		});
+
+		return pixelHeight;
 	}
 
 	textElement.setTranslation = function (x, y) {
