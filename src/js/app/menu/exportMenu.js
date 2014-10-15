@@ -27,7 +27,8 @@ webvowlApp.exportMenu = function (graphSelector) {
 		// Get the d3js SVG element
 		var graphSvg = d3.select(graphSelector).select("svg"),
 			graphSvgCode,
-			encodedGraphSvgCode;
+			escapedGraphSvgCode,
+			dataURI;
 
 		// inline the styles, so that the exported svg code contains the css rules
 		inlineVowlStyles();
@@ -37,15 +38,38 @@ webvowlApp.exportMenu = function (graphSelector) {
 			.attr("xmlns", "http://www.w3.org/2000/svg")
 			.node().parentNode.innerHTML;
 
+		escapedGraphSvgCode = escapeUnicodeCharacters(graphSvgCode);
 		//btoa(); Creates a base-64 encoded ASCII string from a "string" of binary data.
-		encodedGraphSvgCode = "data:image/svg+xml;base64," + btoa(graphSvgCode);
+		dataURI = "data:image/svg+xml;base64," + btoa(escapedGraphSvgCode);
 
-		exportButton.attr("href", encodedGraphSvgCode)
+		exportButton.attr("href", dataURI)
 			.attr("download", exportFilename);
 
 		// remove graphic styles for interaction to go back to normal
 		removeVowlInlineStyles();
 		showNotExportableElements();
+	}
+
+	function escapeUnicodeCharacters(text) {
+		var textSnippets = [],
+			i, textLength = text.length,
+			character,
+			charCode;
+
+		for (i = 0; i < textLength; i++) {
+			character = text.charAt(i);
+			charCode = character.charCodeAt(0);
+
+			if (charCode < 255) {
+				textSnippets.push(character);
+			} else {
+				textSnippets.push("&#");
+				textSnippets.push(charCode);
+				textSnippets.push(";");
+			}
+		}
+
+		return textSnippets.join("");
 	}
 
 	function inlineVowlStyles() {
