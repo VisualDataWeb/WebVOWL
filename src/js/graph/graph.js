@@ -363,9 +363,30 @@ webvowl.graph = function (graphContainerSelector) {
 		properties = preprocessedProperties;
 		links = linkCreator.createLinks(properties);
 
+		storeLinksOnNodes(nodes, links);
+
 		force.nodes(nodes)
 			.links(links);
 	}
+
+	function storeLinksOnNodes(nodes, links) {
+		for (var i = 0, nodesLength = nodes.length; i < nodesLength; i++) {
+			var node = nodes[i],
+				connectedLinks = [];
+
+			// look for properties where this node is the domain or range
+			for (var j = 0, linksLength = links.length; j < linksLength; j++) {
+				var link = links[j];
+
+				if (link.domain() === node || link.range() === node) {
+					connectedLinks.push(link);
+				}
+			}
+
+			node.links(connectedLinks);
+		}
+	}
+
 
 	/**
 	 * Applies all options that don't change the graph data.
