@@ -8,6 +8,7 @@ webvowl.nodes.BaseNode = (function () {
 			complement,
 			instances,
 			intersection,
+			links,
 			union,
 		// Additional attributes
 			disjointWith,
@@ -41,6 +42,12 @@ webvowl.nodes.BaseNode = (function () {
 		this.intersection = function (p) {
 			if (!arguments.length) return intersection;
 			intersection = p;
+			return this;
+		};
+
+		this.links = function (p) {
+			if (!arguments.length) return links;
+			links = p;
 			return this;
 		};
 
