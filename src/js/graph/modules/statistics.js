@@ -52,6 +52,9 @@ webvowl.modules.statistics = function () {
 	}
 
 	function storeClassAndDatatypeCount(classesAndDatatypes) {
+		// Each datatype should be counted just a single time
+		var datatypeSet = d3.set();
+
 		function isDatatype(node) {
 			if (node instanceof webvowl.nodes.rdfsdatatype ||
 				node instanceof webvowl.nodes.rdfsliteral) {
@@ -62,12 +65,14 @@ webvowl.modules.statistics = function () {
 
 		classesAndDatatypes.forEach(function (node) {
 			if (isDatatype(node)) {
-				datatypeCount += 1;
+				datatypeSet.add(node.label());
 			} else if (!(node instanceof webvowl.nodes.SetOperatorNode) && !(node instanceof webvowl.nodes.owlthing)) {
 				classCount += 1;
 				classCount += countEquivalentElements(node.equivalent());
 			}
 		});
+
+		datatypeCount = datatypeSet.size();
 	}
 
 	function storePropertyCount(properties) {
