@@ -12,7 +12,12 @@ webvowl.parsing.linkCreator = (function () {
 	linkCreator.createLinks = function (properties) {
 		var links = groupPropertiesToLinks(properties);
 
-		gatherLinkInformation(links);
+		for (var i = 0, l = links.length; i < l; i++) {
+			var link = links[i];
+
+			countAndSetLayers(link, links);
+			countAndSetLoops(link, links);
+		}
 
 		return links;
 	};
@@ -23,83 +28,89 @@ webvowl.parsing.linkCreator = (function () {
 	 * @returns {Array}
 	 */
 	function groupPropertiesToLinks(properties) {
-		var links = [];
+		var links = [],
+			property,
+			addedProperties = d3.set();
 
-		properties.forEach(function (property) {
-			property._addedToLink = false;
-		});
+		for (var i = 0, l = properties.length; i < l; i++) {
+			property = properties[i];
 
-		properties.forEach(function (property) {
-			if (!property._addedToLink) {
+			if (!addedProperties.has(property.id())) {
 				var link = webvowl.elements.link();
 				link.property(property);
 				link.domain(property.domain());
 				link.range(property.range());
 
 				property.link(link);
-				property._addedToLink = true;
+				addedProperties.add(property.id());
 
 				var inverse = property.inverse();
 				if (inverse) {
 					link.inverse(inverse);
 					inverse.link(link);
-					inverse._addedToLink = true;
+					addedProperties.add(inverse.id());
 				}
 
 				links.push(link);
 			}
-		});
+		}
+
 		return links;
 	}
 
-	/**
-	 * Adds more information like loop or link count to the passed links.
-	 * @param links
-	 */
-	function gatherLinkInformation(links) {
-		var i, // index
-			l, // array length
-			loop,
-			layer;
+	function countAndSetLayers(link, allLinks) {
+		var layer,
+			layers,
+			i, l;
 
-		links.forEach(function (outer) {
-			// Count loops
-			if (typeof outer.loopCount() === "undefined") {
-				var loops = [];
-				links.forEach(function (inner) {
-					if (outer.domain() === inner.domain() && outer.domain() === inner.range()) {
-						loops.push(inner);
-					}
-				});
+		if (typeof link.layerCount() === "undefined") {
+			layers = [];
 
-				for (i = 0, l = loops.length; i < l; ++i) {
-					loop = loops[i];
-
-					loop.loopIndex(i);
-					loop.loopCount(l);
-					loop.loops(loops);
+			// Search for other links that are another layer
+			for (i = 0, l = allLinks.length; i < l; i++) {
+				var otherLink = allLinks[i];
+				if (link.domain() === otherLink.domain() && link.range() === otherLink.range() ||
+					link.domain() === otherLink.range() && link.range() === otherLink.domain()) {
+					layers.push(otherLink);
 				}
 			}
 
-			// Count overlaying links (loops are included)
-			if (typeof outer.layerCount() === "undefined") {
-				var layers = [];
-				links.forEach(function (inner) {
-					if (outer.domain() === inner.domain() && outer.range() === inner.range() ||
-						outer.domain() === inner.range() && outer.range() === inner.domain()) {
-						layers.push(inner);
-					}
-				});
+			// Set the results on each of the layers
+			for (i = 0, l = layers.length; i < l; ++i) {
+				layer = layers[i];
 
-				for (i = 0, l = layers.length; i < l; ++i) {
-					layer = layers[i];
+				layer.layerIndex(i);
+				layer.layerCount(l);
+				layer.layers(layers);
+			}
+		}
+	}
 
-					layer.layerIndex(i);
-					layer.layerCount(l);
-					layer.layers(layers);
+	function countAndSetLoops(link, allLinks) {
+		var loop,
+			loops,
+			i, l;
+
+		if (typeof link.loopCount() === "undefined") {
+			loops = [];
+
+			// Search for other links that are also loops of the same node
+			for (i = 0, l = allLinks.length; i < l; i++) {
+				var otherLink = allLinks[i];
+				if (link.domain() === otherLink.domain() && link.domain() === otherLink.range()) {
+					loops.push(otherLink);
 				}
 			}
-		});
+
+			// Set the results on each of the loops
+			for (i = 0, l = loops.length; i < l; ++i) {
+				loop = loops[i];
+
+				loop.loopIndex(i);
+				loop.loopCount(l);
+				loop.loops(loops);
+			}
+		}
 	}
 
 

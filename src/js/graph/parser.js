@@ -242,7 +242,6 @@ webvowl.parser = function () {
 		rawProperties.forEach(function (property) {
 			property.visible(true);
 			property._eqProcessed = false; // equivalent
-			property._addedToLink = false;
 		});
 
 		// Connect properties
