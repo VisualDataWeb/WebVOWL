@@ -138,7 +138,9 @@ webvowlApp.sidebar = function () {
 		}
 
 		var equivalentUriSpan = d3.select("#propEquivUri");
-		displayEquivalentElements(property.equivalent(), equivalentUriSpan);
+		listNodeArray(property.equivalent(), equivalentUriSpan);
+
+		listNodeArray(property.subproperties(), d3.select("#subproperties"));
 
 		if (property.minCardinality() !== undefined) {
 			d3.select("#infoCardinality").style("display", "none");
@@ -208,7 +210,7 @@ webvowlApp.sidebar = function () {
 
 		/* Equivalent stuff. */
 		var equivalentUriSpan = d3.select("#classEquivUri");
-		displayEquivalentElements(node.equivalent(), equivalentUriSpan);
+		listNodeArray(node.equivalent(), equivalentUriSpan);
 
 		d3.select("#typeNode").text(node.type());
 
@@ -238,21 +240,21 @@ webvowlApp.sidebar = function () {
 		setSelectionInformationVisibility(true, false, false);
 	}
 
-	function displayEquivalentElements(equivalentElements, equivalentUriSpan) {
-		var equivalentUriSpanParent = d3.select(equivalentUriSpan.node().parentNode);
+	function listNodeArray(nodes, textSpan) {
+		var spanParent = d3.select(textSpan.node().parentNode);
 
-		if (equivalentElements && equivalentElements.length) {
-			equivalentUriSpan.selectAll("*").remove();
-			equivalentElements.forEach(function (element, index) {
+		if (nodes && nodes.length) {
+			textSpan.selectAll("*").remove();
+			nodes.forEach(function (element, index) {
 				if (index > 0) {
-					equivalentUriSpan.append("span").text(", ");
+					textSpan.append("span").text(", ");
 				}
-				appendUriLabel(equivalentUriSpan, element.label(), element.uri());
+				appendUriLabel(textSpan, element.label(), element.uri());
 			});
 
-			equivalentUriSpanParent.classed("hidden", false);
+			spanParent.classed("hidden", false);
 		} else {
-			equivalentUriSpanParent.classed("hidden", true);
+			spanParent.classed("hidden", true);
 		}
 	}
 
