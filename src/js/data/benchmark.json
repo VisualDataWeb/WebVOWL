@@ -237,6 +237,10 @@
 		{
 			"id": "cardinalityTest3",
 			"type": "owl:Class"
+		},
+		{
+			"id": "equivalentPropertyTest",
+			"type": "owl:Class"
 		}
 	],
 	"classAttribute": [
@@ -250,6 +254,10 @@
 			"id": "UriPropertyTest1",
 			"uri": "http://vowl.visualdataweb.org/v2/",
 			"label": "VOWL-Spec URL"
+		},
+		{
+			"id": "equivalentPropertyTest",
+			"label": "VISIBLE OR NOT?"
 		}
 	],
 	"datatype": [
@@ -999,7 +1007,7 @@
 			"id": "EquivalentProperty",
 			"type": "owl:equivalentProperty",
 			"domain": "IndicationTest1",
-			"range": "IndicationTest2",
+			"range": "equivalentPropertyTest",
 			"label": "AnEquivalentProperty"
 		},
 		{
