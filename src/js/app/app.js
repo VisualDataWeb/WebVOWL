@@ -20,7 +20,7 @@ webvowlApp.app = function () {
 		selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
 		datatypeCollapser = webvowl.modules.datatypeCollapser(),
 		subclassCollapser = webvowl.modules.subclassCollapser(),
-		pickAndPin = webvowl.modules.pickAndPin(graph);
+		pickAndPin = webvowl.modules.pickAndPin();
 
 	app.initialize = function () {
 		options.graphContainerSelector(graphSelector);
