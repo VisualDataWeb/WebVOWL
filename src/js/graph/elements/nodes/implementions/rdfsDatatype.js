@@ -1,7 +1,7 @@
 webvowl.nodes.rdfsdatatype = (function () {
 
-	var o = function () {
-		webvowl.nodes.RectangularNode.call(this);
+	var o = function (graph) {
+		webvowl.nodes.RectangularNode.apply(this, arguments);
 
 		this.attributes(["datatype"])
 			.styleClass("datatype")

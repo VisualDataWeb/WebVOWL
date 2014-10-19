@@ -3,7 +3,7 @@
  */
 webvowl.elements.BaseElement = (function () {
 
-	var base = function () {
+	var base = function (graph) {
 		// Basic attributes
 		var equivalent,
 			id,

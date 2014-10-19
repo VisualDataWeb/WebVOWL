@@ -1,7 +1,7 @@
 webvowl.nodes.owlclass = (function () {
 
-	var o = function () {
-		webvowl.nodes.RoundNode.call(this);
+	var o = function (graph) {
+		webvowl.nodes.RoundNode.apply(this, arguments);
 
 		this.styleClass("class")
 			.type("owl:Class");

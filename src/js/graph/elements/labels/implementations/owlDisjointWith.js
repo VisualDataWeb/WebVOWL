@@ -1,7 +1,7 @@
 webvowl.labels.owldisjointwith = (function () {
 
-	var o = function () {
-		webvowl.labels.BaseLabel.call(this);
+	var o = function (graph) {
+		webvowl.labels.BaseLabel.apply(this, arguments);
 
 		var label = "Disjoint With";
 		// Disallow overwriting the label

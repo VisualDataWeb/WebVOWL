@@ -1,7 +1,7 @@
 webvowl.nodes.BaseNode = (function () {
 
-	var base = function () {
-		webvowl.elements.BaseElement.call(this);
+	var base = function (graph) {
+		webvowl.elements.BaseElement.apply(this, arguments);
 
 		var that = this,
 		// Basic attributes
