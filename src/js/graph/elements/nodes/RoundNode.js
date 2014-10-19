@@ -5,8 +5,7 @@ webvowl.nodes.RoundNode = (function () {
 
 		var that = this,
 			radius = 50,
-			pinGroupElement,
-			postUnpinAction;
+			pinGroupElement;
 
 
 		// Properties
@@ -29,13 +28,9 @@ webvowl.nodes.RoundNode = (function () {
 
 		/**
 		 * Draws the pin on a round node on a position depending on its radius.
-		 * Because of the possibility to remove a pin on click, we need to be able to pass
-		 * a function for post removal process here.
-		 * @param [postRemoveAction] a function that will be executed after the deletion of the pin
 		 */
-		this.drawPin = function (postRemoveAction) {
+		this.drawPin = function () {
 			that.pinned(true);
-			postUnpinAction = postRemoveAction || postUnpinAction;
 
 			pinGroupElement = that.nodeElement()
 				.append("g")
@@ -62,17 +57,14 @@ webvowl.nodes.RoundNode = (function () {
 		};
 
 		/**
-		 * Removes the pin.
-		 * After the pin removal, the passed function will be executed to e.g. refresh the graph.
+		 * Removes the pin and refreshs the graph to update the force layout.
 		 */
 		this.removePin = function () {
 			that.pinned(false);
 			if (pinGroupElement) {
 				pinGroupElement.remove();
 			}
-			if (postUnpinAction instanceof Function) {
-				postUnpinAction();
-			}
+			graph.updateStyle();
 		};
 
 		/**
