@@ -2,9 +2,10 @@
  * Contains the logic for connecting the modes with the website.
  *
  * @param pickAndPin mode for picking and pinning of nodes
+ * @param collapsing collapsing mode
  * @returns {{}}
  */
-webvowlApp.modeMenu = function (pickAndPin) {
+webvowlApp.modeMenu = function (pickAndPin, collapsing) {
 
 	var modeMenu = {},
 		checkboxes = [];
@@ -15,6 +16,7 @@ webvowlApp.modeMenu = function (pickAndPin) {
 	 */
 	modeMenu.setup = function () {
 		addModeItem(pickAndPin, "pickandpin", "Pick & Pin", "#pickAndPinOption");
+		addModeItem(collapsing, "collapsing", "Collapsing", "#collapseOption");
 	};
 
 	function addModeItem(module, identifier, modeName, selector) {
