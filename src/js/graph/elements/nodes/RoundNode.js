@@ -25,6 +25,10 @@ webvowl.nodes.RoundNode = (function () {
 
 
 		// Functions
+		this.setHoverHighlighting = function (enable) {
+			that.nodeElement().selectAll("circle").classed("hovered", enable);
+		};
+
 		this.textWidth = function () {
 			return this.radius() * 2;
 		};

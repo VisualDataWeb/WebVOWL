@@ -28,6 +28,10 @@ webvowl.nodes.RectangularNode = (function () {
 			return width;
 		};
 
+		this.setHoverHighlighting = function (enable) {
+			that.nodeElement().selectAll("rect").classed("hovered", enable);
+		};
+
 		this.textWidth = function () {
 			return this.width();
 		};
