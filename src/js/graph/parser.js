@@ -1,8 +1,9 @@
 /**
  * Encapsulates the parsing and preparation logic of the input data.
+ * @param graph the graph object that will be passed to the elements
  * @returns {{}}
  */
-webvowl.parser = function () {
+webvowl.parser = function (graph) {
 	var parser = {},
 		nodes,
 		properties,
@@ -82,7 +83,7 @@ webvowl.parser = function () {
 				if (elementType in prototypes) {
 					addAdditionalAttributes(element, prototypes[elementType]);
 
-					var node = new prototypes[elementType]();
+					var node = new prototypes[elementType](graph);
 					node.comment(element.comment)
 						.complement(element.complement)
 						.equivalent(element.equivalent)
@@ -134,7 +135,7 @@ webvowl.parser = function () {
 
 				if (elementType in prototypes) {
 					// Create the matching object and set the properties
-					var property = new prototypes[elementType]();
+					var property = new prototypes[elementType](graph);
 					property.cardinality(element.cardinality)
 						.comment(element.comment)
 						.domain(element.domain)

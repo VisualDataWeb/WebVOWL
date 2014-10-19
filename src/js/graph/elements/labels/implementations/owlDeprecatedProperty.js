@@ -1,7 +1,7 @@
 webvowl.labels.owldeprecatedproperty = (function () {
 
-	var o = function () {
-		webvowl.labels.BaseLabel.call(this);
+	var o = function (graph) {
+		webvowl.labels.BaseLabel.apply(this, arguments);
 
 		this.attributes(["deprecated"])
 			.styleClass("deprecatedproperty")

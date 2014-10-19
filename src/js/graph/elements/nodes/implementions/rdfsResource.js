@@ -1,7 +1,7 @@
 webvowl.nodes.rdfsresource = (function () {
 
-	var o = function () {
-		webvowl.nodes.RoundNode.call(this);
+	var o = function (graph) {
+		webvowl.nodes.RoundNode.apply(this, arguments);
 
 		var superDrawFunction = this.drawNode;
 

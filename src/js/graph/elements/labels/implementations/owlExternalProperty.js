@@ -1,7 +1,7 @@
 webvowl.labels.owlexternalproperty = (function () {
 
-	var o = function () {
-		webvowl.labels.BaseLabel.call(this);
+	var o = function (graph) {
+		webvowl.labels.BaseLabel.apply(this, arguments);
 
 		this.attributes(["external"])
 			.styleClass("externalproperty")

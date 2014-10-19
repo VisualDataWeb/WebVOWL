@@ -1,7 +1,7 @@
 webvowl.nodes.owlintersectionof = (function () {
 
-	var o = function () {
-		webvowl.nodes.SetOperatorNode.call(this);
+	var o = function (graph) {
+		webvowl.nodes.SetOperatorNode.apply(this, arguments);
 
 		var that = this;
 

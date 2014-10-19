@@ -1,7 +1,7 @@
 webvowl.nodes.RoundNode = (function () {
 
-	var o = function () {
-		webvowl.nodes.BaseNode.call(this);
+	var o = function (graph) {
+		webvowl.nodes.BaseNode.apply(this, arguments);
 
 		var that = this,
 			radius = 50,

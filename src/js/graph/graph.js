@@ -13,7 +13,7 @@ webvowl.graph = function (graphContainerSelector) {
 			})
 			.interpolate("cardinal"),
 		options,
-		parser = webvowl.parser(),
+		parser = webvowl.parser(graph),
 		linkCreator = webvowl.parsing.linkCreator(),
 	// Container for visual elements
 		graphContainer,

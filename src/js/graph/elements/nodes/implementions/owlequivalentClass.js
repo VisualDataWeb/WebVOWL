@@ -1,7 +1,7 @@
 webvowl.nodes.owlequivalentclass = (function () {
 
-	var o = function () {
-		webvowl.nodes.RoundNode.call(this);
+	var o = function (graph) {
+		webvowl.nodes.RoundNode.apply(this, arguments);
 
 		var that = this;
 

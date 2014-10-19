@@ -1,7 +1,7 @@
 webvowl.nodes.rdfsliteral = (function () {
 
-	var o = function () {
-		webvowl.nodes.RectangularNode.call(this);
+	var o = function (graph) {
+		webvowl.nodes.RectangularNode.apply(this, arguments);
 
 		var superDrawFunction = this.drawNode,
 			superLabelFunction = this.label;
