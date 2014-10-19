@@ -4,11 +4,19 @@ webvowl.nodes.RoundNode = (function () {
 		webvowl.nodes.BaseNode.apply(this, arguments);
 
 		var that = this,
+			collapsible = false,
 			radius = 50,
-			pinGroupElement;
+			pinGroupElement,
+			collapsingGroupElement;
 
 
 		// Properties
+		this.collapsible = function (p) {
+			if (!arguments.length) return collapsible;
+			collapsible = p;
+			return this;
+		};
+
 		this.radius = function (p) {
 			if (!arguments.length) return radius;
 			radius = p;
@@ -67,6 +75,37 @@ webvowl.nodes.RoundNode = (function () {
 			graph.updateStyle();
 		};
 
+		this.drawCollapsingButton = function () {
+
+			collapsingGroupElement = that.nodeElement()
+				.append("g")
+				.classed("hidden-in-export", true)
+				.attr("transform", function () {
+					var dx = (-2 / 5) * that.radius(),
+						dy = (1 / 2) * that.radius();
+					return "translate(" + dx + "," + dy + ")";
+				});
+
+			collapsingGroupElement.append("rect")
+				.classed("class pin feature", true)
+				.attr("x", 0)
+				.attr("y", 0)
+				.attr("width", 40)
+				.attr("height", 24);
+
+			collapsingGroupElement.append("line")
+				.attr("x1", 13)
+				.attr("y1", 12)
+				.attr("x2", 27)
+				.attr("y2", 12);
+
+			collapsingGroupElement.append("line")
+				.attr("x1", 20)
+				.attr("y1", 6)
+				.attr("x2", 20)
+				.attr("y2", 18);
+		};
+
 		/**
 		 * Draws a circular node.
 		 * @param parentElement the element to which this node will be appended
@@ -95,10 +134,13 @@ webvowl.nodes.RoundNode = (function () {
 		/**
 		 * Common actions that should be invoked after drawing a node.
 		 */
-		this.postDrawActions = function() {
+		this.postDrawActions = function () {
 			that.addMouseListeners();
 			if (that.pinned()) {
 				that.drawPin();
+			}
+			if (that.collapsible()) {
+				that.drawCollapsingButton();
 			}
 		};
 	};
