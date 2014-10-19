@@ -142,14 +142,6 @@ webvowl.nodes.BaseNode = (function () {
 			that.mouseEntered(true);
 		}
 
-		/**
-		 * Sets the hover highlighting of this node.
-		 * @param enable
-		 */
-		this.setHoverHighlighting = function (enable) {
-			that.nodeElement().selectAll("rect, circle").classed("hovered", enable);
-		};
-
 		function onMouseOut() {
 			that.setHoverHighlighting(false);
 
