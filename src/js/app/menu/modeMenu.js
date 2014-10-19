@@ -1,11 +1,12 @@
 /**
  * Contains the logic for connecting the modes with the website.
  *
+ * @param graph the graph that belongs to these controls
  * @param pickAndPin mode for picking and pinning of nodes
  * @param collapsing collapsing mode
  * @returns {{}}
  */
-webvowlApp.modeMenu = function (pickAndPin, collapsing) {
+webvowlApp.modeMenu = function (graph, pickAndPin, collapsing) {
 
 	var modeMenu = {},
 		checkboxes = [];
@@ -15,11 +16,11 @@ webvowlApp.modeMenu = function (pickAndPin, collapsing) {
 	 * Connects the website with the available graph modes.
 	 */
 	modeMenu.setup = function () {
-		addModeItem(pickAndPin, "pickandpin", "Pick & Pin", "#pickAndPinOption");
-		addModeItem(collapsing, "collapsing", "Collapsing", "#collapseOption");
+		addModeItem(pickAndPin, "pickandpin", "Pick & Pin", "#pickAndPinOption", false);
+		addModeItem(collapsing, "collapsing", "Collapsing", "#collapseOption", true);
 	};
 
-	function addModeItem(module, identifier, modeName, selector) {
+	function addModeItem(module, identifier, modeName, selector, updateGraphOnClick) {
 		var moduleOptionContainer,
 			moduleCheckbox;
 
@@ -39,6 +40,10 @@ webvowlApp.modeMenu = function (pickAndPin, collapsing) {
 		moduleCheckbox.on("click", function (d) {
 			var isEnabled = moduleCheckbox.property("checked");
 			d.module.enabled(isEnabled);
+
+			if (updateGraphOnClick) {
+				graph.update();
+			}
 		});
 
 		moduleOptionContainer.append("label")
