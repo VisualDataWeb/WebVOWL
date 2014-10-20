@@ -19,6 +19,7 @@ webvowl.labels.BaseLabel = (function () {
 			maxCardinality,
 			range,
 			subproperties,
+			superproperties,
 		// Style attributes
 			linkType = "normal",
 			markerType = "normal",
@@ -118,6 +119,12 @@ webvowl.labels.BaseLabel = (function () {
 		this.subproperties = function (p) {
 			if (!arguments.length) return subproperties;
 			subproperties = p;
+			return this;
+		};
+
+		this.superproperties = function (p) {
+			if (!arguments.length) return superproperties;
+			superproperties = p;
 			return this;
 		};
 
@@ -270,7 +277,7 @@ webvowl.labels.BaseLabel = (function () {
 			setHighlighting(true);
 
 			that.foreground();
-			foregroundSubproperties();
+			foregroundSubAndSuperProperties();
 		}
 
 		function setHighlighting(enable) {
@@ -278,12 +285,29 @@ webvowl.labels.BaseLabel = (function () {
 			that.linkGroup().selectAll("path, text").classed("hovered", enable);
 			that.markerElement().select("path").classed("hovered", enable);
 
+			var subAndSuperProperties = getSubAndSuperProperties();
+			subAndSuperProperties.forEach(function (property) {
+				property.labelElement().select("rect")
+					.classed("indirectHighlighting", enable);
+			});
+		}
+
+		/**
+		 * Combines the sub- and superproperties into a single array, because
+		 * they're often used equivalently.
+		 * @returns {Array}
+		 */
+		function getSubAndSuperProperties() {
+			var properties = [];
+
 			if (that.subproperties()) {
-				that.subproperties().forEach(function (property) {
-					property.labelElement().select("rect")
-						.classed("indirectHighlighting", enable);
-				});
+				properties = properties.concat(that.subproperties());
 			}
+			if (that.superproperties()) {
+				properties = properties.concat(that.superproperties());
+			}
+
+			return properties;
 		}
 
 		/**
@@ -301,15 +325,15 @@ webvowl.labels.BaseLabel = (function () {
 		};
 
 		/**
-		 * Foregrounds the subproperties of this property.
+		 * Foregrounds the sub- and superproperties of this property.
 		 * This is separated from the foreground-function to prevent endless loops.
 		 */
-		function foregroundSubproperties() {
-			if (that.subproperties()) {
-				that.subproperties().forEach(function (subproperty) {
-					subproperty.foreground();
-				});
-			}
+		function foregroundSubAndSuperProperties() {
+			var subAndSuperProperties = getSubAndSuperProperties();
+
+			subAndSuperProperties.forEach(function (property) {
+				property.foreground();
+			});
 		}
 
 		function onMouseOut() {
