@@ -141,6 +141,7 @@ webvowlApp.sidebar = function () {
 		listNodeArray(property.equivalent(), equivalentUriSpan);
 
 		listNodeArray(property.subproperties(), d3.select("#subproperties"));
+		listNodeArray(property.superproperties(), d3.select("#superproperties"));
 
 		if (property.minCardinality() !== undefined) {
 			d3.select("#infoCardinality").style("display", "none");

@@ -9,7 +9,7 @@ webvowl.parser = function (graph) {
 		properties,
 		classMap,
 		propertyMap,
-		// Modules
+	// Modules
 		attributeParser = webvowl.parsing.attributeParser();
 
 	/**
@@ -147,6 +147,7 @@ webvowl.parser = function (graph) {
 						.maxCardinality(element.maxCardinality)
 						.range(element.range)
 						.subproperties(element.subproperty)
+						.superproperties(element.superproperty)
 						// .type(element.type) Ignore, because we predefined it
 						.uri(element.uri);
 
@@ -226,7 +227,7 @@ webvowl.parser = function (graph) {
 	}
 
 	/**
-	 * Connect all properties and also their subproperties.
+	 * Connect all properties and also their sub- and superproperties.
 	 * We iterate over the rawProperties array because it is way faster than iterating
 	 * over an object and its attributes.
 	 *
@@ -299,21 +300,9 @@ webvowl.parser = function (graph) {
 				}
 			}
 
-			// Reference subproperties
-			var subpropertyIds = property.subproperties();
-			if (subpropertyIds) {
-				for (i = 0, l = subpropertyIds.length; i < l; ++i) {
-					var subpropertyId = findId(subpropertyIds[i]);
-					var subproperty = propertyMap[subpropertyId];
-
-					if (subproperty) {
-						// Replace id with object
-						property.subproperties()[i] = subproperty;
-					} else {
-						console.warn("No subproperty was found for id: " + subpropertyId);
-					}
-				}
-			}
+			// Reference sub- and superproperties
+			referenceSubOrSuperProperties(property.subproperties());
+			referenceSubOrSuperProperties(property.superproperties());
 		});
 
 		// Merge equivalent properties and process disjoints.
@@ -346,6 +335,26 @@ webvowl.parser = function (graph) {
 		});
 
 		return properties;
+	}
+
+	function referenceSubOrSuperProperties(subOrSuperPropertiesArray) {
+		var i, l;
+
+		if (!subOrSuperPropertiesArray) {
+			return;
+		}
+
+		for (i = 0, l = subOrSuperPropertiesArray.length; i < l; ++i) {
+			var subOrSuperPropertyId = findId(subOrSuperPropertiesArray[i]);
+			var subOrSuperProperty = propertyMap[subOrSuperPropertyId];
+
+			if (subOrSuperProperty) {
+				// Replace id with object
+				subOrSuperPropertiesArray[i] = subOrSuperProperty;
+			} else {
+				console.warn("No sub-/superproperty was found for id: " + subOrSuperPropertyId);
+			}
+		}
 	}
 
 	/**
