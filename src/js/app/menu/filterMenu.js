@@ -33,7 +33,8 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 		filterCheckbox = filterContainer.append("input")
 			.classed("filterCheckbox", true)
 			.attr("id", identifier + "FilterCheckbox")
-			.attr("type", "checkbox");
+			.attr("type", "checkbox")
+			.property("checked", filter.enabled());
 
 		// Store for easier resetting
 		checkboxes.push(filterCheckbox);

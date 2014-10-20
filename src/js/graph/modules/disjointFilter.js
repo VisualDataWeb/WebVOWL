@@ -3,7 +3,8 @@ webvowl.modules.disjointFilter = function () {
 	var filter = {},
 		nodes,
 		properties,
-		enabled = false,
+	// According to the specification enabled by default
+		enabled = true,
 		filteredNodes,
 		filteredProperties;
 
