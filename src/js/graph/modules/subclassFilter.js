@@ -1,6 +1,6 @@
-webvowl.modules.subclassCollapser = function () {
+webvowl.modules.subclassFilter = function () {
 
-	var collapser = {},
+	var filter = {},
 		nodes,
 		properties,
 		enabled = false,
@@ -13,7 +13,7 @@ webvowl.modules.subclassCollapser = function () {
 	 * @param untouchedNodes
 	 * @param untouchedProperties
 	 */
-	collapser.filter = function (untouchedNodes, untouchedProperties) {
+	filter.filter = function (untouchedNodes, untouchedProperties) {
 		nodes = untouchedNodes;
 		properties = untouchedProperties;
 
@@ -153,22 +153,22 @@ webvowl.modules.subclassCollapser = function () {
 		return disjoint;
 	}
 
-	collapser.enabled = function (p) {
+	filter.enabled = function (p) {
 		if (!arguments.length) return enabled;
 		enabled = p;
-		return collapser;
+		return filter;
 	};
 
 
 	// Functions a filter must have
-	collapser.filteredNodes = function () {
+	filter.filteredNodes = function () {
 		return filteredNodes;
 	};
 
-	collapser.filteredProperties = function () {
+	filter.filteredProperties = function () {
 		return filteredProperties;
 	};
 
 
-	return collapser;
+	return filter;
 };

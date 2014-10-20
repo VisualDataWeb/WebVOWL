@@ -10,7 +10,7 @@ describe("Collapsing of datatypes", function () {
 	});
 
 	beforeEach(function () {
-		collapser = webvowl.modules.datatypeCollapser();
+		collapser = webvowl.modules.datatypeFilter();
 		collapser.enabled(true);
 	});
 
