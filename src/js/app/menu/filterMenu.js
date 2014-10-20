@@ -4,9 +4,10 @@
  * @param graph required for calling a refresh after a filter change
  * @param datatypeFilter filter for all datatypes
  * @param subclassFilter filter for all subclasses
+ * @param disjointFilter filter for all disjoint with properties
  * @returns {{}}
  */
-webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
+webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjointFilter) {
 
 	var filterMenu = {},
 		checkboxes = [];
@@ -18,6 +19,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter) {
 	filterMenu.setup = function () {
 		addFilterItem(datatypeFilter, "datatype", "All datatypes", "#datatypeFilteringOption");
 		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
+		addFilterItem(disjointFilter, "disjoint", "Disjoint Withs", "#disjointFilteringOption");
 	};
 
 	function addFilterItem(filter, identifier, pluralNameOfFilteredItems, selector) {
