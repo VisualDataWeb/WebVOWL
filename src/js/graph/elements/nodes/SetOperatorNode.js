@@ -13,7 +13,7 @@ webvowl.nodes.SetOperatorNode = (function () {
 		this.setHoverHighlighting = function (enable) {
 			superHoverHighlightingFunction(enable);
 
-			d3.selectAll("." + that.cssClassOfNode()).classed("hovered", enable);
+			d3.selectAll(".special." + that.cssClassOfNode()).classed("hovered", enable);
 		};
 	};
 	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);
