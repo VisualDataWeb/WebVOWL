@@ -10,7 +10,7 @@ describe("Collapsing of subclassOf properties", function () {
 	});
 
 	beforeEach(function () {
-		collapser = webvowl.modules.subclassCollapser();
+		collapser = webvowl.modules.subclassFilter();
 		collapser.enabled(true);
 	});
 

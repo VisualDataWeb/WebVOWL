@@ -18,8 +18,8 @@ webvowlApp.app = function () {
 		statistics = webvowl.modules.statistics(),
 		focuser = webvowl.modules.focuser(),
 		selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
-		datatypeCollapser = webvowl.modules.datatypeCollapser(),
-		subclassCollapser = webvowl.modules.subclassCollapser(),
+		datatypeFilter = webvowl.modules.datatypeFilter(),
+		subclassFilter = webvowl.modules.subclassFilter(),
 		pickAndPin = webvowl.modules.pickAndPin(),
 		collapsing = webvowl.modules.collapsing();
 
@@ -28,15 +28,15 @@ webvowlApp.app = function () {
 		options.selectionModules().push(focuser);
 		options.selectionModules().push(selectionDetailDisplayer);
 		options.selectionModules().push(pickAndPin);
-		options.filterModules().push(datatypeCollapser);
-		options.filterModules().push(subclassCollapser);
+		options.filterModules().push(datatypeFilter);
+		options.filterModules().push(subclassFilter);
 		options.filterModules().push(statistics);
 		options.filterModules().push(collapsing);
 		loadOntology(defaultJsonFilename);
 
 		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
 		gravityMenu = webvowlApp.gravityMenu(graph);
-		filterMenu = webvowlApp.filterMenu(graph, datatypeCollapser, subclassCollapser);
+		filterMenu = webvowlApp.filterMenu(graph, datatypeFilter, subclassFilter);
 		modeMenu = webvowlApp.modeMenu(graph, pickAndPin, collapsing);
 		resetMenu = webvowlApp.resetMenu(graph, [gravityMenu, filterMenu, modeMenu,
 			focuser, selectionDetailDisplayer]);
