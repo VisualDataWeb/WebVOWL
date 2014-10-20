@@ -195,11 +195,24 @@ webvowlApp.sidebar = function () {
 		var spanParent = d3.select(textSpan.node().parentNode);
 
 		if (attributes && attributes.length > 0) {
+			// Remove redundant "object" and "datatype" attribute for sidebar
+			removeElementFromArray("object", attributes);
+			removeElementFromArray("datatype", attributes);
+		}
+
+		if (attributes && attributes.length > 0) {
 			textSpan.text(attributes.join(", "));
 
 			spanParent.classed("hidden", false);
 		} else {
 			spanParent.classed("hidden", true);
+		}
+	}
+
+	function removeElementFromArray(element, array) {
+		var index = array.indexOf(element);
+		if (index > -1) {
+			array.splice(index, 1);
 		}
 	}
 
