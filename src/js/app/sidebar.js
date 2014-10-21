@@ -199,6 +199,7 @@ webvowlApp.sidebar = function () {
 			// Remove redundant "object" and "datatype" attribute for sidebar
 			removeElementFromArray("object", attributes);
 			removeElementFromArray("datatype", attributes);
+			removeElementFromArray("rdf", attributes);
 		}
 
 		if (attributes && attributes.length > 0) {
