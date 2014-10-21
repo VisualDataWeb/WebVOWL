@@ -375,6 +375,12 @@
 			"id": "disjoint02"
 		},
 		{
+			"id": "disjointBridge1"
+		},
+		{
+			"id": "disjointBridge2"
+		},
+		{
 			"id": "testOwlClass"
 		},
 		{
@@ -736,6 +742,18 @@
 			"domain": "DisjointTest0",
 			"range": "DisjointTest2",
 			"type": "owl:disjointWith"
+		},
+		{
+			"id": "disjointBridge1",
+			"domain": "DisjointTest0",
+			"range": "DisjointTestUri",
+			"type": "owl:ObjectProperty"
+		},
+		{
+			"id": "disjointBridge2",
+			"domain": "DisjointTestUri",
+			"range": "DisjointTest2",
+			"type": "owl:ObjectProperty"
 		},
 		{
 			"id": "testOwlClass",
