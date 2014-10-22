@@ -28,10 +28,10 @@ webvowlApp.app = function () {
 		options.selectionModules().push(focuser);
 		options.selectionModules().push(selectionDetailDisplayer);
 		options.selectionModules().push(pickAndPin);
+		options.filterModules().push(statistics);
 		options.filterModules().push(datatypeFilter);
 		options.filterModules().push(subclassFilter);
 		options.filterModules().push(disjointFilter);
-		options.filterModules().push(statistics);
 		loadOntology(defaultJsonFilename);
 
 		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
