@@ -315,12 +315,23 @@ webvowl.parser = function (graph) {
 
 		// Add additional information to the links
 		rawProperties.forEach(function (property) {
-			// Links of merged hidden classes should point to/from the visible equivalent class
-			if (!property.domain().visible() && property.domain().equivalentBase()) {
-				property.domain(property.domain().equivalentBase());
+
+			/* Links of merged hidden classes should point to/from the visible equivalent class,
+			 but there should not be two equal properties between the same domain and range. */
+			var existsEquivalentProperty = containsAnotherEquivalentProperty(rawProperties, property);
+			if (wasNodeMerged(property.domain())) {
+				if (!existsEquivalentProperty) {
+					property.domain(property.domain().equivalentBase());
+				} else {
+					property.visible(false);
+				}
 			}
-			if (!property.range().visible() && property.range().equivalentBase()) {
-				property.range(property.range().equivalentBase());
+			if (wasNodeMerged(property.range())) {
+				if (!existsEquivalentProperty) {
+					property.range(property.range().equivalentBase());
+				} else {
+					property.visible(false);
+				}
 			}
 
 			// Hide link if source or target node is hidden
@@ -355,6 +366,25 @@ webvowl.parser = function (graph) {
 				console.warn("No sub-/superproperty was found for id: " + subOrSuperPropertyId);
 			}
 		}
+	}
+
+	function wasNodeMerged(node) {
+		return !node.visible() && node.equivalentBase();
+	}
+
+	function containsAnotherEquivalentProperty(properties, property) {
+		var i, l, otherProperty;
+
+		for (i = 0, l = properties.length; i < l; i++) {
+			otherProperty = properties[i];
+
+			if (otherProperty.type() === property.type() &&
+				otherProperty.label() === property.label()) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**
