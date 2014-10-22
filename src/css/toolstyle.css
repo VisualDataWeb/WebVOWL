@@ -483,10 +483,20 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 .accordion-trigger {
-	background: rgb(27, 37, 46);
+	background: #24323e;
 	cursor: pointer;
 	padding: .5em;
 }
+
+.accordion-trigger.accordion-trigger-active:before {
+	padding-right: 4px;
+	content: "\25BC"
+}
+
+.accordion-trigger:not(.accordion-trigger-active):before {
+	padding-right: 4px;
+	content: "\25BA"
+ }
 
 .small-whitespace-separator {
 	height: 3px;
