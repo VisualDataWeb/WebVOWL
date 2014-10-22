@@ -144,7 +144,7 @@
 		"subproperty": ["property2"],
 		"domain": "class27",
 		"label": "deprecatedObjectProperty",
-		"attributes": [],
+		"attributes": ["deprecated"],
 		"instances": 0,
 		"comment": "",
 		"uri": "http://purl.org/BenchmarkOntology#deprecatedObjectProperty"
@@ -260,7 +260,7 @@
 		"equivalent": [],
 		"range": "thing2",
 		"disjoint": [],
-		"subproperty": [],
+		"subproperty": ["property12"],
 		"domain": "thing2",
 		"label": "subproperty",
 		"attributes": [],
@@ -445,7 +445,7 @@
 		"subproperty": [],
 		"domain": "class27",
 		"label": "deprecatedDatatypeProperty",
-		"attributes": [],
+		"attributes": ["deprecated"],
 		"instances": 0,
 		"comment": "",
 		"uri": "http://purl.org/BenchmarkOntology#deprecatedDatatypeProperty"
@@ -561,9 +561,9 @@
 		"complement": [],
 		"id": "class25",
 		"intersection": [],
-		"equivalent": ["class14", "class20"],
+		"equivalent": [],
 		"superClasses": [],
-		"union": [],
+		"union": ["class20", "class14"],
 		"subClasses": [],
 		"label": "UnionClass",
 		"attributes": ["equivalent"],
@@ -574,8 +574,8 @@
 	{
 		"complement": [],
 		"id": "class6",
-		"intersection": [],
-		"equivalent": ["class27", "class25", "class11"],
+		"intersection": ["class27", "class25", "class11"],
+		"equivalent": [],
 		"superClasses": [],
 		"union": [],
 		"subClasses": [],
@@ -589,9 +589,9 @@
 		"complement": [],
 		"id": "class22",
 		"intersection": [],
-		"equivalent": ["class27", "class25", "class11"],
+		"equivalent": [],
 		"superClasses": [],
-		"union": [],
+		"union": ["class27", "class25", "class11"],
 		"subClasses": [],
 		"label": "LargeUnionClass",
 		"attributes": ["equivalent"],
@@ -614,10 +614,10 @@
 		"uri": "http://purl.org/BenchmarkOntologyModule#ImportedClass"
 	},
 	{
-		"complement": [],
+		"complement": ["class19"],
 		"id": "class18",
 		"intersection": [],
-		"equivalent": ["class19"],
+		"equivalent": [],
 		"superClasses": [],
 		"union": [],
 		"subClasses": [],
@@ -650,7 +650,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "DeprecatedClass",
-		"attributes": ["owl:DeprecatedClass"],
+		"attributes": ["deprecated"],
 		"instances": 0,
 		"comment": "",
 		"uri": "http://purl.org/BenchmarkOntology#DeprecatedClass"
@@ -684,10 +684,10 @@
 		"uri": "http://purl.org/BenchmarkOntology#DisjointUnionClass"
 	},
 	{
-		"complement": [],
+		"complement": ["class20"],
 		"id": "class21",
 		"intersection": [],
-		"equivalent": ["class20"],
+		"equivalent": [],
 		"superClasses": [],
 		"union": [],
 		"subClasses": [],
@@ -714,8 +714,8 @@
 	{
 		"complement": [],
 		"id": "class24",
-		"intersection": [],
-		"equivalent": ["class14", "class20"],
+		"intersection": ["class20", "class14"],
+		"equivalent": [],
 		"superClasses": [],
 		"union": [],
 		"subClasses": [],
@@ -729,9 +729,9 @@
 		"complement": [],
 		"id": "class1",
 		"intersection": [],
-		"equivalent": ["class3", "class19"],
+		"equivalent": [],
 		"superClasses": [],
-		"union": [],
+		"union": ["class3", "class19"],
 		"subClasses": [],
 		"label": "UnionDatatype",
 		"attributes": ["equivalent"],
@@ -757,7 +757,7 @@
 		"complement": [],
 		"id": "class27",
 		"intersection": [],
-		"equivalent": ["class17"],
+		"equivalent": [],
 		"superClasses": [],
 		"union": [],
 		"subClasses": [],
@@ -798,8 +798,8 @@
 	{
 		"complement": [],
 		"id": "class4",
-		"intersection": [],
-		"equivalent": ["class3", "class19"],
+		"intersection": ["class3", "class19"],
+		"equivalent": [],
 		"superClasses": [],
 		"union": [],
 		"subClasses": [],
@@ -878,15 +878,15 @@
 	},
 	{
 		"id": "class25",
-		"type": "owl:equivalentClass"
+		"type": "owl:unionOf"
 	},
 	{
 		"id": "class6",
-		"type": "owl:equivalentClass"
+		"type": "owl:intersectionOf"
 	},
 	{
 		"id": "class22",
-		"type": "owl:equivalentClass"
+		"type": "owl:unionOf"
 	},
 	{
 		"id": "class11",
@@ -894,7 +894,7 @@
 	},
 	{
 		"id": "class18",
-		"type": "owl:equivalentClass"
+		"type": "owl:complementOf"
 	},
 	{
 		"id": "class12",
@@ -914,7 +914,7 @@
 	},
 	{
 		"id": "class21",
-		"type": "owl:equivalentClass"
+		"type": "owl:complementOf"
 	},
 	{
 		"id": "class3",
@@ -922,11 +922,11 @@
 	},
 	{
 		"id": "class24",
-		"type": "owl:equivalentClass"
+		"type": "owl:intersectionOf"
 	},
 	{
 		"id": "class1",
-		"type": "owl:equivalentClass"
+		"type": "owl:unionOf"
 	},
 	{
 		"id": "class23",
@@ -934,7 +934,7 @@
 	},
 	{
 		"id": "class27",
-		"type": "owl:equivalentClass"
+		"type": "owl:Class"
 	},
 	{
 		"id": "class8",
@@ -946,7 +946,7 @@
 	},
 	{
 		"id": "class4",
-		"type": "owl:equivalentClass"
+		"type": "owl:intersectionOf"
 	},
 	{
 		"id": "class20",
