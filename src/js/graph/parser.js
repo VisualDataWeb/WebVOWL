@@ -318,7 +318,7 @@ webvowl.parser = function (graph) {
 
 			/* Links of merged hidden classes should point to/from the visible equivalent class,
 			 but there should not be two equal properties between the same domain and range. */
-			var existsEquivalentProperty = containsAnotherEquivalentProperty(rawProperties, property);
+			var existsEquivalentProperty = hasMoreEqualProperties(rawProperties, property);
 			if (wasNodeMerged(property.domain())) {
 				if (!existsEquivalentProperty) {
 					property.domain(property.domain().equivalentBase());
@@ -372,14 +372,17 @@ webvowl.parser = function (graph) {
 		return !node.visible() && node.equivalentBase();
 	}
 
-	function containsAnotherEquivalentProperty(properties, property) {
-		var i, l, otherProperty;
+
+	function hasMoreEqualProperties(properties, referenceProperty) {
+		var i, l, property;
 
 		for (i = 0, l = properties.length; i < l; i++) {
-			otherProperty = properties[i];
+			property = properties[i];
 
-			if (otherProperty.type() === property.type() &&
-				otherProperty.label() === property.label()) {
+			if (referenceProperty.domain() === property.domain() &&
+				referenceProperty.range() === property.range() &&
+				referenceProperty.type() === property.type() &&
+				referenceProperty.label() === property.label()) {
 				return true;
 			}
 		}
