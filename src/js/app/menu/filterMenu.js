@@ -10,7 +10,7 @@
 webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjointFilter) {
 
 	var filterMenu = {},
-		checkboxes = [];
+		checkboxData = [];
 
 
 	/**
@@ -37,7 +37,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 			.property("checked", filter.enabled());
 
 		// Store for easier resetting
-		checkboxes.push(filterCheckbox);
+		checkboxData.push({checkbox: filterCheckbox, defaultState: filter.enabled()});
 
 		filterCheckbox.on("click", function () {
 			// There might be no parameters passed because of a manual
@@ -56,10 +56,13 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 	 * Resets the filters (and also filtered elements) to their default.
 	 */
 	filterMenu.reset = function () {
-		checkboxes.forEach(function (checkbox) {
-			var isChecked = checkbox.property("checked");
-			if (isChecked) {
-				checkbox.property("checked", false);
+		checkboxData.forEach(function (checkboxData) {
+			var checkbox = checkboxData.checkbox,
+				enabledByDefault = checkboxData.defaultState,
+				isChecked = checkbox.property("checked");
+
+			if (isChecked !== enabledByDefault) {
+				checkbox.property("checked", enabledByDefault);
 				// Call onclick event handlers programmatically
 				checkbox.on("click")();
 			}
