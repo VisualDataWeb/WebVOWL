@@ -196,7 +196,7 @@ webvowlApp.sidebar = function () {
 		var spanParent = d3.select(textSpan.node().parentNode);
 
 		if (attributes && attributes.length > 0) {
-			// Remove redundant "object" and "datatype" attribute for sidebar
+			// Remove redundant redundant attributes for sidebar
 			removeElementFromArray("object", attributes);
 			removeElementFromArray("datatype", attributes);
 			removeElementFromArray("rdf", attributes);
