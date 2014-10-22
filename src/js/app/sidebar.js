@@ -77,8 +77,6 @@ webvowlApp.sidebar = function () {
 
 		d3.select("#classCount")
 			.text(deliveredMetrics.classCount || statistics.classCount());
-		d3.select("#datatypeCount")
-			.text(deliveredMetrics.datatypeCount || statistics.datatypeCount());
 		d3.select("#propertyCount")
 			.text(deliveredMetrics.propertyCount || statistics.propertyCount());
 		d3.select("#nodeCount")
