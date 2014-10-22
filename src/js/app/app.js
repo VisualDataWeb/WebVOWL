@@ -21,8 +21,7 @@ webvowlApp.app = function () {
 		datatypeFilter = webvowl.modules.datatypeFilter(),
 		subclassFilter = webvowl.modules.subclassFilter(),
 		disjointFilter = webvowl.modules.disjointFilter(),
-		pickAndPin = webvowl.modules.pickAndPin(),
-		collapsing = webvowl.modules.collapsing();
+		pickAndPin = webvowl.modules.pickAndPin();
 
 	app.initialize = function () {
 		options.graphContainerSelector(graphSelector);
@@ -33,13 +32,12 @@ webvowlApp.app = function () {
 		options.filterModules().push(subclassFilter);
 		options.filterModules().push(disjointFilter);
 		options.filterModules().push(statistics);
-		options.filterModules().push(collapsing);
 		loadOntology(defaultJsonFilename);
 
 		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
 		gravityMenu = webvowlApp.gravityMenu(graph);
 		filterMenu = webvowlApp.filterMenu(graph, datatypeFilter, subclassFilter, disjointFilter);
-		modeMenu = webvowlApp.modeMenu(graph, pickAndPin, collapsing);
+		modeMenu = webvowlApp.modeMenu(graph, pickAndPin);
 		resetMenu = webvowlApp.resetMenu(graph, [gravityMenu, filterMenu, modeMenu,
 			focuser, selectionDetailDisplayer]);
 		pauseMenu = webvowlApp.pauseMenu(graph);

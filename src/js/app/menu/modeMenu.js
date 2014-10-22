@@ -3,10 +3,9 @@
  *
  * @param graph the graph that belongs to these controls
  * @param pickAndPin mode for picking and pinning of nodes
- * @param collapsing collapsing mode
  * @returns {{}}
  */
-webvowlApp.modeMenu = function (graph, pickAndPin, collapsing) {
+webvowlApp.modeMenu = function (graph, pickAndPin) {
 
 	var modeMenu = {},
 		checkboxes = [];
@@ -17,7 +16,6 @@ webvowlApp.modeMenu = function (graph, pickAndPin, collapsing) {
 	 */
 	modeMenu.setup = function () {
 		addModeItem(pickAndPin, "pickandpin", "Pick & Pin", "#pickAndPinOption", false);
-		addModeItem(collapsing, "collapsing", "Collapsing", "#collapseOption", true);
 	};
 
 	function addModeItem(module, identifier, modeName, selector, updateGraphOnClick) {
