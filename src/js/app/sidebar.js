@@ -100,7 +100,6 @@ webvowlApp.sidebar = function () {
 		if (selectedElement && !isTriggerActive) {
 			d3.select("#selection-details-trigger").node().click();
 		} else if (!selectedElement && isTriggerActive) {
-			d3.select("#selection-details-trigger").node().click();
 			showSelectionAdvice();
 			return;
 		}
