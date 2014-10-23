@@ -316,22 +316,20 @@ webvowl.parser = function (graph) {
 		// Add additional information to the links
 		rawProperties.forEach(function (property) {
 
-			/* Links of merged hidden classes should point to/from the visible equivalent class,
-			 but there should not be two equal properties between the same domain and range. */
-			var existsEquivalentProperty = hasMoreEqualProperties(rawProperties, property);
+			// Links of merged hidden classes should point to/from the visible equivalent class
+			var propertyWasRerouted = false;
 			if (wasNodeMerged(property.domain())) {
-				if (!existsEquivalentProperty) {
-					property.domain(property.domain().equivalentBase());
-				} else {
-					property.visible(false);
-				}
+				property.domain(property.domain().equivalentBase());
+				propertyWasRerouted = true;
 			}
 			if (wasNodeMerged(property.range())) {
-				if (!existsEquivalentProperty) {
-					property.range(property.range().equivalentBase());
-				} else {
+				property.range(property.range().equivalentBase());
+				propertyWasRerouted = true;
+			}
+
+			// But there should not be two equal properties between the same domain and range
+			if (propertyWasRerouted && hasOtherEqualProperties(rawProperties, property)) {
 					property.visible(false);
-				}
 			}
 
 			// Hide link if source or target node is hidden
@@ -373,15 +371,26 @@ webvowl.parser = function (graph) {
 	}
 
 
-	function hasMoreEqualProperties(properties, referenceProperty) {
+	function hasOtherEqualProperties(properties, referenceProperty) {
 		var i, l, property;
 
 		for (i = 0, l = properties.length; i < l; i++) {
 			property = properties[i];
 
-			if (referenceProperty.domain() === property.domain() &&
-				referenceProperty.range() === property.range() &&
-				referenceProperty.type() === property.type() &&
+			if (referenceProperty === property) {
+				continue;
+			}
+			if (referenceProperty.domain() !== property.domain() ||
+				referenceProperty.range() !== property.range()) {
+				continue;
+			}
+
+			// Check for an equal URI, if non existent compare label and type
+			if (referenceProperty.uri() && property.uri()) {
+				if (referenceProperty.uri() === property.uri()) {
+					return true;
+				}
+			} else if (referenceProperty.type() === property.type() &&
 				referenceProperty.label() === property.label()) {
 				return true;
 			}
