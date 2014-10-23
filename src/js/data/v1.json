@@ -1697,7 +1697,7 @@
 		"union": [],
 		"subClasses": ["class312"],
 		"label": "Offering",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "An offering represents the public, not necessarily binding, not necessarily exclusive, announcement by a gr:BusinessEntity to provide (or seek) a certain gr:BusinessFunction for a certain gr:ProductOrService to a specified target audience. An offering is specified by the type of product or service or bundle it refers to, what business function is being offered (sales, rental, ...), and a set of commercial properties. It can either refer to \n(1) a clearly specified instance (gr:Individual),\n(2) to a set of anonymous instances of a given type (gr:SomeItems),\n(3) a product model specification (gr:ProductOrServiceModel), see also section 3.3.3 of the GoodRelations Technical Report. \n\nAn offering may be constrained in terms of the eligible type of business partner, countries, quantities, and other commercial properties. The definition of the commercial properties, the type of product offered, and the business function are explained in other parts of this vocabulary in more detail.\n\nExample: Peter Miller offers to repair TV sets made by Siemens, Volkswagen Innsbruck sells a particular instance of a Volkswagen Golf at $10,000.\n\nCompatibility with schema.org: This class is a superclass to http://schema.org/Offer, since gr:Offering can also represent demand.",
 		"uri": "http://purl.org/goodrelations/v1#Offering"
@@ -1711,7 +1711,7 @@
 		"union": [],
 		"subClasses": ["class310", "class321", "class311"],
 		"label": "Price specification",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "The superclass of all price specifications.",
 		"uri": "http://purl.org/goodrelations/v1#PriceSpecification"
@@ -1725,7 +1725,7 @@
 		"union": [],
 		"subClasses": ["class333"],
 		"label": "Payment method",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "A payment method is a standardized procedure for transferring the monetary amount for a purchase. Payment methods are characterized by the legal and technical structures used, and by the organization or group carrying out the transaction. This element is mostly used for specifying the types of payment accepted by a gr:BusinessEntity.\n\nExamples: VISA, MasterCard, Diners, cash, or bank transfer in advance.",
 		"uri": "http://purl.org/goodrelations/v1#PaymentMethod"
@@ -1739,7 +1739,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Delivery charge specification",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "A delivery charge specification is a conceptual entity that specifies the additional costs asked for the delivery of a given gr:Offering using a particular gr:DeliveryMethod by the respective gr:BusinessEntity. A delivery charge specification is characterized by (1) a monetary amount per order, specified as a literal value of type float in combination with a currency, (2) the delivery method, (3) the target country or region, and (4)  whether this charge includes local sales taxes, namely VAT.\nA gr:Offering may be linked to multiple gr:DeliveryChargeSpecification nodes that specify alternative charges for disjoint combinations of target countries or regions, and delivery methods.\n\nExamples: Delivery by direct download is free of charge worldwide, delivery by UPS to Germany is 10 Euros per order, delivery by mail within the US is 5 Euros per order.\n\nThe total amount of this charge is specified as a float value of the gr:hasCurrencyValue property. The currency is specified via the gr:hasCurrency datatype property. Whether the price includes VAT or not is indicated by the gr:valueAddedTaxIncluded property. The gr:DeliveryMethod to which this charge applies is specified using the gr:appliesToDeliveryMethod object property. The region or regions to which this charge applies is specified using the gr:eligibleRegions property, which uses ISO 3166-1 and ISO 3166-2 codes.\n\nIf the price can only be given as a range, use gr:hasMaxCurrencyValue and gr:hasMinCurrencyValue for the upper and lower bounds.\n\nImportant: When querying for the price, always use gr:hasMaxCurrencyValue and gr:hasMinCurrencyValue.",
 		"uri": "http://purl.org/goodrelations/v1#DeliveryChargeSpecification"
@@ -1753,7 +1753,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Product or service model",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "A product or service model is a intangible entity that specifies some characteristics of a group of similar, usually mass-produced products, in the sense of a prototype. In case of mass-produced products, there exists a relation gr:hasMakeAndModel between the actual product or service (gr:Individual or gr:SomeItems) and the prototype (gr:ProductOrServiceModel). GoodRelations treats product or service models as \\\"prototypes\\\" instead of a completely separate kind of entities, because this allows using the same domain-specific properties (e.g. gr:weight) for describing makes and models and for describing actual products.\n\nExamples: Ford T, Volkswagen Golf, Sony Ericsson W123 cell phone\n\nNote: An actual product or service (gr:Individual) by default shares the features of its model (e.g. the weight). However, this requires non-standard reasoning. See http://wiki.goodrelations-vocabulary.org/Axioms for respective rule sets.\n\t\nCompatibility with schema.org: This class is (approximately) a subclass of http://schema.org/Product.",
 		"uri": "http://purl.org/goodrelations/v1#ProductOrServiceModel"
@@ -1767,7 +1767,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Quantitative value float",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "An instance of this class is an actual float value for a quantitative property of a product. This instance is usually characterized by a minimal value, a maximal value, and a unit of measurement.\n\nExamples: The intervals \\\"between 10.0  and 25.4 kilogramms\\\" or \\\"10.2 and 15.5 milimeters\\\".\n\nCompatibility with schema.org: This class is a subclass of http://schema.org/Quantity.",
 		"uri": "http://purl.org/goodrelations/v1#QuantitativeValueFloat"
@@ -1781,7 +1781,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Business entity type",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "A business entity type is a conceptual entity representing the legal form, the size, the main line of business, the position in the value chain, or any combination thereof, of a gr:BusinessEntity. From the ontological point of view, business entity types are mostly roles that a business entity has in the market. Business entity types are important for specifying eligible customers, since a gr:Offering is often valid only for business entities of a certain size, legal structure, or role in the value chain. \n\nExamples: Consumers, Retailers, Wholesalers, or Public Institutions",
 		"uri": "http://purl.org/goodrelations/v1#BusinessEntityType"
@@ -1795,7 +1795,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Warranty scope",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "The warranty scope represents types of services that will be provided free of charge by the vendor or manufacturer in the case of a defect (e.g. labor and parts, just parts), as part of the warranty included in an gr:Offering. The actual services may be provided by the gr:BusinessEntity making the offering, by the manufacturer of the product, or by a third party. \n\nExamples: Parts and Labor, Parts",
 		"uri": "http://purl.org/goodrelations/v1#WarrantyScope"
@@ -1809,7 +1809,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Individual",
-		"attributes": ["external", "equivalent"],
+		"attributes": ["equivalent"],
 		"instances": 0,
 		"comment": "A gr:Individual is an actual product or service instance, i.e., a single identifiable object or action that creates some increase in utility (in the economic sense) for the individual possessing or using this very object (product) or for the individual in whose favor this very action is being taken (service). Products or services are types of goods in the economic sense. For an overview of goods and commodities in economics, see Milgate (1987).\n\nExamples: MyThinkpad T60, the pint of beer standing in front of me, my Volkswagen Golf, the haircut that I received or will be receiving at a given date and time.\n\nNote 1: In many cases, product or service instances are not explicitly exposed on the Web but only claimed to exist (i.e. existentially quantified). In this case, use gr:SomeItems.\nNote 2: This class is the new, shorter form of the former gr:ActualProductOrServiceInstance.\n\nCompatibility with schema.org: This class is a subclass of http://schema.org/Product.",
 		"uri": "http://purl.org/goodrelations/v1#Individual"
@@ -1823,7 +1823,7 @@
 		"union": [],
 		"subClasses": ["class319"],
 		"label": "Delivery method",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "A delivery method is a standardized procedure for transferring the product or service to the destination of fulfilment chosen by the customer. Delivery methods are characterized by the means of transportation used, and by the organization or group that is the contracting party for the sending gr:BusinessEntity (this is important, since the contracted party may subcontract the fulfilment to smaller, regional businesses).\n\nExamples: Delivery by mail, delivery by direct download, delivery by UPS",
 		"uri": "http://purl.org/goodrelations/v1#DeliveryMethod"
@@ -1837,7 +1837,7 @@
 		"union": [],
 		"subClasses": ["class316"],
 		"label": "Business function",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "The business function specifies the type of activity or access (i.e., the bundle of rights) offered by the gr:BusinessEntity on the gr:ProductOrService through the gr:Offering. Typical are sell, rental or lease, maintenance or repair, manufacture / produce, recycle / dispose, engineering / construction, or installation.\n\nLicenses and other proprietary specifications of access rights are also instances of this class.\n\nExamples: A particular offering made by Miller Rentals Ltd. says that they (1) sell Volkswagen Golf convertibles, (2) lease out a particular Ford pick-up truck, and (3) dispose car wrecks of any make and model.",
 		"uri": "http://purl.org/goodrelations/v1#BusinessFunction"
@@ -1851,7 +1851,7 @@
 		"union": ["class337", "class331"],
 		"subClasses": ["class337", "class331"],
 		"label": "Business entity",
-		"attributes": ["external", "equivalent"],
+		"attributes": ["equivalent"],
 		"instances": 0,
 		"comment": "An instance of this class represents the legal agent making (or seeking) a particular offering. This can be a legal body or a person. A business entity has at least a primary mailing address and contact details. For this, typical address standards (vCard) and location data (geo, WGS84) can be attached. Note that the location of the business entity is not necessarily the location from which the product or service is being available (e.g. the branch or store). Use gr:Location for stores and branches.\n\t\t\nExample: Siemens Austria AG, Volkswagen Ltd., Peter Miller's Cell phone Shop LLC\n\nCompatibility with schema.org: This class is equivalent to the union of http://schema.org/Person and http://schema.org/Organization.\t\t\n",
 		"uri": "http://purl.org/goodrelations/v1#BusinessEntity"
@@ -1879,7 +1879,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Qualitative value",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "A qualitative value is a predefined value for a product characteristic. \n\t\nExamples: the color \\\"green\\\" or the power cord plug type \\\"US\\\"; the garment sizes \\\"S\\\", \\\"M\\\", \\\"L\\\", and \\\"XL\\\".\n\t\nNote: Value sets are supported by creating subclasses of this class. Ordinal relations between values (gr:greater, gr:lesser, ...) are provided directly by GoodRelations.\n\nCompatibility with schema.org: This class is equivalent to http://schema.org/Enumeration.",
 		"uri": "http://purl.org/goodrelations/v1#QualitativeValue"
@@ -1893,7 +1893,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Warranty promise",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "This is a conceptual entity that holds together all aspects of the n-ary relation gr:hasWarrantyPromise.\n\nA Warranty promise is an entity representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of the gr:ProductOrService. A warranty promise is characterized by its temporal duration (usually starting with the date of purchase) and its gr:WarrantyScope. The warranty scope represents the types of services provided (e.g. labor and parts, just parts) of the warranty included in an gr:Offering. The actual services may be provided by the gr:BusinessEntity making the offering, by the manufacturer of the product, or by a third party. There may be multiple warranty promises associated with a particular offering, which differ in duration and scope (e.g. pick-up service during the first 12 months, just parts and labor for 36 months).\n\nExamples: 12 months parts and labor, 36 months parts",
 		"uri": "http://purl.org/goodrelations/v1#WarrantyPromise"
@@ -1907,7 +1907,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Payment method credit card",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "The subclass of gr:PaymentMethod represents all variants and brands of credit or debit cards as a standardized procedure for transferring the monetary amount for a purchase. It is mostly used for specifying the types of payment accepted by a gr:Business Entity.\n\nExamples: VISA, MasterCard, or American Express.",
 		"uri": "http://purl.org/goodrelations/v1#PaymentMethodCreditCard"
@@ -1930,12 +1930,12 @@
 		"complement": [],
 		"id": "class315",
 		"intersection": [],
-		"equivalent": [],
+		"equivalent": ["class338"],
 		"superClasses": ["class330"],
 		"union": [],
 		"subClasses": [],
 		"label": "Product or services some instances placeholder (DEPRECATED)",
-		"attributes": ["deprecated", "external", "equivalent"],
+		"attributes": ["deprecated", "equivalent"],
 		"instances": 0,
 		"comment": "DEPRECATED - This class is superseded by gr:SomeItems. Replace all occurrences of gr:ProductOrServicesSomeInstancesPlaceholder by gr:SomeItems, if possible.",
 		"uri": "http://purl.org/goodrelations/v1#ProductOrServicesSomeInstancesPlaceholder"
@@ -1949,7 +1949,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Payment charge specification",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "A payment charge specification is a conceptual entity that specifies the additional costs asked for settling the payment after accepting a given gr:Offering using a particular gr:PaymentMethod. A payment charge specification is characterized by (1) a monetary amount per order specified as a literal value of type float in combination with a Currency, (2) the payment method, and (3) a whether this charge includes local sales taxes, namely VAT.\nA gr:Offering may be linked to multiple payment charge specifications that specify alternative charges for various payment methods.\n\nExamples: Payment by VISA or Mastercard costs a fee of 3 Euros including VAT, payment by bank transfer in advance is free of charge.\n\nThe total amount of this surcharge is specified as a float value of the gr:hasCurrencyValue property. The currency is specified via the gr:hasCurrency datatype property. Whether the price includes VAT or not is indicated by the gr:valueAddedTaxIncluded datatype property. The gr:PaymentMethod to which this charge applies is specified using the gr:appliesToPaymentMethod object property.\n\nIf the price can only be given as a range, use gr:hasMaxCurrencyValue and gr:hasMinCurrencyValue for the upper and lower bounds.\n\nImportant: When querying for the price, always use gr:hasMaxCurrencyValue and gr:hasMinCurrencyValue.",
 		"uri": "http://purl.org/goodrelations/v1#PaymentChargeSpecification"
@@ -1963,7 +1963,7 @@
 		"union": [],
 		"subClasses": ["class325", "class318", "class341", "class315", "class338"],
 		"label": "Product or service",
-		"attributes": ["external", "equivalent"],
+		"attributes": ["equivalent"],
 		"instances": 0,
 		"comment": "The superclass of all classes describing products or services types, either by nature or purpose. Examples for such subclasses are \\\"TV set\\\", \\\"vacuum cleaner\\\", etc. An instance of this class can be either an actual product or service (gr:Individual), a placeholder instance for unknown instances of a mass-produced commodity (gr:SomeItems), or a model / prototype specification (gr:ProductOrServiceModel). When in doubt, use gr:SomeItems.\n\nExamples: \na) MyCellphone123, i.e. my personal, tangible cell phone (gr:Individual)\nb) Siemens1234, i.e. the Siemens cell phone make and model 1234 (gr:ProductOrServiceModel)\nc) dummyCellPhone123 as a placeholder for actual instances of a certain kind of cell phones (gr:SomeItems)\n\t\nNote: Your first choice for specializations of gr:ProductOrService should be http://www.productontology.org.\n\nCompatibility with schema.org: This class is (approximately) equivalent to http://schema.org/Product.",
 		"uri": "http://purl.org/goodrelations/v1#ProductOrService"
@@ -1977,7 +1977,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Delivery mode parcel service",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "A private parcel service as the delivery mode available for a certain offering.\n\nExamples: UPS, DHL",
 		"uri": "http://purl.org/goodrelations/v1#DeliveryModeParcelService"
@@ -1986,12 +1986,12 @@
 		"complement": [],
 		"id": "class340",
 		"intersection": [],
-		"equivalent": [],
+		"equivalent": ["class344"],
 		"superClasses": [],
 		"union": [],
 		"subClasses": [],
 		"label": "Location of sales or service provisioning (DEPRECATED)",
-		"attributes": ["deprecated", "external", "equivalent"],
+		"attributes": ["deprecated", "equivalent"],
 		"instances": 0,
 		"comment": "DEPRECATED - This class is superseded by gr:Location. Replace all occurrences of gr:LocationOfSalesOrServiceProvisioning by gr:Location, if possible.",
 		"uri": "http://purl.org/goodrelations/v1#LocationOfSalesOrServiceProvisioning"
@@ -2014,12 +2014,12 @@
 		"complement": [],
 		"id": "class325",
 		"intersection": [],
-		"equivalent": [],
+		"equivalent": ["class318"],
 		"superClasses": ["class330"],
 		"union": [],
 		"subClasses": [],
 		"label": "Actual product or service instance (DEPRECATED)",
-		"attributes": ["deprecated", "external", "equivalent"],
+		"attributes": ["deprecated", "equivalent"],
 		"instances": 0,
 		"comment": "DEPRECATED - This class is superseded by gr:Individual. Replace all occurrences of gr:ActualProductOrServiceInstance by gr:Individual, if possible.",
 		"uri": "http://purl.org/goodrelations/v1#ActualProductOrServiceInstance"
@@ -2033,7 +2033,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Quantitative value integer",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "An instance of this class is an actual integer value for a quantitative property of a product. This instance is usually characterized by a minimal value, a maximal value, and a unit of measurement. \n\nExample: A seating capacity between 1 and 8 persons.\n\nNote: Users must keep in mind that ranges in here mean that ALL possible values in this interval are covered. (Sometimes, the actual commitment may be less than that: \\\"We sell cars from 2 - 12 seats\\\" does often not really mean that they have cars with 2,3,4,...12 seats.). Someone renting out two types of rowing boats, one that fits for 1 or 2 people, and another that must be operated by 4 people cannot claim to rent boats with a seating capacity between 1 and 4 people. He or she is offering two boat types for 1-2 and 4 persons.\n\t\t\nCompatibility with schema.org: This class is a subclass of http://schema.org/Quantity.",
 		"uri": "http://purl.org/goodrelations/v1#QuantitativeValueInteger"
@@ -2061,7 +2061,7 @@
 		"union": [],
 		"subClasses": ["class343", "class313"],
 		"label": "Quantitative value",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "A quantitative value is a numerical interval that represents the range of a certain gr:quantitativeProductOrServiceProperty in terms of the lower and upper bounds for a particular gr:ProductOrService. It is to be interpreted in combination with the respective unit of measurement. Most quantitative values are intervals even if they are in practice often treated as a single point value.\n\t\nExample: a weight between 10 and 25 kilogramms, a length between 10 and 15 milimeters.\n\nCompatibility with schema.org: This class is equivalent to http://schema.org/Quantity.",
 		"uri": "http://purl.org/goodrelations/v1#QuantitativeValue"
@@ -2075,7 +2075,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Brand",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "A brand is the identity of a specific product, service, or business. Use foaf:logo for attaching a brand logo and gr:name or rdfs:label for attaching the brand name.\t\n\n(Source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/Brand)",
 		"uri": "http://purl.org/goodrelations/v1#Brand"
@@ -2089,7 +2089,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "N-ary relations (DEPRECATED)",
-		"attributes": ["deprecated", "external"],
+		"attributes": ["deprecated"],
 		"instances": 0,
 		"comment": "This is the superclass for all classes that are placeholders for n-ary relations, which OWL cannot represent.\nDEPRECATED. Do not use this class in data or queries.",
 		"uri": "http://purl.org/goodrelations/v1#N-Ary-Relations"
@@ -2103,7 +2103,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Opening hours specification",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "This is a conceptual entity that holds together all information about the opening hours on a given day (gr:DayOfWeek).",
 		"uri": "http://purl.org/goodrelations/v1#OpeningHoursSpecification"
@@ -2117,7 +2117,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Location",
-		"attributes": ["external", "equivalent"],
+		"attributes": ["equivalent"],
 		"instances": 0,
 		"comment": "A location is a point or area of interest from which a particular product or service is available, e.g. a store, a bus stop, a gas station, or a ticket booth. The difference to gr:BusinessEntity is that the gr:BusinessEntity is the legal entity (e.g. a person or corporation) making the offer, while gr:Location is the store, office, or place. A chain restaurant will e.g. have one legal entity but multiple restaurant locations. Locations are characterized by an address or geographical position and a set of opening hour specifications for various days of the week.\n\t\t\nExample: A rental car company may offer the Business Function Lease Out of cars from two locations, one in Fort Myers, Florida, and one in Boston, Massachussetts. Both stations are open 7:00 - 23:00 Mondays through Saturdays.\n\nNote: Typical address standards (vcard) and location data (geo, WGC84) should be attached to a gr:Location node. Since there already exist established vocabularies for this, the GoodRelations ontology does not provide respective attributes. Instead, the use of respective vocabularies is recommended. However, the gr:hasGlobalLocationNumber property is  provided for linking to public identifiers for business locations.\n\t\t\nCompatibility with schema.org: This class is equivalent to http://schema.org/Place.",
 		"uri": "http://purl.org/goodrelations/v1#Location"
@@ -2131,7 +2131,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Type and quantity node",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "This class collates all the information about a gr:ProductOrService included in a bundle. If a gr:Offering contains just one item, you can directly link from the gr:Offering to the gr:ProductOrService using gr:includes. If the offering contains multiple items, use an instance of this class for each component to indicate the quantity, unit of measurement, and type of product, and link from the gr:Offering via gr:includesObject.\n\nExample: An offering may include of 100g of Butter and 1 kg of potatoes, or 1 cell phone and 2 headsets.",
 		"uri": "http://purl.org/goodrelations/v1#TypeAndQuantityNode"
@@ -2145,7 +2145,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Unit price specification",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "A unit price specification is a conceptual entity that specifies the price asked for a given gr:Offering by the respective gr:Business Entity. An offering may be linked to multiple unit price specifications that specify alternative prices for non-overlapping sets of conditions (e.g. quantities or sales regions) or with differing validity periods. \n\nA unit price specification is characterized by (1) the lower and upper limits and the unit of measurement of the eligible quantity, (2) by a monetary amount per unit of the product or service, and (3)  whether this prices includes local sales taxes, namely VAT.\n\t\nExample: The price, including VAT, for 1 kg of a given material is 5 Euros per kg for 0 - 5 kg and 4 Euros for quantities above 5 kg.\n\nThe eligible quantity interval for a given price is specified using the object property gr:hasEligibleQuantity, which points to an instance of gr:QuantitativeValue. The currency is specified using the gr:hasCurrency property, which points to an ISO 4217 currency code. The unit of measurement for the eligible quantity is specified using the gr:hasUnitOfMeasurement datatype property, which points to an UN/CEFACT Common Code (3 characters).\n\t\nIn most cases, the appropriate unit of measurement is the UN/CEFACT Common Code \\\"C62\\\" for \\\"Unit or piece\\\", since a gr:Offering is defined by the quantity and unit of measurement of all items included (e.g. \\\"1 kg of bananas plus a 2 kg of apples\\\"). As long at the offering consists of only one item, it is also possible to use an unit of measurement of choice for specifying the price per unit. For bundles, however, only  \\\"C62\\\" for \\\"Unit or piece\\\" is a valid unit of measurement.\n\nYou can assume that the price is given per unit or piece if there is no gr:hasUnitOfMeasurement property attached to the price.\n\t\nWhether VAT and sales taxes are included in this price is specified using the property gr:valueAddedTaxIncluded (xsd:boolean).\n\t\nThe price per unit of measurement is specified as a float value of the gr:hasCurrencyValue property. The currency is specified via the gr:hasCurrency datatype property. Whether the price includes VAT or not is indicated by the gr:valueAddedTaxIncluded datatype property.\n\nThe property priceType can be used to indicate that the price is a retail price recommendation only (i.e. a list price). \n\nIf the price can only be given as a range, use gr:hasMaxCurrencyValue and gr:hasMinCurrencyValue for the upper and lower bounds.\n\nImportant: When querying for the price, always use gr:hasMaxCurrencyValue and gr:hasMinCurrencyValue.\n\nNote 1: Due to the complexity of pricing scenarios in various industries, it may be necessary to create extensions of this fundamental model of price specifications. Such can be done easily by importing and refining the GoodRelations ontology.\n\nNote 2: For Google, attaching a gr:validThrough statement to a gr:UnitPriceSpecification is mandatory. \n",
 		"uri": "http://purl.org/goodrelations/v1#UnitPriceSpecification"
@@ -2159,7 +2159,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "License",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "A license is the specification of a bundle of rights that determines the type of activity or access offered by the gr:BusinessEntity on the gr:ProductOrService through the gr:Offering.\n\t\nLicenses can be standardized (e.g. LPGL, Creative Commons, ...), vendor-specific, or individually defined for a single offer or product. Whether there is a fee for obtaining the license is specified using the gr:UnitPriceSpecification attached to the gr:Offering. Use foaf:page for linking to a document containing the license, e.g. in PDF or HTML.",
 		"uri": "http://purl.org/goodrelations/v1#License"
@@ -2173,7 +2173,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Day of week",
-		"attributes": ["external"],
+		"attributes": [],
 		"instances": 0,
 		"comment": "The day of the week, used to specify  to which day the opening hours of a gr:OpeningHoursSpecification refer.\n\nExamples: Monday, Tuesday, Wednesday,...",
 		"uri": "http://purl.org/goodrelations/v1#DayOfWeek"
@@ -2187,7 +2187,7 @@
 		"union": [],
 		"subClasses": [],
 		"label": "Some items",
-		"attributes": ["external", "equivalent"],
+		"attributes": ["equivalent"],
 		"instances": 0,
 		"comment": "A placeholder instance for unknown instances of a mass-produced commodity. This is used as a computationally cheap work-around for such instances that are not individually exposed on the Web but just stated to exist (i.e., which are existentially quantified).\n\nExample: An instance of this class can represent an anonymous set of green Siemens1234 phones. It is different from the gr:ProductOrServiceModel Siemens1234, since this refers to the make and model, and it is different from a particular instance of this make and model (e.g. my individual phone) since the latter can be sold only once.\n\nNote: This class is the new, shorter form of the former gr:ProductOrServicesSomeInstancesPlaceholder.\n\t\t\nCompatibility with schema.org: This class is (approximately) a subclass of http://schema.org/Product.",
 		"uri": "http://purl.org/goodrelations/v1#SomeItems"
