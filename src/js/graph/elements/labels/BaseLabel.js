@@ -28,7 +28,9 @@ webvowl.labels.BaseLabel = (function () {
 			cardinalityElement,
 			labelElement,
 			linkGroup,
-			markerElement;
+			markerElement,
+		// Other
+			redundantProperties = [];
 
 
 		// Properties
@@ -113,6 +115,12 @@ webvowl.labels.BaseLabel = (function () {
 		this.range = function (p) {
 			if (!arguments.length) return range;
 			range = p;
+			return this;
+		};
+
+		this.redundantProperties = function (p) {
+			if (!arguments.length) return redundantProperties;
+			redundantProperties = p;
 			return this;
 		};
 
