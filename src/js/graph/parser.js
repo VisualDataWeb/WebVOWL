@@ -313,10 +313,10 @@ webvowl.parser = function (graph) {
 			attributeParser.parsePropertyAttributes(property);
 		});
 
-		// Add additional information to the links
+		// Add additional information to the properties
 		rawProperties.forEach(function (property) {
 
-			// Links of merged hidden classes should point to/from the visible equivalent class
+			// Properties of merged classes should point to/from the visible equivalent class
 			var propertyWasRerouted = false;
 			if (wasNodeMerged(property.domain())) {
 				property.domain(property.domain().equivalentBase());
@@ -328,11 +328,14 @@ webvowl.parser = function (graph) {
 			}
 
 			// But there should not be two equal properties between the same domain and range
-			if (propertyWasRerouted && hasOtherEqualProperties(rawProperties, property)) {
-					property.visible(false);
+			var equalProperty = getOtherEqualProperty(rawProperties, property);
+			if (propertyWasRerouted && equalProperty) {
+				property.visible(false);
+
+				equalProperty.redundantProperties().push(property);
 			}
 
-			// Hide link if source or target node is hidden
+			// Hide property if source or target node is hidden
 			if (!property.domain().visible() || !property.range().visible()) {
 				property.visible(false);
 			}
@@ -370,8 +373,7 @@ webvowl.parser = function (graph) {
 		return !node.visible() && node.equivalentBase();
 	}
 
-
-	function hasOtherEqualProperties(properties, referenceProperty) {
+	function getOtherEqualProperty(properties, referenceProperty) {
 		var i, l, property;
 
 		for (i = 0, l = properties.length; i < l; i++) {
@@ -388,15 +390,15 @@ webvowl.parser = function (graph) {
 			// Check for an equal URI, if non existent compare label and type
 			if (referenceProperty.uri() && property.uri()) {
 				if (referenceProperty.uri() === property.uri()) {
-					return true;
+					return property;
 				}
 			} else if (referenceProperty.type() === property.type() &&
 				referenceProperty.label() === property.label()) {
-				return true;
+				return property;
 			}
 		}
 
-		return false;
+		return undefined;
 	}
 
 	/**
