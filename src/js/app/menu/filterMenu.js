@@ -17,7 +17,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 	 * Connects the website with graph filters.
 	 */
 	filterMenu.setup = function () {
-		addFilterItem(datatypeFilter, "datatype", "All datatypes", "#datatypeFilteringOption");
+		addFilterItem(datatypeFilter, "datatype", "Datatypes", "#datatypeFilteringOption");
 		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
 		addFilterItem(disjointFilter, "disjoint", "Disjointness info", "#disjointFilteringOption");
 	};
