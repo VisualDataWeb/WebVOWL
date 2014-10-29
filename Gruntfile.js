@@ -16,12 +16,10 @@ module.exports = function (grunt) {
 			options: {
 				files: ["bower.json", "package.json"],
 				updateConfigs: ["pkg"],
-				commit: false,
-				commitMessage: "Release v%VERSION%",
+				commit: true,
+				commitMessage: "Bump version to %VERSION%",
 				commitFiles: ["bower.json", "package.json"],
 				createTag: false,
-				tagName: "v%VERSION%",
-				tagMessage: "Version %VERSION%",
 				push: false
 			}
 		},
