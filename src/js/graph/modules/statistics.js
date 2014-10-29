@@ -76,11 +76,17 @@ webvowl.modules.statistics = function () {
 	}
 
 	function storePropertyCount(properties) {
-		properties.forEach(function (property) {
-			propertyCount += 1;
-			propertyCount += countElementArray(property.equivalent());
-			propertyCount += countElementArray(property.redundantProperties());
-		});
+		for (var i = 0, l = properties.length; i < l; i++) {
+			var property = properties[i];
+
+			if (property instanceof webvowl.labels.owlobjectproperty ||
+				property instanceof webvowl.labels.owldatatypeproperty) {
+
+				propertyCount += 1;
+				propertyCount += countElementArray(property.equivalent());
+				propertyCount += countElementArray(property.redundantProperties());
+			}
+		}
 	}
 
 	function countElementArray(properties) {
