@@ -66,9 +66,10 @@ webvowl.modules.subclassFilter = function () {
 	 *
 	 * @param node
 	 * @param allProperties
+	 * @param visitedNodes a visited nodes which is used on recursive invocation
 	 * @returns {Array}
 	 */
-	function findRelevantConnectedProperties(node, allProperties) {
+	function findRelevantConnectedProperties(node, allProperties, visitedNodes) {
 		var connectedProperties = [],
 			property,
 			i,
@@ -83,16 +84,19 @@ webvowl.modules.subclassFilter = function () {
 
 
 				/* Special case: SuperClass <-(1) Subclass <-(2) Subclass ->(3) e.g. Datatype
-				 * We need to find the last property recursivly. Otherwise, we would remove the subClassOf
+				 * We need to find the last property recursively. Otherwise, we would remove the subClassOf
 				 * property (1) because we didn't see the datatype property (3).
 				 */
 
-				/* Look only for subclass properties, because these can't create a loop and
-				 * these are the relevant properties */
+				// Look only for subclass properties, because these are the relevant properties
 				if (property instanceof webvowl.labels.rdfssubclassof) {
+					var domain = property.domain();
+					visitedNodes = visitedNodes || webvowl.util.set();
+
 					// If we have the range, there might be a nested property on the domain
-					if (node === property.range()) {
-						var nestedConnectedProperties = findRelevantConnectedProperties(property.domain(), allProperties);
+					if (node === property.range() && !visitedNodes.has(domain)) {
+						visitedNodes.add(domain);
+						var nestedConnectedProperties = findRelevantConnectedProperties(domain, allProperties, visitedNodes);
 						connectedProperties = connectedProperties.concat(nestedConnectedProperties);
 					}
 				}

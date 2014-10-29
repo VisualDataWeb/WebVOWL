@@ -119,4 +119,18 @@ describe("Collapsing of subclassOf properties", function () {
 		expect(collapser.filteredProperties()).toEqual(properties);
 	});
 
+	it("should be able to handle circles", function() {
+		var loopSubClass = new webvowl.nodes.owlclass(),
+			subProperty = new webvowl.labels.rdfssubclassof(),
+			nodes = [loopSubClass],
+			properties = [subProperty];
+
+		subProperty.domain(loopSubClass).range(loopSubClass);
+
+		collapser.filter(nodes, properties);
+
+		expect(collapser.filteredNodes()).toEqual(nodes);
+		expect(collapser.filteredProperties()).toEqual(properties);
+	});
+
 });
