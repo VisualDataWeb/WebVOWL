@@ -30,25 +30,25 @@ webvowl.parsing.linkCreator = (function () {
 	function groupPropertiesToLinks(properties) {
 		var links = [],
 			property,
-			addedProperties = d3.set();
+			addedProperties = webvowl.util.set();
 
 		for (var i = 0, l = properties.length; i < l; i++) {
 			property = properties[i];
 
-			if (!addedProperties.has(property.id())) {
+			if (!addedProperties.has(property)) {
 				var link = webvowl.elements.link();
 				link.property(property);
 				link.domain(property.domain());
 				link.range(property.range());
 
 				property.link(link);
-				addedProperties.add(property.id());
+				addedProperties.add(property);
 
 				var inverse = property.inverse();
 				if (inverse) {
 					link.inverse(inverse);
 					inverse.link(link);
-					addedProperties.add(inverse.id());
+					addedProperties.add(inverse);
 				}
 
 				links.push(link);
