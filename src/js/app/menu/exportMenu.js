@@ -38,6 +38,10 @@ webvowlApp.exportMenu = function (graphSelector) {
 			.attr("xmlns", "http://www.w3.org/2000/svg")
 			.node().parentNode.innerHTML;
 
+		// Insert the reference to VOWL
+		graphSvgCode = "<!-- Created with WebVOWL (version " + webvowlApp.version + ")" +
+			", http://vowl.visualdataweb.org -->\n" + graphSvgCode;
+
 		escapedGraphSvgCode = escapeUnicodeCharacters(graphSvgCode);
 		//btoa(); Creates a base-64 encoded ASCII string from a "string" of binary data.
 		dataURI = "data:image/svg+xml;base64," + btoa(escapedGraphSvgCode);
