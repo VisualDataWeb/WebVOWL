@@ -4,7 +4,6 @@ webvowl.nodes.owldeprecatedclass = (function () {
 		webvowl.nodes.RoundNode.apply(this, arguments);
 
 		this.attributes(["deprecated"])
-			.styleClass("deprecated")
 			.type("owl:DeprecatedClass");
 	};
 	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);

@@ -4,7 +4,6 @@ webvowl.nodes.rdfsdatatype = (function () {
 		webvowl.nodes.RectangularNode.apply(this, arguments);
 
 		this.attributes(["datatype"])
-			.styleClass("datatype")
 			.type("rdfs:Datatype");
 	};
 	o.prototype = Object.create(webvowl.nodes.RectangularNode.prototype);

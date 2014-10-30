@@ -4,7 +4,6 @@ webvowl.nodes.externalclass = (function () {
 		webvowl.nodes.RoundNode.apply(this, arguments);
 
 		this.attributes(["external"])
-			.styleClass("external")
 			.type("ExternalClass");
 	};
 	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);
