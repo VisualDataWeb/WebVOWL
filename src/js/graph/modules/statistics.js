@@ -7,6 +7,8 @@ webvowl.modules.statistics = function () {
 		occurencesOfPropertyTypes = {},
 		classCount,
 		datatypeCount,
+		datatypePropertyCount,
+		objectPropertyCount,
 		propertyCount,
 		filteredNodes,
 		filteredProperties;
@@ -31,6 +33,8 @@ webvowl.modules.statistics = function () {
 		edgeCount = 0;
 		classCount = 0;
 		datatypeCount = 0;
+		datatypePropertyCount = 0;
+		objectPropertyCount = 0;
 		propertyCount = 0;
 	}
 
@@ -87,14 +91,24 @@ webvowl.modules.statistics = function () {
 		for (var i = 0, l = properties.length; i < l; i++) {
 			var property = properties[i];
 
-			if (property instanceof webvowl.labels.owlobjectproperty ||
-				property instanceof webvowl.labels.owldatatypeproperty) {
-
-				propertyCount += 1;
-				propertyCount += countElementArray(property.equivalent());
-				propertyCount += countElementArray(property.redundantProperties());
+			if (property instanceof webvowl.labels.owlobjectproperty) {
+				objectPropertyCount += getExtendedPropertyCount(property);
+			} else if (property instanceof webvowl.labels.owldatatypeproperty) {
+				datatypePropertyCount += getExtendedPropertyCount(property);
 			}
 		}
+		propertyCount = objectPropertyCount + datatypePropertyCount;
+	}
+
+	function getExtendedPropertyCount(property) {
+		// count the property itself
+		var count = 1;
+
+		// and count properties this property represents
+		count += countElementArray(property.equivalent());
+		count += countElementArray(property.redundantProperties());
+
+		return count;
 	}
 
 	function countElementArray(properties) {
@@ -141,6 +155,14 @@ webvowl.modules.statistics = function () {
 
 	statistics.datatypeCount = function () {
 		return datatypeCount;
+	};
+
+	statistics.datatypePropertyCount = function () {
+		return datatypePropertyCount;
+	};
+
+	statistics.objectPropertyCount = function () {
+		return objectPropertyCount;
 	};
 
 	statistics.propertyCount = function () {
