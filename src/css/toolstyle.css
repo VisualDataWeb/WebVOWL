@@ -45,6 +45,24 @@ body {
     position: fixed;
     width: 100%;
 }
+header#logo {
+	position: absolute;
+	margin:0;
+	padding: 0;
+	top:0;
+	left: 0;
+}
+header#logo  h2 {
+	color: #3498db;
+	font-size: 1.5em;
+	margin:0;
+	padding: 10px;
+	max-width: 100px;
+}
+header#logo  h2 span{
+	color: #7f8c8d;
+	font-size: 0.6em;
+}
 main {
 	height: 100%;
 	margin: 0;
@@ -90,21 +108,6 @@ ul#optionsMenu {
 	margin:-2px 0 0;
 	padding: 0;
 	width: 78%;
-}
-ul#optionsMenu #logo {
-	float:left;
-	margin:0;
-	padding: 0;
-}
-ul#optionsMenu #logo h2 {
-	color: #3498db;
-	font-size: 1.5em;
-	margin:0;
-	padding: 10px;
-}
-ul#optionsMenu #logo h2 span{
-	color: #bdc3c7;
-	font-size: 0.6em;
 }
 ul#optionsMenu > li {
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -482,20 +485,22 @@ input[type="range"]::-webkit-slider-thumb:active {
     }
 }
 
-.accordion-trigger {
-	background: #24323e;
+h3.accordion-trigger {
+	background: #212C3B;
 	cursor: pointer;
 	padding: .5em;
 }
 
-.accordion-trigger.accordion-trigger-active:before {
+h3.accordion-trigger.accordion-trigger-active:before {
 	padding-right: 4px;
-	content: "\25BC"
+	content: "\25BC";
+	font-size: 0.8em;
 }
 
-.accordion-trigger:not(.accordion-trigger-active):before {
+h3.accordion-trigger:not(.accordion-trigger-active):before {
 	padding-right: 4px;
-	content: "\25BA"
+	content: "\25BA";
+	font-size: 0.8em;
  }
 
 .small-whitespace-separator {
