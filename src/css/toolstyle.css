@@ -91,18 +91,17 @@ ul#optionsMenu {
 	padding: 0;
 	width: 78%;
 }
-ul#optionsMenu #logo {
-	float:left;
-	margin:0;
-	padding: 0;
-}
-ul#optionsMenu #logo h2 {
-	color: #3498db;
-	font-size: 1.5em;
-	margin:0;
+#logo {
+	position: fixed;
 	padding: 10px;
 }
-ul#optionsMenu #logo h2 span{
+#logo h2 {
+	color: #3498db;
+	margin: 0;
+	line-height: 0.7;
+	text-align: center;
+}
+#logo h2 span{
 	color: #bdc3c7;
 	font-size: 0.6em;
 }
@@ -392,20 +391,20 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 @media screen and (max-device-width: 1080px){
 	body{font-size:12px;}
-	ul#optionsMenu #logo h2 {
+	#logo h2 {
 		font-size: 1.2em;
 	}
-	ul#optionsMenu #logo h2 span{
+	#logo h2 span{
 		font-size: 0.5em;
 	}
 }
 
 @media screen and (max-width: 1080px){
 	body{font-size:12px;}
-	ul#optionsMenu #logo h2 {
+	#logo h2 {
 		font-size: 1.2em;
 	}
-	ul#optionsMenu #logo h2 span{
+	#logo h2 span{
 		font-size: 0.5em;
 	}
 }
