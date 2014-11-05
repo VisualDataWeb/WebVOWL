@@ -136,11 +136,11 @@ ul#optionsMenu > li > a {
     display: block;
     height: 40px;
     margin: 0;
-    padding:12px 5px 5px;
+    padding: 12px 5px 5px;
 }
-ul#optionsMenu li > ul.toolTipMenu li a, .checkboxContainer {
+ul#optionsMenu li > ul.toolTipMenu li {
 	display: block;
-	float:none;
+	float: none;
 	padding: 8px 5px;
 }
 .filterCheckbox, .moduleCheckbox {
@@ -157,19 +157,9 @@ ul#optionsMenu > li:hover .aboutMenu {
 	left:-145px;
 	width: 210px;
 }
-.aboutMenu li:first-child + li {
-	color: #2980b9;
-	display: block;
-	font-size: 0.9em;
-    margin:0;
-    padding:8px;
-}
-.aboutMenu li:first-child + li p {
-    margin:0;
-    padding:0;
-}
-.aboutMenu li:first-child + li{
+.aboutMenu li:nth-child(2) {
     border-top: solid 1px #bdc3c7;
+    font-size: 0.9em;
 }
 .toolTipMenu{
 	-webkit-box-shadow:0 6px 12px rgba(0,0,0,0.175);
@@ -197,14 +187,11 @@ ul#optionsMenu > li:hover .aboutMenu {
 .toolTipMenu > li {
     border-top: solid 1px #bdc3c7;
 }
-.toolTipMenu li a, .distanceSliderContainer , .checkboxContainer {
+.toolTipMenu li {
 	color:#2980b9;
 	display: block;
 }
-.aboutMenu {
-	min-width:150px;
-}
-.export {
+.aboutMenu, .export {
 	min-width:150px;
 }
 .gravity {
@@ -213,52 +200,23 @@ ul#optionsMenu > li:hover .aboutMenu {
 .filter, .module {
 	min-width: 150px;
 }
-#reset, #pause {
-	bottom: 0;
-	display: inline-block;
-	position: static;
-	right:0;
-}
 .slideOption {
-	display: inline-block;
-	float: left;
-	margin: 0;
-	min-height: 70px;
-	padding: 0;
+	min-height: 50px;
 	position: relative;
-	width: 100%;
 }
-.toggleOption {
-	display: inline-block;
-	float: left;
+#optionsMenu > li > a::before {
+	font-size: 1em;
 	margin: 0;
-	min-height: 30px;
-	padding: 0;
-	position: relative;
-	width: 100%;
+	padding: 0 5px 0 0;
 }
 #select > a::before{
 	content: "\2263";
-	font-size: 1em;
-	margin: 0;
-	padding: 0 5px 0 0;
 }
 #gravityOption> a::before{
 	content: "\2299";
-	font-size: 1em;
-	margin: 0;
-	padding: 0 5px 0 0;
 }
 a#reset::before {
 	content: "\21BB";
-	font-size: 1em;
-	margin: 0;
-	padding: 0 5px 0 0;
-}
-a#pause::before {
-	font-size: 1em;
-	margin: 0;
-	padding: 0 5px 0 0;
 }
 a#pause.paused::before {
 	content: "\25B6";
@@ -268,27 +226,15 @@ a#pause:not(.paused)::before {
 }
 #export > a::before{
 	content: "\21A9";
-	font-size: 1em;
-	margin: 0;
-	padding: 0 5px 0 0;
 }
 #filterOption > a::before {
 	content: "\25BD";
-	font-size: 1em;
-	margin: 0;
-	padding: 0 5px 0 0;
 }
 #moduleOption > a::before {
 	content: "\2606";
-	font-size: 1em;
-	margin: 0;
-	padding: 0 5px 0 0;
 }
 #aboutMenu > a::before{
 	content: "\00A9";
-	font-size: 1em;
-	margin: 0;
-	padding: 0 5px 0 0;
 }
 .distanceSliderLabel {
 	position: absolute;
