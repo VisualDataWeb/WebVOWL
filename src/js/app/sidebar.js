@@ -137,7 +137,7 @@ webvowlApp.sidebar = function () {
 		}
 
 		var equivalentUriSpan = d3.select("#propEquivUri");
-		listNodeArray(property.equivalent(), equivalentUriSpan);
+		listNodeArray(property.equivalents(), equivalentUriSpan);
 
 		listNodeArray(property.subproperties(), d3.select("#subproperties"));
 		listNodeArray(property.superproperties(), d3.select("#superproperties"));
@@ -224,7 +224,7 @@ webvowlApp.sidebar = function () {
 
 		/* Equivalent stuff. */
 		var equivalentUriSpan = d3.select("#classEquivUri");
-		listNodeArray(node.equivalent(), equivalentUriSpan);
+		listNodeArray(node.equivalents(), equivalentUriSpan);
 
 		d3.select("#typeNode").text(node.type());
 

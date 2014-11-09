@@ -86,7 +86,7 @@ webvowl.parser = function (graph) {
 					var node = new prototypes[elementType](graph);
 					node.comment(element.comment)
 						.complement(element.complement)
-						.equivalent(element.equivalent)
+						.equivalents(element.equivalent)
 						.id(element.id)
 						.instances(element.instances)
 						.intersection(element.intersection)
@@ -139,7 +139,7 @@ webvowl.parser = function (graph) {
 					property.cardinality(element.cardinality)
 						.comment(element.comment)
 						.domain(element.domain)
-						.equivalent(element.equivalent)
+						.equivalents(element.equivalent)
 						.id(element.id)
 						.inverse(element.inverse)
 						.label(element.label)
@@ -438,7 +438,7 @@ webvowl.parser = function (graph) {
 	 * @param elementMap a map where nodes/properties can be looked up
 	 */
 	function processEquivalentIds(element, elementMap) {
-		var eqIds = element.equivalent();
+		var eqIds = element.equivalents();
 
 		if (!eqIds || element.equivalentBase()) {
 			return;
@@ -451,8 +451,8 @@ webvowl.parser = function (graph) {
 
 			if (eqObject) {
 				// Cross reference both objects
-				eqObject.equivalent(eqObject.equivalent() || []);
-				eqObject.equivalent().push(element);
+				eqObject.equivalents(eqObject.equivalents());
+				eqObject.equivalents().push(element);
 				eqObject.equivalentBase(element);
 				eqIds[i] = eqObject;
 

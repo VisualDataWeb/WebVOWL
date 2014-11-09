@@ -76,7 +76,7 @@ webvowl.modules.statistics = function () {
 					hasThing = true;
 				} else {
 					classCount += 1;
-					classCount += countElementArray(node.equivalent());
+					classCount += countElementArray(node.equivalents());
 				}
 			}
 		});
@@ -105,7 +105,7 @@ webvowl.modules.statistics = function () {
 		var count = 1;
 
 		// and count properties this property represents
-		count += countElementArray(property.equivalent());
+		count += countElementArray(property.equivalents());
 		count += countElementArray(property.redundantProperties());
 
 		return count;

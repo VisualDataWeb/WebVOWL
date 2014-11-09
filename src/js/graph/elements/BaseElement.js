@@ -5,7 +5,7 @@ webvowl.elements.BaseElement = (function () {
 
 	var base = function (graph) {
 		// Basic attributes
-		var equivalent,
+		var equivalents = [],
 			id,
 			label,
 			type,
@@ -36,9 +36,9 @@ webvowl.elements.BaseElement = (function () {
 			return this;
 		};
 
-		this.equivalent = function (p) {
-			if (!arguments.length) return equivalent;
-			equivalent = p;
+		this.equivalents = function (p) {
+			if (!arguments.length) return equivalents;
+			equivalents = p || [];
 			return this;
 		};
 
