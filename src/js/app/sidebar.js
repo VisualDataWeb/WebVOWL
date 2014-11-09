@@ -227,6 +227,7 @@ webvowlApp.sidebar = function () {
 		listNodeArray(node.equivalents(), equivalentUriSpan);
 
 		d3.select("#typeNode").text(node.type());
+		d3.select("#instances").text(node.instances());
 
 		/* Disjoint stuff. */
 		var disjointNodes = d3.select("#disjointNodes");
