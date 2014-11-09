@@ -15,8 +15,8 @@ webvowl.nodes.owlequivalentclass = (function () {
 
 			that.nodeElement(parentElement);
 
-			drawTools.appendCircularClass(parentElement, that.radius(), ["white", "embedded"]);
-			drawTools.appendCircularClass(parentElement, that.radius() - 4, cssClasses);
+			drawTools.appendCircularClass(parentElement, that.actualRadius(), ["white", "embedded"]);
+			drawTools.appendCircularClass(parentElement, that.actualRadius() - 4, cssClasses);
 
 			// Add the text to the node
 			textBlock = webvowl.util.textElement(parentElement);

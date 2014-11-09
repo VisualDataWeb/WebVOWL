@@ -17,6 +17,11 @@ webvowl.nodes.RoundNode = (function () {
 			return this;
 		};
 
+		/**
+		 * This might not be equal to the actual radius, because the instance count is used for its calculation.
+		 * @param p
+		 * @returns {*}
+		 */
 		this.radius = function (p) {
 			if (!arguments.length) return radius;
 			radius = p;
@@ -30,12 +35,25 @@ webvowl.nodes.RoundNode = (function () {
 		};
 
 		this.textWidth = function () {
-			return this.radius() * 2;
+			return this.actualRadius() * 2;
 		};
 
 		this.toggleFocus = function () {
 			that.focused(!that.focused());
 			that.nodeElement().select("circle").classed("focused", that.focused());
+		};
+
+		this.actualRadius = function () {
+			if (this.instances() <= 0) {
+				return this.radius();
+			} else {
+				// we could "listen" for radius and totalInstanceCount changes, but this is easier
+				var scale = d3.scale.log()
+					.range([this.radius(), 2 * this.radius()])
+					.domain([1, this.totalInstanceCount()]);
+
+				return scale(this.instances());
+			}
 		};
 
 		/**
@@ -48,8 +66,8 @@ webvowl.nodes.RoundNode = (function () {
 				.append("g")
 				.classed("hidden-in-export", true)
 				.attr("transform", function () {
-					var dx = (2 / 5) * that.radius(),
-						dy = (-7 / 10) * that.radius();
+					var dx = (2 / 5) * that.actualRadius(),
+						dy = (-7 / 10) * that.actualRadius();
 					return "translate(" + dx + "," + dy + ")";
 				});
 
@@ -85,8 +103,8 @@ webvowl.nodes.RoundNode = (function () {
 				.append("g")
 				.classed("hidden-in-export", true)
 				.attr("transform", function () {
-					var dx = (-2 / 5) * that.radius(),
-						dy = (1 / 2) * that.radius();
+					var dx = (-2 / 5) * that.actualRadius(),
+						dy = (1 / 2) * that.actualRadius();
 					return "translate(" + dx + "," + dy + ")";
 				});
 
@@ -125,7 +143,7 @@ webvowl.nodes.RoundNode = (function () {
 			if (additionalCssClasses instanceof Array) {
 				cssClasses = cssClasses.concat(additionalCssClasses);
 			}
-			drawTools.appendCircularClass(parentElement, that.radius(), cssClasses);
+			drawTools.appendCircularClass(parentElement, that.actualRadius(), cssClasses);
 
 			// Add the text to the node
 			textBlock = webvowl.util.textElement(parentElement);
