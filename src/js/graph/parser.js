@@ -178,7 +178,9 @@ webvowl.parser = function (graph) {
 		var nodes = [];
 
 		// Set the default values
-		rawNodes.forEach(function (node, index) {
+		var totalInstanceCount = 0;
+		rawNodes.forEach(function (node) {
+		totalInstanceCount += node.instances() || 0;
 			node.visible(true);
 		});
 
@@ -187,6 +189,8 @@ webvowl.parser = function (graph) {
 			processEquivalentIds(node, classMap);
 
 			attributeParser.parseClassAttributes(node);
+
+			node.totalInstanceCount(totalInstanceCount);
 		});
 
 		// Collect all nodes that should be displayed

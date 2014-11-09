@@ -6,7 +6,8 @@ webvowl.nodes.BaseNode = (function () {
 		var that = this,
 		// Basic attributes
 			complement,
-			instances,
+			instances = 0,
+			totalInstanceCount,
 			intersection,
 			links,
 			union,
@@ -35,7 +36,7 @@ webvowl.nodes.BaseNode = (function () {
 
 		this.instances = function (p) {
 			if (!arguments.length) return instances;
-			instances = p;
+			instances = p || 0;
 			return this;
 		};
 
@@ -48,6 +49,12 @@ webvowl.nodes.BaseNode = (function () {
 		this.links = function (p) {
 			if (!arguments.length) return links;
 			links = p;
+			return this;
+		};
+
+		this.totalInstanceCount = function (p) {
+			if (!arguments.length) return totalInstanceCount;
+			totalInstanceCount = p;
 			return this;
 		};
 
