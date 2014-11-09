@@ -180,7 +180,6 @@ webvowl.parser = function (graph) {
 		// Set the default values
 		rawNodes.forEach(function (node, index) {
 			node.visible(true);
-			node._eqProcessed = false;
 		});
 
 		rawNodes.forEach(function (node) {
@@ -243,7 +242,6 @@ webvowl.parser = function (graph) {
 		// Set default values
 		rawProperties.forEach(function (property) {
 			property.visible(true);
-			property._eqProcessed = false; // equivalent
 		});
 
 		// Connect properties
@@ -441,8 +439,8 @@ webvowl.parser = function (graph) {
 	 */
 	function processEquivalentIds(element, elementMap) {
 		var eqIds = element.equivalent();
-		if (!eqIds || element._eqProcessed) {
-			element._eqProcessed = true;
+
+		if (!eqIds || element.equivalentBase()) {
 			return;
 		}
 
@@ -460,13 +458,10 @@ webvowl.parser = function (graph) {
 
 				// Hide other equivalent nodes
 				eqObject.visible(false);
-				eqObject._eqProcessed = true;
 			} else {
 				console.warn("No class/property was found for equivalent id: " + eqId);
 			}
 		}
-
-		element._eqProcessed = true;
 	}
 
 	/**
