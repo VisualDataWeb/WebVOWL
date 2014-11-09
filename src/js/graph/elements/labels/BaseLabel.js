@@ -237,11 +237,11 @@ webvowl.labels.BaseLabel = (function () {
 			textTag.setTranslation(0, 20);
 		};
 		this.addEquivalentsToLabel = function (textBox) {
-			if (this.equivalent()) {
+			if (this.equivalents()) {
 				var equivalentLabels,
 					equivalentString;
 
-				equivalentLabels = this.equivalent().map(function (property) {
+				equivalentLabels = this.equivalents().map(function (property) {
 					return property.label();
 				});
 				equivalentString = equivalentLabels.join(", ");

@@ -22,7 +22,7 @@ webvowl.nodes.owlequivalentclass = (function () {
 			textBlock = webvowl.util.textElement(parentElement);
 			textBlock.addTextline(that.label());
 			textBlock.addSubTextNode(that.indicationString());
-			appendEquivalentClasses(textBlock, that.equivalent());
+			appendEquivalentClasses(textBlock, that.equivalents());
 
 			that.postDrawActions();
 		};
