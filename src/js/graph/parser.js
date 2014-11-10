@@ -178,7 +178,7 @@ webvowl.parser = function (graph) {
 		var backedUpNodes = nodes.slice(),
 			hiddenNodeIds = d3.set(),
 			i, l, j, k,
-			prefix = "GENERATED_MERGED_RANGE_";
+			prefix = "GENERATED-MERGED_RANGE-";
 
 		// clear the original array
 		nodes.length = 0;
@@ -495,13 +495,13 @@ webvowl.parser = function (graph) {
 		var i, // index
 			l; // array length
 
-		function addProperties(domainId, setIds) {
+		function addProperties(domainId, setIds, operatorType) {
 			if (typeof setIds !== "undefined") {
 				for (i = 0, l = setIds.length; i < l; ++i) {
 					var rangeId = setIds[i],
 						property = {};
 
-					property.id = "GENERATED-" + domainId + "-" + rangeId + "-" + i;
+					property.id = "GENERATED-"+ operatorType +"-" + domainId + "-" + rangeId + "-" + i;
 					property.type = "setOperatorProperty";
 					property.domain = domainId;
 					property.range = rangeId;
@@ -512,9 +512,9 @@ webvowl.parser = function (graph) {
 		}
 
 		classes.forEach(function (clss) {
-			addProperties(clss.id(), clss.complement());
-			addProperties(clss.id(), clss.intersection());
-			addProperties(clss.id(), clss.union());
+			addProperties(clss.id(), clss.complement(), "COMPLEMENT");
+			addProperties(clss.id(), clss.intersection(), "INTERSECTION");
+			addProperties(clss.id(), clss.union(), "UNION");
 		});
 	}
 
