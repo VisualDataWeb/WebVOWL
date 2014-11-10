@@ -1,41 +1,77 @@
 {"propertyAttribute": [
 	{
 		"equivalent": [],
-		"range": "class207",
-		"disjoint": [],
+		"range": "class187",
 		"subproperty": [],
+		"disjoint": [],
 		"superproperty": [],
 		"label": "previous tag",
 		"instances": 0,
 		"uri": "http://purl.org/muto/core#previousTag",
-		"id": "property353",
-		"inverse": "property346",
-		"domain": "class207",
+		"id": "property318",
+		"inverse": "property311",
+		"domain": "class187",
 		"attributes": ["functional"],
 		"comment": "This property indicates the tag that is preceding in the list of tags. It can be used to describe the order in which the tags have been entered by the user."
 	},
 	{
-		"id": "property349",
+		"id": "property327",
 		"equivalent": [],
-		"range": "thing15",
+		"range": "class192",
 		"disjoint": [],
-		"subproperty": ["property339"],
+		"subproperty": [],
 		"superproperty": [],
-		"domain": "thing15",
-		"label": "about",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://rdfs.org/sioc/ns#about"
+		"domain": "class190",
+		"label": "Subclass Of",
+		"attributes": [],
+		"instances": 0
 	},
 	{
-		"id": "property351",
+		"id": "property323",
 		"equivalent": [],
-		"range": "thing15",
+		"range": "datatype52",
 		"disjoint": [],
-		"subproperty": ["property345"],
+		"subproperty": [],
+		"superproperty": ["property321"],
+		"domain": "class190",
+		"label": "tagging created",
+		"attributes": ["functional"],
+		"instances": 0,
+		"comment": "Every tagging has exactly one creation date and time. The datatype of this property is xsd:dateTime (in contrast to its superproperty dcterms:created which has range rdfs:Literal).",
+		"uri": "http://purl.org/muto/core#taggingCreated"
+	},
+	{
+		"id": "property326",
+		"equivalent": [],
+		"range": "class187",
+		"disjoint": [],
+		"subproperty": [],
 		"superproperty": [],
-		"domain": "thing15",
+		"domain": "class189",
+		"label": "Subclass Of",
+		"attributes": [],
+		"instances": 0
+	},
+	{
+		"id": "property329",
+		"equivalent": [],
+		"range": "class190",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class188",
+		"label": "Subclass Of",
+		"attributes": [],
+		"instances": 0
+	},
+	{
+		"id": "property316",
+		"equivalent": [],
+		"range": "thing13",
+		"disjoint": [],
+		"subproperty": ["property310"],
+		"superproperty": [],
+		"domain": "thing13",
 		"label": "creator_of",
 		"attributes": ["external"],
 		"instances": 0,
@@ -43,196 +79,273 @@
 		"uri": "http://rdfs.org/sioc/ns#creator_of"
 	},
 	{
+		"id": "property328",
 		"equivalent": [],
-		"range": "class210",
+		"range": "class193",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
+		"domain": "class187",
+		"label": "Subclass Of",
+		"attributes": [],
+		"instances": 0
+	},
+	{
+		"equivalent": [],
+		"range": "class190",
+		"subproperty": [],
+		"disjoint": [],
 		"superproperty": [],
 		"label": "has access",
 		"instances": 0,
 		"uri": "http://purl.org/muto/core#hasAccess",
-		"id": "property340",
-		"inverse": "property342",
-		"domain": "thing13",
+		"id": "property305",
+		"inverse": "property307",
+		"domain": "thing11",
 		"attributes": [],
 		"comment": "A user account or user group can have access to a private tagging from another user if the access is explicitly permitted by the creator of the tagging. This property can also be used in public tagging to link a user account or user group to a tagging (e.g. if the creator of a tagging has suggested the tagging to another user)."
 	},
 	{
 		"equivalent": [],
-		"range": "class210",
-		"disjoint": [],
+		"range": "class190",
 		"subproperty": [],
-		"superproperty": ["property351"],
+		"disjoint": [],
+		"superproperty": ["property316"],
 		"label": "creator of",
 		"instances": 0,
 		"uri": "http://purl.org/muto/core#creatorOf",
-		"id": "property345",
-		"inverse": "property350",
-		"domain": "class211",
+		"id": "property310",
+		"inverse": "property315",
+		"domain": "class191",
 		"attributes": [],
 		"comment": "A user account can have a (theoretically unlimited) number of taggings. Use sioc:member_of to define groups for group tagging or link to foaf:Agent, foaf:Person, or foaf:Group via sioc:account_of."
 	},
 	{
-		"id": "property361",
 		"equivalent": [],
-		"range": "class207",
-		"disjoint": [],
+		"range": "class187",
 		"subproperty": [],
-		"superproperty": [],
-		"domain": "class209",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"equivalent": [],
-		"range": "class210",
 		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"label": "tag of",
-		"instances": 0,
-		"uri": "http://purl.org/muto/core#tagOf",
-		"id": "property347",
-		"inverse": "property343",
-		"domain": "class207",
-		"attributes": ["functional"],
-		"comment": "Every tag is linked to exactly one tagging. This results from the fact that tags with same labels are NOT merged in the ontology."
-	},
-	{
-		"equivalent": [],
-		"range": "class207",
-		"disjoint": [],
-		"subproperty": [],
 		"superproperty": [],
 		"label": "has tag",
 		"instances": 0,
 		"uri": "http://purl.org/muto/core#hasTag",
-		"id": "property343",
-		"inverse": "property347",
-		"domain": "class210",
+		"id": "property308",
+		"inverse": "property312",
+		"domain": "class190",
 		"attributes": [],
 		"comment": "A tagging consists of a (theoretically unlimited) number of tags. A tagging may also consist of no tags, e.g. if the system allows its users to mark a resource first and add tags later."
 	},
 	{
-		"id": "property363",
+		"id": "property325",
 		"equivalent": [],
-		"range": "class213",
+		"range": "datatype54",
 		"disjoint": [],
 		"subproperty": [],
-		"superproperty": [],
-		"domain": "class207",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
+		"superproperty": ["property321"],
+		"domain": "class187",
+		"label": "tag created",
+		"attributes": ["functional"],
+		"instances": 0,
+		"comment": "The creation date and time of a tag. This property can be omitted if muto:taggingCreated = muto:tagCreated (i.e. in the common case that a tag has been created along with a tagging, not in a later edit of the tagging). The datatype of this property is xsd:dateTime (in contrast to it superproperty dcterms:created which has range rdfs:Literal).",
+		"uri": "http://purl.org/muto/core#tagCreated"
 	},
 	{
-		"id": "property362",
 		"equivalent": [],
-		"range": "class212",
+		"range": "class187",
+		"subproperty": [],
+		"disjoint": [],
+		"superproperty": [],
+		"label": "next tag",
+		"instances": 0,
+		"uri": "http://purl.org/muto/core#nextTag",
+		"id": "property311",
+		"inverse": "property318",
+		"domain": "class187",
+		"attributes": ["functional"],
+		"comment": "This property indicates the tag that follows next in the list of tags. It can be used to describe the order in which the tags have been entered by the user."
+	},
+	{
+		"id": "property321",
+		"equivalent": [],
+		"range": "literal50",
+		"disjoint": [],
+		"subproperty": ["property325", "property323"],
+		"superproperty": [],
+		"domain": "thing13",
+		"label": "created",
+		"attributes": ["external"],
+		"instances": 0,
+		"comment": "",
+		"uri": "http://purl.org/dc/terms/created"
+	},
+	{
+		"equivalent": [],
+		"range": "thing11",
+		"subproperty": [],
+		"disjoint": [],
+		"superproperty": [],
+		"label": "grant access",
+		"instances": 0,
+		"uri": "http://purl.org/muto/core#grantAccess",
+		"id": "property307",
+		"inverse": "property305",
+		"domain": "class190",
+		"attributes": [],
+		"comment": "A (usually private) tagging can be linked to one or more user accounts or user groups that should have access to it (apart from the creator). This property can also be used in public tagging to link a user account or user group to a tagging (e.g. if the creator of a tagging wants to suggest the tagging to another user)."
+	},
+	{
+		"id": "property317",
+		"equivalent": [],
+		"range": "thing12",
 		"disjoint": [],
 		"subproperty": [],
-		"superproperty": [],
-		"domain": "class210",
-		"label": "Subclass Of",
+		"superproperty": ["property306"],
+		"domain": "class187",
+		"label": "automatic tag meaning",
 		"attributes": [],
-		"instances": 0
+		"instances": 0,
+		"comment": "This subproperty indicates that the meaning of a tag has been automatically defined (e.g. by a tagging system), i.e. it has not been defined by a human being. The default case is disambiguation by users via muto:tagMeaning.",
+		"uri": "http://purl.org/muto/core#autoMeaning"
 	},
 	{
-		"id": "property364",
-		"equivalent": [],
-		"range": "class210",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class208",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
+		"id": "property314",
 		"equivalent": [],
 		"range": "thing13",
 		"disjoint": [],
+		"subproperty": ["property304"],
+		"superproperty": [],
+		"domain": "thing13",
+		"label": "about",
+		"attributes": ["external"],
+		"instances": 0,
+		"comment": "",
+		"uri": "http://rdfs.org/sioc/ns#about"
+	},
+	{
+		"id": "property324",
+		"equivalent": [],
+		"range": "literal53",
+		"disjoint": [],
+		"subproperty": ["property322"],
+		"superproperty": [],
+		"domain": "thing13",
+		"label": "modified",
+		"attributes": ["external"],
+		"instances": 0,
+		"comment": "",
+		"uri": "http://purl.org/dc/terms/modified"
+	},
+	{
+		"equivalent": [],
+		"range": "class190",
 		"subproperty": [],
-		"superproperty": ["property349"],
+		"disjoint": [],
+		"superproperty": [],
+		"label": "tag of",
+		"instances": 0,
+		"uri": "http://purl.org/muto/core#tagOf",
+		"id": "property312",
+		"inverse": "property308",
+		"domain": "class187",
+		"attributes": ["functional"],
+		"comment": "Every tag is linked to exactly one tagging. This results from the fact that tags with same labels are NOT merged in the ontology."
+	},
+	{
+		"id": "property322",
+		"equivalent": [],
+		"range": "datatype51",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": ["property324"],
+		"domain": "class190",
+		"label": "tagging modified",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A tagging can have multiple modification dates, as the number of times a tagging can be edited (e.g. to add or remove tags) is theoretically unlimited. The datatype of this property is xsd:dateTime (in contrast to it superproperty dcterms:created which has range rdfs:Literal).",
+		"uri": "http://purl.org/muto/core#taggingModified"
+	},
+	{
+		"id": "property320",
+		"equivalent": [],
+		"range": "literal49",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class187",
+		"label": "tag label",
+		"attributes": ["functional"],
+		"instances": 0,
+		"comment": "Every tag has exactly one label (usually the one given by the user) - otherwise it is not a tag. Additional labels can be defined in the resource that is linked via muto:tagMeaning.",
+		"uri": "http://purl.org/muto/core#tagLabel"
+	},
+	{
+		"equivalent": [],
+		"range": "thing11",
+		"subproperty": [],
+		"disjoint": [],
+		"superproperty": ["property314"],
 		"label": "tagged resource",
 		"instances": 0,
 		"uri": "http://purl.org/muto/core#taggedResource",
-		"id": "property339",
-		"inverse": "property348",
-		"domain": "class210",
+		"id": "property304",
+		"inverse": "property313",
+		"domain": "class190",
 		"attributes": ["functional"],
 		"comment": "Every tagging is linked to exactly one resource. This can be any kind of resource (i.e. all subclasses of rdfs:Resource), including tags and taggings."
 	},
 	{
 		"equivalent": [],
-		"range": "class207",
+		"range": "thing12",
+		"subproperty": ["property317"],
 		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"label": "next tag",
-		"instances": 0,
-		"uri": "http://purl.org/muto/core#nextTag",
-		"id": "property346",
-		"inverse": "property353",
-		"domain": "class207",
-		"attributes": ["functional"],
-		"comment": "This property indicates the tag that follows next in the list of tags. It can be used to describe the order in which the tags have been entered by the user."
-	},
-	{
-		"equivalent": [],
-		"range": "thing14",
-		"disjoint": [],
-		"subproperty": ["property352"],
 		"superproperty": [],
 		"label": "tag meaning",
 		"instances": 0,
 		"uri": "http://purl.org/muto/core#tagMeaning",
-		"id": "property341",
-		"inverse": "property344",
-		"domain": "class207",
+		"id": "property306",
+		"inverse": "property309",
+		"domain": "class187",
 		"attributes": [],
 		"comment": "The meaning of a tag can be expressed by a link to a well-defined resource. This can be any resource that clarifies the meaning of the tag (e.g. some DBpedia resource)."
 	},
 	{
 		"equivalent": [],
-		"range": "thing13",
-		"disjoint": [],
+		"range": "class187",
 		"subproperty": [],
-		"superproperty": [],
-		"label": "grant access",
-		"instances": 0,
-		"uri": "http://purl.org/muto/core#grantAccess",
-		"id": "property342",
-		"inverse": "property340",
-		"domain": "class210",
-		"attributes": [],
-		"comment": "A (usually private) tagging can be linked to one or more user accounts or user groups that should have access to it (apart from the creator). This property can also be used in public tagging to link a user account or user group to a tagging (e.g. if the creator of a tagging wants to suggest the tagging to another user)."
-	},
-	{
-		"equivalent": [],
-		"range": "class207",
 		"disjoint": [],
-		"subproperty": [],
 		"superproperty": [],
 		"label": "meaning of",
 		"instances": 0,
 		"uri": "http://purl.org/muto/core#meaningOf",
-		"id": "property344",
-		"inverse": "property341",
-		"domain": "thing14",
+		"id": "property309",
+		"inverse": "property306",
+		"domain": "thing12",
 		"attributes": [],
 		"comment": "The number of tags that can be linked to one and the same meaning is theoretically unlimited."
 	},
 	{
-		"id": "property354",
 		"equivalent": [],
-		"range": "thing15",
+		"range": "class190",
+		"subproperty": [],
 		"disjoint": [],
-		"subproperty": ["property350"],
 		"superproperty": [],
-		"domain": "thing15",
+		"label": "tagged with",
+		"instances": 0,
+		"uri": "http://purl.org/muto/core#taggedWith",
+		"id": "property313",
+		"inverse": "property304",
+		"domain": "thing11",
+		"attributes": [],
+		"comment": "A resource can have several taggings from different users. Tags are never directly linked to resources but can be inferred from the taggings."
+	},
+	{
+		"id": "property319",
+		"equivalent": [],
+		"range": "thing13",
+		"disjoint": [],
+		"subproperty": ["property315"],
+		"superproperty": [],
+		"domain": "thing13",
 		"label": "has_creator",
 		"attributes": ["external"],
 		"instances": 0,
@@ -241,131 +354,18 @@
 	},
 	{
 		"equivalent": [],
-		"range": "class210",
-		"disjoint": [],
+		"range": "class191",
 		"subproperty": [],
-		"superproperty": [],
-		"label": "tagged with",
-		"instances": 0,
-		"uri": "http://purl.org/muto/core#taggedWith",
-		"id": "property348",
-		"inverse": "property339",
-		"domain": "thing13",
-		"attributes": [],
-		"comment": "A resource can have several taggings from different users. Tags are never directly linked to resources but can be inferred from the taggings."
-	},
-	{
-		"id": "property352",
-		"equivalent": [],
-		"range": "thing14",
 		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property341"],
-		"domain": "class207",
-		"label": "automatic tag meaning",
-		"attributes": [],
-		"instances": 0,
-		"comment": "This subproperty indicates that the meaning of a tag has been automatically defined (e.g. by a tagging system), i.e. it has not been defined by a human being. The default case is disambiguation by users via muto:tagMeaning.",
-		"uri": "http://purl.org/muto/core#autoMeaning"
-	},
-	{
-		"equivalent": [],
-		"range": "class211",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property354"],
+		"superproperty": ["property319"],
 		"label": "has creator",
 		"instances": 0,
 		"uri": "http://purl.org/muto/core#hasCreator",
-		"id": "property350",
-		"inverse": "property345",
-		"domain": "class210",
+		"id": "property315",
+		"inverse": "property310",
+		"domain": "class190",
 		"attributes": ["functional"],
 		"comment": "Every tagging is linked to at most one user account. This property can be omitted for automatic taggings. In contrast to its superproperty sioc:has_creator, it is functional and with an explicit domain. Use sioc:member_of to define groups for group tagging or link to foaf:Agent, foaf:Person, or foaf:Group via sioc:account_of."
-	},
-	{
-		"id": "property358",
-		"equivalent": [],
-		"range": "datatype67",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property356"],
-		"domain": "class210",
-		"label": "tagging created",
-		"attributes": ["functional"],
-		"instances": 0,
-		"comment": "Every tagging has exactly one creation date and time. The datatype of this property is xsd:dateTime (in contrast to its superproperty dcterms:created which has range rdfs:Literal).",
-		"uri": "http://purl.org/muto/core#taggingCreated"
-	},
-	{
-		"id": "property359",
-		"equivalent": [],
-		"range": "literal68",
-		"disjoint": [],
-		"subproperty": ["property357"],
-		"superproperty": [],
-		"domain": "thing15",
-		"label": "modified",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://purl.org/dc/terms/modified"
-	},
-	{
-		"id": "property356",
-		"equivalent": [],
-		"range": "literal65",
-		"disjoint": [],
-		"subproperty": ["property360", "property358"],
-		"superproperty": [],
-		"domain": "thing15",
-		"label": "created",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://purl.org/dc/terms/created"
-	},
-	{
-		"id": "property357",
-		"equivalent": [],
-		"range": "datatype66",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property359"],
-		"domain": "class210",
-		"label": "tagging modified",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A tagging can have multiple modification dates, as the number of times a tagging can be edited (e.g. to add or remove tags) is theoretically unlimited. The datatype of this property is xsd:dateTime (in contrast to it superproperty dcterms:created which has range rdfs:Literal).",
-		"uri": "http://purl.org/muto/core#taggingModified"
-	},
-	{
-		"id": "property360",
-		"equivalent": [],
-		"range": "datatype69",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property356"],
-		"domain": "class207",
-		"label": "tag created",
-		"attributes": ["functional"],
-		"instances": 0,
-		"comment": "The creation date and time of a tag. This property can be omitted if muto:taggingCreated = muto:tagCreated (i.e. in the common case that a tag has been created along with a tagging, not in a later edit of the tagging). The datatype of this property is xsd:dateTime (in contrast to it superproperty dcterms:created which has range rdfs:Literal).",
-		"uri": "http://purl.org/muto/core#tagCreated"
-	},
-	{
-		"id": "property355",
-		"equivalent": [],
-		"range": "literal64",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class207",
-		"label": "tag label",
-		"attributes": ["functional"],
-		"instances": 0,
-		"comment": "Every tag has exactly one label (usually the one given by the user) - otherwise it is not a tag. Additional labels can be defined in the resource that is linked via muto:tagMeaning.",
-		"uri": "http://purl.org/muto/core#tagLabel"
 	}
 ], "metrics": {
 	"propertyCount": 22,
@@ -378,10 +378,10 @@
 }, "classAttribute": [
 	{
 		"complement": [],
-		"id": "class208",
+		"id": "class188",
 		"intersection": [],
 		"equivalent": [],
-		"superClasses": ["class210"],
+		"superClasses": ["class190"],
 		"union": [],
 		"subClasses": [],
 		"label": "Private Tagging",
@@ -392,10 +392,10 @@
 	},
 	{
 		"complement": [],
-		"id": "class209",
+		"id": "class189",
 		"intersection": [],
 		"equivalent": [],
-		"superClasses": ["class207"],
+		"superClasses": ["class187"],
 		"union": [],
 		"subClasses": [],
 		"label": "Automatic Tag",
@@ -406,7 +406,7 @@
 	},
 	{
 		"complement": [],
-		"id": "class211",
+		"id": "class191",
 		"intersection": [],
 		"equivalent": [],
 		"superClasses": [],
@@ -420,12 +420,12 @@
 	},
 	{
 		"complement": [],
-		"id": "class207",
+		"id": "class187",
 		"intersection": [],
 		"equivalent": [],
-		"superClasses": ["class213"],
+		"superClasses": ["class193"],
 		"union": [],
-		"subClasses": ["class209"],
+		"subClasses": ["class189"],
 		"label": "Tag",
 		"attributes": [],
 		"instances": 0,
@@ -434,12 +434,12 @@
 	},
 	{
 		"complement": [],
-		"id": "class212",
+		"id": "class192",
 		"intersection": [],
 		"equivalent": [],
 		"superClasses": [],
 		"union": [],
-		"subClasses": ["class210"],
+		"subClasses": ["class190"],
 		"label": "Item",
 		"attributes": ["external"],
 		"instances": 0,
@@ -448,12 +448,12 @@
 	},
 	{
 		"complement": [],
-		"id": "class213",
+		"id": "class193",
 		"intersection": [],
 		"equivalent": [],
 		"superClasses": [],
 		"union": [],
-		"subClasses": ["class207"],
+		"subClasses": ["class187"],
 		"label": "Concept",
 		"attributes": ["external"],
 		"instances": 0,
@@ -462,12 +462,12 @@
 	},
 	{
 		"complement": [],
-		"id": "class210",
+		"id": "class190",
 		"intersection": [],
 		"equivalent": [],
-		"superClasses": ["class212"],
+		"superClasses": ["class192"],
 		"union": [],
-		"subClasses": ["class208"],
+		"subClasses": ["class188"],
 		"label": "Tagging",
 		"attributes": [],
 		"instances": 0,
@@ -475,194 +475,194 @@
 		"uri": "http://purl.org/muto/core#Tagging"
 	},
 	{
-		"id": "thing15",
+		"id": "thing12",
+		"label": "Thing",
+		"uri": "http://www.w3.org/2002/07/owl#Thing"
+	},
+	{
+		"id": "thing11",
 		"label": "Thing",
 		"uri": "http://www.w3.org/2002/07/owl#Thing"
 	},
 	{
 		"id": "thing13",
-		"label": "Thing",
-		"uri": "http://www.w3.org/2002/07/owl#Thing"
-	},
-	{
-		"id": "thing14",
 		"label": "Thing",
 		"uri": "http://www.w3.org/2002/07/owl#Thing"
 	}
 ], "class": [
 	{
-		"id": "class208",
+		"id": "class188",
 		"type": "owl:Class"
 	},
 	{
-		"id": "class209",
+		"id": "class189",
 		"type": "owl:Class"
 	},
 	{
-		"id": "class211",
+		"id": "class191",
 		"type": "externalclass"
 	},
 	{
-		"id": "class207",
+		"id": "class187",
 		"type": "owl:Class"
 	},
 	{
-		"id": "class212",
+		"id": "class192",
 		"type": "externalclass"
 	},
 	{
-		"id": "class213",
+		"id": "class193",
 		"type": "externalclass"
 	},
 	{
-		"id": "class210",
+		"id": "class190",
 		"type": "owl:Class"
 	},
 	{
-		"id": "thing15",
+		"id": "thing12",
+		"type": "owl:Thing"
+	},
+	{
+		"id": "thing11",
 		"type": "owl:Thing"
 	},
 	{
 		"id": "thing13",
 		"type": "owl:Thing"
-	},
-	{
-		"id": "thing14",
-		"type": "owl:Thing"
 	}
 ], "property": [
 	{
-		"id": "property353",
+		"id": "property318",
 		"type": "owl:objectProperty"
 	},
 	{
-		"id": "property349",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property351",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property340",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property345",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property361",
+		"id": "property327",
 		"type": "rdfs:SubClassOf"
 	},
 	{
-		"id": "property347",
-		"type": "owl:objectProperty"
+		"id": "property323",
+		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property343",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property363",
+		"id": "property326",
 		"type": "rdfs:SubClassOf"
 	},
 	{
-		"id": "property362",
+		"id": "property329",
 		"type": "rdfs:SubClassOf"
 	},
 	{
-		"id": "property364",
+		"id": "property316",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property328",
 		"type": "rdfs:SubClassOf"
 	},
 	{
-		"id": "property339",
+		"id": "property305",
 		"type": "owl:objectProperty"
 	},
 	{
-		"id": "property346",
+		"id": "property310",
 		"type": "owl:objectProperty"
 	},
 	{
-		"id": "property341",
+		"id": "property308",
 		"type": "owl:objectProperty"
 	},
 	{
-		"id": "property342",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property344",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property354",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property348",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property352",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property350",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property358",
+		"id": "property325",
 		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property359",
+		"id": "property311",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property321",
 		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property356",
+		"id": "property307",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property317",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property314",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property324",
 		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property357",
+		"id": "property312",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property322",
 		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property360",
+		"id": "property320",
 		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property355",
-		"type": "owl:datatypeProperty"
+		"id": "property304",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property306",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property309",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property313",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property319",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property315",
+		"type": "owl:objectProperty"
 	}
 ], "datatype": [
 	{
-		"id": "datatype67",
+		"id": "datatype54",
 		"type": "rdfs:Datatype"
 	},
 	{
-		"id": "datatype66",
+		"id": "datatype52",
 		"type": "rdfs:Datatype"
 	},
 	{
-		"id": "datatype69",
+		"id": "datatype51",
 		"type": "rdfs:Datatype"
 	},
 	{
-		"id": "literal68",
+		"id": "literal50",
 		"type": "rdfs:Literal"
 	},
 	{
-		"id": "literal65",
+		"id": "literal49",
 		"type": "rdfs:Literal"
 	},
 	{
-		"id": "literal64",
+		"id": "literal53",
 		"type": "rdfs:Literal"
 	}
 ], "datatypeAttribute": [
 	{
-		"id": "datatype67",
+		"id": "datatype54",
 		"superClasses": [],
 		"subClasses": [],
 		"label": "dateTime",
@@ -670,7 +670,7 @@
 		"instances": 0
 	},
 	{
-		"id": "datatype66",
+		"id": "datatype52",
 		"superClasses": [],
 		"subClasses": [],
 		"label": "dateTime",
@@ -678,7 +678,7 @@
 		"instances": 0
 	},
 	{
-		"id": "datatype69",
+		"id": "datatype51",
 		"superClasses": [],
 		"subClasses": [],
 		"label": "dateTime",
@@ -686,7 +686,7 @@
 		"instances": 0
 	},
 	{
-		"id": "literal68",
+		"id": "literal50",
 		"superClasses": [],
 		"subClasses": [],
 		"label": "Literal",
@@ -694,7 +694,7 @@
 		"instances": 0
 	},
 	{
-		"id": "literal65",
+		"id": "literal49",
 		"superClasses": [],
 		"subClasses": [],
 		"label": "Literal",
@@ -702,7 +702,7 @@
 		"instances": 0
 	},
 	{
-		"id": "literal64",
+		"id": "literal53",
 		"superClasses": [],
 		"subClasses": [],
 		"label": "Literal",

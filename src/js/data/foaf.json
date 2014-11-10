@@ -1,23 +1,11 @@
 {"propertyAttribute": [
 	{
-		"id": "property10",
-		"equivalent": [],
-		"range": "class9",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class15",
-		"label": "workplace homepage",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A workplace homepage of some person; the homepage of an organization they work for.",
-		"uri": "http://xmlns.com/foaf/0.1/workplaceHomepage"
-	},
-	{
 		"id": "property22",
 		"equivalent": [],
 		"range": "class9",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": ["property14"],
 		"domain": "class3",
 		"label": "tipjar",
 		"attributes": [],
@@ -26,25 +14,41 @@
 		"uri": "http://xmlns.com/foaf/0.1/tipjar"
 	},
 	{
-		"id": "property26",
+		"id": "property10",
 		"equivalent": [],
-		"inverse": "property20",
-		"range": "class3",
+		"range": "class9",
 		"disjoint": [],
 		"subproperty": [],
-		"domain": "thing1",
-		"label": "maker",
+		"superproperty": [],
+		"domain": "class15",
+		"label": "workplace homepage",
 		"attributes": [],
 		"instances": 0,
-		"comment": "An agent that  made this thing.",
-		"uri": "http://xmlns.com/foaf/0.1/maker"
+		"comment": "A workplace homepage of some person; the homepage of an organization they work for.",
+		"uri": "http://xmlns.com/foaf/0.1/workplaceHomepage"
 	},
 	{
-		"id": "property39",
+		"equivalent": [],
+		"range": "class3",
+		"subproperty": [],
+		"disjoint": [],
+		"superproperty": [],
+		"label": "maker",
+		"instances": 0,
+		"uri": "http://xmlns.com/foaf/0.1/maker",
+		"id": "property26",
+		"inverse": "property20",
+		"domain": "thing1",
+		"attributes": [],
+		"comment": "An agent that  made this thing."
+	},
+	{
+		"id": "property38",
 		"equivalent": [],
 		"range": "class10",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class10",
 		"label": "based near",
 		"attributes": [],
@@ -53,31 +57,19 @@
 		"uri": "http://xmlns.com/foaf/0.1/based_near"
 	},
 	{
-		"id": "property7",
 		"equivalent": [],
-		"range": "thing1",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "MSN chat ID",
-		"attributes": ["inverse functional"],
-		"instances": 0,
-		"comment": "An MSN chat ID",
-		"uri": "http://xmlns.com/foaf/0.1/msnChatID"
-	},
-	{
-		"id": "property12",
-		"equivalent": [],
-		"inverse": "property9",
 		"range": "class21",
-		"disjoint": [],
 		"subproperty": ["property23"],
-		"domain": "thing3",
+		"disjoint": [],
+		"superproperty": [],
 		"label": "depiction",
-		"attributes": [],
 		"instances": 0,
-		"comment": "A depiction of some thing.",
-		"uri": "http://xmlns.com/foaf/0.1/depiction"
+		"uri": "http://xmlns.com/foaf/0.1/depiction",
+		"id": "property12",
+		"inverse": "property9",
+		"domain": "thing3",
+		"attributes": [],
+		"comment": "A depiction of some thing."
 	},
 	{
 		"id": "property71",
@@ -85,6 +77,7 @@
 		"range": "class5",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class20",
 		"label": "Subclass Of",
 		"attributes": [],
@@ -96,37 +89,11 @@
 		"range": "class3",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class15",
 		"label": "Subclass Of",
 		"attributes": [],
 		"instances": 0
-	},
-	{
-		"id": "property37",
-		"equivalent": [],
-		"inverse": "property24",
-		"range": "thing2",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class9",
-		"label": "primary topic",
-		"attributes": ["functional"],
-		"instances": 0,
-		"comment": "The primary topic of some page or document.",
-		"uri": "http://xmlns.com/foaf/0.1/primaryTopic"
-	},
-	{
-		"id": "property1",
-		"equivalent": [],
-		"range": "class9",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class5",
-		"label": "account service homepage",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Indicates a homepage of the service provide for this online account.",
-		"uri": "http://xmlns.com/foaf/0.1/accountServiceHomepage"
 	},
 	{
 		"id": "property16",
@@ -134,6 +101,7 @@
 		"range": "thing4",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "thing4",
 		"label": "logo",
 		"attributes": ["inverse functional"],
@@ -142,83 +110,99 @@
 		"uri": "http://xmlns.com/foaf/0.1/logo"
 	},
 	{
-		"id": "property13",
 		"equivalent": [],
-		"range": "thing4",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "thing4",
-		"label": "theme",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A theme.",
-		"uri": "http://xmlns.com/foaf/0.1/theme"
-	},
-	{
-		"id": "property14",
-		"equivalent": [],
-		"inverse": "property4",
 		"range": "class9",
-		"disjoint": [],
 		"subproperty": ["property5", "property24", "property22", "property21"],
-		"domain": "thing2",
+		"disjoint": [],
+		"superproperty": [],
 		"label": "page",
-		"attributes": [],
 		"instances": 0,
-		"comment": "A page or document about this thing.",
-		"uri": "http://xmlns.com/foaf/0.1/page"
+		"uri": "http://xmlns.com/foaf/0.1/page",
+		"id": "property14",
+		"inverse": "property4",
+		"domain": "thing2",
+		"attributes": [],
+		"comment": "A page or document about this thing."
 	},
 	{
 		"id": "property76",
 		"equivalent": [],
-		"range": "class10",
+		"range": "class15",
 		"disjoint": [],
 		"subproperty": [],
-		"domain": "class15",
+		"superproperty": [],
+		"domain": "class4",
+		"label": "Disjoint With",
+		"attributes": [],
+		"instances": 0
+	},
+	{
+		"equivalent": [],
+		"range": "thing1",
+		"subproperty": [],
+		"disjoint": [],
+		"superproperty": [],
+		"label": "made",
+		"instances": 0,
+		"uri": "http://xmlns.com/foaf/0.1/made",
+		"id": "property20",
+		"inverse": "property26",
+		"domain": "class3",
+		"attributes": [],
+		"comment": "Something that was made by this agent."
+	},
+	{
+		"id": "property78",
+		"equivalent": [],
+		"range": "class9",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class21",
 		"label": "Subclass Of",
 		"attributes": [],
 		"instances": 0
 	},
 	{
-		"id": "property32",
+		"id": "property62",
 		"equivalent": [],
-		"range": "thing1",
+		"range": "literal22",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class3",
-		"label": "personal mailbox",
-		"attributes": ["inverse functional"],
+		"label": "birthday",
+		"attributes": ["functional"],
 		"instances": 0,
-		"comment": "A  personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. This is a 'static inverse functional property', in that  there is (across time and change) at most one individual that ever has any particular value for foaf:mbox.",
-		"uri": "http://xmlns.com/foaf/0.1/mbox"
+		"comment": "The birthday of this Agent, represented in mm-dd string form, eg. '12-31'.",
+		"uri": "http://xmlns.com/foaf/0.1/birthday"
 	},
 	{
-		"id": "property20",
 		"equivalent": [],
-		"inverse": "property26",
-		"range": "thing1",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "made",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Something that was made by this agent.",
-		"uri": "http://xmlns.com/foaf/0.1/made"
-	},
-	{
-		"id": "property4",
-		"equivalent": [],
-		"inverse": "property14",
 		"range": "thing2",
+		"subproperty": [],
+		"disjoint": [],
+		"superproperty": [],
+		"label": "topic",
+		"instances": 0,
+		"uri": "http://xmlns.com/foaf/0.1/topic",
+		"id": "property4",
+		"inverse": "property14",
+		"domain": "class9",
+		"attributes": [],
+		"comment": "A topic of some page or document."
+	},
+	{
+		"id": "property79",
+		"equivalent": [],
+		"range": "class9",
 		"disjoint": [],
 		"subproperty": [],
-		"domain": "class9",
-		"label": "topic",
+		"superproperty": [],
+		"domain": "class18",
+		"label": "Subclass Of",
 		"attributes": [],
-		"instances": 0,
-		"comment": "A topic of some page or document.",
-		"uri": "http://xmlns.com/foaf/0.1/topic"
+		"instances": 0
 	},
 	{
 		"id": "property29",
@@ -226,6 +210,7 @@
 		"range": "class5",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class3",
 		"label": "account",
 		"attributes": [],
@@ -239,24 +224,26 @@
 		"range": "class5",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class12",
 		"label": "Subclass Of",
 		"attributes": [],
 		"instances": 0
 	},
 	{
-		"id": "property24",
 		"equivalent": [],
-		"inverse": "property37",
 		"range": "class9",
-		"disjoint": [],
 		"subproperty": ["property5", "property11"],
-		"domain": "thing2",
+		"disjoint": [],
+		"superproperty": ["property14"],
 		"label": "is primary topic of",
-		"attributes": ["inverse functional"],
 		"instances": 0,
-		"comment": "A document that this thing is the primary topic of.",
-		"uri": "http://xmlns.com/foaf/0.1/isPrimaryTopicOf"
+		"uri": "http://xmlns.com/foaf/0.1/isPrimaryTopicOf",
+		"id": "property24",
+		"inverse": "property37",
+		"domain": "thing2",
+		"attributes": ["inverse functional"],
+		"comment": "A document that this thing is the primary topic of."
 	},
 	{
 		"id": "property73",
@@ -264,6 +251,7 @@
 		"range": "class5",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class13",
 		"label": "Subclass Of",
 		"attributes": [],
@@ -272,450 +260,14 @@
 	{
 		"id": "property74",
 		"equivalent": [],
-		"range": "class9",
+		"range": "class16",
 		"disjoint": [],
 		"subproperty": [],
-		"domain": "class21",
-		"label": "Subclass Of",
+		"superproperty": [],
+		"domain": "class15",
+		"label": "Disjoint With",
 		"attributes": [],
 		"instances": 0
-	},
-	{
-		"id": "property75",
-		"equivalent": [],
-		"range": "class9",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class18",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property30",
-		"equivalent": [],
-		"range": "class9",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class15",
-		"label": "work info homepage",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A work info homepage of some person; a page about their work for some organization.",
-		"uri": "http://xmlns.com/foaf/0.1/workInfoHomepage"
-	},
-	{
-		"id": "property5",
-		"equivalent": [],
-		"range": "class9",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "thing2",
-		"label": "homepage",
-		"attributes": ["inverse functional"],
-		"instances": 0,
-		"comment": "A homepage for some thing.",
-		"uri": "http://xmlns.com/foaf/0.1/homepage"
-	},
-	{
-		"id": "property15",
-		"equivalent": [],
-		"range": "thing5",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class15",
-		"label": "past project",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A project this person has previously worked on.",
-		"uri": "http://xmlns.com/foaf/0.1/pastProject"
-	},
-	{
-		"id": "property19",
-		"equivalent": [],
-		"range": "thing1",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "Yahoo chat ID",
-		"attributes": ["inverse functional"],
-		"instances": 0,
-		"comment": "A Yahoo chat ID",
-		"uri": "http://xmlns.com/foaf/0.1/yahooChatID"
-	},
-	{
-		"id": "property28",
-		"equivalent": [],
-		"range": "thing5",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class15",
-		"label": "current project",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A current project this person works on.",
-		"uri": "http://xmlns.com/foaf/0.1/currentProject"
-	},
-	{
-		"id": "property2",
-		"equivalent": [],
-		"range": "class21",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class21",
-		"label": "thumbnail",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A derived thumbnail image.",
-		"uri": "http://xmlns.com/foaf/0.1/thumbnail"
-	},
-	{
-		"id": "property31",
-		"equivalent": [],
-		"range": "thing1",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "AIM chat ID",
-		"attributes": ["inverse functional"],
-		"instances": 0,
-		"comment": "An AIM chat ID",
-		"uri": "http://xmlns.com/foaf/0.1/aimChatID"
-	},
-	{
-		"id": "property38",
-		"equivalent": [],
-		"range": "thing1",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "topic_interest",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A thing of interest to this person.",
-		"uri": "http://xmlns.com/foaf/0.1/topic_interest"
-	},
-	{
-		"id": "property33",
-		"equivalent": [],
-		"range": "thing6",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class11",
-		"label": "focus",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The underlying or 'focal' entity associated with some SKOS-described concept.",
-		"uri": "http://xmlns.com/foaf/0.1/focus"
-	},
-	{
-		"id": "property9",
-		"equivalent": [],
-		"inverse": "property12",
-		"range": "thing3",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class21",
-		"label": "depicts",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A thing depicted in this representation.",
-		"uri": "http://xmlns.com/foaf/0.1/depicts"
-	},
-	{
-		"id": "property25",
-		"equivalent": [],
-		"range": "class15",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class15",
-		"label": "knows",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A person known by this person (indicating some level of reciprocated interaction between the parties).",
-		"uri": "http://xmlns.com/foaf/0.1/knows"
-	},
-	{
-		"id": "property21",
-		"equivalent": [],
-		"range": "class9",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "weblog",
-		"attributes": ["inverse functional"],
-		"instances": 0,
-		"comment": "A weblog of some thing (whether person, group, company etc.).",
-		"uri": "http://xmlns.com/foaf/0.1/weblog"
-	},
-	{
-		"id": "property35",
-		"equivalent": [],
-		"range": "thing1",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "sha1sum of a personal mailbox URI name",
-		"attributes": ["inverse functional"],
-		"instances": 0,
-		"comment": "The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the  first owner of the mailbox.",
-		"uri": "http://xmlns.com/foaf/0.1/mbox_sha1sum"
-	},
-	{
-		"id": "property34",
-		"equivalent": [],
-		"range": "thing4",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "thing4",
-		"label": "phone",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A phone,  specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel).",
-		"uri": "http://xmlns.com/foaf/0.1/phone"
-	},
-	{
-		"id": "property27",
-		"equivalent": [],
-		"range": "class5",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "account",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Indicates an account held by this agent.",
-		"uri": "http://xmlns.com/foaf/0.1/account"
-	},
-	{
-		"id": "property18",
-		"equivalent": [],
-		"range": "thing4",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "thing4",
-		"label": "funded by",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An organization funding a project or person.",
-		"uri": "http://xmlns.com/foaf/0.1/fundedBy"
-	},
-	{
-		"id": "property8",
-		"equivalent": [],
-		"range": "class9",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class15",
-		"label": "publications",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A link to the publications of this person.",
-		"uri": "http://xmlns.com/foaf/0.1/publications"
-	},
-	{
-		"id": "property40",
-		"equivalent": [],
-		"range": "thing1",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "ICQ chat ID",
-		"attributes": ["inverse functional"],
-		"instances": 0,
-		"comment": "An ICQ chat ID",
-		"uri": "http://xmlns.com/foaf/0.1/icqChatID"
-	},
-	{
-		"id": "property68",
-		"equivalent": [],
-		"range": "class3",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class17",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property6",
-		"equivalent": [],
-		"range": "class9",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "interest",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A page about a topic of interest to this person.",
-		"uri": "http://xmlns.com/foaf/0.1/interest"
-	},
-	{
-		"id": "property23",
-		"equivalent": [],
-		"range": "class21",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class15",
-		"label": "image",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one's photo on a homepage).",
-		"uri": "http://xmlns.com/foaf/0.1/img"
-	},
-	{
-		"id": "property11",
-		"equivalent": [],
-		"range": "class9",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "openid",
-		"attributes": ["inverse functional"],
-		"instances": 0,
-		"comment": "An OpenID for an Agent.",
-		"uri": "http://xmlns.com/foaf/0.1/openid"
-	},
-	{
-		"id": "property17",
-		"equivalent": [],
-		"range": "class3",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class17",
-		"label": "member",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Indicates a member of a Group",
-		"uri": "http://xmlns.com/foaf/0.1/member"
-	},
-	{
-		"id": "property69",
-		"equivalent": [],
-		"range": "class3",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class16",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property36",
-		"equivalent": [],
-		"range": "class9",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class15",
-		"label": "schoolHomepage",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A homepage of a school attended by the person.",
-		"uri": "http://xmlns.com/foaf/0.1/schoolHomepage"
-	},
-	{
-		"id": "property3",
-		"equivalent": [],
-		"range": "thing1",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "jabber ID",
-		"attributes": ["inverse functional"],
-		"instances": 0,
-		"comment": "A jabber ID for something.",
-		"uri": "http://xmlns.com/foaf/0.1/jabberID"
-	},
-	{
-		"id": "property59",
-		"equivalent": [],
-		"range": "literal19",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "thing4",
-		"label": "MSN chat ID",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An MSN chat ID",
-		"uri": "http://xmlns.com/foaf/0.1/msnChatID"
-	},
-	{
-		"id": "property43",
-		"equivalent": [],
-		"range": "literal3",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class15",
-		"label": "family_name",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The family name of some person.",
-		"uri": "http://xmlns.com/foaf/0.1/family_name"
-	},
-	{
-		"id": "property46",
-		"equivalent": [],
-		"range": "literal6",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "Skype ID",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A Skype ID",
-		"uri": "http://xmlns.com/foaf/0.1/skypeID"
-	},
-	{
-		"id": "property53",
-		"equivalent": [],
-		"range": "literal13",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "thing4",
-		"label": "Given name",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The given name of some person.",
-		"uri": "http://xmlns.com/foaf/0.1/givenName"
-	},
-	{
-		"id": "property66",
-		"equivalent": [],
-		"range": "literal26",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "age",
-		"attributes": ["functional"],
-		"instances": 0,
-		"comment": "The age in years of some agent.",
-		"uri": "http://xmlns.com/foaf/0.1/age"
-	},
-	{
-		"id": "property62",
-		"equivalent": [],
-		"range": "literal22",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class3",
-		"label": "birthday",
-		"attributes": ["functional"],
-		"instances": 0,
-		"comment": "The birthday of this Agent, represented in mm-dd string form, eg. '12-31'.",
-		"uri": "http://xmlns.com/foaf/0.1/birthday"
-	},
-	{
-		"id": "property54",
-		"equivalent": [],
-		"range": "literal14",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "class15",
-		"label": "lastName",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The last name of a person.",
-		"uri": "http://xmlns.com/foaf/0.1/lastName"
 	},
 	{
 		"id": "property63",
@@ -723,6 +275,7 @@
 		"range": "literal23",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class15",
 		"label": "familyName",
 		"attributes": [],
@@ -731,30 +284,30 @@
 		"uri": "http://xmlns.com/foaf/0.1/familyName"
 	},
 	{
-		"id": "property51",
+		"id": "property75",
 		"equivalent": [],
-		"range": "literal11",
+		"range": "class16",
 		"disjoint": [],
 		"subproperty": [],
-		"domain": "class15",
-		"label": "firstName",
+		"superproperty": [],
+		"domain": "class9",
+		"label": "Disjoint With",
 		"attributes": [],
-		"instances": 0,
-		"comment": "The first name of a person.",
-		"uri": "http://xmlns.com/foaf/0.1/firstName"
+		"instances": 0
 	},
 	{
-		"id": "property45",
+		"id": "property5",
 		"equivalent": [],
-		"range": "literal5",
+		"range": "class9",
 		"disjoint": [],
 		"subproperty": [],
-		"domain": "thing4",
-		"label": "Yahoo chat ID",
-		"attributes": [],
+		"superproperty": ["property24", "property14"],
+		"domain": "thing2",
+		"label": "homepage",
+		"attributes": ["inverse functional"],
 		"instances": 0,
-		"comment": "A Yahoo chat ID",
-		"uri": "http://xmlns.com/foaf/0.1/yahooChatID"
+		"comment": "A homepage for some thing.",
+		"uri": "http://xmlns.com/foaf/0.1/homepage"
 	},
 	{
 		"id": "property41",
@@ -762,6 +315,7 @@
 		"range": "literal1",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class3",
 		"label": "status",
 		"attributes": [],
@@ -770,11 +324,26 @@
 		"uri": "http://xmlns.com/foaf/0.1/status"
 	},
 	{
+		"id": "property51",
+		"equivalent": [],
+		"range": "literal11",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class15",
+		"label": "firstName",
+		"attributes": [],
+		"instances": 0,
+		"comment": "The first name of a person.",
+		"uri": "http://xmlns.com/foaf/0.1/firstName"
+	},
+	{
 		"id": "property60",
 		"equivalent": [],
 		"range": "literal20",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "thing4",
 		"label": "title",
 		"attributes": [],
@@ -783,11 +352,26 @@
 		"uri": "http://xmlns.com/foaf/0.1/title"
 	},
 	{
+		"id": "property28",
+		"equivalent": [],
+		"range": "thing5",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class15",
+		"label": "current project",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A current project this person works on.",
+		"uri": "http://xmlns.com/foaf/0.1/currentProject"
+	},
+	{
 		"id": "property61",
 		"equivalent": [],
 		"range": "literal21",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": ["property64"],
 		"domain": "thing4",
 		"label": "AIM chat ID",
 		"attributes": [],
@@ -796,11 +380,26 @@
 		"uri": "http://xmlns.com/foaf/0.1/aimChatID"
 	},
 	{
+		"id": "property39",
+		"equivalent": [],
+		"range": "thing1",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class3",
+		"label": "topic_interest",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A thing of interest to this person.",
+		"uri": "http://xmlns.com/foaf/0.1/topic_interest"
+	},
+	{
 		"id": "property44",
 		"equivalent": [],
 		"range": "literal4",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "thing4",
 		"label": "DNA checksum",
 		"attributes": [],
@@ -814,6 +413,7 @@
 		"range": "literal8",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class9",
 		"label": "sha1sum (hex)",
 		"attributes": [],
@@ -822,43 +422,33 @@
 		"uri": "http://xmlns.com/foaf/0.1/sha1"
 	},
 	{
-		"id": "property64",
 		"equivalent": [],
-		"range": "literal24",
+		"range": "thing3",
+		"subproperty": [],
 		"disjoint": [],
-		"subproperty": ["property31", "property40", "property7", "property46", "property19"],
-		"domain": "thing4",
-		"label": "nickname",
-		"attributes": [],
+		"superproperty": [],
+		"label": "depicts",
 		"instances": 0,
-		"comment": "A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).",
-		"uri": "http://xmlns.com/foaf/0.1/nick"
+		"uri": "http://xmlns.com/foaf/0.1/depicts",
+		"id": "property9",
+		"inverse": "property12",
+		"domain": "class21",
+		"attributes": [],
+		"comment": "A thing depicted in this representation."
 	},
 	{
-		"id": "property65",
+		"id": "property21",
 		"equivalent": [],
-		"range": "literal25",
+		"range": "class9",
 		"disjoint": [],
 		"subproperty": [],
-		"domain": "class15",
-		"label": "plan",
-		"attributes": [],
+		"superproperty": ["property14"],
+		"domain": "class3",
+		"label": "weblog",
+		"attributes": ["inverse functional"],
 		"instances": 0,
-		"comment": "A .plan comment, in the tradition of finger and '.plan' files.",
-		"uri": "http://xmlns.com/foaf/0.1/plan"
-	},
-	{
-		"id": "property47",
-		"equivalent": [],
-		"range": "literal7",
-		"disjoint": [],
-		"subproperty": [],
-		"domain": "thing4",
-		"label": "sha1sum of a personal mailbox URI name",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the  first owner of the mailbox.",
-		"uri": "http://xmlns.com/foaf/0.1/mbox_sha1sum"
+		"comment": "A weblog of some thing (whether person, group, company etc.).",
+		"uri": "http://xmlns.com/foaf/0.1/weblog"
 	},
 	{
 		"id": "property67",
@@ -866,6 +456,7 @@
 		"range": "literal27",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class3",
 		"label": "gender",
 		"attributes": ["functional"],
@@ -879,6 +470,7 @@
 		"range": "literal2",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "thing4",
 		"label": "name",
 		"attributes": [],
@@ -887,11 +479,397 @@
 		"uri": "http://xmlns.com/foaf/0.1/name"
 	},
 	{
+		"id": "property68",
+		"equivalent": [],
+		"range": "class3",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class17",
+		"label": "Subclass Of",
+		"attributes": [],
+		"instances": 0
+	},
+	{
+		"id": "property50",
+		"equivalent": [],
+		"range": "literal10",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class15",
+		"label": "Surname",
+		"attributes": [],
+		"instances": 0,
+		"comment": "The surname of some person.",
+		"uri": "http://xmlns.com/foaf/0.1/surname"
+	},
+	{
+		"id": "property17",
+		"equivalent": [],
+		"range": "class3",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class17",
+		"label": "member",
+		"attributes": [],
+		"instances": 0,
+		"comment": "Indicates a member of a Group",
+		"uri": "http://xmlns.com/foaf/0.1/member"
+	},
+	{
+		"id": "property69",
+		"equivalent": [],
+		"range": "class3",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class16",
+		"label": "Subclass Of",
+		"attributes": [],
+		"instances": 0
+	},
+	{
+		"id": "property59",
+		"equivalent": [],
+		"range": "literal19",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": ["property64"],
+		"domain": "thing4",
+		"label": "MSN chat ID",
+		"attributes": [],
+		"instances": 0,
+		"comment": "An MSN chat ID",
+		"uri": "http://xmlns.com/foaf/0.1/msnChatID"
+	},
+	{
+		"id": "property43",
+		"equivalent": [],
+		"range": "literal3",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class15",
+		"label": "family_name",
+		"attributes": [],
+		"instances": 0,
+		"comment": "The family name of some person.",
+		"uri": "http://xmlns.com/foaf/0.1/family_name"
+	},
+	{
+		"id": "property46",
+		"equivalent": [],
+		"range": "literal6",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": ["property64"],
+		"domain": "class3",
+		"label": "Skype ID",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A Skype ID",
+		"uri": "http://xmlns.com/foaf/0.1/skypeID"
+	},
+	{
+		"id": "property53",
+		"equivalent": [],
+		"range": "literal13",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "thing4",
+		"label": "Given name",
+		"attributes": [],
+		"instances": 0,
+		"comment": "The given name of some person.",
+		"uri": "http://xmlns.com/foaf/0.1/givenName"
+	},
+	{
+		"id": "property1",
+		"equivalent": [],
+		"range": "class9",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class5",
+		"label": "account service homepage",
+		"attributes": [],
+		"instances": 0,
+		"comment": "Indicates a homepage of the service provide for this online account.",
+		"uri": "http://xmlns.com/foaf/0.1/accountServiceHomepage"
+	},
+	{
+		"equivalent": [],
+		"range": "thing2",
+		"subproperty": [],
+		"disjoint": [],
+		"superproperty": [],
+		"label": "primary topic",
+		"instances": 0,
+		"uri": "http://xmlns.com/foaf/0.1/primaryTopic",
+		"id": "property37",
+		"inverse": "property24",
+		"domain": "class9",
+		"attributes": ["functional"],
+		"comment": "The primary topic of some page or document."
+	},
+	{
+		"id": "property13",
+		"equivalent": [],
+		"range": "thing4",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "thing4",
+		"label": "theme",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A theme.",
+		"uri": "http://xmlns.com/foaf/0.1/theme"
+	},
+	{
+		"id": "property66",
+		"equivalent": [],
+		"range": "literal26",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class3",
+		"label": "age",
+		"attributes": ["functional"],
+		"instances": 0,
+		"comment": "The age in years of some agent.",
+		"uri": "http://xmlns.com/foaf/0.1/age"
+	},
+	{
+		"id": "property32",
+		"equivalent": [],
+		"range": "thing1",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class3",
+		"label": "personal mailbox",
+		"attributes": ["inverse functional"],
+		"instances": 0,
+		"comment": "A  personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. This is a 'static inverse functional property', in that  there is (across time and change) at most one individual that ever has any particular value for foaf:mbox.",
+		"uri": "http://xmlns.com/foaf/0.1/mbox"
+	},
+	{
+		"id": "property54",
+		"equivalent": [],
+		"range": "literal14",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class15",
+		"label": "lastName",
+		"attributes": [],
+		"instances": 0,
+		"comment": "The last name of a person.",
+		"uri": "http://xmlns.com/foaf/0.1/lastName"
+	},
+	{
+		"id": "property30",
+		"equivalent": [],
+		"range": "class9",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class15",
+		"label": "work info homepage",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A work info homepage of some person; a page about their work for some organization.",
+		"uri": "http://xmlns.com/foaf/0.1/workInfoHomepage"
+	},
+	{
+		"id": "property45",
+		"equivalent": [],
+		"range": "literal5",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": ["property64"],
+		"domain": "thing4",
+		"label": "Yahoo chat ID",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A Yahoo chat ID",
+		"uri": "http://xmlns.com/foaf/0.1/yahooChatID"
+	},
+	{
+		"id": "property15",
+		"equivalent": [],
+		"range": "thing5",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class15",
+		"label": "past project",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A project this person has previously worked on.",
+		"uri": "http://xmlns.com/foaf/0.1/pastProject"
+	},
+	{
+		"id": "property2",
+		"equivalent": [],
+		"range": "class21",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class21",
+		"label": "thumbnail",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A derived thumbnail image.",
+		"uri": "http://xmlns.com/foaf/0.1/thumbnail"
+	},
+	{
+		"id": "property64",
+		"equivalent": [],
+		"range": "literal24",
+		"disjoint": [],
+		"subproperty": ["property31", "property40", "property7", "property46", "property19"],
+		"superproperty": [],
+		"domain": "thing4",
+		"label": "nickname",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).",
+		"uri": "http://xmlns.com/foaf/0.1/nick"
+	},
+	{
+		"id": "property82",
+		"equivalent": [],
+		"range": "class10",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class15",
+		"label": "Subclass Of",
+		"attributes": [],
+		"instances": 0
+	},
+	{
+		"id": "property33",
+		"equivalent": [],
+		"range": "thing6",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class11",
+		"label": "focus",
+		"attributes": [],
+		"instances": 0,
+		"comment": "The underlying or 'focal' entity associated with some SKOS-described concept.",
+		"uri": "http://xmlns.com/foaf/0.1/focus"
+	},
+	{
+		"id": "property25",
+		"equivalent": [],
+		"range": "class15",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class15",
+		"label": "knows",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A person known by this person (indicating some level of reciprocated interaction between the parties).",
+		"uri": "http://xmlns.com/foaf/0.1/knows"
+	},
+	{
+		"id": "property80",
+		"equivalent": [],
+		"range": "class9",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class4",
+		"label": "Disjoint With",
+		"attributes": [],
+		"instances": 0
+	},
+	{
+		"id": "property65",
+		"equivalent": [],
+		"range": "literal25",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class15",
+		"label": "plan",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A .plan comment, in the tradition of finger and '.plan' files.",
+		"uri": "http://xmlns.com/foaf/0.1/plan"
+	},
+	{
+		"id": "property34",
+		"equivalent": [],
+		"range": "thing4",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "thing4",
+		"label": "phone",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A phone,  specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel).",
+		"uri": "http://xmlns.com/foaf/0.1/phone"
+	},
+	{
+		"id": "property47",
+		"equivalent": [],
+		"range": "literal7",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "thing4",
+		"label": "sha1sum of a personal mailbox URI name",
+		"attributes": [],
+		"instances": 0,
+		"comment": "The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the  first owner of the mailbox.",
+		"uri": "http://xmlns.com/foaf/0.1/mbox_sha1sum"
+	},
+	{
+		"id": "property18",
+		"equivalent": [],
+		"range": "thing4",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "thing4",
+		"label": "funded by",
+		"attributes": [],
+		"instances": 0,
+		"comment": "An organization funding a project or person.",
+		"uri": "http://xmlns.com/foaf/0.1/fundedBy"
+	},
+	{
+		"id": "property27",
+		"equivalent": [],
+		"range": "class5",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class3",
+		"label": "account",
+		"attributes": [],
+		"instances": 0,
+		"comment": "Indicates an account held by this agent.",
+		"uri": "http://xmlns.com/foaf/0.1/account"
+	},
+	{
 		"id": "property57",
 		"equivalent": [],
 		"range": "literal17",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class15",
 		"label": "geekcode",
 		"attributes": [],
@@ -900,11 +878,26 @@
 		"uri": "http://xmlns.com/foaf/0.1/geekcode"
 	},
 	{
+		"id": "property8",
+		"equivalent": [],
+		"range": "class9",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class15",
+		"label": "publications",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A link to the publications of this person.",
+		"uri": "http://xmlns.com/foaf/0.1/publications"
+	},
+	{
 		"id": "property55",
 		"equivalent": [],
 		"range": "literal15",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class5",
 		"label": "account name",
 		"attributes": [],
@@ -918,6 +911,7 @@
 		"range": "literal16",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": ["property64"],
 		"domain": "thing4",
 		"label": "ICQ chat ID",
 		"attributes": [],
@@ -926,17 +920,46 @@
 		"uri": "http://xmlns.com/foaf/0.1/icqChatID"
 	},
 	{
-		"id": "property50",
+		"id": "property23",
 		"equivalent": [],
-		"range": "literal10",
+		"range": "class21",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": ["property12"],
 		"domain": "class15",
-		"label": "Surname",
+		"label": "image",
 		"attributes": [],
 		"instances": 0,
-		"comment": "The surname of some person.",
-		"uri": "http://xmlns.com/foaf/0.1/surname"
+		"comment": "An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one's photo on a homepage).",
+		"uri": "http://xmlns.com/foaf/0.1/img"
+	},
+	{
+		"id": "property6",
+		"equivalent": [],
+		"range": "class9",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class3",
+		"label": "interest",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A page about a topic of interest to this person.",
+		"uri": "http://xmlns.com/foaf/0.1/interest"
+	},
+	{
+		"id": "property11",
+		"equivalent": [],
+		"range": "class9",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": ["property24"],
+		"domain": "class3",
+		"label": "openid",
+		"attributes": ["inverse functional"],
+		"instances": 0,
+		"comment": "An OpenID for an Agent.",
+		"uri": "http://xmlns.com/foaf/0.1/openid"
 	},
 	{
 		"id": "property52",
@@ -944,6 +967,7 @@
 		"range": "literal12",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "thing4",
 		"label": "Given name",
 		"attributes": [],
@@ -957,6 +981,7 @@
 		"range": "literal18",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "class15",
 		"label": "myersBriggs",
 		"attributes": [],
@@ -970,12 +995,27 @@
 		"range": "literal9",
 		"disjoint": [],
 		"subproperty": [],
+		"superproperty": [],
 		"domain": "thing4",
 		"label": "jabber ID",
 		"attributes": [],
 		"instances": 0,
 		"comment": "A jabber ID for something.",
 		"uri": "http://xmlns.com/foaf/0.1/jabberID"
+	},
+	{
+		"id": "property36",
+		"equivalent": [],
+		"range": "class9",
+		"disjoint": [],
+		"subproperty": [],
+		"superproperty": [],
+		"domain": "class15",
+		"label": "schoolHomepage",
+		"attributes": [],
+		"instances": 0,
+		"comment": "A homepage of a school attended by the person.",
+		"uri": "http://xmlns.com/foaf/0.1/schoolHomepage"
 	}
 ], "metrics": {
 	"propertyCount": 67,
@@ -1088,7 +1128,7 @@
 		"complement": [],
 		"id": "class15",
 		"intersection": [],
-		"equivalent": ["class8", "class6"],
+		"equivalent": ["class6", "class8"],
 		"superClasses": ["class10", "class3"],
 		"union": [],
 		"subClasses": [],
@@ -1421,11 +1461,11 @@
 	}
 ], "property": [
 	{
-		"id": "property10",
+		"id": "property22",
 		"type": "owl:objectProperty"
 	},
 	{
-		"id": "property22",
+		"id": "property10",
 		"type": "owl:objectProperty"
 	},
 	{
@@ -1433,11 +1473,7 @@
 		"type": "owl:objectProperty"
 	},
 	{
-		"id": "property39",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property7",
+		"id": "property38",
 		"type": "owl:objectProperty"
 	},
 	{
@@ -1453,19 +1489,7 @@
 		"type": "rdfs:SubClassOf"
 	},
 	{
-		"id": "property37",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1",
-		"type": "owl:objectProperty"
-	},
-	{
 		"id": "property16",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property13",
 		"type": "owl:objectProperty"
 	},
 	{
@@ -1474,19 +1498,27 @@
 	},
 	{
 		"id": "property76",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property32",
-		"type": "owl:objectProperty"
+		"type": "owl:disjointWith"
 	},
 	{
 		"id": "property20",
 		"type": "owl:objectProperty"
 	},
 	{
+		"id": "property78",
+		"type": "rdfs:SubClassOf"
+	},
+	{
+		"id": "property62",
+		"type": "owl:datatypeProperty"
+	},
+	{
 		"id": "property4",
 		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property79",
+		"type": "rdfs:SubClassOf"
 	},
 	{
 		"id": "property29",
@@ -1506,54 +1538,54 @@
 	},
 	{
 		"id": "property74",
-		"type": "rdfs:SubClassOf"
+		"type": "owl:disjointWith"
+	},
+	{
+		"id": "property63",
+		"type": "owl:datatypeProperty"
 	},
 	{
 		"id": "property75",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property30",
-		"type": "owl:objectProperty"
+		"type": "owl:disjointWith"
 	},
 	{
 		"id": "property5",
 		"type": "owl:objectProperty"
 	},
 	{
-		"id": "property15",
-		"type": "owl:objectProperty"
+		"id": "property41",
+		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property19",
-		"type": "owl:objectProperty"
+		"id": "property51",
+		"type": "owl:datatypeProperty"
+	},
+	{
+		"id": "property60",
+		"type": "owl:datatypeProperty"
 	},
 	{
 		"id": "property28",
 		"type": "owl:objectProperty"
 	},
 	{
-		"id": "property2",
+		"id": "property61",
+		"type": "owl:datatypeProperty"
+	},
+	{
+		"id": "property39",
 		"type": "owl:objectProperty"
 	},
 	{
-		"id": "property31",
-		"type": "owl:objectProperty"
+		"id": "property44",
+		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property38",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property33",
-		"type": "owl:objectProperty"
+		"id": "property48",
+		"type": "owl:datatypeProperty"
 	},
 	{
 		"id": "property9",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property25",
 		"type": "owl:objectProperty"
 	},
 	{
@@ -1561,44 +1593,20 @@
 		"type": "owl:objectProperty"
 	},
 	{
-		"id": "property35",
-		"type": "owl:objectProperty"
+		"id": "property67",
+		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property34",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property27",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property18",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property8",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property40",
-		"type": "owl:objectProperty"
+		"id": "property42",
+		"type": "owl:datatypeProperty"
 	},
 	{
 		"id": "property68",
 		"type": "rdfs:SubClassOf"
 	},
 	{
-		"id": "property6",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property23",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property11",
-		"type": "owl:objectProperty"
+		"id": "property50",
+		"type": "owl:datatypeProperty"
 	},
 	{
 		"id": "property17",
@@ -1607,14 +1615,6 @@
 	{
 		"id": "property69",
 		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property36",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property3",
-		"type": "owl:objectProperty"
 	},
 	{
 		"id": "property59",
@@ -1633,72 +1633,92 @@
 		"type": "owl:datatypeProperty"
 	},
 	{
+		"id": "property1",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property37",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property13",
+		"type": "owl:objectProperty"
+	},
+	{
 		"id": "property66",
 		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property62",
-		"type": "owl:datatypeProperty"
+		"id": "property32",
+		"type": "owl:objectProperty"
 	},
 	{
 		"id": "property54",
 		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property63",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property51",
-		"type": "owl:datatypeProperty"
+		"id": "property30",
+		"type": "owl:objectProperty"
 	},
 	{
 		"id": "property45",
 		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property41",
-		"type": "owl:datatypeProperty"
+		"id": "property15",
+		"type": "owl:objectProperty"
 	},
 	{
-		"id": "property60",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property61",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property44",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property48",
-		"type": "owl:datatypeProperty"
+		"id": "property2",
+		"type": "owl:objectProperty"
 	},
 	{
 		"id": "property64",
 		"type": "owl:datatypeProperty"
 	},
 	{
+		"id": "property82",
+		"type": "rdfs:SubClassOf"
+	},
+	{
+		"id": "property33",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property25",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property80",
+		"type": "owl:disjointWith"
+	},
+	{
 		"id": "property65",
 		"type": "owl:datatypeProperty"
+	},
+	{
+		"id": "property34",
+		"type": "owl:objectProperty"
 	},
 	{
 		"id": "property47",
 		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property67",
-		"type": "owl:datatypeProperty"
+		"id": "property18",
+		"type": "owl:objectProperty"
 	},
 	{
-		"id": "property42",
-		"type": "owl:datatypeProperty"
+		"id": "property27",
+		"type": "owl:objectProperty"
 	},
 	{
 		"id": "property57",
 		"type": "owl:datatypeProperty"
+	},
+	{
+		"id": "property8",
+		"type": "owl:objectProperty"
 	},
 	{
 		"id": "property55",
@@ -1709,8 +1729,16 @@
 		"type": "owl:datatypeProperty"
 	},
 	{
-		"id": "property50",
-		"type": "owl:datatypeProperty"
+		"id": "property23",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property6",
+		"type": "owl:objectProperty"
+	},
+	{
+		"id": "property11",
+		"type": "owl:objectProperty"
 	},
 	{
 		"id": "property52",
@@ -1723,6 +1751,10 @@
 	{
 		"id": "property49",
 		"type": "owl:datatypeProperty"
+	},
+	{
+		"id": "property36",
+		"type": "owl:objectProperty"
 	}
 ], "datatype": [
 	{
@@ -1770,11 +1802,11 @@
 		"type": "rdfs:Literal"
 	},
 	{
-		"id": "literal4",
+		"id": "literal13",
 		"type": "rdfs:Literal"
 	},
 	{
-		"id": "literal13",
+		"id": "literal4",
 		"type": "rdfs:Literal"
 	},
 	{
@@ -1923,7 +1955,7 @@
 		"instances": 0
 	},
 	{
-		"id": "literal4",
+		"id": "literal13",
 		"superClasses": [],
 		"subClasses": [],
 		"label": "Literal",
@@ -1931,7 +1963,7 @@
 		"instances": 0
 	},
 	{
-		"id": "literal13",
+		"id": "literal4",
 		"superClasses": [],
 		"subClasses": [],
 		"label": "Literal",
@@ -2053,9 +2085,7 @@
 ], "header": {
 	"title": "Friend of a Friend (FOAF) vocabulary",
 	"description": "The Friend of a Friend (FOAF) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language.",
-	"uri": "http://xmlns.com/foaf/0.1/",
-	"version": "0.99",
-	"author": "Dan Brickley, Libby Miller"
+	"uri": "http://xmlns.com/foaf/0.1/"
 }, "namespace": [
 	{}
 ]}
