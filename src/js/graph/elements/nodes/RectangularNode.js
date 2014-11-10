@@ -24,7 +24,7 @@ webvowl.nodes.RectangularNode = (function () {
 
 		// Functions
 		// for compatibility reasons // TODO resolve
-		this.radius = function () {
+		this.actualRadius = function () {
 			return width;
 		};
 

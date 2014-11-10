@@ -204,8 +204,8 @@ webvowl.graph = function (graphContainerSelector) {
 	 */
 	function calculateLinkDistance(link) {
 		var distance = getVisibleLinkDistance(link);
-		distance += link.domain().radius();
-		distance += link.range().radius();
+		distance += link.domain().actualRadius();
+		distance += link.range().actualRadius();
 		return distance;
 	}
 
