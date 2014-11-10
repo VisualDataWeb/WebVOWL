@@ -30,6 +30,8 @@ webvowl.parser = function (graph) {
 		classMap = mapElements(combinedClassesAndDatatypes);
 		propertyMap = mapElements(combinedProperties);
 
+		mergeRangesOfEquivalentProperties(combinedProperties, combinedClassesAndDatatypes);
+
 		// Process the graph data
 		convertTypesToUris(combinedClassesAndDatatypes, ontologyData.namespace);
 		convertTypesToUris(combinedProperties, ontologyData.namespace);
@@ -51,7 +53,6 @@ webvowl.parser = function (graph) {
 	parser.properties = function () {
 		return properties;
 	};
-
 
 	/**
 	 * Combines the passed objects with its attributes and prototypes. This also applies
@@ -165,6 +166,88 @@ webvowl.parser = function (graph) {
 		}
 
 		return combinations;
+	}
+
+	/**
+	 * Really dirty implementation of the range merging of equivalent Ids,
+	 * but this will be moved to the converter.
+	 * @param properties
+	 * @param nodes
+	 */
+	function mergeRangesOfEquivalentProperties(properties, nodes) {
+		var backedUpNodes = nodes.slice(),
+			hiddenNodeIds = d3.set(),
+			i, l, j, k,
+			prefix = "GENERATED_MERGED_RANGE_";
+
+		// clear the original array
+		nodes.length = 0;
+
+		for (i = 0, l = properties.length; i < l; i++) {
+			var property = properties[i],
+				equivalents = property.equivalents();
+
+			if (equivalents.length === 0) {
+				continue;
+			}
+
+			// quickfix, because all equivalent properties have the equivalent attribute
+			if (property.range().indexOf(prefix) === 0) {
+				continue;
+			}
+
+			var mergedRange;
+			if (property instanceof webvowl.labels.owldatatypeproperty) {
+				mergedRange = new webvowl.nodes.rdfsliteral();
+			} else {
+				mergedRange = new webvowl.nodes.owlthing();
+			}
+			mergedRange.id(prefix + property.id());
+			nodes.push(mergedRange);
+
+			var hiddenNodeId = property.range();
+			property.range(mergedRange.id());
+
+			for (j = 0, k = equivalents.length; j < k; j++) {
+				var equivalentId = equivalents[j],
+					equivProperty = propertyMap[equivalentId];
+
+				var oldRange = equivProperty.range();
+				equivProperty.range(mergedRange.id());
+				if (!isDomainOrRangeOfOtherProperty(oldRange, properties)) {
+					hiddenNodeIds.add(oldRange);
+				}
+			}
+
+			// only merge if this property was the only connected one
+			if (!isDomainOrRangeOfOtherProperty(hiddenNodeId, properties)) {
+				hiddenNodeIds.add(hiddenNodeId);
+			}
+		}
+
+		for (i = 0, l = backedUpNodes.length; i < l; i++) {
+			var node = backedUpNodes[i];
+
+			if (!hiddenNodeIds.has(node.id())) {
+				nodes.push(node);
+			}
+		}
+
+		// Create a map again
+		classMap = mapElements(nodes);
+	}
+
+	function isDomainOrRangeOfOtherProperty(nodeId, properties) {
+		var i, l;
+
+		for (i = 0, l = properties.length; i < l; i++) {
+	        var property = properties[i];
+			if (property.domain() === nodeId || property.range() === nodeId) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**
