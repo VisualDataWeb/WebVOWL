@@ -350,10 +350,9 @@ input[type="range"]::-webkit-slider-thumb:active {
 #detailsArea #otherDetails .propDetails a {
 	color: #2980b9;
 }
-#detailsArea #otherDetails .propDetails span {
+#detailsArea #otherDetails .propDetails > span {
 	font-weight: 100;
 	font-style: italic;
-	margin: 10px 0;
 	padding: 10px;
 }
 #detailsArea #otherDetails #classEquivUri span, #detailsArea #otherDetails #disjointNodes span {
