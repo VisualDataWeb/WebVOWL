@@ -214,6 +214,9 @@ webvowl.labels.BaseLabel = (function () {
 					onMouseOut();
 				});
 
+			rect.append("title")
+				.text(this.label());
+
 			if (this.visualAttribute()) {
 				rect.classed(this.visualAttribute(), true);
 			}
