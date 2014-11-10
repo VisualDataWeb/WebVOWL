@@ -58,12 +58,12 @@ webvowl.util.textElement = function (element) {
 		var truncatedText, tspan;
 
 		subtextCssClass = subtextCssClass || "text";
-		truncatedText = text.truncate(element.datum().textWidth());
+		truncatedText = text.truncate(element.datum().textWidth(), subtextCssClass);
 
 		tspan = textBlock.append("tspan")
 			.classed("text", true)
 			.classed(subtextCssClass, true)
-			.text(applyPreAndPostFix(truncatedText, prefix, postfix), subtextCssClass)
+			.text(applyPreAndPostFix(truncatedText, prefix, postfix))
 			.attr("x", 0)
 			.attr("dy", function () {
 				var heightInPixels = getPixelHeightOfTextLine(d3.select(this)),
