@@ -68,7 +68,7 @@ webvowlApp.sidebar = function () {
 		d3.select("#about").attr("href", header.uri).attr("target", "_blank").text(header.uri);
 		d3.select("#version").text(header.version);
 		d3.select("#authors").text(header.author);
-		d3.select("#description").text(header.description);
+		d3.select("#description").text(header.description || "No description available.");
 	}
 
 	function displayGraphStatistics(deliveredMetrics, statistics) {
