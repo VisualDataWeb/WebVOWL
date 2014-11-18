@@ -478,7 +478,7 @@ webvowl.parser = function (graph) {
 					return property;
 				}
 			} else if (referenceProperty.type() === property.type() &&
-				referenceProperty.label() === property.label()) {
+				referenceProperty.defaultLabel() === property.defaultLabel()) {
 				return property;
 			}
 		}

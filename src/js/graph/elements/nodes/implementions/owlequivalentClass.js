@@ -16,11 +16,11 @@ webvowl.nodes.owlequivalentclass = (function () {
 			that.nodeElement(parentElement);
 
 			drawTools.appendCircularClass(parentElement, that.actualRadius(), ["white", "embedded"]);
-			drawTools.appendCircularClass(parentElement, that.actualRadius() - 4, cssClasses, that.label());
+			drawTools.appendCircularClass(parentElement, that.actualRadius() - 4, cssClasses, that.labelForCurrentLanguage());
 
 			// Add the text to the node
 			textBlock = webvowl.util.textElement(parentElement);
-			textBlock.addTextline(that.label());
+			textBlock.addTextline(that.labelForCurrentLanguage());
 			textBlock.addSubTextNode(that.indicationString());
 			appendEquivalentClasses(textBlock, that.equivalents());
 
@@ -36,7 +36,7 @@ webvowl.nodes.owlequivalentclass = (function () {
 				equivalentNamesString;
 
 			equivalentNames = equivalentClasses.map(function (node) {
-				return node.label();
+				return node.labelForCurrentLanguage();
 			});
 			equivalentNamesString = equivalentNames.join(", ");
 

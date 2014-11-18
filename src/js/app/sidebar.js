@@ -147,12 +147,12 @@ webvowlApp.sidebar = function () {
 	function displayLabelInformation(property) {
 		showPropertyInformations();
 
-		setUriLabel(d3.select("#propname"), property.label(), property.uri());
+		setUriLabel(d3.select("#propname"), property.labelForCurrentLanguage(), property.uri());
 		d3.select("#typeProp").text(property.type());
 
 		if (property.inverse() !== undefined) {
 			d3.select("#inverse").style("display", "block");
-			setUriLabel(d3.select("#inverse span"), property.inverse().label(), property.inverse().uri());
+			setUriLabel(d3.select("#inverse span"), property.inverse().labelForCurrentLanguage(), property.inverse().uri());
 		} else {
 			d3.select("#inverse").style("display", "none");
 		}
@@ -186,8 +186,8 @@ webvowlApp.sidebar = function () {
 			d3.select("#maxCardinality").style("display", "none");
 		}
 
-		setUriLabel(d3.select("#domain"), property.domain().label(), property.domain().uri());
-		setUriLabel(d3.select("#range"), property.range().label(), property.range().uri());
+		setUriLabel(d3.select("#domain"), property.domain().labelForCurrentLanguage(), property.domain().uri());
+		setUriLabel(d3.select("#range"), property.range().labelForCurrentLanguage(), property.range().uri());
 
 		displayAttributes(property.attributes(), d3.select("#propAttributes"));
 	}
@@ -241,7 +241,7 @@ webvowlApp.sidebar = function () {
 	function displayNodeInformation(node) {
 		showClassInformations();
 
-		setUriLabel(d3.select("#name"), node.label(), node.uri());
+		setUriLabel(d3.select("#name"), node.labelForCurrentLanguage(), node.uri());
 
 		/* Equivalent stuff. */
 		var equivalentUriSpan = d3.select("#classEquivUri");
@@ -261,7 +261,7 @@ webvowlApp.sidebar = function () {
 				if (index > 0) {
 					disjointNodes.append("span").text(", ");
 				}
-				appendUriLabel(disjointNodes, element.label(), element.uri());
+				appendUriLabel(disjointNodes, element.labelForCurrentLanguage(), element.uri());
 			});
 
 			disjointNodesParent.classed("hidden", false);
@@ -285,7 +285,7 @@ webvowlApp.sidebar = function () {
 				if (index > 0) {
 					textSpan.append("span").text(", ");
 				}
-				appendUriLabel(textSpan, element.label(), element.uri());
+				appendUriLabel(textSpan, element.labelForCurrentLanguage(), element.uri());
 			});
 
 			spanParent.classed("hidden", false);

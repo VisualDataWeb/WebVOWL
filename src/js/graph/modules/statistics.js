@@ -70,7 +70,7 @@ webvowl.modules.statistics = function () {
 
 		classesAndDatatypes.forEach(function (node) {
 			if (isDatatype(node)) {
-				datatypeSet.add(node.label());
+				datatypeSet.add(node.defaultLabel());
 			} else if (!(node instanceof webvowl.nodes.SetOperatorNode)) {
 				if (node instanceof webvowl.nodes.owlthing) {
 					hasThing = true;
