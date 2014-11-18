@@ -3,6 +3,8 @@
  */
 webvowl.elements.BaseElement = (function () {
 
+	var DEFAULT_LABEL = "DEFAULT_LABEL";
+
 	var base = function (graph) {
 		// Basic attributes
 		var equivalents = [],
@@ -68,7 +70,7 @@ webvowl.elements.BaseElement = (function () {
 
 		this.label = function (p) {
 			if (!arguments.length) return label;
-			label = p || "DEFAULT_LABEL";
+			label = p || DEFAULT_LABEL;
 			return this;
 		};
 
@@ -108,8 +110,38 @@ webvowl.elements.BaseElement = (function () {
 			return this;
 		};
 
-		this.indicationString = function() {
+
+		this.defaultLabel = function () {
+			if (typeof this.label() === "string") {
+				return this.label();
+			}
+			return this.label()["default"] || DEFAULT_LABEL;
+		};
+
+		this.indicationString = function () {
 			return this.indications().join(", ");
+		};
+
+		this.labelForCurrentLanguage = function () {
+			var labels = this.label(),
+				currentLanguage = graph.getLanguage();
+
+
+			if (typeof labels === "string") {
+				return labels;
+			}
+
+			if (labels.hasOwnProperty(currentLanguage)) {
+				return labels[currentLanguage];
+			}
+
+			for (var language in labels) {
+				if (labels.hasOwnProperty(language) && language !== "default") {
+					return labels[language];
+				}
+			}
+
+			return this.defautLabel();
 		};
 	};
 

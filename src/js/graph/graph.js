@@ -15,6 +15,7 @@ webvowl.graph = function (graphContainerSelector) {
 		options,
 		parser = webvowl.parser(graph),
 		linkCreator = webvowl.parsing.linkCreator(),
+		language = "default",
 	// Container for visual elements
 		graphContainer,
 		nodeContainer,
@@ -411,6 +412,14 @@ webvowl.graph = function (graphContainerSelector) {
 			d3.select(graphContainer.node().parentNode).remove();
 		}
 	}
+
+	graph.setLanguage = function (l) {
+		language = l || "default";
+	};
+
+	graph.getLanguage = function () {
+		return language;
+	};
 
 
 	return graph;
