@@ -59,7 +59,28 @@ webvowlApp.sidebar = function () {
 		displayGraphStatistics(data.metrics, statistics);
 		// Reset the sidebar selection
 		sidebar.updateSelectionInformation(undefined);
+
+		setLanguages(data.languages);
 	};
+
+	function setLanguages(languages) {
+		languages = languages || [];
+
+		var languageSelection = d3.select("#language")
+			.on("change", function () {
+				console.log(d3.event.target.value)
+			});
+
+		var languageOptions = languageSelection.selectAll("option").data(languages);
+		languageOptions.exit().remove();
+		languageOptions.enter().append("option")
+			.attr("value", function(d) {
+				return d;
+			})
+			.text(function (d) {
+				return d;
+			});
+	}
 
 	function displayGraphInformation(data) {
 		var header = data.header;
