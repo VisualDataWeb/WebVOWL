@@ -12,7 +12,7 @@ webvowlApp.app = function () {
 		modeMenu,
 		resetMenu,
 		pauseMenu,
-		sidebar = webvowlApp.sidebar(),
+		sidebar = webvowlApp.sidebar(graph),
 		setupableMenues,
 	// Graph modules
 		statistics = webvowl.modules.statistics(),

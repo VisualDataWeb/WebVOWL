@@ -1,9 +1,9 @@
 /**
  * Contains the logic for the sidebar.
- *
+ * @param graph the graph that belongs to these controls
  * @returns {{}}
  */
-webvowlApp.sidebar = function () {
+webvowlApp.sidebar = function (graph) {
 
 	var sidebar = {};
 
@@ -68,13 +68,13 @@ webvowlApp.sidebar = function () {
 
 		var languageSelection = d3.select("#language")
 			.on("change", function () {
-				console.log(d3.event.target.value)
+				graph.setLanguage(d3.event.target.value);
 			});
 
 		var languageOptions = languageSelection.selectAll("option").data(languages);
 		languageOptions.exit().remove();
 		languageOptions.enter().append("option")
-			.attr("value", function(d) {
+			.attr("value", function (d) {
 				return d;
 			})
 			.text(function (d) {
