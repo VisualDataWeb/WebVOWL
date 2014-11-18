@@ -198,9 +198,9 @@ webvowl.parser = function (graph) {
 
 			var mergedRange;
 			if (property instanceof webvowl.labels.owldatatypeproperty) {
-				mergedRange = new webvowl.nodes.rdfsliteral();
+				mergedRange = new webvowl.nodes.rdfsliteral(graph);
 			} else {
-				mergedRange = new webvowl.nodes.owlthing();
+				mergedRange = new webvowl.nodes.owlthing(graph);
 			}
 			mergedRange.id(prefix + property.id());
 			nodes.push(mergedRange);
