@@ -80,6 +80,21 @@ webvowlApp.sidebar = function (graph) {
 			.text(function (d) {
 				return d;
 			});
+
+		if (!trySelectDefaultLanguage(languageSelection, languages, "en")) {
+			trySelectDefaultLanguage(languageSelection, languages, "default");
+		}
+	}
+
+	function trySelectDefaultLanguage(selection, languages, language) {
+		var langIndex = languages.indexOf(language);
+		if (langIndex >= 0) {
+			selection.property("selectedIndex", langIndex);
+			graph.setLanguage(language);
+			return true;
+		}
+
+		return false;
 	}
 
 	function displayGraphInformation(data) {
