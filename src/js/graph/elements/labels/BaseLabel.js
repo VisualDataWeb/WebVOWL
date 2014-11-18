@@ -168,7 +168,7 @@ webvowl.labels.BaseLabel = (function () {
 					property.addDisjointLabel(labelGroup, textBox);
 					return label;
 				} else {
-					textBox.addTextline(property.label());
+					textBox.addTextline(property.labelForCurrentLanguage());
 				}
 
 				textBox.addSubTextNode(property.indicationString());
@@ -215,7 +215,7 @@ webvowl.labels.BaseLabel = (function () {
 				});
 
 			rect.append("title")
-				.text(this.label());
+				.text(this.labelForCurrentLanguage());
 
 			if (this.visualAttribute()) {
 				rect.classed(this.visualAttribute(), true);
@@ -245,7 +245,7 @@ webvowl.labels.BaseLabel = (function () {
 					equivalentString;
 
 				equivalentLabels = this.equivalents().map(function (property) {
-					return property.label();
+					return property.labelForCurrentLanguage();
 				});
 				equivalentString = equivalentLabels.join(", ");
 

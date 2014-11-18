@@ -143,11 +143,11 @@ webvowl.nodes.RoundNode = (function () {
 			if (additionalCssClasses instanceof Array) {
 				cssClasses = cssClasses.concat(additionalCssClasses);
 			}
-			drawTools.appendCircularClass(parentElement, that.actualRadius(), cssClasses, that.label());
+			drawTools.appendCircularClass(parentElement, that.actualRadius(), cssClasses, that.labelForCurrentLanguage());
 
 			// Add the text to the node
 			textBlock = webvowl.util.textElement(parentElement);
-			textBlock.addTextline(that.label());
+			textBlock.addTextline(that.labelForCurrentLanguage());
 			textBlock.addSubTextNode(that.indicationString());
 
 			that.postDrawActions();
