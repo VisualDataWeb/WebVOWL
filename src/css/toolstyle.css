@@ -138,7 +138,7 @@ ul#optionsMenu > li > a {
 	margin: 0;
 	padding: 12px 5px 5px;
 }
-ul#optionsMenu li > ul.toolTipMenu li {
+ul.toolTipMenu li a:only-child, .option {
 	display: block;
 	float: none;
 	padding: 8px 5px;
@@ -157,7 +157,7 @@ ul#optionsMenu > li:hover .aboutMenu {
 	left: -145px;
 	width: 210px;
 }
-.aboutMenu li:nth-child(2) {
+#credits {
 	border-top: solid 1px #bdc3c7;
 	font-size: 0.9em;
 }
@@ -193,13 +193,15 @@ ul#optionsMenu > li:hover .aboutMenu {
 .aboutMenu, .export {
 	min-width: 150px;
 }
-.gravity {
+.gravity, .filter, .module {
 	min-width: 160px;
 }
-.filter, .module {
+.toggleOption {
+	padding: 8px 5px;
 	min-width: 150px;
 }
 .slideOption {
+	padding: 8px 5px;
 	min-height: 50px;
 	position: relative;
 }
