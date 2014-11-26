@@ -107,9 +107,6 @@ webvowlApp.app = function () {
 		d3.select("#prov").on("click", function () {
 			loadOntology("prov.json");
 		});
-		d3.select("#pizza").on("click", function () {
-			loadOntology("pizza.json");
-		});
 	}
 
 	return app;
