@@ -64,7 +64,7 @@ webvowlApp.sidebar = function (graph) {
 		// Reset the sidebar selection
 		sidebar.updateSelectionInformation(undefined);
 
-		setLanguages(data.languages);
+		setLanguages(data.header.languages);
 	};
 
 	function setLanguages(languages) {
