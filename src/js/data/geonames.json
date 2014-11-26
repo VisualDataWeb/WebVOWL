@@ -1,1296 +1,1407 @@
-{"propertyAttribute": [
-	{
-		"id": "property1218",
-		"equivalent": [],
-		"range": "literal166",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "name",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The main international name of a feature. The value has no xml:lang tag.",
-		"uri": "http://www.geonames.org/ontology#name"
-	},
-	{
-		"id": "property1235",
-		"equivalent": [],
-		"range": "class359",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1220",
-		"equivalent": [],
-		"range": "datatype168",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "population",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.geonames.org/ontology#population"
-	},
-	{
-		"id": "property1215",
-		"equivalent": [],
-		"range": "literal163",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1219"],
-		"domain": "thing31",
-		"label": "geonames identifier",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.geonames.org/ontology#geonamesID"
-	},
-	{
-		"id": "property1225",
-		"equivalent": [],
-		"range": "literal173",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "postal code",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.geonames.org/ontology#postalCode"
-	},
-	{
-		"id": "property1202",
-		"equivalent": [],
-		"range": "class352",
-		"disjoint": [],
-		"subproperty": ["property1210", "property1207", "property1209", "property1201", "property1203"],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "parent feature",
-		"attributes": ["transitive"],
-		"instances": 0,
-		"comment": "A feature parent of the current one, in either administrative or physical subdivision.",
-		"uri": "http://www.geonames.org/ontology#parentFeature"
-	},
-	{
-		"id": "property1196",
-		"equivalent": [],
-		"range": "class352",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "neighbour",
-		"attributes": ["symmetric"],
-		"instances": 0,
-		"comment": "A feature sharing a common boarder with the reference feature",
-		"uri": "http://www.geonames.org/ontology#neighbour"
-	},
-	{
-		"id": "property1230",
-		"equivalent": [],
-		"range": "class351",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class349",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1193",
-		"equivalent": [],
-		"range": "thing31",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "thing31",
-		"label": "inScheme",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/2004/02/skos/core#inScheme"
-	},
-	{
-		"id": "property1195",
-		"equivalent": [],
-		"range": "class345",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "wikipedia article",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A Wikipedia article of which subject is the resource.",
-		"uri": "http://www.geonames.org/ontology#wikipediaArticle"
-	},
-	{
-		"id": "property1232",
-		"equivalent": [],
-		"range": "class348",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class353",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1231",
-		"equivalent": [],
-		"range": "class348",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class346",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1199",
-		"equivalent": [],
-		"range": "class354",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1197"],
-		"domain": "class352",
-		"label": "feature class",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The main category of the feature, as defined in geonames taxonomy.",
-		"uri": "http://www.geonames.org/ontology#featureClass"
-	},
-	{
-		"id": "property1234",
-		"equivalent": [],
-		"range": "class350",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1233",
-		"equivalent": [],
-		"range": "class348",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class345",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1200",
-		"equivalent": [],
-		"range": "class352",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "thing32",
-		"label": "located in",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Indicates that the subject resource is located in the object feature",
-		"uri": "http://www.geonames.org/ontology#locatedIn"
-	},
-	{
-		"id": "property1198",
-		"equivalent": [],
-		"range": "class353",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "neighbouring features",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Links to an RDF document containing the descriptions of neighbouring features. Applies when the feature has definite boarders.",
-		"uri": "http://www.geonames.org/ontology#neighbouringFeatures"
-	},
-	{
-		"id": "property1213",
-		"equivalent": [],
-		"range": "literal161",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1211"],
-		"domain": "class352",
-		"label": "short name",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.geonames.org/ontology#shortName"
-	},
-	{
-		"id": "property1219",
-		"equivalent": [],
-		"range": "literal167",
-		"disjoint": [],
-		"subproperty": ["property1215"],
-		"superproperty": [],
-		"domain": "thing31",
-		"label": "identifier",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://purl.org/dc/terms/identifier"
-	},
-	{
-		"id": "property1214",
-		"equivalent": [],
-		"range": "literal162",
-		"disjoint": [],
-		"subproperty": ["property1223"],
-		"superproperty": [],
-		"domain": "thing31",
-		"label": "prefLabel",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/2004/02/skos/core#prefLabel"
-	},
-	{
-		"id": "property1205",
-		"equivalent": [],
-		"range": "class352",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "nearby",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A feature close to the reference feature",
-		"uri": "http://www.geonames.org/ontology#nearby"
-	},
-	{
-		"id": "property1211",
-		"equivalent": [],
-		"range": "literal159",
-		"disjoint": [],
-		"subproperty": ["property1224", "property1217", "property1213"],
-		"superproperty": ["property1222"],
-		"domain": "class352",
-		"label": "alternateName",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.geonames.org/ontology#alternateName"
-	},
-	{
-		"id": "property1224",
-		"equivalent": [],
-		"range": "literal172",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1211"],
-		"domain": "thing31",
-		"label": "colloquial name",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.geonames.org/ontology#colloquialName"
-	},
-	{
-		"id": "property1217",
-		"equivalent": [],
-		"range": "literal165",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1211"],
-		"domain": "thing31",
-		"label": "historical name",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.geonames.org/ontology#historicalName"
-	},
-	{
-		"id": "property1228",
-		"equivalent": [],
-		"range": "class360",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class355",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1229",
-		"equivalent": [],
-		"range": "class347",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class354",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1212",
-		"equivalent": [],
-		"range": "literal160",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "thing31",
-		"label": "name",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://xmlns.com/foaf/0.1/name"
-	},
-	{
-		"id": "property1226",
-		"equivalent": [],
-		"range": "class352",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class355",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1222",
-		"equivalent": [],
-		"range": "literal170",
-		"disjoint": [],
-		"subproperty": ["property1211"],
-		"superproperty": [],
-		"domain": "thing31",
-		"label": "altLabel",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/2004/02/skos/core#altLabel"
-	},
-	{
-		"id": "property1197",
-		"equivalent": [],
-		"range": "thing31",
-		"disjoint": [],
-		"subproperty": ["property1199", "property1194"],
-		"superproperty": [],
-		"domain": "thing31",
-		"label": "type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://purl.org/dc/terms/type"
-	},
-	{
-		"id": "property1227",
-		"equivalent": [],
-		"range": "class362",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class355",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1208",
-		"equivalent": [],
-		"range": "class346",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "map",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A geonames map centered on the feature.",
-		"uri": "http://www.geonames.org/ontology#locationMap"
-	},
-	{
-		"id": "property1203",
-		"equivalent": [],
-		"range": "thing32",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1202"],
-		"domain": "class352",
-		"label": "parent country",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.geonames.org/ontology#parentCountry"
-	},
-	{
-		"id": "property1216",
-		"equivalent": [],
-		"range": "literal164",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "ISO country code",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The countryCode value for a Geoname Feature is equal to the countryCode value of the parentCountry value.",
-		"uri": "http://www.geonames.org/ontology#countryCode"
-	},
-	{
-		"id": "property1204",
-		"equivalent": [],
-		"range": "class353",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "nearby features",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Links to an RDF document containing the descriptions of nearby features",
-		"uri": "http://www.geonames.org/ontology#nearbyFeatures"
-	},
-	{
-		"id": "property1223",
-		"equivalent": [],
-		"range": "literal171",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1214"],
-		"domain": "class352",
-		"label": "official name",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A name in an official local language",
-		"uri": "http://www.geonames.org/ontology#officialName"
-	},
-	{
-		"id": "property1209",
-		"equivalent": [],
-		"range": "thing32",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1202"],
-		"domain": "class352",
-		"label": "level 3 administrative parent",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.geonames.org/ontology#parentADM3"
-	},
-	{
-		"id": "property1201",
-		"equivalent": [],
-		"range": "thing32",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1202"],
-		"domain": "class352",
-		"label": "level 4 administrative parent",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.geonames.org/ontology#parentADM4"
-	},
-	{
-		"id": "property1210",
-		"equivalent": [],
-		"range": "thing32",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1202"],
-		"domain": "class352",
-		"label": "level 1 administrative parent",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.geonames.org/ontology#parentADM1"
-	},
-	{
-		"id": "property1221",
-		"equivalent": [],
-		"range": "literal169",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "thing31",
-		"label": "notation",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "Used to store the values of feature codes",
-		"uri": "http://www.w3.org/2004/02/skos/core#notation"
-	},
-	{
-		"id": "property1207",
-		"equivalent": [],
-		"range": "thing32",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1202"],
-		"domain": "class352",
-		"label": "level 2 administrative parent",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.geonames.org/ontology#parentADM2"
-	},
-	{
-		"id": "property1194",
-		"equivalent": [],
-		"range": "class349",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1197"],
-		"domain": "class352",
-		"label": "feature code",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Type of the feature, as defined in geonames taxonomy.",
-		"uri": "http://www.geonames.org/ontology#featureCode"
-	},
-	{
-		"id": "property1206",
-		"equivalent": [],
-		"range": "class353",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class352",
-		"label": "children features",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Links to an RDF document containing the descriptions of children features",
-		"uri": "http://www.geonames.org/ontology#childrenFeatures"
-	}
-], "metrics": {
-	"propertyCount": 33,
-	"datatypePropertyCount": 15,
-	"datatypeCount": 15,
-	"objectPropertyCount": 18,
-	"classCount": 19,
-	"axiomCount": 7446,
-	"nodeCount": 34
-}, "classAttribute": [
-	{
-		"complement": [],
-		"id": "class346",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class348"],
-		"union": [],
-		"subClasses": [],
-		"label": "Map",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A Web page displaying a map",
-		"uri": "http://www.geonames.org/ontology#Map"
-	},
-	{
-		"complement": [],
-		"id": "class352",
-		"intersection": [],
-		"equivalent": ["class358", "class361"],
-		"superClasses": ["class359", "class350"],
-		"union": [],
-		"subClasses": ["class355"],
-		"label": "Feature",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "A geographical feature",
-		"uri": "http://www.geonames.org/ontology#Feature"
-	},
-	{
-		"complement": [],
-		"id": "class362",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class355"],
-		"label": "Error2",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://org.semanticweb.owlapi/error#Error2"
-	},
-	{
-		"complement": [],
-		"id": "class360",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class355"],
-		"label": "Error1",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://org.semanticweb.owlapi/error#Error1"
-	},
-	{
-		"complement": [],
-		"id": "class353",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class348"],
-		"union": [],
-		"subClasses": [],
-		"label": "RDF Data",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A Document containing RDF description of one or several features.",
-		"uri": "http://www.geonames.org/ontology#RDFData"
-	},
-	{
-		"complement": [],
-		"id": "class349",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class351"],
-		"union": [],
-		"subClasses": [],
-		"label": "Code",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A feature code.",
-		"uri": "http://www.geonames.org/ontology#Code"
-	},
-	{
-		"complement": [],
-		"id": "class356",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Person",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://xmlns.com/foaf/0.1/Person"
-	},
-	{
-		"complement": [],
-		"id": "class357",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Organization",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://xmlns.com/foaf/0.1/Organization"
-	},
-	{
-		"complement": [],
-		"id": "class347",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class354"],
-		"label": "ConceptScheme",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
-	},
-	{
-		"complement": [],
-		"id": "class351",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class349"],
-		"label": "Concept",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/2004/02/skos/core#Concept"
-	},
-	{
-		"complement": [],
-		"id": "class348",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class346", "class353", "class345"],
-		"label": "Document",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://xmlns.com/foaf/0.1/Document"
-	},
-	{
-		"complement": [],
-		"id": "class350",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class352"],
-		"label": "SpatialThing",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"
-	},
-	{
-		"complement": [],
-		"id": "class358",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "GeographicFeature",
-		"attributes": ["external", "equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.mindswap.org/2003/owl/geo/geoFeatures20040307.owl#GeographicFeature"
-	},
-	{
-		"complement": [],
-		"id": "class359",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class352"],
-		"label": "Place",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://schema.org/Place"
-	},
-	{
-		"complement": [],
-		"id": "class355",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class360", "class362", "class352"],
-		"union": [],
-		"subClasses": [],
-		"label": "Geonames Feature",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A feature described in geonames database, uniquely defined by its geonames identifier",
-		"uri": "http://www.geonames.org/ontology#GeonamesFeature"
-	},
-	{
-		"complement": [],
-		"id": "class345",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class348"],
-		"union": [],
-		"subClasses": [],
-		"label": "Wikipedia Article",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A Wikipedia article",
-		"uri": "http://www.geonames.org/ontology#WikipediaArticle"
-	},
-	{
-		"complement": [],
-		"id": "class354",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class347"],
-		"union": [],
-		"subClasses": [],
-		"label": "Class",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A class of features.",
-		"uri": "http://www.geonames.org/ontology#Class"
-	},
-	{
-		"complement": [],
-		"id": "class361",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Feature",
-		"attributes": ["external", "equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://geovocab.org/spatial#Feature"
-	},
-	{
-		"id": "thing32",
-		"label": "Thing",
-		"uri": "http://www.w3.org/2002/07/owl#Thing"
-	},
-	{
-		"id": "thing31",
-		"label": "Thing",
-		"uri": "http://www.w3.org/2002/07/owl#Thing"
-	}
-], "class": [
-	{
-		"id": "class346",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class352",
-		"type": "owl:equivalentClass"
-	},
-	{
-		"id": "class362",
-		"type": "externalclass"
-	},
-	{
-		"id": "class360",
-		"type": "externalclass"
-	},
-	{
-		"id": "class353",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class349",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class356",
-		"type": "externalclass"
-	},
-	{
-		"id": "class357",
-		"type": "externalclass"
-	},
-	{
-		"id": "class347",
-		"type": "externalclass"
-	},
-	{
-		"id": "class351",
-		"type": "externalclass"
-	},
-	{
-		"id": "class348",
-		"type": "externalclass"
-	},
-	{
-		"id": "class350",
-		"type": "externalclass"
-	},
-	{
-		"id": "class358",
-		"type": "owl:equivalentClass"
-	},
-	{
-		"id": "class359",
-		"type": "externalclass"
-	},
-	{
-		"id": "class355",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class345",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class354",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class361",
-		"type": "owl:equivalentClass"
-	},
-	{
-		"id": "thing32",
-		"type": "owl:Thing"
-	},
-	{
-		"id": "thing31",
-		"type": "owl:Thing"
-	}
-], "property": [
-	{
-		"id": "property1218",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1235",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1220",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1215",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1225",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1202",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1196",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1230",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1193",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1195",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1232",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1231",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1199",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1234",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1233",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1200",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1198",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1213",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1219",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1214",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1205",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1211",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1224",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1217",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1228",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1229",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1212",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1226",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1222",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1197",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1227",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1208",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1203",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1216",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1204",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1223",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1209",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1201",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1210",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1221",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1207",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1194",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1206",
-		"type": "owl:objectProperty"
-	}
-], "datatype": [
-	{
-		"id": "datatype168",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "literal161",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal173",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal160",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal172",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal163",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal162",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal171",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal170",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal159",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal169",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal166",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal167",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal164",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal165",
-		"type": "rdfs:Literal"
-	}
-], "datatypeAttribute": [
-	{
-		"id": "datatype168",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "integer",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal161",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal173",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal160",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal172",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal163",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal162",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal171",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal170",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal159",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal169",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal166",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal167",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal164",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal165",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	}
-], "header": {
-	"uri": "http://www.geonames.org/ontology",
-	"version": "Version 3.1 - 2012-10-29"
-}, "namespace": [
-	{}
-]}
+{
+  "propertyAttribute": [
+    {
+      "id": "property1249",
+      "equivalent": [],
+      "range": "literal167",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {
+        "default": "name",
+        "en": "name"
+      },
+      "attributes": [],
+      "comment": {"en": "The main international name of a feature. The value has no xml:lang tag."},
+      "uri": "http://www.geonames.org/ontology#name"
+    },
+    {
+      "id": "property1251",
+      "equivalent": [],
+      "range": "datatype169",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {
+        "default": "population",
+        "en": "population"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.geonames.org/ontology#population"
+    },
+    {
+      "id": "property1246",
+      "equivalent": [],
+      "range": "literal164",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1250"],
+      "domain": "thing36",
+      "label": {
+        "default": "geonamesID",
+        "en": "geonames identifier"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.geonames.org/ontology#geonamesID"
+    },
+    {
+      "id": "property1258",
+      "equivalent": [],
+      "range": "class443",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class436",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1256",
+      "equivalent": [],
+      "range": "literal174",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {
+        "default": "postalCode",
+        "en": "postal code"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.geonames.org/ontology#postalCode"
+    },
+    {
+      "id": "property1257",
+      "equivalent": [],
+      "range": "class433",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class436",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1259",
+      "equivalent": [],
+      "range": "class441",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class436",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1233",
+      "equivalent": [],
+      "range": "class433",
+      "disjoint": [],
+      "subproperty": [
+        "property1241",
+        "property1238",
+        "property1240",
+        "property1232",
+        "property1234"
+      ],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {
+        "default": "parentFeature",
+        "en": "parent feature"
+      },
+      "attributes": ["transitive"],
+      "comment": {"en": "A feature parent of the current one, in either administrative or physical subdivision."},
+      "uri": "http://www.geonames.org/ontology#parentFeature"
+    },
+    {
+      "id": "property1227",
+      "equivalent": [],
+      "range": "class433",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {
+        "default": "neighbour",
+        "en": "neighbour"
+      },
+      "attributes": ["symmetric"],
+      "comment": {"en": "A feature sharing a common boarder with the reference feature"},
+      "uri": "http://www.geonames.org/ontology#neighbour"
+    },
+    {
+      "id": "property1224",
+      "equivalent": [],
+      "range": "thing36",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing36",
+      "label": {"default": "inScheme"},
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.w3.org/2004/02/skos/core#inScheme"
+    },
+    {
+      "id": "property1226",
+      "equivalent": [],
+      "range": "class426",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {
+        "default": "wikipediaArticle",
+        "en": "wikipedia article"
+      },
+      "attributes": [],
+      "comment": {"en": "A Wikipedia article of which subject is the resource."},
+      "uri": "http://www.geonames.org/ontology#wikipediaArticle"
+    },
+    {
+      "id": "property1230",
+      "equivalent": [],
+      "range": "class435",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1228"],
+      "domain": "class433",
+      "label": {
+        "default": "featureClass",
+        "en": "feature class"
+      },
+      "attributes": [],
+      "comment": {"en": "The main category of the feature, as defined in geonames taxonomy."},
+      "uri": "http://www.geonames.org/ontology#featureClass"
+    },
+    {
+      "id": "property1231",
+      "equivalent": [],
+      "range": "class433",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing37",
+      "label": {
+        "default": "locatedIn",
+        "en": "located in"
+      },
+      "attributes": [],
+      "comment": {"en": "Indicates that the subject resource is located in the object feature"},
+      "uri": "http://www.geonames.org/ontology#locatedIn"
+    },
+    {
+      "id": "property1229",
+      "equivalent": [],
+      "range": "class434",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {
+        "default": "neighbouringFeatures",
+        "en": "neighbouring features"
+      },
+      "attributes": [],
+      "comment": {"en": "Links to an RDF document containing the descriptions of neighbouring features. Applies when the feature has definite boarders."},
+      "uri": "http://www.geonames.org/ontology#neighbouringFeatures"
+    },
+    {
+      "id": "property1244",
+      "equivalent": [],
+      "range": "literal162",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1242"],
+      "domain": "class433",
+      "label": {
+        "default": "shortName",
+        "en": "short name"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.geonames.org/ontology#shortName"
+    },
+    {
+      "id": "property1250",
+      "equivalent": [],
+      "range": "literal168",
+      "disjoint": [],
+      "subproperty": ["property1246"],
+      "superproperty": [],
+      "domain": "thing36",
+      "label": {"default": "identifier"},
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://purl.org/dc/terms/identifier"
+    },
+    {
+      "id": "property1245",
+      "equivalent": [],
+      "range": "literal163",
+      "disjoint": [],
+      "subproperty": ["property1254"],
+      "superproperty": [],
+      "domain": "thing36",
+      "label": {"default": "prefLabel"},
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.w3.org/2004/02/skos/core#prefLabel"
+    },
+    {
+      "id": "property1236",
+      "equivalent": [],
+      "range": "class433",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {
+        "default": "nearby",
+        "en": "nearby"
+      },
+      "attributes": [],
+      "comment": {"en": "A feature close to the reference feature"},
+      "uri": "http://www.geonames.org/ontology#nearby"
+    },
+    {
+      "id": "property1242",
+      "equivalent": [],
+      "range": "literal160",
+      "disjoint": [],
+      "subproperty": [
+        "property1255",
+        "property1248",
+        "property1244"
+      ],
+      "superproperty": ["property1253"],
+      "domain": "class433",
+      "label": {"default": "alternateName"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.geonames.org/ontology#alternateName"
+    },
+    {
+      "id": "property1255",
+      "equivalent": [],
+      "range": "literal173",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1242"],
+      "domain": "thing36",
+      "label": {
+        "default": "colloquialName",
+        "en": "colloquial name"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.geonames.org/ontology#colloquialName"
+    },
+    {
+      "id": "property1248",
+      "equivalent": [],
+      "range": "literal166",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1242"],
+      "domain": "thing36",
+      "label": {
+        "default": "historicalName",
+        "en": "historical name"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.geonames.org/ontology#historicalName"
+    },
+    {
+      "id": "property1266",
+      "equivalent": [],
+      "range": "class440",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1265",
+      "equivalent": [],
+      "range": "class431",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1264",
+      "equivalent": [],
+      "range": "class429",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class426",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1243",
+      "equivalent": [],
+      "range": "literal161",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing36",
+      "label": {"default": "name"},
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://xmlns.com/foaf/0.1/name"
+    },
+    {
+      "id": "property1263",
+      "equivalent": [],
+      "range": "class429",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class434",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1253",
+      "equivalent": [],
+      "range": "literal171",
+      "disjoint": [],
+      "subproperty": ["property1242"],
+      "superproperty": [],
+      "domain": "thing36",
+      "label": {"default": "altLabel"},
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.w3.org/2004/02/skos/core#altLabel"
+    },
+    {
+      "id": "property1228",
+      "equivalent": [],
+      "range": "thing36",
+      "disjoint": [],
+      "subproperty": [
+        "property1230",
+        "property1225"
+      ],
+      "superproperty": [],
+      "domain": "thing36",
+      "label": {"default": "type"},
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://purl.org/dc/terms/type"
+    },
+    {
+      "id": "property1262",
+      "equivalent": [],
+      "range": "class429",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class427",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1239",
+      "equivalent": [],
+      "range": "class427",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {
+        "default": "locationMap",
+        "en": "map"
+      },
+      "attributes": [],
+      "comment": {"en": "A geonames map centered on the feature."},
+      "uri": "http://www.geonames.org/ontology#locationMap"
+    },
+    {
+      "id": "property1261",
+      "equivalent": [],
+      "range": "class432",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class430",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1260",
+      "equivalent": [],
+      "range": "class428",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class435",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1234",
+      "equivalent": [],
+      "range": "thing37",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1233"],
+      "domain": "class433",
+      "label": {
+        "default": "parentCountry",
+        "en": "parent country"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.geonames.org/ontology#parentCountry"
+    },
+    {
+      "id": "property1247",
+      "equivalent": [],
+      "range": "literal165",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {
+        "default": "countryCode",
+        "en": "ISO country code"
+      },
+      "attributes": [],
+      "comment": {"en": "The countryCode value for a Geoname Feature is equal to the countryCode value of the parentCountry value."},
+      "uri": "http://www.geonames.org/ontology#countryCode"
+    },
+    {
+      "id": "property1235",
+      "equivalent": [],
+      "range": "class434",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {
+        "default": "nearbyFeatures",
+        "en": "nearby features"
+      },
+      "attributes": [],
+      "comment": {"en": "Links to an RDF document containing the descriptions of nearby features"},
+      "uri": "http://www.geonames.org/ontology#nearbyFeatures"
+    },
+    {
+      "id": "property1254",
+      "equivalent": [],
+      "range": "literal172",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1245"],
+      "domain": "class433",
+      "label": {
+        "default": "officialName",
+        "en": "official name"
+      },
+      "attributes": [],
+      "comment": {"en": "A name in an official local language"},
+      "uri": "http://www.geonames.org/ontology#officialName"
+    },
+    {
+      "id": "property1240",
+      "equivalent": [],
+      "range": "thing37",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1233"],
+      "domain": "class433",
+      "label": {
+        "default": "parentADM3",
+        "en": "level 3 administrative parent"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.geonames.org/ontology#parentADM3"
+    },
+    {
+      "id": "property1232",
+      "equivalent": [],
+      "range": "thing37",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1233"],
+      "domain": "class433",
+      "label": {
+        "default": "parentADM4",
+        "en": "level 4 administrative parent"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.geonames.org/ontology#parentADM4"
+    },
+    {
+      "id": "property1241",
+      "equivalent": [],
+      "range": "thing37",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1233"],
+      "domain": "class433",
+      "label": {
+        "default": "parentADM1",
+        "en": "level 1 administrative parent"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.geonames.org/ontology#parentADM1"
+    },
+    {
+      "id": "property1252",
+      "equivalent": [],
+      "range": "literal170",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing36",
+      "label": {
+        "default": "notation",
+        "en": "notation"
+      },
+      "attributes": ["external"],
+      "comment": {"en": "Used to store the values of feature codes"},
+      "uri": "http://www.w3.org/2004/02/skos/core#notation"
+    },
+    {
+      "id": "property1238",
+      "equivalent": [],
+      "range": "thing37",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1233"],
+      "domain": "class433",
+      "label": {
+        "default": "parentADM2",
+        "en": "level 2 administrative parent"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.geonames.org/ontology#parentADM2"
+    },
+    {
+      "id": "property1225",
+      "equivalent": [],
+      "range": "class430",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1228"],
+      "domain": "class433",
+      "label": {
+        "default": "featureCode",
+        "en": "feature code"
+      },
+      "attributes": [],
+      "comment": {"en": "Type of the feature, as defined in geonames taxonomy."},
+      "uri": "http://www.geonames.org/ontology#featureCode"
+    },
+    {
+      "id": "property1237",
+      "equivalent": [],
+      "range": "class434",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class433",
+      "label": {
+        "default": "childrenFeatures",
+        "en": "children features"
+      },
+      "attributes": [],
+      "comment": {"en": "Links to an RDF document containing the descriptions of children features"},
+      "uri": "http://www.geonames.org/ontology#childrenFeatures"
+    }
+  ],
+  "metrics": {
+    "propertyCount": 33,
+    "datatypePropertyCount": 15,
+    "datatypeCount": 15,
+    "individualCount": 702,
+    "objectPropertyCount": 18,
+    "classCount": 19,
+    "axiomCount": 7446,
+    "nodeCount": 34
+  },
+  "classAttribute": [
+    {
+      "complement": [],
+      "id": "class427",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class429"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "default": "Map",
+        "en": "Map"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "A Web page displaying a map"},
+      "uri": "http://www.geonames.org/ontology#Map"
+    },
+    {
+      "complement": [],
+      "id": "class433",
+      "intersection": [],
+      "equivalent": [
+        "class439",
+        "class442"
+      ],
+      "superClasses": [
+        "class440",
+        "class431"
+      ],
+      "union": [],
+      "subClasses": ["class436"],
+      "label": {
+        "default": "Feature",
+        "en": "Feature"
+      },
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {"en": "A geographical feature"},
+      "uri": "http://www.geonames.org/ontology#Feature"
+    },
+    {
+      "complement": [],
+      "id": "class443",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": ["class436"],
+      "label": {"default": "Error2"},
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://org.semanticweb.owlapi/error#Error2"
+    },
+    {
+      "complement": [],
+      "id": "class441",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": ["class436"],
+      "label": {"default": "Error1"},
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://org.semanticweb.owlapi/error#Error1"
+    },
+    {
+      "complement": [],
+      "id": "class434",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class429"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "default": "RDFData",
+        "en": "RDF Data"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "A Document containing RDF description of one or several features."},
+      "uri": "http://www.geonames.org/ontology#RDFData"
+    },
+    {
+      "complement": [],
+      "id": "class430",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class432"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "default": "Code",
+        "en": "Code"
+      },
+      "attributes": [],
+      "instances": 690,
+      "comment": {"en": "A feature code."},
+      "uri": "http://www.geonames.org/ontology#Code"
+    },
+    {
+      "complement": [],
+      "id": "class437",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "Person"},
+      "attributes": ["external"],
+      "instances": 5,
+      "comment": {},
+      "uri": "http://xmlns.com/foaf/0.1/Person"
+    },
+    {
+      "complement": [],
+      "id": "class438",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "Organization"},
+      "attributes": ["external"],
+      "instances": 1,
+      "comment": {},
+      "uri": "http://xmlns.com/foaf/0.1/Organization"
+    },
+    {
+      "complement": [],
+      "id": "class428",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": ["class435"],
+      "label": {"default": "ConceptScheme"},
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    },
+    {
+      "complement": [],
+      "id": "class432",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": ["class430"],
+      "label": {"default": "Concept"},
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
+    {
+      "complement": [],
+      "id": "class429",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class427",
+        "class434",
+        "class426"
+      ],
+      "label": {"default": "Document"},
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://xmlns.com/foaf/0.1/Document"
+    },
+    {
+      "complement": [],
+      "id": "class431",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": ["class433"],
+      "label": {"default": "SpatialThing"},
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"
+    },
+    {
+      "complement": [],
+      "id": "class439",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "GeographicFeature"},
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.mindswap.org/2003/owl/geo/geoFeatures20040307.owl#GeographicFeature"
+    },
+    {
+      "complement": [],
+      "id": "class440",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": ["class433"],
+      "label": {"default": "Place"},
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://schema.org/Place"
+    },
+    {
+      "complement": [],
+      "id": "class436",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [
+        "class441",
+        "class443",
+        "class433"
+      ],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "default": "GeonamesFeature",
+        "en": "Geonames Feature"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "A feature described in geonames database, uniquely defined by its geonames identifier"},
+      "uri": "http://www.geonames.org/ontology#GeonamesFeature"
+    },
+    {
+      "complement": [],
+      "id": "class426",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class429"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "default": "WikipediaArticle",
+        "en": "Wikipedia Article"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "A Wikipedia article"},
+      "uri": "http://www.geonames.org/ontology#WikipediaArticle"
+    },
+    {
+      "complement": [],
+      "id": "class435",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class428"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "default": "Class",
+        "en": "Class"
+      },
+      "attributes": [],
+      "instances": 9,
+      "comment": {"en": "A class of features."},
+      "uri": "http://www.geonames.org/ontology#Class"
+    },
+    {
+      "complement": [],
+      "id": "class442",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "Feature"},
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://geovocab.org/spatial#Feature"
+    },
+    {
+      "id": "thing37",
+      "label": "Thing",
+      "uri": "http://www.w3.org/2002/07/owl#Thing"
+    },
+    {
+      "id": "thing36",
+      "label": "Thing",
+      "uri": "http://www.w3.org/2002/07/owl#Thing"
+    }
+  ],
+  "class": [
+    {
+      "id": "class427",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class433",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "class443",
+      "type": "externalclass"
+    },
+    {
+      "id": "class441",
+      "type": "externalclass"
+    },
+    {
+      "id": "class434",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class430",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class437",
+      "type": "externalclass"
+    },
+    {
+      "id": "class438",
+      "type": "externalclass"
+    },
+    {
+      "id": "class428",
+      "type": "externalclass"
+    },
+    {
+      "id": "class432",
+      "type": "externalclass"
+    },
+    {
+      "id": "class429",
+      "type": "externalclass"
+    },
+    {
+      "id": "class431",
+      "type": "externalclass"
+    },
+    {
+      "id": "class439",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "class440",
+      "type": "externalclass"
+    },
+    {
+      "id": "class436",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class426",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class435",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class442",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "thing37",
+      "type": "owl:Thing"
+    },
+    {
+      "id": "thing36",
+      "type": "owl:Thing"
+    }
+  ],
+  "property": [
+    {
+      "id": "property1249",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1251",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1246",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1258",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1256",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1257",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1259",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1233",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1227",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1224",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1226",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1230",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1231",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1229",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1244",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1250",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1245",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1236",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1242",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1255",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1248",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1266",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1265",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1264",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1243",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1263",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1253",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1228",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1262",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1239",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1261",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1260",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1234",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1247",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1235",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1254",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1240",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1232",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1241",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1252",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1238",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1225",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1237",
+      "type": "owl:objectProperty"
+    }
+  ],
+  "datatype": [
+    {
+      "id": "literal174",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal161",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal173",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal160",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal163",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal172",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal162",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal171",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal170",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal168",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal166",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal167",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal164",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal165",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "datatype169",
+      "type": "rdfs:Datatype"
+    }
+  ],
+  "datatypeAttribute": [
+    {
+      "id": "literal174",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal161",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal173",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal160",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal163",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal172",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal162",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal171",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal170",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal168",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal166",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal167",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal164",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal165",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype169",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    }
+  ],
+  "header": {
+    "languages": ["en"],
+    "title": {},
+    "description": {},
+    "uri": "http://www.geonames.org/ontology",
+    "version": "Version 3.1 - 2012-10-29"
+  },
+  "namespace": [{}]
+}

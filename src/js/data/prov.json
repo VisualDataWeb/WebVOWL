@@ -1,2079 +1,2392 @@
-{"propertyAttribute": [
-	{
-		"id": "property2206",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": ["property2177", "property2179", "property2186"],
-		"superproperty": ["property2208"],
-		"domain": "class511",
-		"label": "wasDerivedFrom",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable.",
-		"uri": "http://www.w3.org/ns/prov#wasDerivedFrom"
-	},
-	{
-		"id": "property2211",
-		"equivalent": [],
-		"range": "class499",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class519",
-		"label": "hadGeneration",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The _optional_ Generation involved in an Entity's Derivation.",
-		"uri": "http://www.w3.org/ns/prov#hadGeneration"
-	},
-	{
-		"equivalent": [],
-		"range": "class502",
-		"subproperty": [],
-		"disjoint": [],
-		"superproperty": ["property2208"],
-		"label": "wasGeneratedBy",
-		"instances": 0,
-		"uri": "http://www.w3.org/ns/prov#wasGeneratedBy",
-		"id": "property2202",
-		"inverse": "property2212",
-		"domain": "class511",
-		"attributes": [],
-		"comment": ""
-	},
-	{
-		"id": "property2176",
-		"equivalent": [],
-		"range": "class510",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class502",
-		"label": "qualifiedStart",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Activity prov:wasStartedBy Entity :e1, then it can qualify how it was started using prov:qualifiedStart [ a prov:Start;  prov:entity :e1; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedStart"
-	},
-	{
-		"id": "property2182",
-		"equivalent": [],
-		"range": "class509",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class511",
-		"label": "qualifiedInvalidation",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Entity prov:wasInvalidatedBy Activity :a, then it can qualify how it was invalidated using prov:qualifiedInvalidation [ a prov:Invalidation;  prov:activity :a; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedInvalidation"
-	},
-	{
-		"id": "property2177",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2206"],
-		"domain": "class511",
-		"label": "hadPrimarySource",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#hadPrimarySource"
-	},
-	{
-		"id": "property2252",
-		"equivalent": [],
-		"range": "class524",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class514",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2251",
-		"equivalent": [],
-		"range": "class524",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class516",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2250",
-		"equivalent": [],
-		"range": "class524",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class512",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2223",
-		"equivalent": [],
-		"range": "class503",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class520",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2256",
-		"equivalent": [],
-		"range": "class507",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class505",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2224",
-		"equivalent": [],
-		"range": "class503",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class510",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2221",
-		"equivalent": [],
-		"range": "datatype192",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class511",
-		"label": "generatedAtTime",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The time at which an entity was completely created and is available for use.",
-		"uri": "http://www.w3.org/ns/prov#generatedAtTime"
-	},
-	{
-		"id": "property2218",
-		"equivalent": [],
-		"range": "datatype189",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class511",
-		"label": "invalidatedAtTime",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The time at which an entity was invalidated (i.e., no longer usable).",
-		"uri": "http://www.w3.org/ns/prov#invalidatedAtTime"
-	},
-	{
-		"id": "property2255",
-		"equivalent": [],
-		"range": "class507",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class523",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2178",
-		"equivalent": [],
-		"range": "class495",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class526",
-		"label": "atLocation",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The Location of any resource.",
-		"uri": "http://www.w3.org/ns/prov#atLocation"
-	},
-	{
-		"id": "property2254",
-		"equivalent": [],
-		"range": "class507",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class504",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2222",
-		"equivalent": [],
-		"range": "class503",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class519",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2227",
-		"equivalent": [],
-		"range": "class501",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class506",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2228",
-		"equivalent": [],
-		"range": "class498",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class513",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2225",
-		"equivalent": [],
-		"range": "class503",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class500",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2175",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2208"],
-		"domain": "class502",
-		"label": "used",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven .",
-		"uri": "http://www.w3.org/ns/prov#used"
-	},
-	{
-		"id": "property2226",
-		"equivalent": [],
-		"range": "class503",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class498",
-		"label": "Disjoint With",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2200",
-		"equivalent": [],
-		"range": "class524",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2208"],
-		"domain": "class511",
-		"label": "wasAttributedTo",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Attribution is the ascribing of an entity to an agent.",
-		"uri": "http://www.w3.org/ns/prov#wasAttributedTo"
-	},
-	{
-		"id": "property2209",
-		"equivalent": [],
-		"range": "class524",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2208"],
-		"domain": "class524",
-		"label": "actedOnBehalfOf",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An object property to express the accountability of an agent towards another agent. The subordinate agent acted on behalf of the responsible agent in an actual activity. ",
-		"uri": "http://www.w3.org/ns/prov#actedOnBehalfOf"
-	},
-	{
-		"id": "property2229",
-		"equivalent": [],
-		"range": "class498",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class499",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2173",
-		"equivalent": [],
-		"range": "class521",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class511",
-		"label": "qualifiedQuotation",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Entity prov:wasQuotedFrom Entity :e, then it can qualify how using prov:qualifiedQuotation [ a prov:Quotation;  prov:entity :e; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedQuotation"
-	},
-	{
-		"id": "property2201",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2197"],
-		"domain": "class511",
-		"label": "specializationOf",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#specializationOf"
-	},
-	{
-		"id": "property2187",
-		"equivalent": [],
-		"range": "class502",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2208"],
-		"domain": "class502",
-		"label": "wasInformedBy",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An activity a2 is dependent on or informed by another activity a1, by way of some unspecified entity that is generated by a1 and used by a2.",
-		"uri": "http://www.w3.org/ns/prov#wasInformedBy"
-	},
-	{
-		"id": "property2184",
-		"equivalent": [],
-		"range": "class517",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class511",
-		"label": "qualifiedRevision",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Entity prov:wasRevisionOf Entity :e, then it can qualify how it was revised using prov:qualifiedRevision [ a prov:Revision;  prov:entity :e; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedRevision"
-	},
-	{
-		"id": "property2240",
-		"equivalent": [],
-		"range": "class508",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class507",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2242",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class497",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2230",
-		"equivalent": [],
-		"range": "class498",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class509",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2241",
-		"equivalent": [],
-		"range": "class508",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class503",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2244",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class522",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2232",
-		"equivalent": [],
-		"range": "class518",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class520",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2243",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class501",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2233",
-		"equivalent": [],
-		"range": "class518",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class499",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2246",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class502",
-		"label": "Disjoint With",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2234",
-		"equivalent": [],
-		"range": "class518",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class509",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2235",
-		"equivalent": [],
-		"range": "class518",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class510",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2191",
-		"equivalent": [],
-		"range": "class523",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class511",
-		"label": "qualifiedAttribution",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Entity prov:wasAttributedTo Agent :ag, then it can qualify how it was influenced using prov:qualifiedAttribution [ a prov:Attribution;  prov:agent :ag; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedAttribution"
-	},
-	{
-		"id": "property2248",
-		"equivalent": [],
-		"range": "class519",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class521",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2236",
-		"equivalent": [],
-		"range": "class518",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class500",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2247",
-		"equivalent": [],
-		"range": "class519",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class496",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2237",
-		"equivalent": [],
-		"range": "class518",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class524",
-		"label": "Disjoint With",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2238",
-		"equivalent": [],
-		"range": "class518",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class511",
-		"label": "Disjoint With",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2249",
-		"equivalent": [],
-		"range": "class519",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class517",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2239",
-		"equivalent": [],
-		"range": "class508",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class498",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property2196",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2208"],
-		"domain": "class502",
-		"label": "wasEndedBy",
-		"attributes": [],
-		"instances": 0,
-		"comment": "End is when an activity is deemed to have ended. An end may refer to an entity, known as trigger, that terminated the activity.",
-		"uri": "http://www.w3.org/ns/prov#wasEndedBy"
-	},
-	{
-		"id": "property2214",
-		"equivalent": [],
-		"range": "class519",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class511",
-		"label": "qualifiedDerivation",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Entity prov:wasDerivedFrom Entity :e, then it can qualify how it was derived using prov:qualifiedDerivation [ a prov:Derivation;  prov:entity :e; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedDerivation"
-	},
-	{
-		"id": "property2203",
-		"equivalent": [],
-		"range": "class524",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2208"],
-		"domain": "class502",
-		"label": "wasAssociatedWith",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity.",
-		"uri": "http://www.w3.org/ns/prov#wasAssociatedWith"
-	},
-	{
-		"id": "property2189",
-		"equivalent": [],
-		"range": "thing37",
-		"disjoint": [],
-		"subproperty": ["property2198", "property2188", "property2185"],
-		"superproperty": [],
-		"domain": "class508",
-		"label": "influencer",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Subproperties of prov:influencer are used to cite the object of an unqualified PROV-O triple whose predicate is a subproperty of prov:wasInfluencedBy (e.g. prov:used, prov:wasGeneratedBy). prov:influencer is used much like rdf:object is used.",
-		"uri": "http://www.w3.org/ns/prov#influencer"
-	},
-	{
-		"id": "property2199",
-		"equivalent": [],
-		"range": "class508",
-		"disjoint": [],
-		"subproperty": ["property2180", "property2191", "property2174", "property2213", "property2214", "property2195", "property2183", "property2182", "property2204", "property2173", "property2184", "property2176", "property2215"],
-		"superproperty": [],
-		"domain": "class526",
-		"label": "qualifiedInfluence",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Because prov:qualifiedInfluence is a broad relation, the more specific relations (qualifiedCommunication, qualifiedDelegation, qualifiedEnd, etc.) should be used when applicable.",
-		"uri": "http://www.w3.org/ns/prov#qualifiedInfluence"
-	},
-	{
-		"id": "property2195",
-		"equivalent": [],
-		"range": "class520",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class502",
-		"label": "qualifiedEnd",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Activity prov:wasEndedBy Entity :e1, then it can qualify how it was ended using prov:qualifiedEnd [ a prov:End;  prov:entity :e1; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedEnd"
-	},
-	{
-		"id": "property2193",
-		"equivalent": [],
-		"range": "class502",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class508",
-		"label": "hadActivity",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The _optional_ Activity of an Influence, which used, generated, invalidated, or was the responsibility of some Entity. This property is _not_ used by ActivityInfluence (use prov:activity instead).",
-		"uri": "http://www.w3.org/ns/prov#hadActivity"
-	},
-	{
-		"id": "property2216",
-		"equivalent": [],
-		"range": "literal187",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class511",
-		"label": "value",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#value"
-	},
-	{
-		"id": "property2183",
-		"equivalent": [],
-		"range": "class499",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class511",
-		"label": "qualifiedGeneration",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Activity prov:generated Entity :e, then it can qualify how it performed the Generation using prov:qualifiedGeneration [ a prov:Generation;  prov:entity :e; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedGeneration"
-	},
-	{
-		"equivalent": [],
-		"range": "class511",
-		"subproperty": [],
-		"disjoint": [],
-		"superproperty": ["property2172"],
-		"label": "generated",
-		"instances": 0,
-		"uri": "http://www.w3.org/ns/prov#generated",
-		"id": "property2212",
-		"inverse": "property2202",
-		"domain": "class502",
-		"attributes": [],
-		"comment": ""
-	},
-	{
-		"id": "property2213",
-		"equivalent": [],
-		"range": "class505",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class524",
-		"label": "qualifiedDelegation",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Agent prov:actedOnBehalfOf Agent :ag, then it can qualify how with prov:qualifiedResponsibility [ a prov:Responsibility;  prov:agent :ag; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedDelegation"
-	},
-	{
-		"id": "property2215",
-		"equivalent": [],
-		"range": "class500",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class502",
-		"label": "qualifiedUsage",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Activity prov:used Entity :e, then it can qualify how it used it using prov:qualifiedUsage [ a prov:Usage; prov:entity :e; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedUsage"
-	},
-	{
-		"id": "property2198",
-		"equivalent": [],
-		"range": "class502",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2189"],
-		"domain": "class498",
-		"label": "activity",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#activity"
-	},
-	{
-		"id": "property2185",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2189"],
-		"domain": "class503",
-		"label": "entity",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#entity"
-	},
-	{
-		"id": "property2190",
-		"equivalent": [],
-		"range": "class515",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class508",
-		"label": "hadRole",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The _optional_ Role that an Entity assumed in the context of an Activity. For example, :baking prov:used :spoon; prov:qualified [ a prov:Usage; prov:entity :spoon; prov:hadRole roles:mixing_implement ].",
-		"uri": "http://www.w3.org/ns/prov#hadRole"
-	},
-	{
-		"id": "property2186",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2206"],
-		"domain": "class511",
-		"label": "wasRevisionOf",
-		"attributes": [],
-		"instances": 0,
-		"comment": "A revision is a derivation that revises an entity into a revised version.",
-		"uri": "http://www.w3.org/ns/prov#wasRevisionOf"
-	},
-	{
-		"id": "property2217",
-		"equivalent": [],
-		"range": "datatype188",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class518",
-		"label": "atTime",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The time at which an InstantaneousEvent occurred, in the form of xsd:dateTime.",
-		"uri": "http://www.w3.org/ns/prov#atTime"
-	},
-	{
-		"id": "property2219",
-		"equivalent": [],
-		"range": "datatype190",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class502",
-		"label": "endedAtTime",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The time at which an activity ended. See also prov:startedAtTime.",
-		"uri": "http://www.w3.org/ns/prov#endedAtTime"
-	},
-	{
-		"id": "property2179",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2206"],
-		"domain": "class511",
-		"label": "wasQuotedFrom",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An entity is derived from an original entity by copying, or 'quoting', some or all of it.",
-		"uri": "http://www.w3.org/ns/prov#wasQuotedFrom"
-	},
-	{
-		"id": "property2181",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2208"],
-		"domain": "class501",
-		"label": "hadMember",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#hadMember"
-	},
-	{
-		"id": "property2180",
-		"equivalent": [],
-		"range": "class504",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class502",
-		"label": "qualifiedAssociation",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedAssociation"
-	},
-	{
-		"equivalent": [],
-		"range": "class502",
-		"subproperty": [],
-		"disjoint": [],
-		"superproperty": ["property2208"],
-		"label": "wasInvalidatedBy",
-		"instances": 0,
-		"uri": "http://www.w3.org/ns/prov#wasInvalidatedBy",
-		"id": "property2205",
-		"inverse": "property2207",
-		"domain": "class511",
-		"attributes": [],
-		"comment": ""
-	},
-	{
-		"id": "property2220",
-		"equivalent": [],
-		"range": "datatype191",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class502",
-		"label": "startedAtTime",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The time at which an activity started. See also prov:endedAtTime.",
-		"uri": "http://www.w3.org/ns/prov#startedAtTime"
-	},
-	{
-		"id": "property2210",
-		"equivalent": [],
-		"range": "class500",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class519",
-		"label": "hadUsage",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The _optional_ Usage involved in an Entity's Derivation.",
-		"uri": "http://www.w3.org/ns/prov#hadUsage"
-	},
-	{
-		"id": "property2188",
-		"equivalent": [],
-		"range": "class524",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2189"],
-		"domain": "class507",
-		"label": "agent",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#agent"
-	},
-	{
-		"id": "property2194",
-		"equivalent": [],
-		"range": "class522",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class504",
-		"label": "hadPlan",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The _optional_ Plan adopted by an Agent in Association with some Activity. Plan specifications are out of the scope of this specification.",
-		"uri": "http://www.w3.org/ns/prov#hadPlan"
-	},
-	{
-		"id": "property2204",
-		"equivalent": [],
-		"range": "class496",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class511",
-		"label": "qualifiedPrimarySource",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Entity prov:hadPrimarySource Entity :e, then it can qualify how using prov:qualifiedPrimarySource [ a prov:PrimarySource; prov:entity :e; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedPrimarySource"
-	},
-	{
-		"equivalent": [],
-		"range": "class525",
-		"subproperty": ["property2212", "property2207"],
-		"disjoint": [],
-		"superproperty": [],
-		"label": "influenced",
-		"instances": 0,
-		"uri": "http://www.w3.org/ns/prov#influenced",
-		"id": "property2172",
-		"inverse": "property2208",
-		"domain": "class525",
-		"attributes": [],
-		"comment": ""
-	},
-	{
-		"equivalent": [],
-		"range": "class511",
-		"subproperty": [],
-		"disjoint": [],
-		"superproperty": ["property2172"],
-		"label": "invalidated",
-		"instances": 0,
-		"uri": "http://www.w3.org/ns/prov#invalidated",
-		"id": "property2207",
-		"inverse": "property2205",
-		"domain": "class502",
-		"attributes": [],
-		"comment": ""
-	},
-	{
-		"id": "property2174",
-		"equivalent": [],
-		"range": "class513",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2199"],
-		"domain": "class502",
-		"label": "qualifiedCommunication",
-		"attributes": [],
-		"instances": 0,
-		"comment": "If this Activity prov:wasInformedBy Activity :a, then it can qualify how it was influenced using prov:qualifiedCommunication [ a prov:Communication;  prov:activity :a; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#qualifiedCommunication"
-	},
-	{
-		"equivalent": [],
-		"range": "class526",
-		"subproperty": ["property2209", "property2181", "property2175", "property2203", "property2200", "property2206", "property2196", "property2202", "property2187", "property2205", "property2192"],
-		"disjoint": [],
-		"superproperty": [],
-		"label": "wasInfluencedBy",
-		"instances": 0,
-		"uri": "http://www.w3.org/ns/prov#wasInfluencedBy",
-		"id": "property2208",
-		"inverse": "property2172",
-		"domain": "class526",
-		"attributes": [],
-		"comment": "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."
-	},
-	{
-		"id": "property2197",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": ["property2201"],
-		"superproperty": [],
-		"domain": "class511",
-		"label": "alternateOf",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#alternateOf"
-	},
-	{
-		"id": "property2192",
-		"equivalent": [],
-		"range": "class511",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property2208"],
-		"domain": "class502",
-		"label": "wasStartedBy",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Start is when an activity is deemed to have started. A start may refer to an entity, known as trigger, that initiated the activity.",
-		"uri": "http://www.w3.org/ns/prov#wasStartedBy"
-	}
-], "metrics": {
-	"propertyCount": 50,
-	"datatypePropertyCount": 6,
-	"datatypeCount": 6,
-	"objectPropertyCount": 44,
-	"classCount": 31,
-	"axiomCount": 973,
-	"nodeCount": 37
-}, "classAttribute": [
-	{
-		"complement": [],
-		"id": "class503",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class508"],
-		"union": [],
-		"subClasses": ["class519", "class520", "class510", "class500"],
-		"label": "EntityInfluence",
-		"attributes": [],
-		"instances": 0,
-		"comment": "EntityInfluence provides additional descriptions of an Entity's binary influence upon any other kind of resource. Instances of EntityInfluence use the prov:entity property to cite the influencing Entity.",
-		"uri": "http://www.w3.org/ns/prov#EntityInfluence"
-	},
-	{
-		"complement": [],
-		"id": "class501",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class511"],
-		"union": [],
-		"subClasses": ["class506"],
-		"label": "Collection",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#Collection"
-	},
-	{
-		"complement": [],
-		"id": "class516",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class524"],
-		"union": [],
-		"subClasses": [],
-		"label": "Person",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#Person"
-	},
-	{
-		"complement": [],
-		"id": "class517",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class519"],
-		"union": [],
-		"subClasses": [],
-		"label": "Revision",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instance of prov:Revision provides additional descriptions about the binary prov:wasRevisionOf relation from some newer prov:Entity to an earlier prov:Entity. For example, :draft_2 prov:wasRevisionOf :draft_1; prov:qualifiedRevision [ a prov:Revision; prov:entity :draft_1; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#Revision"
-	},
-	{
-		"complement": [],
-		"id": "class510",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class503", "class518"],
-		"union": [],
-		"subClasses": [],
-		"label": "Start",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instance of prov:Start provides additional descriptions about the binary prov:wasStartedBy relation from some started prov:Activity to an prov:Entity that started it. For example, :foot_race prov:wasStartedBy :bang; prov:qualifiedStart [ a prov:Start; prov:entity :bang; :foo :bar; prov:atTime '2012-03-09T08:05:08-05:00'^^xsd:dateTime ] .",
-		"uri": "http://www.w3.org/ns/prov#Start"
-	},
-	{
-		"complement": [],
-		"id": "class498",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class508"],
-		"union": [],
-		"subClasses": ["class513", "class499", "class509"],
-		"label": "ActivityInfluence",
-		"attributes": [],
-		"instances": 0,
-		"comment": "It is not recommended that the type ActivityInfluence be asserted without also asserting one of its more specific subclasses.",
-		"uri": "http://www.w3.org/ns/prov#ActivityInfluence"
-	},
-	{
-		"complement": [],
-		"id": "class518",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class520", "class499", "class509", "class510", "class500"],
-		"label": "InstantaneousEvent",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous.",
-		"uri": "http://www.w3.org/ns/prov#InstantaneousEvent"
-	},
-	{
-		"complement": [],
-		"id": "class504",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class507"],
-		"union": [],
-		"subClasses": [],
-		"label": "Association",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instance of prov:Association provides additional descriptions about the binary prov:wasAssociatedWith relation from an prov:Activity to some prov:Agent that had some responsiblity for it. For example, :baking prov:wasAssociatedWith :baker; prov:qualifiedAssociation [ a prov:Association; prov:agent :baker; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#Association"
-	},
-	{
-		"complement": [],
-		"id": "class515",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Role",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#Role"
-	},
-	{
-		"complement": [],
-		"id": "class506",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class501"],
-		"union": [],
-		"subClasses": [],
-		"label": "EmptyCollection",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#EmptyCollection"
-	},
-	{
-		"complement": [],
-		"id": "class505",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class507"],
-		"union": [],
-		"subClasses": [],
-		"label": "Delegation",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instance of prov:Delegation provides additional descriptions about the binary prov:actedOnBehalfOf relation from a performing prov:Agent to some prov:Agent for whom it was performed. For example, :mixing prov:wasAssociatedWith :toddler . :toddler prov:actedOnBehalfOf :mother; prov:qualifiedDelegation [ a prov:Delegation; prov:entity :mother; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#Delegation"
-	},
-	{
-		"complement": [],
-		"id": "class508",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class498", "class507", "class503"],
-		"label": "Influence",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Because prov:Influence is a broad relation, its most specific subclasses (e.g. prov:Communication, prov:Delegation, prov:End, prov:Revision, etc.) should be used when applicable.",
-		"uri": "http://www.w3.org/ns/prov#Influence"
-	},
-	{
-		"complement": [],
-		"id": "class521",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class519"],
-		"union": [],
-		"subClasses": [],
-		"label": "Quotation",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instance of prov:Quotation provides additional descriptions about the binary prov:wasQuotedFrom relation from some taken prov:Entity from an earlier, larger prov:Entity. For example, :here_is_looking_at_you_kid prov:wasQuotedFrom :casablanca_script; prov:qualifiedQuotation [ a prov:Quotation; prov:entity :casablanca_script; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#Quotation"
-	},
-	{
-		"complement": [],
-		"id": "class511",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class497", "class501", "class522"],
-		"label": "Entity",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#Entity"
-	},
-	{
-		"complement": [],
-		"id": "class519",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class503"],
-		"union": [],
-		"subClasses": ["class496", "class521", "class517"],
-		"label": "Derivation",
-		"attributes": [],
-		"instances": 0,
-		"comment": "The more specific forms of prov:Derivation (i.e., prov:Revision, prov:Quotation, prov:PrimarySource) should be asserted if they apply.",
-		"uri": "http://www.w3.org/ns/prov#Derivation"
-	},
-	{
-		"complement": [],
-		"id": "class524",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class512", "class516", "class514"],
-		"label": "Agent",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#Agent"
-	},
-	{
-		"complement": [],
-		"id": "class500",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class503", "class518"],
-		"union": [],
-		"subClasses": [],
-		"label": "Usage",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instance of prov:Usage provides additional descriptions about the binary prov:used relation from some prov:Activity to an prov:Entity that it used. For example, :keynote prov:used :podium; prov:qualifiedUsage [ a prov:Usage; prov:entity :podium; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#Usage"
-	},
-	{
-		"complement": [],
-		"id": "class499",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class498", "class518"],
-		"union": [],
-		"subClasses": [],
-		"label": "Generation",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instance of prov:Generation provides additional descriptions about the binary prov:wasGeneratedBy relation from a generated prov:Entity to the prov:Activity that generated it. For example, :cake prov:wasGeneratedBy :baking; prov:qualifiedGeneration [ a prov:Generation; prov:activity :baking; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#Generation"
-	},
-	{
-		"complement": [],
-		"id": "class497",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class511"],
-		"union": [],
-		"subClasses": [],
-		"label": "Bundle",
-		"attributes": [],
-		"instances": 0,
-		"comment": "Note that there are kinds of bundles (e.g. handwritten letters, audio recordings, etc.) that are not expressed in PROV-O, but can be still be described by PROV-O.",
-		"uri": "http://www.w3.org/ns/prov#Bundle"
-	},
-	{
-		"complement": [],
-		"id": "class522",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class511"],
-		"union": [],
-		"subClasses": [],
-		"label": "Plan",
-		"attributes": [],
-		"instances": 0,
-		"comment": "There exist no prescriptive requirement on the nature of plans, their representation, the actions or steps they consist of, or their intended goals. Since plans may evolve over time, it may become necessary to track their provenance, so plans themselves are entities. Representing the plan explicitly in the provenance can be useful for various tasks: for example, to validate the execution as represented in the provenance record, to manage expectation failures, or to provide explanations.",
-		"uri": "http://www.w3.org/ns/prov#Plan"
-	},
-	{
-		"complement": [],
-		"id": "class507",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class508"],
-		"union": [],
-		"subClasses": ["class504", "class523", "class505"],
-		"label": "AgentInfluence",
-		"attributes": [],
-		"instances": 0,
-		"comment": "It is not recommended that the type AgentInfluence be asserted without also asserting one of its more specific subclasses.",
-		"uri": "http://www.w3.org/ns/prov#AgentInfluence"
-	},
-	{
-		"complement": [],
-		"id": "class495",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Location",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#Location"
-	},
-	{
-		"complement": [],
-		"id": "class496",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class519"],
-		"union": [],
-		"subClasses": [],
-		"label": "PrimarySource",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instance of prov:PrimarySource provides additional descriptions about the binary prov:hadPrimarySource relation from some secondary prov:Entity to an earlier, primary prov:Entity. For example, :blog prov:hadPrimarySource :newsArticle; prov:qualifiedPrimarySource [ a prov:PrimarySource; prov:entity :newsArticle; :foo :bar ] .",
-		"uri": "http://www.w3.org/ns/prov#PrimarySource"
-	},
-	{
-		"complement": [],
-		"id": "class512",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class524"],
-		"union": [],
-		"subClasses": [],
-		"label": "Organization",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#Organization"
-	},
-	{
-		"complement": [],
-		"id": "class509",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class498", "class518"],
-		"union": [],
-		"subClasses": [],
-		"label": "Invalidation",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instance of prov:Invalidation provides additional descriptions about the binary prov:wasInvalidatedBy relation from an invalidated prov:Entity to the prov:Activity that invalidated it. For example, :uncracked_egg prov:wasInvalidatedBy :baking; prov:qualifiedInvalidation [ a prov:Invalidation; prov:activity :baking; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#Invalidation"
-	},
-	{
-		"complement": [],
-		"id": "class520",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class503", "class518"],
-		"union": [],
-		"subClasses": [],
-		"label": "End",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instance of prov:End provides additional descriptions about the binary prov:wasEndedBy relation from some ended prov:Activity to an prov:Entity that ended it. For example, :ball_game prov:wasEndedBy :buzzer; prov:qualifiedEnd [ a prov:End; prov:entity :buzzer; :foo :bar; prov:atTime '2012-03-09T08:05:08-05:00'^^xsd:dateTime ].",
-		"uri": "http://www.w3.org/ns/prov#End"
-	},
-	{
-		"complement": [],
-		"id": "class513",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class498"],
-		"union": [],
-		"subClasses": [],
-		"label": "Communication",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instance of prov:Communication provides additional descriptions about the binary prov:wasInformedBy relation from an informed prov:Activity to the prov:Activity that informed it. For example, :you_jumping_off_bridge prov:wasInformedBy :everyone_else_jumping_off_bridge; prov:qualifiedCommunication [ a prov:Communication; prov:activity :everyone_else_jumping_off_bridge; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#Communication"
-	},
-	{
-		"complement": [],
-		"id": "class523",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class507"],
-		"union": [],
-		"subClasses": [],
-		"label": "Attribution",
-		"attributes": [],
-		"instances": 0,
-		"comment": "An instance of prov:Attribution provides additional descriptions about the binary prov:wasAttributedTo relation from an prov:Entity to some prov:Agent that had some responsible for it. For example, :cake prov:wasAttributedTo :baker; prov:qualifiedAttribution [ a prov:Attribution; prov:entity :baker; :foo :bar ].",
-		"uri": "http://www.w3.org/ns/prov#Attribution"
-	},
-	{
-		"complement": [],
-		"id": "class514",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class524"],
-		"union": [],
-		"subClasses": [],
-		"label": "SoftwareAgent",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#SoftwareAgent"
-	},
-	{
-		"complement": [],
-		"id": "class502",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Activity",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/ns/prov#Activity"
-	},
-	{
-		"id": "thing37",
-		"label": "Thing",
-		"uri": "http://www.w3.org/2002/07/owl#Thing"
-	},
-	{
-		"id": "class526",
-		"union": ["class518", "class502", "class524", "class511"],
-		"attributes": []
-	},
-	{
-		"id": "class525",
-		"union": ["class502", "class524", "class511"],
-		"attributes": []
-	}
-], "class": [
-	{
-		"id": "class503",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class501",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class516",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class517",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class510",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class498",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class518",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class504",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class515",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class506",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class505",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class508",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class521",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class511",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class519",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class524",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class500",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class499",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class497",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class522",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class507",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class495",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class496",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class512",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class509",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class520",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class513",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class523",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class514",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class502",
-		"type": "owl:Class"
-	},
-	{
-		"id": "thing37",
-		"type": "owl:Thing"
-	},
-	{
-		"id": "class526",
-		"label": "Union",
-		"type": "owl:unionOf"
-	},
-	{
-		"id": "class525",
-		"label": "Union",
-		"type": "owl:unionOf"
-	}
-], "property": [
-	{
-		"id": "property2206",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2211",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2202",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2176",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2182",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2177",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2252",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2251",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2250",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2223",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2256",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2224",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2221",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property2218",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property2255",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2178",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2254",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2222",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2227",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2228",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2225",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2175",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2226",
-		"type": "owl:disjointWith"
-	},
-	{
-		"id": "property2200",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2209",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2229",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2173",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2201",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2187",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2184",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2240",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2242",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2230",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2241",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2244",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2232",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2243",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2233",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2246",
-		"type": "owl:disjointWith"
-	},
-	{
-		"id": "property2234",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2235",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2191",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2248",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2236",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2247",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2237",
-		"type": "owl:disjointWith"
-	},
-	{
-		"id": "property2238",
-		"type": "owl:disjointWith"
-	},
-	{
-		"id": "property2249",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2239",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property2196",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2214",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2203",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2189",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2199",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2195",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2193",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2216",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property2183",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2212",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2213",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2215",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2198",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2185",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2190",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2186",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2217",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property2219",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property2179",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2181",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2180",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2205",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2220",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property2210",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2188",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2194",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2204",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2172",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2207",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2174",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2208",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2197",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property2192",
-		"type": "owl:objectProperty"
-	}
-], "datatype": [
-	{
-		"id": "datatype190",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype191",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype192",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "literal187",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "datatype189",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype188",
-		"type": "rdfs:Datatype"
-	}
-], "datatypeAttribute": [
-	{
-		"id": "datatype190",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "dateTime",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype191",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "dateTime",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype192",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "dateTime",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal187",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype189",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "dateTime",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype188",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "dateTime",
-		"attributes": [],
-		"instances": 0
-	}
-], "header": {
-	"uri": "http://www.w3.org/ns/prov-o#",
-	"version": "Recommendation version 2013-04-30"
-}, "namespace": [
-	{}
-]}
+{
+  "propertyAttribute": [
+    {
+      "id": "property1349",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [
+        "property1320",
+        "property1322",
+        "property1329"
+      ],
+      "superproperty": ["property1351"],
+      "domain": "class491",
+      "label": {
+        "": "wasDerivedFrom",
+        "default": "wasDerivedFrom"
+      },
+      "attributes": [],
+      "comment": {"en": "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."},
+      "uri": "http://www.w3.org/ns/prov#wasDerivedFrom"
+    },
+    {
+      "id": "property1354",
+      "equivalent": [],
+      "range": "class479",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class499",
+      "label": {
+        "": "hadGeneration",
+        "default": "hadGeneration"
+      },
+      "attributes": [],
+      "comment": {"en": "The _optional_ Generation involved in an Entity's Derivation."},
+      "uri": "http://www.w3.org/ns/prov#hadGeneration"
+    },
+    {
+      "id": "property1345",
+      "equivalent": [],
+      "inverse": "property1355",
+      "range": "class482",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1351"],
+      "domain": "class491",
+      "label": {
+        "": "wasGeneratedBy",
+        "default": "wasGeneratedBy"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#wasGeneratedBy"
+    },
+    {
+      "id": "property1319",
+      "equivalent": [],
+      "range": "class490",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class482",
+      "label": {
+        "": "qualifiedStart",
+        "default": "qualifiedStart"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Activity prov:wasStartedBy Entity :e1, then it can qualify how it was started using prov:qualifiedStart [ a prov:Start;  prov:entity :e1; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedStart"
+    },
+    {
+      "id": "property1325",
+      "equivalent": [],
+      "range": "class489",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class491",
+      "label": {
+        "": "qualifiedInvalidation",
+        "default": "qualifiedInvalidation"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Entity prov:wasInvalidatedBy Activity :a, then it can qualify how it was invalidated using prov:qualifiedInvalidation [ a prov:Invalidation;  prov:activity :a; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedInvalidation"
+    },
+    {
+      "id": "property1320",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1349"],
+      "domain": "class491",
+      "label": {
+        "": "hadPrimarySource",
+        "default": "hadPrimarySource"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#hadPrimarySource"
+    },
+    {
+      "id": "property1364",
+      "equivalent": [],
+      "range": "datatype193",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class491",
+      "label": {
+        "": "generatedAtTime",
+        "default": "generatedAtTime"
+      },
+      "attributes": [],
+      "comment": {"en": "The time at which an entity was completely created and is available for use."},
+      "uri": "http://www.w3.org/ns/prov#generatedAtTime"
+    },
+    {
+      "id": "property1361",
+      "equivalent": [],
+      "range": "datatype190",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class491",
+      "label": {
+        "": "invalidatedAtTime",
+        "default": "invalidatedAtTime"
+      },
+      "attributes": [],
+      "comment": {"en": "The time at which an entity was invalidated (i.e., no longer usable)."},
+      "uri": "http://www.w3.org/ns/prov#invalidatedAtTime"
+    },
+    {
+      "id": "property1321",
+      "equivalent": [],
+      "range": "class475",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class506",
+      "label": {
+        "": "atLocation",
+        "default": "atLocation"
+      },
+      "attributes": [],
+      "comment": {
+        "": "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile<\/a>.",
+        "en": "The Location of any resource."
+      },
+      "uri": "http://www.w3.org/ns/prov#atLocation"
+    },
+    {
+      "id": "property1318",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1351"],
+      "domain": "class482",
+      "label": {
+        "": "used",
+        "default": "used"
+      },
+      "attributes": [],
+      "comment": {"en": "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."},
+      "uri": "http://www.w3.org/ns/prov#used"
+    },
+    {
+      "id": "property1343",
+      "equivalent": [],
+      "range": "class504",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1351"],
+      "domain": "class491",
+      "label": {
+        "": "wasAttributedTo",
+        "default": "wasAttributedTo"
+      },
+      "attributes": [],
+      "comment": {"en": "Attribution is the ascribing of an entity to an agent."},
+      "uri": "http://www.w3.org/ns/prov#wasAttributedTo"
+    },
+    {
+      "id": "property1352",
+      "equivalent": [],
+      "range": "class504",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1351"],
+      "domain": "class504",
+      "label": {
+        "": "actedOnBehalfOf",
+        "default": "actedOnBehalfOf"
+      },
+      "attributes": [],
+      "comment": {"en": "An object property to express the accountability of an agent towards another agent. The subordinate agent acted on behalf of the responsible agent in an actual activity. "},
+      "uri": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+    },
+    {
+      "id": "property1316",
+      "equivalent": [],
+      "range": "class501",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class491",
+      "label": {
+        "": "qualifiedQuotation",
+        "default": "qualifiedQuotation"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Entity prov:wasQuotedFrom Entity :e, then it can qualify how using prov:qualifiedQuotation [ a prov:Quotation;  prov:entity :e; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedQuotation"
+    },
+    {
+      "id": "property1366",
+      "equivalent": [],
+      "range": "class483",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class500",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1365",
+      "equivalent": [],
+      "range": "class483",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class499",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1344",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1340"],
+      "domain": "class491",
+      "label": {
+        "": "specializationOf",
+        "default": "specializationOf"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#specializationOf"
+    },
+    {
+      "id": "property1369",
+      "equivalent": [],
+      "range": "class483",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class478",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1330",
+      "equivalent": [],
+      "range": "class482",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1351"],
+      "domain": "class482",
+      "label": {
+        "": "wasInformedBy",
+        "default": "wasInformedBy"
+      },
+      "attributes": [],
+      "comment": {"en": "An activity a2 is dependent on or informed by another activity a1, by way of some unspecified entity that is generated by a1 and used by a2."},
+      "uri": "http://www.w3.org/ns/prov#wasInformedBy"
+    },
+    {
+      "id": "property1368",
+      "equivalent": [],
+      "range": "class483",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class480",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1367",
+      "equivalent": [],
+      "range": "class483",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class490",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1327",
+      "equivalent": [],
+      "range": "class497",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class491",
+      "label": {
+        "": "qualifiedRevision",
+        "default": "qualifiedRevision"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Entity prov:wasRevisionOf Entity :e, then it can qualify how it was revised using prov:qualifiedRevision [ a prov:Revision;  prov:entity :e; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedRevision"
+    },
+    {
+      "id": "property1334",
+      "equivalent": [],
+      "range": "class503",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class491",
+      "label": {
+        "": "qualifiedAttribution",
+        "default": "qualifiedAttribution"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Entity prov:wasAttributedTo Agent :ag, then it can qualify how it was influenced using prov:qualifiedAttribution [ a prov:Attribution;  prov:agent :ag; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedAttribution"
+    },
+    {
+      "id": "property1339",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1351"],
+      "domain": "class482",
+      "label": {
+        "": "wasEndedBy",
+        "default": "wasEndedBy"
+      },
+      "attributes": [],
+      "comment": {"en": "End is when an activity is deemed to have ended. An end may refer to an entity, known as trigger, that terminated the activity."},
+      "uri": "http://www.w3.org/ns/prov#wasEndedBy"
+    },
+    {
+      "id": "property1357",
+      "equivalent": [],
+      "range": "class499",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class491",
+      "label": {
+        "": "qualifiedDerivation",
+        "default": "qualifiedDerivation"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Entity prov:wasDerivedFrom Entity :e, then it can qualify how it was derived using prov:qualifiedDerivation [ a prov:Derivation;  prov:entity :e; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedDerivation"
+    },
+    {
+      "id": "property1346",
+      "equivalent": [],
+      "range": "class504",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1351"],
+      "domain": "class482",
+      "label": {
+        "": "wasAssociatedWith",
+        "default": "wasAssociatedWith"
+      },
+      "attributes": [],
+      "comment": {"en": "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."},
+      "uri": "http://www.w3.org/ns/prov#wasAssociatedWith"
+    },
+    {
+      "id": "property1375",
+      "equivalent": [],
+      "range": "class498",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class500",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1332",
+      "equivalent": [],
+      "range": "thing40",
+      "disjoint": [],
+      "subproperty": [
+        "property1341",
+        "property1331",
+        "property1328"
+      ],
+      "superproperty": [],
+      "domain": "class488",
+      "label": {
+        "": "influencer",
+        "default": "influencer"
+      },
+      "attributes": [],
+      "comment": {"en": "Subproperties of prov:influencer are used to cite the object of an unqualified PROV-O triple whose predicate is a subproperty of prov:wasInfluencedBy (e.g. prov:used, prov:wasGeneratedBy). prov:influencer is used much like rdf:object is used."},
+      "uri": "http://www.w3.org/ns/prov#influencer"
+    },
+    {
+      "id": "property1342",
+      "equivalent": [],
+      "range": "class488",
+      "disjoint": [],
+      "subproperty": [
+        "property1323",
+        "property1334",
+        "property1317",
+        "property1356",
+        "property1357",
+        "property1338",
+        "property1326",
+        "property1325",
+        "property1347",
+        "property1316",
+        "property1327",
+        "property1319",
+        "property1358"
+      ],
+      "superproperty": [],
+      "domain": "class506",
+      "label": {
+        "": "qualifiedInfluence",
+        "default": "qualifiedInfluence"
+      },
+      "attributes": [],
+      "comment": {"en": "Because prov:qualifiedInfluence is a broad relation, the more specific relations (qualifiedCommunication, qualifiedDelegation, qualifiedEnd, etc.) should be used when applicable."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedInfluence"
+    },
+    {
+      "id": "property1377",
+      "equivalent": [],
+      "range": "class498",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class489",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1376",
+      "equivalent": [],
+      "range": "class498",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class479",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1371",
+      "equivalent": [],
+      "range": "class478",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class493",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1370",
+      "equivalent": [],
+      "range": "class481",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class486",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1338",
+      "equivalent": [],
+      "range": "class500",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class482",
+      "label": {
+        "": "qualifiedEnd",
+        "default": "qualifiedEnd"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Activity prov:wasEndedBy Entity :e1, then it can qualify how it was ended using prov:qualifiedEnd [ a prov:End;  prov:entity :e1; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedEnd"
+    },
+    {
+      "id": "property1373",
+      "equivalent": [],
+      "range": "class478",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class489",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1336",
+      "equivalent": [],
+      "range": "class482",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class488",
+      "label": {
+        "": "hadActivity",
+        "default": "hadActivity"
+      },
+      "attributes": [],
+      "comment": {
+        "": "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile<\/a>.",
+        "en": "The _optional_ Activity of an Influence, which used, generated, invalidated, or was the responsibility of some Entity. This property is _not_ used by ActivityInfluence (use prov:activity instead)."
+      },
+      "uri": "http://www.w3.org/ns/prov#hadActivity"
+    },
+    {
+      "id": "property1372",
+      "equivalent": [],
+      "range": "class478",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class479",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1359",
+      "equivalent": [],
+      "range": "literal188",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class491",
+      "label": {
+        "": "value",
+        "default": "value"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#value"
+    },
+    {
+      "id": "property1379",
+      "equivalent": [],
+      "range": "class498",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class480",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1378",
+      "equivalent": [],
+      "range": "class498",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class490",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1326",
+      "equivalent": [],
+      "range": "class479",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class491",
+      "label": {
+        "": "qualifiedGeneration",
+        "default": "qualifiedGeneration"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Activity prov:generated Entity :e, then it can qualify how it performed the Generation using prov:qualifiedGeneration [ a prov:Generation;  prov:entity :e; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedGeneration"
+    },
+    {
+      "id": "property1355",
+      "equivalent": [],
+      "inverse": "property1345",
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1315"],
+      "domain": "class482",
+      "label": {
+        "": "generated",
+        "default": "generated"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#generated"
+    },
+    {
+      "id": "property1356",
+      "equivalent": [],
+      "range": "class485",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class504",
+      "label": {
+        "": "qualifiedDelegation",
+        "default": "qualifiedDelegation"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Agent prov:actedOnBehalfOf Agent :ag, then it can qualify how with prov:qualifiedResponsibility [ a prov:Responsibility;  prov:agent :ag; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedDelegation"
+    },
+    {
+      "id": "property1358",
+      "equivalent": [],
+      "range": "class480",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class482",
+      "label": {
+        "": "qualifiedUsage",
+        "default": "qualifiedUsage"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Activity prov:used Entity :e, then it can qualify how it used it using prov:qualifiedUsage [ a prov:Usage; prov:entity :e; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedUsage"
+    },
+    {
+      "id": "property1341",
+      "equivalent": [],
+      "range": "class482",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1332"],
+      "domain": "class478",
+      "label": {
+        "": "activity",
+        "default": "activity"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#activity"
+    },
+    {
+      "id": "property1328",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1332"],
+      "domain": "class483",
+      "label": {
+        "": "entity",
+        "default": "entity"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#entity"
+    },
+    {
+      "id": "property1333",
+      "equivalent": [],
+      "range": "class495",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class488",
+      "label": {
+        "": "hadRole",
+        "default": "hadRole"
+      },
+      "attributes": [],
+      "comment": {
+        "": "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile<\/a>.",
+        "en": "The _optional_ Role that an Entity assumed in the context of an Activity. For example, :baking prov:used :spoon; prov:qualified [ a prov:Usage; prov:entity :spoon; prov:hadRole roles:mixing_implement ]."
+      },
+      "uri": "http://www.w3.org/ns/prov#hadRole"
+    },
+    {
+      "id": "property1329",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1349"],
+      "domain": "class491",
+      "label": {
+        "": "wasRevisionOf",
+        "default": "wasRevisionOf"
+      },
+      "attributes": [],
+      "comment": {"en": "A revision is a derivation that revises an entity into a revised version."},
+      "uri": "http://www.w3.org/ns/prov#wasRevisionOf"
+    },
+    {
+      "id": "property1398",
+      "equivalent": [],
+      "range": "class487",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class503",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1399",
+      "equivalent": [],
+      "range": "class487",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class485",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1387",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class502",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1386",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class481",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1360",
+      "equivalent": [],
+      "range": "datatype189",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class498",
+      "label": {
+        "": "atTime",
+        "default": "atTime"
+      },
+      "attributes": [],
+      "comment": {"en": "The time at which an InstantaneousEvent occurred, in the form of xsd:dateTime."},
+      "uri": "http://www.w3.org/ns/prov#atTime"
+    },
+    {
+      "id": "property1362",
+      "equivalent": [],
+      "range": "datatype191",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class482",
+      "label": {
+        "": "endedAtTime",
+        "default": "endedAtTime"
+      },
+      "attributes": [],
+      "comment": {"en": "The time at which an activity ended. See also prov:startedAtTime."},
+      "uri": "http://www.w3.org/ns/prov#endedAtTime"
+    },
+    {
+      "id": "property1397",
+      "equivalent": [],
+      "range": "class487",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class484",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1385",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class477",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1394",
+      "equivalent": [],
+      "range": "class504",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class496",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1384",
+      "equivalent": [],
+      "range": "class488",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class483",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1322",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1349"],
+      "domain": "class491",
+      "label": {
+        "": "wasQuotedFrom",
+        "default": "wasQuotedFrom"
+      },
+      "attributes": [],
+      "comment": {"en": "An entity is derived from an original entity by copying, or 'quoting', some or all of it."},
+      "uri": "http://www.w3.org/ns/prov#wasQuotedFrom"
+    },
+    {
+      "id": "property1324",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1351"],
+      "domain": "class481",
+      "label": {
+        "": "hadMember",
+        "default": "hadMember"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#hadMember"
+    },
+    {
+      "id": "property1395",
+      "equivalent": [],
+      "range": "class504",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class494",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1383",
+      "equivalent": [],
+      "range": "class488",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class487",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1323",
+      "equivalent": [],
+      "range": "class484",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class482",
+      "label": {
+        "": "qualifiedAssociation",
+        "default": "qualifiedAssociation"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedAssociation"
+    },
+    {
+      "id": "property1392",
+      "equivalent": [],
+      "range": "class499",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class497",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1382",
+      "equivalent": [],
+      "range": "class488",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class478",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1393",
+      "equivalent": [],
+      "range": "class504",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class492",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1381",
+      "equivalent": [],
+      "range": "class498",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class491",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1348",
+      "equivalent": [],
+      "inverse": "property1350",
+      "range": "class482",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1351"],
+      "domain": "class491",
+      "label": {
+        "": "wasInvalidatedBy",
+        "default": "wasInvalidatedBy"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#wasInvalidatedBy"
+    },
+    {
+      "id": "property1363",
+      "equivalent": [],
+      "range": "datatype192",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class482",
+      "label": {
+        "": "startedAtTime",
+        "default": "startedAtTime"
+      },
+      "attributes": [],
+      "comment": {"en": "The time at which an activity started. See also prov:endedAtTime."},
+      "uri": "http://www.w3.org/ns/prov#startedAtTime"
+    },
+    {
+      "id": "property1353",
+      "equivalent": [],
+      "range": "class480",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class499",
+      "label": {
+        "": "hadUsage",
+        "default": "hadUsage"
+      },
+      "attributes": [],
+      "comment": {"en": "The _optional_ Usage involved in an Entity's Derivation."},
+      "uri": "http://www.w3.org/ns/prov#hadUsage"
+    },
+    {
+      "id": "property1331",
+      "equivalent": [],
+      "range": "class504",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1332"],
+      "domain": "class487",
+      "label": {
+        "": "agent",
+        "default": "agent"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#agent"
+    },
+    {
+      "id": "property1337",
+      "equivalent": [],
+      "range": "class502",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class484",
+      "label": {
+        "": "hadPlan",
+        "default": "hadPlan"
+      },
+      "attributes": [],
+      "comment": {"en": "The _optional_ Plan adopted by an Agent in Association with some Activity. Plan specifications are out of the scope of this specification."},
+      "uri": "http://www.w3.org/ns/prov#hadPlan"
+    },
+    {
+      "id": "property1347",
+      "equivalent": [],
+      "range": "class476",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class491",
+      "label": {
+        "": "qualifiedPrimarySource",
+        "default": "qualifiedPrimarySource"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Entity prov:hadPrimarySource Entity :e, then it can qualify how using prov:qualifiedPrimarySource [ a prov:PrimarySource; prov:entity :e; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedPrimarySource"
+    },
+    {
+      "id": "property1389",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class482",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1315",
+      "equivalent": [],
+      "inverse": "property1351",
+      "range": "class505",
+      "disjoint": [],
+      "subproperty": [
+        "property1355",
+        "property1350"
+      ],
+      "superproperty": [],
+      "domain": "class505",
+      "label": {
+        "": "influenced",
+        "default": "influenced"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#influenced"
+    },
+    {
+      "id": "property1350",
+      "equivalent": [],
+      "inverse": "property1348",
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1315"],
+      "domain": "class482",
+      "label": {
+        "": "invalidated",
+        "default": "invalidated"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#invalidated"
+    },
+    {
+      "id": "property1317",
+      "equivalent": [],
+      "range": "class493",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1342"],
+      "domain": "class482",
+      "label": {
+        "": "qualifiedCommunication",
+        "default": "qualifiedCommunication"
+      },
+      "attributes": [],
+      "comment": {"en": "If this Activity prov:wasInformedBy Activity :a, then it can qualify how it was influenced using prov:qualifiedCommunication [ a prov:Communication;  prov:activity :a; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#qualifiedCommunication"
+    },
+    {
+      "id": "property1391",
+      "equivalent": [],
+      "range": "class499",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class501",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1390",
+      "equivalent": [],
+      "range": "class499",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class476",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1380",
+      "equivalent": [],
+      "range": "class498",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class504",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1351",
+      "equivalent": [],
+      "inverse": "property1315",
+      "range": "class506",
+      "disjoint": [],
+      "subproperty": [
+        "property1352",
+        "property1324",
+        "property1318",
+        "property1346",
+        "property1343",
+        "property1349",
+        "property1339",
+        "property1345",
+        "property1330",
+        "property1348",
+        "property1335"
+      ],
+      "superproperty": [],
+      "domain": "class506",
+      "label": {
+        "": "wasInfluencedBy",
+        "default": "wasInfluencedBy"
+      },
+      "attributes": [],
+      "comment": {
+        "": "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile<\/a>.",
+        "en": "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."
+      },
+      "uri": "http://www.w3.org/ns/prov#wasInfluencedBy"
+    },
+    {
+      "id": "property1340",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": ["property1344"],
+      "superproperty": [],
+      "domain": "class491",
+      "label": {
+        "": "alternateOf",
+        "default": "alternateOf"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#alternateOf"
+    },
+    {
+      "id": "property1335",
+      "equivalent": [],
+      "range": "class491",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1351"],
+      "domain": "class482",
+      "label": {
+        "": "wasStartedBy",
+        "default": "wasStartedBy"
+      },
+      "attributes": [],
+      "comment": {"en": "Start is when an activity is deemed to have started. A start may refer to an entity, known as trigger, that initiated the activity."},
+      "uri": "http://www.w3.org/ns/prov#wasStartedBy"
+    }
+  ],
+  "metrics": {
+    "propertyCount": 50,
+    "datatypePropertyCount": 6,
+    "datatypeCount": 6,
+    "individualCount": 4,
+    "objectPropertyCount": 44,
+    "classCount": 31,
+    "axiomCount": 973,
+    "nodeCount": 37
+  },
+  "classAttribute": [
+    {
+      "complement": [],
+      "id": "class483",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class488"],
+      "union": [],
+      "subClasses": [
+        "class499",
+        "class500",
+        "class490",
+        "class480"
+      ],
+      "label": {
+        "": "EntityInfluence",
+        "default": "EntityInfluence"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "EntityInfluence provides additional descriptions of an Entity's binary influence upon any other kind of resource. Instances of EntityInfluence use the prov:entity property to cite the influencing Entity."},
+      "uri": "http://www.w3.org/ns/prov#EntityInfluence"
+    },
+    {
+      "complement": [],
+      "id": "class481",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class491"],
+      "union": [],
+      "subClasses": ["class486"],
+      "label": {
+        "": "Collection",
+        "default": "Collection"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#Collection"
+    },
+    {
+      "complement": [],
+      "id": "class496",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class504"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Person",
+        "default": "Person"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#Person"
+    },
+    {
+      "complement": [],
+      "id": "class497",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class499"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Revision",
+        "default": "Revision"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instance of prov:Revision provides additional descriptions about the binary prov:wasRevisionOf relation from some newer prov:Entity to an earlier prov:Entity. For example, :draft_2 prov:wasRevisionOf :draft_1; prov:qualifiedRevision [ a prov:Revision; prov:entity :draft_1; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#Revision"
+    },
+    {
+      "complement": [],
+      "id": "class490",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [
+        "class483",
+        "class498"
+      ],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Start",
+        "default": "Start"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instance of prov:Start provides additional descriptions about the binary prov:wasStartedBy relation from some started prov:Activity to an prov:Entity that started it. For example, :foot_race prov:wasStartedBy :bang; prov:qualifiedStart [ a prov:Start; prov:entity :bang; :foo :bar; prov:atTime '2012-03-09T08:05:08-05:00'^^xsd:dateTime ] ."},
+      "uri": "http://www.w3.org/ns/prov#Start"
+    },
+    {
+      "complement": [],
+      "id": "class478",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class488"],
+      "union": [],
+      "subClasses": [
+        "class493",
+        "class479",
+        "class489"
+      ],
+      "label": {
+        "": "ActivityInfluence",
+        "default": "ActivityInfluence"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "It is not recommended that the type ActivityInfluence be asserted without also asserting one of its more specific subclasses."},
+      "uri": "http://www.w3.org/ns/prov#ActivityInfluence"
+    },
+    {
+      "complement": [],
+      "id": "class498",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class500",
+        "class479",
+        "class489",
+        "class490",
+        "class480"
+      ],
+      "label": {
+        "": "InstantaneousEvent",
+        "default": "InstantaneousEvent"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous."},
+      "uri": "http://www.w3.org/ns/prov#InstantaneousEvent"
+    },
+    {
+      "complement": [],
+      "id": "class484",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class487"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Association",
+        "default": "Association"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instance of prov:Association provides additional descriptions about the binary prov:wasAssociatedWith relation from an prov:Activity to some prov:Agent that had some responsiblity for it. For example, :baking prov:wasAssociatedWith :baker; prov:qualifiedAssociation [ a prov:Association; prov:agent :baker; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#Association"
+    },
+    {
+      "complement": [],
+      "id": "class495",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Role",
+        "default": "Role"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#Role"
+    },
+    {
+      "complement": [],
+      "id": "class486",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class481"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "default": "EmptyCollection",
+        "en": "EmptyCollection"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#EmptyCollection"
+    },
+    {
+      "complement": [],
+      "id": "class485",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class487"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Delegation",
+        "default": "Delegation"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instance of prov:Delegation provides additional descriptions about the binary prov:actedOnBehalfOf relation from a performing prov:Agent to some prov:Agent for whom it was performed. For example, :mixing prov:wasAssociatedWith :toddler . :toddler prov:actedOnBehalfOf :mother; prov:qualifiedDelegation [ a prov:Delegation; prov:entity :mother; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#Delegation"
+    },
+    {
+      "complement": [],
+      "id": "class488",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class478",
+        "class487",
+        "class483"
+      ],
+      "label": {
+        "": "Influence",
+        "default": "Influence"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "Because prov:Influence is a broad relation, its most specific subclasses (e.g. prov:Communication, prov:Delegation, prov:End, prov:Revision, etc.) should be used when applicable."},
+      "uri": "http://www.w3.org/ns/prov#Influence"
+    },
+    {
+      "complement": [],
+      "id": "class501",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class499"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Quotation",
+        "default": "Quotation"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instance of prov:Quotation provides additional descriptions about the binary prov:wasQuotedFrom relation from some taken prov:Entity from an earlier, larger prov:Entity. For example, :here_is_looking_at_you_kid prov:wasQuotedFrom :casablanca_script; prov:qualifiedQuotation [ a prov:Quotation; prov:entity :casablanca_script; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#Quotation"
+    },
+    {
+      "complement": [],
+      "id": "class491",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class477",
+        "class481",
+        "class502"
+      ],
+      "label": {
+        "": "Entity",
+        "default": "Entity"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#Entity"
+    },
+    {
+      "complement": [],
+      "id": "class499",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class483"],
+      "union": [],
+      "subClasses": [
+        "class476",
+        "class501",
+        "class497"
+      ],
+      "label": {
+        "": "Derivation",
+        "default": "Derivation"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "The more specific forms of prov:Derivation (i.e., prov:Revision, prov:Quotation, prov:PrimarySource) should be asserted if they apply."},
+      "uri": "http://www.w3.org/ns/prov#Derivation"
+    },
+    {
+      "complement": [],
+      "id": "class504",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class492",
+        "class496",
+        "class494"
+      ],
+      "label": {
+        "": "Agent",
+        "default": "Agent"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#Agent"
+    },
+    {
+      "complement": [],
+      "id": "class480",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [
+        "class483",
+        "class498"
+      ],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Usage",
+        "default": "Usage"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instance of prov:Usage provides additional descriptions about the binary prov:used relation from some prov:Activity to an prov:Entity that it used. For example, :keynote prov:used :podium; prov:qualifiedUsage [ a prov:Usage; prov:entity :podium; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#Usage"
+    },
+    {
+      "complement": [],
+      "id": "class479",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [
+        "class478",
+        "class498"
+      ],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Generation",
+        "default": "Generation"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instance of prov:Generation provides additional descriptions about the binary prov:wasGeneratedBy relation from a generated prov:Entity to the prov:Activity that generated it. For example, :cake prov:wasGeneratedBy :baking; prov:qualifiedGeneration [ a prov:Generation; prov:activity :baking; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#Generation"
+    },
+    {
+      "complement": [],
+      "id": "class477",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class491"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Bundle",
+        "default": "Bundle"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "Note that there are kinds of bundles (e.g. handwritten letters, audio recordings, etc.) that are not expressed in PROV-O, but can be still be described by PROV-O."},
+      "uri": "http://www.w3.org/ns/prov#Bundle"
+    },
+    {
+      "complement": [],
+      "id": "class502",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class491"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Plan",
+        "default": "Plan"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "There exist no prescriptive requirement on the nature of plans, their representation, the actions or steps they consist of, or their intended goals. Since plans may evolve over time, it may become necessary to track their provenance, so plans themselves are entities. Representing the plan explicitly in the provenance can be useful for various tasks: for example, to validate the execution as represented in the provenance record, to manage expectation failures, or to provide explanations."},
+      "uri": "http://www.w3.org/ns/prov#Plan"
+    },
+    {
+      "complement": [],
+      "id": "class487",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class488"],
+      "union": [],
+      "subClasses": [
+        "class484",
+        "class503",
+        "class485"
+      ],
+      "label": {
+        "": "AgentInfluence",
+        "default": "AgentInfluence"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "It is not recommended that the type AgentInfluence be asserted without also asserting one of its more specific subclasses."},
+      "uri": "http://www.w3.org/ns/prov#AgentInfluence"
+    },
+    {
+      "complement": [],
+      "id": "class475",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Location",
+        "default": "Location"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#Location"
+    },
+    {
+      "complement": [],
+      "id": "class476",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class499"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "PrimarySource",
+        "default": "PrimarySource"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instance of prov:PrimarySource provides additional descriptions about the binary prov:hadPrimarySource relation from some secondary prov:Entity to an earlier, primary prov:Entity. For example, :blog prov:hadPrimarySource :newsArticle; prov:qualifiedPrimarySource [ a prov:PrimarySource; prov:entity :newsArticle; :foo :bar ] ."},
+      "uri": "http://www.w3.org/ns/prov#PrimarySource"
+    },
+    {
+      "complement": [],
+      "id": "class492",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class504"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Organization",
+        "default": "Organization"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#Organization"
+    },
+    {
+      "complement": [],
+      "id": "class489",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [
+        "class478",
+        "class498"
+      ],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Invalidation",
+        "default": "Invalidation"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instance of prov:Invalidation provides additional descriptions about the binary prov:wasInvalidatedBy relation from an invalidated prov:Entity to the prov:Activity that invalidated it. For example, :uncracked_egg prov:wasInvalidatedBy :baking; prov:qualifiedInvalidation [ a prov:Invalidation; prov:activity :baking; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#Invalidation"
+    },
+    {
+      "complement": [],
+      "id": "class500",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [
+        "class483",
+        "class498"
+      ],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "End",
+        "default": "End"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instance of prov:End provides additional descriptions about the binary prov:wasEndedBy relation from some ended prov:Activity to an prov:Entity that ended it. For example, :ball_game prov:wasEndedBy :buzzer; prov:qualifiedEnd [ a prov:End; prov:entity :buzzer; :foo :bar; prov:atTime '2012-03-09T08:05:08-05:00'^^xsd:dateTime ]."},
+      "uri": "http://www.w3.org/ns/prov#End"
+    },
+    {
+      "complement": [],
+      "id": "class493",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class478"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Communication",
+        "default": "Communication"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instance of prov:Communication provides additional descriptions about the binary prov:wasInformedBy relation from an informed prov:Activity to the prov:Activity that informed it. For example, :you_jumping_off_bridge prov:wasInformedBy :everyone_else_jumping_off_bridge; prov:qualifiedCommunication [ a prov:Communication; prov:activity :everyone_else_jumping_off_bridge; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#Communication"
+    },
+    {
+      "complement": [],
+      "id": "class503",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class487"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Attribution",
+        "default": "Attribution"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {"en": "An instance of prov:Attribution provides additional descriptions about the binary prov:wasAttributedTo relation from an prov:Entity to some prov:Agent that had some responsible for it. For example, :cake prov:wasAttributedTo :baker; prov:qualifiedAttribution [ a prov:Attribution; prov:entity :baker; :foo :bar ]."},
+      "uri": "http://www.w3.org/ns/prov#Attribution"
+    },
+    {
+      "complement": [],
+      "id": "class494",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class504"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "SoftwareAgent",
+        "default": "SoftwareAgent"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#SoftwareAgent"
+    },
+    {
+      "complement": [],
+      "id": "class482",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Activity",
+        "default": "Activity"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/ns/prov#Activity"
+    },
+    {
+      "id": "thing40",
+      "label": "Thing",
+      "uri": "http://www.w3.org/2002/07/owl#Thing"
+    },
+    {
+      "id": "class506",
+      "union": [
+        "class498",
+        "class482",
+        "class504",
+        "class491"
+      ],
+      "attributes": []
+    },
+    {
+      "id": "class505",
+      "union": [
+        "class482",
+        "class504",
+        "class491"
+      ],
+      "attributes": []
+    }
+  ],
+  "class": [
+    {
+      "id": "class483",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class481",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class496",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class497",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class490",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class478",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class498",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class484",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class495",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class486",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class485",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class488",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class501",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class491",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class499",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class504",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class480",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class479",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class477",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class502",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class487",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class475",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class476",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class492",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class489",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class500",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class493",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class503",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class494",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class482",
+      "type": "owl:Class"
+    },
+    {
+      "id": "thing40",
+      "type": "owl:Thing"
+    },
+    {
+      "id": "class506",
+      "label": "Union",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "class505",
+      "label": "Union",
+      "type": "owl:unionOf"
+    }
+  ],
+  "property": [
+    {
+      "id": "property1349",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1354",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1345",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1319",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1325",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1320",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1364",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1361",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1321",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1318",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1343",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1352",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1316",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1366",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1365",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1344",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1369",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1330",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1368",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1367",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1327",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1334",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1339",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1357",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1346",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1375",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1332",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1342",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1377",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1376",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1371",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1370",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1338",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1373",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1336",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1372",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1359",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1379",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1378",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1326",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1355",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1356",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1358",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1341",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1328",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1333",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1329",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1398",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1399",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1387",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1386",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1360",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1362",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1397",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1385",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1394",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1384",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1322",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1324",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1395",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1383",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1323",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1392",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1382",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1393",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1381",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1348",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1363",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1353",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1331",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1337",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1347",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1389",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1315",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1350",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1317",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1391",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1390",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1380",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1351",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1340",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1335",
+      "type": "owl:objectProperty"
+    }
+  ],
+  "datatype": [
+    {
+      "id": "datatype190",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "literal188",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "datatype191",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype192",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype193",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype189",
+      "type": "rdfs:Datatype"
+    }
+  ],
+  "datatypeAttribute": [
+    {
+      "id": "datatype190",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal188",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype191",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype192",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype193",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype189",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    }
+  ],
+  "header": {
+    "languages": [
+      "",
+      "en"
+    ],
+    "title": {},
+    "description": {},
+    "uri": "http://www.w3.org/ns/prov-o#",
+    "version": "Recommendation version 2013-04-30"
+  },
+  "namespace": [{}]
+}

@@ -1,3421 +1,3766 @@
-{"propertyAttribute": [
-	{
-		"id": "property303",
-		"equivalent": [],
-		"range": "class117",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class127",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property229",
-		"equivalent": [],
-		"range": "class145",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class172",
-		"label": "RelatedAssignedAttribute",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#RelatedAssignedAttribute"
-	},
-	{
-		"id": "property302",
-		"equivalent": [],
-		"range": "class117",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class137",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"equivalent": [],
-		"range": "class178",
-		"subproperty": [],
-		"disjoint": [],
-		"superproperty": [],
-		"label": "LXusuallyIsComponentOf",
-		"instances": 0,
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LXusuallyIsComponentOf",
-		"id": "property204",
-		"inverse": "property207",
-		"domain": "class124",
-		"attributes": ["external"],
-		"comment": ""
-	},
-	{
-		"id": "property280",
-		"equivalent": [],
-		"range": "class128",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class121",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property201",
-		"equivalent": [],
-		"range": "thing10",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property202"],
-		"domain": "thing10",
-		"label": "hasComponent",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#hasComponent"
-	},
-	{
-		"id": "property281",
-		"equivalent": [],
-		"range": "class180",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class151",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property282",
-		"equivalent": [],
-		"range": "class138",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class165",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property283",
-		"equivalent": [],
-		"range": "class138",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class125",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property284",
-		"equivalent": [],
-		"range": "class138",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class141",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property221",
-		"equivalent": [],
-		"range": "class164",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class140",
-		"label": "LXrelatedIdentifierAssignment",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property indicates the type  of item to which an attribute or relation is assigned.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LXrelatedIdentifierAssignment"
-	},
-	{
-		"id": "property285",
-		"equivalent": [],
-		"range": "class178",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class133",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property286",
-		"equivalent": [],
-		"range": "class122",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class150",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"equivalent": [],
-		"range": "class117",
-		"subproperty": [],
-		"disjoint": [],
-		"superproperty": [],
-		"label": "isReferedBy",
-		"instances": 0,
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isReferedBy",
-		"id": "property203",
-		"inverse": "property200",
-		"domain": "thing9",
-		"attributes": ["external"],
-		"comment": ""
-	},
-	{
-		"id": "property287",
-		"equivalent": [],
-		"range": "class148",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class159",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property288",
-		"equivalent": [],
-		"range": "class160",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class144",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property289",
-		"equivalent": [],
-		"range": "class160",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class121",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property214",
-		"equivalent": [],
-		"range": "class163",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class139",
-		"label": "isUsedIn",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isUsedIn"
-	},
-	{
-		"id": "property246",
-		"equivalent": [],
-		"range": "datatype44",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class137",
-		"label": "format",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns a format (e.g. pdf, word, etc) to a bibliography resource. ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#format"
-	},
-	{
-		"equivalent": [],
-		"range": "class178",
-		"subproperty": ["property209", "property205", "property213"],
-		"disjoint": [],
-		"superproperty": [],
-		"label": "LXusuallyIsBioticComponentOf",
-		"instances": 0,
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LXusuallyIsBioticComponentOf",
-		"id": "property208",
-		"inverse": "property228",
-		"domain": "class124",
-		"attributes": ["external"],
-		"comment": ""
-	},
-	{
-		"id": "property270",
-		"equivalent": [],
-		"range": "class174",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class126",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property271",
-		"equivalent": [],
-		"range": "class174",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class130",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property199",
-		"equivalent": [],
-		"range": "class143",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class154",
-		"label": "P70IsDocumentedIn",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property describes the CRM Entities documented by instances of E31 Document.\n\nDocuments may describe any conceivable entity, hence the link to the highest-level entity in the CRM hierarchy. This property is intended for cases where a reference is regarded as being of a documentary character, in the scholarly or scientific sense.\nExamples:\t\n1) the British Museum catalogue (E31) documents the British Museum\u2019s Collection (E78)\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#P70IsDocumentedIn"
-	},
-	{
-		"id": "property224",
-		"equivalent": [],
-		"range": "thing10",
-		"disjoint": [],
-		"subproperty": ["property211", "property205", "property213"],
-		"superproperty": [],
-		"domain": "thing10",
-		"label": "isRelatedTo",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isRelatedTo"
-	},
-	{
-		"id": "property274",
-		"equivalent": [],
-		"range": "class157",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class112",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property242",
-		"equivalent": [],
-		"range": "datatype40",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property238"],
-		"domain": "class137",
-		"label": "remark",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns note to a bibliography resource. ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#remark"
-	},
-	{
-		"id": "property275",
-		"equivalent": [],
-		"range": "class157",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class153",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property240",
-		"equivalent": [],
-		"range": "datatype38",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class117",
-		"label": "URL",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns Web URI to works, such as texts, artworks. ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#URL"
-	},
-	{
-		"id": "property272",
-		"equivalent": [],
-		"range": "class174",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class156",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"equivalent": [],
-		"range": "class174",
-		"subproperty": ["property217"],
-		"disjoint": [],
-		"superproperty": [],
-		"label": "isPartOf",
-		"instances": 0,
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isPartOf",
-		"id": "property215",
-		"inverse": "property202",
-		"domain": "class174",
-		"attributes": ["external"],
-		"comment": ""
-	},
-	{
-		"id": "property273",
-		"equivalent": [],
-		"range": "class157",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class161",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property278",
-		"equivalent": [],
-		"range": "class116",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class129",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property235",
-		"equivalent": [],
-		"range": "datatype33",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class136",
-		"label": "assignedName",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#assignedName"
-	},
-	{
-		"id": "property279",
-		"equivalent": [],
-		"range": "class142",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class158",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property276",
-		"equivalent": [],
-		"range": "class119",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class163",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property277",
-		"equivalent": [],
-		"range": "class119",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class173",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property216",
-		"equivalent": [],
-		"range": "thing10",
-		"disjoint": [],
-		"subproperty": ["property210"],
-		"superproperty": [],
-		"domain": "thing10",
-		"label": "LTusuallyFeedingOn",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTusuallyFeedingOn"
-	},
-	{
-		"id": "property269",
-		"equivalent": [],
-		"range": "class174",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class110",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property241",
-		"equivalent": [],
-		"range": "datatype39",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class163",
-		"label": "hasAbbreviation",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns the abbreviation of a country (e.g. GR, IT, FR, UK, etc). ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#hasAbbreviation"
-	},
-	{
-		"id": "property236",
-		"equivalent": [],
-		"range": "datatype34",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class169",
-		"label": "reference",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#reference"
-	},
-	{
-		"id": "property211",
-		"equivalent": [],
-		"range": "class174",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property224"],
-		"domain": "class177",
-		"label": "isExtirpatedFrom",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isExtirpatedFrom"
-	},
-	{
-		"id": "property244",
-		"equivalent": [],
-		"range": "datatype42",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class127",
-		"label": "accessedFrom",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns the accessed info  of a Webgraphy Citation. ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#accessedFrom"
-	},
-	{
-		"equivalent": [],
-		"range": "class174",
-		"subproperty": ["property201"],
-		"disjoint": [],
-		"superproperty": [],
-		"label": "hasPart",
-		"instances": 0,
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#hasPart",
-		"id": "property202",
-		"inverse": "property215",
-		"domain": "class174",
-		"attributes": [],
-		"comment": ""
-	},
-	{
-		"equivalent": [],
-		"range": "thing10",
-		"subproperty": [],
-		"disjoint": [],
-		"superproperty": [],
-		"label": "isAssociatedWith",
-		"instances": 0,
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isAssociatedWith",
-		"id": "property223",
-		"inverse": "property223",
-		"domain": "thing10",
-		"attributes": ["external"],
-		"comment": ""
-	},
-	{
-		"id": "property219",
-		"equivalent": [],
-		"range": "class125",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class157",
-		"label": "LXhasCodeType",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LXhasCodeType"
-	},
-	{
-		"id": "property292",
-		"equivalent": [],
-		"range": "class135",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class114",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property293",
-		"equivalent": [],
-		"range": "class135",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class155",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"equivalent": [],
-		"range": "class124",
-		"subproperty": [],
-		"disjoint": [],
-		"superproperty": ["property207"],
-		"label": "LXusuallyHasBioticComponentOf",
-		"instances": 0,
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LXusuallyHasBioticComponentOf",
-		"id": "property228",
-		"inverse": "property208",
-		"domain": "class178",
-		"attributes": ["external"],
-		"comment": ""
-	},
-	{
-		"id": "property290",
-		"equivalent": [],
-		"range": "class160",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class150",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property291",
-		"equivalent": [],
-		"range": "class160",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class151",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property238",
-		"equivalent": [],
-		"range": "literal36",
-		"disjoint": [],
-		"subproperty": ["property242"],
-		"superproperty": [],
-		"domain": "thing10",
-		"label": "topDataProperty",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/2002/07/owl#topDataProperty"
-	},
-	{
-		"id": "property298",
-		"equivalent": [],
-		"range": "class177",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class160",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property299",
-		"equivalent": [],
-		"range": "class177",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class180",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property249",
-		"equivalent": [],
-		"range": "datatype47",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class127",
-		"label": "accessedDate",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns the accessed data of a Webgraphy Citation. ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#accessedDate"
-	},
-	{
-		"id": "property296",
-		"equivalent": [],
-		"range": "class177",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class122",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property297",
-		"equivalent": [],
-		"range": "class177",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class148",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property248",
-		"equivalent": [],
-		"range": "datatype46",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class137",
-		"label": "right",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns the right associated with a bibliography resource.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#right"
-	},
-	{
-		"id": "property294",
-		"equivalent": [],
-		"range": "class177",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class120",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property295",
-		"equivalent": [],
-		"range": "class177",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class128",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property212",
-		"equivalent": [],
-		"range": "thing10",
-		"disjoint": [],
-		"subproperty": ["property218", "property206"],
-		"superproperty": [],
-		"domain": "thing10",
-		"label": "topObjectProperty",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/2002/07/owl#topObjectProperty"
-	},
-	{
-		"id": "property225",
-		"equivalent": [],
-		"range": "class134",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class183",
-		"label": "L10HadInput",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property associates an instance of BC56 Digital Measurement  Event with an instance of BC23 Digital Object which is the input used to specify the machine action.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#L10HadInput"
-	},
-	{
-		"equivalent": [],
-		"range": "class124",
-		"subproperty": ["property228"],
-		"disjoint": [],
-		"superproperty": [],
-		"label": "LXusuallyHasComponentOf",
-		"instances": 0,
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LXusuallyHasComponentOf",
-		"id": "property207",
-		"inverse": "property204",
-		"domain": "class178",
-		"attributes": ["external"],
-		"comment": ""
-	},
-	{
-		"id": "property218",
-		"equivalent": [],
-		"range": "class175",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property212"],
-		"domain": "class175",
-		"label": "LC16isComposedOf",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property allows instances of E18 Physical Thing to be analysed into component elements.\n\nComponent elements, since they are themselves instances of E18 Physical Thing, may be further analysed into sub-components, thereby creating a hierarchy of part decomposition. An instance of E18 Physical Thing may be shared between multiple wholes, for example two buildings may share a common wall.\n\nThis property is intended to describe specific components that are individually documented, rather than general aspects. Overall descriptions of the structure of an instance of E18 Physical Thing are captured by the P3 has note property.\n\nThe instances of E57 Materials of which an item of E18 Physical Thing is composed should be documented using P45 consists of (is incorporated in).\n\n[Scope Note for P46 is composed of (forms part of)CIDOC CRM version 5.1.2]\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC16isComposedOf"
-	},
-	{
-		"id": "property209",
-		"equivalent": [],
-		"range": "class174",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property208", "property213"],
-		"domain": "class177",
-		"label": "isEndemicTo",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isEndemicTo"
-	},
-	{
-		"id": "property206",
-		"equivalent": [],
-		"range": "class162",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property212"],
-		"domain": "class166",
-		"label": "LCConsistsOf",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property identifies the instances of E57 Materials of which an instance of E18 Physical Thing is composed.\n\nAll physical things consist of physical materials. P45 consists of (is incorporated in) allows the different Materials to be recorded. P45 consists of (is incorporated in) refers here to observed Material as opposed to the consumed raw material.\n\nA Material, such as a theoretical alloy, may not have any physical instances.\nExamples:\t\n1) silver cup 232 (E22) consists of silver (E57)\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LCConsistsOf"
-	},
-	{
-		"id": "property243",
-		"equivalent": [],
-		"range": "datatype41",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class137",
-		"label": "hasLanguage",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns the language related to MarineTLO Entity.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#hasLanguage"
-	},
-	{
-		"id": "property222",
-		"equivalent": [],
-		"range": "class168",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class168",
-		"label": "P9ConsistOf",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property describes the decomposition of an instance of E4 Period into discrete, subsidiary periods.\n\nThe sub-periods into which the period is decomposed form a logical whole - although the entire picture may not be completely known - and the sub-periods are constitutive of the general period.\n\nExamples:\t\n1) Cretan Bronze Age (E4) consists of  Middle Minoan (E4)\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P9ConsistOf"
-	},
-	{
-		"id": "property227",
-		"equivalent": [],
-		"range": "class132",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class152",
-		"label": "isExpressedIn",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isExpressedIn"
-	},
-	{
-		"id": "property233",
-		"equivalent": [],
-		"range": "datatype31",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class143",
-		"label": "assignedCode",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns a code/identifier to a Water Area. ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#assignedCode"
-	},
-	{
-		"id": "property226",
-		"equivalent": [],
-		"range": "class113",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class146",
-		"label": "LX8hasLanguage",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property declares the Language of a BC18 Proposition.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LX8hasLanguage"
-	},
-	{
-		"id": "property205",
-		"equivalent": [],
-		"range": "class174",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property208", "property224"],
-		"domain": "class177",
-		"label": "isIntroducedAt",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isIntroducedAt"
-	},
-	{
-		"id": "property232",
-		"equivalent": [],
-		"range": "datatype30",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class137",
-		"label": "publisher",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assignes the publisher's description related to a bibliography resource. ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#publisher"
-	},
-	{
-		"id": "property230",
-		"equivalent": [],
-		"range": "class169",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class164",
-		"label": "LXrelatedAuthorshipAssigment",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property describes the active participation of a Actor in an Activity.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LXrelatedAuthorshipAssigment"
-	},
-	{
-		"equivalent": [],
-		"range": "thing9",
-		"subproperty": [],
-		"disjoint": [],
-		"superproperty": [],
-		"label": "isReferenceFor",
-		"instances": 0,
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isReferenceFor",
-		"id": "property200",
-		"inverse": "property203",
-		"domain": "class117",
-		"attributes": ["external"],
-		"comment": ""
-	},
-	{
-		"id": "property266",
-		"equivalent": [],
-		"range": "class147",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class170",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property265",
-		"equivalent": [],
-		"range": "class145",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class123",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property268",
-		"equivalent": [],
-		"range": "class146",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class114",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property267",
-		"equivalent": [],
-		"range": "class147",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class115",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property262",
-		"equivalent": [],
-		"range": "class171",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class117",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property261",
-		"equivalent": [],
-		"range": "class171",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class176",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property264",
-		"equivalent": [],
-		"range": "class145",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class149",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property234",
-		"equivalent": [],
-		"range": "datatype32",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class117",
-		"label": "inSource",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns the sourse in which a reference resource has been publishied. ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#inSource"
-	},
-	{
-		"id": "property263",
-		"equivalent": [],
-		"range": "class171",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class118",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property260",
-		"equivalent": [],
-		"range": "class171",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class154",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property250",
-		"equivalent": [],
-		"range": "datatype48",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class137",
-		"label": "keyWords",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns the key words describing a bibliography.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#keyWords"
-	},
-	{
-		"id": "property245",
-		"equivalent": [],
-		"range": "datatype43",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class117",
-		"label": "date",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns date of a reference resource. ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#date"
-	},
-	{
-		"id": "property231",
-		"equivalent": [],
-		"range": "datatype29",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class117",
-		"label": "authorName",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns name of a reference resource. ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#authorName"
-	},
-	{
-		"id": "property239",
-		"equivalent": [],
-		"range": "literal37",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class117",
-		"label": "title",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns a title to works, such as texts, artworks or pieces of music. ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#title"
-	},
-	{
-		"id": "property237",
-		"equivalent": [],
-		"range": "datatype35",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class169",
-		"label": "name",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns a name to a MarineTLO Entity.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#name"
-	},
-	{
-		"id": "property258",
-		"equivalent": [],
-		"range": "class171",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class157",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property247",
-		"equivalent": [],
-		"range": "datatype45",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class164",
-		"label": "assignedDate",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This property assigns the data of the event \\\"Identifier Assignment\\\" . ",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#assignedDate"
-	},
-	{
-		"id": "property259",
-		"equivalent": [],
-		"range": "class171",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class132",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property257",
-		"equivalent": [],
-		"range": "class136",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class111",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property256",
-		"equivalent": [],
-		"range": "class136",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class139",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property255",
-		"equivalent": [],
-		"range": "class164",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class184",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property254",
-		"equivalent": [],
-		"range": "class164",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class167",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property210",
-		"equivalent": [],
-		"range": "thing10",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property216"],
-		"domain": "thing10",
-		"label": "LTusuallyIsCompetitorOf",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LTusuallyIsCompetitorOf"
-	},
-	{
-		"id": "property253",
-		"equivalent": [],
-		"range": "class164",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class136",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property252",
-		"equivalent": [],
-		"range": "class164",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class131",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property213",
-		"equivalent": [],
-		"range": "class174",
-		"disjoint": [],
-		"subproperty": ["property209"],
-		"superproperty": ["property208", "property224"],
-		"domain": "class177",
-		"label": "isNativeAt",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isNativeAt"
-	},
-	{
-		"id": "property217",
-		"equivalent": [],
-		"range": "thing10",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property215"],
-		"domain": "thing10",
-		"label": "isComponentOf",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isComponentOf"
-	},
-	{
-		"id": "property251",
-		"equivalent": [],
-		"range": "class164",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class152",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property220",
-		"equivalent": [],
-		"range": "class176",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class175",
-		"label": "discarded_by",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#discarded_by"
-	},
-	{
-		"id": "property301",
-		"equivalent": [],
-		"range": "class120",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class144",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property300",
-		"equivalent": [],
-		"range": "class133",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class181",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	}
-], "metrics": {
-	"propertyCount": 52,
-	"datatypePropertyCount": 20,
-	"datatypeCount": 20,
-	"objectPropertyCount": 32,
-	"classCount": 76,
-	"axiomCount": 613,
-	"nodeCount": 96
-}, "classAttribute": [
-	{
-		"complement": [],
-		"id": "class132",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class171"],
-		"union": [],
-		"subClasses": [],
-		"label": "CodificationSystem",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#CodificationSystem"
-	},
-	{
-		"complement": [],
-		"id": "class164",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class152", "class131", "class136", "class167", "class184"],
-		"label": "Identifier Assignment",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises activities that result in the allocation of an identifier to an instance of E1 CRM Entity. An E15 Identifier Assignment may include the creation of the identifier from multiple constituents, which themselves may be instances of E41 Appellation. The syntax and kinds of constituents to be used may be declared in a rule constituting an instance of E29 Design or Procedure.\n[Scope Note for E15 Identifier Assignment CIDOC CRM version 5.1.2]\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#IdentifierAssignment"
-	},
-	{
-		"complement": [],
-		"id": "class163",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class119"],
-		"union": [],
-		"subClasses": [],
-		"label": "Country",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#Country"
-	},
-	{
-		"complement": [],
-		"id": "class129",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class116"],
-		"union": [],
-		"subClasses": [],
-		"label": "Vessel",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#Vessel"
-	},
-	{
-		"complement": [],
-		"id": "class136",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class164"],
-		"union": [],
-		"subClasses": ["class139", "class111"],
-		"label": "NameAssignment",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#NameAssignment"
-	},
-	{
-		"complement": [],
-		"id": "class149",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class145"],
-		"union": [],
-		"subClasses": [],
-		"label": "BiologicalAttributeAssignment",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#BiologicalAttributeAssignment"
-	},
-	{
-		"complement": [],
-		"id": "class173",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class119"],
-		"union": [],
-		"subClasses": [],
-		"label": "Exclusive Economic Zone",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#ExclusiveEconomicZone"
-	},
-	{
-		"complement": [],
-		"id": "class171",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class157", "class132", "class154", "class176", "class117", "class118"],
-		"label": "ConceptualObject",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises non-material products of our minds and other human produced data that have become objects of a discourse. The production of such information may have been supported by the use of    technical devices such as cameras or computers.\n\nCharacteristically, instances of this class are created, invented or thought by someone, and then may be documented or communicated between persons. Instances of BC3 Conceptual Object have the ability to exist on more than one particular carrier at the same time, such as paper, book, electronic signals, marks, audio media, paintings, photos, human memories, etc.\n\nThey cannot be destroyed. They exist as long as they can be found on at least one carrier or in at least one human memory. Their existence ends when the last carrier and the last memory are lost.\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ConceptualObject"
-	},
-	{
-		"complement": [],
-		"id": "class131",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class164"],
-		"union": [],
-		"subClasses": [],
-		"label": "EcosystemCodeAssignment",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#EcosystemCodeAssignment"
-	},
-	{
-		"complement": [],
-		"id": "class145",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class149", "class123"],
-		"label": "Attribute Assignment",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises the actions of making assertions about properties of an object or any relation between two items or concepts. \n\nThis class allows the documentation of how the respective assignment came about, and whose opinion it was. All the attributes or properties assigned in such an action can also be seen as directly attached to the respective item or concept, possibly as a collection of contradictory values. All cases of properties in this model that are also described indirectly through an action are characterised as \\\"short cuts\\\" of this action. This redundant modelling of two alternative views is preferred because many implementations may have good reasons to model either the action or the short cut, and the relation between both alternatives can be captured by simple rules\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#AttributeAssignment"
-	},
-	{
-		"complement": [],
-		"id": "class114",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class135", "class146"],
-		"union": [],
-		"subClasses": [],
-		"label": "Common Name",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#CommonName"
-	},
-	{
-		"complement": [],
-		"id": "class147",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class170", "class115"],
-		"label": "Equipment Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises types of physical objects purposely created by human activity.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#EquipmentType"
-	},
-	{
-		"complement": [],
-		"id": "class172",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Physical Thing Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises types of constellations of matter with a relative stability of any form sufficient to associate them with a persistent identity, such as being confined to certain extent, having a relative stability of form or structure, or containing a fixed amount of matter. In particular, it comprises physical things in the narrower sense and fluid bodies. It is an abstraction of physical substance for solid and non-solid things of matter.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#PhysicalThingType"
-	},
-	{
-		"complement": [],
-		"id": "class146",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class114"],
-		"label": "Proposition",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises immaterial items, including but not limited to scientific papers, plots, procedural prescriptions, algorithms, laws of physics or images that are, or represent in some sense, sets of propositions about real or imaginary things and that are documented as single units or serve as topic of discourse. This class also comprises items that are \u201cabout\u201d something in the sense of a subject.  \nSpecific subclasses of BC8 Proposition should be used when instances of BC8 Proposition of a characteristic type such as publication, etc are used for particular objects.\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Proposition"
-	},
-	{
-		"complement": [],
-		"id": "class123",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class145"],
-		"union": [],
-		"subClasses": [],
-		"label": "GlobalStatisticLanding",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#GlobalStatisticLanding"
-	},
-	{
-		"complement": [],
-		"id": "class165",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class138"],
-		"union": [],
-		"subClasses": [],
-		"label": "Bibliography Resource Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#BibliographyResourceType"
-	},
-	{
-		"complement": [],
-		"id": "class134",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "DigitalObject",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises identifiable immaterial items that can be represented as sets of bit sequences, such as data sets, e-texts, images, audio or video items, software, etc., and are documented as single units. \nAny aggregation of instances of BC23 Digital Object into a whole treated as single unit is also regarded as an instance of BC23 Digital Object. \nA BC23 Digital Object does not depend on a specific physical carrier, and it can exist on one or more carriers simultaneously.\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#DigitalObject"
-	},
-	{
-		"complement": [],
-		"id": "class137",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class117"],
-		"union": [],
-		"subClasses": [],
-		"label": "Reference Resource",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#BibliographyResource"
-	},
-	{
-		"complement": [],
-		"id": "class153",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class157"],
-		"union": [],
-		"subClasses": [],
-		"label": "FAO Vessel Type Identifier",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FAOVesselTypeIdentifier"
-	},
-	{
-		"complement": [],
-		"id": "class118",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class171"],
-		"union": [],
-		"subClasses": [],
-		"label": "Statistic Indicator",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#StatisticIndicator"
-	},
-	{
-		"complement": [],
-		"id": "class174",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class110", "class126", "class130", "class156"],
-		"label": "Water Area",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises generic portions of the sea. A water area can be a statistical area, or an economic zone, or a geographic feature.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#WaterArea"
-	},
-	{
-		"complement": [],
-		"id": "class157",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class171"],
-		"union": [],
-		"subClasses": ["class161", "class112", "class153"],
-		"label": "Identifier",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises strings or codes assigned to instances of BC10 Persistent Item in order to identify them uniquely and permanently within the context of one or more organisations. Such codes are often known as inventory numbers, registration codes, etc. and are typically composed of alphanumeric sequences. \nSpecific subclasses of BC4 Identifier should be used when instances of BC4 Identifier of a characteristic form or format are used for particular objects\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Identifier"
-	},
-	{
-		"complement": [],
-		"id": "class159",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class148"],
-		"union": [],
-		"subClasses": [],
-		"label": "FishBase Species",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FishBaseSpecies"
-	},
-	{
-		"complement": [],
-		"id": "class119",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class163", "class173"],
-		"label": "Temporal Phenomenon",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises all sets of phenomena, such as   Periods, Events and states, Ecosystems,   bounded in time and space. \nIt is the social or physical coherence of these phenomena that identify a BC4 Temporal Phenomenon and not the associated spatio-temporal bounds. These bounds are   approximations of the actual process of growth, spread and retreat. Consequently, different ecosystems   can overlap and coexist in time and space, such as when a nomadic culture exists in the same area as a sedentary culture.\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#TemporalPhenomenon"
-	},
-	{
-		"complement": [],
-		"id": "class141",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class138"],
-		"union": [],
-		"subClasses": [],
-		"label": "Length Protocol",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LengthProtocol"
-	},
-	{
-		"complement": [],
-		"id": "class116",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class129"],
-		"label": "Man Made Object",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises physical objects purposely created by human activity.\n\nNo assumptions are made as to the extent of modification required to justify regarding an object as man-made. For example, an inscribed piece of rock or a preserved butterfly are both regarded as instances of E22 Man-Made Object.\n\n[Scope Note for E22 Man-Made Object  CIDOC CRM version 5.1.2]\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ManMadeObject"
-	},
-	{
-		"complement": [],
-		"id": "class167",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class164"],
-		"union": [],
-		"subClasses": [],
-		"label": "VesselCodeAssignment",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#VesselCodeAssignment"
-	},
-	{
-		"complement": [],
-		"id": "class156",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class174"],
-		"union": [],
-		"subClasses": [],
-		"label": "Sub Division",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#SubDivision"
-	},
-	{
-		"complement": [],
-		"id": "class111",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class136"],
-		"union": [],
-		"subClasses": [],
-		"label": "ScientificNameAssignment",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#ScientificNameAssignment"
-	},
-	{
-		"complement": [],
-		"id": "class183",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Digital Measurement Event",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises actions measuring physical properties using a digital device, that are determined by a systematic procedure and creates an instance of BC23 Digital Object.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#DigitalMeasurementEvent"
-	},
-	{
-		"complement": [],
-		"id": "class139",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class136"],
-		"union": [],
-		"subClasses": [],
-		"label": "CommonNameAssignment",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#CommonNameAssignment"
-	},
-	{
-		"complement": [],
-		"id": "class142",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class158"],
-		"label": "Events Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises types of actions intentionally carried out by humans that result in changes of state in the scientific, social, or physical systems documented",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#EventsType"
-	},
-	{
-		"complement": [],
-		"id": "class143",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "MarineTLOEntity",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises all objects of the MarineTLO discourse. It is an abstract concept providing for :\n1) Identification   by a preferred identifier\n2) Appellation\n3) all classes within this level of the MarineTLO are directly or indirectly specialisations of BC20 TLO Entity\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#MarineTLOEntity"
-	},
-	{
-		"complement": [],
-		"id": "class162",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Dataset",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises   contents of a single database table, or a single statistical data matrix, where each column of the table represents a particular variable, and each row corresponds to a given member of the dataset in question. The dataset lists values for each of the variables, such as height and weight of an object, for each member of the dataset. Each value is known as a datum. The dataset may comprise data for one or more members, corresponding to the number of rows.\nThe term dataset may also be used more loosely, to refer to the data in a collection of closely related tables, corresponding to a particular experiment or event.\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Dataset"
-	},
-	{
-		"complement": [],
-		"id": "class128",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class177"],
-		"union": [],
-		"subClasses": ["class121"],
-		"label": "Ecoscope Marine Animal Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#EcoscopeMarineAnimalType"
-	},
-	{
-		"complement": [],
-		"id": "class175",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Physical Thing",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises constellations of matter with a relative stability of any form sufficient to associate them with a persistent identity, such as being confined to certain extent, which (confinement) can have a relative stability of form or structure, or containing a fixed amount of matter. In particular, it comprises physical things in the narrower sense and fluid bodies. It is an abstraction of physical substance for solid and non-solid things of matter.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#PhysicalThing"
-	},
-	{
-		"complement": [],
-		"id": "class155",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class135"],
-		"union": [],
-		"subClasses": [],
-		"label": "FAOName",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FAOName"
-	},
-	{
-		"complement": [],
-		"id": "class180",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class177"],
-		"union": [],
-		"subClasses": ["class151"],
-		"label": "WoRMS Marine Animal Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#WoRMSMarineAnimalType"
-	},
-	{
-		"complement": [],
-		"id": "class110",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class174"],
-		"union": [],
-		"subClasses": [],
-		"label": "Area",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#Area"
-	},
-	{
-		"complement": [],
-		"id": "class152",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class164"],
-		"union": [],
-		"subClasses": [],
-		"label": "CountryCodeAssignment",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#CountryCodeAssignment"
-	},
-	{
-		"complement": [],
-		"id": "class125",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class138"],
-		"union": [],
-		"subClasses": [],
-		"label": "Identifier Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#IdentifierType"
-	},
-	{
-		"complement": [],
-		"id": "class124",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Biotic Element Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This metaclass comprises types of material nature items which live, have lived or are natural products of or from living organisms. Such types of material nature items includes types of plants, types of fauna(animals), types of bacteria, fungi etc.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#BioticElementType"
-	},
-	{
-		"complement": [],
-		"id": "class158",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class142"],
-		"union": [],
-		"subClasses": [],
-		"label": "Ecosystem Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This metaclass comprises types of  coherent ecological phenomena bounded in time and space. The  coherence of these phenomena is given by the type of interaction characteristic for biological systems. This coherence identifies the ecosystem and not the associated spatio-temporal bounds. These bounds are a mere approximation of the actual process of growth, spread and retreat. Consequently, different ecosystems can overlap and coexist in time and space.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#EcosystemType"
-	},
-	{
-		"complement": [],
-		"id": "class144",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class120", "class160"],
-		"union": [],
-		"subClasses": [],
-		"label": "DBpediaSpecies",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#DBpediaSpecies"
-	},
-	{
-		"complement": [],
-		"id": "class176",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class171"],
-		"union": [],
-		"subClasses": [],
-		"label": "Fishing Discarded Explanation",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FishingDiscardedExplanation"
-	},
-	{
-		"complement": [],
-		"id": "class138",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class165", "class125", "class141"],
-		"label": "Conceptual Object Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This metaclass comprises types of identifiable immaterial items, such as, types of data sets, images, texts, multimedia objects, procedural prescriptions, computer program code, algorithm or mathematical formulae, that have an objectively recognizable structure and are documented as single units.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ConceptualObjectType"
-	},
-	{
-		"complement": [],
-		"id": "class182",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Class",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.w3.org/2000/01/rdf-schema#Class"
-	},
-	{
-		"complement": [],
-		"id": "class127",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class117"],
-		"union": [],
-		"subClasses": [],
-		"label": "Webography Citation",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#WebographyCitation"
-	},
-	{
-		"complement": [],
-		"id": "class178",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class133"],
-		"label": "Ecosystem",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises specific systems consisting of observable material items, biotic, abiotic elements and interactions, as well as their associated relations and qualities in space time volume. Its coherence can be defined by the types of species and the types and frequency of interactions which can be observed in a space time volume.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Ecosystem"
-	},
-	{
-		"complement": [],
-		"id": "class122",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class177"],
-		"union": [],
-		"subClasses": ["class150"],
-		"label": "FLOD Marine Animal Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FLODMarineAnimalType"
-	},
-	{
-		"complement": [],
-		"id": "class166",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "D15RepositoryObject",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises data repositories of a set of integrated objects in computer science sense. These objects are modeled using structures defined in database schemas. Digital store includes not only data repositories like databases, it is a more general concept that includes also flat files that can store data. \nA digital store may contain binary datasets: raw data, normalized data, intermediate data of processing steps, scenes composed from several datasets, presentation objects, 3D models, 2D-Images and any kind of digital document (text, multimedia). It comprises a notion of complex objects, having datasets as parts. The content of a digital store  is responsible for holding information about where data-files and their replicas can be found\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#D15RepositoryObject"
-	},
-	{
-		"complement": [],
-		"id": "class130",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class174"],
-		"union": [],
-		"subClasses": [],
-		"label": "Sub Area",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#SubArea"
-	},
-	{
-		"complement": [],
-		"id": "class126",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class174"],
-		"union": [],
-		"subClasses": [],
-		"label": "Division",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#Division"
-	},
-	{
-		"complement": [],
-		"id": "class181",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class133"],
-		"union": [],
-		"subClasses": [],
-		"label": "UpWellingEcosystem",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#UpWellingEcosystem"
-	},
-	{
-		"complement": [],
-		"id": "class148",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class177"],
-		"union": [],
-		"subClasses": ["class159"],
-		"label": "Fish Base Marine Animal Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FishBaseMarineAnimalType"
-	},
-	{
-		"complement": [],
-		"id": "class169",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Actor",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises people, either individually or in groups, who have the potential to perform intentional actions for which they can be held responsible.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Actor"
-	},
-	{
-		"complement": [],
-		"id": "class160",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class177"],
-		"union": [],
-		"subClasses": ["class144", "class121", "class150", "class151"],
-		"label": "Marine Species",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#MarineSpecies"
-	},
-	{
-		"complement": [],
-		"id": "class161",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class157"],
-		"union": [],
-		"subClasses": [],
-		"label": "EEZCode",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#EEZCode"
-	},
-	{
-		"complement": [],
-		"id": "class150",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class122", "class160"],
-		"union": [],
-		"subClasses": [],
-		"label": "FLOD Species",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FLODSpecies"
-	},
-	{
-		"complement": [],
-		"id": "class154",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class171"],
-		"union": [],
-		"subClasses": [],
-		"label": "E31Document",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#E31Document"
-	},
-	{
-		"complement": [],
-		"id": "class121",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class128", "class160"],
-		"union": [],
-		"subClasses": [],
-		"label": "Ecoscope Species",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#EcoscopeSpecies"
-	},
-	{
-		"complement": [],
-		"id": "class135",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class114", "class155"],
-		"label": "Appellation",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises signs, either meaningful or not, or arrangements of signs following a specific syntax, that are used or can be used to refer to and identify a specific instance of some class or category within a certain context.\nSpecific subclasses of BC7 Appellation should be used when instances of BC7 Appellation of a characteristic form or format are used for particular objects\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Appellation"
-	},
-	{
-		"complement": [],
-		"id": "class179",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Person",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://xmlns.com/foaf/0.1/Person"
-	},
-	{
-		"complement": [],
-		"id": "class184",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class164"],
-		"union": [],
-		"subClasses": [],
-		"label": "WaterAreaCodeAssignment",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#WaterAreaCodeAssignment"
-	},
-	{
-		"complement": [],
-		"id": "class112",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class157"],
-		"union": [],
-		"subClasses": [],
-		"label": "FAO Gear Type Identifier",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FAOGearTypeIdentifier"
-	},
-	{
-		"complement": [],
-		"id": "class177",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class120", "class128", "class122", "class148", "class160", "class180"],
-		"label": "Marine Animal Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises types marine animals that have a persistent identity.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#MarineAnimalType"
-	},
-	{
-		"complement": [],
-		"id": "class133",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class178"],
-		"union": [],
-		"subClasses": ["class181"],
-		"label": "MarineEcosystem",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#MarineEcosystem"
-	},
-	{
-		"complement": [],
-		"id": "class151",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class160", "class180"],
-		"union": [],
-		"subClasses": [],
-		"label": "WoRMS Species",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#WoRMSSpecies"
-	},
-	{
-		"complement": [],
-		"id": "class113",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Language",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises the natural languages in the sense of concepts, i.e. the Model does not foresee the description of instances of BT36 Language, e.g.: \u201cinstances of French\u201d.\n\nIt is recommended that internationally or nationally agreed codes and terminology are used to denote instances of BT36 Language, such as those defined in ISO 639:1988.  [CIDOC CRM].\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Language"
-	},
-	{
-		"complement": [],
-		"id": "class140",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "MarineTLO Entity Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "This class comprises types of things in the universe of discourse of the MarineTLO.",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#MarineTLOEntityType"
-	},
-	{
-		"complement": [],
-		"id": "class170",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class147"],
-		"union": [],
-		"subClasses": [],
-		"label": "Gear Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#GearType"
-	},
-	{
-		"complement": [],
-		"id": "class115",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class147"],
-		"union": [],
-		"subClasses": [],
-		"label": "Vessel Type",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#VesselType"
-	},
-	{
-		"complement": [],
-		"id": "class120",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class177"],
-		"union": [],
-		"subClasses": ["class144"],
-		"label": "DBpediaMarineAnimalType",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#DBpediaMarineAnimalType"
-	},
-	{
-		"complement": [],
-		"id": "class117",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class171"],
-		"union": [],
-		"subClasses": ["class137", "class127"],
-		"label": "Reference Resource",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#ReferenceResource"
-	},
-	{
-		"complement": [],
-		"id": "class168",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Collection",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "\nThis class comprises aggregations of instances of E18 Physical Thing that are assembled and maintained (\u201ccurated\u201d and \u201cpreserved,\u201d in museological terminology) by one or more instances of E39 Actor over time for a specific purpose and audience, and according to a particular collection development plan.  \n\nItems may be added or removed from an E78 Collection in pursuit of this plan. This class should not be confused with the E39 Actor maintaining the E78 Collection often referred to with the name of the E78 Collection (e.g. \u201cThe Wallace Collection decided\u2026\u201d).\n\nCollective objects in the general sense, like a tomb full of gifts, a folder with stamps or a set of chessmen, should be documented as instances of E19 Physical Object, and not as instances of E78 Collection. This is because they form wholes either because they are physically bound together or because they are kept together for their functionality.\n\n\n[Scope Note for E78 Collection  CIDOC CRM version 5.1.2]\n\n",
-		"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Collection"
-	},
-	{
-		"id": "thing9",
-		"label": "Thing",
-		"uri": "http://www.w3.org/2002/07/owl#Thing"
-	},
-	{
-		"id": "thing10",
-		"label": "Thing",
-		"uri": "http://www.w3.org/2002/07/owl#Thing"
-	}
-], "class": [
-	{
-		"id": "class132",
-		"type": "externalclass"
-	},
-	{
-		"id": "class164",
-		"type": "externalclass"
-	},
-	{
-		"id": "class163",
-		"type": "externalclass"
-	},
-	{
-		"id": "class129",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class136",
-		"type": "externalclass"
-	},
-	{
-		"id": "class149",
-		"type": "externalclass"
-	},
-	{
-		"id": "class173",
-		"type": "externalclass"
-	},
-	{
-		"id": "class171",
-		"type": "externalclass"
-	},
-	{
-		"id": "class131",
-		"type": "externalclass"
-	},
-	{
-		"id": "class145",
-		"type": "externalclass"
-	},
-	{
-		"id": "class114",
-		"type": "externalclass"
-	},
-	{
-		"id": "class147",
-		"type": "externalclass"
-	},
-	{
-		"id": "class172",
-		"type": "externalclass"
-	},
-	{
-		"id": "class146",
-		"type": "externalclass"
-	},
-	{
-		"id": "class123",
-		"type": "externalclass"
-	},
-	{
-		"id": "class165",
-		"type": "externalclass"
-	},
-	{
-		"id": "class134",
-		"type": "externalclass"
-	},
-	{
-		"id": "class137",
-		"type": "externalclass"
-	},
-	{
-		"id": "class153",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class118",
-		"type": "externalclass"
-	},
-	{
-		"id": "class174",
-		"type": "externalclass"
-	},
-	{
-		"id": "class157",
-		"type": "externalclass"
-	},
-	{
-		"id": "class159",
-		"type": "externalclass"
-	},
-	{
-		"id": "class119",
-		"type": "externalclass"
-	},
-	{
-		"id": "class141",
-		"type": "externalclass"
-	},
-	{
-		"id": "class116",
-		"type": "externalclass"
-	},
-	{
-		"id": "class167",
-		"type": "externalclass"
-	},
-	{
-		"id": "class156",
-		"type": "externalclass"
-	},
-	{
-		"id": "class111",
-		"type": "externalclass"
-	},
-	{
-		"id": "class183",
-		"type": "externalclass"
-	},
-	{
-		"id": "class139",
-		"type": "externalclass"
-	},
-	{
-		"id": "class142",
-		"type": "externalclass"
-	},
-	{
-		"id": "class143",
-		"type": "externalclass"
-	},
-	{
-		"id": "class162",
-		"type": "externalclass"
-	},
-	{
-		"id": "class128",
-		"type": "externalclass"
-	},
-	{
-		"id": "class175",
-		"type": "externalclass"
-	},
-	{
-		"id": "class155",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class180",
-		"type": "externalclass"
-	},
-	{
-		"id": "class110",
-		"type": "externalclass"
-	},
-	{
-		"id": "class152",
-		"type": "externalclass"
-	},
-	{
-		"id": "class125",
-		"type": "externalclass"
-	},
-	{
-		"id": "class124",
-		"type": "externalclass"
-	},
-	{
-		"id": "class158",
-		"type": "externalclass"
-	},
-	{
-		"id": "class144",
-		"type": "externalclass"
-	},
-	{
-		"id": "class176",
-		"type": "externalclass"
-	},
-	{
-		"id": "class138",
-		"type": "externalclass"
-	},
-	{
-		"id": "class182",
-		"type": "externalclass"
-	},
-	{
-		"id": "class127",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class178",
-		"type": "externalclass"
-	},
-	{
-		"id": "class122",
-		"type": "externalclass"
-	},
-	{
-		"id": "class166",
-		"type": "externalclass"
-	},
-	{
-		"id": "class130",
-		"type": "externalclass"
-	},
-	{
-		"id": "class126",
-		"type": "externalclass"
-	},
-	{
-		"id": "class181",
-		"type": "externalclass"
-	},
-	{
-		"id": "class148",
-		"type": "externalclass"
-	},
-	{
-		"id": "class169",
-		"type": "externalclass"
-	},
-	{
-		"id": "class160",
-		"type": "externalclass"
-	},
-	{
-		"id": "class161",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class150",
-		"type": "externalclass"
-	},
-	{
-		"id": "class154",
-		"type": "externalclass"
-	},
-	{
-		"id": "class121",
-		"type": "externalclass"
-	},
-	{
-		"id": "class135",
-		"type": "externalclass"
-	},
-	{
-		"id": "class179",
-		"type": "externalclass"
-	},
-	{
-		"id": "class184",
-		"type": "externalclass"
-	},
-	{
-		"id": "class112",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class177",
-		"type": "externalclass"
-	},
-	{
-		"id": "class133",
-		"type": "externalclass"
-	},
-	{
-		"id": "class151",
-		"type": "externalclass"
-	},
-	{
-		"id": "class113",
-		"type": "externalclass"
-	},
-	{
-		"id": "class140",
-		"type": "externalclass"
-	},
-	{
-		"id": "class170",
-		"type": "externalclass"
-	},
-	{
-		"id": "class115",
-		"type": "externalclass"
-	},
-	{
-		"id": "class120",
-		"type": "externalclass"
-	},
-	{
-		"id": "class117",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class168",
-		"type": "externalclass"
-	},
-	{
-		"id": "thing9",
-		"type": "owl:Thing"
-	},
-	{
-		"id": "thing10",
-		"type": "owl:Thing"
-	}
-], "property": [
-	{
-		"id": "property303",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property229",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property302",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property204",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property280",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property201",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property281",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property282",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property283",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property284",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property221",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property285",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property286",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property203",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property287",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property288",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property289",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property214",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property246",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property208",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property270",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property271",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property199",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property224",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property274",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property242",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property275",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property240",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property272",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property215",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property273",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property278",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property235",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property279",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property276",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property277",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property216",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property269",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property241",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property236",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property211",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property244",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property202",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property223",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property219",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property292",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property293",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property228",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property290",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property291",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property238",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property298",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property299",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property249",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property296",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property297",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property248",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property294",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property295",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property212",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property225",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property207",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property218",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property209",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property206",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property243",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property222",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property227",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property233",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property226",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property205",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property232",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property230",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property200",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property266",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property265",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property268",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property267",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property262",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property261",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property264",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property234",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property263",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property260",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property250",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property245",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property231",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property239",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property237",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property258",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property247",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property259",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property257",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property256",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property255",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property254",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property210",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property253",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property252",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property213",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property217",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property251",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property220",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property301",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property300",
-		"type": "rdfs:SubClassOf"
-	}
-], "datatype": [
-	{
-		"id": "datatype48",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype39",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype38",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype29",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype31",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype40",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype32",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype41",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype42",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype43",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype30",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype44",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype35",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype45",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype46",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype33",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "literal37",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "datatype47",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype34",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "literal36",
-		"type": "rdfs:Literal"
-	}
-], "datatypeAttribute": [
-	{
-		"id": "datatype48",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype39",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype38",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype29",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype31",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype40",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype32",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype41",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype42",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype43",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype30",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype44",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype35",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype45",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype46",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype33",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal37",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype47",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype34",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "string",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal36",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	}
-], "header": {
-	"uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl",
-	"version": "3.0"
-}, "namespace": [
-	{}
-]}
+{
+  "propertyAttribute": [
+    {
+      "id": "property303",
+      "equivalent": [],
+      "range": "class117",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class127",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property229",
+      "equivalent": [],
+      "range": "class145",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class172",
+      "label": {
+        "": "RelatedAssignedAttribute",
+        "default": "RelatedAssignedAttribute"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#RelatedAssignedAttribute"
+    },
+    {
+      "id": "property302",
+      "equivalent": [],
+      "range": "class117",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class137",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property204",
+      "equivalent": [],
+      "inverse": "property207",
+      "range": "class178",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class124",
+      "label": {
+        "": "LXusuallyIsComponentOf",
+        "default": "LXusuallyIsComponentOf"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LXusuallyIsComponentOf"
+    },
+    {
+      "id": "property280",
+      "equivalent": [],
+      "range": "class128",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class121",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property201",
+      "equivalent": [],
+      "range": "thing10",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property202"],
+      "domain": "thing10",
+      "label": {"default": "hasComponent"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#hasComponent"
+    },
+    {
+      "id": "property281",
+      "equivalent": [],
+      "range": "class180",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class151",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property282",
+      "equivalent": [],
+      "range": "class138",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class165",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property283",
+      "equivalent": [],
+      "range": "class138",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class125",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property284",
+      "equivalent": [],
+      "range": "class138",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class141",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property221",
+      "equivalent": [],
+      "range": "class164",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class140",
+      "label": {
+        "": "LXrelatedIdentifierAssignment",
+        "default": "LXrelatedIdentifierAssignment"
+      },
+      "attributes": ["external"],
+      "comment": {"en": "This property indicates the type  of item to which an attribute or relation is assigned."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LXrelatedIdentifierAssignment"
+    },
+    {
+      "id": "property285",
+      "equivalent": [],
+      "range": "class178",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class133",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property286",
+      "equivalent": [],
+      "range": "class122",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class150",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property203",
+      "equivalent": [],
+      "inverse": "property200",
+      "range": "class117",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing9",
+      "label": {
+        "": "isReferedBy",
+        "default": "isReferedBy"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isReferedBy"
+    },
+    {
+      "id": "property287",
+      "equivalent": [],
+      "range": "class148",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class159",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property288",
+      "equivalent": [],
+      "range": "class160",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class144",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property289",
+      "equivalent": [],
+      "range": "class160",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class121",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property214",
+      "equivalent": [],
+      "range": "class163",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class139",
+      "label": {
+        "": "isUsedIn",
+        "default": "isUsedIn"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isUsedIn"
+    },
+    {
+      "id": "property246",
+      "equivalent": [],
+      "range": "datatype44",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class137",
+      "label": {"default": "format"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns a format (e.g. pdf, word, etc) to a bibliography resource. "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#format"
+    },
+    {
+      "id": "property208",
+      "equivalent": [],
+      "inverse": "property228",
+      "range": "class178",
+      "disjoint": [],
+      "subproperty": [
+        "property209",
+        "property205",
+        "property213"
+      ],
+      "superproperty": [],
+      "domain": "class124",
+      "label": {
+        "": "LXusuallyIsBioticComponentOf",
+        "default": "LXusuallyIsBioticComponentOf"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LXusuallyIsBioticComponentOf"
+    },
+    {
+      "id": "property270",
+      "equivalent": [],
+      "range": "class174",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class126",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property271",
+      "equivalent": [],
+      "range": "class174",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class130",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property199",
+      "equivalent": [],
+      "range": "class143",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class154",
+      "label": {
+        "": "P70IsDocumentedIn",
+        "default": "P70IsDocumentedIn"
+      },
+      "attributes": ["external"],
+      "comment": {"": "This property describes the CRM Entities documented by instances of E31 Document.\n\nDocuments may describe any conceivable entity, hence the link to the highest-level entity in the CRM hierarchy. This property is intended for cases where a reference is regarded as being of a documentary character, in the scholarly or scientific sense.\nExamples:\t\n1) the British Museum catalogue (E31) documents the British Museum\u2019s Collection (E78)\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#P70IsDocumentedIn"
+    },
+    {
+      "id": "property224",
+      "equivalent": [],
+      "range": "thing10",
+      "disjoint": [],
+      "subproperty": [
+        "property211",
+        "property205",
+        "property213"
+      ],
+      "superproperty": [],
+      "domain": "thing10",
+      "label": {
+        "": "isRelatedTo",
+        "default": "isRelatedTo"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isRelatedTo"
+    },
+    {
+      "id": "property274",
+      "equivalent": [],
+      "range": "class157",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class112",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property242",
+      "equivalent": [],
+      "range": "datatype40",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property238"],
+      "domain": "class137",
+      "label": {"default": "remark"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns note to a bibliography resource. "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#remark"
+    },
+    {
+      "id": "property275",
+      "equivalent": [],
+      "range": "class157",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class153",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property240",
+      "equivalent": [],
+      "range": "datatype38",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class117",
+      "label": {"default": "URL"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns Web URI to works, such as texts, artworks. "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#URL"
+    },
+    {
+      "id": "property272",
+      "equivalent": [],
+      "range": "class174",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class156",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property215",
+      "equivalent": [],
+      "inverse": "property202",
+      "range": "class174",
+      "disjoint": [],
+      "subproperty": ["property217"],
+      "superproperty": [],
+      "domain": "class174",
+      "label": {
+        "": "isPartOf",
+        "default": "isPartOf"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isPartOf"
+    },
+    {
+      "id": "property273",
+      "equivalent": [],
+      "range": "class157",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class161",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property278",
+      "equivalent": [],
+      "range": "class116",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class129",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property235",
+      "equivalent": [],
+      "range": "datatype33",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class136",
+      "label": {"default": "assignedName"},
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#assignedName"
+    },
+    {
+      "id": "property279",
+      "equivalent": [],
+      "range": "class142",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class158",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property276",
+      "equivalent": [],
+      "range": "class119",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class163",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property277",
+      "equivalent": [],
+      "range": "class119",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class173",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property216",
+      "equivalent": [],
+      "range": "thing10",
+      "disjoint": [],
+      "subproperty": ["property210"],
+      "superproperty": [],
+      "domain": "thing10",
+      "label": {
+        "": "LTusuallyFeedingOn",
+        "default": "LTusuallyFeedingOn"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTusuallyFeedingOn"
+    },
+    {
+      "id": "property269",
+      "equivalent": [],
+      "range": "class174",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class110",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property241",
+      "equivalent": [],
+      "range": "datatype39",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class163",
+      "label": {"default": "hasAbbreviation"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns the abbreviation of a country (e.g. GR, IT, FR, UK, etc). "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#hasAbbreviation"
+    },
+    {
+      "id": "property236",
+      "equivalent": [],
+      "range": "datatype34",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class169",
+      "label": {"default": "reference"},
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#reference"
+    },
+    {
+      "id": "property211",
+      "equivalent": [],
+      "range": "class174",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property224"],
+      "domain": "class177",
+      "label": {
+        "": "isExtirpatedFrom",
+        "default": "isExtirpatedFrom"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isExtirpatedFrom"
+    },
+    {
+      "id": "property244",
+      "equivalent": [],
+      "range": "datatype42",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class127",
+      "label": {"default": "accessedFrom"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns the accessed info  of a Webgraphy Citation. "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#accessedFrom"
+    },
+    {
+      "id": "property202",
+      "equivalent": [],
+      "inverse": "property215",
+      "range": "class174",
+      "disjoint": [],
+      "subproperty": ["property201"],
+      "superproperty": [],
+      "domain": "class174",
+      "label": {"default": "hasPart"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#hasPart"
+    },
+    {
+      "id": "property223",
+      "equivalent": [],
+      "inverse": "property223",
+      "range": "thing10",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing10",
+      "label": {
+        "": "isAssociatedWith",
+        "default": "isAssociatedWith"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isAssociatedWith"
+    },
+    {
+      "id": "property219",
+      "equivalent": [],
+      "range": "class125",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class157",
+      "label": {
+        "": "LXhasCodeType",
+        "default": "LXhasCodeType"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LXhasCodeType"
+    },
+    {
+      "id": "property292",
+      "equivalent": [],
+      "range": "class135",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class114",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property293",
+      "equivalent": [],
+      "range": "class135",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class155",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property228",
+      "equivalent": [],
+      "inverse": "property208",
+      "range": "class124",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property207"],
+      "domain": "class178",
+      "label": {
+        "": "LXusuallyHasBioticComponentOf",
+        "default": "LXusuallyHasBioticComponentOf"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LXusuallyHasBioticComponentOf"
+    },
+    {
+      "id": "property290",
+      "equivalent": [],
+      "range": "class160",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class150",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property291",
+      "equivalent": [],
+      "range": "class160",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class151",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property238",
+      "equivalent": [],
+      "range": "literal36",
+      "disjoint": [],
+      "subproperty": ["property242"],
+      "superproperty": [],
+      "domain": "thing10",
+      "label": {"default": "topDataProperty"},
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.w3.org/2002/07/owl#topDataProperty"
+    },
+    {
+      "id": "property298",
+      "equivalent": [],
+      "range": "class177",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class160",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property299",
+      "equivalent": [],
+      "range": "class177",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class180",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property249",
+      "equivalent": [],
+      "range": "datatype47",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class127",
+      "label": {"default": "accessedDate"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns the accessed data of a Webgraphy Citation. "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#accessedDate"
+    },
+    {
+      "id": "property296",
+      "equivalent": [],
+      "range": "class177",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class122",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property297",
+      "equivalent": [],
+      "range": "class177",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class148",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property248",
+      "equivalent": [],
+      "range": "datatype46",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class137",
+      "label": {"default": "right"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns the right associated with a bibliography resource."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#right"
+    },
+    {
+      "id": "property294",
+      "equivalent": [],
+      "range": "class177",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class120",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property295",
+      "equivalent": [],
+      "range": "class177",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class128",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property212",
+      "equivalent": [],
+      "range": "thing10",
+      "disjoint": [],
+      "subproperty": [
+        "property218",
+        "property206"
+      ],
+      "superproperty": [],
+      "domain": "thing10",
+      "label": {"default": "topObjectProperty"},
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.w3.org/2002/07/owl#topObjectProperty"
+    },
+    {
+      "id": "property225",
+      "equivalent": [],
+      "range": "class134",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class183",
+      "label": {"default": "L10HadInput"},
+      "attributes": ["external"],
+      "comment": {"": "This property associates an instance of BC56 Digital Measurement  Event with an instance of BC23 Digital Object which is the input used to specify the machine action."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#L10HadInput"
+    },
+    {
+      "id": "property207",
+      "equivalent": [],
+      "inverse": "property204",
+      "range": "class124",
+      "disjoint": [],
+      "subproperty": ["property228"],
+      "superproperty": [],
+      "domain": "class178",
+      "label": {
+        "": "LXusuallyHasComponentOf",
+        "default": "LXusuallyHasComponentOf"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LXusuallyHasComponentOf"
+    },
+    {
+      "id": "property218",
+      "equivalent": [],
+      "range": "class175",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property212"],
+      "domain": "class175",
+      "label": {"default": "LC16isComposedOf"},
+      "attributes": ["external"],
+      "comment": {"": "This property allows instances of E18 Physical Thing to be analysed into component elements.\n\nComponent elements, since they are themselves instances of E18 Physical Thing, may be further analysed into sub-components, thereby creating a hierarchy of part decomposition. An instance of E18 Physical Thing may be shared between multiple wholes, for example two buildings may share a common wall.\n\nThis property is intended to describe specific components that are individually documented, rather than general aspects. Overall descriptions of the structure of an instance of E18 Physical Thing are captured by the P3 has note property.\n\nThe instances of E57 Materials of which an item of E18 Physical Thing is composed should be documented using P45 consists of (is incorporated in).\n\n[Scope Note for P46 is composed of (forms part of)CIDOC CRM version 5.1.2]\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC16isComposedOf"
+    },
+    {
+      "id": "property209",
+      "equivalent": [],
+      "range": "class174",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [
+        "property208",
+        "property213"
+      ],
+      "domain": "class177",
+      "label": {
+        "": "isEndemicTo",
+        "default": "isEndemicTo"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isEndemicTo"
+    },
+    {
+      "id": "property206",
+      "equivalent": [],
+      "range": "class162",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property212"],
+      "domain": "class166",
+      "label": {"default": "LCConsistsOf"},
+      "attributes": ["external"],
+      "comment": {"": "This property identifies the instances of E57 Materials of which an instance of E18 Physical Thing is composed.\n\nAll physical things consist of physical materials. P45 consists of (is incorporated in) allows the different Materials to be recorded. P45 consists of (is incorporated in) refers here to observed Material as opposed to the consumed raw material.\n\nA Material, such as a theoretical alloy, may not have any physical instances.\nExamples:\t\n1) silver cup 232 (E22) consists of silver (E57)\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LCConsistsOf"
+    },
+    {
+      "id": "property243",
+      "equivalent": [],
+      "range": "datatype41",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class137",
+      "label": {"default": "hasLanguage"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns the language related to MarineTLO Entity."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#hasLanguage"
+    },
+    {
+      "id": "property222",
+      "equivalent": [],
+      "range": "class168",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class168",
+      "label": {"default": "P9ConsistOf"},
+      "attributes": ["external"],
+      "comment": {"": "This property describes the decomposition of an instance of E4 Period into discrete, subsidiary periods.\n\nThe sub-periods into which the period is decomposed form a logical whole - although the entire picture may not be completely known - and the sub-periods are constitutive of the general period.\n\nExamples:\t\n1) Cretan Bronze Age (E4) consists of  Middle Minoan (E4)\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P9ConsistOf"
+    },
+    {
+      "id": "property227",
+      "equivalent": [],
+      "range": "class132",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class152",
+      "label": {
+        "": "isExpressedIn",
+        "default": "isExpressedIn"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isExpressedIn"
+    },
+    {
+      "id": "property233",
+      "equivalent": [],
+      "range": "datatype31",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class143",
+      "label": {"default": "assignedCode"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns a code/identifier to a Water Area. "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#assignedCode"
+    },
+    {
+      "id": "property226",
+      "equivalent": [],
+      "range": "class113",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class146",
+      "label": {
+        "": "LX8hasLanguage",
+        "default": "LX8hasLanguage"
+      },
+      "attributes": ["external"],
+      "comment": {"": "This property declares the Language of a BC18 Proposition."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LX8hasLanguage"
+    },
+    {
+      "id": "property205",
+      "equivalent": [],
+      "range": "class174",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [
+        "property208",
+        "property224"
+      ],
+      "domain": "class177",
+      "label": {
+        "": "isIntroducedAt",
+        "default": "isIntroducedAt"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isIntroducedAt"
+    },
+    {
+      "id": "property232",
+      "equivalent": [],
+      "range": "datatype30",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class137",
+      "label": {"default": "publisher"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assignes the publisher's description related to a bibliography resource. "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#publisher"
+    },
+    {
+      "id": "property230",
+      "equivalent": [],
+      "range": "class169",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class164",
+      "label": {
+        "": "LXrelatedAuthorshipAssigment",
+        "default": "LXrelatedAuthorshipAssigment"
+      },
+      "attributes": ["external"],
+      "comment": {"en": "This property describes the active participation of a Actor in an Activity."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LXrelatedAuthorshipAssigment"
+    },
+    {
+      "id": "property200",
+      "equivalent": [],
+      "inverse": "property203",
+      "range": "thing9",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class117",
+      "label": {
+        "": "isReferenceFor",
+        "default": "isReferenceFor"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isReferenceFor"
+    },
+    {
+      "id": "property266",
+      "equivalent": [],
+      "range": "class147",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class170",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property265",
+      "equivalent": [],
+      "range": "class145",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class123",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property268",
+      "equivalent": [],
+      "range": "class146",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class114",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property267",
+      "equivalent": [],
+      "range": "class147",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class115",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property262",
+      "equivalent": [],
+      "range": "class171",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class117",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property261",
+      "equivalent": [],
+      "range": "class171",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class176",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property264",
+      "equivalent": [],
+      "range": "class145",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class149",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property234",
+      "equivalent": [],
+      "range": "datatype32",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class117",
+      "label": {"default": "inSource"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns the sourse in which a reference resource has been publishied. "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#inSource"
+    },
+    {
+      "id": "property263",
+      "equivalent": [],
+      "range": "class171",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class118",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property260",
+      "equivalent": [],
+      "range": "class171",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class154",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property250",
+      "equivalent": [],
+      "range": "datatype48",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class137",
+      "label": {"default": "keyWords"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns the key words describing a bibliography."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#keyWords"
+    },
+    {
+      "id": "property245",
+      "equivalent": [],
+      "range": "datatype43",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class117",
+      "label": {"default": "date"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns date of a reference resource. "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#date"
+    },
+    {
+      "id": "property231",
+      "equivalent": [],
+      "range": "datatype29",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class117",
+      "label": {"default": "authorName"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns name of a reference resource. "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#authorName"
+    },
+    {
+      "id": "property239",
+      "equivalent": [],
+      "range": "literal37",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class117",
+      "label": {"default": "title"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns a title to works, such as texts, artworks or pieces of music. "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#title"
+    },
+    {
+      "id": "property237",
+      "equivalent": [],
+      "range": "datatype35",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class169",
+      "label": {"default": "name"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns a name to a MarineTLO Entity."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#name"
+    },
+    {
+      "id": "property258",
+      "equivalent": [],
+      "range": "class171",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class157",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property247",
+      "equivalent": [],
+      "range": "datatype45",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class164",
+      "label": {"default": "assignedDate"},
+      "attributes": ["external"],
+      "comment": {"en": "This property assigns the data of the event \"Identifier Assignment\" . "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#assignedDate"
+    },
+    {
+      "id": "property259",
+      "equivalent": [],
+      "range": "class171",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class132",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property257",
+      "equivalent": [],
+      "range": "class136",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class111",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property256",
+      "equivalent": [],
+      "range": "class136",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class139",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property255",
+      "equivalent": [],
+      "range": "class164",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class184",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property254",
+      "equivalent": [],
+      "range": "class164",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class167",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property210",
+      "equivalent": [],
+      "range": "thing10",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property216"],
+      "domain": "thing10",
+      "label": {"default": "LTusuallyIsCompetitorOf"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LTusuallyIsCompetitorOf"
+    },
+    {
+      "id": "property253",
+      "equivalent": [],
+      "range": "class164",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class136",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property252",
+      "equivalent": [],
+      "range": "class164",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class131",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property213",
+      "equivalent": [],
+      "range": "class174",
+      "disjoint": [],
+      "subproperty": ["property209"],
+      "superproperty": [
+        "property208",
+        "property224"
+      ],
+      "domain": "class177",
+      "label": {
+        "": "isNativeAt",
+        "default": "isNativeAt"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isNativeAt"
+    },
+    {
+      "id": "property217",
+      "equivalent": [],
+      "range": "thing10",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property215"],
+      "domain": "thing10",
+      "label": {
+        "": "isComponentOf",
+        "default": "isComponentOf"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#isComponentOf"
+    },
+    {
+      "id": "property251",
+      "equivalent": [],
+      "range": "class164",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class152",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property220",
+      "equivalent": [],
+      "range": "class176",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class175",
+      "label": {
+        "": "discarded_by",
+        "default": "discarded_by"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#discarded_by"
+    },
+    {
+      "id": "property301",
+      "equivalent": [],
+      "range": "class120",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class144",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property300",
+      "equivalent": [],
+      "range": "class133",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class181",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    }
+  ],
+  "metrics": {
+    "propertyCount": 52,
+    "datatypePropertyCount": 20,
+    "datatypeCount": 20,
+    "individualCount": 23,
+    "objectPropertyCount": 32,
+    "classCount": 76,
+    "axiomCount": 613,
+    "nodeCount": 96
+  },
+  "classAttribute": [
+    {
+      "complement": [],
+      "id": "class132",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class171"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "CodificationSystem",
+        "default": "CodificationSystem"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#CodificationSystem"
+    },
+    {
+      "complement": [],
+      "id": "class164",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class152",
+        "class131",
+        "class136",
+        "class167",
+        "class184"
+      ],
+      "label": {
+        "": "Identifier Assignment",
+        "default": "IdentifierAssignment"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises activities that result in the allocation of an identifier to an instance of E1 CRM Entity. An E15 Identifier Assignment may include the creation of the identifier from multiple constituents, which themselves may be instances of E41 Appellation. The syntax and kinds of constituents to be used may be declared in a rule constituting an instance of E29 Design or Procedure.\n[Scope Note for E15 Identifier Assignment CIDOC CRM version 5.1.2]\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#IdentifierAssignment"
+    },
+    {
+      "complement": [],
+      "id": "class163",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class119"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Country",
+        "default": "Country"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#Country"
+    },
+    {
+      "complement": [],
+      "id": "class129",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class116"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Vessel",
+        "default": "Vessel"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#Vessel"
+    },
+    {
+      "complement": [],
+      "id": "class136",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class164"],
+      "union": [],
+      "subClasses": [
+        "class139",
+        "class111"
+      ],
+      "label": {
+        "": "NameAssignment",
+        "default": "NameAssignment"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#NameAssignment"
+    },
+    {
+      "complement": [],
+      "id": "class149",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class145"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "BiologicalAttributeAssignment",
+        "default": "BiologicalAttributeAssignment"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#BiologicalAttributeAssignment"
+    },
+    {
+      "complement": [],
+      "id": "class173",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class119"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Exclusive Economic Zone",
+        "default": "ExclusiveEconomicZone"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#ExclusiveEconomicZone"
+    },
+    {
+      "complement": [],
+      "id": "class171",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class157",
+        "class132",
+        "class154",
+        "class176",
+        "class117",
+        "class118"
+      ],
+      "label": {
+        "": "ConceptualObject",
+        "default": "ConceptualObject"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises non-material products of our minds and other human produced data that have become objects of a discourse. The production of such information may have been supported by the use of    technical devices such as cameras or computers.\n\nCharacteristically, instances of this class are created, invented or thought by someone, and then may be documented or communicated between persons. Instances of BC3 Conceptual Object have the ability to exist on more than one particular carrier at the same time, such as paper, book, electronic signals, marks, audio media, paintings, photos, human memories, etc.\n\nThey cannot be destroyed. They exist as long as they can be found on at least one carrier or in at least one human memory. Their existence ends when the last carrier and the last memory are lost.\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ConceptualObject"
+    },
+    {
+      "complement": [],
+      "id": "class131",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class164"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "EcosystemCodeAssignment",
+        "default": "EcosystemCodeAssignment"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#EcosystemCodeAssignment"
+    },
+    {
+      "complement": [],
+      "id": "class145",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class149",
+        "class123"
+      ],
+      "label": {
+        "": "Attribute Assignment",
+        "default": "AttributeAssignment"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises the actions of making assertions about properties of an object or any relation between two items or concepts. \n\nThis class allows the documentation of how the respective assignment came about, and whose opinion it was. All the attributes or properties assigned in such an action can also be seen as directly attached to the respective item or concept, possibly as a collection of contradictory values. All cases of properties in this model that are also described indirectly through an action are characterised as \"short cuts\" of this action. This redundant modelling of two alternative views is preferred because many implementations may have good reasons to model either the action or the short cut, and the relation between both alternatives can be captured by simple rules\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#AttributeAssignment"
+    },
+    {
+      "complement": [],
+      "id": "class114",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [
+        "class135",
+        "class146"
+      ],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Common Name",
+        "default": "CommonName"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#CommonName"
+    },
+    {
+      "complement": [],
+      "id": "class147",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class170",
+        "class115"
+      ],
+      "label": {
+        "": "Equipment Type",
+        "default": "EquipmentType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises types of physical objects purposely created by human activity."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#EquipmentType"
+    },
+    {
+      "complement": [],
+      "id": "class172",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Physical Thing Type",
+        "default": "PhysicalThingType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises types of constellations of matter with a relative stability of any form sufficient to associate them with a persistent identity, such as being confined to certain extent, having a relative stability of form or structure, or containing a fixed amount of matter. In particular, it comprises physical things in the narrower sense and fluid bodies. It is an abstraction of physical substance for solid and non-solid things of matter."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#PhysicalThingType"
+    },
+    {
+      "complement": [],
+      "id": "class146",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": ["class114"],
+      "label": {
+        "": "Proposition",
+        "default": "Proposition"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises immaterial items, including but not limited to scientific papers, plots, procedural prescriptions, algorithms, laws of physics or images that are, or represent in some sense, sets of propositions about real or imaginary things and that are documented as single units or serve as topic of discourse. This class also comprises items that are \u201cabout\u201d something in the sense of a subject.  \nSpecific subclasses of BC8 Proposition should be used when instances of BC8 Proposition of a characteristic type such as publication, etc are used for particular objects.\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Proposition"
+    },
+    {
+      "complement": [],
+      "id": "class123",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class145"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "GlobalStatisticLanding",
+        "default": "GlobalStatisticLanding"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#GlobalStatisticLanding"
+    },
+    {
+      "complement": [],
+      "id": "class165",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class138"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Bibliography Resource Type",
+        "default": "BibliographyResourceType"
+      },
+      "attributes": ["external"],
+      "instances": 5,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#BibliographyResourceType"
+    },
+    {
+      "complement": [],
+      "id": "class134",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "DigitalObject",
+        "default": "DigitalObject"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises identifiable immaterial items that can be represented as sets of bit sequences, such as data sets, e-texts, images, audio or video items, software, etc., and are documented as single units. \nAny aggregation of instances of BC23 Digital Object into a whole treated as single unit is also regarded as an instance of BC23 Digital Object. \nA BC23 Digital Object does not depend on a specific physical carrier, and it can exist on one or more carriers simultaneously.\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#DigitalObject"
+    },
+    {
+      "complement": [],
+      "id": "class137",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class117"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Reference Resource",
+        "default": "BibliographyResource"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#BibliographyResource"
+    },
+    {
+      "complement": [],
+      "id": "class153",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class157"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "FAO Vessel Type Identifier",
+        "default": "FAOVesselTypeIdentifier"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FAOVesselTypeIdentifier"
+    },
+    {
+      "complement": [],
+      "id": "class118",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class171"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Statistic Indicator",
+        "default": "StatisticIndicator"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#StatisticIndicator"
+    },
+    {
+      "complement": [],
+      "id": "class174",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class110",
+        "class126",
+        "class130",
+        "class156"
+      ],
+      "label": {
+        "": "Water Area",
+        "default": "WaterArea"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises generic portions of the sea. A water area can be a statistical area, or an economic zone, or a geographic feature."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#WaterArea"
+    },
+    {
+      "complement": [],
+      "id": "class157",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class171"],
+      "union": [],
+      "subClasses": [
+        "class161",
+        "class112",
+        "class153"
+      ],
+      "label": {
+        "": "Identifier",
+        "default": "Identifier"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises strings or codes assigned to instances of BC10 Persistent Item in order to identify them uniquely and permanently within the context of one or more organisations. Such codes are often known as inventory numbers, registration codes, etc. and are typically composed of alphanumeric sequences. \nSpecific subclasses of BC4 Identifier should be used when instances of BC4 Identifier of a characteristic form or format are used for particular objects\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Identifier"
+    },
+    {
+      "complement": [],
+      "id": "class159",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class148"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "FishBase Species",
+        "default": "FishBaseSpecies"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FishBaseSpecies"
+    },
+    {
+      "complement": [],
+      "id": "class119",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class163",
+        "class173"
+      ],
+      "label": {
+        "": "Temporal Phenomenon",
+        "default": "TemporalPhenomenon"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises all sets of phenomena, such as   Periods, Events and states, Ecosystems,   bounded in time and space. \nIt is the social or physical coherence of these phenomena that identify a BC4 Temporal Phenomenon and not the associated spatio-temporal bounds. These bounds are   approximations of the actual process of growth, spread and retreat. Consequently, different ecosystems   can overlap and coexist in time and space, such as when a nomadic culture exists in the same area as a sedentary culture.\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#TemporalPhenomenon"
+    },
+    {
+      "complement": [],
+      "id": "class141",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class138"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Length Protocol",
+        "default": "LengthProtocol"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#LengthProtocol"
+    },
+    {
+      "complement": [],
+      "id": "class116",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": ["class129"],
+      "label": {
+        "": "Man Made Object",
+        "default": "ManMadeObject"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises physical objects purposely created by human activity.\n\nNo assumptions are made as to the extent of modification required to justify regarding an object as man-made. For example, an inscribed piece of rock or a preserved butterfly are both regarded as instances of E22 Man-Made Object.\n\n[Scope Note for E22 Man-Made Object  CIDOC CRM version 5.1.2]\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ManMadeObject"
+    },
+    {
+      "complement": [],
+      "id": "class167",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class164"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "VesselCodeAssignment",
+        "default": "VesselCodeAssignment"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#VesselCodeAssignment"
+    },
+    {
+      "complement": [],
+      "id": "class156",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class174"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Sub Division",
+        "default": "SubDivision"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#SubDivision"
+    },
+    {
+      "complement": [],
+      "id": "class111",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class136"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "ScientificNameAssignment",
+        "default": "ScientificNameAssignment"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#ScientificNameAssignment"
+    },
+    {
+      "complement": [],
+      "id": "class183",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Digital Measurement Event",
+        "default": "DigitalMeasurementEvent"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises actions measuring physical properties using a digital device, that are determined by a systematic procedure and creates an instance of BC23 Digital Object."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#DigitalMeasurementEvent"
+    },
+    {
+      "complement": [],
+      "id": "class139",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class136"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "CommonNameAssignment",
+        "default": "CommonNameAssignment"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#CommonNameAssignment"
+    },
+    {
+      "complement": [],
+      "id": "class142",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": ["class158"],
+      "label": {
+        "": "Events Type",
+        "default": "EventsType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises types of actions intentionally carried out by humans that result in changes of state in the scientific, social, or physical systems documented"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#EventsType"
+    },
+    {
+      "complement": [],
+      "id": "class143",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "MarineTLOEntity",
+        "default": "MarineTLOEntity"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises all objects of the MarineTLO discourse. It is an abstract concept providing for :\n1) Identification   by a preferred identifier\n2) Appellation\n3) all classes within this level of the MarineTLO are directly or indirectly specialisations of BC20 TLO Entity\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#MarineTLOEntity"
+    },
+    {
+      "complement": [],
+      "id": "class162",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Dataset",
+        "default": "Dataset"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises   contents of a single database table, or a single statistical data matrix, where each column of the table represents a particular variable, and each row corresponds to a given member of the dataset in question. The dataset lists values for each of the variables, such as height and weight of an object, for each member of the dataset. Each value is known as a datum. The dataset may comprise data for one or more members, corresponding to the number of rows.\nThe term dataset may also be used more loosely, to refer to the data in a collection of closely related tables, corresponding to a particular experiment or event.\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Dataset"
+    },
+    {
+      "complement": [],
+      "id": "class128",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class177"],
+      "union": [],
+      "subClasses": ["class121"],
+      "label": {
+        "": "Ecoscope Marine Animal Type",
+        "default": "EcoscopeMarineAnimalType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#EcoscopeMarineAnimalType"
+    },
+    {
+      "complement": [],
+      "id": "class175",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Physical Thing",
+        "default": "PhysicalThing"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises constellations of matter with a relative stability of any form sufficient to associate them with a persistent identity, such as being confined to certain extent, which (confinement) can have a relative stability of form or structure, or containing a fixed amount of matter. In particular, it comprises physical things in the narrower sense and fluid bodies. It is an abstraction of physical substance for solid and non-solid things of matter."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#PhysicalThing"
+    },
+    {
+      "complement": [],
+      "id": "class155",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class135"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "FAOName",
+        "default": "FAOName"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FAOName"
+    },
+    {
+      "complement": [],
+      "id": "class180",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class177"],
+      "union": [],
+      "subClasses": ["class151"],
+      "label": {
+        "": "WoRMS Marine Animal Type",
+        "default": "WoRMSMarineAnimalType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#WoRMSMarineAnimalType"
+    },
+    {
+      "complement": [],
+      "id": "class110",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class174"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Area",
+        "default": "Area"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#Area"
+    },
+    {
+      "complement": [],
+      "id": "class152",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class164"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "CountryCodeAssignment",
+        "default": "CountryCodeAssignment"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#CountryCodeAssignment"
+    },
+    {
+      "complement": [],
+      "id": "class125",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class138"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Identifier Type",
+        "default": "IdentifierType"
+      },
+      "attributes": ["external"],
+      "instances": 4,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#IdentifierType"
+    },
+    {
+      "complement": [],
+      "id": "class124",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Biotic Element Type",
+        "default": "BioticElementType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This metaclass comprises types of material nature items which live, have lived or are natural products of or from living organisms. Such types of material nature items includes types of plants, types of fauna(animals), types of bacteria, fungi etc."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#BioticElementType"
+    },
+    {
+      "complement": [],
+      "id": "class158",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class142"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Ecosystem Type",
+        "default": "EcosystemType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This metaclass comprises types of  coherent ecological phenomena bounded in time and space. The  coherence of these phenomena is given by the type of interaction characteristic for biological systems. This coherence identifies the ecosystem and not the associated spatio-temporal bounds. These bounds are a mere approximation of the actual process of growth, spread and retreat. Consequently, different ecosystems can overlap and coexist in time and space."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#EcosystemType"
+    },
+    {
+      "complement": [],
+      "id": "class144",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [
+        "class120",
+        "class160"
+      ],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "DBpediaSpecies",
+        "default": "DBpediaSpecies"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#DBpediaSpecies"
+    },
+    {
+      "complement": [],
+      "id": "class176",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class171"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Fishing Discarded Explanation",
+        "default": "FishingDiscardedExplanation"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FishingDiscardedExplanation"
+    },
+    {
+      "complement": [],
+      "id": "class138",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class165",
+        "class125",
+        "class141"
+      ],
+      "label": {
+        "": "Conceptual Object Type",
+        "default": "ConceptualObjectType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This metaclass comprises types of identifiable immaterial items, such as, types of data sets, images, texts, multimedia objects, procedural prescriptions, computer program code, algorithm or mathematical formulae, that have an objectively recognizable structure and are documented as single units."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ConceptualObjectType"
+    },
+    {
+      "complement": [],
+      "id": "class182",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "Class"},
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.w3.org/2000/01/rdf-schema#Class"
+    },
+    {
+      "complement": [],
+      "id": "class127",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class117"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Webography Citation",
+        "default": "WebographyCitation"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#WebographyCitation"
+    },
+    {
+      "complement": [],
+      "id": "class178",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": ["class133"],
+      "label": {
+        "": "Ecosystem",
+        "default": "Ecosystem"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises specific systems consisting of observable material items, biotic, abiotic elements and interactions, as well as their associated relations and qualities in space time volume. Its coherence can be defined by the types of species and the types and frequency of interactions which can be observed in a space time volume."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Ecosystem"
+    },
+    {
+      "complement": [],
+      "id": "class122",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class177"],
+      "union": [],
+      "subClasses": ["class150"],
+      "label": {
+        "": "FLOD Marine Animal Type",
+        "default": "FLODMarineAnimalType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FLODMarineAnimalType"
+    },
+    {
+      "complement": [],
+      "id": "class166",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "D15RepositoryObject",
+        "default": "D15RepositoryObject"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises data repositories of a set of integrated objects in computer science sense. These objects are modeled using structures defined in database schemas. Digital store includes not only data repositories like databases, it is a more general concept that includes also flat files that can store data. \nA digital store may contain binary datasets: raw data, normalized data, intermediate data of processing steps, scenes composed from several datasets, presentation objects, 3D models, 2D-Images and any kind of digital document (text, multimedia). It comprises a notion of complex objects, having datasets as parts. The content of a digital store  is responsible for holding information about where data-files and their replicas can be found\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#D15RepositoryObject"
+    },
+    {
+      "complement": [],
+      "id": "class130",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class174"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Sub Area",
+        "default": "SubArea"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#SubArea"
+    },
+    {
+      "complement": [],
+      "id": "class126",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class174"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Division",
+        "default": "Division"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#Division"
+    },
+    {
+      "complement": [],
+      "id": "class181",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class133"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "UpWellingEcosystem",
+        "default": "UpWellingEcosystem"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#UpWellingEcosystem"
+    },
+    {
+      "complement": [],
+      "id": "class148",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class177"],
+      "union": [],
+      "subClasses": ["class159"],
+      "label": {
+        "": "Fish Base Marine Animal Type",
+        "default": "FishBaseMarineAnimalType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FishBaseMarineAnimalType"
+    },
+    {
+      "complement": [],
+      "id": "class169",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Actor",
+        "default": "Actor"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises people, either individually or in groups, who have the potential to perform intentional actions for which they can be held responsible."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Actor"
+    },
+    {
+      "complement": [],
+      "id": "class160",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class177"],
+      "union": [],
+      "subClasses": [
+        "class144",
+        "class121",
+        "class150",
+        "class151"
+      ],
+      "label": {
+        "": "Marine Species",
+        "default": "MarineSpecies"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#MarineSpecies"
+    },
+    {
+      "complement": [],
+      "id": "class161",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class157"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "EEZCode",
+        "default": "EEZCode"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#EEZCode"
+    },
+    {
+      "complement": [],
+      "id": "class150",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [
+        "class122",
+        "class160"
+      ],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "FLOD Species",
+        "default": "FLODSpecies"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FLODSpecies"
+    },
+    {
+      "complement": [],
+      "id": "class154",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class171"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "E31Document",
+        "default": "E31Document"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#E31Document"
+    },
+    {
+      "complement": [],
+      "id": "class121",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [
+        "class128",
+        "class160"
+      ],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Ecoscope Species",
+        "default": "EcoscopeSpecies"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#EcoscopeSpecies"
+    },
+    {
+      "complement": [],
+      "id": "class135",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class114",
+        "class155"
+      ],
+      "label": {
+        "": "Appellation",
+        "default": "Appellation"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises signs, either meaningful or not, or arrangements of signs following a specific syntax, that are used or can be used to refer to and identify a specific instance of some class or category within a certain context.\nSpecific subclasses of BC7 Appellation should be used when instances of BC7 Appellation of a characteristic form or format are used for particular objects\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Appellation"
+    },
+    {
+      "complement": [],
+      "id": "class179",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "Person"},
+      "attributes": ["external"],
+      "instances": 6,
+      "comment": {},
+      "uri": "http://xmlns.com/foaf/0.1/Person"
+    },
+    {
+      "complement": [],
+      "id": "class184",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class164"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "WaterAreaCodeAssignment",
+        "default": "WaterAreaCodeAssignment"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#WaterAreaCodeAssignment"
+    },
+    {
+      "complement": [],
+      "id": "class112",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class157"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "FAO Gear Type Identifier",
+        "default": "FAOGearTypeIdentifier"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#FAOGearTypeIdentifier"
+    },
+    {
+      "complement": [],
+      "id": "class177",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class120",
+        "class128",
+        "class122",
+        "class148",
+        "class160",
+        "class180"
+      ],
+      "label": {
+        "": "Marine Animal Type",
+        "default": "MarineAnimalType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises types marine animals that have a persistent identity."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#MarineAnimalType"
+    },
+    {
+      "complement": [],
+      "id": "class133",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class178"],
+      "union": [],
+      "subClasses": ["class181"],
+      "label": {
+        "": "MarineEcosystem",
+        "default": "MarineEcosystem"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#MarineEcosystem"
+    },
+    {
+      "complement": [],
+      "id": "class151",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [
+        "class160",
+        "class180"
+      ],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "WoRMS Species",
+        "default": "WoRMSSpecies"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#WoRMSSpecies"
+    },
+    {
+      "complement": [],
+      "id": "class113",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Language",
+        "default": "Language"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises the natural languages in the sense of concepts, i.e. the Model does not foresee the description of instances of BT36 Language, e.g.: \u201cinstances of French\u201d.\n\nIt is recommended that internationally or nationally agreed codes and terminology are used to denote instances of BT36 Language, such as those defined in ISO 639:1988.  [CIDOC CRM].\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Language"
+    },
+    {
+      "complement": [],
+      "id": "class140",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "MarineTLO Entity Type",
+        "default": "MarineTLOEntityType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "This class comprises types of things in the universe of discourse of the MarineTLO."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#MarineTLOEntityType"
+    },
+    {
+      "complement": [],
+      "id": "class170",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class147"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Gear Type",
+        "default": "GearType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#GearType"
+    },
+    {
+      "complement": [],
+      "id": "class115",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class147"],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Vessel Type",
+        "default": "VesselType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#VesselType"
+    },
+    {
+      "complement": [],
+      "id": "class120",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class177"],
+      "union": [],
+      "subClasses": ["class144"],
+      "label": {
+        "": "DBpediaMarineAnimalType",
+        "default": "DBpediaMarineAnimalType"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#DBpediaMarineAnimalType"
+    },
+    {
+      "complement": [],
+      "id": "class117",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": ["class171"],
+      "union": [],
+      "subClasses": [
+        "class137",
+        "class127"
+      ],
+      "label": {
+        "": "Reference Resource",
+        "default": "ReferenceResource"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#ReferenceResource"
+    },
+    {
+      "complement": [],
+      "id": "class168",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "Collection",
+        "default": "Collection"
+      },
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {"en": "\nThis class comprises aggregations of instances of E18 Physical Thing that are assembled and maintained (\u201ccurated\u201d and \u201cpreserved,\u201d in museological terminology) by one or more instances of E39 Actor over time for a specific purpose and audience, and according to a particular collection development plan.  \n\nItems may be added or removed from an E78 Collection in pursuit of this plan. This class should not be confused with the E39 Actor maintaining the E78 Collection often referred to with the name of the E78 Collection (e.g. \u201cThe Wallace Collection decided\u2026\u201d).\n\nCollective objects in the general sense, like a tomb full of gifts, a folder with stamps or a set of chessmen, should be documented as instances of E19 Physical Object, and not as instances of E78 Collection. This is because they form wholes either because they are physically bound together or because they are kept together for their functionality.\n\n\n[Scope Note for E78 Collection  CIDOC CRM version 5.1.2]\n\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Collection"
+    },
+    {
+      "id": "thing9",
+      "label": "Thing",
+      "uri": "http://www.w3.org/2002/07/owl#Thing"
+    },
+    {
+      "id": "thing10",
+      "label": "Thing",
+      "uri": "http://www.w3.org/2002/07/owl#Thing"
+    }
+  ],
+  "class": [
+    {
+      "id": "class132",
+      "type": "externalclass"
+    },
+    {
+      "id": "class164",
+      "type": "externalclass"
+    },
+    {
+      "id": "class163",
+      "type": "externalclass"
+    },
+    {
+      "id": "class129",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class136",
+      "type": "externalclass"
+    },
+    {
+      "id": "class149",
+      "type": "externalclass"
+    },
+    {
+      "id": "class173",
+      "type": "externalclass"
+    },
+    {
+      "id": "class171",
+      "type": "externalclass"
+    },
+    {
+      "id": "class131",
+      "type": "externalclass"
+    },
+    {
+      "id": "class145",
+      "type": "externalclass"
+    },
+    {
+      "id": "class114",
+      "type": "externalclass"
+    },
+    {
+      "id": "class147",
+      "type": "externalclass"
+    },
+    {
+      "id": "class172",
+      "type": "externalclass"
+    },
+    {
+      "id": "class146",
+      "type": "externalclass"
+    },
+    {
+      "id": "class123",
+      "type": "externalclass"
+    },
+    {
+      "id": "class165",
+      "type": "externalclass"
+    },
+    {
+      "id": "class134",
+      "type": "externalclass"
+    },
+    {
+      "id": "class137",
+      "type": "externalclass"
+    },
+    {
+      "id": "class153",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class118",
+      "type": "externalclass"
+    },
+    {
+      "id": "class174",
+      "type": "externalclass"
+    },
+    {
+      "id": "class157",
+      "type": "externalclass"
+    },
+    {
+      "id": "class159",
+      "type": "externalclass"
+    },
+    {
+      "id": "class119",
+      "type": "externalclass"
+    },
+    {
+      "id": "class141",
+      "type": "externalclass"
+    },
+    {
+      "id": "class116",
+      "type": "externalclass"
+    },
+    {
+      "id": "class167",
+      "type": "externalclass"
+    },
+    {
+      "id": "class156",
+      "type": "externalclass"
+    },
+    {
+      "id": "class111",
+      "type": "externalclass"
+    },
+    {
+      "id": "class183",
+      "type": "externalclass"
+    },
+    {
+      "id": "class139",
+      "type": "externalclass"
+    },
+    {
+      "id": "class142",
+      "type": "externalclass"
+    },
+    {
+      "id": "class143",
+      "type": "externalclass"
+    },
+    {
+      "id": "class162",
+      "type": "externalclass"
+    },
+    {
+      "id": "class128",
+      "type": "externalclass"
+    },
+    {
+      "id": "class175",
+      "type": "externalclass"
+    },
+    {
+      "id": "class155",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class180",
+      "type": "externalclass"
+    },
+    {
+      "id": "class110",
+      "type": "externalclass"
+    },
+    {
+      "id": "class152",
+      "type": "externalclass"
+    },
+    {
+      "id": "class125",
+      "type": "externalclass"
+    },
+    {
+      "id": "class124",
+      "type": "externalclass"
+    },
+    {
+      "id": "class158",
+      "type": "externalclass"
+    },
+    {
+      "id": "class144",
+      "type": "externalclass"
+    },
+    {
+      "id": "class176",
+      "type": "externalclass"
+    },
+    {
+      "id": "class138",
+      "type": "externalclass"
+    },
+    {
+      "id": "class182",
+      "type": "externalclass"
+    },
+    {
+      "id": "class127",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class178",
+      "type": "externalclass"
+    },
+    {
+      "id": "class122",
+      "type": "externalclass"
+    },
+    {
+      "id": "class166",
+      "type": "externalclass"
+    },
+    {
+      "id": "class130",
+      "type": "externalclass"
+    },
+    {
+      "id": "class126",
+      "type": "externalclass"
+    },
+    {
+      "id": "class181",
+      "type": "externalclass"
+    },
+    {
+      "id": "class148",
+      "type": "externalclass"
+    },
+    {
+      "id": "class169",
+      "type": "externalclass"
+    },
+    {
+      "id": "class160",
+      "type": "externalclass"
+    },
+    {
+      "id": "class161",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class150",
+      "type": "externalclass"
+    },
+    {
+      "id": "class154",
+      "type": "externalclass"
+    },
+    {
+      "id": "class121",
+      "type": "externalclass"
+    },
+    {
+      "id": "class135",
+      "type": "externalclass"
+    },
+    {
+      "id": "class179",
+      "type": "externalclass"
+    },
+    {
+      "id": "class184",
+      "type": "externalclass"
+    },
+    {
+      "id": "class112",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class177",
+      "type": "externalclass"
+    },
+    {
+      "id": "class133",
+      "type": "externalclass"
+    },
+    {
+      "id": "class151",
+      "type": "externalclass"
+    },
+    {
+      "id": "class113",
+      "type": "externalclass"
+    },
+    {
+      "id": "class140",
+      "type": "externalclass"
+    },
+    {
+      "id": "class170",
+      "type": "externalclass"
+    },
+    {
+      "id": "class115",
+      "type": "externalclass"
+    },
+    {
+      "id": "class120",
+      "type": "externalclass"
+    },
+    {
+      "id": "class117",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class168",
+      "type": "externalclass"
+    },
+    {
+      "id": "thing9",
+      "type": "owl:Thing"
+    },
+    {
+      "id": "thing10",
+      "type": "owl:Thing"
+    }
+  ],
+  "property": [
+    {
+      "id": "property303",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property229",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property302",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property204",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property280",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property201",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property281",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property282",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property283",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property284",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property221",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property285",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property286",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property203",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property287",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property288",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property289",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property214",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property246",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property208",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property270",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property271",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property199",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property224",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property274",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property242",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property275",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property240",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property272",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property215",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property273",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property278",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property235",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property279",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property276",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property277",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property216",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property269",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property241",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property236",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property211",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property244",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property202",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property223",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property219",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property292",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property293",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property228",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property290",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property291",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property238",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property298",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property299",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property249",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property296",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property297",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property248",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property294",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property295",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property212",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property225",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property207",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property218",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property209",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property206",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property243",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property222",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property227",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property233",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property226",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property205",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property232",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property230",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property200",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property266",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property265",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property268",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property267",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property262",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property261",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property264",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property234",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property263",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property260",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property250",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property245",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property231",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property239",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property237",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property258",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property247",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property259",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property257",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property256",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property255",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property254",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property210",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property253",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property252",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property213",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property217",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property251",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property220",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property301",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property300",
+      "type": "rdfs:SubClassOf"
+    }
+  ],
+  "datatype": [
+    {
+      "id": "datatype48",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype39",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype38",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype29",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype31",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype40",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype32",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype41",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype42",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype43",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype30",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype44",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype35",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype45",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype46",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype33",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "literal37",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "datatype47",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype34",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "literal36",
+      "type": "rdfs:Literal"
+    }
+  ],
+  "datatypeAttribute": [
+    {
+      "id": "datatype48",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype39",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype38",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype29",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype31",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype40",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype32",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype41",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype42",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype43",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype30",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype44",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype35",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype45",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype46",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype33",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal37",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype47",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype34",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal36",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    }
+  ],
+  "header": {
+    "languages": [
+      "",
+      "en"
+    ],
+    "title": {},
+    "description": {},
+    "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl",
+    "version": "3.0"
+  },
+  "namespace": [{}]
+}
