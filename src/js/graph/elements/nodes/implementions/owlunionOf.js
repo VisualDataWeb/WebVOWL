@@ -21,21 +21,23 @@ webvowl.nodes.owlunionof = (function () {
 
 			symbol.append("circle")
 				.attr("class", "symbol")
-				.attr("r", (that.actualRadius() - 15));
+				.attr("r", (that.radius() - 15));
 			symbol.append("circle")
 				.attr("cx", 10)
 				.attr("class", "symbol")
 				.classed("fineline", true)
-				.attr("r", (that.actualRadius() - 15));
+				.attr("r", (that.radius() - 15));
 			symbol.append("circle")
 				.attr("class", "nofill")
 				.classed("fineline", true)
-				.attr("r", (that.actualRadius() - 15));
+				.attr("r", (that.radius() - 15));
 			symbol.append("path")
 				.attr("class", "link")
 				.attr("d", "m 1,-3 c 0,2 0,4 0,6 0,0 0,0 0,0 0,2 2,3 4,3 2,0 4,-1 4,-3 0,-2 0,-4 0,-6");
-			symbol.attr("transform", "translate(-" + (that.actualRadius() - 15) / 5 + ",-" +
-				(that.actualRadius() - 15) / 100 + ")");
+
+			var scale = that.actualRadius() / that.radius();
+			symbol.attr("transform", "translate(-" + scale * (that.radius() - 15) / 5 + ",-" +
+				(that.radius() - 15) / 100 + ")scale(" + scale + ")");
 
 			that.postDrawActions();
 		};

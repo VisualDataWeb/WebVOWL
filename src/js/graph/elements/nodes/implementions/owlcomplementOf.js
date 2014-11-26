@@ -22,12 +22,14 @@ webvowl.nodes.owlcomplementof = (function () {
 			symbol.append("circle")
 				.attr("class", "symbol")
 				.classed("fineline", true)
-				.attr("r", (that.actualRadius() - 15));
+				.attr("r", (that.radius() - 15));
 			symbol.append("path")
 				.attr("class", "nofill")
 				.attr("d", "m -7,-1.5 12,0 0,6");
-			symbol.attr("transform", "translate(-" + (that.actualRadius() - 15) / 100 + ",-" +
-				(that.actualRadius() - 15) / 100 + ")");
+
+			var scale = that.actualRadius() / that.radius();
+			symbol.attr("transform", "translate(-" + scale * (that.radius() - 15) / 100 + ",-" +
+				(that.radius() - 15) / 100 + ")scale(" + scale + ")");
 
 			that.postDrawActions();
 		};
