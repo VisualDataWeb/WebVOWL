@@ -7,7 +7,9 @@ webvowlApp.sidebar = function (graph) {
 
 	var sidebar = {},
 		languageTools = webvowl.util.languageTools(),
-		ontologyInfo;
+	// Required for reloading when the language changes
+		ontologyInfo,
+		lastSelectedElement;
 
 
 	/**
@@ -78,6 +80,7 @@ webvowlApp.sidebar = function (graph) {
 			.on("change", function () {
 				graph.setLanguage(d3.event.target.value);
 				updateGraphInformation();
+				sidebar.updateSelectionInformation(lastSelectedElement);
 			});
 
 		var languageOptions = languageSelection.selectAll("option").data(languages);
@@ -140,6 +143,8 @@ webvowlApp.sidebar = function (graph) {
 	 * @param selectedElement the selection or null if nothing is selected
 	 */
 	sidebar.updateSelectionInformation = function (selectedElement) {
+		lastSelectedElement = selectedElement;
+
 		// Click event was prevented when dragging
 		if (d3.event && d3.event.defaultPrevented) {
 			return;
