@@ -133,6 +133,8 @@ webvowlApp.sidebar = function (graph) {
 			.text(deliveredMetrics.objectPropertyCount || statistics.objectPropertyCount());
 		d3.select("#datatypePropertyCount")
 			.text(deliveredMetrics.datatypePropertyCount || statistics.datatypePropertyCount());
+		d3.select("#instanceCount")
+			.text(deliveredMetrics.totalInstanceCount || statistics.totalInstanceCount());
 		d3.select("#nodeCount")
 			.text(statistics.nodeCount());
 		d3.select("#edgeCount")
