@@ -32,7 +32,9 @@ webvowlApp.app = function () {
 		options.filterModules().push(datatypeFilter);
 		options.filterModules().push(subclassFilter);
 		options.filterModules().push(disjointFilter);
-		loadOntology(defaultJsonFilename);
+
+		setOntologySelectionButtons();
+		loadDefaultOntology();
 
 		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
 		gravityMenu = webvowlApp.gravityMenu(graph);
@@ -49,9 +51,25 @@ webvowlApp.app = function () {
 		setupableMenues.forEach(function (menu) {
 			menu.setup();
 		});
-
-		setOntologySelectionButtons();
 	};
+
+	function loadDefaultOntology() {
+		// slice the "#" character
+		var hashParameter = location.hash.slice(1);
+
+		if (!hashParameter) {
+			loadOntology(defaultJsonFilename);
+			return;
+		}
+
+		var ontologySelection = d3.select("#select").select("#" + hashParameter);
+
+		if (ontologySelection.size() < 1) {
+			loadOntology(defaultJsonFilename);
+		} else {
+			ontologySelection.on("click")();
+		}
+	}
 
 	function loadOntology(jsonFilename) {
 		d3.json("js/data/" + jsonFilename, function (error, data) {
