@@ -1,1417 +1,1481 @@
-{"propertyAttribute": [
-	{
-		"id": "property1243",
-		"equivalent": [],
-		"range": "class366",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "thing34",
-		"label": "untypedClassToClassProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#untypedClassToClassProperty"
-	},
-	{
-		"id": "property1251",
-		"equivalent": [],
-		"range": "thing34",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "classToUntypedClassProperty",
-		"attributes": ["symmetric"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#classToUntypedClassProperty"
-	},
-	{
-		"id": "property1239",
-		"equivalent": ["property1252"],
-		"range": "thing33",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "thing33",
-		"label": "equivalentObjectProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#equivalentObjectProperty"
-	},
-	{
-		"id": "property1255",
-		"equivalent": [],
-		"range": "datatype174",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "一种导入类型的数据类型性质",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#importedTypeDatatypeProperty"
-	},
-	{
-		"id": "property1262",
-		"equivalent": [],
-		"range": "datatype181",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "unionTypeDatatypeProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#unionTypeDatatypeProperty"
-	},
-	{
-		"id": "property1245",
-		"equivalent": [],
-		"range": "class374",
-		"disjoint": ["property1242"],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "disjointProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#disjointProperty"
-	},
-	{
-		"equivalent": [],
-		"range": "class366",
-		"subproperty": [],
-		"disjoint": [],
-		"superproperty": [],
-		"label": "inverseFunctionalProperty",
-		"instances": 0,
-		"uri": "http://ontovibe.visualdataweb.org/1.0#inverseFunctionalProperty",
-		"id": "property1241",
-		"inverse": "property1248",
-		"domain": "class374",
-		"attributes": ["inverse functional"],
-		"comment": ""
-	},
-	{
-		"id": "property1240",
-		"equivalent": [],
-		"range": "class378",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "classToClassProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#classToClassProperty"
-	},
-	{
-		"id": "property1252",
-		"equivalent": ["property1239"],
-		"range": "class372",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "dummyProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#dummyProperty"
-	},
-	{
-		"id": "property1261",
-		"equivalent": [],
-		"range": "datatype180",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "standardTypeDatatypeProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#standardTypeDatatypeProperty"
-	},
-	{
-		"id": "property1238",
-		"equivalent": [],
-		"range": "class366",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "cyclicProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#cyclicProperty"
-	},
-	{
-		"id": "property1259",
-		"equivalent": ["property1263", "property1265"],
-		"range": "datatype178",
-		"disjoint": ["property1267", "property1260"],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "realProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#realProperty"
-	},
-	{
-		"equivalent": [],
-		"range": "class374",
-		"subproperty": [],
-		"disjoint": [],
-		"superproperty": [],
-		"label": "functionalPropertyAsInverse",
-		"instances": 0,
-		"uri": "http://ontovibe.visualdataweb.org/1.0#functionalPropertyAsInverse",
-		"id": "property1248",
-		"inverse": "property1241",
-		"domain": "class366",
-		"attributes": ["functional"],
-		"comment": ""
-	},
-	{
-		"id": "property1283",
-		"equivalent": [],
-		"range": "class382",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class384",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1257",
-		"equivalent": [],
-		"range": "datatype176",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class374",
-		"label": "functionalDatatypeProperty",
-		"attributes": ["functional"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#functionalDatatypeProperty"
-	},
-	{
-		"id": "property1270",
-		"equivalent": [],
-		"range": "class372",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class379",
-		"label": "Disjoint With",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1254",
-		"equivalent": [],
-		"range": "class385",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class385",
-		"label": "cyclicProperty3",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#cyclicProperty3"
-	},
-	{
-		"id": "property1253",
-		"equivalent": [],
-		"range": "class385",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class385",
-		"label": "cyclicProperty2",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#cyclicProperty2"
-	},
-	{
-		"id": "property1260",
-		"equivalent": [],
-		"range": "datatype179",
-		"disjoint": ["property1267", "property1259"],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "rationalProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#rationalProperty"
-	},
-	{
-		"id": "property1246",
-		"equivalent": [],
-		"range": "class385",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class385",
-		"label": "cyclicProperty1",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#cyclicProperty1"
-	},
-	{
-		"id": "property1269",
-		"equivalent": [],
-		"range": "class372",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class377",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1268",
-		"equivalent": [],
-		"range": "class372",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class384",
-		"label": "Subclass Of",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1236",
-		"equivalent": [],
-		"range": "class366",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class372",
-		"label": "oppositeDummyProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#oppositeDummyProperty"
-	},
-	{
-		"id": "property1249",
-		"equivalent": [],
-		"range": "class385",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "classToClassProperty2",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#classToClassProperty2"
-	},
-	{
-		"id": "property1237",
-		"equivalent": [],
-		"range": "thing33",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": ["property1247"],
-		"domain": "thing33",
-		"label": "subproperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#subproperty"
-	},
-	{
-		"id": "property1250",
-		"equivalent": [],
-		"range": "class385",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "classToClassProperty1",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#classToClassProperty1"
-	},
-	{
-		"id": "property1242",
-		"equivalent": [],
-		"range": "class374",
-		"disjoint": ["property1245"],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "functionalProperty",
-		"attributes": ["functional"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#functionalProperty"
-	},
-	{
-		"id": "property1258",
-		"equivalent": [],
-		"range": "literal177",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "untypedDatatypeProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#untypedDatatypeProperty"
-	},
-	{
-		"id": "property1263",
-		"equivalent": ["property1265", "property1259"],
-		"range": "literal182",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "thing33",
-		"label": "equivalentDataProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#equivalentDataProperty"
-	},
-	{
-		"id": "property1265",
-		"equivalent": ["property1263", "property1259"],
-		"range": "literal184",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "thing33",
-		"label": "anotherEquivalentDataProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#anotherEquivalentDataProperty"
-	},
-	{
-		"id": "property1279",
-		"equivalent": [],
-		"range": "class378",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class379",
-		"label": "Disjoint With",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1267",
-		"equivalent": [],
-		"range": "datatype186",
-		"disjoint": ["property1260", "property1259"],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "deprecatedDatatypeProperty",
-		"attributes": ["deprecated"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#deprecatedDatatypeProperty"
-	},
-	{
-		"id": "property1266",
-		"equivalent": [],
-		"range": "literal185",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "thing33",
-		"label": "complement-type datatype property",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#complementTypeDatatypeProperty"
-	},
-	{
-		"id": "property1277",
-		"equivalent": [],
-		"range": "class373",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class365",
-		"label": "Disjoint With",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1264",
-		"equivalent": [],
-		"range": "datatype183",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "intersectionTypeDatatypeProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#intersectionTypeDatatypeProperty"
-	},
-	{
-		"id": "property1256",
-		"equivalent": [],
-		"range": "datatype175",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "customTypeDatatypeProperty",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#customTypeDatatypeProperty"
-	},
-	{
-		"id": "property1275",
-		"equivalent": [],
-		"range": "class382",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class373",
-		"label": "Disjoint With",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1276",
-		"equivalent": [],
-		"range": "class365",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class382",
-		"label": "Disjoint With",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1273",
-		"equivalent": [],
-		"range": "class378",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class381",
-		"label": "Disjoint With",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1247",
-		"equivalent": [],
-		"range": "thing34",
-		"disjoint": [],
-		"subproperty": ["property1237"],
-		"superproperty": [],
-		"domain": "class366",
-		"label": "deprecatedObjectProperty",
-		"attributes": ["deprecated"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#deprecatedObjectProperty"
-	},
-	{
-		"id": "property1271",
-		"equivalent": [],
-		"range": "class385",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class378",
-		"label": "Disjoint With",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "property1272",
-		"equivalent": [],
-		"range": "class385",
-		"disjoint": [],
-		"subproperty": [],
-		"superproperty": [],
-		"domain": "class379",
-		"label": "Disjoint With",
-		"attributes": [],
-		"instances": 0
-	}
-], "metrics": {
-	"propertyCount": 32,
-	"datatypePropertyCount": 13,
-	"datatypeCount": 13,
-	"objectPropertyCount": 19,
-	"classCount": 28,
-	"axiomCount": 154,
-	"nodeCount": 41
-}, "classAttribute": [
-	{
-		"complement": [],
-		"id": "class372",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class384", "class377"],
-		"label": "disjunkte Klasse",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#DisjointClass"
-	},
-	{
-		"complement": [],
-		"id": "class385",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "multi-property owner",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#MultiPropertyOwner"
-	},
-	{
-		"complement": [],
-		"id": "class390",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "PropertyOwnerType",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#PropertyOwnerType"
-	},
-	{
-		"complement": [],
-		"id": "class369",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "ImportedClass",
-		"attributes": ["external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0/imported#ImportedClass"
-	},
-	{
-		"complement": [],
-		"id": "class371",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "DeprecatedClass",
-		"attributes": ["deprecated"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#DeprecatedClass"
-	},
-	{
-		"complement": [],
-		"id": "class383",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": ["class381", "class378"],
-		"subClasses": [],
-		"label": "DisjointUnionClass",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#DisjointUnionClass"
-	},
-	{
-		"complement": ["class380"],
-		"id": "class375",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "ComplementDatatype",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#ComplementDatatype"
-	},
-	{
-		"complement": [],
-		"id": "class367",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": ["class376", "class380"],
-		"subClasses": [],
-		"label": "UnionDatatype",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#UnionDatatype"
-	},
-	{
-		"complement": [],
-		"id": "class386",
-		"intersection": ["class376", "class380"],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "IntersectionDatatype",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#IntersectionDatatype"
-	},
-	{
-		"complement": [],
-		"id": "class388",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "PlainClass",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#PlainClass"
-	},
-	{
-		"complement": [],
-		"id": "class373",
-		"intersection": ["class378", "class371"],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "IntersectionClass",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#IntersectionClass"
-	},
-	{
-		"complement": [],
-		"id": "class378",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "Class1",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#Class1"
-	},
-	{
-		"complement": [],
-		"id": "class370",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": ["class373", "class382", "class365"],
-		"subClasses": [],
-		"label": "LargeDisjointUnionClass",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#LargeDisjointUnionClass"
-	},
-	{
-		"complement": [],
-		"id": "class381",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": ["class378", "class371"],
-		"subClasses": [],
-		"label": "UnionClass",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#UnionClass"
-	},
-	{
-		"complement": [],
-		"id": "class374",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "FunctionalAnchor",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#FunctionalAnchor"
-	},
-	{
-		"complement": ["class378"],
-		"id": "class365",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "ComplementClass",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#ComplementClass"
-	},
-	{
-		"complement": [],
-		"id": "class384",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": ["class372", "class382"],
-		"union": [],
-		"subClasses": [],
-		"label": "MultiSubclass",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#MultiSubclass"
-	},
-	{
-		"complement": [],
-		"id": "class379",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": ["class366", "class381", "class369"],
-		"subClasses": [],
-		"label": "LargeUnionClass",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#LargeUnionClass"
-	},
-	{
-		"complement": [],
-		"id": "class368",
-		"intersection": [],
-		"equivalent": ["class377", "class387"],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "AlsoEquivalentToSubclass",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#AlsoEquivalentToSubclass"
-	},
-	{
-		"complement": [],
-		"id": "class389",
-		"intersection": ["class366", "class381", "class369"],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "LargeIntersectionClass",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#LargeIntersectionClass"
-	},
-	{
-		"complement": [],
-		"id": "class380",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "DivisibleByTwoEnumeration",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#DivisibleByTwoEnumeration"
-	},
-	{
-		"complement": [],
-		"id": "class382",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": ["class384"],
-		"label": "DeprecatedImportedClass",
-		"attributes": ["deprecated", "external"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0/imported#DeprecatedImportedClass"
-	},
-	{
-		"complement": [],
-		"id": "class387",
-		"intersection": [],
-		"equivalent": ["class377", "class368"],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "EquivalentToSubclass",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#EquivalentToSubclass"
-	},
-	{
-		"complement": [],
-		"id": "class391",
-		"intersection": [],
-		"equivalent": ["class366"],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "EquivalentToPropertyOwner",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#EquivalentToPropertyOwner"
-	},
-	{
-		"complement": [],
-		"id": "class377",
-		"intersection": [],
-		"equivalent": ["class387", "class368"],
-		"superClasses": ["class372"],
-		"union": [],
-		"subClasses": [],
-		"label": "Subclass",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#Subclass"
-	},
-	{
-		"complement": [],
-		"id": "class376",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "DivisibleByFiveEnumeration",
-		"attributes": [],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#DivisibleByFiveEnumeration"
-	},
-	{
-		"complement": [],
-		"id": "class366",
-		"intersection": [],
-		"equivalent": [],
-		"superClasses": [],
-		"union": [],
-		"subClasses": [],
-		"label": "PropertyOwner",
-		"attributes": ["equivalent"],
-		"instances": 0,
-		"comment": "",
-		"uri": "http://ontovibe.visualdataweb.org/1.0#PropertyOwner"
-	},
-	{
-		"id": "thing34",
-		"label": "Thing",
-		"uri": "http://www.w3.org/2002/07/owl#Thing"
-	},
-	{
-		"id": "thing33",
-		"label": "Thing",
-		"uri": "http://www.w3.org/2002/07/owl#Thing"
-	}
-], "class": [
-	{
-		"id": "class372",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class385",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class390",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class369",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class371",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class383",
-		"type": "owl:unionOf"
-	},
-	{
-		"id": "class375",
-		"type": "owl:complementOf"
-	},
-	{
-		"id": "class367",
-		"type": "owl:unionOf"
-	},
-	{
-		"id": "class386",
-		"type": "owl:intersectionOf"
-	},
-	{
-		"id": "class388",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class373",
-		"type": "owl:intersectionOf"
-	},
-	{
-		"id": "class378",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class370",
-		"type": "owl:unionOf"
-	},
-	{
-		"id": "class381",
-		"type": "owl:unionOf"
-	},
-	{
-		"id": "class374",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class365",
-		"type": "owl:complementOf"
-	},
-	{
-		"id": "class384",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class379",
-		"type": "owl:unionOf"
-	},
-	{
-		"id": "class368",
-		"type": "owl:equivalentClass"
-	},
-	{
-		"id": "class389",
-		"type": "owl:intersectionOf"
-	},
-	{
-		"id": "class380",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class382",
-		"type": "externalclass"
-	},
-	{
-		"id": "class387",
-		"type": "owl:equivalentClass"
-	},
-	{
-		"id": "class391",
-		"type": "owl:equivalentClass"
-	},
-	{
-		"id": "class377",
-		"type": "owl:equivalentClass"
-	},
-	{
-		"id": "class376",
-		"type": "owl:Class"
-	},
-	{
-		"id": "class366",
-		"type": "owl:Class"
-	},
-	{
-		"id": "thing34",
-		"type": "owl:Thing"
-	},
-	{
-		"id": "thing33",
-		"type": "owl:Thing"
-	}
-], "property": [
-	{
-		"id": "property1243",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1251",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1239",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1255",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1262",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1245",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1241",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1240",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1252",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1261",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1238",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1259",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1248",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1283",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1257",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1270",
-		"type": "owl:disjointWith"
-	},
-	{
-		"id": "property1254",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1253",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1260",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1246",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1269",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1268",
-		"type": "rdfs:SubClassOf"
-	},
-	{
-		"id": "property1236",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1249",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1237",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1250",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1242",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1258",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1263",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1265",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1279",
-		"type": "owl:disjointWith"
-	},
-	{
-		"id": "property1267",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1266",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1277",
-		"type": "owl:disjointWith"
-	},
-	{
-		"id": "property1264",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1256",
-		"type": "owl:datatypeProperty"
-	},
-	{
-		"id": "property1275",
-		"type": "owl:disjointWith"
-	},
-	{
-		"id": "property1276",
-		"type": "owl:disjointWith"
-	},
-	{
-		"id": "property1273",
-		"type": "owl:disjointWith"
-	},
-	{
-		"id": "property1247",
-		"type": "owl:objectProperty"
-	},
-	{
-		"id": "property1271",
-		"type": "owl:disjointWith"
-	},
-	{
-		"id": "property1272",
-		"type": "owl:disjointWith"
-	}
-], "datatype": [
-	{
-		"id": "datatype181",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype175",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype174",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype180",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype176",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype179",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype178",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "literal182",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "datatype186",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "datatype183",
-		"type": "rdfs:Datatype"
-	},
-	{
-		"id": "literal185",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal184",
-		"type": "rdfs:Literal"
-	},
-	{
-		"id": "literal177",
-		"type": "rdfs:Literal"
-	}
-], "datatypeAttribute": [
-	{
-		"id": "datatype181",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "UnionDatatype",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype175",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "DivisibleByFiveEnumeration",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype174",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "DivisibleByThreeEnumeration",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype180",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "integer",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype176",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "hexBinary",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype179",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "rational",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype178",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "real",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal182",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype186",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "date",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "datatype183",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "IntersectionDatatype",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal185",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal184",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	},
-	{
-		"id": "literal177",
-		"superClasses": [],
-		"subClasses": [],
-		"label": "Literal",
-		"attributes": [],
-		"instances": 0
-	}
-], "header": {
-	"title": "Ontology Visualization Benchmark (OntoViBe)",
-	"uri": "http://ontovibe.visualdataweb.org/1.0#",
-	"version": "http://ontovibe.visualdataweb.org/1.0#"
-}, "namespace": [
-	{}
-]}
+{
+  "propertyAttribute": [
+    {
+      "id": "property1314",
+      "equivalent": [],
+      "range": "class463",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class465",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1274",
+      "equivalent": [],
+      "range": "class447",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing39",
+      "label": {"default": "untypedClassToClassProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#untypedClassToClassProperty"
+    },
+    {
+      "id": "property1282",
+      "equivalent": [],
+      "range": "thing39",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "classToUntypedClassProperty"},
+      "attributes": ["symmetric"],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#classToUntypedClassProperty"
+    },
+    {
+      "id": "property1270",
+      "equivalent": ["property1283"],
+      "range": "thing38",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing38",
+      "label": {"default": "equivalentObjectProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#equivalentObjectProperty"
+    },
+    {
+      "id": "property1286",
+      "equivalent": [],
+      "range": "datatype175",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {
+        "zh-hans": "一种导入类型的数据类型性质",
+        "default": "importedTypeDatatypeProperty",
+        "fr": "propriété d'un type de données importé",
+        "en": "imported type datatype property"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#importedTypeDatatypeProperty"
+    },
+    {
+      "id": "property1293",
+      "equivalent": [],
+      "range": "datatype182",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "unionTypeDatatypeProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#unionTypeDatatypeProperty"
+    },
+    {
+      "id": "property1310",
+      "equivalent": [],
+      "range": "class459",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class460",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1276",
+      "equivalent": [],
+      "range": "class455",
+      "disjoint": ["property1273"],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "disjointProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#disjointProperty"
+    },
+    {
+      "id": "property1272",
+      "equivalent": [],
+      "inverse": "property1279",
+      "range": "class447",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class455",
+      "label": {"default": "inverseFunctionalProperty"},
+      "attributes": ["inverse functional"],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#inverseFunctionalProperty"
+    },
+    {
+      "id": "property1271",
+      "equivalent": [],
+      "range": "class459",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "classToClassProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#classToClassProperty"
+    },
+    {
+      "id": "property1283",
+      "equivalent": ["property1270"],
+      "range": "class453",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "dummyProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#dummyProperty"
+    },
+    {
+      "id": "property1292",
+      "equivalent": [],
+      "range": "datatype181",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "standardTypeDatatypeProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#standardTypeDatatypeProperty"
+    },
+    {
+      "id": "property1269",
+      "equivalent": [],
+      "range": "class447",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "cyclicProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#cyclicProperty"
+    },
+    {
+      "id": "property1290",
+      "equivalent": [
+        "property1294",
+        "property1296"
+      ],
+      "range": "datatype179",
+      "disjoint": [
+        "property1298",
+        "property1291"
+      ],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "realProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#realProperty"
+    },
+    {
+      "id": "property1279",
+      "equivalent": [],
+      "inverse": "property1272",
+      "range": "class455",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "functionalPropertyAsInverse"},
+      "attributes": ["functional"],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#functionalPropertyAsInverse"
+    },
+    {
+      "id": "property1288",
+      "equivalent": [],
+      "range": "datatype177",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class455",
+      "label": {"default": "functionalDatatypeProperty"},
+      "attributes": ["functional"],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#functionalDatatypeProperty"
+    },
+    {
+      "id": "property1285",
+      "equivalent": [],
+      "range": "class466",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class466",
+      "label": {"default": "cyclicProperty3"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#cyclicProperty3"
+    },
+    {
+      "id": "property1284",
+      "equivalent": [],
+      "range": "class466",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class466",
+      "label": {"default": "cyclicProperty2"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#cyclicProperty2"
+    },
+    {
+      "id": "property1291",
+      "equivalent": [],
+      "range": "datatype180",
+      "disjoint": [
+        "property1298",
+        "property1290"
+      ],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "rationalProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#rationalProperty"
+    },
+    {
+      "id": "property1277",
+      "equivalent": [],
+      "range": "class466",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class466",
+      "label": {"default": "cyclicProperty1"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#cyclicProperty1"
+    },
+    {
+      "id": "property1267",
+      "equivalent": [],
+      "range": "class447",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class453",
+      "label": {"default": "oppositeDummyProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#oppositeDummyProperty"
+    },
+    {
+      "id": "property1280",
+      "equivalent": [],
+      "range": "class466",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "classToClassProperty2"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#classToClassProperty2"
+    },
+    {
+      "id": "property1268",
+      "equivalent": [],
+      "range": "thing38",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1278"],
+      "domain": "thing38",
+      "label": {"default": "subproperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#subproperty"
+    },
+    {
+      "id": "property1281",
+      "equivalent": [],
+      "range": "class466",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "classToClassProperty1"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#classToClassProperty1"
+    },
+    {
+      "id": "property1273",
+      "equivalent": [],
+      "range": "class455",
+      "disjoint": ["property1276"],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "functionalProperty"},
+      "attributes": ["functional"],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#functionalProperty"
+    },
+    {
+      "id": "property1289",
+      "equivalent": [],
+      "range": "literal178",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "untypedDatatypeProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#untypedDatatypeProperty"
+    },
+    {
+      "id": "property1300",
+      "equivalent": [],
+      "range": "class453",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class458",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1294",
+      "equivalent": [
+        "property1296",
+        "property1290"
+      ],
+      "range": "literal183",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing38",
+      "label": {"default": "equivalentDataProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#equivalentDataProperty"
+    },
+    {
+      "id": "property1296",
+      "equivalent": [
+        "property1294",
+        "property1290"
+      ],
+      "range": "literal185",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing38",
+      "label": {"default": "anotherEquivalentDataProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#anotherEquivalentDataProperty"
+    },
+    {
+      "id": "property1298",
+      "equivalent": [],
+      "range": "datatype187",
+      "disjoint": [
+        "property1291",
+        "property1290"
+      ],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "deprecatedDatatypeProperty"},
+      "attributes": ["deprecated"],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#deprecatedDatatypeProperty"
+    },
+    {
+      "id": "property1297",
+      "equivalent": [],
+      "range": "literal186",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing38",
+      "label": {
+        "": "complement-type datatype property",
+        "default": "complementTypeDatatypeProperty"
+      },
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#complementTypeDatatypeProperty"
+    },
+    {
+      "id": "property1306",
+      "equivalent": [],
+      "range": "class463",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class446",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1295",
+      "equivalent": [],
+      "range": "datatype184",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "intersectionTypeDatatypeProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#intersectionTypeDatatypeProperty"
+    },
+    {
+      "id": "property1287",
+      "equivalent": [],
+      "range": "datatype176",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "customTypeDatatypeProperty"},
+      "attributes": [],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#customTypeDatatypeProperty"
+    },
+    {
+      "id": "property1308",
+      "equivalent": [],
+      "range": "class446",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class454",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1307",
+      "equivalent": [],
+      "range": "class454",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class463",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1302",
+      "equivalent": [],
+      "range": "class466",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class459",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1299",
+      "equivalent": [],
+      "range": "class453",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class465",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1301",
+      "equivalent": [],
+      "range": "class453",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class460",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1278",
+      "equivalent": [],
+      "range": "thing39",
+      "disjoint": [],
+      "subproperty": ["property1268"],
+      "superproperty": [],
+      "domain": "class447",
+      "label": {"default": "deprecatedObjectProperty"},
+      "attributes": ["deprecated"],
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#deprecatedObjectProperty"
+    },
+    {
+      "id": "property1304",
+      "equivalent": [],
+      "range": "class459",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class462",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1303",
+      "equivalent": [],
+      "range": "class466",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class460",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    }
+  ],
+  "metrics": {
+    "propertyCount": 32,
+    "datatypePropertyCount": 13,
+    "datatypeCount": 13,
+    "individualCount": 2,
+    "objectPropertyCount": 19,
+    "classCount": 28,
+    "axiomCount": 154,
+    "nodeCount": 41
+  },
+  "classAttribute": [
+    {
+      "complement": [],
+      "id": "class453",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [
+        "class465",
+        "class458"
+      ],
+      "label": {
+        "de": "disjunkte Klasse",
+        "default": "DisjointClass",
+        "en": "disjoint class"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#DisjointClass"
+    },
+    {
+      "complement": [],
+      "id": "class466",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {
+        "": "multi-property owner",
+        "default": "MultiPropertyOwner"
+      },
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#MultiPropertyOwner"
+    },
+    {
+      "complement": [],
+      "id": "class471",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "PropertyOwnerType"},
+      "attributes": [],
+      "instances": 2,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#PropertyOwnerType"
+    },
+    {
+      "complement": [],
+      "id": "class450",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "ImportedClass"},
+      "attributes": ["external"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0/imported#ImportedClass"
+    },
+    {
+      "complement": [],
+      "id": "class452",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "DeprecatedClass"},
+      "attributes": ["deprecated"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#DeprecatedClass"
+    },
+    {
+      "complement": [],
+      "id": "class464",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [
+        "class462",
+        "class459"
+      ],
+      "subClasses": [],
+      "label": {"default": "DisjointUnionClass"},
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#DisjointUnionClass"
+    },
+    {
+      "complement": ["class461"],
+      "id": "class456",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "ComplementDatatype"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#ComplementDatatype"
+    },
+    {
+      "complement": [],
+      "id": "class448",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [
+        "class457",
+        "class461"
+      ],
+      "subClasses": [],
+      "label": {"default": "UnionDatatype"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#UnionDatatype"
+    },
+    {
+      "complement": [],
+      "id": "class467",
+      "intersection": [
+        "class457",
+        "class461"
+      ],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "IntersectionDatatype"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#IntersectionDatatype"
+    },
+    {
+      "complement": [],
+      "id": "class469",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "PlainClass"},
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#PlainClass"
+    },
+    {
+      "complement": [],
+      "id": "class454",
+      "intersection": [
+        "class459",
+        "class452"
+      ],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "IntersectionClass"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#IntersectionClass"
+    },
+    {
+      "complement": [],
+      "id": "class459",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "Class1"},
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#Class1"
+    },
+    {
+      "complement": [],
+      "id": "class451",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [
+        "class446",
+        "class463",
+        "class454"
+      ],
+      "subClasses": [],
+      "label": {"default": "LargeDisjointUnionClass"},
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#LargeDisjointUnionClass"
+    },
+    {
+      "complement": [],
+      "id": "class462",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [
+        "class459",
+        "class452"
+      ],
+      "subClasses": [],
+      "label": {"default": "UnionClass"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#UnionClass"
+    },
+    {
+      "complement": [],
+      "id": "class455",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "FunctionalAnchor"},
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#FunctionalAnchor"
+    },
+    {
+      "complement": ["class459"],
+      "id": "class446",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "ComplementClass"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#ComplementClass"
+    },
+    {
+      "complement": [],
+      "id": "class465",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [
+        "class453",
+        "class463"
+      ],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "MultiSubclass"},
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#MultiSubclass"
+    },
+    {
+      "complement": [],
+      "id": "class460",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [
+        "class447",
+        "class462",
+        "class450"
+      ],
+      "subClasses": [],
+      "label": {"default": "LargeUnionClass"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#LargeUnionClass"
+    },
+    {
+      "complement": [],
+      "id": "class449",
+      "intersection": [],
+      "equivalent": [
+        "class468",
+        "class458"
+      ],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "AlsoEquivalentToSubclass"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#AlsoEquivalentToSubclass"
+    },
+    {
+      "complement": [],
+      "id": "class470",
+      "intersection": [
+        "class447",
+        "class462",
+        "class450"
+      ],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "LargeIntersectionClass"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#LargeIntersectionClass"
+    },
+    {
+      "complement": [],
+      "id": "class461",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "DivisibleByTwoEnumeration"},
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#DivisibleByTwoEnumeration"
+    },
+    {
+      "complement": [],
+      "id": "class463",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": ["class465"],
+      "label": {"default": "DeprecatedImportedClass"},
+      "attributes": [
+        "deprecated",
+        "external"
+      ],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0/imported#DeprecatedImportedClass"
+    },
+    {
+      "complement": [],
+      "id": "class468",
+      "intersection": [],
+      "equivalent": [
+        "class449",
+        "class458"
+      ],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "EquivalentToSubclass"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#EquivalentToSubclass"
+    },
+    {
+      "complement": [],
+      "id": "class472",
+      "intersection": [],
+      "equivalent": ["class447"],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "EquivalentToPropertyOwner"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#EquivalentToPropertyOwner"
+    },
+    {
+      "complement": [],
+      "id": "class458",
+      "intersection": [],
+      "equivalent": [
+        "class468",
+        "class449"
+      ],
+      "superClasses": ["class453"],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "Subclass"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#Subclass"
+    },
+    {
+      "complement": [],
+      "id": "class457",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "DivisibleByFiveEnumeration"},
+      "attributes": [],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#DivisibleByFiveEnumeration"
+    },
+    {
+      "complement": [],
+      "id": "class447",
+      "intersection": [],
+      "equivalent": [],
+      "superClasses": [],
+      "union": [],
+      "subClasses": [],
+      "label": {"default": "PropertyOwner"},
+      "attributes": ["equivalent"],
+      "instances": 0,
+      "comment": {},
+      "uri": "http://ontovibe.visualdataweb.org/1.0#PropertyOwner"
+    },
+    {
+      "id": "thing38",
+      "label": "Thing",
+      "uri": "http://www.w3.org/2002/07/owl#Thing"
+    },
+    {
+      "id": "thing39",
+      "label": "Thing",
+      "uri": "http://www.w3.org/2002/07/owl#Thing"
+    }
+  ],
+  "class": [
+    {
+      "id": "class453",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class466",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class471",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class450",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class452",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class464",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "class456",
+      "type": "owl:complementOf"
+    },
+    {
+      "id": "class448",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "class467",
+      "type": "owl:intersectionOf"
+    },
+    {
+      "id": "class469",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class454",
+      "type": "owl:intersectionOf"
+    },
+    {
+      "id": "class459",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class451",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "class462",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "class455",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class446",
+      "type": "owl:complementOf"
+    },
+    {
+      "id": "class465",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class460",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "class449",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "class470",
+      "type": "owl:intersectionOf"
+    },
+    {
+      "id": "class461",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class463",
+      "type": "externalclass"
+    },
+    {
+      "id": "class468",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "class472",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "class458",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "class457",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class447",
+      "type": "owl:Class"
+    },
+    {
+      "id": "thing38",
+      "type": "owl:Thing"
+    },
+    {
+      "id": "thing39",
+      "type": "owl:Thing"
+    }
+  ],
+  "property": [
+    {
+      "id": "property1314",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1274",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1282",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1270",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1286",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1293",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1310",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1276",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1272",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1271",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1283",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1292",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1269",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1290",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1279",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1288",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1285",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1284",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1291",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1277",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1267",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1280",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1268",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1281",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1273",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1289",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1300",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1294",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1296",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1298",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1297",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1306",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1295",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1287",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1308",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1307",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1302",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1299",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1301",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1278",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1304",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1303",
+      "type": "owl:disjointWith"
+    }
+  ],
+  "datatype": [
+    {
+      "id": "datatype181",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype182",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype175",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype180",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype177",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype176",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype179",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype187",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "literal183",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal185",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "datatype184",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "literal186",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal178",
+      "type": "rdfs:Literal"
+    }
+  ],
+  "datatypeAttribute": [
+    {
+      "id": "datatype181",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype182",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype175",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype180",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype177",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype176",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype179",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype187",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal183",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal185",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "datatype184",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal186",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "literal178",
+      "superClasses": [],
+      "subClasses": [],
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    }
+  ],
+  "header": {
+    "languages": [
+      "de",
+      "",
+      "zh-hans",
+      "fr",
+      "en"
+    ],
+    "title": {"": "Ontology Visualization Benchmark (OntoViBe)"},
+    "description": {},
+    "uri": "http://ontovibe.visualdataweb.org/1.0#",
+    "version": "http://ontovibe.visualdataweb.org/1.0#"
+  },
+  "namespace": [{}]
+}
