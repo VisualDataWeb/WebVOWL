@@ -435,7 +435,7 @@
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class446",
+      "domain": "class454",
       "label": {},
       "attributes": [],
       "comment": {}
@@ -469,11 +469,11 @@
     {
       "id": "property1308",
       "equivalent": [],
-      "range": "class446",
+      "range": "class454",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class454",
+      "domain": "class446",
       "label": {},
       "attributes": [],
       "comment": {}
@@ -481,7 +481,7 @@
     {
       "id": "property1307",
       "equivalent": [],
-      "range": "class454",
+      "range": "class446",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
@@ -542,11 +542,11 @@
     {
       "id": "property1304",
       "equivalent": [],
-      "range": "class459",
+      "range": "class462",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class462",
+      "domain": "class459",
       "label": {},
       "attributes": [],
       "comment": {}
@@ -662,8 +662,8 @@
       "equivalent": [],
       "superClasses": [],
       "union": [
-        "class462",
-        "class459"
+        "class459",
+        "class462"
       ],
       "subClasses": [],
       "label": {"default": "DisjointUnionClass"},
@@ -772,9 +772,9 @@
       "equivalent": [],
       "superClasses": [],
       "union": [
-        "class446",
+        "class454",
         "class463",
-        "class454"
+        "class446"
       ],
       "subClasses": [],
       "label": {"default": "LargeDisjointUnionClass"},
@@ -868,8 +868,8 @@
       "id": "class449",
       "intersection": [],
       "equivalent": [
-        "class468",
-        "class458"
+        "class458",
+        "class468"
       ],
       "superClasses": [],
       "union": [],
@@ -965,8 +965,8 @@
       "id": "class458",
       "intersection": [],
       "equivalent": [
-        "class468",
-        "class449"
+        "class449",
+        "class468"
       ],
       "superClasses": ["class453"],
       "union": [],
@@ -1363,7 +1363,7 @@
       "id": "datatype181",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "integer"},
       "attributes": [],
       "comment": {}
     },
@@ -1371,7 +1371,7 @@
       "id": "datatype182",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "UnionDatatype"},
       "attributes": [],
       "comment": {}
     },
@@ -1379,7 +1379,7 @@
       "id": "datatype175",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "DivisibleByThreeEnumeration"},
       "attributes": [],
       "comment": {}
     },
@@ -1387,7 +1387,7 @@
       "id": "datatype180",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "rational"},
       "attributes": [],
       "comment": {}
     },
@@ -1395,7 +1395,7 @@
       "id": "datatype177",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "hexBinary"},
       "attributes": [],
       "comment": {}
     },
@@ -1403,7 +1403,7 @@
       "id": "datatype176",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "DivisibleByFiveEnumeration"},
       "attributes": [],
       "comment": {}
     },
@@ -1411,7 +1411,7 @@
       "id": "datatype179",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "real"},
       "attributes": [],
       "comment": {}
     },
@@ -1419,7 +1419,7 @@
       "id": "datatype187",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "date"},
       "attributes": [],
       "comment": {}
     },
@@ -1427,7 +1427,7 @@
       "id": "literal183",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "Literal"},
       "attributes": [],
       "comment": {}
     },
@@ -1435,7 +1435,7 @@
       "id": "literal185",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "Literal"},
       "attributes": [],
       "comment": {}
     },
@@ -1443,7 +1443,7 @@
       "id": "datatype184",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "IntersectionDatatype"},
       "attributes": [],
       "comment": {}
     },
@@ -1451,7 +1451,7 @@
       "id": "literal186",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "Literal"},
       "attributes": [],
       "comment": {}
     },
@@ -1459,20 +1459,20 @@
       "id": "literal178",
       "superClasses": [],
       "subClasses": [],
-      "label": {},
+      "label": {"default": "Literal"},
       "attributes": [],
       "comment": {}
     }
   ],
   "header": {
     "languages": [
-      "de",
       "",
+      "de",
       "zh-hans",
       "fr",
       "en"
     ],
-    "title": {"": "Ontology Visualization Benchmark (OntoViBe)"},
+    "title": {"default": "Ontology Visualization Benchmark (OntoViBe)"},
     "description": {},
     "uri": "http://ontovibe.visualdataweb.org/1.0#",
     "version": "http://ontovibe.visualdataweb.org/1.0#"
