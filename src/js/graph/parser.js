@@ -261,9 +261,9 @@ webvowl.parser = function (graph) {
 		var nodes = [];
 
 		// Set the default values
-		var totalInstanceCount = 0;
+		var maxInstanceCount = 0;
 		rawNodes.forEach(function (node) {
-		totalInstanceCount += node.instances() || 0;
+		maxInstanceCount = Math.max(maxInstanceCount, node.instances());
 			node.visible(true);
 		});
 
@@ -273,7 +273,7 @@ webvowl.parser = function (graph) {
 
 			attributeParser.parseClassAttributes(node);
 
-			node.totalInstanceCount(totalInstanceCount);
+			node.maxInstanceCount(maxInstanceCount);
 		});
 
 		// Collect all nodes that should be displayed
