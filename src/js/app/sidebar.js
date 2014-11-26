@@ -70,15 +70,9 @@ webvowlApp.sidebar = function (graph) {
 	function setLanguages(languages) {
 		languages = languages || [];
 
-		// Put the default label on top of the selection label
-		languages.sort(function (a, b) {
-			if (a === "default") {
-				return -1;
-			} else if (b === "default") {
-				return 1;
-			}
-			return a.localeCompare(b);
-		});
+		languages.sort();
+		// Put the default label on top of the selection labels
+		languages.splice(0, 0, "default");
 
 		var languageSelection = d3.select("#language")
 			.on("change", function () {
