@@ -5,7 +5,9 @@
  */
 webvowlApp.sidebar = function (graph) {
 
-	var sidebar = {};
+	var sidebar = {},
+		languageTools = webvowl.util.languageTools(),
+		ontologyInfo;
 
 
 	/**
@@ -55,7 +57,9 @@ webvowlApp.sidebar = function (graph) {
 	 * @param statistics the statistics module
 	 */
 	sidebar.updateOntologyInformation = function (data, statistics) {
-		displayGraphInformation(data);
+		ontologyInfo = data.header;
+
+		updateGraphInformation();
 		displayGraphStatistics(data.metrics, statistics);
 		// Reset the sidebar selection
 		sidebar.updateSelectionInformation(undefined);
@@ -79,6 +83,7 @@ webvowlApp.sidebar = function (graph) {
 		var languageSelection = d3.select("#language")
 			.on("change", function () {
 				graph.setLanguage(d3.event.target.value);
+				updateGraphInformation();
 			});
 
 		var languageOptions = languageSelection.selectAll("option").data(languages);
@@ -107,14 +112,14 @@ webvowlApp.sidebar = function (graph) {
 		return false;
 	}
 
-	function displayGraphInformation(data) {
-		var header = data.header;
+	function updateGraphInformation() {
+		d3.select("#title").text(ontologyInfo.title);
+		d3.select("#about").attr("href", ontologyInfo.uri).attr("target", "_blank").text(ontologyInfo.uri);
+		d3.select("#version").text(ontologyInfo.version);
+		d3.select("#authors").text(ontologyInfo.author);
 
-		d3.select("#title").text(header.title);
-		d3.select("#about").attr("href", header.uri).attr("target", "_blank").text(header.uri);
-		d3.select("#version").text(header.version);
-		d3.select("#authors").text(header.author);
-		d3.select("#description").text(header.description || "No description available.");
+		var description = languageTools.textForCurrentLanguage(ontologyInfo.description, graph.getLanguage());
+		d3.select("#description").text(description || "No description available.");
 	}
 
 	function displayGraphStatistics(deliveredMetrics, statistics) {

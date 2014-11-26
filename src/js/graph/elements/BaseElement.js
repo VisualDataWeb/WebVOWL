@@ -22,7 +22,9 @@ webvowl.elements.BaseElement = (function () {
 			indications = [],
 			mouseEntered = false,
 			styleClass,
-			visible = true;
+			visible = true,
+		// Other
+			languageTools = webvowl.util.languageTools();
 
 
 		// Properties
@@ -111,11 +113,12 @@ webvowl.elements.BaseElement = (function () {
 		};
 
 
+		this.commentForCurrentLanguage = function() {
+			return languageTools.textForCurrentLanguage(this.comment(), graph.getLanguage());
+		};
+
 		this.defaultLabel = function () {
-			if (typeof this.label() === "string") {
-				return this.label();
-			}
-			return this.label()["default"] || DEFAULT_LABEL;
+			return languageTools.textForCurrentLanguage(this.label(), "default");
 		};
 
 		this.indicationString = function () {
@@ -123,25 +126,7 @@ webvowl.elements.BaseElement = (function () {
 		};
 
 		this.labelForCurrentLanguage = function () {
-			var labels = this.label(),
-				currentLanguage = graph.getLanguage();
-
-
-			if (typeof labels === "string") {
-				return labels;
-			}
-
-			if (labels.hasOwnProperty(currentLanguage)) {
-				return labels[currentLanguage];
-			}
-
-			for (var language in labels) {
-				if (labels.hasOwnProperty(language) && language !== "default") {
-					return labels[language];
-				}
-			}
-
-			return this.defautLabel();
+			return languageTools.textForCurrentLanguage(this.label(), graph.getLanguage());
 		};
 	};
 
