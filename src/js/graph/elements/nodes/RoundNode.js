@@ -47,10 +47,10 @@ webvowl.nodes.RoundNode = (function () {
 			if (this.instances() <= 0) {
 				return this.radius();
 			} else {
-				// we could "listen" for radius and totalInstanceCount changes, but this is easier
+				// we could "listen" for radius and maxInstanceCount changes, but this is easier
 				var scale = d3.scale.log()
 					.range([this.radius(), 2 * this.radius()])
-					.domain([1, this.totalInstanceCount()]);
+					.domain([1, this.maxInstanceCount()]);
 
 				return scale(this.instances());
 			}
