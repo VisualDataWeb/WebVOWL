@@ -35,6 +35,7 @@ webvowlApp.app = function () {
 		options.filterModules().push(disjointFilter);
 
 		setOntologySelectionButtons();
+		setupConverterButton();
 		parseUrlAndLoadOntology();
 
 		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
@@ -134,6 +135,15 @@ webvowlApp.app = function () {
 		});
 		d3.select("#prov").on("click", function () {
 			loadOntology(jsonBasePath + "prov.json");
+		});
+	}
+
+	function setupConverterButton() {
+		d3.select("#convert-button").on("click", function() {
+			var iri = d3.select("#convert-iri").property("value");
+			if (iri) {
+				loadOntology("/converter.php?iri=" + iri);
+			}
 		});
 	}
 
