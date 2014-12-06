@@ -4,7 +4,8 @@ webvowlApp.app = function () {
 		graph = webvowl.graph(),
 		options = graph.graphOptions(),
 		graphSelector = "#graph",
-		defaultJsonFilename = "benchmark.json", // This file is loaded by default
+		jsonBasePath = "js/data/",
+		defaultJsonPath = jsonBasePath + "benchmark.json", // This file is loaded by default
 	// Modules for the webvowl app
 		exportMenu,
 		gravityMenu,
@@ -65,25 +66,27 @@ webvowlApp.app = function () {
 		var hashParameter = location.hash.slice(1);
 
 		if (!hashParameter) {
-			loadOntology(defaultJsonFilename);
+			loadOntology(defaultJsonPath);
 			return;
 		}
 
 		var ontologySelection = d3.select("#select").select("#" + hashParameter);
 
 		if (ontologySelection.size() < 1) {
-			loadOntology(defaultJsonFilename);
+			loadOntology(defaultJsonPath);
 		} else {
 			ontologySelection.on("click")();
 		}
 	}
 
-	function loadOntology(jsonFilename) {
-		d3.json("js/data/" + jsonFilename, function (error, data) {
+	function loadOntology(relativePath) {
+		d3.json(relativePath, function (error, data) {
 			options.data(data);
 			graph.start();
 			sidebar.updateOntologyInformation(data, statistics);
-			exportMenu.setFilename(jsonFilename.split(".")[0] + ".svg");
+
+			var filename = relativePath.slice(relativePath.lastIndexOf("/") + 1);
+			exportMenu.setFilename(filename.split(".")[0] + ".svg");
 			adjustSize();
 		});
 	}
@@ -103,34 +106,34 @@ webvowlApp.app = function () {
 
 	function setOntologySelectionButtons() {
 		d3.select("#foaf").on("click", function () {
-			loadOntology("foaf.json");
+			loadOntology(jsonBasePath + "foaf.json");
 		});
 		d3.select("#muto").on("click", function () {
-			loadOntology("muto.json");
+			loadOntology(jsonBasePath + "muto.json");
 		});
 		d3.select("#personasonto").on("click", function () {
-			loadOntology("personasonto.json");
+			loadOntology(jsonBasePath + "personasonto.json");
 		});
 		d3.select("#benchmarkonto").on("click", function () {
-			loadOntology("benchmark.json");
+			loadOntology(jsonBasePath + "benchmark.json");
 		});
 		d3.select("#geonames").on("click", function () {
-			loadOntology("geonames.json");
+			loadOntology(jsonBasePath + "geonames.json");
 		});
 		d3.select("#marine").on("click", function () {
-			loadOntology("marinetlo.json");
+			loadOntology(jsonBasePath + "marinetlo.json");
 		});
 		d3.select("#marine2").on("click", function () {
-			loadOntology("marinetloimarine.json");
+			loadOntology(jsonBasePath + "marinetloimarine.json");
 		});
 		d3.select("#sioc").on("click", function () {
-			loadOntology("sioc.json");
+			loadOntology(jsonBasePath + "sioc.json");
 		});
 		d3.select("#ontovibe").on("click", function () {
-			loadOntology("ontovibe.json");
+			loadOntology(jsonBasePath + "ontovibe.json");
 		});
 		d3.select("#prov").on("click", function () {
-			loadOntology("prov.json");
+			loadOntology(jsonBasePath + "prov.json");
 		});
 	}
 
