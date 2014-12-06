@@ -34,7 +34,7 @@ webvowlApp.app = function () {
 		options.filterModules().push(disjointFilter);
 
 		setOntologySelectionButtons();
-		loadDefaultOntology();
+		parseUrlAndLoadOntology();
 
 		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
 		gravityMenu = webvowlApp.gravityMenu(graph);
@@ -55,12 +55,12 @@ webvowlApp.app = function () {
 		// reload ontology when hash parameter gets changed manually
 		d3.select(window).on("hashchange", function() {
 			if (d3.event.oldURL !== d3.event.newURL) {
-				loadDefaultOntology();
+				parseUrlAndLoadOntology();
 			}
 		});
 	};
 
-	function loadDefaultOntology() {
+	function parseUrlAndLoadOntology() {
 		// slice the "#" character
 		var hashParameter = location.hash.slice(1);
 
