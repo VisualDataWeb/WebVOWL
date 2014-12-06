@@ -51,6 +51,13 @@ webvowlApp.app = function () {
 		setupableMenues.forEach(function (menu) {
 			menu.setup();
 		});
+
+		// reload ontology when hash parameter gets changed manually
+		d3.select(window).on("hashchange", function() {
+			if (d3.event.oldURL !== d3.event.newURL) {
+				loadDefaultOntology();
+			}
+		});
 	};
 
 	function loadDefaultOntology() {
