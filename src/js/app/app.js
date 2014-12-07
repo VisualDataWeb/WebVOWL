@@ -56,7 +56,15 @@ webvowlApp.app = function () {
 
 		// reload ontology when hash parameter gets changed manually
 		d3.select(window).on("hashchange", function() {
-			if (d3.event.oldURL !== d3.event.newURL) {
+			var oldURL = d3.event.oldURL, newURL = d3.event.newURL;
+
+			if (oldURL !== newURL) {
+				// don't reload when just the hash parameter gets appended/removed
+				var optionalHashRegex = /^[^#]*#?$/g;
+				if (optionalHashRegex.test(oldURL) && optionalHashRegex.test(newURL)) {
+					return;
+				}
+
 				parseUrlAndLoadOntology();
 			}
 		});
