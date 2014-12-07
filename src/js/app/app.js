@@ -64,10 +64,21 @@ webvowlApp.app = function () {
 					return;
 				}
 
+				updateNavigationHrefs();
 				parseUrlAndLoadOntology();
 			}
 		});
+
+		updateNavigationHrefs();
 	};
+
+	/**
+	 * Quick fix: update all anchor tags that are used as buttons because a click on them
+	 * changes the url and this will load an other ontology.
+	 */
+	function updateNavigationHrefs() {
+		d3.selectAll("#optionsMenu > li > a").attr("href", location.hash || "#");
+	}
 
 	function parseUrlAndLoadOntology() {
 		// slice the "#" character
