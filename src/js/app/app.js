@@ -71,8 +71,16 @@ webvowlApp.app = function () {
 			return;
 		}
 
-		var ontologySelection = d3.select("#select").select("#" + hashParameter);
+		// IRI parameter
+		var iriKey = "iri=";
+		if (hashParameter.substr(0, iriKey.length) === iriKey) {
+			var iri = hashParameter.slice(iriKey.length);
+			loadOntology("/converter.php?iri=" + iri);
+			return;
+		}
 
+		// id of an existing ontology as parameter
+		var ontologySelection = d3.select("#select").select("#" + hashParameter);
 		if (ontologySelection.size() < 1) {
 			loadOntology(defaultJsonPath);
 		} else {
@@ -139,11 +147,14 @@ webvowlApp.app = function () {
 	}
 
 	function setupConverterButton() {
-		d3.select("#convert-button").on("click", function() {
-			var iri = d3.select("#convert-iri").property("value");
-			if (iri) {
-				loadOntology("/converter.php?iri=" + iri);
-			}
+		function setActionAttribute() {
+			d3.select(".converter-form").attr("action", "#iri=" + d3.select("#convert-iri").property("value"));
+		}
+
+		// Call it initially because there might be a value already in the input field
+		setActionAttribute();
+		d3.select("#convert-iri").on("change", function() {
+			setActionAttribute();
 		});
 	}
 
