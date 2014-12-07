@@ -26,14 +26,17 @@ webvowlApp.pauseMenu = function (graph) {
 					graph.freeze();
 				}
 				d.paused = !d.paused;
-				updatePauseButtonClass();
-				updatePauseButtonText();
+				updatePauseButton();
 			});
 
 		// Set these properties the first time manually
+		updatePauseButton();
+	};
+
+	function updatePauseButton() {
 		updatePauseButtonClass();
 		updatePauseButtonText();
-	};
+	}
 
 	function updatePauseButtonClass() {
 		pauseButton.classed("paused", function (d) {
@@ -48,6 +51,12 @@ webvowlApp.pauseMenu = function (graph) {
 			pauseButton.text("Pause");
 		}
 	}
+
+	pauseMenu.reset = function() {
+		// Simulate resuming
+		pauseButton.datum().paused = false;
+		updatePauseButton();
+	};
 
 
 	return pauseMenu;
