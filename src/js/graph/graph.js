@@ -174,19 +174,23 @@ webvowl.graph = function (graphContainerSelector) {
 	 * Stops the influence of the force directed layout on all nodes. They are still manually movable.
 	 */
 	graph.freeze = function () {
-		nodes.forEach(function (n) {
-			n.frozen(true);
-		});
+		if (nodes) {
+			nodes.forEach(function (n) {
+				n.frozen(true);
+			});
+		}
 	};
 
 	/**
 	 * Allows the influence of the force directed layout on all nodes.
 	 */
 	graph.unfreeze = function () {
-		nodes.forEach(function (n) {
-			n.frozen(false);
-		});
-		force.resume();
+		if (nodes) {
+			nodes.forEach(function (n) {
+				n.frozen(false);
+			});
+			force.resume();
+		}
 	};
 
 	/**
