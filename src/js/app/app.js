@@ -59,9 +59,8 @@ webvowlApp.app = function () {
 			var oldURL = d3.event.oldURL, newURL = d3.event.newURL;
 
 			if (oldURL !== newURL) {
-				// don't reload when just the hash parameter gets appended/removed
-				var optionalHashRegex = /^[^#]*#?$/g;
-				if (optionalHashRegex.test(oldURL) && optionalHashRegex.test(newURL)) {
+				// don't reload when just the hash parameter gets appended
+				if (newURL === oldURL + "#") {
 					return;
 				}
 
