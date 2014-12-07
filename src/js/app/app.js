@@ -42,9 +42,9 @@ webvowlApp.app = function () {
 		gravityMenu = webvowlApp.gravityMenu(graph);
 		filterMenu = webvowlApp.filterMenu(graph, datatypeFilter, subclassFilter, disjointFilter);
 		modeMenu = webvowlApp.modeMenu(graph, pickAndPin);
-		resetMenu = webvowlApp.resetMenu(graph, [gravityMenu, filterMenu, modeMenu,
-			focuser, selectionDetailDisplayer]);
 		pauseMenu = webvowlApp.pauseMenu(graph);
+		resetMenu = webvowlApp.resetMenu(graph, [gravityMenu, filterMenu, modeMenu,
+			focuser, selectionDetailDisplayer, pauseMenu]);
 
 		d3.select(window).on("resize", adjustSize);
 
@@ -98,6 +98,8 @@ webvowlApp.app = function () {
 
 	function loadOntology(relativePath) {
 		d3.json(relativePath, function (error, data) {
+			pauseMenu.reset();
+
 			options.data(data);
 			graph.start();
 			sidebar.updateOntologyInformation(data, statistics);
