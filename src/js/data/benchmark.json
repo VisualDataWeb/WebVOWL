@@ -15,20 +15,21 @@
 	],
 	"header": {
         "title": {
-          "default": "Benchmark Graph",
+          "iriBased": "Benchmark Graph",
           "en": "Benchmark Graph",
-          "de": "Benchmark Graph (DE)"
+		  "de": "Benchmark Graph (DE)",
+		  "unset": "Benchmark Graph (UNSET)"
         },
 		"uri": "#",
 		"version": "0.1",
 		"author": "Vincent Link, Eduard Marbach",
 		"description": {
-          "default": "The benchmark graph contains all visual elements of VOWL to test WebVOWL conformance with the specification and special cases.",
+          "iriBased": "The benchmark graph contains all visual elements of VOWL to test WebVOWL conformance with the specification and special cases.",
           "en": "The benchmark graph contains all visual elements of VOWL to test WebVOWL conformance with the specification and special cases.",
           "de": "Deutsche Beschreibung"
         },
         "languages": [
-          "en", "de"
+          "en", "de", "unset"
         ]
 	},
 	"class": [
@@ -107,7 +108,7 @@
 		{
 			"id": "NodeTest",
 			"type": "owl:Class",
-			"label": {"de": "KnotenTest", "en": "NodeTest", "default": "NodeTest"}
+			"label": {"de": "KnotenTest", "en": "NodeTest", "unset": "NodeTest", "iriBased": "NodeTest"}
 		},
 		{
 			"id": "ExternalClass",
