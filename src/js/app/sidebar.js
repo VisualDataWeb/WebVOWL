@@ -74,7 +74,7 @@ webvowlApp.sidebar = function (graph) {
 
 		languages.sort();
 		// Put the default label on top of the selection labels
-		languages.splice(0, 0, "default");
+		languages.splice(0, 0, "iriBased");
 
 		var languageSelection = d3.select("#language")
 			.on("change", function () {
@@ -94,7 +94,9 @@ webvowlApp.sidebar = function (graph) {
 			});
 
 		if (!trySelectDefaultLanguage(languageSelection, languages, "en")) {
-			trySelectDefaultLanguage(languageSelection, languages, "default");
+			if (!trySelectDefaultLanguage(languageSelection, languages, "unset")) {
+				trySelectDefaultLanguage(languageSelection, languages, "iriBased");
+			}
 		}
 	}
 
