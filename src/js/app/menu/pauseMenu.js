@@ -55,6 +55,7 @@ webvowlApp.pauseMenu = function (graph) {
 	pauseMenu.reset = function() {
 		// Simulate resuming
 		pauseButton.datum().paused = false;
+		graph.unfreeze();
 		updatePauseButton();
 	};
 
