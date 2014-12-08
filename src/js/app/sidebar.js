@@ -72,9 +72,20 @@ webvowlApp.sidebar = function (graph) {
 	function setLanguages(languages) {
 		languages = languages || [];
 
-		languages.sort();
-		// Put the default label on top of the selection labels
-		languages.splice(0, 0, "iriBased");
+		// Put the default and unset label on top of the selection labels
+		languages.sort(function (a, b) {
+			if (a === "iriBased") {
+				return -1;
+			} else if (b === "iriBased") {
+				return 1;
+			}
+			if (a === "unset") {
+				return -1;
+			} else if (b === "unset") {
+				return 1;
+			}
+			return a.localeCompare(b);
+		});
 
 		var languageSelection = d3.select("#language")
 			.on("change", function () {
