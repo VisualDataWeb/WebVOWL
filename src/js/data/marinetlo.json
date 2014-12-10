@@ -1,585 +1,49 @@
 {
   "propertyAttribute": [
     {
-      "id": "property137",
+      "id": "property354",
       "equivalent": [],
-      "range": "class57",
+      "range": "thing12",
       "disjoint": [],
-      "subproperty": [],
+      "subproperty": ["property360"],
       "superproperty": [],
-      "domain": "class84",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property91",
-      "equivalent": [],
-      "range": "thing8",
-      "disjoint": [],
-      "subproperty": ["property97"],
-      "superproperty": [],
-      "domain": "class38",
+      "domain": "class81",
       "label": {
-        "": "LXusuallyIsComponentOf",
-        "default": "LXusuallyIsComponentOf"
+        "iriBased": "LXusuallyIsComponentOf",
+        "unset": "LXusuallyIsComponentOf"
       },
       "attributes": ["external"],
       "comment": {},
       "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LXusuallyIsComponentOf"
     },
     {
-      "id": "property138",
+      "id": "property446",
       "equivalent": [],
-      "range": "class92",
+      "range": "class130",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class69",
+      "domain": "class134",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property139",
+      "id": "property445",
       "equivalent": [],
-      "range": "class92",
+      "range": "class133",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class42",
+      "domain": "class147",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property111",
+      "id": "property448",
       "equivalent": [],
-      "range": "class65",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class80",
-      "label": {
-        "": "L23UsedSoftware",
-        "default": "L23UsedSoftware"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property associates an instance of BC56 Digital Measurement  Event with the instance of BC59 Software."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#L23UsedSoftware"
-    },
-    {
-      "id": "property105",
-      "equivalent": [],
-      "inverse": "property94",
-      "range": "class30",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class91",
-      "label": {
-        "": "LC4refersTo",
-        "default": "LC4refersTo"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property documents that a BC18 Proposition makes a statement about an instance of BC1 TLO Entity."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC4refersTo"
-    },
-    {
-      "id": "property145",
-      "equivalent": [],
-      "range": "class45",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class65",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property144",
-      "equivalent": [],
-      "range": "class45",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class85",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property147",
-      "equivalent": [],
-      "range": "class35",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class70",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property146",
-      "equivalent": [],
-      "range": "class35",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class102",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property141",
-      "equivalent": [],
-      "range": "class67",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class36",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property99",
-      "equivalent": [],
-      "range": "class46",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class49",
-      "label": {
-        "": "LX2hasAppellation",
-        "default": "LX2hasAppellation"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property associates an instance of BT1 TLO Entity Type with an instance of BC7 Appellation."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LX2hasAppellation"
-    },
-    {
-      "id": "property140",
-      "equivalent": [],
-      "range": "class92",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class61",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property143",
-      "equivalent": [],
-      "range": "class102",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class68",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property142",
-      "equivalent": [],
-      "range": "class102",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class51",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property97",
-      "equivalent": [],
-      "range": "class101",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": ["property91"],
-      "domain": "class42",
-      "label": {
-        "": "LXusuallyIsBioticComponentOf",
-        "default": "LXusuallyIsBioticComponentOf"
-      },
-      "attributes": ["external"],
-      "comment": {},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LXusuallyIsBioticComponentOf"
-    },
-    {
-      "id": "property128",
-      "equivalent": [],
-      "range": "class91",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class45",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property129",
-      "equivalent": [],
-      "range": "class91",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class74",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property126",
-      "equivalent": [],
-      "range": "class91",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class78",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property127",
-      "equivalent": [],
-      "range": "class91",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class53",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property112",
-      "equivalent": [],
-      "range": "class42",
-      "disjoint": [],
-      "subproperty": [
-        "property106",
-        "property88"
-      ],
-      "superproperty": [],
-      "domain": "class42",
-      "label": {
-        "": "LTusuallyFeedingOn",
-        "default": "LTusuallyFeedingOn"
-      },
-      "attributes": ["external"],
-      "comment": {},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTusuallyFeedingOn"
-    },
-    {
-      "id": "property136",
-      "equivalent": [],
-      "range": "class57",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class44",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property117",
-      "equivalent": [],
-      "inverse": "property109",
-      "range": "class59",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": ["property98"],
-      "domain": "class88",
-      "label": {
-        "": "P40ObservedDimension",
-        "default": "P40ObservedDimension"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property records the dimension that was observed in an E16 Measurement Event.\nE54 Dimension can be any quantifiable aspect of E70 Thing. Weight, image colour depth and monetary value are dimensions in this sense. One measurement activity may determine more than one dimension of one object.\nDimensions may be determined either by direct observation or using recorded evidence. In the latter case the measured Thing does not need to be present or extant.\nEven though knowledge of the value of a dimension requires measurement, the dimension may be an object of discourse prior to, or even without, any measurement being made.\nExamples:\t\n1) 31 August 1997 measurement of height of silver cup 232 (E16) observed dimension silver cup 232 height (E54) has unit mm (E58), has value 224 (E60)\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P40ObservedDimension"
-    },
-    {
-      "id": "property135",
-      "equivalent": [],
-      "range": "class58",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class88",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property102",
-      "equivalent": [],
-      "range": "class38",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class79",
-      "label": {
-        "": "P125UsedObjectOfType",
-        "default": "P125UsedObjectOfType"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property defines the kind of objects used in an E7 Activity, when the specific instance is either unknown or not of interest, such as use of \"a hammer\"."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P125UsedObjectOfType"
-    },
-    {
-      "id": "property134",
-      "equivalent": [],
-      "range": "class58",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class83",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property133",
-      "equivalent": [],
-      "range": "class91",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class40",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property132",
-      "equivalent": [],
-      "range": "class91",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class32",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property131",
-      "equivalent": [],
-      "range": "class91",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class99",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property106",
-      "equivalent": [],
-      "inverse": "property88",
-      "range": "thing7",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": ["property112"],
-      "domain": "thing7",
-      "label": {
-        "": "LTusuallyIsPredatorOf",
-        "default": "LTusuallyIsPredatorOf"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property connects the types of predators with their prey type."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTusuallyIsPredatorOf"
-    },
-    {
-      "id": "property130",
-      "equivalent": [],
-      "range": "class91",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class77",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property94",
-      "equivalent": [],
-      "inverse": "property105",
-      "range": "class91",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class30",
-      "label": {
-        "": "LC4isReferredBy",
-        "default": "LC4isReferredBy"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property documents that a BC18 Proposition makes a statement about an instance of BC1 TLO Entity."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC4isReferredBy"
-    },
-    {
-      "id": "property113",
-      "equivalent": [],
-      "range": "class62",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class56",
-      "label": {
-        "": "P102HasTitle",
-        "default": "P102HasTitle"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property describes the E35 Title applied to an instance of E71 Man-Made Thing. The E55 Type of Title is assigned in a sub property.\n\nThe P102.1 has type property of the P102 has title (is title of) property enables the relationship between the Title and the thing to be further clarified, for example, if the Title was a given Title, a supplied Title etc.\nIt allows any man-made material or immaterial thing to be given a Title. It is possible to imagine a Title being created without a specific object in mind.\nExamples:\t\n1) the first book of the Old Testament (E33) has title \u201cGenesis\u201d (E35) has type translated (E55).\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P102HasTitle"
-    },
-    {
-      "id": "property114",
-      "equivalent": [],
-      "range": "class79",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class79",
-      "label": {
-        "": "P34Continued",
-        "default": "P34Continued"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property identifies the E18 Physical Thing that was assessed during an E14 Condition Assessment activity. \nConditions may be assessed either by direct observation or using recorded evidence. In the latter case the E18 Physical Thing does not need to be present or extant.\nExamples:\t\n1) 1997 condition assessment of the silver collection (E14) concerned silver cup 232 (E22)\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P34Continued"
-    },
-    {
-      "id": "property101",
-      "equivalent": [],
-      "inverse": "property89",
-      "range": "class56",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class88",
-      "label": {
-        "": "P39Measured",
-        "default": "P39Measured"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property associates an instance of E16 Measurement with the instance of E1 CRM Entity to which it applied. An instance of E1 CRM Entity may be measured more than once. Material and immaterial things and processes may be measured, e.g. the number of words in a text, or the duration of an event.\nExamples:\t\n1) 31 August 1997 measurement of height of silver cup 232 (E16) measured silver cup 232 (E22).\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P39Measured"
-    },
-    {
-      "id": "property123",
-      "equivalent": [],
-      "range": "class106",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class79",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property122",
-      "equivalent": [],
-      "range": "class106",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class101",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property125",
-      "equivalent": [],
-      "range": "class91",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class29",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property124",
-      "equivalent": [],
-      "range": "class91",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class46",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property190",
-      "equivalent": [],
-      "range": "class38",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class43",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property192",
-      "equivalent": [],
-      "range": "class38",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class92",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property191",
-      "equivalent": [],
-      "range": "class38",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class48",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property194",
-      "equivalent": [],
-      "range": "class30",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class98",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property193",
-      "equivalent": [],
-      "range": "class30",
+      "range": "class130",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
@@ -589,495 +53,61 @@
       "comment": {}
     },
     {
-      "id": "property196",
+      "id": "property447",
       "equivalent": [],
-      "range": "class70",
+      "range": "class130",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class64",
+      "domain": "class109",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property195",
+      "id": "property374",
       "equivalent": [],
-      "range": "class30",
+      "range": "class108",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class97",
-      "label": {},
-      "attributes": [],
-      "comment": {}
+      "domain": "class123",
+      "label": {
+        "iriBased": "L23UsedSoftware",
+        "unset": "L23UsedSoftware"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property associates an instance of BC56 Digital Measurement  Event with the instance of BC59 Software."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#L23UsedSoftware"
     },
     {
-      "id": "property198",
+      "id": "property449",
       "equivalent": [],
       "range": "class89",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class35",
+      "domain": "class103",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property197",
+      "id": "property450",
       "equivalent": [],
-      "range": "class70",
+      "range": "class89",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class76",
+      "domain": "class105",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property116",
+      "id": "property451",
       "equivalent": [],
-      "range": "class53",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class79",
-      "label": {
-        "": "P33UsedSpecificTechnique",
-        "default": "P33UsedSpecificTechnique"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property identifies a specific instance of E29 Design or Procedure in order to carry out an \t\tinstance of E7 Activity or parts of it. \n\nThe property differs from P32 used general technique (was technique of) in that P33 refers to an instance of E29 Design or Procedure, which is a concrete information object in its own right rather than simply being a term or a method known by tradition. \n\nTypical examples would include intervention plans for conservation or the construction plans of a building\nExamples:\t\n1) Ornamentation of silver cup 232  (E11) used specific technique \u2018Instructions for golden chase work by A N Other\u2019 (E29)\n2) Rebuilding of Reichstag (E11) used specific technique Architectural plans by Foster and Partners (E29)\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P33UsedSpecificTechnique"
-    },
-    {
-      "id": "property98",
-      "equivalent": [],
-      "range": "thing7",
-      "disjoint": [],
-      "subproperty": ["property117"],
-      "superproperty": [],
-      "domain": "thing7",
-      "label": {"default": "topObjectProperty"},
-      "attributes": ["external"],
-      "comment": {},
-      "uri": "http://www.w3.org/2002/07/owl#topObjectProperty"
-    },
-    {
-      "id": "property110",
-      "equivalent": [],
-      "range": "thing7",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "thing7",
-      "label": {
-        "": "LT2usuallyConsistsOf",
-        "default": "LT2usuallyConsistsOf"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property describes the types of components   of an Temporal Phenomenon Type."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LT2usuallyConsistsOf"
-    },
-    {
-      "id": "property118",
-      "equivalent": [],
-      "range": "class74",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class30",
-      "label": {
-        "": "LC1isIdentifiedBy",
-        "default": "LC1isIdentifiedBy"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property describes the naming or identification of any real world item by a name or any other identifier. \n\nThis property is intended for identifiers in general use, which form part of the world the model intends to describe, and not merely for internal database identifiers which are specific to a technical system, unless these latter also have a more general use outside the technical context. This property includes in particular identification by mathematical expressions such as coordinate systems used for the identification of instances of E53 Place. The property does not reveal anything about when, where and by whom this identifier was used. A more detailed representation can be made using the fully developed (i.e. indirect) path through E15 Identifier Assignment.\n[Scope Note for P1 is identified by (identifies)CIDOC CRM version 5.1.2]\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC1isIdentifiedBy"
-    },
-    {
-      "id": "property92",
-      "equivalent": [],
-      "range": "class45",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class107",
-      "label": {
-        "": "L11HadOutput",
-        "default": "L11HadOutput"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property associates an instance of BC56 Digital Measurement  Event with an instance of BC23 Digital Object which is the output of the activity."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#L11HadOutput"
-    },
-    {
-      "id": "property86",
-      "equivalent": [],
-      "range": "class49",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class56",
-      "label": {
-        "": "LXhasType",
-        "default": "LXhasType"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property allows sub typing of MarineTLO entities - a form of specialisation \u2013 through the use of a terminological hierarchy, or thesaurus."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LXhasType"
-    },
-    {
-      "id": "property104",
-      "equivalent": [],
-      "range": "class90",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class79",
-      "label": {
-        "": "P14CarriedOutBy",
-        "default": "P14CarriedOutBy"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property describes the active participation of an E39 Actor in an E7 Activity. \n\nIt implies causal or legal responsibility. The P14.1 in the role of property of the property allows the nature of an Actor\u2019s participation to be specified.\nExamples:\t\n1)the painting of the Sistine Chapel (E7)  carried out by Michaelangelo Buonaroti (E21) in the role of master craftsman (E55)\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P14CarriedOutBy"
-    },
-    {
-      "id": "property100",
-      "equivalent": [],
-      "range": "class28",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class37",
-      "label": {
-        "": "P7TookPlaceAt",
-        "default": "P7TookPlaceAt"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property describes the spatial location of an instance of E4 Period. \n\nThe related E53 Place should be seen as an approximation of the geographical area within which the phenomena that characterise the period in question occurred. P7took place at (witnessed) does not convey any meaning other than spatial positioning (generally on the surface of the earth).  For example, the period \u201cRévolution française\u201d can be said to have taken place in \u201cFrance\u201d, the \u201cVictorian\u201d period, may be said to have taken place in \u201cBritain\u201d and its colonies, as well as other parts of Europe and north America.\nA period can take place at multiple locations.\nExamples: \t\n1) the period \u201cRévolution française\u201d (E4) took place at France (E53)\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P7TookPlaceAt"
-    },
-    {
-      "id": "property188",
-      "equivalent": [],
-      "range": "class49",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class38",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property189",
-      "equivalent": [],
-      "range": "class49",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class95",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property184",
-      "equivalent": [],
-      "range": "class87",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class66",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property185",
-      "equivalent": [],
-      "range": "class87",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class47",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property186",
-      "equivalent": [],
-      "range": "class46",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class60",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property187",
-      "equivalent": [],
-      "range": "class46",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class62",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property180",
-      "equivalent": [],
-      "range": "class39",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class94",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property181",
-      "equivalent": [],
-      "range": "class39",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class93",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property182",
-      "equivalent": [],
-      "range": "class90",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class104",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property119",
-      "equivalent": [],
-      "range": "class35",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class81",
-      "label": {
-        "": "LCproduces",
-        "default": "LCproduces"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property associates an instance of BC61 Capture Activity with the instance of BC57 Capture."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LCproduces"
-    },
-    {
-      "id": "property109",
-      "equivalent": [],
-      "inverse": "property117",
-      "range": "class88",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class59",
-      "label": {
-        "": "P40WasObservedIn",
-        "default": "P40WasObservedIn"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property records the dimension that was observed in an E16 Measurement Event.\nE54 Dimension can be any quantifiable aspect of E70 Thing. Weight, image colour depth and monetary value are dimensions in this sense. One measurement activity may determine more than one dimension of one object.\nDimensions may be determined either by direct observation or using recorded evidence. In the latter case the measured Thing does not need to be present or extant.\nEven though knowledge of the value of a dimension requires measurement, the dimension may be an object of discourse prior to, or even without, any measurement being made.\nExamples:\t\n1) 31 August 1997 measurement of height of silver cup 232 (E16) observed dimension silver cup 232 height (E54) has unit mm (E58), has value 224 (E60)\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P40WasObservedIn"
-    },
-    {
-      "id": "property183",
-      "equivalent": [],
-      "range": "class87",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class91",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property90",
-      "equivalent": [],
-      "range": "class49",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class91",
-      "label": {
-        "": "LX3isAboutConcept",
-        "default": "LX3isAboutConcept"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property documents that an instance of BC17 Conceptual Object is a subject of an instance of BT1 TLO Entity Type."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LX3isAboutConcept"
-    },
-    {
-      "id": "property108",
-      "equivalent": [],
-      "range": "class31",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class37",
-      "label": {
-        "": "P4HasTime-Span",
-        "default": "P4HasTime-Span"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property describes the temporal confinement of an instance of an E2 Temporal Entity.\n\nThe related E52 Time-Span is understood as the real Time-Span during which the phenomena were active, which make up the temporal entity instance. It does not convey any other meaning than a positioning on the \u201ctime-line\u201d of chronology. The Time-Span in turn is approximated by a set of dates (E61 Time Primitive). A temporal entity can have in reality only one Time-Span, but there may exist alternative opinions about it, which we would express by assigning multiple Time-Spans. Related temporal entities may share a Time-Span. Time-Spans may have completely unknown dates but other descriptions by which we can infer knowledge.\nExamples: \t\n1) the Yalta Conference (E7) has time-span Yalta Conference time-span (E52) \n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P4HasTime-Span"
-    },
-    {
-      "id": "property93",
-      "equivalent": [],
-      "range": "class56",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class58",
-      "label": {
-        "": "P141Assigned",
-        "default": "P141Assigned"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property indicates the attribute that was assigned or the item that was related to the item denoted by a property P140 assigned attribute to in an Attribute assignment action.\nExamples:\t\n1)\tFebruary 1997 Current Ownership Assessment of Martin Doerr\u2019s silver cup (E13) assigned Martin Doerr (E21)\n2)\t01 June 1997 Identifier Assignment of the silver cup donated by Martin Doerr (E15) assigned object identifier 232\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P141Assigned"
-    },
-    {
-      "id": "property179",
-      "equivalent": [],
-      "range": "class39",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class50",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property177",
-      "equivalent": [],
-      "range": "class48",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class73",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property178",
-      "equivalent": [],
-      "range": "class48",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class63",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property95",
-      "equivalent": [],
-      "range": "class80",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class107",
-      "label": {
-        "": "O21Triggers",
-        "default": "O21Triggers"
-      },
-      "attributes": ["external"],
-      "comment": {},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#O21Triggers"
-    },
-    {
-      "id": "property175",
-      "equivalent": [],
-      "range": "class48",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class82",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property176",
-      "equivalent": [],
-      "range": "class48",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class33",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property173",
-      "equivalent": [],
-      "range": "class79",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class67",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property174",
-      "equivalent": [],
-      "range": "class48",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class52",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property171",
-      "equivalent": [],
-      "range": "class79",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class58",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property172",
-      "equivalent": [],
-      "range": "class79",
+      "range": "class92",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
@@ -1087,246 +117,38 @@
       "comment": {}
     },
     {
-      "id": "property170",
+      "id": "property368",
       "equivalent": [],
-      "range": "class47",
+      "inverse": "property357",
+      "range": "class73",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class34",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property121",
-      "equivalent": [],
-      "range": "datatype28",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class56",
-      "label": {"default": "P3HasNote"},
-      "attributes": [],
-      "comment": {"en": "This property associates an entity to MarineTLO Environment with  abstraction levels where it is defined.  "},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P3HasNote"
-    },
-    {
-      "id": "property159",
-      "equivalent": [],
-      "range": "class56",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class31",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property96",
-      "equivalent": [],
-      "range": "class90",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class65",
+      "domain": "class134",
       "label": {
-        "": "P105RightHeldBy",
-        "default": "P105RightHeldBy"
+        "iriBased": "LC4refersTo",
+        "unset": "LC4refersTo"
       },
       "attributes": ["external"],
-      "comment": {"": "This property identifies the E39 Actor who holds the instances of E30 Right to an E72 Legal Object.\nIt is a superproperty of P52 has current owner (is current owner of) because ownership is a right that is held on the owned object.\n\nP105 right held by (has right on) is a shortcut of the fully developed path from E72 Legal Object through P104 is subject to (applies to), E30 Right, P75 possesses (is possessed by) to E39 Actor.\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P105RightHeldBy"
+      "comment": {"unset": "This property documents that a BC18 Proposition makes a statement about an instance of BC1 TLO Entity."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC4refersTo"
     },
     {
-      "id": "property162",
+      "id": "property452",
       "equivalent": [],
-      "range": "class97",
+      "range": "class92",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class57",
+      "domain": "class138",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property163",
+      "id": "property453",
       "equivalent": [],
-      "range": "class97",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class89",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property164",
-      "equivalent": [],
-      "range": "class97",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class54",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property165",
-      "equivalent": [],
-      "range": "class97",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class96",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property166",
-      "equivalent": [],
-      "range": "class28",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class96",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property167",
-      "equivalent": [],
-      "range": "class98",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class87",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property168",
-      "equivalent": [],
-      "range": "class42",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class41",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property169",
-      "equivalent": [],
-      "range": "class42",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class100",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property87",
-      "equivalent": [],
-      "range": "class71",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class59",
-      "label": {
-        "": "P90hasValue",
-        "default": "P90hasValue"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property allows an E54 Dimension to be approximated by an E60 Number primitive.\n\nExamples:\t\n1) height of silver cup 232 (E54) has value 226 (E60)\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P90hasValue"
-    },
-    {
-      "id": "property85",
-      "equivalent": [],
-      "range": "class99",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class59",
-      "label": {
-        "": "P91HasUnit",
-        "default": "P91HasUnit"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property shows the type of unit an E54 Dimension was expressed in.\n\nExamples:\t\n1) height of silver cup 232 (E54) has unit mm (E58)\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P91HasUnit"
-    },
-    {
-      "id": "property160",
-      "equivalent": [],
-      "range": "class36",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class80",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property161",
-      "equivalent": [],
-      "range": "class97",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class72",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property107",
-      "equivalent": [],
-      "range": "class46",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class30",
-      "label": {
-        "": "LC2hasAppellation",
-        "default": "LC2hasAppellation"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property associates an instance of BC1 TLO Entity with an instance of BC30 Appellation\nThis property is intended for names in general use. The property does not reveal anything about when, where and by whom this name was used. A more detailed representation can be made using the fully developed (i.e. indirect) path through BC46 Identifier Assignment.\n"},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC2hasAppellation"
-    },
-    {
-      "id": "property120",
-      "equivalent": [],
-      "range": "class74",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class38",
-      "label": {
-        "": "LX1isIdentifiedBy",
-        "default": "LX1isIdentifiedBy"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property describes the types of identifiers, names or labels of any marineTLO item type."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LX1isIdentifiedBy"
-    },
-    {
-      "id": "property149",
-      "equivalent": [],
-      "range": "class95",
+      "range": "class81",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
@@ -1336,61 +158,65 @@
       "comment": {}
     },
     {
-      "id": "property103",
+      "id": "property454",
       "equivalent": [],
-      "range": "class66",
+      "range": "class81",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class80",
+      "domain": "class91",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property455",
+      "equivalent": [],
+      "range": "class81",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class135",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property362",
+      "equivalent": [],
+      "range": "class89",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class92",
       "label": {
-        "": "L12FHappenedOnDevice",
-        "default": "L12FHappenedOnDevice"
+        "iriBased": "LX2hasAppellation",
+        "unset": "LX2hasAppellation"
       },
       "attributes": ["external"],
-      "comment": {"": "This property associates an instance of BC56 Digital Measurement  Event with the instance of BC58 Digital Device that had used."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#L12FHappenedOnDevice"
+      "comment": {"unset": "This property associates an instance of BT1 TLO Entity Type with an instance of BC7 Appellation."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LX2hasAppellation"
     },
     {
-      "id": "property148",
+      "id": "property360",
       "equivalent": [],
-      "range": "class95",
+      "range": "class144",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": [],
-      "domain": "class55",
-      "label": {},
-      "attributes": [],
-      "comment": {}
+      "superproperty": ["property354"],
+      "domain": "class85",
+      "label": {
+        "iriBased": "LXusuallyIsBioticComponentOf",
+        "unset": "LXusuallyIsBioticComponentOf"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LXusuallyIsBioticComponentOf"
     },
     {
-      "id": "property153",
+      "id": "property459",
       "equivalent": [],
-      "range": "class55",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class39",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property154",
-      "equivalent": [],
-      "range": "class56",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class71",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property151",
-      "equivalent": [],
-      "range": "class88",
+      "range": "class113",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
@@ -1400,9 +226,336 @@
       "comment": {}
     },
     {
-      "id": "property152",
+      "id": "property458",
       "equivalent": [],
-      "range": "class55",
+      "range": "class73",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class140",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property457",
+      "equivalent": [],
+      "range": "class73",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class141",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property456",
+      "equivalent": [],
+      "range": "class73",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class133",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property461",
+      "equivalent": [],
+      "range": "class132",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class78",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property460",
+      "equivalent": [],
+      "range": "class113",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class119",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property375",
+      "equivalent": [],
+      "range": "class85",
+      "disjoint": [],
+      "subproperty": [
+        "property369",
+        "property351"
+      ],
+      "superproperty": [],
+      "domain": "class85",
+      "label": {
+        "iriBased": "LTusuallyFeedingOn",
+        "unset": "LTusuallyFeedingOn"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTusuallyFeedingOn"
+    },
+    {
+      "id": "property380",
+      "equivalent": [],
+      "inverse": "property372",
+      "range": "class102",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property361"],
+      "domain": "class131",
+      "label": {
+        "iriBased": "P40ObservedDimension",
+        "unset": "P40ObservedDimension"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property records the dimension that was observed in an E16 Measurement Event.\nE54 Dimension can be any quantifiable aspect of E70 Thing. Weight, image colour depth and monetary value are dimensions in this sense. One measurement activity may determine more than one dimension of one object.\nDimensions may be determined either by direct observation or using recorded evidence. In the latter case the measured Thing does not need to be present or extant.\nEven though knowledge of the value of a dimension requires measurement, the dimension may be an object of discourse prior to, or even without, any measurement being made.\nExamples:\t\n1) 31 August 1997 measurement of height of silver cup 232 (E16) observed dimension silver cup 232 height (E54) has unit mm (E58), has value 224 (E60)\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P40ObservedDimension"
+    },
+    {
+      "id": "property365",
+      "equivalent": [],
+      "range": "class81",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class122",
+      "label": {
+        "iriBased": "P125UsedObjectOfType",
+        "unset": "P125UsedObjectOfType"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property defines the kind of objects used in an E7 Activity, when the specific instance is either unknown or not of interest, such as use of \"a hammer\"."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P125UsedObjectOfType"
+    },
+    {
+      "id": "property369",
+      "equivalent": [],
+      "inverse": "property351",
+      "range": "thing11",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property375"],
+      "domain": "thing11",
+      "label": {
+        "iriBased": "LTusuallyIsPredatorOf",
+        "unset": "LTusuallyIsPredatorOf"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property connects the types of predators with their prey type."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTusuallyIsPredatorOf"
+    },
+    {
+      "id": "property428",
+      "equivalent": [],
+      "range": "class140",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class139",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property427",
+      "equivalent": [],
+      "range": "class140",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class97",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property429",
+      "equivalent": [],
+      "range": "class71",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class139",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property424",
+      "equivalent": [],
+      "range": "class140",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class115",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property423",
+      "equivalent": [],
+      "range": "class79",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class123",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property426",
+      "equivalent": [],
+      "range": "class140",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class132",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property357",
+      "equivalent": [],
+      "inverse": "property368",
+      "range": "class134",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class73",
+      "label": {
+        "iriBased": "LC4isReferredBy",
+        "unset": "LC4isReferredBy"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property documents that a BC18 Proposition makes a statement about an instance of BC1 TLO Entity."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC4isReferredBy"
+    },
+    {
+      "id": "property425",
+      "equivalent": [],
+      "range": "class140",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class100",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property376",
+      "equivalent": [],
+      "range": "class105",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class99",
+      "label": {
+        "iriBased": "P102HasTitle",
+        "unset": "P102HasTitle"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property describes the E35 Title applied to an instance of E71 Man-Made Thing. The E55 Type of Title is assigned in a sub property.\n\nThe P102.1 has type property of the P102 has title (is title of) property enables the relationship between the Title and the thing to be further clarified, for example, if the Title was a given Title, a supplied Title etc.\nIt allows any man-made material or immaterial thing to be given a Title. It is possible to imagine a Title being created without a specific object in mind.\nExamples:\t\n1) the first book of the Old Testament (E33) has title \u201cGenesis\u201d (E35) has type translated (E55).\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P102HasTitle"
+    },
+    {
+      "id": "property430",
+      "equivalent": [],
+      "range": "class141",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class130",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property431",
+      "equivalent": [],
+      "range": "class85",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class84",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property432",
+      "equivalent": [],
+      "range": "class85",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class143",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property433",
+      "equivalent": [],
+      "range": "class90",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class77",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property377",
+      "equivalent": [],
+      "range": "class122",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class122",
+      "label": {
+        "iriBased": "P34Continued",
+        "unset": "P34Continued"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property identifies the E18 Physical Thing that was assessed during an E14 Condition Assessment activity. \nConditions may be assessed either by direct observation or using recorded evidence. In the latter case the E18 Physical Thing does not need to be present or extant.\nExamples:\t\n1) 1997 condition assessment of the silver collection (E14) concerned silver cup 232 (E22)\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P34Continued"
+    },
+    {
+      "id": "property364",
+      "equivalent": [],
+      "inverse": "property352",
+      "range": "class99",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class131",
+      "label": {
+        "iriBased": "P39Measured",
+        "unset": "P39Measured"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property associates an instance of E16 Measurement with the instance of E1 CRM Entity to which it applied. An instance of E1 CRM Entity may be measured more than once. Material and immaterial things and processes may be measured, e.g. the number of words in a text, or the duration of an event.\nExamples:\t\n1) 31 August 1997 measurement of height of silver cup 232 (E16) measured silver cup 232 (E22).\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P39Measured"
+    },
+    {
+      "id": "property395",
+      "equivalent": [],
+      "range": "class134",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
@@ -1412,90 +565,213 @@
       "comment": {}
     },
     {
-      "id": "property157",
+      "id": "property396",
       "equivalent": [],
-      "range": "class56",
+      "range": "class134",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class28",
+      "domain": "class83",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property89",
+      "id": "property393",
       "equivalent": [],
-      "inverse": "property101",
-      "range": "class88",
+      "range": "class134",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class56",
-      "label": {
-        "": "P39Measured",
-        "default": "P39WasMeasuredBy"
-      },
-      "attributes": ["external"],
-      "comment": {},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P39WasMeasuredBy"
-    },
-    {
-      "id": "property158",
-      "equivalent": [],
-      "range": "class56",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class37",
+      "domain": "class120",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property115",
+      "id": "property394",
       "equivalent": [],
-      "range": "class42",
+      "range": "class134",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class42",
-      "label": {
-        "": "LTbelongsTo",
-        "default": "LTbelongsTo"
-      },
-      "attributes": ["external"],
-      "comment": {"": "This property associates a type of biotic element with the type of biotic element which is part of or member."},
-      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTbelongsTo"
-    },
-    {
-      "id": "property155",
-      "equivalent": [],
-      "range": "class56",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class59",
+      "domain": "class142",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property156",
+      "id": "property399",
       "equivalent": [],
-      "range": "class56",
+      "range": "class100",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class30",
+      "domain": "class87",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property150",
+      "id": "property397",
       "equivalent": [],
-      "range": "class37",
+      "range": "class101",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class126",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property398",
+      "equivalent": [],
+      "range": "class101",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class131",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property439",
+      "equivalent": [],
+      "range": "class91",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class76",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property438",
+      "equivalent": [],
+      "range": "class91",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class125",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property391",
+      "equivalent": [],
+      "range": "class134",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class88",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property437",
+      "equivalent": [],
+      "range": "class91",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class95",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property392",
+      "equivalent": [],
+      "range": "class134",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class117",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property436",
+      "equivalent": [],
+      "range": "class122",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class110",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property435",
+      "equivalent": [],
+      "range": "class122",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class124",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property390",
+      "equivalent": [],
+      "range": "class134",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class96",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property434",
+      "equivalent": [],
+      "range": "class122",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class101",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property443",
+      "equivalent": [],
+      "range": "class82",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class137",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property444",
+      "equivalent": [],
+      "range": "class82",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class136",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property441",
+      "equivalent": [],
+      "range": "class91",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
@@ -1505,20 +781,744 @@
       "comment": {}
     },
     {
-      "id": "property88",
+      "id": "property442",
       "equivalent": [],
-      "inverse": "property106",
-      "range": "thing7",
+      "range": "class82",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property112"],
-      "domain": "thing7",
+      "superproperty": [],
+      "domain": "class93",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property440",
+      "equivalent": [],
+      "range": "class91",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class116",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property379",
+      "equivalent": [],
+      "range": "class96",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class122",
       "label": {
-        "": "LTusuallyIsPreyOf",
-        "default": "LTusuallyIsPreyOf"
+        "iriBased": "P33UsedSpecificTechnique",
+        "unset": "P33UsedSpecificTechnique"
       },
       "attributes": ["external"],
-      "comment": {"": "This property connects the types of predators with their prey type."},
+      "comment": {"unset": "This property identifies a specific instance of E29 Design or Procedure in order to carry out an \t\tinstance of E7 Activity or parts of it. \n\nThe property differs from P32 used general technique (was technique of) in that P33 refers to an instance of E29 Design or Procedure, which is a concrete information object in its own right rather than simply being a term or a method known by tradition. \n\nTypical examples would include intervention plans for conservation or the construction plans of a building\nExamples:\t\n1) Ornamentation of silver cup 232  (E11) used specific technique \u2018Instructions for golden chase work by A N Other\u2019 (E29)\n2) Rebuilding of Reichstag (E11) used specific technique Architectural plans by Foster and Partners (E29)\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P33UsedSpecificTechnique"
+    },
+    {
+      "id": "property361",
+      "equivalent": [],
+      "range": "thing11",
+      "disjoint": [],
+      "subproperty": ["property380"],
+      "superproperty": [],
+      "domain": "thing11",
+      "label": {"iriBased": "topObjectProperty"},
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.w3.org/2002/07/owl#topObjectProperty"
+    },
+    {
+      "id": "property373",
+      "equivalent": [],
+      "range": "thing11",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing11",
+      "label": {
+        "iriBased": "LT2usuallyConsistsOf",
+        "unset": "LT2usuallyConsistsOf"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property describes the types of components   of an Temporal Phenomenon Type."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LT2usuallyConsistsOf"
+    },
+    {
+      "id": "property381",
+      "equivalent": [],
+      "range": "class117",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class73",
+      "label": {
+        "iriBased": "LC1isIdentifiedBy",
+        "unset": "LC1isIdentifiedBy"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property describes the naming or identification of any real world item by a name or any other identifier. \n\nThis property is intended for identifiers in general use, which form part of the world the model intends to describe, and not merely for internal database identifiers which are specific to a technical system, unless these latter also have a more general use outside the technical context. This property includes in particular identification by mathematical expressions such as coordinate systems used for the identification of instances of E53 Place. The property does not reveal anything about when, where and by whom this identifier was used. A more detailed representation can be made using the fully developed (i.e. indirect) path through E15 Identifier Assignment.\n[Scope Note for P1 is identified by (identifies)CIDOC CRM version 5.1.2]\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC1isIdentifiedBy"
+    },
+    {
+      "id": "property355",
+      "equivalent": [],
+      "range": "class88",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class150",
+      "label": {
+        "iriBased": "L11HadOutput",
+        "unset": "L11HadOutput"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property associates an instance of BC56 Digital Measurement  Event with an instance of BC23 Digital Object which is the output of the activity."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#L11HadOutput"
+    },
+    {
+      "id": "property401",
+      "equivalent": [],
+      "range": "class135",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class112",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property402",
+      "equivalent": [],
+      "range": "class135",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class85",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property349",
+      "equivalent": [],
+      "range": "class92",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class99",
+      "label": {
+        "iriBased": "LXhasType",
+        "unset": "LXhasType"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property allows sub typing of MarineTLO entities - a form of specialisation \u2013 through the use of a terminological hierarchy, or thesaurus."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LXhasType"
+    },
+    {
+      "id": "property403",
+      "equivalent": [],
+      "range": "class135",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class104",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property404",
+      "equivalent": [],
+      "range": "class110",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class79",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property405",
+      "equivalent": [],
+      "range": "class145",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class94",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property406",
+      "equivalent": [],
+      "range": "class145",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class111",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property407",
+      "equivalent": [],
+      "range": "class88",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class128",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property408",
+      "equivalent": [],
+      "range": "class88",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class108",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property387",
+      "equivalent": [],
+      "range": "class134",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class89",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property367",
+      "equivalent": [],
+      "range": "class133",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class122",
+      "label": {
+        "iriBased": "P14CarriedOutBy",
+        "unset": "P14CarriedOutBy"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property describes the active participation of an E39 Actor in an E7 Activity. \n\nIt implies causal or legal responsibility. The P14.1 in the role of property of the property allows the nature of an Actor\u2019s participation to be specified.\nExamples:\t\n1)the painting of the Sistine Chapel (E7)  carried out by Michaelangelo Buonaroti (E21) in the role of master craftsman (E55)\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P14CarriedOutBy"
+    },
+    {
+      "id": "property409",
+      "equivalent": [],
+      "range": "class78",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class145",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property386",
+      "equivalent": [],
+      "range": "class149",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class122",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property389",
+      "equivalent": [],
+      "range": "class134",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class121",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property363",
+      "equivalent": [],
+      "range": "class71",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class80",
+      "label": {
+        "iriBased": "P7TookPlaceAt",
+        "unset": "P7TookPlaceAt"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property describes the spatial location of an instance of E4 Period. \n\nThe related E53 Place should be seen as an approximation of the geographical area within which the phenomena that characterise the period in question occurred. P7took place at (witnessed) does not convey any meaning other than spatial positioning (generally on the surface of the earth).  For example, the period \u201cRévolution française\u201d can be said to have taken place in \u201cFrance\u201d, the \u201cVictorian\u201d period, may be said to have taken place in \u201cBritain\u201d and its colonies, as well as other parts of Europe and north America.\nA period can take place at multiple locations.\nExamples: \t\n1) the period \u201cRévolution française\u201d (E4) took place at France (E53)\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P7TookPlaceAt"
+    },
+    {
+      "id": "property388",
+      "equivalent": [],
+      "range": "class134",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class72",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property385",
+      "equivalent": [],
+      "range": "class149",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class144",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property382",
+      "equivalent": [],
+      "range": "class78",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class124",
+      "label": {
+        "iriBased": "LCproduces",
+        "unset": "LCproduces"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property associates an instance of BC61 Capture Activity with the instance of BC57 Capture."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LCproduces"
+    },
+    {
+      "id": "property372",
+      "equivalent": [],
+      "inverse": "property380",
+      "range": "class131",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class102",
+      "label": {
+        "iriBased": "P40WasObservedIn",
+        "unset": "P40WasObservedIn"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property records the dimension that was observed in an E16 Measurement Event.\nE54 Dimension can be any quantifiable aspect of E70 Thing. Weight, image colour depth and monetary value are dimensions in this sense. One measurement activity may determine more than one dimension of one object.\nDimensions may be determined either by direct observation or using recorded evidence. In the latter case the measured Thing does not need to be present or extant.\nEven though knowledge of the value of a dimension requires measurement, the dimension may be an object of discourse prior to, or even without, any measurement being made.\nExamples:\t\n1) 31 August 1997 measurement of height of silver cup 232 (E16) observed dimension silver cup 232 height (E54) has unit mm (E58), has value 224 (E60)\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P40WasObservedIn"
+    },
+    {
+      "id": "property411",
+      "equivalent": [],
+      "range": "class138",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class98",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property353",
+      "equivalent": [],
+      "range": "class92",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class134",
+      "label": {
+        "iriBased": "LX3isAboutConcept",
+        "unset": "LX3isAboutConcept"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property documents that an instance of BC17 Conceptual Object is a subject of an instance of BT1 TLO Entity Type."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LX3isAboutConcept"
+    },
+    {
+      "id": "property410",
+      "equivalent": [],
+      "range": "class78",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class113",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property414",
+      "equivalent": [],
+      "range": "class131",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class150",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property415",
+      "equivalent": [],
+      "range": "class98",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class118",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property412",
+      "equivalent": [],
+      "range": "class138",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class129",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property413",
+      "equivalent": [],
+      "range": "class80",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class149",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property418",
+      "equivalent": [],
+      "range": "class99",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class102",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property419",
+      "equivalent": [],
+      "range": "class99",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class73",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property416",
+      "equivalent": [],
+      "range": "class98",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class82",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property371",
+      "equivalent": [],
+      "range": "class74",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class80",
+      "label": {
+        "iriBased": "P4HasTime-Span",
+        "unset": "P4HasTime-Span"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property describes the temporal confinement of an instance of an E2 Temporal Entity.\n\nThe related E52 Time-Span is understood as the real Time-Span during which the phenomena were active, which make up the temporal entity instance. It does not convey any other meaning than a positioning on the \u201ctime-line\u201d of chronology. The Time-Span in turn is approximated by a set of dates (E61 Time Primitive). A temporal entity can have in reality only one Time-Span, but there may exist alternative opinions about it, which we would express by assigning multiple Time-Spans. Related temporal entities may share a Time-Span. Time-Spans may have completely unknown dates but other descriptions by which we can infer knowledge.\nExamples: \t\n1) the Yalta Conference (E7) has time-span Yalta Conference time-span (E52) \n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P4HasTime-Span"
+    },
+    {
+      "id": "property417",
+      "equivalent": [],
+      "range": "class99",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class114",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property356",
+      "equivalent": [],
+      "range": "class99",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class101",
+      "label": {
+        "iriBased": "P141Assigned",
+        "unset": "P141Assigned"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property indicates the attribute that was assigned or the item that was related to the item denoted by a property P140 assigned attribute to in an Attribute assignment action.\nExamples:\t\n1)\tFebruary 1997 Current Ownership Assessment of Martin Doerr\u2019s silver cup (E13) assigned Martin Doerr (E21)\n2)\t01 June 1997 Identifier Assignment of the silver cup donated by Martin Doerr (E15) assigned object identifier 232\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P141Assigned"
+    },
+    {
+      "id": "property358",
+      "equivalent": [],
+      "range": "class123",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class150",
+      "label": {
+        "iriBased": "O21Triggers",
+        "unset": "O21Triggers"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#O21Triggers"
+    },
+    {
+      "id": "property422",
+      "equivalent": [],
+      "range": "class99",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class74",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property421",
+      "equivalent": [],
+      "range": "class99",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class80",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property420",
+      "equivalent": [],
+      "range": "class99",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class71",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property384",
+      "equivalent": [],
+      "range": "datatype31",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class99",
+      "label": {"iriBased": "P3HasNote"},
+      "attributes": [],
+      "comment": {"en": "This property associates an entity to MarineTLO Environment with  abstraction levels where it is defined.  "},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P3HasNote"
+    },
+    {
+      "id": "property359",
+      "equivalent": [],
+      "range": "class133",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class108",
+      "label": {
+        "iriBased": "P105RightHeldBy",
+        "unset": "P105RightHeldBy"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property identifies the E39 Actor who holds the instances of E30 Right to an E72 Legal Object.\nIt is a superproperty of P52 has current owner (is current owner of) because ownership is a right that is held on the owned object.\n\nP105 right held by (has right on) is a shortcut of the fully developed path from E72 Legal Object through P104 is subject to (applies to), E30 Right, P75 possesses (is possessed by) to E39 Actor.\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P105RightHeldBy"
+    },
+    {
+      "id": "property350",
+      "equivalent": [],
+      "range": "class114",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class102",
+      "label": {
+        "iriBased": "P90hasValue",
+        "unset": "P90hasValue"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property allows an E54 Dimension to be approximated by an E60 Number primitive.\n\nExamples:\t\n1) height of silver cup 232 (E54) has value 226 (E60)\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P90hasValue"
+    },
+    {
+      "id": "property348",
+      "equivalent": [],
+      "range": "class142",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class102",
+      "label": {
+        "iriBased": "P91HasUnit",
+        "unset": "P91HasUnit"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property shows the type of unit an E54 Dimension was expressed in.\n\nExamples:\t\n1) height of silver cup 232 (E54) has unit mm (E58)\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P91HasUnit"
+    },
+    {
+      "id": "property370",
+      "equivalent": [],
+      "range": "class89",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class73",
+      "label": {
+        "iriBased": "LC2hasAppellation",
+        "unset": "LC2hasAppellation"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property associates an instance of BC1 TLO Entity with an instance of BC30 Appellation\nThis property is intended for names in general use. The property does not reveal anything about when, where and by whom this name was used. A more detailed representation can be made using the fully developed (i.e. indirect) path through BC46 Identifier Assignment.\n"},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC2hasAppellation"
+    },
+    {
+      "id": "property383",
+      "equivalent": [],
+      "range": "class117",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class81",
+      "label": {
+        "iriBased": "LX1isIdentifiedBy",
+        "unset": "LX1isIdentifiedBy"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property describes the types of identifiers, names or labels of any marineTLO item type."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LX1isIdentifiedBy"
+    },
+    {
+      "id": "property366",
+      "equivalent": [],
+      "range": "class109",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class123",
+      "label": {
+        "iriBased": "L12FHappenedOnDevice",
+        "unset": "L12FHappenedOnDevice"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property associates an instance of BC56 Digital Measurement  Event with the instance of BC58 Digital Device that had used."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#L12FHappenedOnDevice"
+    },
+    {
+      "id": "property352",
+      "equivalent": [],
+      "inverse": "property364",
+      "range": "class131",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class99",
+      "label": {
+        "iriBased": "P39WasMeasuredBy",
+        "unset": "P39Measured"
+      },
+      "attributes": ["external"],
+      "comment": {},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P39WasMeasuredBy"
+    },
+    {
+      "id": "property378",
+      "equivalent": [],
+      "range": "class85",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class85",
+      "label": {
+        "iriBased": "LTbelongsTo",
+        "unset": "LTbelongsTo"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property associates a type of biotic element with the type of biotic element which is part of or member."},
+      "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTbelongsTo"
+    },
+    {
+      "id": "property400",
+      "equivalent": [],
+      "range": "class100",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class127",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property351",
+      "equivalent": [],
+      "inverse": "property369",
+      "range": "thing11",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property375"],
+      "domain": "thing11",
+      "label": {
+        "iriBased": "LTusuallyIsPreyOf",
+        "unset": "LTusuallyIsPreyOf"
+      },
+      "attributes": ["external"],
+      "comment": {"unset": "This property connects the types of predators with their prey type."},
       "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTusuallyIsPreyOf"
     }
   ],
@@ -1529,21 +1529,21 @@
     "individualCount": 6,
     "objectPropertyCount": 36,
     "classCount": 80,
-    "axiomCount": 701,
+    "axiomCount": 702,
     "nodeCount": 81
   },
   "classAttribute": [
     {
       "complement": [],
-      "id": "class53",
+      "id": "class96",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class91"],
+      "superClasses": ["class134"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "DesignAndProcedure",
-        "default": "DesignAndProcedure"
+        "iriBased": "DesignAndProcedure",
+        "unset": "DesignAndProcedure"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1552,15 +1552,15 @@
     },
     {
       "complement": [],
-      "id": "class83",
+      "id": "class126",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class58"],
+      "superClasses": ["class101"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Identifier Assignment",
-        "default": "IdentifierAssignment"
+        "iriBased": "IdentifierAssignment",
+        "unset": "Identifier Assignment"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1569,15 +1569,15 @@
     },
     {
       "complement": [],
-      "id": "class50",
+      "id": "class93",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class39"],
+      "superClasses": ["class82"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Identifier Assignment Type",
-        "default": "IdentifierAssignmentType"
+        "iriBased": "IdentifierAssignmentType",
+        "unset": "Identifier Assignment Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1586,18 +1586,18 @@
     },
     {
       "complement": [],
-      "id": "class106",
+      "id": "class149",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class37"],
+      "superClasses": ["class80"],
       "union": [],
       "subClasses": [
-        "class101",
-        "class79"
+        "class144",
+        "class122"
       ],
       "label": {
-        "": "Event",
-        "default": "Event"
+        "iriBased": "Event",
+        "unset": "Event"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1606,15 +1606,15 @@
     },
     {
       "complement": [],
-      "id": "class43",
+      "id": "class86",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class38"],
+      "superClasses": ["class81"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Actor Type",
-        "default": "ActorType"
+        "iriBased": "ActorType",
+        "unset": "Actor Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1623,26 +1623,26 @@
     },
     {
       "complement": [],
-      "id": "class91",
+      "id": "class134",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class87"],
+      "superClasses": ["class130"],
       "union": [],
       "subClasses": [
-        "class46",
-        "class29",
-        "class78",
-        "class53",
-        "class45",
-        "class74",
-        "class77",
-        "class99",
-        "class32",
-        "class40"
+        "class89",
+        "class72",
+        "class121",
+        "class96",
+        "class88",
+        "class117",
+        "class120",
+        "class142",
+        "class75",
+        "class83"
       ],
       "label": {
-        "": "ConceptualObject",
-        "default": "ConceptualObject"
+        "iriBased": "ConceptualObject",
+        "unset": "ConceptualObject"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1651,15 +1651,15 @@
     },
     {
       "complement": [],
-      "id": "class59",
+      "id": "class102",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class56"],
+      "superClasses": ["class99"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Dimension",
-        "default": "Dimension"
+        "iriBased": "Dimension",
+        "unset": "Dimension"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1668,18 +1668,18 @@
     },
     {
       "complement": [],
-      "id": "class58",
+      "id": "class101",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class79"],
+      "superClasses": ["class122"],
       "union": [],
       "subClasses": [
-        "class83",
-        "class88"
+        "class126",
+        "class131"
       ],
       "label": {
-        "": "Attribute Assignment",
-        "default": "AttributeAssignment"
+        "iriBased": "AttributeAssignment",
+        "unset": "Attribute Assignment"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1688,15 +1688,15 @@
     },
     {
       "complement": [],
-      "id": "class62",
+      "id": "class105",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class46"],
+      "superClasses": ["class89"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Title",
-        "default": "Title"
+        "iriBased": "Title",
+        "unset": "Title"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1705,18 +1705,18 @@
     },
     {
       "complement": [],
-      "id": "class57",
+      "id": "class100",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class97"],
+      "superClasses": ["class140"],
       "union": [],
       "subClasses": [
-        "class44",
-        "class84"
+        "class87",
+        "class127"
       ],
       "label": {
-        "": "Biotic Element",
-        "default": "BioticElement"
+        "iriBased": "BioticElement",
+        "unset": "Biotic Element"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1725,15 +1725,15 @@
     },
     {
       "complement": [],
-      "id": "class61",
+      "id": "class104",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class92"],
+      "superClasses": ["class135"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Equipment Type",
-        "default": "EquipmentType"
+        "iriBased": "EquipmentType",
+        "unset": "Equipment Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1742,19 +1742,19 @@
     },
     {
       "complement": [],
-      "id": "class92",
+      "id": "class135",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class38"],
+      "superClasses": ["class81"],
       "union": [],
       "subClasses": [
-        "class69",
-        "class42",
-        "class61"
+        "class112",
+        "class85",
+        "class104"
       ],
       "label": {
-        "": "Physical Thing Type",
-        "default": "PhysicalThingType"
+        "iriBased": "PhysicalThingType",
+        "unset": "Physical Thing Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1763,15 +1763,15 @@
     },
     {
       "complement": [],
-      "id": "class60",
+      "id": "class103",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class46"],
+      "superClasses": ["class89"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Proposition",
-        "default": "Proposition"
+        "iriBased": "Proposition",
+        "unset": "Proposition"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1780,15 +1780,15 @@
     },
     {
       "complement": [],
-      "id": "class52",
+      "id": "class95",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class48"],
+      "superClasses": ["class91"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Appellation Type",
-        "default": "AppellationType"
+        "iriBased": "AppellationType",
+        "unset": "Appellation Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1797,15 +1797,15 @@
     },
     {
       "complement": [],
-      "id": "class44",
+      "id": "class87",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class57"],
+      "superClasses": ["class100"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Biological Part",
-        "default": "BiologicalPart"
+        "iriBased": "BiologicalPart",
+        "unset": "Biological Part"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1814,15 +1814,15 @@
     },
     {
       "complement": [],
-      "id": "class67",
+      "id": "class110",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class79"],
+      "superClasses": ["class122"],
       "union": [],
-      "subClasses": ["class36"],
+      "subClasses": ["class79"],
       "label": {
-        "": "E65 Creation",
-        "default": "E65Creation"
+        "iriBased": "E65Creation",
+        "unset": "E65 Creation"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1831,16 +1831,16 @@
     },
     {
       "complement": [],
-      "id": "class102",
+      "id": "class145",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class35"],
+      "superClasses": ["class78"],
       "union": [],
       "subClasses": [
-        "class51",
-        "class68"
+        "class94",
+        "class111"
       ],
-      "label": {"default": "ByCatch"},
+      "label": {"iriBased": "ByCatch"},
       "attributes": [],
       "instances": 0,
       "comment": {},
@@ -1848,13 +1848,13 @@
     },
     {
       "complement": [],
-      "id": "class51",
+      "id": "class94",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class102"],
+      "superClasses": ["class145"],
       "union": [],
       "subClasses": [],
-      "label": {"default": "NonTargetByCatch"},
+      "label": {"iriBased": "NonTargetByCatch"},
       "attributes": [],
       "instances": 0,
       "comment": {},
@@ -1862,18 +1862,18 @@
     },
     {
       "complement": [],
-      "id": "class45",
+      "id": "class88",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class91"],
+      "superClasses": ["class134"],
       "union": [],
       "subClasses": [
-        "class85",
-        "class65"
+        "class128",
+        "class108"
       ],
       "label": {
-        "": "DigitalObject",
-        "default": "DigitalObject"
+        "iriBased": "DigitalObject",
+        "unset": "DigitalObject"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1882,18 +1882,18 @@
     },
     {
       "complement": [],
-      "id": "class35",
+      "id": "class78",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class89"],
+      "superClasses": ["class132"],
       "union": [],
       "subClasses": [
-        "class102",
-        "class70"
+        "class145",
+        "class113"
       ],
       "label": {
-        "": "Capture",
-        "default": "Capture"
+        "iriBased": "Capture",
+        "unset": "Capture"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1902,15 +1902,15 @@
     },
     {
       "complement": [],
-      "id": "class104",
+      "id": "class147",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class90"],
+      "superClasses": ["class133"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Person",
-        "default": "Person"
+        "iriBased": "Person",
+        "unset": "Person"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1919,18 +1919,18 @@
     },
     {
       "complement": [],
-      "id": "class96",
+      "id": "class139",
       "intersection": [],
       "equivalent": [],
       "superClasses": [
-        "class97",
-        "class28"
+        "class140",
+        "class71"
       ],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Water Area",
-        "default": "WaterArea"
+        "iriBased": "WaterArea",
+        "unset": "Water Area"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1939,18 +1939,18 @@
     },
     {
       "complement": [],
-      "id": "class95",
+      "id": "class138",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class49"],
+      "superClasses": ["class92"],
       "union": [],
       "subClasses": [
-        "class55",
-        "class86"
+        "class98",
+        "class129"
       ],
       "label": {
-        "": "Temporal Phenomenon Type",
-        "default": "TemporalPhenomenonType"
+        "iriBased": "TemporalPhenomenonType",
+        "unset": "Temporal Phenomenon Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1959,15 +1959,15 @@
     },
     {
       "complement": [],
-      "id": "class74",
+      "id": "class117",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class91"],
+      "superClasses": ["class134"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Identifier",
-        "default": "Identifier"
+        "iriBased": "Identifier",
+        "unset": "Identifier"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1976,15 +1976,15 @@
     },
     {
       "complement": [],
-      "id": "class37",
+      "id": "class80",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class56"],
+      "superClasses": ["class99"],
       "union": [],
-      "subClasses": ["class106"],
+      "subClasses": ["class149"],
       "label": {
-        "": "Temporal Phenomenon",
-        "default": "TemporalPhenomenon"
+        "iriBased": "TemporalPhenomenon",
+        "unset": "Temporal Phenomenon"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1993,15 +1993,15 @@
     },
     {
       "complement": [],
-      "id": "class99",
+      "id": "class142",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class91"],
+      "superClasses": ["class134"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "MeasurementUnit",
-        "default": "MeasurementUnit"
+        "iriBased": "MeasurementUnit",
+        "unset": "MeasurementUnit"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2010,15 +2010,15 @@
     },
     {
       "complement": [],
-      "id": "class34",
+      "id": "class77",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class47"],
+      "superClasses": ["class90"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Man Made Object",
-        "default": "ManMadeObject"
+        "iriBased": "ManMadeObject",
+        "unset": "Man Made Object"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2027,13 +2027,13 @@
     },
     {
       "complement": [],
-      "id": "class64",
+      "id": "class107",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class70"],
+      "superClasses": ["class113"],
       "union": [],
       "subClasses": [],
-      "label": {"default": "NonTargetCatch"},
+      "label": {"iriBased": "NonTargetCatch"},
       "attributes": [],
       "instances": 0,
       "comment": {},
@@ -2041,13 +2041,13 @@
     },
     {
       "complement": [],
-      "id": "class68",
+      "id": "class111",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class102"],
+      "superClasses": ["class145"],
       "union": [],
       "subClasses": [],
-      "label": {"default": "TargetByCatch"},
+      "label": {"iriBased": "TargetByCatch"},
       "attributes": [],
       "instances": 0,
       "comment": {},
@@ -2055,15 +2055,15 @@
     },
     {
       "complement": [],
-      "id": "class107",
+      "id": "class150",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class88"],
+      "superClasses": ["class131"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Digital Measurement Event",
-        "default": "DigitalMeasurementEvent"
+        "iriBased": "DigitalMeasurementEvent",
+        "unset": "Digital Measurement Event"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2072,15 +2072,15 @@
     },
     {
       "complement": [],
-      "id": "class88",
+      "id": "class131",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class58"],
+      "superClasses": ["class101"],
       "union": [],
-      "subClasses": ["class107"],
+      "subClasses": ["class150"],
       "label": {
-        "": "Measurement",
-        "default": "Measurement"
+        "iriBased": "Measurement",
+        "unset": "Measurement"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2089,18 +2089,18 @@
     },
     {
       "complement": [],
-      "id": "class55",
+      "id": "class98",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class95"],
+      "superClasses": ["class138"],
       "union": [],
       "subClasses": [
-        "class75",
-        "class39"
+        "class118",
+        "class82"
       ],
       "label": {
-        "": "Events Type",
-        "default": "EventsType"
+        "iriBased": "EventsType",
+        "unset": "Events Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2109,22 +2109,22 @@
     },
     {
       "complement": [],
-      "id": "class56",
+      "id": "class99",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [
+        "class114",
+        "class102",
+        "class73",
         "class71",
-        "class59",
-        "class30",
-        "class28",
-        "class37",
-        "class31"
+        "class80",
+        "class74"
       ],
       "label": {
-        "": "MarineTLOEntity",
-        "default": "MarineTLOEntity"
+        "iriBased": "MarineTLOEntity",
+        "unset": "MarineTLOEntity"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2133,15 +2133,15 @@
     },
     {
       "complement": [],
-      "id": "class78",
+      "id": "class121",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class91"],
+      "superClasses": ["class134"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Dataset",
-        "default": "Dataset"
+        "iriBased": "Dataset",
+        "unset": "Dataset"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2150,15 +2150,15 @@
     },
     {
       "complement": [],
-      "id": "class29",
+      "id": "class72",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class91"],
+      "superClasses": ["class134"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Database",
-        "default": "Database"
+        "iriBased": "Database",
+        "unset": "Database"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2167,15 +2167,15 @@
     },
     {
       "complement": [],
-      "id": "class36",
+      "id": "class79",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class67"],
+      "superClasses": ["class110"],
       "union": [],
-      "subClasses": ["class80"],
+      "subClasses": ["class123"],
       "label": {
-        "": "D7 Digital Machine Event",
-        "default": "D7DigitalMachineEvent"
+        "iriBased": "D7DigitalMachineEvent",
+        "unset": "D7 Digital Machine Event"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2184,15 +2184,15 @@
     },
     {
       "complement": [],
-      "id": "class71",
+      "id": "class114",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class56"],
+      "superClasses": ["class99"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "BC60Value",
-        "default": "BC60Value"
+        "iriBased": "BC60Value",
+        "unset": "BC60Value"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2201,21 +2201,21 @@
     },
     {
       "complement": [],
-      "id": "class97",
+      "id": "class140",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class30"],
+      "superClasses": ["class73"],
       "union": [],
       "subClasses": [
-        "class72",
-        "class57",
-        "class89",
-        "class54",
-        "class96"
+        "class115",
+        "class100",
+        "class132",
+        "class97",
+        "class139"
       ],
       "label": {
-        "": "Physical Thing",
-        "default": "PhysicalThing"
+        "iriBased": "PhysicalThing",
+        "unset": "Physical Thing"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2224,15 +2224,15 @@
     },
     {
       "complement": [],
-      "id": "class69",
+      "id": "class112",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class92"],
+      "superClasses": ["class135"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Abiotic Element Type",
-        "default": "AbioticElementType"
+        "iriBased": "AbioticElementType",
+        "unset": "Abiotic Element Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2241,15 +2241,15 @@
     },
     {
       "complement": [],
-      "id": "class28",
+      "id": "class71",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class56"],
+      "superClasses": ["class99"],
       "union": [],
-      "subClasses": ["class96"],
+      "subClasses": ["class139"],
       "label": {
-        "": "Place",
-        "default": "Place"
+        "iriBased": "Place",
+        "unset": "Place"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2258,15 +2258,15 @@
     },
     {
       "complement": [],
-      "id": "class98",
+      "id": "class141",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class30"],
+      "superClasses": ["class73"],
       "union": [],
-      "subClasses": ["class87"],
+      "subClasses": ["class130"],
       "label": {
-        "": "E70_Thing",
-        "default": "E70_Thing"
+        "iriBased": "E70_Thing",
+        "unset": "E70_Thing"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2275,15 +2275,15 @@
     },
     {
       "complement": [],
-      "id": "class80",
+      "id": "class123",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class36"],
+      "superClasses": ["class79"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "D10 Software Execution",
-        "default": "D10SoftwareExecution"
+        "iriBased": "D10SoftwareExecution",
+        "unset": "D10 Software Execution"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2292,15 +2292,15 @@
     },
     {
       "complement": [],
-      "id": "class65",
+      "id": "class108",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class45"],
+      "superClasses": ["class88"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Software\n",
-        "default": "Software"
+        "iriBased": "Software",
+        "unset": "Software\n"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2309,18 +2309,18 @@
     },
     {
       "complement": [],
-      "id": "class42",
+      "id": "class85",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class92"],
+      "superClasses": ["class135"],
       "union": [],
       "subClasses": [
-        "class41",
-        "class100"
+        "class84",
+        "class143"
       ],
       "label": {
-        "": "Biotic Element Type",
-        "default": "BioticElementType"
+        "iriBased": "BioticElementType",
+        "unset": "Biotic Element Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2329,15 +2329,15 @@
     },
     {
       "complement": [],
-      "id": "class75",
+      "id": "class118",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class55"],
+      "superClasses": ["class98"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Ecosystem Type",
-        "default": "EcosystemType"
+        "iriBased": "EcosystemType",
+        "unset": "Ecosystem Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2346,15 +2346,15 @@
     },
     {
       "complement": [],
-      "id": "class54",
+      "id": "class97",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class97"],
+      "superClasses": ["class140"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Equipment",
-        "default": "Equipment"
+        "iriBased": "Equipment",
+        "unset": "Equipment"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2363,15 +2363,15 @@
     },
     {
       "complement": [],
-      "id": "class72",
+      "id": "class115",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class97"],
+      "superClasses": ["class140"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Abiotic Element",
-        "default": "AbioticElement"
+        "iriBased": "AbioticElement",
+        "unset": "Abiotic Element"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2380,15 +2380,15 @@
     },
     {
       "complement": [],
-      "id": "class47",
+      "id": "class90",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class87"],
+      "superClasses": ["class130"],
       "union": [],
-      "subClasses": ["class34"],
+      "subClasses": ["class77"],
       "label": {
-        "": "Physical Man Made Thing",
-        "default": "PhysicalManMadeThing"
+        "iriBased": "PhysicalManMadeThing",
+        "unset": "Physical Man Made Thing"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2397,19 +2397,19 @@
     },
     {
       "complement": [],
-      "id": "class79",
+      "id": "class122",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class106"],
+      "superClasses": ["class149"],
       "union": [],
       "subClasses": [
-        "class58",
-        "class81",
-        "class67"
+        "class101",
+        "class124",
+        "class110"
       ],
       "label": {
-        "": "Human Activity",
-        "default": "HumanActivity"
+        "iriBased": "HumanActivity",
+        "unset": "Human Activity"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2418,21 +2418,21 @@
     },
     {
       "complement": [],
-      "id": "class48",
+      "id": "class91",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class38"],
+      "superClasses": ["class81"],
       "union": [],
       "subClasses": [
-        "class52",
-        "class82",
-        "class33",
-        "class73",
-        "class63"
+        "class95",
+        "class125",
+        "class76",
+        "class116",
+        "class106"
       ],
       "label": {
-        "": "Conceptual Object Type",
-        "default": "ConceptualObjectType"
+        "iriBased": "ConceptualObjectType",
+        "unset": "Conceptual Object Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2441,15 +2441,15 @@
     },
     {
       "complement": [],
-      "id": "class93",
+      "id": "class136",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class39"],
+      "superClasses": ["class82"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Scientific Activity Type",
-        "default": "ScientificActivityType"
+        "iriBased": "ScientificActivityType",
+        "unset": "Scientific Activity Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2458,15 +2458,15 @@
     },
     {
       "complement": [],
-      "id": "class82",
+      "id": "class125",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class48"],
+      "superClasses": ["class91"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Digital Object Type",
-        "default": "DigitalObjectType"
+        "iriBased": "DigitalObjectType",
+        "unset": "Digital Object Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2475,13 +2475,13 @@
     },
     {
       "complement": [],
-      "id": "class105",
+      "id": "class148",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
-      "label": {"default": "Class"},
+      "label": {"iriBased": "Class"},
       "attributes": ["external"],
       "instances": 0,
       "comment": {},
@@ -2489,15 +2489,15 @@
     },
     {
       "complement": [],
-      "id": "class101",
+      "id": "class144",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class106"],
+      "superClasses": ["class149"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Ecosystem",
-        "default": "Ecosystem"
+        "iriBased": "Ecosystem",
+        "unset": "Ecosystem"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2506,15 +2506,15 @@
     },
     {
       "complement": [],
-      "id": "class85",
+      "id": "class128",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class45"],
+      "superClasses": ["class88"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "D15RepositoryObject",
-        "default": "D15RepositoryObject"
+        "iriBased": "D15RepositoryObject",
+        "unset": "D15RepositoryObject"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2523,15 +2523,15 @@
     },
     {
       "complement": [],
-      "id": "class32",
+      "id": "class75",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class91"],
+      "superClasses": ["class134"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Publication",
-        "default": "Publication"
+        "iriBased": "Publication",
+        "unset": "Publication"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2540,19 +2540,19 @@
     },
     {
       "complement": [],
-      "id": "class39",
+      "id": "class82",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class55"],
+      "superClasses": ["class98"],
       "union": [],
       "subClasses": [
-        "class50",
-        "class94",
-        "class93"
+        "class93",
+        "class137",
+        "class136"
       ],
       "label": {
-        "": "Human Activity Type",
-        "default": "HumanActivityType"
+        "iriBased": "HumanActivityType",
+        "unset": "Human Activity Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2561,15 +2561,15 @@
     },
     {
       "complement": [],
-      "id": "class81",
+      "id": "class124",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class79"],
+      "superClasses": ["class122"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Capture Activity",
-        "default": "Capture_Activity"
+        "iriBased": "Capture_Activity",
+        "unset": "Capture Activity"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2578,13 +2578,13 @@
     },
     {
       "complement": [],
-      "id": "class76",
+      "id": "class119",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class70"],
+      "superClasses": ["class113"],
       "union": [],
       "subClasses": [],
-      "label": {"default": "TargetCatch"},
+      "label": {"iriBased": "TargetCatch"},
       "attributes": [],
       "instances": 0,
       "comment": {},
@@ -2592,15 +2592,15 @@
     },
     {
       "complement": [],
-      "id": "class84",
+      "id": "class127",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class57"],
+      "superClasses": ["class100"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Marine Animal",
-        "default": "MarineAnimal"
+        "iriBased": "MarineAnimal",
+        "unset": "Marine Animal"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2609,15 +2609,15 @@
     },
     {
       "complement": [],
-      "id": "class90",
+      "id": "class133",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class30"],
+      "superClasses": ["class73"],
       "union": [],
-      "subClasses": ["class104"],
+      "subClasses": ["class147"],
       "label": {
-        "": "Actor",
-        "default": "Actor"
+        "iriBased": "Actor",
+        "unset": "Actor"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2626,15 +2626,15 @@
     },
     {
       "complement": [],
-      "id": "class77",
+      "id": "class120",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class91"],
+      "superClasses": ["class134"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Image",
-        "default": "Image"
+        "iriBased": "Image",
+        "unset": "Image"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2643,19 +2643,19 @@
     },
     {
       "complement": [],
-      "id": "class87",
+      "id": "class130",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class98"],
+      "superClasses": ["class141"],
       "union": [],
       "subClasses": [
-        "class91",
-        "class66",
-        "class47"
+        "class134",
+        "class109",
+        "class90"
       ],
       "label": {
-        "": "ManMadeThings",
-        "default": "ManMadeThings"
+        "iriBased": "ManMadeThings",
+        "unset": "ManMadeThings"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2664,15 +2664,15 @@
     },
     {
       "complement": [],
-      "id": "class41",
+      "id": "class84",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class42"],
+      "superClasses": ["class85"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Biological Part Type",
-        "default": "BiologicalPartType"
+        "iriBased": "BiologicalPartType",
+        "unset": "Biological Part Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2681,15 +2681,15 @@
     },
     {
       "complement": [],
-      "id": "class66",
+      "id": "class109",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class87"],
+      "superClasses": ["class130"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "D8 Digital Device",
-        "default": "D8DigitalDevice"
+        "iriBased": "D8DigitalDevice",
+        "unset": "D8 Digital Device"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2698,15 +2698,15 @@
     },
     {
       "complement": [],
-      "id": "class40",
+      "id": "class83",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class91"],
+      "superClasses": ["class134"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Repository Object",
-        "default": "RepositoryObject"
+        "iriBased": "RepositoryObject",
+        "unset": "Repository Object"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2715,15 +2715,15 @@
     },
     {
       "complement": [],
-      "id": "class94",
+      "id": "class137",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class39"],
+      "superClasses": ["class82"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Industrial Activity Type",
-        "default": "IndustrialActivityType"
+        "iriBased": "IndustrialActivityType",
+        "unset": "Industrial Activity Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2732,18 +2732,18 @@
     },
     {
       "complement": [],
-      "id": "class46",
+      "id": "class89",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class91"],
+      "superClasses": ["class134"],
       "union": [],
       "subClasses": [
-        "class60",
-        "class62"
+        "class103",
+        "class105"
       ],
       "label": {
-        "": "Appellation",
-        "default": "Appellation"
+        "iriBased": "Appellation",
+        "unset": "Appellation"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2752,13 +2752,13 @@
     },
     {
       "complement": [],
-      "id": "class103",
+      "id": "class146",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
-      "label": {"default": "Person"},
+      "label": {"iriBased": "Person"},
       "attributes": ["external"],
       "instances": 3,
       "comment": {},
@@ -2766,15 +2766,15 @@
     },
     {
       "complement": [],
-      "id": "class100",
+      "id": "class143",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class42"],
+      "superClasses": ["class85"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Marine Animal Type",
-        "default": "MarineAnimalType"
+        "iriBased": "MarineAnimalType",
+        "unset": "Marine Animal Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2783,15 +2783,15 @@
     },
     {
       "complement": [],
-      "id": "class86",
+      "id": "class129",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class95"],
+      "superClasses": ["class138"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Legislative Zone Type",
-        "default": "LegislativeZoneType"
+        "iriBased": "LegislativeZoneType",
+        "unset": "Legislative Zone Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2800,18 +2800,18 @@
     },
     {
       "complement": [],
-      "id": "class49",
+      "id": "class92",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [
-        "class38",
-        "class95"
+        "class81",
+        "class138"
       ],
       "label": {
-        "": "MarineTLO Entity Type",
-        "default": "MarineTLOEntityType"
+        "iriBased": "MarineTLOEntityType",
+        "unset": "MarineTLO Entity Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2820,15 +2820,15 @@
     },
     {
       "complement": [],
-      "id": "class33",
+      "id": "class76",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class48"],
+      "superClasses": ["class91"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Language",
-        "default": "Language"
+        "iriBased": "Language",
+        "unset": "Language"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2837,19 +2837,19 @@
     },
     {
       "complement": [],
-      "id": "class38",
+      "id": "class81",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class49"],
+      "superClasses": ["class92"],
       "union": [],
       "subClasses": [
-        "class43",
-        "class48",
-        "class92"
+        "class86",
+        "class91",
+        "class135"
       ],
       "label": {
-        "": "Persistent Item Type",
-        "default": "PersistentItemType"
+        "iriBased": "PersistentItemType",
+        "unset": "Persistent Item Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2858,15 +2858,15 @@
     },
     {
       "complement": [],
-      "id": "class63",
+      "id": "class106",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class48"],
+      "superClasses": ["class91"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Visual Type",
-        "default": "VisualType"
+        "iriBased": "VisualType",
+        "unset": "Visual Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2875,19 +2875,19 @@
     },
     {
       "complement": [],
-      "id": "class30",
+      "id": "class73",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class56"],
+      "superClasses": ["class99"],
       "union": [],
       "subClasses": [
-        "class90",
-        "class98",
-        "class97"
+        "class133",
+        "class141",
+        "class140"
       ],
       "label": {
-        "": "PersistentItem",
-        "default": "PersistentItem"
+        "iriBased": "PersistentItem",
+        "unset": "PersistentItem"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2896,16 +2896,16 @@
     },
     {
       "complement": [],
-      "id": "class70",
+      "id": "class113",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class35"],
+      "superClasses": ["class78"],
       "union": [],
       "subClasses": [
-        "class64",
-        "class76"
+        "class107",
+        "class119"
       ],
-      "label": {"default": "Catch"},
+      "label": {"iriBased": "Catch"},
       "attributes": [],
       "instances": 0,
       "comment": {},
@@ -2913,15 +2913,15 @@
     },
     {
       "complement": [],
-      "id": "class73",
+      "id": "class116",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class48"],
+      "superClasses": ["class91"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Scientific Data Type",
-        "default": "ScientificDataType"
+        "iriBased": "ScientificDataType",
+        "unset": "Scientific Data Type"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2930,15 +2930,15 @@
     },
     {
       "complement": [],
-      "id": "class31",
+      "id": "class74",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class56"],
+      "superClasses": ["class99"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Time-Span",
-        "default": "Time-Span"
+        "iriBased": "Time-Span",
+        "unset": "Time-Span"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2947,15 +2947,15 @@
     },
     {
       "complement": [],
-      "id": "class89",
+      "id": "class132",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class97"],
+      "superClasses": ["class140"],
       "union": [],
-      "subClasses": ["class35"],
+      "subClasses": ["class78"],
       "label": {
-        "": "Collection",
-        "default": "Collection"
+        "iriBased": "Collection",
+        "unset": "Collection"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -2963,215 +2963,23 @@
       "uri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Collection"
     },
     {
-      "id": "thing8",
+      "id": "thing12",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing7",
+      "id": "thing11",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     }
   ],
   "class": [
     {
-      "id": "class53",
-      "type": "externalclass"
-    },
-    {
-      "id": "class83",
-      "type": "externalclass"
-    },
-    {
-      "id": "class50",
-      "type": "externalclass"
-    },
-    {
-      "id": "class106",
-      "type": "externalclass"
-    },
-    {
-      "id": "class43",
-      "type": "externalclass"
-    },
-    {
-      "id": "class91",
-      "type": "externalclass"
-    },
-    {
-      "id": "class59",
-      "type": "externalclass"
-    },
-    {
-      "id": "class58",
-      "type": "externalclass"
-    },
-    {
-      "id": "class62",
-      "type": "externalclass"
-    },
-    {
-      "id": "class57",
-      "type": "externalclass"
-    },
-    {
-      "id": "class61",
-      "type": "externalclass"
-    },
-    {
-      "id": "class92",
-      "type": "externalclass"
-    },
-    {
-      "id": "class60",
-      "type": "externalclass"
-    },
-    {
-      "id": "class52",
-      "type": "externalclass"
-    },
-    {
-      "id": "class44",
-      "type": "externalclass"
-    },
-    {
-      "id": "class67",
-      "type": "externalclass"
-    },
-    {
-      "id": "class102",
-      "type": "owl:Class"
-    },
-    {
-      "id": "class51",
-      "type": "owl:Class"
-    },
-    {
-      "id": "class45",
-      "type": "externalclass"
-    },
-    {
-      "id": "class35",
-      "type": "externalclass"
-    },
-    {
-      "id": "class104",
-      "type": "externalclass"
-    },
-    {
       "id": "class96",
       "type": "externalclass"
     },
     {
-      "id": "class95",
-      "type": "externalclass"
-    },
-    {
-      "id": "class74",
-      "type": "externalclass"
-    },
-    {
-      "id": "class37",
-      "type": "externalclass"
-    },
-    {
-      "id": "class99",
-      "type": "externalclass"
-    },
-    {
-      "id": "class34",
-      "type": "externalclass"
-    },
-    {
-      "id": "class64",
-      "type": "owl:Class"
-    },
-    {
-      "id": "class68",
-      "type": "owl:Class"
-    },
-    {
-      "id": "class107",
-      "type": "externalclass"
-    },
-    {
-      "id": "class88",
-      "type": "externalclass"
-    },
-    {
-      "id": "class55",
-      "type": "externalclass"
-    },
-    {
-      "id": "class56",
-      "type": "externalclass"
-    },
-    {
-      "id": "class78",
-      "type": "externalclass"
-    },
-    {
-      "id": "class29",
-      "type": "externalclass"
-    },
-    {
-      "id": "class36",
-      "type": "externalclass"
-    },
-    {
-      "id": "class71",
-      "type": "externalclass"
-    },
-    {
-      "id": "class97",
-      "type": "externalclass"
-    },
-    {
-      "id": "class69",
-      "type": "externalclass"
-    },
-    {
-      "id": "class28",
-      "type": "externalclass"
-    },
-    {
-      "id": "class98",
-      "type": "externalclass"
-    },
-    {
-      "id": "class80",
-      "type": "externalclass"
-    },
-    {
-      "id": "class65",
-      "type": "externalclass"
-    },
-    {
-      "id": "class42",
-      "type": "externalclass"
-    },
-    {
-      "id": "class75",
-      "type": "externalclass"
-    },
-    {
-      "id": "class54",
-      "type": "externalclass"
-    },
-    {
-      "id": "class72",
-      "type": "externalclass"
-    },
-    {
-      "id": "class47",
-      "type": "externalclass"
-    },
-    {
-      "id": "class79",
-      "type": "externalclass"
-    },
-    {
-      "id": "class48",
+      "id": "class126",
       "type": "externalclass"
     },
     {
@@ -3179,79 +2987,7 @@
       "type": "externalclass"
     },
     {
-      "id": "class82",
-      "type": "externalclass"
-    },
-    {
-      "id": "class105",
-      "type": "externalclass"
-    },
-    {
-      "id": "class101",
-      "type": "externalclass"
-    },
-    {
-      "id": "class85",
-      "type": "externalclass"
-    },
-    {
-      "id": "class32",
-      "type": "externalclass"
-    },
-    {
-      "id": "class39",
-      "type": "externalclass"
-    },
-    {
-      "id": "class81",
-      "type": "externalclass"
-    },
-    {
-      "id": "class76",
-      "type": "owl:Class"
-    },
-    {
-      "id": "class84",
-      "type": "externalclass"
-    },
-    {
-      "id": "class90",
-      "type": "externalclass"
-    },
-    {
-      "id": "class77",
-      "type": "externalclass"
-    },
-    {
-      "id": "class87",
-      "type": "externalclass"
-    },
-    {
-      "id": "class41",
-      "type": "externalclass"
-    },
-    {
-      "id": "class66",
-      "type": "externalclass"
-    },
-    {
-      "id": "class40",
-      "type": "externalclass"
-    },
-    {
-      "id": "class94",
-      "type": "externalclass"
-    },
-    {
-      "id": "class46",
-      "type": "externalclass"
-    },
-    {
-      "id": "class103",
-      "type": "externalclass"
-    },
-    {
-      "id": "class100",
+      "id": "class149",
       "type": "externalclass"
     },
     {
@@ -3259,35 +2995,251 @@
       "type": "externalclass"
     },
     {
-      "id": "class49",
+      "id": "class134",
       "type": "externalclass"
     },
     {
-      "id": "class33",
+      "id": "class102",
       "type": "externalclass"
     },
     {
-      "id": "class38",
+      "id": "class101",
       "type": "externalclass"
     },
     {
-      "id": "class63",
+      "id": "class105",
       "type": "externalclass"
     },
     {
-      "id": "class30",
+      "id": "class100",
       "type": "externalclass"
     },
     {
-      "id": "class70",
+      "id": "class104",
+      "type": "externalclass"
+    },
+    {
+      "id": "class135",
+      "type": "externalclass"
+    },
+    {
+      "id": "class103",
+      "type": "externalclass"
+    },
+    {
+      "id": "class95",
+      "type": "externalclass"
+    },
+    {
+      "id": "class87",
+      "type": "externalclass"
+    },
+    {
+      "id": "class110",
+      "type": "externalclass"
+    },
+    {
+      "id": "class145",
       "type": "owl:Class"
     },
     {
-      "id": "class73",
+      "id": "class94",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class88",
       "type": "externalclass"
     },
     {
-      "id": "class31",
+      "id": "class78",
+      "type": "externalclass"
+    },
+    {
+      "id": "class147",
+      "type": "externalclass"
+    },
+    {
+      "id": "class139",
+      "type": "externalclass"
+    },
+    {
+      "id": "class138",
+      "type": "externalclass"
+    },
+    {
+      "id": "class117",
+      "type": "externalclass"
+    },
+    {
+      "id": "class80",
+      "type": "externalclass"
+    },
+    {
+      "id": "class142",
+      "type": "externalclass"
+    },
+    {
+      "id": "class77",
+      "type": "externalclass"
+    },
+    {
+      "id": "class107",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class111",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class150",
+      "type": "externalclass"
+    },
+    {
+      "id": "class131",
+      "type": "externalclass"
+    },
+    {
+      "id": "class98",
+      "type": "externalclass"
+    },
+    {
+      "id": "class99",
+      "type": "externalclass"
+    },
+    {
+      "id": "class121",
+      "type": "externalclass"
+    },
+    {
+      "id": "class72",
+      "type": "externalclass"
+    },
+    {
+      "id": "class79",
+      "type": "externalclass"
+    },
+    {
+      "id": "class114",
+      "type": "externalclass"
+    },
+    {
+      "id": "class140",
+      "type": "externalclass"
+    },
+    {
+      "id": "class112",
+      "type": "externalclass"
+    },
+    {
+      "id": "class71",
+      "type": "externalclass"
+    },
+    {
+      "id": "class141",
+      "type": "externalclass"
+    },
+    {
+      "id": "class123",
+      "type": "externalclass"
+    },
+    {
+      "id": "class108",
+      "type": "externalclass"
+    },
+    {
+      "id": "class85",
+      "type": "externalclass"
+    },
+    {
+      "id": "class118",
+      "type": "externalclass"
+    },
+    {
+      "id": "class97",
+      "type": "externalclass"
+    },
+    {
+      "id": "class115",
+      "type": "externalclass"
+    },
+    {
+      "id": "class90",
+      "type": "externalclass"
+    },
+    {
+      "id": "class122",
+      "type": "externalclass"
+    },
+    {
+      "id": "class91",
+      "type": "externalclass"
+    },
+    {
+      "id": "class136",
+      "type": "externalclass"
+    },
+    {
+      "id": "class125",
+      "type": "externalclass"
+    },
+    {
+      "id": "class148",
+      "type": "externalclass"
+    },
+    {
+      "id": "class144",
+      "type": "externalclass"
+    },
+    {
+      "id": "class128",
+      "type": "externalclass"
+    },
+    {
+      "id": "class75",
+      "type": "externalclass"
+    },
+    {
+      "id": "class82",
+      "type": "externalclass"
+    },
+    {
+      "id": "class124",
+      "type": "externalclass"
+    },
+    {
+      "id": "class119",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class127",
+      "type": "externalclass"
+    },
+    {
+      "id": "class133",
+      "type": "externalclass"
+    },
+    {
+      "id": "class120",
+      "type": "externalclass"
+    },
+    {
+      "id": "class130",
+      "type": "externalclass"
+    },
+    {
+      "id": "class84",
+      "type": "externalclass"
+    },
+    {
+      "id": "class109",
+      "type": "externalclass"
+    },
+    {
+      "id": "class83",
+      "type": "externalclass"
+    },
+    {
+      "id": "class137",
       "type": "externalclass"
     },
     {
@@ -3295,487 +3247,536 @@
       "type": "externalclass"
     },
     {
-      "id": "thing8",
+      "id": "class146",
+      "type": "externalclass"
+    },
+    {
+      "id": "class143",
+      "type": "externalclass"
+    },
+    {
+      "id": "class129",
+      "type": "externalclass"
+    },
+    {
+      "id": "class92",
+      "type": "externalclass"
+    },
+    {
+      "id": "class76",
+      "type": "externalclass"
+    },
+    {
+      "id": "class81",
+      "type": "externalclass"
+    },
+    {
+      "id": "class106",
+      "type": "externalclass"
+    },
+    {
+      "id": "class73",
+      "type": "externalclass"
+    },
+    {
+      "id": "class113",
+      "type": "owl:Class"
+    },
+    {
+      "id": "class116",
+      "type": "externalclass"
+    },
+    {
+      "id": "class74",
+      "type": "externalclass"
+    },
+    {
+      "id": "class132",
+      "type": "externalclass"
+    },
+    {
+      "id": "thing12",
       "type": "owl:Thing"
     },
     {
-      "id": "thing7",
+      "id": "thing11",
       "type": "owl:Thing"
     }
   ],
   "property": [
     {
-      "id": "property137",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property91",
+      "id": "property354",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property138",
+      "id": "property446",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property139",
+      "id": "property445",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property111",
+      "id": "property448",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property447",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property374",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property105",
+      "id": "property449",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property450",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property451",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property368",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property145",
+      "id": "property452",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property144",
+      "id": "property453",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property147",
+      "id": "property454",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property146",
+      "id": "property455",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property141",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property99",
+      "id": "property362",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property140",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property143",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property142",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property97",
+      "id": "property360",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property128",
+      "id": "property459",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property129",
+      "id": "property458",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property126",
+      "id": "property457",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property127",
+      "id": "property456",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property112",
+      "id": "property461",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property460",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property375",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property136",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property117",
+      "id": "property380",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property135",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property102",
+      "id": "property365",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property134",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property133",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property132",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property131",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property106",
+      "id": "property369",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property130",
+      "id": "property428",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property94",
+      "id": "property427",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property429",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property424",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property423",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property426",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property357",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property113",
+      "id": "property425",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property376",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property114",
+      "id": "property430",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property431",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property432",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property433",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property377",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property101",
+      "id": "property364",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property123",
+      "id": "property395",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property122",
+      "id": "property396",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property125",
+      "id": "property393",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property124",
+      "id": "property394",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property190",
+      "id": "property399",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property192",
+      "id": "property397",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property191",
+      "id": "property398",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property194",
+      "id": "property439",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property193",
+      "id": "property438",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property196",
+      "id": "property391",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property195",
+      "id": "property437",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property198",
+      "id": "property392",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property197",
+      "id": "property436",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property116",
+      "id": "property435",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property390",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property434",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property443",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property444",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property441",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property442",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property440",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property379",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property98",
+      "id": "property361",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property110",
+      "id": "property373",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property118",
+      "id": "property381",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property92",
+      "id": "property355",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property86",
+      "id": "property401",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property402",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property349",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property104",
+      "id": "property403",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property404",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property405",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property406",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property407",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property408",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property387",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property367",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property100",
+      "id": "property409",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property386",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property389",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property363",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property188",
+      "id": "property388",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property189",
+      "id": "property385",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property184",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property185",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property186",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property187",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property180",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property181",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property182",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property119",
+      "id": "property382",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property109",
+      "id": "property372",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property183",
+      "id": "property411",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property90",
+      "id": "property353",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property108",
+      "id": "property410",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property414",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property415",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property412",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property413",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property418",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property419",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property416",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property371",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property93",
+      "id": "property417",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property356",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property179",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property177",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property178",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property95",
+      "id": "property358",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property175",
+      "id": "property422",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property176",
+      "id": "property421",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property173",
+      "id": "property420",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property174",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property171",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property172",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property170",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property121",
+      "id": "property384",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property159",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property96",
+      "id": "property359",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property162",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property163",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property164",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property165",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property166",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property167",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property168",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property169",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property87",
+      "id": "property350",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property85",
+      "id": "property348",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property160",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property161",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property107",
+      "id": "property370",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property120",
+      "id": "property383",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property149",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property103",
+      "id": "property366",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property148",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property153",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property154",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property151",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property152",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property157",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property89",
+      "id": "property352",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property158",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property115",
+      "id": "property378",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property155",
+      "id": "property400",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property156",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property150",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property88",
+      "id": "property351",
       "type": "owl:objectProperty"
     }
   ],
   "datatype": [{
-    "id": "datatype28",
+    "id": "datatype31",
     "type": "rdfs:Datatype"
   }],
   "datatypeAttribute": [{
-    "id": "datatype28",
+    "id": "datatype31",
     "superClasses": [],
     "subClasses": [],
-    "label": {"default": "string"},
+    "label": {"iriBased": "string"},
     "attributes": [],
     "comment": {}
   }],
   "header": {
     "languages": [
-      "",
+      "iriBased",
+      "unset",
       "en"
     ],
     "title": {},

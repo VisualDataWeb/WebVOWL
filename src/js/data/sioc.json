@@ -1,16 +1,16 @@
 {
   "propertyAttribute": [
     {
-      "id": "property725",
+      "id": "property180",
       "equivalent": [],
-      "inverse": "property719",
-      "range": "class282",
+      "inverse": "property174",
+      "range": "class103",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class279",
+      "domain": "class100",
       "label": {
-        "default": "has_member",
+        "iriBased": "has_member",
         "en": "has member"
       },
       "attributes": [],
@@ -18,15 +18,15 @@
       "uri": "http://rdfs.org/sioc/ns#has_member"
     },
     {
-      "id": "property699",
+      "id": "property154",
       "equivalent": [],
-      "range": "thing24",
+      "range": "thing6",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property680"],
-      "domain": "thing24",
+      "superproperty": ["property135"],
+      "domain": "thing6",
       "label": {
-        "default": "links_to",
+        "iriBased": "links_to",
         "en": "links to"
       },
       "attributes": [],
@@ -34,16 +34,16 @@
       "uri": "http://rdfs.org/sioc/ns#links_to"
     },
     {
-      "id": "property707",
+      "id": "property162",
       "equivalent": [],
-      "inverse": "property710",
-      "range": "class277",
+      "inverse": "property165",
+      "range": "class98",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property723"],
-      "domain": "class277",
+      "superproperty": ["property178"],
+      "domain": "class98",
       "label": {
-        "default": "next_version",
+        "iriBased": "next_version",
         "en": "next version"
       },
       "attributes": [],
@@ -51,16 +51,16 @@
       "uri": "http://rdfs.org/sioc/ns#next_version"
     },
     {
-      "id": "property728",
+      "id": "property183",
       "equivalent": [],
-      "inverse": "property691",
-      "range": "class281",
+      "inverse": "property146",
+      "range": "class102",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing26",
+      "domain": "thing8",
       "label": {
-        "default": "scope_of",
+        "iriBased": "scope_of",
         "en": "scope of"
       },
       "attributes": [],
@@ -68,16 +68,16 @@
       "uri": "http://rdfs.org/sioc/ns#scope_of"
     },
     {
-      "id": "property703",
+      "id": "property158",
       "equivalent": [],
-      "inverse": "property733",
-      "range": "class268",
+      "inverse": "property188",
+      "range": "class89",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class282",
+      "domain": "class103",
       "label": {
-        "default": "administrator_of",
+        "iriBased": "administrator_of",
         "en": "administrator of"
       },
       "attributes": [],
@@ -85,15 +85,15 @@
       "uri": "http://rdfs.org/sioc/ns#administrator_of"
     },
     {
-      "id": "property762",
+      "id": "property217",
       "equivalent": [],
-      "range": "datatype109",
+      "range": "datatype51",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class278",
+      "domain": "class99",
       "label": {
-        "default": "num_threads",
+        "iriBased": "num_threads",
         "en": "num threads"
       },
       "attributes": [],
@@ -101,33 +101,33 @@
       "uri": "http://rdfs.org/sioc/ns#num_threads"
     },
     {
-      "id": "property747",
+      "id": "property202",
       "equivalent": [],
-      "range": "literal94",
+      "range": "literal36",
       "disjoint": [],
       "subproperty": [
-        "property739",
-        "property745",
-        "property760"
+        "property194",
+        "property200",
+        "property215"
       ],
       "superproperty": [],
-      "domain": "thing24",
-      "label": {"default": "date"},
+      "domain": "thing6",
+      "label": {"iriBased": "date"},
       "attributes": ["external"],
       "comment": {},
       "uri": "http://purl.org/dc/terms/date"
     },
     {
-      "id": "property716",
+      "id": "property171",
       "equivalent": [],
-      "inverse": "property720",
-      "range": "class282",
+      "inverse": "property175",
+      "range": "class103",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing27",
+      "domain": "thing9",
       "label": {
-        "default": "has_owner",
+        "iriBased": "has_owner",
         "en": "has owner"
       },
       "attributes": [],
@@ -135,15 +135,15 @@
       "uri": "http://rdfs.org/sioc/ns#has_owner"
     },
     {
-      "id": "property692",
+      "id": "property147",
       "equivalent": [],
-      "range": "thing28",
+      "range": "thing10",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class276",
+      "domain": "class97",
       "label": {
-        "default": "reference",
+        "iriBased": "reference",
         "en": "reference"
       },
       "attributes": ["deprecated"],
@@ -151,15 +151,15 @@
       "uri": "http://rdfs.org/sioc/ns#reference"
     },
     {
-      "id": "property684",
+      "id": "property139",
       "equivalent": [],
-      "range": "thing24",
+      "range": "thing6",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
+      "domain": "thing6",
       "label": {
-        "default": "link",
+        "iriBased": "link",
         "en": "link"
       },
       "attributes": [],
@@ -167,15 +167,15 @@
       "uri": "http://rdfs.org/sioc/ns#link"
     },
     {
-      "id": "property760",
+      "id": "property215",
       "equivalent": [],
-      "range": "literal107",
+      "range": "literal49",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property747"],
-      "domain": "thing24",
+      "superproperty": ["property202"],
+      "domain": "thing6",
       "label": {
-        "default": "last_reply_date",
+        "iriBased": "last_reply_date",
         "en": "last reply date"
       },
       "attributes": [],
@@ -183,15 +183,15 @@
       "uri": "http://rdfs.org/sioc/ns#last_reply_date"
     },
     {
-      "id": "property726",
+      "id": "property181",
       "equivalent": [],
-      "range": "thing24",
+      "range": "thing6",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
+      "domain": "thing6",
       "label": {
-        "default": "feed",
+        "iriBased": "feed",
         "en": "feed"
       },
       "attributes": [],
@@ -199,16 +199,16 @@
       "uri": "http://rdfs.org/sioc/ns#feed"
     },
     {
-      "id": "property697",
+      "id": "property152",
       "equivalent": [],
-      "inverse": "property694",
-      "range": "class280",
+      "inverse": "property149",
+      "range": "class101",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class98",
       "label": {
-        "default": "has_container",
+        "iriBased": "has_container",
         "en": "has container"
       },
       "attributes": [],
@@ -216,15 +216,15 @@
       "uri": "http://rdfs.org/sioc/ns#has_container"
     },
     {
-      "id": "property741",
+      "id": "property196",
       "equivalent": [],
-      "range": "literal88",
+      "range": "literal30",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class276",
+      "domain": "class97",
       "label": {
-        "default": "description",
+        "iriBased": "description",
         "en": "description"
       },
       "attributes": ["deprecated"],
@@ -232,15 +232,15 @@
       "uri": "http://rdfs.org/sioc/ns#description"
     },
     {
-      "id": "property744",
+      "id": "property199",
       "equivalent": [],
-      "range": "literal91",
+      "range": "literal33",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class276",
+      "domain": "class97",
       "label": {
-        "default": "title",
+        "iriBased": "title",
         "en": "title"
       },
       "attributes": ["deprecated"],
@@ -248,16 +248,16 @@
       "uri": "http://rdfs.org/sioc/ns#title"
     },
     {
-      "id": "property678",
+      "id": "property133",
       "equivalent": [],
-      "inverse": "property683",
-      "range": "class268",
+      "inverse": "property138",
+      "range": "class89",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class278",
+      "domain": "class99",
       "label": {
-        "default": "has_host",
+        "iriBased": "has_host",
         "en": "has host"
       },
       "attributes": [],
@@ -265,16 +265,16 @@
       "uri": "http://rdfs.org/sioc/ns#has_host"
     },
     {
-      "id": "property682",
+      "id": "property137",
       "equivalent": [],
-      "inverse": "property700",
-      "range": "class279",
+      "inverse": "property155",
+      "range": "class100",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class274",
+      "domain": "class95",
       "label": {
-        "default": "has_usergroup",
+        "iriBased": "has_usergroup",
         "en": "has usergroup"
       },
       "attributes": [],
@@ -282,28 +282,28 @@
       "uri": "http://rdfs.org/sioc/ns#has_usergroup"
     },
     {
-      "id": "property753",
+      "id": "property208",
       "equivalent": [],
-      "range": "literal100",
+      "range": "literal42",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
-      "label": {"default": "title"},
+      "domain": "thing6",
+      "label": {"iriBased": "title"},
       "attributes": ["external"],
       "comment": {},
       "uri": "http://purl.org/dc/terms/title"
     },
     {
-      "id": "property761",
+      "id": "property216",
       "equivalent": [],
-      "range": "literal108",
+      "range": "literal50",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
+      "domain": "thing6",
       "label": {
-        "default": "note",
+        "iriBased": "note",
         "en": "note"
       },
       "attributes": [],
@@ -311,15 +311,15 @@
       "uri": "http://rdfs.org/sioc/ns#note"
     },
     {
-      "id": "property739",
+      "id": "property194",
       "equivalent": [],
-      "range": "literal86",
+      "range": "literal28",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property747"],
-      "domain": "thing24",
+      "superproperty": ["property202"],
+      "domain": "thing6",
       "label": {
-        "default": "last_activity_date",
+        "iriBased": "last_activity_date",
         "en": "last activity date"
       },
       "attributes": [],
@@ -327,15 +327,15 @@
       "uri": "http://rdfs.org/sioc/ns#last_activity_date"
     },
     {
-      "id": "property706",
+      "id": "property161",
       "equivalent": [],
-      "range": "class277",
+      "range": "class98",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class98",
       "label": {
-        "default": "latest_version",
+        "iriBased": "latest_version",
         "en": "latest version"
       },
       "attributes": [],
@@ -343,15 +343,15 @@
       "uri": "http://rdfs.org/sioc/ns#latest_version"
     },
     {
-      "id": "property690",
+      "id": "property145",
       "equivalent": [],
-      "range": "class270",
+      "range": "class91",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class98",
       "label": {
-        "default": "embeds_knowledge",
+        "iriBased": "embeds_knowledge",
         "en": "embeds knowledge"
       },
       "attributes": [],
@@ -359,16 +359,16 @@
       "uri": "http://rdfs.org/sioc/ns#embeds_knowledge"
     },
     {
-      "id": "property694",
+      "id": "property149",
       "equivalent": [],
-      "inverse": "property697",
-      "range": "class277",
+      "inverse": "property152",
+      "range": "class98",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class280",
+      "domain": "class101",
       "label": {
-        "default": "container_of",
+        "iriBased": "container_of",
         "en": "container of"
       },
       "attributes": [],
@@ -376,16 +376,16 @@
       "uri": "http://rdfs.org/sioc/ns#container_of"
     },
     {
-      "id": "property737",
+      "id": "property192",
       "equivalent": [],
-      "inverse": "property713",
-      "range": "class282",
+      "inverse": "property168",
+      "range": "class103",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing27",
+      "domain": "thing9",
       "label": {
-        "default": "has_creator",
+        "iriBased": "has_creator",
         "en": "has creator"
       },
       "attributes": [],
@@ -393,16 +393,16 @@
       "uri": "http://rdfs.org/sioc/ns#has_creator"
     },
     {
-      "id": "property679",
+      "id": "property134",
       "equivalent": [],
-      "inverse": "property704",
-      "range": "class282",
+      "inverse": "property159",
+      "range": "class103",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class278",
+      "domain": "class99",
       "label": {
-        "default": "has_moderator",
+        "iriBased": "has_moderator",
         "en": "has moderator"
       },
       "attributes": [],
@@ -410,15 +410,15 @@
       "uri": "http://rdfs.org/sioc/ns#has_moderator"
     },
     {
-      "id": "property754",
+      "id": "property209",
       "equivalent": [],
-      "range": "literal101",
+      "range": "literal43",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class282",
+      "domain": "class103",
       "label": {
-        "default": "email_sha1",
+        "iriBased": "email_sha1",
         "en": "email sha1"
       },
       "attributes": [],
@@ -426,16 +426,16 @@
       "uri": "http://rdfs.org/sioc/ns#email_sha1"
     },
     {
-      "id": "property733",
+      "id": "property188",
       "equivalent": [],
-      "inverse": "property703",
-      "range": "class282",
+      "inverse": "property158",
+      "range": "class103",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class268",
+      "domain": "class89",
       "label": {
-        "default": "has_administrator",
+        "iriBased": "has_administrator",
         "en": "has administrator"
       },
       "attributes": [],
@@ -443,15 +443,15 @@
       "uri": "http://rdfs.org/sioc/ns#has_administrator"
     },
     {
-      "id": "property740",
+      "id": "property195",
       "equivalent": [],
-      "range": "datatype87",
+      "range": "datatype29",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
+      "domain": "thing6",
       "label": {
-        "default": "num_authors",
+        "iriBased": "num_authors",
         "en": "num authors"
       },
       "attributes": [],
@@ -459,15 +459,15 @@
       "uri": "http://rdfs.org/sioc/ns#num_authors"
     },
     {
-      "id": "property745",
+      "id": "property200",
       "equivalent": [],
-      "range": "literal92",
+      "range": "literal34",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property747"],
-      "domain": "class280",
+      "superproperty": ["property202"],
+      "domain": "class101",
       "label": {
-        "default": "last_item_date",
+        "iriBased": "last_item_date",
         "en": "last item date"
       },
       "attributes": [],
@@ -475,39 +475,15 @@
       "uri": "http://rdfs.org/sioc/ns#last_item_date"
     },
     {
-      "id": "property788",
+      "id": "property206",
       "equivalent": [],
-      "range": "class271",
+      "range": "literal40",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class280",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property787",
-      "equivalent": [],
-      "range": "class274",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class279",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property751",
-      "equivalent": [],
-      "range": "literal98",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class276",
+      "domain": "class97",
       "label": {
-        "default": "subject",
+        "iriBased": "subject",
         "en": "subject"
       },
       "attributes": ["deprecated"],
@@ -515,15 +491,15 @@
       "uri": "http://rdfs.org/sioc/ns#subject"
     },
     {
-      "id": "property758",
+      "id": "property213",
       "equivalent": [],
-      "range": "datatype105",
+      "range": "datatype47",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
+      "domain": "thing6",
       "label": {
-        "default": "num_views",
+        "iriBased": "num_views",
         "en": "num views"
       },
       "attributes": [],
@@ -531,16 +507,16 @@
       "uri": "http://rdfs.org/sioc/ns#num_views"
     },
     {
-      "id": "property695",
+      "id": "property150",
       "equivalent": [],
-      "inverse": "property736",
-      "range": "class277",
+      "inverse": "property191",
+      "range": "class98",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property727"],
-      "domain": "class277",
+      "superproperty": ["property182"],
+      "domain": "class98",
       "label": {
-        "default": "has_reply",
+        "iriBased": "has_reply",
         "en": "has reply"
       },
       "attributes": [],
@@ -548,16 +524,16 @@
       "uri": "http://rdfs.org/sioc/ns#has_reply"
     },
     {
-      "id": "property698",
+      "id": "property153",
       "equivalent": [],
-      "inverse": "property715",
-      "range": "class274",
+      "inverse": "property170",
+      "range": "class95",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing29",
+      "domain": "thing11",
       "label": {
-        "default": "has_space",
+        "iriBased": "has_space",
         "en": "has space"
       },
       "attributes": [],
@@ -565,28 +541,16 @@
       "uri": "http://rdfs.org/sioc/ns#has_space"
     },
     {
-      "id": "property795",
+      "id": "property159",
       "equivalent": [],
-      "range": "class277",
+      "inverse": "property134",
+      "range": "class99",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class280",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property704",
-      "equivalent": [],
-      "inverse": "property679",
-      "range": "class278",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class282",
+      "domain": "class103",
       "label": {
-        "default": "moderator_of",
+        "iriBased": "moderator_of",
         "en": "moderator of"
       },
       "attributes": [],
@@ -594,15 +558,15 @@
       "uri": "http://rdfs.org/sioc/ns#moderator_of"
     },
     {
-      "id": "property738",
+      "id": "property193",
       "equivalent": [],
-      "range": "literal85",
+      "range": "literal27",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class276",
+      "domain": "class97",
       "label": {
-        "default": "modified_at",
+        "iriBased": "modified_at",
         "en": "modified at"
       },
       "attributes": ["deprecated"],
@@ -610,51 +574,15 @@
       "uri": "http://rdfs.org/sioc/ns#modified_at"
     },
     {
-      "id": "property793",
+      "id": "property142",
       "equivalent": [],
-      "range": "class277",
+      "range": "thing9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class276",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property792",
-      "equivalent": [],
-      "range": "class271",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class279",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property791",
-      "equivalent": [],
-      "range": "class271",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class277",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property687",
-      "equivalent": [],
-      "range": "thing27",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class282",
+      "domain": "class103",
       "label": {
-        "default": "email",
+        "iriBased": "email",
         "en": "email"
       },
       "attributes": [],
@@ -662,15 +590,39 @@
       "uri": "http://rdfs.org/sioc/ns#email"
     },
     {
-      "id": "property743",
+      "id": "property240",
       "equivalent": [],
-      "range": "literal90",
+      "range": "class95",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class98",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property242",
+      "equivalent": [],
+      "range": "class95",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class100",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property198",
+      "equivalent": [],
+      "range": "literal32",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class98",
       "label": {
-        "default": "ip_address",
+        "iriBased": "ip_address",
         "en": "ip address"
       },
       "attributes": [],
@@ -678,29 +630,53 @@
       "uri": "http://rdfs.org/sioc/ns#ip_address"
     },
     {
-      "id": "property712",
+      "id": "property243",
       "equivalent": [],
-      "range": "thing24",
+      "range": "class92",
       "disjoint": [],
-      "subproperty": ["property689"],
+      "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
-      "label": {"default": "depiction"},
+      "domain": "class101",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property167",
+      "equivalent": [],
+      "range": "thing6",
+      "disjoint": [],
+      "subproperty": ["property144"],
+      "superproperty": [],
+      "domain": "thing6",
+      "label": {"iriBased": "depiction"},
       "attributes": ["external"],
       "comment": {},
       "uri": "http://xmlns.com/foaf/0.1/depiction"
     },
     {
-      "id": "property700",
+      "id": "property246",
       "equivalent": [],
-      "inverse": "property682",
-      "range": "class274",
+      "range": "class92",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class279",
+      "domain": "class98",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property155",
+      "equivalent": [],
+      "inverse": "property137",
+      "range": "class95",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class100",
       "label": {
-        "default": "usergroup_of",
+        "iriBased": "usergroup_of",
         "en": "usergroup of"
       },
       "attributes": [],
@@ -708,28 +684,16 @@
       "uri": "http://rdfs.org/sioc/ns#usergroup_of"
     },
     {
-      "id": "property776",
+      "id": "property169",
       "equivalent": [],
-      "range": "class281",
+      "inverse": "property179",
+      "range": "thing6",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class274",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property714",
-      "equivalent": [],
-      "inverse": "property724",
-      "range": "thing24",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "thing24",
+      "domain": "thing6",
       "label": {
-        "default": "has_part",
+        "iriBased": "has_part",
         "en": "has part"
       },
       "attributes": ["deprecated"],
@@ -737,39 +701,15 @@
       "uri": "http://rdfs.org/sioc/ns#has_part"
     },
     {
-      "id": "property775",
+      "id": "property197",
       "equivalent": [],
-      "range": "class281",
+      "range": "literal31",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class280",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property779",
-      "equivalent": [],
-      "range": "class281",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class277",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property742",
-      "equivalent": [],
-      "range": "literal89",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class282",
+      "domain": "class103",
       "label": {
-        "default": "last_name",
+        "iriBased": "last_name",
         "en": "last name"
       },
       "attributes": ["deprecated"],
@@ -777,28 +717,16 @@
       "uri": "http://rdfs.org/sioc/ns#last_name"
     },
     {
-      "id": "property780",
+      "id": "property178",
       "equivalent": [],
-      "range": "class281",
+      "inverse": "property143",
+      "range": "class98",
       "disjoint": [],
-      "subproperty": [],
+      "subproperty": ["property162"],
       "superproperty": [],
-      "domain": "class279",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property723",
-      "equivalent": [],
-      "inverse": "property688",
-      "range": "class277",
-      "disjoint": [],
-      "subproperty": ["property707"],
-      "superproperty": [],
-      "domain": "class277",
+      "domain": "class98",
       "label": {
-        "default": "later_version",
+        "iriBased": "later_version",
         "en": "later version"
       },
       "attributes": ["transitive"],
@@ -806,77 +734,53 @@
       "uri": "http://rdfs.org/sioc/ns#later_version"
     },
     {
-      "id": "property781",
+      "id": "property135",
       "equivalent": [],
-      "range": "class273",
+      "range": "thing6",
       "disjoint": [],
-      "subproperty": [],
+      "subproperty": ["property154"],
       "superproperty": [],
-      "domain": "class276",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property782",
-      "equivalent": [],
-      "range": "class274",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class268",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property783",
-      "equivalent": [],
-      "range": "class274",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class271",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property680",
-      "equivalent": [],
-      "range": "thing24",
-      "disjoint": [],
-      "subproperty": ["property699"],
-      "superproperty": [],
-      "domain": "thing24",
-      "label": {"default": "references"},
+      "domain": "thing6",
+      "label": {"iriBased": "references"},
       "attributes": ["external"],
       "comment": {},
       "uri": "http://purl.org/dc/terms/references"
     },
     {
-      "id": "property785",
+      "id": "property236",
       "equivalent": [],
-      "range": "class274",
+      "range": "class94",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class97",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property688",
+      "id": "property237",
       "equivalent": [],
-      "inverse": "property723",
-      "range": "class277",
+      "range": "class95",
       "disjoint": [],
-      "subproperty": ["property710"],
+      "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class89",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property143",
+      "equivalent": [],
+      "inverse": "property178",
+      "range": "class98",
+      "disjoint": [],
+      "subproperty": ["property165"],
+      "superproperty": [],
+      "domain": "class98",
       "label": {
-        "default": "earlier_version",
+        "iriBased": "earlier_version",
         "en": "earlier version"
       },
       "attributes": ["transitive"],
@@ -884,15 +788,15 @@
       "uri": "http://rdfs.org/sioc/ns#earlier_version"
     },
     {
-      "id": "property755",
+      "id": "property210",
       "equivalent": [],
-      "range": "datatype102",
+      "range": "datatype44",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class280",
+      "domain": "class101",
       "label": {
-        "default": "num_items",
+        "iriBased": "num_items",
         "en": "num items"
       },
       "attributes": [],
@@ -900,16 +804,28 @@
       "uri": "http://rdfs.org/sioc/ns#num_items"
     },
     {
-      "id": "property715",
+      "id": "property238",
       "equivalent": [],
-      "inverse": "property698",
-      "range": "thing29",
+      "range": "class95",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class274",
+      "domain": "class92",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property170",
+      "equivalent": [],
+      "inverse": "property153",
+      "range": "thing11",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class95",
       "label": {
-        "default": "space_of",
+        "iriBased": "space_of",
         "en": "space of"
       },
       "attributes": [],
@@ -917,15 +833,39 @@
       "uri": "http://rdfs.org/sioc/ns#space_of"
     },
     {
-      "id": "property709",
+      "id": "property231",
       "equivalent": [],
-      "range": "thing25",
+      "range": "class102",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class95",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property230",
+      "equivalent": [],
+      "range": "class102",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class101",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property164",
+      "equivalent": [],
+      "range": "thing7",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class98",
       "label": {
-        "default": "addressed_to",
+        "iriBased": "addressed_to",
         "en": "addressed to"
       },
       "attributes": [],
@@ -933,15 +873,27 @@
       "uri": "http://rdfs.org/sioc/ns#addressed_to"
     },
     {
-      "id": "property685",
+      "id": "property220",
       "equivalent": [],
-      "range": "thing25",
+      "range": "class103",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class101",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property140",
+      "equivalent": [],
+      "range": "thing7",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class98",
       "label": {
-        "default": "about",
+        "iriBased": "about",
         "en": "about"
       },
       "attributes": [],
@@ -949,16 +901,28 @@
       "uri": "http://rdfs.org/sioc/ns#about"
     },
     {
-      "id": "property732",
+      "id": "property235",
       "equivalent": [],
-      "inverse": "property735",
-      "range": "class282",
+      "range": "class102",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class100",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property187",
+      "equivalent": [],
+      "inverse": "property190",
+      "range": "class103",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class98",
       "label": {
-        "default": "has_modifier",
+        "iriBased": "has_modifier",
         "en": "has modifier"
       },
       "attributes": [],
@@ -966,15 +930,51 @@
       "uri": "http://rdfs.org/sioc/ns#has_modifier"
     },
     {
-      "id": "property748",
+      "id": "property223",
       "equivalent": [],
-      "range": "literal95",
+      "range": "class103",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
+      "domain": "class96",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property234",
+      "equivalent": [],
+      "range": "class102",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class98",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property224",
+      "equivalent": [],
+      "range": "class103",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class98",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property203",
+      "equivalent": [],
+      "range": "literal37",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing6",
       "label": {
-        "default": "id",
+        "iriBased": "id",
         "en": "id"
       },
       "attributes": [],
@@ -982,15 +982,39 @@
       "uri": "http://rdfs.org/sioc/ns#id"
     },
     {
-      "id": "property711",
+      "id": "property221",
       "equivalent": [],
-      "range": "thing24",
+      "range": "class103",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property718"],
-      "domain": "thing24",
+      "superproperty": [],
+      "domain": "class102",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property222",
+      "equivalent": [],
+      "range": "class103",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class95",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property166",
+      "equivalent": [],
+      "range": "thing6",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property173"],
+      "domain": "thing6",
       "label": {
-        "default": "topic",
+        "iriBased": "topic",
         "en": "topic"
       },
       "attributes": [],
@@ -998,77 +1022,29 @@
       "uri": "http://rdfs.org/sioc/ns#topic"
     },
     {
-      "id": "property767",
+      "id": "property204",
       "equivalent": [],
-      "range": "class282",
+      "range": "literal38",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class274",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property766",
-      "equivalent": [],
-      "range": "class282",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class281",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property765",
-      "equivalent": [],
-      "range": "class282",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class280",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property749",
-      "equivalent": [],
-      "range": "literal96",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "thing24",
-      "label": {"default": "description"},
+      "domain": "thing6",
+      "label": {"iriBased": "description"},
       "attributes": ["external"],
       "comment": {},
       "uri": "http://purl.org/dc/terms/description"
     },
     {
-      "id": "property764",
+      "id": "property190",
       "equivalent": [],
-      "range": "class272",
+      "inverse": "property187",
+      "range": "class98",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class282",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property735",
-      "equivalent": [],
-      "inverse": "property732",
-      "range": "class277",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class282",
+      "domain": "class103",
       "label": {
-        "default": "modifier_of",
+        "iriBased": "modifier_of",
         "en": "modifier of"
       },
       "attributes": [],
@@ -1076,51 +1052,15 @@
       "uri": "http://rdfs.org/sioc/ns#modifier_of"
     },
     {
-      "id": "property769",
+      "id": "property189",
       "equivalent": [],
-      "range": "class282",
+      "range": "class103",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property768",
-      "equivalent": [],
-      "range": "class282",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class275",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property770",
-      "equivalent": [],
-      "range": "class282",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class279",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property734",
-      "equivalent": [],
-      "range": "class282",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class282",
+      "domain": "class103",
       "label": {
-        "default": "follows",
+        "iriBased": "follows",
         "en": "follows"
       },
       "attributes": [],
@@ -1128,15 +1068,15 @@
       "uri": "http://rdfs.org/sioc/ns#follows"
     },
     {
-      "id": "property756",
+      "id": "property211",
       "equivalent": [],
-      "range": "datatype103",
+      "range": "datatype45",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
+      "domain": "thing6",
       "label": {
-        "default": "num_replies",
+        "iriBased": "num_replies",
         "en": "num replies"
       },
       "attributes": [],
@@ -1144,28 +1084,16 @@
       "uri": "http://rdfs.org/sioc/ns#num_replies"
     },
     {
-      "id": "property774",
+      "id": "property172",
       "equivalent": [],
-      "range": "class281",
+      "inverse": "property185",
+      "range": "class101",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class271",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property717",
-      "equivalent": [],
-      "inverse": "property730",
-      "range": "class280",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class282",
+      "domain": "class103",
       "label": {
-        "default": "subscriber_of",
+        "iriBased": "subscriber_of",
         "en": "subscriber of"
       },
       "attributes": [],
@@ -1173,39 +1101,75 @@
       "uri": "http://rdfs.org/sioc/ns#subscriber_of"
     },
     {
-      "id": "property771",
+      "id": "property227",
       "equivalent": [],
-      "range": "class275",
+      "range": "class96",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class281",
+      "domain": "class98",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property772",
+      "id": "property225",
       "equivalent": [],
-      "range": "class275",
+      "range": "class103",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class100",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property689",
+      "id": "property226",
       "equivalent": [],
-      "range": "thing27",
+      "range": "class96",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property712"],
-      "domain": "class282",
+      "superproperty": [],
+      "domain": "class102",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property219",
+      "equivalent": [],
+      "range": "class93",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class103",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property229",
+      "equivalent": [],
+      "range": "class102",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class92",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property144",
+      "equivalent": [],
+      "range": "thing9",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property167"],
+      "domain": "class103",
       "label": {
-        "default": "avatar",
+        "iriBased": "avatar",
         "en": "avatar"
       },
       "attributes": [],
@@ -1213,16 +1177,28 @@
       "uri": "http://rdfs.org/sioc/ns#avatar"
     },
     {
-      "id": "property731",
+      "id": "property218",
       "equivalent": [],
-      "inverse": "property696",
-      "range": "thing24",
+      "range": "class93",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
+      "domain": "class92",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property186",
+      "equivalent": [],
+      "inverse": "property151",
+      "range": "thing6",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing6",
       "label": {
-        "default": "group_of",
+        "iriBased": "group_of",
         "en": "group of"
       },
       "attributes": ["deprecated"],
@@ -1230,15 +1206,15 @@
       "uri": "http://rdfs.org/sioc/ns#group_of"
     },
     {
-      "id": "property681",
+      "id": "property136",
       "equivalent": [],
-      "range": "thing25",
+      "range": "thing7",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class98",
       "label": {
-        "default": "attachment",
+        "iriBased": "attachment",
         "en": "attachment"
       },
       "attributes": [],
@@ -1246,15 +1222,15 @@
       "uri": "http://rdfs.org/sioc/ns#attachment"
     },
     {
-      "id": "property750",
+      "id": "property205",
       "equivalent": [],
-      "range": "literal97",
+      "range": "literal39",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class276",
+      "domain": "class97",
       "label": {
-        "default": "created_at",
+        "iriBased": "created_at",
         "en": "created at"
       },
       "attributes": ["deprecated"],
@@ -1262,15 +1238,15 @@
       "uri": "http://rdfs.org/sioc/ns#created_at"
     },
     {
-      "id": "property759",
+      "id": "property214",
       "equivalent": [],
-      "range": "literal106",
+      "range": "literal48",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class282",
+      "domain": "class103",
       "label": {
-        "default": "first_name",
+        "iriBased": "first_name",
         "en": "first name"
       },
       "attributes": ["deprecated"],
@@ -1278,16 +1254,28 @@
       "uri": "http://rdfs.org/sioc/ns#first_name"
     },
     {
-      "id": "property713",
+      "id": "property262",
       "equivalent": [],
-      "inverse": "property737",
-      "range": "thing27",
+      "range": "class101",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class282",
+      "domain": "class99",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property168",
+      "equivalent": [],
+      "inverse": "property192",
+      "range": "thing9",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class103",
       "label": {
-        "default": "creator_of",
+        "iriBased": "creator_of",
         "en": "creator of"
       },
       "attributes": [],
@@ -1295,16 +1283,28 @@
       "uri": "http://rdfs.org/sioc/ns#creator_of"
     },
     {
-      "id": "property677",
+      "id": "property263",
       "equivalent": [],
-      "inverse": "property701",
-      "range": "class277",
+      "range": "class101",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class88",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property132",
+      "equivalent": [],
+      "inverse": "property156",
+      "range": "class98",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class98",
       "label": {
-        "default": "next_by_date",
+        "iriBased": "next_by_date",
         "en": "next by date"
       },
       "attributes": [],
@@ -1312,16 +1312,16 @@
       "uri": "http://rdfs.org/sioc/ns#next_by_date"
     },
     {
-      "id": "property705",
+      "id": "property160",
       "equivalent": [],
-      "inverse": "property693",
-      "range": "class280",
+      "inverse": "property148",
+      "range": "class101",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class280",
+      "domain": "class101",
       "label": {
-        "default": "parent_of",
+        "iriBased": "parent_of",
         "en": "parent of"
       },
       "attributes": [],
@@ -1329,16 +1329,16 @@
       "uri": "http://rdfs.org/sioc/ns#parent_of"
     },
     {
-      "id": "property696",
+      "id": "property151",
       "equivalent": [],
-      "inverse": "property731",
-      "range": "thing24",
+      "inverse": "property186",
+      "range": "thing6",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
+      "domain": "thing6",
       "label": {
-        "default": "has_group",
+        "iriBased": "has_group",
         "en": "has group"
       },
       "attributes": ["deprecated"],
@@ -1346,29 +1346,29 @@
       "uri": "http://rdfs.org/sioc/ns#has_group"
     },
     {
-      "id": "property718",
+      "id": "property173",
       "equivalent": [],
-      "range": "thing24",
+      "range": "thing6",
       "disjoint": [],
-      "subproperty": ["property711"],
+      "subproperty": ["property166"],
       "superproperty": [],
-      "domain": "thing24",
-      "label": {"default": "subject"},
+      "domain": "thing6",
+      "label": {"iriBased": "subject"},
       "attributes": ["external"],
       "comment": {},
       "uri": "http://purl.org/dc/terms/subject"
     },
     {
-      "id": "property693",
+      "id": "property148",
       "equivalent": [],
-      "inverse": "property705",
-      "range": "class280",
+      "inverse": "property160",
+      "range": "class101",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class280",
+      "domain": "class101",
       "label": {
-        "default": "has_parent",
+        "iriBased": "has_parent",
         "en": "has parent"
       },
       "attributes": [],
@@ -1376,16 +1376,16 @@
       "uri": "http://rdfs.org/sioc/ns#has_parent"
     },
     {
-      "id": "property724",
+      "id": "property179",
       "equivalent": [],
-      "inverse": "property714",
-      "range": "thing24",
+      "inverse": "property169",
+      "range": "thing6",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
+      "domain": "thing6",
       "label": {
-        "default": "part_of",
+        "iriBased": "part_of",
         "en": "part of"
       },
       "attributes": ["deprecated"],
@@ -1393,16 +1393,16 @@
       "uri": "http://rdfs.org/sioc/ns#part_of"
     },
     {
-      "id": "property722",
+      "id": "property177",
       "equivalent": [],
-      "inverse": "property729",
-      "range": "class269",
+      "inverse": "property184",
+      "range": "class90",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class282",
+      "domain": "class103",
       "label": {
-        "default": "account_of",
+        "iriBased": "account_of",
         "en": "account of"
       },
       "attributes": [],
@@ -1410,16 +1410,16 @@
       "uri": "http://rdfs.org/sioc/ns#account_of"
     },
     {
-      "id": "property720",
+      "id": "property175",
       "equivalent": [],
-      "inverse": "property716",
-      "range": "thing27",
+      "inverse": "property171",
+      "range": "thing9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class282",
+      "domain": "class103",
       "label": {
-        "default": "owner_of",
+        "iriBased": "owner_of",
         "en": "owner of"
       },
       "attributes": [],
@@ -1427,27 +1427,15 @@
       "uri": "http://rdfs.org/sioc/ns#owner_of"
     },
     {
-      "id": "property763",
+      "id": "property201",
       "equivalent": [],
-      "range": "class272",
+      "range": "literal35",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class271",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property746",
-      "equivalent": [],
-      "range": "literal93",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class277",
+      "domain": "class98",
       "label": {
-        "default": "content",
+        "iriBased": "content",
         "en": "content"
       },
       "attributes": [],
@@ -1455,15 +1443,15 @@
       "uri": "http://rdfs.org/sioc/ns#content"
     },
     {
-      "id": "property702",
+      "id": "property157",
       "equivalent": [],
-      "range": "thing25",
+      "range": "thing7",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class98",
       "label": {
-        "default": "has_discussion",
+        "iriBased": "has_discussion",
         "en": "has discussion"
       },
       "attributes": [],
@@ -1471,16 +1459,16 @@
       "uri": "http://rdfs.org/sioc/ns#has_discussion"
     },
     {
-      "id": "property719",
+      "id": "property174",
       "equivalent": [],
-      "inverse": "property725",
-      "range": "class279",
+      "inverse": "property180",
+      "range": "class100",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class282",
+      "domain": "class103",
       "label": {
-        "default": "member_of",
+        "iriBased": "member_of",
         "en": "member of"
       },
       "attributes": [],
@@ -1488,16 +1476,16 @@
       "uri": "http://rdfs.org/sioc/ns#member_of"
     },
     {
-      "id": "property710",
+      "id": "property165",
       "equivalent": [],
-      "inverse": "property707",
-      "range": "class277",
+      "inverse": "property162",
+      "range": "class98",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property688"],
-      "domain": "class277",
+      "superproperty": ["property143"],
+      "domain": "class98",
       "label": {
-        "default": "previous_version",
+        "iriBased": "previous_version",
         "en": "previous version"
       },
       "attributes": [],
@@ -1505,15 +1493,15 @@
       "uri": "http://rdfs.org/sioc/ns#previous_version"
     },
     {
-      "id": "property757",
+      "id": "property212",
       "equivalent": [],
-      "range": "literal104",
+      "range": "literal46",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing24",
+      "domain": "thing6",
       "label": {
-        "default": "name",
+        "iriBased": "name",
         "en": "name"
       },
       "attributes": [],
@@ -1521,16 +1509,16 @@
       "uri": "http://rdfs.org/sioc/ns#name"
     },
     {
-      "id": "property683",
+      "id": "property138",
       "equivalent": [],
-      "inverse": "property678",
-      "range": "class278",
+      "inverse": "property133",
+      "range": "class99",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class268",
+      "domain": "class89",
       "label": {
-        "default": "host_of",
+        "iriBased": "host_of",
         "en": "host of"
       },
       "attributes": [],
@@ -1538,16 +1526,40 @@
       "uri": "http://rdfs.org/sioc/ns#host_of"
     },
     {
-      "id": "property730",
+      "id": "property257",
       "equivalent": [],
-      "inverse": "property717",
-      "range": "class282",
+      "range": "class100",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class280",
+      "domain": "class101",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property255",
+      "equivalent": [],
+      "range": "class98",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class100",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property185",
+      "equivalent": [],
+      "inverse": "property172",
+      "range": "class103",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class101",
       "label": {
-        "default": "has_subscriber",
+        "iriBased": "has_subscriber",
         "en": "has subscriber"
       },
       "attributes": [],
@@ -1555,15 +1567,27 @@
       "uri": "http://rdfs.org/sioc/ns#has_subscriber"
     },
     {
-      "id": "property752",
+      "id": "property250",
       "equivalent": [],
-      "range": "literal99",
+      "range": "class98",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class276",
+      "domain": "class101",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property207",
+      "equivalent": [],
+      "range": "literal41",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class97",
       "label": {
-        "default": "content_encoded",
+        "iriBased": "content_encoded",
         "en": "content encoded"
       },
       "attributes": ["deprecated"],
@@ -1571,16 +1595,16 @@
       "uri": "http://rdfs.org/sioc/ns#content_encoded"
     },
     {
-      "id": "property701",
+      "id": "property156",
       "equivalent": [],
-      "inverse": "property677",
-      "range": "class277",
+      "inverse": "property132",
+      "range": "class98",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class277",
+      "domain": "class98",
       "label": {
-        "default": "previous_by_date",
+        "iriBased": "previous_by_date",
         "en": "previous by date"
       },
       "attributes": [],
@@ -1588,18 +1612,18 @@
       "uri": "http://rdfs.org/sioc/ns#previous_by_date"
     },
     {
-      "id": "property727",
+      "id": "property182",
       "equivalent": [],
-      "range": "thing24",
+      "range": "thing6",
       "disjoint": [],
       "subproperty": [
-        "property695",
-        "property736"
+        "property150",
+        "property191"
       ],
       "superproperty": [],
-      "domain": "thing24",
+      "domain": "thing6",
       "label": {
-        "default": "related_to",
+        "iriBased": "related_to",
         "en": "related to"
       },
       "attributes": [],
@@ -1607,30 +1631,30 @@
       "uri": "http://rdfs.org/sioc/ns#related_to"
     },
     {
-      "id": "property729",
+      "id": "property184",
       "equivalent": [],
-      "inverse": "property722",
-      "range": "class282",
+      "inverse": "property177",
+      "range": "class103",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class269",
-      "label": {"default": "account"},
+      "domain": "class90",
+      "label": {"iriBased": "account"},
       "attributes": ["external"],
       "comment": {},
       "uri": "http://xmlns.com/foaf/0.1/account"
     },
     {
-      "id": "property736",
+      "id": "property191",
       "equivalent": [],
-      "inverse": "property695",
-      "range": "class277",
+      "inverse": "property150",
+      "range": "class98",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property727"],
-      "domain": "class277",
+      "superproperty": ["property182"],
+      "domain": "class98",
       "label": {
-        "default": "reply_of",
+        "iriBased": "reply_of",
         "en": "reply of"
       },
       "attributes": [],
@@ -1638,16 +1662,16 @@
       "uri": "http://rdfs.org/sioc/ns#reply_of"
     },
     {
-      "id": "property691",
+      "id": "property146",
       "equivalent": [],
-      "inverse": "property728",
-      "range": "thing26",
+      "inverse": "property183",
+      "range": "thing8",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class281",
+      "domain": "class102",
       "label": {
-        "default": "has_scope",
+        "iriBased": "has_scope",
         "en": "has scope"
       },
       "attributes": [],
@@ -1655,16 +1679,16 @@
       "uri": "http://rdfs.org/sioc/ns#has_scope"
     },
     {
-      "id": "property708",
+      "id": "property163",
       "equivalent": [],
-      "inverse": "property686",
-      "range": "thing26",
+      "inverse": "property141",
+      "range": "thing8",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class281",
+      "domain": "class102",
       "label": {
-        "default": "function_of",
+        "iriBased": "function_of",
         "en": "function of"
       },
       "attributes": [],
@@ -1672,27 +1696,15 @@
       "uri": "http://rdfs.org/sioc/ns#function_of"
     },
     {
-      "id": "property800",
+      "id": "property176",
       "equivalent": [],
-      "range": "class277",
+      "range": "class98",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class279",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property721",
-      "equivalent": [],
-      "range": "class277",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class277",
+      "domain": "class98",
       "label": {
-        "default": "sibling",
+        "iriBased": "sibling",
         "en": "sibling"
       },
       "attributes": ["symmetric"],
@@ -1700,16 +1712,16 @@
       "uri": "http://rdfs.org/sioc/ns#sibling"
     },
     {
-      "id": "property686",
+      "id": "property141",
       "equivalent": [],
-      "inverse": "property708",
-      "range": "class281",
+      "inverse": "property163",
+      "range": "class102",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing26",
+      "domain": "thing8",
       "label": {
-        "default": "has_function",
+        "iriBased": "has_function",
         "en": "has function"
       },
       "attributes": [],
@@ -1717,37 +1729,25 @@
       "uri": "http://rdfs.org/sioc/ns#has_function"
     },
     {
-      "id": "property802",
+      "id": "property247",
       "equivalent": [],
-      "range": "class279",
+      "range": "class92",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class280",
+      "domain": "class100",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property808",
+      "id": "property248",
       "equivalent": [],
-      "range": "class280",
+      "range": "class98",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class267",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property807",
-      "equivalent": [],
-      "range": "class280",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class278",
+      "domain": "class97",
       "label": {},
       "attributes": [],
       "comment": {}
@@ -1766,14 +1766,14 @@
   "classAttribute": [
     {
       "complement": [],
-      "id": "class268",
+      "id": "class89",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class274"],
+      "superClasses": ["class95"],
       "union": [],
       "subClasses": [],
       "label": {
-        "default": "Site",
+        "iriBased": "Site",
         "en": "Site"
       },
       "attributes": [],
@@ -1783,13 +1783,13 @@
     },
     {
       "complement": [],
-      "id": "class269",
+      "id": "class90",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
-      "label": {"default": "Agent"},
+      "label": {"iriBased": "Agent"},
       "attributes": ["external"],
       "instances": 0,
       "comment": {},
@@ -1797,16 +1797,16 @@
     },
     {
       "complement": [],
-      "id": "class272",
+      "id": "class93",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [
-        "class271",
-        "class282"
+        "class92",
+        "class103"
       ],
-      "label": {"default": "OnlineAccount"},
+      "label": {"iriBased": "OnlineAccount"},
       "attributes": ["external"],
       "instances": 0,
       "comment": {},
@@ -1814,14 +1814,14 @@
     },
     {
       "complement": [],
-      "id": "class282",
+      "id": "class103",
       "intersection": [],
-      "equivalent": ["class271"],
-      "superClasses": ["class272"],
+      "equivalent": ["class92"],
+      "superClasses": ["class93"],
       "union": [],
       "subClasses": [],
       "label": {
-        "default": "UserAccount",
+        "iriBased": "UserAccount",
         "en": "User Account"
       },
       "attributes": ["equivalent"],
@@ -1831,14 +1831,14 @@
     },
     {
       "complement": [],
-      "id": "class275",
+      "id": "class96",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
       "label": {
-        "default": "Community",
+        "iriBased": "Community",
         "en": "Community"
       },
       "attributes": [],
@@ -1848,14 +1848,14 @@
     },
     {
       "complement": [],
-      "id": "class281",
+      "id": "class102",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
       "label": {
-        "default": "Role",
+        "iriBased": "Role",
         "en": "Role"
       },
       "attributes": [],
@@ -1865,13 +1865,13 @@
     },
     {
       "complement": [],
-      "id": "class273",
+      "id": "class94",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
-      "subClasses": ["class276"],
-      "label": {"default": "Document"},
+      "subClasses": ["class97"],
+      "label": {"iriBased": "Document"},
       "attributes": ["external"],
       "instances": 0,
       "comment": {},
@@ -1879,14 +1879,14 @@
     },
     {
       "complement": [],
-      "id": "class267",
+      "id": "class88",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class280"],
+      "superClasses": ["class101"],
       "union": [],
       "subClasses": [],
       "label": {
-        "default": "Thread",
+        "iriBased": "Thread",
         "en": "Thread"
       },
       "attributes": [],
@@ -1896,14 +1896,14 @@
     },
     {
       "complement": [],
-      "id": "class274",
+      "id": "class95",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
-      "subClasses": ["class268"],
+      "subClasses": ["class89"],
       "label": {
-        "default": "Space",
+        "iriBased": "Space",
         "en": "Space"
       },
       "attributes": [],
@@ -1913,13 +1913,13 @@
     },
     {
       "complement": [],
-      "id": "class270",
+      "id": "class91",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
-      "label": {"default": "Graph"},
+      "label": {"iriBased": "Graph"},
       "attributes": ["external"],
       "instances": 0,
       "comment": {},
@@ -1927,14 +1927,14 @@
     },
     {
       "complement": [],
-      "id": "class271",
+      "id": "class92",
       "intersection": [],
-      "equivalent": ["class282"],
-      "superClasses": ["class272"],
+      "equivalent": ["class103"],
+      "superClasses": ["class93"],
       "union": [],
       "subClasses": [],
       "label": {
-        "default": "User",
+        "iriBased": "User",
         "en": "User"
       },
       "attributes": [
@@ -1947,14 +1947,14 @@
     },
     {
       "complement": [],
-      "id": "class277",
+      "id": "class98",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
-      "subClasses": ["class276"],
+      "subClasses": ["class97"],
       "label": {
-        "default": "Item",
+        "iriBased": "Item",
         "en": "Item"
       },
       "attributes": [],
@@ -1964,14 +1964,14 @@
     },
     {
       "complement": [],
-      "id": "class279",
+      "id": "class100",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
       "label": {
-        "default": "Usergroup",
+        "iriBased": "Usergroup",
         "en": "Usergroup"
       },
       "attributes": [],
@@ -1981,17 +1981,17 @@
     },
     {
       "complement": [],
-      "id": "class280",
+      "id": "class101",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [
-        "class278",
-        "class267"
+        "class99",
+        "class88"
       ],
       "label": {
-        "default": "Container",
+        "iriBased": "Container",
         "en": "Container"
       },
       "attributes": [],
@@ -2001,17 +2001,17 @@
     },
     {
       "complement": [],
-      "id": "class276",
+      "id": "class97",
       "intersection": [],
       "equivalent": [],
       "superClasses": [
-        "class277",
-        "class273"
+        "class98",
+        "class94"
       ],
       "union": [],
       "subClasses": [],
       "label": {
-        "default": "Post",
+        "iriBased": "Post",
         "en": "Post"
       },
       "attributes": [],
@@ -2021,14 +2021,14 @@
     },
     {
       "complement": [],
-      "id": "class278",
+      "id": "class99",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class280"],
+      "superClasses": ["class101"],
       "union": [],
       "subClasses": [],
       "label": {
-        "default": "Forum",
+        "iriBased": "Forum",
         "en": "Forum"
       },
       "attributes": [],
@@ -2037,894 +2037,897 @@
       "uri": "http://rdfs.org/sioc/ns#Forum"
     },
     {
-      "id": "thing28",
+      "id": "thing8",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing29",
+      "id": "thing11",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing24",
+      "id": "thing9",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing25",
+      "id": "thing10",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing26",
+      "id": "thing6",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing27",
+      "id": "thing7",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     }
   ],
   "class": [
     {
-      "id": "class268",
+      "id": "class89",
       "type": "owl:Class"
     },
     {
-      "id": "class269",
+      "id": "class90",
       "type": "externalclass"
     },
     {
-      "id": "class272",
+      "id": "class93",
       "type": "externalclass"
     },
     {
-      "id": "class282",
+      "id": "class103",
       "type": "owl:equivalentClass"
     },
     {
-      "id": "class275",
+      "id": "class96",
       "type": "owl:Class"
     },
     {
-      "id": "class281",
+      "id": "class102",
       "type": "owl:Class"
     },
     {
-      "id": "class273",
+      "id": "class94",
       "type": "externalclass"
     },
     {
-      "id": "class267",
+      "id": "class88",
       "type": "owl:Class"
     },
     {
-      "id": "class274",
+      "id": "class95",
       "type": "owl:Class"
     },
     {
-      "id": "class270",
+      "id": "class91",
       "type": "externalclass"
     },
     {
-      "id": "class271",
+      "id": "class92",
       "type": "owl:equivalentClass"
     },
     {
-      "id": "class277",
+      "id": "class98",
       "type": "owl:Class"
     },
     {
-      "id": "class279",
+      "id": "class100",
       "type": "owl:Class"
     },
     {
-      "id": "class280",
+      "id": "class101",
       "type": "owl:Class"
     },
     {
-      "id": "class276",
+      "id": "class97",
       "type": "owl:Class"
     },
     {
-      "id": "class278",
+      "id": "class99",
       "type": "owl:Class"
     },
     {
-      "id": "thing28",
+      "id": "thing8",
       "type": "owl:Thing"
     },
     {
-      "id": "thing29",
+      "id": "thing11",
       "type": "owl:Thing"
     },
     {
-      "id": "thing24",
+      "id": "thing9",
       "type": "owl:Thing"
     },
     {
-      "id": "thing25",
+      "id": "thing10",
       "type": "owl:Thing"
     },
     {
-      "id": "thing26",
+      "id": "thing6",
       "type": "owl:Thing"
     },
     {
-      "id": "thing27",
+      "id": "thing7",
       "type": "owl:Thing"
     }
   ],
   "property": [
     {
-      "id": "property725",
+      "id": "property180",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property699",
+      "id": "property154",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property707",
+      "id": "property162",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property728",
+      "id": "property183",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property703",
+      "id": "property158",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property762",
+      "id": "property217",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property747",
+      "id": "property202",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property716",
+      "id": "property171",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property692",
+      "id": "property147",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property684",
+      "id": "property139",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property760",
+      "id": "property215",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property726",
+      "id": "property181",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property697",
+      "id": "property152",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property741",
+      "id": "property196",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property744",
+      "id": "property199",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property678",
+      "id": "property133",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property682",
+      "id": "property137",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property753",
+      "id": "property208",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property761",
+      "id": "property216",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property739",
+      "id": "property194",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property706",
+      "id": "property161",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property690",
+      "id": "property145",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property694",
+      "id": "property149",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property737",
+      "id": "property192",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property679",
+      "id": "property134",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property754",
+      "id": "property209",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property733",
+      "id": "property188",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property740",
+      "id": "property195",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property745",
+      "id": "property200",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property788",
+      "id": "property206",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property213",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property150",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property153",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property159",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property193",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property142",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property240",
       "type": "owl:disjointWith"
     },
     {
-      "id": "property787",
+      "id": "property242",
       "type": "owl:disjointWith"
     },
     {
-      "id": "property751",
+      "id": "property198",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property758",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property695",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property698",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property795",
+      "id": "property243",
       "type": "owl:disjointWith"
     },
     {
-      "id": "property704",
+      "id": "property167",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property738",
+      "id": "property246",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property155",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property169",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property197",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property793",
+      "id": "property178",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property135",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property236",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property792",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property791",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property687",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property743",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property712",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property700",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property776",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property714",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property775",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property779",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property742",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property780",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property723",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property781",
+      "id": "property237",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property782",
+      "id": "property143",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property210",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property238",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property170",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property231",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property230",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property164",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property220",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property140",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property235",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property187",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property223",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property234",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property224",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property203",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property221",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property222",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property166",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property204",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property190",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property189",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property211",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property172",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property227",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property225",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property226",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property219",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property783",
+      "id": "property229",
       "type": "owl:disjointWith"
     },
     {
-      "id": "property680",
+      "id": "property144",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property785",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property688",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property755",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property715",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property709",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property685",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property732",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property748",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property711",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property767",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property766",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property765",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property749",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property764",
+      "id": "property218",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property735",
+      "id": "property186",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property769",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property768",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property770",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property734",
+      "id": "property136",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property756",
+      "id": "property205",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property774",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property717",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property771",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property772",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property689",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property731",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property681",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property750",
+      "id": "property214",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property759",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property713",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property677",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property705",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property696",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property718",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property693",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property724",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property722",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property720",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property763",
+      "id": "property262",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property746",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property702",
+      "id": "property168",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property719",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property710",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property757",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property683",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property730",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property752",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property701",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property727",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property729",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property736",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property691",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property708",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property800",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property721",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property686",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property802",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property808",
+      "id": "property263",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property807",
+      "id": "property132",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property160",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property151",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property173",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property148",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property179",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property177",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property175",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property201",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property157",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property174",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property165",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property212",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property138",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property257",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property255",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property185",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property250",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property207",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property156",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property182",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property184",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property191",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property146",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property163",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property176",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property141",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property247",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property248",
       "type": "rdfs:SubClassOf"
     }
   ],
   "datatype": [
     {
-      "id": "datatype103",
+      "id": "datatype51",
       "type": "rdfs:Datatype"
     },
     {
-      "id": "datatype105",
+      "id": "literal49",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal48",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal28",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal46",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal27",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal43",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal41",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal42",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal40",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "datatype29",
       "type": "rdfs:Datatype"
     },
     {
-      "id": "literal89",
+      "id": "literal39",
       "type": "rdfs:Literal"
     },
     {
-      "id": "datatype109",
+      "id": "literal38",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal35",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "datatype44",
       "type": "rdfs:Datatype"
     },
     {
-      "id": "literal90",
+      "id": "literal34",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal91",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "literal88",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "literal98",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "literal99",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "literal96",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "literal86",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "literal97",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "literal85",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "literal94",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "literal95",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "literal92",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "literal93",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "datatype102",
+      "id": "datatype45",
       "type": "rdfs:Datatype"
     },
     {
-      "id": "datatype87",
+      "id": "literal37",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "literal36",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "datatype47",
       "type": "rdfs:Datatype"
     },
     {
-      "id": "literal100",
+      "id": "literal30",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal101",
+      "id": "literal31",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal104",
+      "id": "literal32",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal106",
+      "id": "literal33",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal107",
-      "type": "rdfs:Literal"
-    },
-    {
-      "id": "literal108",
+      "id": "literal50",
       "type": "rdfs:Literal"
     }
   ],
   "datatypeAttribute": [
     {
-      "id": "datatype103",
+      "id": "datatype51",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "nonNegativeInteger"},
+      "label": {"iriBased": "nonNegativeInteger"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "datatype105",
+      "id": "literal49",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "nonNegativeInteger"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal89",
+      "id": "literal48",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "datatype109",
+      "id": "literal28",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "nonNegativeInteger"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal90",
+      "id": "literal46",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal91",
+      "id": "literal27",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal88",
+      "id": "literal43",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal98",
+      "id": "literal41",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal99",
+      "id": "literal42",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal96",
+      "id": "literal40",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal86",
+      "id": "datatype29",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "nonNegativeInteger"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal97",
+      "id": "literal39",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal85",
+      "id": "literal38",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal94",
+      "id": "literal35",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal95",
+      "id": "datatype44",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "nonNegativeInteger"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal92",
+      "id": "literal34",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal93",
+      "id": "datatype45",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "nonNegativeInteger"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "datatype102",
+      "id": "literal37",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "nonNegativeInteger"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "datatype87",
+      "id": "literal36",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "nonNegativeInteger"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal100",
+      "id": "datatype47",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "nonNegativeInteger"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal101",
+      "id": "literal30",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal104",
+      "id": "literal31",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal106",
+      "id": "literal32",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal107",
+      "id": "literal33",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal108",
+      "id": "literal50",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     }
   ],
   "header": {
-    "languages": ["en"],
+    "languages": [
+      "iriBased",
+      "en"
+    ],
     "title": {},
     "description": {},
     "uri": "http://rdfs.org/sioc/ns#",
