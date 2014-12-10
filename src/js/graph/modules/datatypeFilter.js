@@ -26,30 +26,20 @@ webvowl.modules.datatypeFilter = function () {
 	};
 
 	function removeDatatypesAndLiterals() {
-		var removedElements = [],
+		var removedNodes = webvowl.util.set(),
 			cleanedNodes = [],
 			cleanedProperties = [];
 
 		nodes.forEach(function (node) {
 			if (isDatatypeOrLiteral(node)) {
-				removedElements.push(node);
+				removedNodes.add(node);
 			} else {
 				cleanedNodes.push(node);
 			}
 		});
 
 		properties.forEach(function (property) {
-			var isDangling = false;
-			for (var i = 0, l = removedElements.length; i < l; ++i) {
-				var removedElement = removedElements[i];
-
-				if (isDanglingProperty(property, removedElement)) {
-					isDangling = true;
-					break;
-				}
-			}
-
-			if (!isDangling) {
+			if (!removedNodes.has(property.domain()) && !removedNodes.has(property.range())) {
 				cleanedProperties.push(property);
 			}
 		});
@@ -61,14 +51,6 @@ webvowl.modules.datatypeFilter = function () {
 	function isDatatypeOrLiteral(node) {
 		if (node instanceof webvowl.nodes.rdfsdatatype ||
 			node instanceof webvowl.nodes.rdfsliteral) {
-			return true;
-		}
-		return false;
-	}
-
-	function isDanglingProperty(property, removedElement) {
-		if (property.domain() === removedElement ||
-			property.range() === removedElement) {
 			return true;
 		}
 		return false;
