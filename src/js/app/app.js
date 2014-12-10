@@ -22,7 +22,10 @@ webvowlApp.app = function () {
 		datatypeFilter = webvowl.modules.datatypeFilter(),
 		subclassFilter = webvowl.modules.subclassFilter(),
 		disjointFilter = webvowl.modules.disjointFilter(),
-		pickAndPin = webvowl.modules.pickAndPin();
+		pickAndPin = webvowl.modules.pickAndPin(),
+	// Selections for the app
+		loadingError = d3.select("#loading-error"),
+		loadingProgress = d3.select("#loading-progress");
 
 	app.initialize = function () {
 		options.graphContainerSelector(graphSelector);
@@ -104,19 +107,18 @@ webvowlApp.app = function () {
 	}
 
 	function loadOntology(relativePath) {
+		loadingError.classed("hidden", true);
+		loadingProgress.classed("hidden", false);
+
 		d3.json(relativePath, function (error, data) {
 			pauseMenu.reset();
 
 			var loadingFailed = !!error;
-			d3.select(graphSelector).select("svg").classed("hidden", loadingFailed);
-			d3.select("#loading-info").classed("hidden", !loadingFailed);
-
 			if (loadingFailed) {
-				if (data) {
-					d3.select("#custom-error-message").text(data.message || "");
-				}
-				return;
+				d3.select("#custom-error-message").text(error.response || "");
 			}
+			loadingError.classed("hidden", !loadingFailed);
+			loadingProgress.classed("hidden", true);
 
 			options.data(data);
 			graph.reload();
