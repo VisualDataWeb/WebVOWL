@@ -1,1239 +1,1239 @@
 {
   "propertyAttribute": [
     {
-      "id": "property1349",
+      "id": "property1820",
       "equivalent": [],
-      "range": "class491",
+      "range": "class453",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class441",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1821",
+      "equivalent": [],
+      "range": "class453",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class445",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1776",
+      "equivalent": [],
+      "range": "class440",
       "disjoint": [],
       "subproperty": [
-        "property1320",
-        "property1322",
-        "property1329"
+        "property1747",
+        "property1749",
+        "property1756"
       ],
-      "superproperty": ["property1351"],
-      "domain": "class491",
+      "superproperty": ["property1778"],
+      "domain": "class440",
       "label": {
-        "": "wasDerivedFrom",
-        "default": "wasDerivedFrom"
+        "iriBased": "wasDerivedFrom",
+        "unset": "wasDerivedFrom"
       },
       "attributes": [],
       "comment": {"en": "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."},
       "uri": "http://www.w3.org/ns/prov#wasDerivedFrom"
     },
     {
-      "id": "property1354",
+      "id": "property1781",
       "equivalent": [],
-      "range": "class479",
+      "range": "class428",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class499",
+      "domain": "class448",
       "label": {
-        "": "hadGeneration",
-        "default": "hadGeneration"
+        "iriBased": "hadGeneration",
+        "unset": "hadGeneration"
       },
       "attributes": [],
       "comment": {"en": "The _optional_ Generation involved in an Entity's Derivation."},
       "uri": "http://www.w3.org/ns/prov#hadGeneration"
     },
     {
-      "id": "property1345",
+      "id": "property1824",
       "equivalent": [],
-      "inverse": "property1355",
-      "range": "class482",
+      "range": "class436",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1351"],
-      "domain": "class491",
+      "superproperty": [],
+      "domain": "class433",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1772",
+      "equivalent": [],
+      "inverse": "property1782",
+      "range": "class431",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1778"],
+      "domain": "class440",
       "label": {
-        "": "wasGeneratedBy",
-        "default": "wasGeneratedBy"
+        "iriBased": "wasGeneratedBy",
+        "unset": "wasGeneratedBy"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#wasGeneratedBy"
     },
     {
-      "id": "property1319",
+      "id": "property1825",
       "equivalent": [],
-      "range": "class490",
+      "range": "class436",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class482",
+      "superproperty": [],
+      "domain": "class452",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1822",
+      "equivalent": [],
+      "range": "class453",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class443",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1746",
+      "equivalent": [],
+      "range": "class439",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1769"],
+      "domain": "class431",
       "label": {
-        "": "qualifiedStart",
-        "default": "qualifiedStart"
+        "iriBased": "qualifiedStart",
+        "unset": "qualifiedStart"
       },
       "attributes": [],
       "comment": {"en": "If this Activity prov:wasStartedBy Entity :e1, then it can qualify how it was started using prov:qualifiedStart [ a prov:Start;  prov:entity :e1; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedStart"
     },
     {
-      "id": "property1325",
+      "id": "property1752",
       "equivalent": [],
-      "range": "class489",
+      "range": "class438",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class491",
+      "superproperty": ["property1769"],
+      "domain": "class440",
       "label": {
-        "": "qualifiedInvalidation",
-        "default": "qualifiedInvalidation"
+        "iriBased": "qualifiedInvalidation",
+        "unset": "qualifiedInvalidation"
       },
       "attributes": [],
       "comment": {"en": "If this Entity prov:wasInvalidatedBy Activity :a, then it can qualify how it was invalidated using prov:qualifiedInvalidation [ a prov:Invalidation;  prov:activity :a; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedInvalidation"
     },
     {
-      "id": "property1320",
+      "id": "property1747",
       "equivalent": [],
-      "range": "class491",
+      "range": "class440",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1349"],
-      "domain": "class491",
+      "superproperty": ["property1776"],
+      "domain": "class440",
       "label": {
-        "": "hadPrimarySource",
-        "default": "hadPrimarySource"
+        "iriBased": "hadPrimarySource",
+        "unset": "hadPrimarySource"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#hadPrimarySource"
     },
     {
-      "id": "property1364",
+      "id": "property1797",
       "equivalent": [],
-      "range": "datatype193",
+      "range": "class430",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class491",
+      "domain": "class435",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1796",
+      "equivalent": [],
+      "range": "class432",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class427",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1799",
+      "equivalent": [],
+      "range": "class427",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class428",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1798",
+      "equivalent": [],
+      "range": "class427",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class442",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1791",
+      "equivalent": [],
+      "range": "datatype162",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class440",
       "label": {
-        "": "generatedAtTime",
-        "default": "generatedAtTime"
+        "iriBased": "generatedAtTime",
+        "unset": "generatedAtTime"
       },
       "attributes": [],
       "comment": {"en": "The time at which an entity was completely created and is available for use."},
       "uri": "http://www.w3.org/ns/prov#generatedAtTime"
     },
     {
-      "id": "property1361",
+      "id": "property1788",
       "equivalent": [],
-      "range": "datatype190",
+      "range": "datatype159",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class491",
+      "domain": "class440",
       "label": {
-        "": "invalidatedAtTime",
-        "default": "invalidatedAtTime"
+        "iriBased": "invalidatedAtTime",
+        "unset": "invalidatedAtTime"
       },
       "attributes": [],
       "comment": {"en": "The time at which an entity was invalidated (i.e., no longer usable)."},
       "uri": "http://www.w3.org/ns/prov#invalidatedAtTime"
     },
     {
-      "id": "property1321",
+      "id": "property1748",
       "equivalent": [],
-      "range": "class475",
+      "range": "class424",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class506",
+      "domain": "class455",
       "label": {
-        "": "atLocation",
-        "default": "atLocation"
+        "iriBased": "atLocation",
+        "unset": "atLocation"
       },
       "attributes": [],
       "comment": {
-        "": "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile<\/a>.",
+        "unset": "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile<\/a>.",
         "en": "The Location of any resource."
       },
       "uri": "http://www.w3.org/ns/prov#atLocation"
     },
     {
-      "id": "property1318",
+      "id": "property1818",
       "equivalent": [],
-      "range": "class491",
+      "range": "class448",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1351"],
-      "domain": "class482",
+      "superproperty": [],
+      "domain": "class450",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1817",
+      "equivalent": [],
+      "range": "class448",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class425",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1816",
+      "equivalent": [],
+      "range": "class440",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class431",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1745",
+      "equivalent": [],
+      "range": "class440",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1778"],
+      "domain": "class431",
       "label": {
-        "": "used",
-        "default": "used"
+        "iriBased": "used",
+        "unset": "used"
       },
       "attributes": [],
       "comment": {"en": "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."},
       "uri": "http://www.w3.org/ns/prov#used"
     },
     {
-      "id": "property1343",
+      "id": "property1770",
       "equivalent": [],
-      "range": "class504",
+      "range": "class453",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1351"],
-      "domain": "class491",
+      "superproperty": ["property1778"],
+      "domain": "class440",
       "label": {
-        "": "wasAttributedTo",
-        "default": "wasAttributedTo"
+        "iriBased": "wasAttributedTo",
+        "unset": "wasAttributedTo"
       },
       "attributes": [],
       "comment": {"en": "Attribution is the ascribing of an entity to an agent."},
       "uri": "http://www.w3.org/ns/prov#wasAttributedTo"
     },
     {
-      "id": "property1352",
+      "id": "property1793",
       "equivalent": [],
-      "range": "class504",
+      "range": "class432",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1351"],
-      "domain": "class504",
+      "superproperty": [],
+      "domain": "class449",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1779",
+      "equivalent": [],
+      "range": "class453",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1778"],
+      "domain": "class453",
       "label": {
-        "": "actedOnBehalfOf",
-        "default": "actedOnBehalfOf"
+        "iriBased": "actedOnBehalfOf",
+        "unset": "actedOnBehalfOf"
       },
       "attributes": [],
       "comment": {"en": "An object property to express the accountability of an agent towards another agent. The subordinate agent acted on behalf of the responsible agent in an actual activity. "},
       "uri": "http://www.w3.org/ns/prov#actedOnBehalfOf"
     },
     {
-      "id": "property1316",
+      "id": "property1792",
       "equivalent": [],
-      "range": "class501",
+      "range": "class432",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class491",
+      "superproperty": [],
+      "domain": "class448",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1795",
+      "equivalent": [],
+      "range": "class432",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class429",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1819",
+      "equivalent": [],
+      "range": "class448",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class446",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1794",
+      "equivalent": [],
+      "range": "class432",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class439",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1743",
+      "equivalent": [],
+      "range": "class450",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1769"],
+      "domain": "class440",
       "label": {
-        "": "qualifiedQuotation",
-        "default": "qualifiedQuotation"
+        "iriBased": "qualifiedQuotation",
+        "unset": "qualifiedQuotation"
       },
       "attributes": [],
       "comment": {"en": "If this Entity prov:wasQuotedFrom Entity :e, then it can qualify how using prov:qualifiedQuotation [ a prov:Quotation;  prov:entity :e; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedQuotation"
     },
     {
-      "id": "property1366",
+      "id": "property1810",
       "equivalent": [],
-      "range": "class483",
+      "range": "class437",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class500",
+      "domain": "class436",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property1365",
+      "id": "property1811",
       "equivalent": [],
-      "range": "class483",
+      "range": "class437",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class499",
+      "domain": "class432",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property1344",
+      "id": "property1812",
       "equivalent": [],
-      "range": "class491",
+      "range": "class440",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1340"],
-      "domain": "class491",
+      "superproperty": [],
+      "domain": "class426",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1771",
+      "equivalent": [],
+      "range": "class440",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1767"],
+      "domain": "class440",
       "label": {
-        "": "specializationOf",
-        "default": "specializationOf"
+        "iriBased": "specializationOf",
+        "unset": "specializationOf"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#specializationOf"
     },
     {
-      "id": "property1369",
+      "id": "property1813",
       "equivalent": [],
-      "range": "class483",
+      "range": "class440",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class478",
+      "domain": "class430",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property1330",
+      "id": "property1814",
       "equivalent": [],
-      "range": "class482",
+      "range": "class440",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1351"],
-      "domain": "class482",
+      "superproperty": [],
+      "domain": "class451",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1757",
+      "equivalent": [],
+      "range": "class431",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1778"],
+      "domain": "class431",
       "label": {
-        "": "wasInformedBy",
-        "default": "wasInformedBy"
+        "iriBased": "wasInformedBy",
+        "unset": "wasInformedBy"
       },
       "attributes": [],
       "comment": {"en": "An activity a2 is dependent on or informed by another activity a1, by way of some unspecified entity that is generated by a1 and used by a2."},
       "uri": "http://www.w3.org/ns/prov#wasInformedBy"
     },
     {
-      "id": "property1368",
+      "id": "property1754",
       "equivalent": [],
-      "range": "class483",
+      "range": "class446",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": [],
-      "domain": "class480",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1367",
-      "equivalent": [],
-      "range": "class483",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class490",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1327",
-      "equivalent": [],
-      "range": "class497",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class491",
+      "superproperty": ["property1769"],
+      "domain": "class440",
       "label": {
-        "": "qualifiedRevision",
-        "default": "qualifiedRevision"
+        "iriBased": "qualifiedRevision",
+        "unset": "qualifiedRevision"
       },
       "attributes": [],
       "comment": {"en": "If this Entity prov:wasRevisionOf Entity :e, then it can qualify how it was revised using prov:qualifiedRevision [ a prov:Revision;  prov:entity :e; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedRevision"
     },
     {
-      "id": "property1334",
+      "id": "property1761",
       "equivalent": [],
-      "range": "class503",
+      "range": "class452",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class491",
+      "superproperty": ["property1769"],
+      "domain": "class440",
       "label": {
-        "": "qualifiedAttribution",
-        "default": "qualifiedAttribution"
+        "iriBased": "qualifiedAttribution",
+        "unset": "qualifiedAttribution"
       },
       "attributes": [],
       "comment": {"en": "If this Entity prov:wasAttributedTo Agent :ag, then it can qualify how it was influenced using prov:qualifiedAttribution [ a prov:Attribution;  prov:agent :ag; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedAttribution"
     },
     {
-      "id": "property1339",
+      "id": "property1805",
       "equivalent": [],
-      "range": "class491",
+      "range": "class447",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1351"],
-      "domain": "class482",
+      "superproperty": [],
+      "domain": "class439",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1804",
+      "equivalent": [],
+      "range": "class447",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class438",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1807",
+      "equivalent": [],
+      "range": "class447",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class453",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1806",
+      "equivalent": [],
+      "range": "class447",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class429",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1809",
+      "equivalent": [],
+      "range": "class437",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class427",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1808",
+      "equivalent": [],
+      "range": "class447",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class440",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property1766",
+      "equivalent": [],
+      "range": "class440",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property1778"],
+      "domain": "class431",
       "label": {
-        "": "wasEndedBy",
-        "default": "wasEndedBy"
+        "iriBased": "wasEndedBy",
+        "unset": "wasEndedBy"
       },
       "attributes": [],
       "comment": {"en": "End is when an activity is deemed to have ended. An end may refer to an entity, known as trigger, that terminated the activity."},
       "uri": "http://www.w3.org/ns/prov#wasEndedBy"
     },
     {
-      "id": "property1357",
+      "id": "property1784",
       "equivalent": [],
-      "range": "class499",
+      "range": "class448",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class491",
+      "superproperty": ["property1769"],
+      "domain": "class440",
       "label": {
-        "": "qualifiedDerivation",
-        "default": "qualifiedDerivation"
+        "iriBased": "qualifiedDerivation",
+        "unset": "qualifiedDerivation"
       },
       "attributes": [],
       "comment": {"en": "If this Entity prov:wasDerivedFrom Entity :e, then it can qualify how it was derived using prov:qualifiedDerivation [ a prov:Derivation;  prov:entity :e; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedDerivation"
     },
     {
-      "id": "property1346",
+      "id": "property1773",
       "equivalent": [],
-      "range": "class504",
+      "range": "class453",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1351"],
-      "domain": "class482",
+      "superproperty": ["property1778"],
+      "domain": "class431",
       "label": {
-        "": "wasAssociatedWith",
-        "default": "wasAssociatedWith"
+        "iriBased": "wasAssociatedWith",
+        "unset": "wasAssociatedWith"
       },
       "attributes": [],
       "comment": {"en": "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."},
       "uri": "http://www.w3.org/ns/prov#wasAssociatedWith"
     },
     {
-      "id": "property1375",
+      "id": "property1802",
       "equivalent": [],
-      "range": "class498",
+      "range": "class447",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class500",
+      "domain": "class449",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property1332",
+      "id": "property1759",
       "equivalent": [],
-      "range": "thing40",
+      "range": "thing30",
       "disjoint": [],
       "subproperty": [
-        "property1341",
-        "property1331",
-        "property1328"
+        "property1768",
+        "property1758",
+        "property1755"
       ],
       "superproperty": [],
-      "domain": "class488",
+      "domain": "class437",
       "label": {
-        "": "influencer",
-        "default": "influencer"
+        "iriBased": "influencer",
+        "unset": "influencer"
       },
       "attributes": [],
       "comment": {"en": "Subproperties of prov:influencer are used to cite the object of an unqualified PROV-O triple whose predicate is a subproperty of prov:wasInfluencedBy (e.g. prov:used, prov:wasGeneratedBy). prov:influencer is used much like rdf:object is used."},
       "uri": "http://www.w3.org/ns/prov#influencer"
     },
     {
-      "id": "property1342",
+      "id": "property1769",
       "equivalent": [],
-      "range": "class488",
+      "range": "class437",
       "disjoint": [],
       "subproperty": [
-        "property1323",
-        "property1334",
-        "property1317",
-        "property1356",
-        "property1357",
-        "property1338",
-        "property1326",
-        "property1325",
-        "property1347",
-        "property1316",
-        "property1327",
-        "property1319",
-        "property1358"
+        "property1750",
+        "property1761",
+        "property1744",
+        "property1783",
+        "property1784",
+        "property1765",
+        "property1753",
+        "property1752",
+        "property1774",
+        "property1743",
+        "property1754",
+        "property1746",
+        "property1785"
       ],
       "superproperty": [],
-      "domain": "class506",
+      "domain": "class454",
       "label": {
-        "": "qualifiedInfluence",
-        "default": "qualifiedInfluence"
+        "iriBased": "qualifiedInfluence",
+        "unset": "qualifiedInfluence"
       },
       "attributes": [],
       "comment": {"en": "Because prov:qualifiedInfluence is a broad relation, the more specific relations (qualifiedCommunication, qualifiedDelegation, qualifiedEnd, etc.) should be used when applicable."},
       "uri": "http://www.w3.org/ns/prov#qualifiedInfluence"
     },
     {
-      "id": "property1377",
+      "id": "property1803",
       "equivalent": [],
-      "range": "class498",
+      "range": "class447",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class489",
+      "domain": "class428",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property1376",
+      "id": "property1826",
       "equivalent": [],
-      "range": "class498",
+      "range": "class436",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class479",
+      "domain": "class434",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property1371",
+      "id": "property1800",
       "equivalent": [],
-      "range": "class478",
+      "range": "class427",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class493",
+      "domain": "class438",
       "label": {},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "property1370",
+      "id": "property1765",
       "equivalent": [],
-      "range": "class481",
+      "range": "class449",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": [],
-      "domain": "class486",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1338",
-      "equivalent": [],
-      "range": "class500",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class482",
+      "superproperty": ["property1769"],
+      "domain": "class431",
       "label": {
-        "": "qualifiedEnd",
-        "default": "qualifiedEnd"
+        "iriBased": "qualifiedEnd",
+        "unset": "qualifiedEnd"
       },
       "attributes": [],
       "comment": {"en": "If this Activity prov:wasEndedBy Entity :e1, then it can qualify how it was ended using prov:qualifiedEnd [ a prov:End;  prov:entity :e1; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedEnd"
     },
     {
-      "id": "property1373",
+      "id": "property1763",
       "equivalent": [],
-      "range": "class478",
+      "range": "class431",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class489",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1336",
-      "equivalent": [],
-      "range": "class482",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class488",
+      "domain": "class437",
       "label": {
-        "": "hadActivity",
-        "default": "hadActivity"
+        "iriBased": "hadActivity",
+        "unset": "hadActivity"
       },
       "attributes": [],
       "comment": {
-        "": "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile<\/a>.",
+        "unset": "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile<\/a>.",
         "en": "The _optional_ Activity of an Influence, which used, generated, invalidated, or was the responsibility of some Entity. This property is _not_ used by ActivityInfluence (use prov:activity instead)."
       },
       "uri": "http://www.w3.org/ns/prov#hadActivity"
     },
     {
-      "id": "property1372",
+      "id": "property1786",
       "equivalent": [],
-      "range": "class478",
+      "range": "literal157",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class479",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1359",
-      "equivalent": [],
-      "range": "literal188",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class491",
+      "domain": "class440",
       "label": {
-        "": "value",
-        "default": "value"
+        "iriBased": "value",
+        "unset": "value"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#value"
     },
     {
-      "id": "property1379",
+      "id": "property1753",
       "equivalent": [],
-      "range": "class498",
+      "range": "class428",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": [],
-      "domain": "class480",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1378",
-      "equivalent": [],
-      "range": "class498",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class490",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1326",
-      "equivalent": [],
-      "range": "class479",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class491",
+      "superproperty": ["property1769"],
+      "domain": "class440",
       "label": {
-        "": "qualifiedGeneration",
-        "default": "qualifiedGeneration"
+        "iriBased": "qualifiedGeneration",
+        "unset": "qualifiedGeneration"
       },
       "attributes": [],
       "comment": {"en": "If this Activity prov:generated Entity :e, then it can qualify how it performed the Generation using prov:qualifiedGeneration [ a prov:Generation;  prov:entity :e; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedGeneration"
     },
     {
-      "id": "property1355",
+      "id": "property1782",
       "equivalent": [],
-      "inverse": "property1345",
-      "range": "class491",
+      "inverse": "property1772",
+      "range": "class440",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1315"],
-      "domain": "class482",
+      "superproperty": ["property1742"],
+      "domain": "class431",
       "label": {
-        "": "generated",
-        "default": "generated"
+        "iriBased": "generated",
+        "unset": "generated"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#generated"
     },
     {
-      "id": "property1356",
+      "id": "property1783",
       "equivalent": [],
-      "range": "class485",
+      "range": "class434",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class504",
+      "superproperty": ["property1769"],
+      "domain": "class453",
       "label": {
-        "": "qualifiedDelegation",
-        "default": "qualifiedDelegation"
+        "iriBased": "qualifiedDelegation",
+        "unset": "qualifiedDelegation"
       },
       "attributes": [],
       "comment": {"en": "If this Agent prov:actedOnBehalfOf Agent :ag, then it can qualify how with prov:qualifiedResponsibility [ a prov:Responsibility;  prov:agent :ag; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedDelegation"
     },
     {
-      "id": "property1358",
+      "id": "property1785",
       "equivalent": [],
-      "range": "class480",
+      "range": "class429",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class482",
+      "superproperty": ["property1769"],
+      "domain": "class431",
       "label": {
-        "": "qualifiedUsage",
-        "default": "qualifiedUsage"
+        "iriBased": "qualifiedUsage",
+        "unset": "qualifiedUsage"
       },
       "attributes": [],
       "comment": {"en": "If this Activity prov:used Entity :e, then it can qualify how it used it using prov:qualifiedUsage [ a prov:Usage; prov:entity :e; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedUsage"
     },
     {
-      "id": "property1341",
+      "id": "property1768",
       "equivalent": [],
-      "range": "class482",
+      "range": "class431",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1332"],
-      "domain": "class478",
+      "superproperty": ["property1759"],
+      "domain": "class427",
       "label": {
-        "": "activity",
-        "default": "activity"
+        "iriBased": "activity",
+        "unset": "activity"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#activity"
     },
     {
-      "id": "property1328",
+      "id": "property1755",
       "equivalent": [],
-      "range": "class491",
+      "range": "class440",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1332"],
-      "domain": "class483",
+      "superproperty": ["property1759"],
+      "domain": "class432",
       "label": {
-        "": "entity",
-        "default": "entity"
+        "iriBased": "entity",
+        "unset": "entity"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#entity"
     },
     {
-      "id": "property1333",
+      "id": "property1760",
       "equivalent": [],
-      "range": "class495",
+      "range": "class444",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class488",
+      "domain": "class437",
       "label": {
-        "": "hadRole",
-        "default": "hadRole"
+        "iriBased": "hadRole",
+        "unset": "hadRole"
       },
       "attributes": [],
       "comment": {
-        "": "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile<\/a>.",
+        "unset": "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile<\/a>.",
         "en": "The _optional_ Role that an Entity assumed in the context of an Activity. For example, :baking prov:used :spoon; prov:qualified [ a prov:Usage; prov:entity :spoon; prov:hadRole roles:mixing_implement ]."
       },
       "uri": "http://www.w3.org/ns/prov#hadRole"
     },
     {
-      "id": "property1329",
+      "id": "property1756",
       "equivalent": [],
-      "range": "class491",
+      "range": "class440",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1349"],
-      "domain": "class491",
+      "superproperty": ["property1776"],
+      "domain": "class440",
       "label": {
-        "": "wasRevisionOf",
-        "default": "wasRevisionOf"
+        "iriBased": "wasRevisionOf",
+        "unset": "wasRevisionOf"
       },
       "attributes": [],
       "comment": {"en": "A revision is a derivation that revises an entity into a revised version."},
       "uri": "http://www.w3.org/ns/prov#wasRevisionOf"
     },
     {
-      "id": "property1398",
+      "id": "property1787",
       "equivalent": [],
-      "range": "class487",
+      "range": "datatype158",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class503",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1399",
-      "equivalent": [],
-      "range": "class487",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class485",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1387",
-      "equivalent": [],
-      "range": "class491",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class502",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1386",
-      "equivalent": [],
-      "range": "class491",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class481",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1360",
-      "equivalent": [],
-      "range": "datatype189",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class498",
+      "domain": "class447",
       "label": {
-        "": "atTime",
-        "default": "atTime"
+        "iriBased": "atTime",
+        "unset": "atTime"
       },
       "attributes": [],
       "comment": {"en": "The time at which an InstantaneousEvent occurred, in the form of xsd:dateTime."},
       "uri": "http://www.w3.org/ns/prov#atTime"
     },
     {
-      "id": "property1362",
+      "id": "property1789",
       "equivalent": [],
-      "range": "datatype191",
+      "range": "datatype160",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class482",
+      "domain": "class431",
       "label": {
-        "": "endedAtTime",
-        "default": "endedAtTime"
+        "iriBased": "endedAtTime",
+        "unset": "endedAtTime"
       },
       "attributes": [],
       "comment": {"en": "The time at which an activity ended. See also prov:startedAtTime."},
       "uri": "http://www.w3.org/ns/prov#endedAtTime"
     },
     {
-      "id": "property1397",
+      "id": "property1749",
       "equivalent": [],
-      "range": "class487",
+      "range": "class440",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": [],
-      "domain": "class484",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1385",
-      "equivalent": [],
-      "range": "class491",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class477",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1394",
-      "equivalent": [],
-      "range": "class504",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class496",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1384",
-      "equivalent": [],
-      "range": "class488",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class483",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1322",
-      "equivalent": [],
-      "range": "class491",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": ["property1349"],
-      "domain": "class491",
+      "superproperty": ["property1776"],
+      "domain": "class440",
       "label": {
-        "": "wasQuotedFrom",
-        "default": "wasQuotedFrom"
+        "iriBased": "wasQuotedFrom",
+        "unset": "wasQuotedFrom"
       },
       "attributes": [],
       "comment": {"en": "An entity is derived from an original entity by copying, or 'quoting', some or all of it."},
       "uri": "http://www.w3.org/ns/prov#wasQuotedFrom"
     },
     {
-      "id": "property1324",
+      "id": "property1751",
       "equivalent": [],
-      "range": "class491",
+      "range": "class440",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1351"],
-      "domain": "class481",
+      "superproperty": ["property1778"],
+      "domain": "class430",
       "label": {
-        "": "hadMember",
-        "default": "hadMember"
+        "iriBased": "hadMember",
+        "unset": "hadMember"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#hadMember"
     },
     {
-      "id": "property1395",
+      "id": "property1750",
       "equivalent": [],
-      "range": "class504",
+      "range": "class433",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": [],
-      "domain": "class494",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1383",
-      "equivalent": [],
-      "range": "class488",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class487",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1323",
-      "equivalent": [],
-      "range": "class484",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class482",
+      "superproperty": ["property1769"],
+      "domain": "class431",
       "label": {
-        "": "qualifiedAssociation",
-        "default": "qualifiedAssociation"
+        "iriBased": "qualifiedAssociation",
+        "unset": "qualifiedAssociation"
       },
       "attributes": [],
       "comment": {"en": "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedAssociation"
     },
     {
-      "id": "property1392",
+      "id": "property1775",
       "equivalent": [],
-      "range": "class499",
+      "inverse": "property1777",
+      "range": "class431",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": [],
-      "domain": "class497",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1382",
-      "equivalent": [],
-      "range": "class488",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class478",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1393",
-      "equivalent": [],
-      "range": "class504",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class492",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1381",
-      "equivalent": [],
-      "range": "class498",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class491",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1348",
-      "equivalent": [],
-      "inverse": "property1350",
-      "range": "class482",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": ["property1351"],
-      "domain": "class491",
+      "superproperty": ["property1778"],
+      "domain": "class440",
       "label": {
-        "": "wasInvalidatedBy",
-        "default": "wasInvalidatedBy"
+        "iriBased": "wasInvalidatedBy",
+        "unset": "wasInvalidatedBy"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#wasInvalidatedBy"
     },
     {
-      "id": "property1363",
+      "id": "property1790",
       "equivalent": [],
-      "range": "datatype192",
+      "range": "datatype161",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class482",
+      "domain": "class431",
       "label": {
-        "": "startedAtTime",
-        "default": "startedAtTime"
+        "iriBased": "startedAtTime",
+        "unset": "startedAtTime"
       },
       "attributes": [],
       "comment": {"en": "The time at which an activity started. See also prov:endedAtTime."},
       "uri": "http://www.w3.org/ns/prov#startedAtTime"
     },
     {
-      "id": "property1353",
+      "id": "property1780",
       "equivalent": [],
-      "range": "class480",
+      "range": "class429",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class499",
+      "domain": "class448",
       "label": {
-        "": "hadUsage",
-        "default": "hadUsage"
+        "iriBased": "hadUsage",
+        "unset": "hadUsage"
       },
       "attributes": [],
       "comment": {"en": "The _optional_ Usage involved in an Entity's Derivation."},
       "uri": "http://www.w3.org/ns/prov#hadUsage"
     },
     {
-      "id": "property1331",
+      "id": "property1758",
       "equivalent": [],
-      "range": "class504",
+      "range": "class453",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1332"],
-      "domain": "class487",
+      "superproperty": ["property1759"],
+      "domain": "class436",
       "label": {
-        "": "agent",
-        "default": "agent"
+        "iriBased": "agent",
+        "unset": "agent"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#agent"
     },
     {
-      "id": "property1337",
+      "id": "property1764",
       "equivalent": [],
-      "range": "class502",
+      "range": "class451",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class484",
+      "domain": "class433",
       "label": {
-        "": "hadPlan",
-        "default": "hadPlan"
+        "iriBased": "hadPlan",
+        "unset": "hadPlan"
       },
       "attributes": [],
       "comment": {"en": "The _optional_ Plan adopted by an Agent in Association with some Activity. Plan specifications are out of the scope of this specification."},
       "uri": "http://www.w3.org/ns/prov#hadPlan"
     },
     {
-      "id": "property1347",
+      "id": "property1774",
       "equivalent": [],
-      "range": "class476",
+      "range": "class425",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class491",
+      "superproperty": ["property1769"],
+      "domain": "class440",
       "label": {
-        "": "qualifiedPrimarySource",
-        "default": "qualifiedPrimarySource"
+        "iriBased": "qualifiedPrimarySource",
+        "unset": "qualifiedPrimarySource"
       },
       "attributes": [],
       "comment": {"en": "If this Entity prov:hadPrimarySource Entity :e, then it can qualify how using prov:qualifiedPrimarySource [ a prov:PrimarySource; prov:entity :e; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedPrimarySource"
     },
     {
-      "id": "property1389",
+      "id": "property1742",
       "equivalent": [],
-      "range": "class491",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class482",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1315",
-      "equivalent": [],
-      "inverse": "property1351",
-      "range": "class505",
+      "inverse": "property1778",
+      "range": "class454",
       "disjoint": [],
       "subproperty": [
-        "property1355",
-        "property1350"
+        "property1782",
+        "property1777"
       ],
       "superproperty": [],
-      "domain": "class505",
+      "domain": "class454",
       "label": {
-        "": "influenced",
-        "default": "influenced"
+        "iriBased": "influenced",
+        "unset": "influenced"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#influenced"
     },
     {
-      "id": "property1350",
+      "id": "property1777",
       "equivalent": [],
-      "inverse": "property1348",
-      "range": "class491",
+      "inverse": "property1775",
+      "range": "class440",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1315"],
-      "domain": "class482",
+      "superproperty": ["property1742"],
+      "domain": "class431",
       "label": {
-        "": "invalidated",
-        "default": "invalidated"
+        "iriBased": "invalidated",
+        "unset": "invalidated"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#invalidated"
     },
     {
-      "id": "property1317",
+      "id": "property1744",
       "equivalent": [],
-      "range": "class493",
+      "range": "class442",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1342"],
-      "domain": "class482",
+      "superproperty": ["property1769"],
+      "domain": "class431",
       "label": {
-        "": "qualifiedCommunication",
-        "default": "qualifiedCommunication"
+        "iriBased": "qualifiedCommunication",
+        "unset": "qualifiedCommunication"
       },
       "attributes": [],
       "comment": {"en": "If this Activity prov:wasInformedBy Activity :a, then it can qualify how it was influenced using prov:qualifiedCommunication [ a prov:Communication;  prov:activity :a; :foo :bar ]."},
       "uri": "http://www.w3.org/ns/prov#qualifiedCommunication"
     },
     {
-      "id": "property1391",
+      "id": "property1778",
       "equivalent": [],
-      "range": "class499",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class501",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1390",
-      "equivalent": [],
-      "range": "class499",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class476",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1380",
-      "equivalent": [],
-      "range": "class498",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class504",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property1351",
-      "equivalent": [],
-      "inverse": "property1315",
-      "range": "class506",
+      "inverse": "property1742",
+      "range": "class454",
       "disjoint": [],
       "subproperty": [
-        "property1352",
-        "property1324",
-        "property1318",
-        "property1346",
-        "property1343",
-        "property1349",
-        "property1339",
-        "property1345",
-        "property1330",
-        "property1348",
-        "property1335"
+        "property1779",
+        "property1751",
+        "property1745",
+        "property1773",
+        "property1770",
+        "property1776",
+        "property1766",
+        "property1772",
+        "property1757",
+        "property1775",
+        "property1762"
       ],
       "superproperty": [],
-      "domain": "class506",
+      "domain": "class454",
       "label": {
-        "": "wasInfluencedBy",
-        "default": "wasInfluencedBy"
+        "iriBased": "wasInfluencedBy",
+        "unset": "wasInfluencedBy"
       },
       "attributes": [],
       "comment": {
-        "": "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile<\/a>.",
+        "unset": "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile<\/a>.",
         "en": "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."
       },
       "uri": "http://www.w3.org/ns/prov#wasInfluencedBy"
     },
     {
-      "id": "property1340",
+      "id": "property1767",
       "equivalent": [],
-      "range": "class491",
+      "range": "class440",
       "disjoint": [],
-      "subproperty": ["property1344"],
+      "subproperty": ["property1771"],
       "superproperty": [],
-      "domain": "class491",
+      "domain": "class440",
       "label": {
-        "": "alternateOf",
-        "default": "alternateOf"
+        "iriBased": "alternateOf",
+        "unset": "alternateOf"
       },
       "attributes": [],
       "comment": {},
       "uri": "http://www.w3.org/ns/prov#alternateOf"
     },
     {
-      "id": "property1335",
+      "id": "property1762",
       "equivalent": [],
-      "range": "class491",
+      "range": "class440",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property1351"],
-      "domain": "class482",
+      "superproperty": ["property1778"],
+      "domain": "class431",
       "label": {
-        "": "wasStartedBy",
-        "default": "wasStartedBy"
+        "iriBased": "wasStartedBy",
+        "unset": "wasStartedBy"
       },
       "attributes": [],
       "comment": {"en": "Start is when an activity is deemed to have started. A start may refer to an entity, known as trigger, that initiated the activity."},
@@ -1253,20 +1253,20 @@
   "classAttribute": [
     {
       "complement": [],
-      "id": "class483",
+      "id": "class432",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class488"],
+      "superClasses": ["class437"],
       "union": [],
       "subClasses": [
-        "class499",
-        "class500",
-        "class490",
-        "class480"
+        "class448",
+        "class449",
+        "class439",
+        "class429"
       ],
       "label": {
-        "": "EntityInfluence",
-        "default": "EntityInfluence"
+        "iriBased": "EntityInfluence",
+        "unset": "EntityInfluence"
       },
       "attributes": [],
       "instances": 0,
@@ -1275,15 +1275,15 @@
     },
     {
       "complement": [],
-      "id": "class481",
+      "id": "class430",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class491"],
+      "superClasses": ["class440"],
       "union": [],
-      "subClasses": ["class486"],
+      "subClasses": ["class435"],
       "label": {
-        "": "Collection",
-        "default": "Collection"
+        "iriBased": "Collection",
+        "unset": "Collection"
       },
       "attributes": [],
       "instances": 0,
@@ -1292,15 +1292,15 @@
     },
     {
       "complement": [],
-      "id": "class496",
+      "id": "class445",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class504"],
+      "superClasses": ["class453"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Person",
-        "default": "Person"
+        "iriBased": "Person",
+        "unset": "Person"
       },
       "attributes": [],
       "instances": 0,
@@ -1309,15 +1309,15 @@
     },
     {
       "complement": [],
-      "id": "class497",
+      "id": "class446",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class499"],
+      "superClasses": ["class448"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Revision",
-        "default": "Revision"
+        "iriBased": "Revision",
+        "unset": "Revision"
       },
       "attributes": [],
       "instances": 0,
@@ -1326,18 +1326,18 @@
     },
     {
       "complement": [],
-      "id": "class490",
+      "id": "class439",
       "intersection": [],
       "equivalent": [],
       "superClasses": [
-        "class483",
-        "class498"
+        "class432",
+        "class447"
       ],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Start",
-        "default": "Start"
+        "iriBased": "Start",
+        "unset": "Start"
       },
       "attributes": [],
       "instances": 0,
@@ -1346,19 +1346,19 @@
     },
     {
       "complement": [],
-      "id": "class478",
+      "id": "class427",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class488"],
+      "superClasses": ["class437"],
       "union": [],
       "subClasses": [
-        "class493",
-        "class479",
-        "class489"
+        "class442",
+        "class428",
+        "class438"
       ],
       "label": {
-        "": "ActivityInfluence",
-        "default": "ActivityInfluence"
+        "iriBased": "ActivityInfluence",
+        "unset": "ActivityInfluence"
       },
       "attributes": [],
       "instances": 0,
@@ -1367,21 +1367,21 @@
     },
     {
       "complement": [],
-      "id": "class498",
+      "id": "class447",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [
-        "class500",
-        "class479",
-        "class489",
-        "class490",
-        "class480"
+        "class449",
+        "class428",
+        "class438",
+        "class439",
+        "class429"
       ],
       "label": {
-        "": "InstantaneousEvent",
-        "default": "InstantaneousEvent"
+        "iriBased": "InstantaneousEvent",
+        "unset": "InstantaneousEvent"
       },
       "attributes": [],
       "instances": 0,
@@ -1390,15 +1390,15 @@
     },
     {
       "complement": [],
-      "id": "class484",
+      "id": "class433",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class487"],
+      "superClasses": ["class436"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Association",
-        "default": "Association"
+        "iriBased": "Association",
+        "unset": "Association"
       },
       "attributes": [],
       "instances": 0,
@@ -1407,15 +1407,15 @@
     },
     {
       "complement": [],
-      "id": "class495",
+      "id": "class444",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Role",
-        "default": "Role"
+        "iriBased": "Role",
+        "unset": "Role"
       },
       "attributes": [],
       "instances": 0,
@@ -1424,14 +1424,14 @@
     },
     {
       "complement": [],
-      "id": "class486",
+      "id": "class435",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class481"],
+      "superClasses": ["class430"],
       "union": [],
       "subClasses": [],
       "label": {
-        "default": "EmptyCollection",
+        "iriBased": "EmptyCollection",
         "en": "EmptyCollection"
       },
       "attributes": [],
@@ -1441,15 +1441,15 @@
     },
     {
       "complement": [],
-      "id": "class485",
+      "id": "class434",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class487"],
+      "superClasses": ["class436"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Delegation",
-        "default": "Delegation"
+        "iriBased": "Delegation",
+        "unset": "Delegation"
       },
       "attributes": [],
       "instances": 0,
@@ -1458,19 +1458,19 @@
     },
     {
       "complement": [],
-      "id": "class488",
+      "id": "class437",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [
-        "class478",
-        "class487",
-        "class483"
+        "class427",
+        "class436",
+        "class432"
       ],
       "label": {
-        "": "Influence",
-        "default": "Influence"
+        "iriBased": "Influence",
+        "unset": "Influence"
       },
       "attributes": [],
       "instances": 0,
@@ -1479,15 +1479,15 @@
     },
     {
       "complement": [],
-      "id": "class501",
+      "id": "class450",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class499"],
+      "superClasses": ["class448"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Quotation",
-        "default": "Quotation"
+        "iriBased": "Quotation",
+        "unset": "Quotation"
       },
       "attributes": [],
       "instances": 0,
@@ -1496,19 +1496,19 @@
     },
     {
       "complement": [],
-      "id": "class491",
+      "id": "class440",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [
-        "class477",
-        "class481",
-        "class502"
+        "class426",
+        "class430",
+        "class451"
       ],
       "label": {
-        "": "Entity",
-        "default": "Entity"
+        "iriBased": "Entity",
+        "unset": "Entity"
       },
       "attributes": [],
       "instances": 0,
@@ -1517,19 +1517,19 @@
     },
     {
       "complement": [],
-      "id": "class499",
+      "id": "class448",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class483"],
+      "superClasses": ["class432"],
       "union": [],
       "subClasses": [
-        "class476",
-        "class501",
-        "class497"
+        "class425",
+        "class450",
+        "class446"
       ],
       "label": {
-        "": "Derivation",
-        "default": "Derivation"
+        "iriBased": "Derivation",
+        "unset": "Derivation"
       },
       "attributes": [],
       "instances": 0,
@@ -1538,19 +1538,19 @@
     },
     {
       "complement": [],
-      "id": "class504",
+      "id": "class453",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [
-        "class492",
-        "class496",
-        "class494"
+        "class441",
+        "class445",
+        "class443"
       ],
       "label": {
-        "": "Agent",
-        "default": "Agent"
+        "iriBased": "Agent",
+        "unset": "Agent"
       },
       "attributes": [],
       "instances": 0,
@@ -1559,18 +1559,18 @@
     },
     {
       "complement": [],
-      "id": "class480",
+      "id": "class429",
       "intersection": [],
       "equivalent": [],
       "superClasses": [
-        "class483",
-        "class498"
+        "class432",
+        "class447"
       ],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Usage",
-        "default": "Usage"
+        "iriBased": "Usage",
+        "unset": "Usage"
       },
       "attributes": [],
       "instances": 0,
@@ -1579,18 +1579,18 @@
     },
     {
       "complement": [],
-      "id": "class479",
+      "id": "class428",
       "intersection": [],
       "equivalent": [],
       "superClasses": [
-        "class478",
-        "class498"
+        "class427",
+        "class447"
       ],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Generation",
-        "default": "Generation"
+        "iriBased": "Generation",
+        "unset": "Generation"
       },
       "attributes": [],
       "instances": 0,
@@ -1599,15 +1599,15 @@
     },
     {
       "complement": [],
-      "id": "class477",
+      "id": "class426",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class491"],
+      "superClasses": ["class440"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Bundle",
-        "default": "Bundle"
+        "iriBased": "Bundle",
+        "unset": "Bundle"
       },
       "attributes": [],
       "instances": 0,
@@ -1616,15 +1616,15 @@
     },
     {
       "complement": [],
-      "id": "class502",
+      "id": "class451",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class491"],
+      "superClasses": ["class440"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Plan",
-        "default": "Plan"
+        "iriBased": "Plan",
+        "unset": "Plan"
       },
       "attributes": [],
       "instances": 0,
@@ -1633,19 +1633,19 @@
     },
     {
       "complement": [],
-      "id": "class487",
+      "id": "class436",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class488"],
+      "superClasses": ["class437"],
       "union": [],
       "subClasses": [
-        "class484",
-        "class503",
-        "class485"
+        "class433",
+        "class452",
+        "class434"
       ],
       "label": {
-        "": "AgentInfluence",
-        "default": "AgentInfluence"
+        "iriBased": "AgentInfluence",
+        "unset": "AgentInfluence"
       },
       "attributes": [],
       "instances": 0,
@@ -1654,15 +1654,15 @@
     },
     {
       "complement": [],
-      "id": "class475",
+      "id": "class424",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Location",
-        "default": "Location"
+        "iriBased": "Location",
+        "unset": "Location"
       },
       "attributes": [],
       "instances": 0,
@@ -1671,15 +1671,15 @@
     },
     {
       "complement": [],
-      "id": "class476",
+      "id": "class425",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class499"],
+      "superClasses": ["class448"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "PrimarySource",
-        "default": "PrimarySource"
+        "iriBased": "PrimarySource",
+        "unset": "PrimarySource"
       },
       "attributes": [],
       "instances": 0,
@@ -1688,15 +1688,15 @@
     },
     {
       "complement": [],
-      "id": "class492",
+      "id": "class441",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class504"],
+      "superClasses": ["class453"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Organization",
-        "default": "Organization"
+        "iriBased": "Organization",
+        "unset": "Organization"
       },
       "attributes": [],
       "instances": 0,
@@ -1705,18 +1705,18 @@
     },
     {
       "complement": [],
-      "id": "class489",
+      "id": "class438",
       "intersection": [],
       "equivalent": [],
       "superClasses": [
-        "class478",
-        "class498"
+        "class427",
+        "class447"
       ],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Invalidation",
-        "default": "Invalidation"
+        "iriBased": "Invalidation",
+        "unset": "Invalidation"
       },
       "attributes": [],
       "instances": 0,
@@ -1725,18 +1725,18 @@
     },
     {
       "complement": [],
-      "id": "class500",
+      "id": "class449",
       "intersection": [],
       "equivalent": [],
       "superClasses": [
-        "class483",
-        "class498"
+        "class432",
+        "class447"
       ],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "End",
-        "default": "End"
+        "iriBased": "End",
+        "unset": "End"
       },
       "attributes": [],
       "instances": 0,
@@ -1745,15 +1745,15 @@
     },
     {
       "complement": [],
-      "id": "class493",
+      "id": "class442",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class478"],
+      "superClasses": ["class427"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Communication",
-        "default": "Communication"
+        "iriBased": "Communication",
+        "unset": "Communication"
       },
       "attributes": [],
       "instances": 0,
@@ -1762,15 +1762,15 @@
     },
     {
       "complement": [],
-      "id": "class503",
+      "id": "class452",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class487"],
+      "superClasses": ["class436"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Attribution",
-        "default": "Attribution"
+        "iriBased": "Attribution",
+        "unset": "Attribution"
       },
       "attributes": [],
       "instances": 0,
@@ -1779,15 +1779,15 @@
     },
     {
       "complement": [],
-      "id": "class494",
+      "id": "class443",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class504"],
+      "superClasses": ["class453"],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "SoftwareAgent",
-        "default": "SoftwareAgent"
+        "iriBased": "SoftwareAgent",
+        "unset": "SoftwareAgent"
       },
       "attributes": [],
       "instances": 0,
@@ -1796,15 +1796,15 @@
     },
     {
       "complement": [],
-      "id": "class482",
+      "id": "class431",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
       "label": {
-        "": "Activity",
-        "default": "Activity"
+        "iriBased": "Activity",
+        "unset": "Activity"
       },
       "attributes": [],
       "instances": 0,
@@ -1812,575 +1812,576 @@
       "uri": "http://www.w3.org/ns/prov#Activity"
     },
     {
-      "id": "thing40",
+      "id": "thing30",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "class506",
+      "id": "class454",
       "union": [
-        "class498",
-        "class482",
-        "class504",
-        "class491"
+        "class431",
+        "class453",
+        "class440"
       ],
       "attributes": []
     },
     {
-      "id": "class505",
+      "id": "class455",
       "union": [
-        "class482",
-        "class504",
-        "class491"
+        "class447",
+        "class431",
+        "class453",
+        "class440"
       ],
       "attributes": []
     }
   ],
   "class": [
     {
-      "id": "class483",
+      "id": "class432",
       "type": "owl:Class"
     },
     {
-      "id": "class481",
+      "id": "class430",
       "type": "owl:Class"
     },
     {
-      "id": "class496",
+      "id": "class445",
       "type": "owl:Class"
     },
     {
-      "id": "class497",
+      "id": "class446",
       "type": "owl:Class"
     },
     {
-      "id": "class490",
+      "id": "class439",
       "type": "owl:Class"
     },
     {
-      "id": "class478",
+      "id": "class427",
       "type": "owl:Class"
     },
     {
-      "id": "class498",
+      "id": "class447",
       "type": "owl:Class"
     },
     {
-      "id": "class484",
+      "id": "class433",
       "type": "owl:Class"
     },
     {
-      "id": "class495",
+      "id": "class444",
       "type": "owl:Class"
     },
     {
-      "id": "class486",
+      "id": "class435",
       "type": "owl:Class"
     },
     {
-      "id": "class485",
+      "id": "class434",
       "type": "owl:Class"
     },
     {
-      "id": "class488",
+      "id": "class437",
       "type": "owl:Class"
     },
     {
-      "id": "class501",
+      "id": "class450",
       "type": "owl:Class"
     },
     {
-      "id": "class491",
+      "id": "class440",
       "type": "owl:Class"
     },
     {
-      "id": "class499",
+      "id": "class448",
       "type": "owl:Class"
     },
     {
-      "id": "class504",
+      "id": "class453",
       "type": "owl:Class"
     },
     {
-      "id": "class480",
+      "id": "class429",
       "type": "owl:Class"
     },
     {
-      "id": "class479",
+      "id": "class428",
       "type": "owl:Class"
     },
     {
-      "id": "class477",
+      "id": "class426",
       "type": "owl:Class"
     },
     {
-      "id": "class502",
+      "id": "class451",
       "type": "owl:Class"
     },
     {
-      "id": "class487",
+      "id": "class436",
       "type": "owl:Class"
     },
     {
-      "id": "class475",
+      "id": "class424",
       "type": "owl:Class"
     },
     {
-      "id": "class476",
+      "id": "class425",
       "type": "owl:Class"
     },
     {
-      "id": "class492",
+      "id": "class441",
       "type": "owl:Class"
     },
     {
-      "id": "class489",
+      "id": "class438",
       "type": "owl:Class"
     },
     {
-      "id": "class500",
+      "id": "class449",
       "type": "owl:Class"
     },
     {
-      "id": "class493",
+      "id": "class442",
       "type": "owl:Class"
     },
     {
-      "id": "class503",
+      "id": "class452",
       "type": "owl:Class"
     },
     {
-      "id": "class494",
+      "id": "class443",
       "type": "owl:Class"
     },
     {
-      "id": "class482",
+      "id": "class431",
       "type": "owl:Class"
     },
     {
-      "id": "thing40",
+      "id": "thing30",
       "type": "owl:Thing"
     },
     {
-      "id": "class506",
+      "id": "class454",
       "label": "Union",
       "type": "owl:unionOf"
     },
     {
-      "id": "class505",
+      "id": "class455",
       "label": "Union",
       "type": "owl:unionOf"
     }
   ],
   "property": [
     {
-      "id": "property1349",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1354",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1345",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1319",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1325",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1320",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1364",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property1361",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property1321",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1318",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1343",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1352",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1316",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1366",
+      "id": "property1820",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property1365",
+      "id": "property1821",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property1344",
+      "id": "property1776",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property1369",
+      "id": "property1781",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1824",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1772",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1825",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1822",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1746",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1752",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1747",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1797",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1796",
       "type": "owl:disjointWith"
     },
     {
-      "id": "property1330",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1368",
+      "id": "property1799",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property1367",
+      "id": "property1798",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property1327",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1334",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1339",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1357",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1346",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1375",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1332",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1342",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1377",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1376",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1371",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1370",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1338",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1373",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1336",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1372",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1359",
+      "id": "property1791",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property1379",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1378",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1326",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1355",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1356",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1358",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1341",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1328",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1333",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1329",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1398",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1399",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1387",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1386",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1360",
+      "id": "property1788",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property1362",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property1397",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1385",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1394",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1384",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1322",
+      "id": "property1748",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property1324",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1395",
+      "id": "property1818",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property1383",
+      "id": "property1817",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property1323",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property1392",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1382",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1393",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1381",
+      "id": "property1816",
       "type": "owl:disjointWith"
     },
     {
-      "id": "property1348",
+      "id": "property1745",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property1363",
+      "id": "property1770",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1793",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1779",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1792",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1795",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1819",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1794",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1743",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1810",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1811",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1812",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1771",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1813",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1814",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1757",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1754",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1761",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1805",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1804",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1807",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1806",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1809",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1808",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "property1766",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1784",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1773",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1802",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1759",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1769",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1803",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1826",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1800",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property1765",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1763",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1786",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property1353",
+      "id": "property1753",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property1331",
+      "id": "property1782",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property1337",
+      "id": "property1783",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property1347",
+      "id": "property1785",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property1389",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property1315",
+      "id": "property1768",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property1350",
+      "id": "property1755",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property1317",
+      "id": "property1760",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property1391",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1390",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property1380",
-      "type": "owl:disjointWith"
-    },
-    {
-      "id": "property1351",
+      "id": "property1756",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property1340",
+      "id": "property1787",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1789",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1749",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property1335",
+      "id": "property1751",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1750",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1775",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1790",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property1780",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1758",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1764",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1774",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1742",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1777",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1744",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1778",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1767",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property1762",
       "type": "owl:objectProperty"
     }
   ],
   "datatype": [
     {
-      "id": "datatype190",
-      "type": "rdfs:Datatype"
-    },
-    {
-      "id": "literal188",
+      "id": "literal157",
       "type": "rdfs:Literal"
     },
     {
-      "id": "datatype191",
+      "id": "datatype162",
       "type": "rdfs:Datatype"
     },
     {
-      "id": "datatype192",
+      "id": "datatype161",
       "type": "rdfs:Datatype"
     },
     {
-      "id": "datatype193",
+      "id": "datatype160",
       "type": "rdfs:Datatype"
     },
     {
-      "id": "datatype189",
+      "id": "datatype158",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "datatype159",
       "type": "rdfs:Datatype"
     }
   ],
   "datatypeAttribute": [
     {
-      "id": "datatype190",
+      "id": "literal157",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "dateTime"},
+      "label": {"iriBased": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal188",
+      "id": "datatype162",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "Literal"},
+      "label": {"iriBased": "dateTime"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "datatype191",
+      "id": "datatype161",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "dateTime"},
+      "label": {"iriBased": "dateTime"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "datatype192",
+      "id": "datatype160",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "dateTime"},
+      "label": {"iriBased": "dateTime"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "datatype193",
+      "id": "datatype158",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "dateTime"},
+      "label": {"iriBased": "dateTime"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "datatype189",
+      "id": "datatype159",
       "superClasses": [],
       "subClasses": [],
-      "label": {"default": "dateTime"},
+      "label": {"iriBased": "dateTime"},
       "attributes": [],
       "comment": {}
     }
   ],
   "header": {
     "languages": [
-      "",
+      "iriBased",
+      "unset",
       "en"
     ],
     "title": {},
