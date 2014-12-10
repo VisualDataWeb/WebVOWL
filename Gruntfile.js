@@ -55,7 +55,7 @@ module.exports = function (grunt) {
 						return [
 							connect.favicon("favicon.ico"),
 							connect.static(options.base[0]),
-							connect.directory(options.base)
+							connect.directory(options.base[0])
 						];
 					}
 				}
