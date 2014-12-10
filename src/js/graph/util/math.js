@@ -112,11 +112,11 @@ webvowl.util.math = (function () {
 			arcFrom = calculateRadian(loopShiftAngle * link.loopIndex()),
 			arcTo = calculateRadian((loopShiftAngle * link.loopIndex()) + loopAngle),
 
-			x1 = Math.cos(arcFrom) * node.radius(),
-			y1 = Math.sin(arcFrom) * node.radius(),
+			x1 = Math.cos(arcFrom) * node.actualRadius(),
+			y1 = Math.sin(arcFrom) * node.actualRadius(),
 
-			x2 = Math.cos(arcTo) * node.radius(),
-			y2 = Math.sin(arcTo) * node.radius(),
+			x2 = Math.cos(arcTo) * node.actualRadius(),
+			y2 = Math.sin(arcTo) * node.actualRadius(),
 
 			fixPoint1 = {"x": node.x + x1, "y": node.y + y1},
 			fixPoint2 = {"x": node.x + x2, "y": node.y + y2},
