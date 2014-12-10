@@ -62,7 +62,8 @@ main {
 #canvasArea #graph {
 	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box;
-	margin: 0;
+	margin: 0 0 2px 0;
+	background-color: #ecf0f1;
 	overflow: hidden;
 	padding: 0;
 	width: 100%;
@@ -70,7 +71,6 @@ main {
 #canvasArea svg {
 	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box;
-	background-color: #ecf0f1;
 	margin: 0;
 	overflow: hidden;
 	padding: 0;
@@ -449,4 +449,8 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 .converter-form button {
 	border-width: 0;
+}
+#loading-info {
+	text-align: center;
+	vertical-align: middle;
 }

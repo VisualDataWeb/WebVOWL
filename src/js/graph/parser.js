@@ -17,6 +17,12 @@ webvowl.parser = function (graph) {
 	 * @param ontologyData the loaded ontology json file
 	 */
 	parser.parse = function (ontologyData) {
+		if (!ontologyData) {
+			nodes = [];
+			properties = [];
+			return;
+		}
+
 		var classes = combineClasses(ontologyData.class, ontologyData.classAttribute, webvowl.nodes),
 			datatypes = combineClasses(ontologyData.datatype, ontologyData.datatypeAttribute, webvowl.nodes),
 			combinedClassesAndDatatypes = classes.concat(datatypes),

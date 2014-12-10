@@ -69,6 +69,9 @@ webvowlApp.app = function () {
 		});
 
 		updateNavigationHrefs();
+
+		graph.start();
+		adjustSize();
 	};
 
 	/**
@@ -104,21 +107,33 @@ webvowlApp.app = function () {
 		d3.json(relativePath, function (error, data) {
 			pauseMenu.reset();
 
+			var loadingFailed = !!error;
+			d3.select(graphSelector).select("svg").classed("hidden", loadingFailed);
+			d3.select("#loading-info").classed("hidden", !loadingFailed);
+
+			if (loadingFailed) {
+				if (data) {
+					d3.select("#custom-error-message").text(data.message || "");
+				}
+				return;
+			}
+
 			options.data(data);
-			graph.start();
+			graph.reload();
 			sidebar.updateOntologyInformation(data, statistics);
 
 			var filename = relativePath.slice(relativePath.lastIndexOf("/") + 1);
 			exportMenu.setFilename(filename.split(".")[0] + ".svg");
-			adjustSize();
 		});
 	}
 
 	function adjustSize() {
-		var svg = d3.select(graphSelector).select("svg"),
+		var graphContainer = d3.select(graphSelector),
+			svg = graphContainer.select("svg"),
 			height = window.innerHeight - 40,
 			width = window.innerWidth - (window.innerWidth * 0.22);
 
+		graphContainer.style("height", height + "px");
 		svg.attr("width", width)
 			.attr("height", height);
 
