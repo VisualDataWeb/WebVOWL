@@ -129,8 +129,8 @@ webvowlApp.sidebar = function (graph) {
 		var title = languageTools.textForCurrentLanguage(ontologyInfo.title, graph.getLanguage());
 		d3.select("#title").text(title);
 		d3.select("#about").attr("href", ontologyInfo.uri).attr("target", "_blank").text(ontologyInfo.uri);
-		d3.select("#version").text(ontologyInfo.version);
-		d3.select("#authors").text(ontologyInfo.author);
+		d3.select("#version").text(ontologyInfo.version || "--");
+		d3.select("#authors").text(ontologyInfo.author || "--");
 
 		var description = languageTools.textForCurrentLanguage(ontologyInfo.description, graph.getLanguage());
 		d3.select("#description").text(description || "No description available.");
