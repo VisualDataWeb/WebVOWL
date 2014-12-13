@@ -5,7 +5,7 @@ webvowlApp.app = function () {
 		options = graph.graphOptions(),
 		graphSelector = "#graph",
 		jsonBasePath = "js/data/",
-		defaultJsonPath = jsonBasePath + "benchmark.json", // This file is loaded by default
+		defaultJsonPath = jsonBasePath + "foaf.json", // This file is loaded by default
 	// Modules for the webvowl app
 		exportMenu,
 		gravityMenu,
