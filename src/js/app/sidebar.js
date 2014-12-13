@@ -94,12 +94,10 @@ webvowlApp.sidebar = function (graph) {
 				sidebar.updateSelectionInformation(lastSelectedElement);
 			});
 
-		var languageOptions = languageSelection.selectAll("option")
-			.data(languages, function (d) {
-				return d;
-			});
-		languageOptions.exit().remove();
-		languageOptions.enter().append("option")
+		languageSelection.selectAll("option").remove();
+		languageSelection.selectAll("option")
+			.data(languages)
+			.enter().append("option")
 			.attr("value", function (d) {
 				return d;
 			})
