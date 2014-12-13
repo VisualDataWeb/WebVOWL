@@ -6,7 +6,7 @@ img, iframe {
 	border: none;
 }
 .hidden {
-	display: none;
+	display: none !important;
 }
 .clear {
 	clear: both;
@@ -463,8 +463,36 @@ input[type="range"]::-webkit-slider-thumb:active {
 	text-align: center;
 	vertical-align: middle;
 }
-#loading-info span {
+#loading-info > div {
+	display: inline-block;
 	background-color: #24323e;
 	color: #ffffff;
-	padding: 2px;
+	padding: 5px;
+}
+#loading-info > div > div {
+	display: inline-block;
+}
+.spin {
+	-webkit-animation: spin 2s infinite linear;
+	animation: spin 2s infinite linear;
+}
+@-webkit-keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+@keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
 }
