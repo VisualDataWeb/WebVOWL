@@ -98,7 +98,7 @@ webvowlApp.app = function () {
 		var iriKey = "iri=";
 		if (hashParameter.substr(0, iriKey.length) === iriKey) {
 			var iri = hashParameter.slice(iriKey.length);
-			loadOntology("/converter.php?iri=" + iri);
+			loadOntology("converter.php?iri=" + iri);
 			return;
 		}
 
