@@ -19,16 +19,12 @@ webvowl.util.languageTools = (function () {
 		if (textForLanguage) {
 			return textForLanguage;
 		}
-		textForLanguage = searchLanguage(textObject, "unset");
-		if (textForLanguage) {
-			return textForLanguage;
-		}
-		textForLanguage = searchLanguage(textObject, "iriBased");
+		textForLanguage = searchLanguage(textObject, webvowl.util.constants().LANG_UNDEFINED);
 		if (textForLanguage) {
 			return textForLanguage;
 		}
 
-		return textObject["default"];
+		return textObject[webvowl.util.constants().LANG_IRIBASED];
 	};
 
 

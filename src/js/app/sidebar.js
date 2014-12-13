@@ -74,14 +74,14 @@ webvowlApp.sidebar = function (graph) {
 
 		// Put the default and unset label on top of the selection labels
 		languages.sort(function (a, b) {
-			if (a === "iriBased") {
+			if (a === webvowl.util.constants().LANG_IRIBASED) {
 				return -1;
-			} else if (b === "iriBased") {
+			} else if (b === webvowl.util.constants().LANG_IRIBASED) {
 				return 1;
 			}
-			if (a === "unset") {
+			if (a === webvowl.util.constants().LANG_UNDEFINED) {
 				return -1;
-			} else if (b === "unset") {
+			} else if (b === webvowl.util.constants().LANG_UNDEFINED) {
 				return 1;
 			}
 			return a.localeCompare(b);
@@ -106,8 +106,8 @@ webvowlApp.sidebar = function (graph) {
 			});
 
 		if (!trySelectDefaultLanguage(languageSelection, languages, "en")) {
-			if (!trySelectDefaultLanguage(languageSelection, languages, "unset")) {
-				trySelectDefaultLanguage(languageSelection, languages, "iriBased");
+			if (!trySelectDefaultLanguage(languageSelection, languages, webvowl.util.constants().LANG_UNDEFINED)) {
+				trySelectDefaultLanguage(languageSelection, languages, webvowl.util.constants().LANG_IRIBASED);
 			}
 		}
 	}
