@@ -1,16 +1,16 @@
 {
   "propertyAttribute": [
     {
-      "id": "property15",
+      "id": "property99",
       "equivalent": [],
-      "inverse": "property8",
-      "range": "class1",
+      "inverse": "property92",
+      "range": "class28",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class1",
+      "domain": "class28",
       "label": {
-        "iriBased": "previousTag",
+        "IRI-based": "previousTag",
         "en": "previous tag"
       },
       "attributes": ["functional"],
@@ -18,15 +18,15 @@
       "uri": "http://purl.org/muto/core#previousTag"
     },
     {
-      "id": "property20",
+      "id": "property104",
       "equivalent": [],
-      "range": "datatype4",
+      "range": "datatype31",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property18"],
-      "domain": "class4",
+      "superproperty": ["property102"],
+      "domain": "class31",
       "label": {
-        "iriBased": "taggingCreated",
+        "IRI-based": "taggingCreated",
         "en": "tagging created"
       },
       "attributes": ["functional"],
@@ -34,29 +34,29 @@
       "uri": "http://purl.org/muto/core#taggingCreated"
     },
     {
-      "id": "property13",
+      "id": "property97",
       "equivalent": [],
-      "range": "thing3",
+      "range": "thing9",
       "disjoint": [],
-      "subproperty": ["property7"],
+      "subproperty": ["property91"],
       "superproperty": [],
-      "domain": "thing3",
-      "label": {"iriBased": "creator_of"},
+      "domain": "thing9",
+      "label": {"IRI-based": "creator_of"},
       "attributes": ["external"],
       "comment": {},
       "uri": "http://rdfs.org/sioc/ns#creator_of"
     },
     {
-      "id": "property2",
+      "id": "property86",
       "equivalent": [],
-      "inverse": "property4",
-      "range": "class4",
+      "inverse": "property88",
+      "range": "class31",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing1",
+      "domain": "thing7",
       "label": {
-        "iriBased": "hasAccess",
+        "IRI-based": "hasAccess",
         "en": "has access"
       },
       "attributes": [],
@@ -64,16 +64,16 @@
       "uri": "http://purl.org/muto/core#hasAccess"
     },
     {
-      "id": "property7",
+      "id": "property91",
       "equivalent": [],
-      "inverse": "property12",
-      "range": "class4",
+      "inverse": "property96",
+      "range": "class31",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property13"],
-      "domain": "class5",
+      "superproperty": ["property97"],
+      "domain": "class32",
       "label": {
-        "iriBased": "creatorOf",
+        "IRI-based": "creatorOf",
         "en": "creator of"
       },
       "attributes": [],
@@ -81,16 +81,16 @@
       "uri": "http://purl.org/muto/core#creatorOf"
     },
     {
-      "id": "property5",
+      "id": "property89",
       "equivalent": [],
-      "inverse": "property9",
-      "range": "class1",
+      "inverse": "property93",
+      "range": "class28",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class4",
+      "domain": "class31",
       "label": {
-        "iriBased": "hasTag",
+        "IRI-based": "hasTag",
         "en": "has tag"
       },
       "attributes": [],
@@ -98,15 +98,15 @@
       "uri": "http://purl.org/muto/core#hasTag"
     },
     {
-      "id": "property22",
+      "id": "property106",
       "equivalent": [],
-      "range": "datatype6",
+      "range": "datatype33",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property18"],
-      "domain": "class1",
+      "superproperty": ["property102"],
+      "domain": "class28",
       "label": {
-        "iriBased": "tagCreated",
+        "IRI-based": "tagCreated",
         "en": "tag created"
       },
       "attributes": ["functional"],
@@ -114,16 +114,16 @@
       "uri": "http://purl.org/muto/core#tagCreated"
     },
     {
-      "id": "property8",
+      "id": "property92",
       "equivalent": [],
-      "inverse": "property15",
-      "range": "class1",
+      "inverse": "property99",
+      "range": "class28",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class1",
+      "domain": "class28",
       "label": {
-        "iriBased": "nextTag",
+        "IRI-based": "nextTag",
         "en": "next tag"
       },
       "attributes": ["functional"],
@@ -131,32 +131,32 @@
       "uri": "http://purl.org/muto/core#nextTag"
     },
     {
-      "id": "property18",
+      "id": "property102",
       "equivalent": [],
-      "range": "literal2",
+      "range": "literal29",
       "disjoint": [],
       "subproperty": [
-        "property22",
-        "property20"
+        "property106",
+        "property104"
       ],
       "superproperty": [],
-      "domain": "thing3",
-      "label": {"iriBased": "created"},
+      "domain": "thing9",
+      "label": {"IRI-based": "created"},
       "attributes": ["external"],
       "comment": {},
       "uri": "http://purl.org/dc/terms/created"
     },
     {
-      "id": "property4",
+      "id": "property88",
       "equivalent": [],
-      "inverse": "property2",
-      "range": "thing1",
+      "inverse": "property86",
+      "range": "thing7",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class4",
+      "domain": "class31",
       "label": {
-        "iriBased": "grantAccess",
+        "IRI-based": "grantAccess",
         "en": "grant access"
       },
       "attributes": [],
@@ -164,15 +164,15 @@
       "uri": "http://purl.org/muto/core#grantAccess"
     },
     {
-      "id": "property14",
+      "id": "property98",
       "equivalent": [],
-      "range": "thing2",
+      "range": "thing8",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property3"],
-      "domain": "class1",
+      "superproperty": ["property87"],
+      "domain": "class28",
       "label": {
-        "iriBased": "autoMeaning",
+        "IRI-based": "autoMeaning",
         "en": "automatic tag meaning"
       },
       "attributes": [],
@@ -180,66 +180,78 @@
       "uri": "http://purl.org/muto/core#autoMeaning"
     },
     {
-      "id": "property11",
+      "id": "property107",
       "equivalent": [],
-      "range": "thing3",
+      "range": "class28",
       "disjoint": [],
-      "subproperty": ["property1"],
+      "subproperty": [],
       "superproperty": [],
-      "domain": "thing3",
-      "label": {"iriBased": "about"},
+      "domain": "class30",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property95",
+      "equivalent": [],
+      "range": "thing9",
+      "disjoint": [],
+      "subproperty": ["property85"],
+      "superproperty": [],
+      "domain": "thing9",
+      "label": {"IRI-based": "about"},
       "attributes": ["external"],
       "comment": {},
       "uri": "http://rdfs.org/sioc/ns#about"
     },
     {
-      "id": "property26",
+      "id": "property105",
       "equivalent": [],
-      "range": "class4",
+      "range": "literal32",
       "disjoint": [],
-      "subproperty": [],
+      "subproperty": ["property103"],
       "superproperty": [],
-      "domain": "class2",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property25",
-      "equivalent": [],
-      "range": "class7",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class1",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property21",
-      "equivalent": [],
-      "range": "literal5",
-      "disjoint": [],
-      "subproperty": ["property19"],
-      "superproperty": [],
-      "domain": "thing3",
-      "label": {"iriBased": "modified"},
+      "domain": "thing9",
+      "label": {"IRI-based": "modified"},
       "attributes": ["external"],
       "comment": {},
       "uri": "http://purl.org/dc/terms/modified"
     },
     {
-      "id": "property9",
+      "id": "property108",
       "equivalent": [],
-      "inverse": "property5",
-      "range": "class4",
+      "range": "class33",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class1",
+      "domain": "class31",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property109",
+      "equivalent": [],
+      "range": "class34",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class28",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property93",
+      "equivalent": [],
+      "inverse": "property89",
+      "range": "class31",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class28",
       "label": {
-        "iriBased": "tagOf",
+        "IRI-based": "tagOf",
         "en": "tag of"
       },
       "attributes": ["functional"],
@@ -247,39 +259,15 @@
       "uri": "http://purl.org/muto/core#tagOf"
     },
     {
-      "id": "property24",
+      "id": "property103",
       "equivalent": [],
-      "range": "class6",
+      "range": "datatype30",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": [],
-      "domain": "class4",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property23",
-      "equivalent": [],
-      "range": "class1",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class3",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property19",
-      "equivalent": [],
-      "range": "datatype3",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": ["property21"],
-      "domain": "class4",
+      "superproperty": ["property105"],
+      "domain": "class31",
       "label": {
-        "iriBased": "taggingModified",
+        "IRI-based": "taggingModified",
         "en": "tagging modified"
       },
       "attributes": [],
@@ -287,15 +275,15 @@
       "uri": "http://purl.org/muto/core#taggingModified"
     },
     {
-      "id": "property17",
+      "id": "property101",
       "equivalent": [],
-      "range": "literal1",
+      "range": "literal28",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class1",
+      "domain": "class28",
       "label": {
-        "iriBased": "tagLabel",
+        "IRI-based": "tagLabel",
         "en": "tag label"
       },
       "attributes": ["functional"],
@@ -303,16 +291,16 @@
       "uri": "http://purl.org/muto/core#tagLabel"
     },
     {
-      "id": "property1",
+      "id": "property85",
       "equivalent": [],
-      "inverse": "property10",
-      "range": "thing1",
+      "inverse": "property94",
+      "range": "thing7",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property11"],
-      "domain": "class4",
+      "superproperty": ["property95"],
+      "domain": "class31",
       "label": {
-        "iriBased": "taggedResource",
+        "IRI-based": "taggedResource",
         "en": "tagged resource"
       },
       "attributes": ["functional"],
@@ -320,16 +308,28 @@
       "uri": "http://purl.org/muto/core#taggedResource"
     },
     {
-      "id": "property3",
+      "id": "property110",
       "equivalent": [],
-      "inverse": "property6",
-      "range": "thing2",
+      "range": "class31",
       "disjoint": [],
-      "subproperty": ["property14"],
+      "subproperty": [],
       "superproperty": [],
-      "domain": "class1",
+      "domain": "class29",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property87",
+      "equivalent": [],
+      "inverse": "property90",
+      "range": "thing8",
+      "disjoint": [],
+      "subproperty": ["property98"],
+      "superproperty": [],
+      "domain": "class28",
       "label": {
-        "iriBased": "tagMeaning",
+        "IRI-based": "tagMeaning",
         "en": "tag meaning"
       },
       "attributes": [],
@@ -337,16 +337,16 @@
       "uri": "http://purl.org/muto/core#tagMeaning"
     },
     {
-      "id": "property6",
+      "id": "property90",
       "equivalent": [],
-      "inverse": "property3",
-      "range": "class1",
+      "inverse": "property87",
+      "range": "class28",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing2",
+      "domain": "thing8",
       "label": {
-        "iriBased": "meaningOf",
+        "IRI-based": "meaningOf",
         "en": "meaning of"
       },
       "attributes": [],
@@ -354,16 +354,16 @@
       "uri": "http://purl.org/muto/core#meaningOf"
     },
     {
-      "id": "property10",
+      "id": "property94",
       "equivalent": [],
-      "inverse": "property1",
-      "range": "class4",
+      "inverse": "property85",
+      "range": "class31",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing1",
+      "domain": "thing7",
       "label": {
-        "iriBased": "taggedWith",
+        "IRI-based": "taggedWith",
         "en": "tagged with"
       },
       "attributes": [],
@@ -371,29 +371,29 @@
       "uri": "http://purl.org/muto/core#taggedWith"
     },
     {
-      "id": "property16",
+      "id": "property100",
       "equivalent": [],
-      "range": "thing3",
+      "range": "thing9",
       "disjoint": [],
-      "subproperty": ["property12"],
+      "subproperty": ["property96"],
       "superproperty": [],
-      "domain": "thing3",
-      "label": {"iriBased": "has_creator"},
+      "domain": "thing9",
+      "label": {"IRI-based": "has_creator"},
       "attributes": ["external"],
       "comment": {},
       "uri": "http://rdfs.org/sioc/ns#has_creator"
     },
     {
-      "id": "property12",
+      "id": "property96",
       "equivalent": [],
-      "inverse": "property7",
-      "range": "class5",
+      "inverse": "property91",
+      "range": "class32",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property16"],
-      "domain": "class4",
+      "superproperty": ["property100"],
+      "domain": "class31",
       "label": {
-        "iriBased": "hasCreator",
+        "IRI-based": "hasCreator",
         "en": "has creator"
       },
       "attributes": ["functional"],
@@ -414,14 +414,14 @@
   "classAttribute": [
     {
       "complement": [],
-      "id": "class2",
+      "id": "class29",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class4"],
+      "superClasses": ["class31"],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "PrivateTagging",
+        "IRI-based": "PrivateTagging",
         "en": "Private Tagging"
       },
       "attributes": [],
@@ -431,14 +431,14 @@
     },
     {
       "complement": [],
-      "id": "class3",
+      "id": "class30",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class1"],
+      "superClasses": ["class28"],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "AutoTag",
+        "IRI-based": "AutoTag",
         "en": "Automatic Tag"
       },
       "attributes": [],
@@ -448,13 +448,13 @@
     },
     {
       "complement": [],
-      "id": "class5",
+      "id": "class32",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
-      "label": {"iriBased": "UserAccount"},
+      "label": {"IRI-based": "UserAccount"},
       "attributes": ["external"],
       "instances": 0,
       "comment": {},
@@ -462,14 +462,14 @@
     },
     {
       "complement": [],
-      "id": "class1",
+      "id": "class28",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class7"],
+      "superClasses": ["class34"],
       "union": [],
-      "subClasses": ["class3"],
+      "subClasses": ["class30"],
       "label": {
-        "iriBased": "Tag",
+        "IRI-based": "Tag",
         "en": "Tag"
       },
       "attributes": [],
@@ -479,13 +479,13 @@
     },
     {
       "complement": [],
-      "id": "class6",
+      "id": "class33",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
-      "subClasses": ["class4"],
-      "label": {"iriBased": "Item"},
+      "subClasses": ["class31"],
+      "label": {"IRI-based": "Item"},
       "attributes": ["external"],
       "instances": 0,
       "comment": {},
@@ -493,13 +493,13 @@
     },
     {
       "complement": [],
-      "id": "class7",
+      "id": "class34",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
-      "subClasses": ["class1"],
-      "label": {"iriBased": "Concept"},
+      "subClasses": ["class28"],
+      "label": {"IRI-based": "Concept"},
       "attributes": ["external"],
       "instances": 0,
       "comment": {},
@@ -507,14 +507,14 @@
     },
     {
       "complement": [],
-      "id": "class4",
+      "id": "class31",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class6"],
+      "superClasses": ["class33"],
       "union": [],
-      "subClasses": ["class2"],
+      "subClasses": ["class29"],
       "label": {
-        "iriBased": "Tagging",
+        "IRI-based": "Tagging",
         "en": "Tagging"
       },
       "attributes": [],
@@ -523,254 +523,254 @@
       "uri": "http://purl.org/muto/core#Tagging"
     },
     {
-      "id": "thing1",
+      "id": "thing8",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing2",
+      "id": "thing9",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing3",
+      "id": "thing7",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     }
   ],
   "class": [
     {
-      "id": "class2",
+      "id": "class29",
       "type": "owl:Class"
     },
     {
-      "id": "class3",
+      "id": "class30",
       "type": "owl:Class"
     },
     {
-      "id": "class5",
+      "id": "class32",
       "type": "externalclass"
     },
     {
-      "id": "class1",
+      "id": "class28",
       "type": "owl:Class"
     },
     {
-      "id": "class6",
+      "id": "class33",
       "type": "externalclass"
     },
     {
-      "id": "class7",
+      "id": "class34",
       "type": "externalclass"
     },
     {
-      "id": "class4",
+      "id": "class31",
       "type": "owl:Class"
     },
     {
-      "id": "thing1",
+      "id": "thing8",
       "type": "owl:Thing"
     },
     {
-      "id": "thing2",
+      "id": "thing9",
       "type": "owl:Thing"
     },
     {
-      "id": "thing3",
+      "id": "thing7",
       "type": "owl:Thing"
     }
   ],
   "property": [
     {
-      "id": "property15",
+      "id": "property99",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property20",
+      "id": "property104",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property13",
+      "id": "property97",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property2",
+      "id": "property86",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property7",
+      "id": "property91",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property5",
+      "id": "property89",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property22",
+      "id": "property106",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property8",
+      "id": "property92",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property18",
+      "id": "property102",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property4",
+      "id": "property88",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property14",
+      "id": "property98",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property11",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property26",
+      "id": "property107",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property25",
-      "type": "rdfs:SubClassOf"
+      "id": "property95",
+      "type": "owl:objectProperty"
     },
     {
-      "id": "property21",
+      "id": "property105",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property9",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property24",
+      "id": "property108",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property23",
+      "id": "property109",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property19",
+      "id": "property93",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property103",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property17",
+      "id": "property101",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property1",
+      "id": "property85",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property3",
+      "id": "property110",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property87",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property6",
+      "id": "property90",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property10",
+      "id": "property94",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property16",
+      "id": "property100",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property12",
+      "id": "property96",
       "type": "owl:objectProperty"
     }
   ],
   "datatype": [
     {
-      "id": "datatype3",
-      "type": "rdfs:Datatype"
-    },
-    {
-      "id": "literal5",
+      "id": "literal32",
       "type": "rdfs:Literal"
     },
     {
-      "id": "datatype4",
+      "id": "datatype31",
       "type": "rdfs:Datatype"
     },
     {
-      "id": "literal2",
+      "id": "datatype30",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "literal29",
       "type": "rdfs:Literal"
     },
     {
-      "id": "datatype6",
+      "id": "datatype33",
       "type": "rdfs:Datatype"
     },
     {
-      "id": "literal1",
+      "id": "literal28",
       "type": "rdfs:Literal"
     }
   ],
   "datatypeAttribute": [
     {
-      "id": "datatype3",
+      "id": "literal32",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "dateTime"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal5",
+      "id": "datatype31",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "dateTime"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "datatype4",
+      "id": "datatype30",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "dateTime"},
+      "label": {"IRI-based": "dateTime"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal2",
+      "id": "literal29",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "datatype6",
+      "id": "datatype33",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "dateTime"},
+      "label": {"IRI-based": "dateTime"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal1",
+      "id": "literal28",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     }
   ],
   "header": {
     "languages": [
-      "iriBased",
-      "unset",
+      "IRI-based",
+      "undefined",
       "en"
     ],
     "author": "Steffen Lohmann",
-    "title": {"unset": "Modular Unified Tagging Ontology (MUTO)"},
-    "description": {"unset": "The Modular and Unified Tagging Ontology (MUTO) is an ontology for tagging and folksonomies. It is based on a thorough review of earlier tagging ontologies and unifies core concepts in one consistent schema. It supports different forms of tagging, such as common, semantic, group, private, and automatic tagging, and is easily extensible."},
+    "title": {"undefined": "Modular Unified Tagging Ontology (MUTO)"},
+    "description": {"undefined": "The Modular and Unified Tagging Ontology (MUTO) is an ontology for tagging and folksonomies. It is based on a thorough review of earlier tagging ontologies and unifies core concepts in one consistent schema. It supports different forms of tagging, such as common, semantic, group, private, and automatic tagging, and is easily extensible."},
     "uri": "http://purl.org/muto/core",
     "version": "Version 1.0 - Global changes (compared to earlier versions): Some properties have been renamed; cardinality constraints in class descriptions (owl:Restriction) have been replaced by global cardinality constraints (owl:FunctionalProperty)."
   },

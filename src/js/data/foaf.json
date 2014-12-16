@@ -1,1160 +1,1160 @@
 {
   "propertyAttribute": [
     {
-      "id": "property700",
+      "id": "property22",
       "equivalent": [],
-      "range": "class255",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property692"],
-      "domain": "class249",
+      "superproperty": ["property14"],
+      "domain": "class3",
       "label": {
-        "iriBased": "tipjar",
-        "unset": "tipjar"
+        "IRI-based": "tipjar",
+        "undefined": "tipjar"
       },
       "attributes": [],
-      "comment": {"unset": "A tipjar document for this agent, describing means for payment and reward."},
+      "comment": {"undefined": "A tipjar document for this agent, describing means for payment and reward."},
       "uri": "http://xmlns.com/foaf/0.1/tipjar"
     },
     {
-      "id": "property688",
+      "id": "property10",
       "equivalent": [],
-      "range": "class255",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class15",
       "label": {
-        "iriBased": "workplaceHomepage",
-        "unset": "workplace homepage"
+        "IRI-based": "workplaceHomepage",
+        "undefined": "workplace homepage"
       },
       "attributes": [],
-      "comment": {"unset": "A workplace homepage of some person; the homepage of an organization they work for."},
+      "comment": {"undefined": "A workplace homepage of some person; the homepage of an organization they work for."},
       "uri": "http://xmlns.com/foaf/0.1/workplaceHomepage"
     },
     {
-      "id": "property704",
+      "id": "property26",
       "equivalent": [],
-      "inverse": "property698",
-      "range": "class249",
+      "inverse": "property20",
+      "range": "class3",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing18",
+      "domain": "thing1",
       "label": {
-        "iriBased": "maker",
-        "unset": "maker"
+        "IRI-based": "maker",
+        "undefined": "maker"
       },
       "attributes": [],
-      "comment": {"unset": "An agent that  made this thing."},
+      "comment": {"undefined": "An agent that  made this thing."},
       "uri": "http://xmlns.com/foaf/0.1/maker"
     },
     {
-      "id": "property716",
+      "id": "property38",
       "equivalent": [],
-      "range": "class256",
+      "range": "class10",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class256",
+      "domain": "class10",
       "label": {
-        "iriBased": "based_near",
-        "unset": "based near"
+        "IRI-based": "based_near",
+        "undefined": "based near"
       },
       "attributes": [],
-      "comment": {"unset": "A location that something is based near, for some broadly human notion of near."},
+      "comment": {"undefined": "A location that something is based near, for some broadly human notion of near."},
       "uri": "http://xmlns.com/foaf/0.1/based_near"
     },
     {
-      "id": "property690",
+      "id": "property12",
       "equivalent": [],
-      "inverse": "property687",
-      "range": "class267",
+      "inverse": "property9",
+      "range": "class21",
       "disjoint": [],
-      "subproperty": ["property701"],
+      "subproperty": ["property23"],
       "superproperty": [],
-      "domain": "thing20",
+      "domain": "thing3",
       "label": {
-        "iriBased": "depiction",
-        "unset": "depiction"
+        "IRI-based": "depiction",
+        "undefined": "depiction"
       },
       "attributes": [],
-      "comment": {"unset": "A depiction of some thing."},
+      "comment": {"undefined": "A depiction of some thing."},
       "uri": "http://xmlns.com/foaf/0.1/depiction"
     },
     {
-      "id": "property694",
+      "id": "property71",
       "equivalent": [],
-      "range": "thing21",
+      "range": "class5",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing21",
+      "domain": "class20",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property70",
+      "equivalent": [],
+      "range": "class3",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class15",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property16",
+      "equivalent": [],
+      "range": "thing4",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "thing4",
       "label": {
-        "iriBased": "logo",
-        "unset": "logo"
+        "IRI-based": "logo",
+        "undefined": "logo"
       },
       "attributes": ["inverse functional"],
-      "comment": {"unset": "A logo representing some thing."},
+      "comment": {"undefined": "A logo representing some thing."},
       "uri": "http://xmlns.com/foaf/0.1/logo"
     },
     {
-      "id": "property692",
+      "id": "property14",
       "equivalent": [],
-      "inverse": "property682",
-      "range": "class255",
+      "inverse": "property4",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [
-        "property683",
-        "property702",
-        "property700",
-        "property699"
+        "property5",
+        "property24",
+        "property22",
+        "property21"
       ],
       "superproperty": [],
-      "domain": "thing19",
+      "domain": "thing2",
       "label": {
-        "iriBased": "page",
-        "unset": "page"
+        "IRI-based": "page",
+        "undefined": "page"
       },
       "attributes": [],
-      "comment": {"unset": "A page or document about this thing."},
+      "comment": {"undefined": "A page or document about this thing."},
       "uri": "http://xmlns.com/foaf/0.1/page"
     },
     {
-      "id": "property698",
+      "id": "property76",
       "equivalent": [],
-      "inverse": "property704",
-      "range": "thing18",
+      "range": "class15",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class249",
+      "domain": "class4",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property20",
+      "equivalent": [],
+      "inverse": "property26",
+      "range": "thing1",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class3",
       "label": {
-        "iriBased": "made",
-        "unset": "made"
+        "IRI-based": "made",
+        "undefined": "made"
       },
       "attributes": [],
-      "comment": {"unset": "Something that was made by this agent."},
+      "comment": {"undefined": "Something that was made by this agent."},
       "uri": "http://xmlns.com/foaf/0.1/made"
     },
     {
-      "id": "property740",
+      "id": "property78",
       "equivalent": [],
-      "range": "literal123",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class249",
+      "domain": "class21",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property62",
+      "equivalent": [],
+      "range": "literal22",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class3",
       "label": {
-        "iriBased": "birthday",
-        "unset": "birthday"
+        "IRI-based": "birthday",
+        "undefined": "birthday"
       },
       "attributes": ["functional"],
-      "comment": {"unset": "The birthday of this Agent, represented in mm-dd string form, eg. '12-31'."},
+      "comment": {"undefined": "The birthday of this Agent, represented in mm-dd string form, eg. '12-31'."},
       "uri": "http://xmlns.com/foaf/0.1/birthday"
     },
     {
-      "id": "property682",
+      "id": "property4",
       "equivalent": [],
-      "inverse": "property692",
-      "range": "thing19",
+      "inverse": "property14",
+      "range": "thing2",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class255",
+      "domain": "class9",
       "label": {
-        "iriBased": "topic",
-        "unset": "topic"
+        "IRI-based": "topic",
+        "undefined": "topic"
       },
       "attributes": [],
-      "comment": {"unset": "A topic of some page or document."},
+      "comment": {"undefined": "A topic of some page or document."},
       "uri": "http://xmlns.com/foaf/0.1/topic"
     },
     {
-      "id": "property707",
+      "id": "property79",
       "equivalent": [],
-      "range": "class251",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class249",
+      "domain": "class18",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property29",
+      "equivalent": [],
+      "range": "class5",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class3",
       "label": {
-        "iriBased": "holdsAccount",
-        "unset": "account"
+        "IRI-based": "holdsAccount",
+        "undefined": "account"
       },
       "attributes": [],
-      "comment": {"unset": "Indicates an account held by this agent."},
+      "comment": {"undefined": "Indicates an account held by this agent."},
       "uri": "http://xmlns.com/foaf/0.1/holdsAccount"
     },
     {
-      "id": "property702",
+      "id": "property72",
       "equivalent": [],
-      "inverse": "property715",
-      "range": "class255",
+      "range": "class5",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class12",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property24",
+      "equivalent": [],
+      "inverse": "property37",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [
-        "property683",
-        "property689"
+        "property5",
+        "property11"
       ],
-      "superproperty": ["property692"],
-      "domain": "thing19",
+      "superproperty": ["property14"],
+      "domain": "thing2",
       "label": {
-        "iriBased": "isPrimaryTopicOf",
-        "unset": "is primary topic of"
+        "IRI-based": "isPrimaryTopicOf",
+        "undefined": "is primary topic of"
       },
       "attributes": ["inverse functional"],
-      "comment": {"unset": "A document that this thing is the primary topic of."},
+      "comment": {"undefined": "A document that this thing is the primary topic of."},
       "uri": "http://xmlns.com/foaf/0.1/isPrimaryTopicOf"
     },
     {
-      "id": "property741",
+      "id": "property73",
       "equivalent": [],
-      "range": "literal124",
+      "range": "class5",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class13",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property74",
+      "equivalent": [],
+      "range": "class16",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class15",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property63",
+      "equivalent": [],
+      "range": "literal23",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class15",
       "label": {
-        "iriBased": "familyName",
-        "unset": "familyName"
+        "IRI-based": "familyName",
+        "undefined": "familyName"
       },
       "attributes": [],
-      "comment": {"unset": "The family name of some person."},
+      "comment": {"undefined": "The family name of some person."},
       "uri": "http://xmlns.com/foaf/0.1/familyName"
     },
     {
-      "id": "property683",
+      "id": "property75",
       "equivalent": [],
-      "range": "class255",
+      "range": "class16",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class9",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property5",
+      "equivalent": [],
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [
-        "property702",
-        "property692"
+        "property24",
+        "property14"
       ],
-      "domain": "thing19",
+      "domain": "thing2",
       "label": {
-        "iriBased": "homepage",
-        "unset": "homepage"
+        "IRI-based": "homepage",
+        "undefined": "homepage"
       },
       "attributes": ["inverse functional"],
-      "comment": {"unset": "A homepage for some thing."},
+      "comment": {"undefined": "A homepage for some thing."},
       "uri": "http://xmlns.com/foaf/0.1/homepage"
     },
     {
-      "id": "property719",
+      "id": "property41",
       "equivalent": [],
-      "range": "literal102",
+      "range": "literal1",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class249",
+      "domain": "class3",
       "label": {
-        "iriBased": "status",
-        "unset": "status"
+        "IRI-based": "status",
+        "undefined": "status"
       },
       "attributes": [],
-      "comment": {"unset": "A string expressing what the user is happy for the general public (normally) to know about their current activity."},
+      "comment": {"undefined": "A string expressing what the user is happy for the general public (normally) to know about their current activity."},
       "uri": "http://xmlns.com/foaf/0.1/status"
     },
     {
-      "id": "property729",
+      "id": "property51",
       "equivalent": [],
-      "range": "literal112",
+      "range": "literal11",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class15",
       "label": {
-        "iriBased": "firstName",
-        "unset": "firstName"
+        "IRI-based": "firstName",
+        "undefined": "firstName"
       },
       "attributes": [],
-      "comment": {"unset": "The first name of a person."},
+      "comment": {"undefined": "The first name of a person."},
       "uri": "http://xmlns.com/foaf/0.1/firstName"
     },
     {
-      "id": "property738",
+      "id": "property60",
       "equivalent": [],
-      "range": "literal121",
+      "range": "literal20",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing21",
+      "domain": "thing4",
       "label": {
-        "iriBased": "title",
-        "unset": "title"
+        "IRI-based": "title",
+        "undefined": "title"
       },
       "attributes": [],
-      "comment": {"unset": "Title (Mr, Mrs, Ms, Dr. etc)"},
+      "comment": {"undefined": "Title (Mr, Mrs, Ms, Dr. etc)"},
       "uri": "http://xmlns.com/foaf/0.1/title"
     },
     {
-      "id": "property706",
+      "id": "property28",
       "equivalent": [],
-      "range": "thing22",
+      "range": "thing5",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class15",
       "label": {
-        "iriBased": "currentProject",
-        "unset": "current project"
+        "IRI-based": "currentProject",
+        "undefined": "current project"
       },
       "attributes": [],
-      "comment": {"unset": "A current project this person works on."},
+      "comment": {"undefined": "A current project this person works on."},
       "uri": "http://xmlns.com/foaf/0.1/currentProject"
     },
     {
-      "id": "property739",
+      "id": "property61",
       "equivalent": [],
-      "range": "literal122",
+      "range": "literal21",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property742"],
-      "domain": "thing21",
+      "superproperty": ["property64"],
+      "domain": "thing4",
       "label": {
-        "iriBased": "aimChatID",
-        "unset": "AIM chat ID"
+        "IRI-based": "aimChatID",
+        "undefined": "AIM chat ID"
       },
       "attributes": [],
-      "comment": {"unset": "An AIM chat ID"},
+      "comment": {"undefined": "An AIM chat ID"},
       "uri": "http://xmlns.com/foaf/0.1/aimChatID"
     },
     {
-      "id": "property717",
+      "id": "property39",
       "equivalent": [],
-      "range": "thing18",
+      "range": "thing1",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class249",
+      "domain": "class3",
       "label": {
-        "iriBased": "topic_interest",
-        "unset": "topic_interest"
+        "IRI-based": "topic_interest",
+        "undefined": "topic_interest"
       },
       "attributes": [],
-      "comment": {"unset": "A thing of interest to this person."},
+      "comment": {"undefined": "A thing of interest to this person."},
       "uri": "http://xmlns.com/foaf/0.1/topic_interest"
     },
     {
-      "id": "property722",
+      "id": "property44",
       "equivalent": [],
-      "range": "literal105",
+      "range": "literal4",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing21",
+      "domain": "thing4",
       "label": {
-        "iriBased": "dnaChecksum",
-        "unset": "DNA checksum"
+        "IRI-based": "dnaChecksum",
+        "undefined": "DNA checksum"
       },
       "attributes": [],
-      "comment": {"unset": "A checksum for the DNA of some thing. Joke."},
+      "comment": {"undefined": "A checksum for the DNA of some thing. Joke."},
       "uri": "http://xmlns.com/foaf/0.1/dnaChecksum"
     },
     {
-      "id": "property726",
+      "id": "property48",
       "equivalent": [],
-      "range": "literal109",
+      "range": "literal8",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class255",
+      "domain": "class9",
       "label": {
-        "iriBased": "sha1",
-        "unset": "sha1sum (hex)"
+        "IRI-based": "sha1",
+        "undefined": "sha1sum (hex)"
       },
       "attributes": [],
-      "comment": {"unset": "A sha1sum hash, in hex."},
+      "comment": {"undefined": "A sha1sum hash, in hex."},
       "uri": "http://xmlns.com/foaf/0.1/sha1"
     },
     {
-      "id": "property687",
+      "id": "property9",
       "equivalent": [],
-      "inverse": "property690",
-      "range": "thing20",
+      "inverse": "property12",
+      "range": "thing3",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class267",
+      "domain": "class21",
       "label": {
-        "iriBased": "depicts",
-        "unset": "depicts"
+        "IRI-based": "depicts",
+        "undefined": "depicts"
       },
       "attributes": [],
-      "comment": {"unset": "A thing depicted in this representation."},
+      "comment": {"undefined": "A thing depicted in this representation."},
       "uri": "http://xmlns.com/foaf/0.1/depicts"
     },
     {
-      "id": "property699",
+      "id": "property21",
       "equivalent": [],
-      "range": "class255",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property692"],
-      "domain": "class249",
+      "superproperty": ["property14"],
+      "domain": "class3",
       "label": {
-        "iriBased": "weblog",
-        "unset": "weblog"
+        "IRI-based": "weblog",
+        "undefined": "weblog"
       },
       "attributes": ["inverse functional"],
-      "comment": {"unset": "A weblog of some thing (whether person, group, company etc.)."},
+      "comment": {"undefined": "A weblog of some thing (whether person, group, company etc.)."},
       "uri": "http://xmlns.com/foaf/0.1/weblog"
     },
     {
-      "id": "property745",
+      "id": "property67",
       "equivalent": [],
-      "range": "literal128",
+      "range": "literal27",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class249",
+      "domain": "class3",
       "label": {
-        "iriBased": "gender",
-        "unset": "gender"
+        "IRI-based": "gender",
+        "undefined": "gender"
       },
       "attributes": ["functional"],
-      "comment": {"unset": "The gender of this Agent (typically but not necessarily 'male' or 'female')."},
+      "comment": {"undefined": "The gender of this Agent (typically but not necessarily 'male' or 'female')."},
       "uri": "http://xmlns.com/foaf/0.1/gender"
     },
     {
-      "id": "property720",
+      "id": "property42",
       "equivalent": [],
-      "range": "literal103",
+      "range": "literal2",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing21",
+      "domain": "thing4",
       "label": {
-        "iriBased": "name",
-        "unset": "name"
+        "IRI-based": "name",
+        "undefined": "name"
       },
       "attributes": [],
-      "comment": {"unset": "A name for some thing."},
+      "comment": {"undefined": "A name for some thing."},
       "uri": "http://xmlns.com/foaf/0.1/name"
     },
     {
-      "id": "property728",
+      "id": "property68",
       "equivalent": [],
-      "range": "literal111",
+      "range": "class3",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class17",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property50",
+      "equivalent": [],
+      "range": "literal10",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class15",
       "label": {
-        "iriBased": "surname",
-        "unset": "Surname"
+        "IRI-based": "surname",
+        "undefined": "Surname"
       },
       "attributes": [],
-      "comment": {"unset": "The surname of some person."},
+      "comment": {"undefined": "The surname of some person."},
       "uri": "http://xmlns.com/foaf/0.1/surname"
     },
     {
-      "id": "property695",
+      "id": "property17",
       "equivalent": [],
-      "range": "class249",
+      "range": "class3",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class263",
+      "domain": "class17",
       "label": {
-        "iriBased": "member",
-        "unset": "member"
+        "IRI-based": "member",
+        "undefined": "member"
       },
       "attributes": [],
-      "comment": {"unset": "Indicates a member of a Group"},
+      "comment": {"undefined": "Indicates a member of a Group"},
       "uri": "http://xmlns.com/foaf/0.1/member"
     },
     {
-      "id": "property737",
+      "id": "property69",
       "equivalent": [],
-      "range": "literal120",
+      "range": "class3",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property742"],
-      "domain": "thing21",
+      "superproperty": [],
+      "domain": "class16",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property59",
+      "equivalent": [],
+      "range": "literal19",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": ["property64"],
+      "domain": "thing4",
       "label": {
-        "iriBased": "msnChatID",
-        "unset": "MSN chat ID"
+        "IRI-based": "msnChatID",
+        "undefined": "MSN chat ID"
       },
       "attributes": [],
-      "comment": {"unset": "An MSN chat ID"},
+      "comment": {"undefined": "An MSN chat ID"},
       "uri": "http://xmlns.com/foaf/0.1/msnChatID"
     },
     {
-      "id": "property721",
+      "id": "property43",
       "equivalent": [],
-      "range": "literal104",
+      "range": "literal3",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class15",
       "label": {
-        "iriBased": "family_name",
-        "unset": "family_name"
+        "IRI-based": "family_name",
+        "undefined": "family_name"
       },
       "attributes": [],
-      "comment": {"unset": "The family name of some person."},
+      "comment": {"undefined": "The family name of some person."},
       "uri": "http://xmlns.com/foaf/0.1/family_name"
     },
     {
-      "id": "property724",
+      "id": "property46",
       "equivalent": [],
-      "range": "literal107",
+      "range": "literal6",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property742"],
-      "domain": "class249",
+      "superproperty": ["property64"],
+      "domain": "class3",
       "label": {
-        "iriBased": "skypeID",
-        "unset": "Skype ID"
+        "IRI-based": "skypeID",
+        "undefined": "Skype ID"
       },
       "attributes": [],
-      "comment": {"unset": "A Skype ID"},
+      "comment": {"undefined": "A Skype ID"},
       "uri": "http://xmlns.com/foaf/0.1/skypeID"
     },
     {
-      "id": "property758",
+      "id": "property53",
       "equivalent": [],
-      "range": "class255",
+      "range": "literal13",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class250",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property757",
-      "equivalent": [],
-      "range": "class255",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class264",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property731",
-      "equivalent": [],
-      "range": "literal114",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "thing21",
+      "domain": "thing4",
       "label": {
-        "iriBased": "givenName",
-        "unset": "Given name"
+        "IRI-based": "givenName",
+        "undefined": "Given name"
       },
       "attributes": [],
-      "comment": {"unset": "The given name of some person."},
+      "comment": {"undefined": "The given name of some person."},
       "uri": "http://xmlns.com/foaf/0.1/givenName"
     },
     {
-      "id": "property679",
+      "id": "property1",
       "equivalent": [],
-      "range": "class255",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class251",
+      "domain": "class5",
       "label": {
-        "iriBased": "accountServiceHomepage",
-        "unset": "account service homepage"
+        "IRI-based": "accountServiceHomepage",
+        "undefined": "account service homepage"
       },
       "attributes": [],
-      "comment": {"unset": "Indicates a homepage of the service provide for this online account."},
+      "comment": {"undefined": "Indicates a homepage of the service provide for this online account."},
       "uri": "http://xmlns.com/foaf/0.1/accountServiceHomepage"
     },
     {
-      "id": "property715",
+      "id": "property37",
       "equivalent": [],
-      "inverse": "property702",
-      "range": "thing19",
+      "inverse": "property24",
+      "range": "thing2",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class255",
+      "domain": "class9",
       "label": {
-        "iriBased": "primaryTopic",
-        "unset": "primary topic"
+        "IRI-based": "primaryTopic",
+        "undefined": "primary topic"
       },
       "attributes": ["functional"],
-      "comment": {"unset": "The primary topic of some page or document."},
+      "comment": {"undefined": "The primary topic of some page or document."},
       "uri": "http://xmlns.com/foaf/0.1/primaryTopic"
     },
     {
-      "id": "property754",
+      "id": "property13",
       "equivalent": [],
-      "range": "class261",
+      "range": "thing4",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class250",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property691",
-      "equivalent": [],
-      "range": "thing21",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "thing21",
+      "domain": "thing4",
       "label": {
-        "iriBased": "theme",
-        "unset": "theme"
+        "IRI-based": "theme",
+        "undefined": "theme"
       },
       "attributes": [],
-      "comment": {"unset": "A theme."},
+      "comment": {"undefined": "A theme."},
       "uri": "http://xmlns.com/foaf/0.1/theme"
     },
     {
-      "id": "property753",
+      "id": "property66",
       "equivalent": [],
-      "range": "class262",
+      "range": "literal26",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class255",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property756",
-      "equivalent": [],
-      "range": "class255",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class267",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property744",
-      "equivalent": [],
-      "range": "literal127",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class249",
+      "domain": "class3",
       "label": {
-        "iriBased": "age",
-        "unset": "age"
+        "IRI-based": "age",
+        "undefined": "age"
       },
       "attributes": ["functional"],
-      "comment": {"unset": "The age in years of some agent."},
+      "comment": {"undefined": "The age in years of some agent."},
       "uri": "http://xmlns.com/foaf/0.1/age"
     },
     {
-      "id": "property760",
+      "id": "property32",
       "equivalent": [],
-      "range": "class256",
+      "range": "thing1",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property710",
-      "equivalent": [],
-      "range": "thing18",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class249",
+      "domain": "class3",
       "label": {
-        "iriBased": "mbox",
-        "unset": "personal mailbox"
+        "IRI-based": "mbox",
+        "undefined": "personal mailbox"
       },
       "attributes": ["inverse functional"],
-      "comment": {"unset": "A  personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. This is a 'static inverse functional property', in that  there is (across time and change) at most one individual that ever has any particular value for foaf:mbox."},
+      "comment": {"undefined": "A  personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. This is a 'static inverse functional property', in that  there is (across time and change) at most one individual that ever has any particular value for foaf:mbox."},
       "uri": "http://xmlns.com/foaf/0.1/mbox"
     },
     {
-      "id": "property732",
+      "id": "property54",
       "equivalent": [],
-      "range": "literal115",
+      "range": "literal14",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class15",
       "label": {
-        "iriBased": "lastName",
-        "unset": "lastName"
+        "IRI-based": "lastName",
+        "undefined": "lastName"
       },
       "attributes": [],
-      "comment": {"unset": "The last name of a person."},
+      "comment": {"undefined": "The last name of a person."},
       "uri": "http://xmlns.com/foaf/0.1/lastName"
     },
     {
-      "id": "property708",
+      "id": "property30",
       "equivalent": [],
-      "range": "class255",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class15",
       "label": {
-        "iriBased": "workInfoHomepage",
-        "unset": "work info homepage"
+        "IRI-based": "workInfoHomepage",
+        "undefined": "work info homepage"
       },
       "attributes": [],
-      "comment": {"unset": "A work info homepage of some person; a page about their work for some organization."},
+      "comment": {"undefined": "A work info homepage of some person; a page about their work for some organization."},
       "uri": "http://xmlns.com/foaf/0.1/workInfoHomepage"
     },
     {
-      "id": "property723",
+      "id": "property45",
       "equivalent": [],
-      "range": "literal106",
+      "range": "literal5",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property742"],
-      "domain": "thing21",
+      "superproperty": ["property64"],
+      "domain": "thing4",
       "label": {
-        "iriBased": "yahooChatID",
-        "unset": "Yahoo chat ID"
+        "IRI-based": "yahooChatID",
+        "undefined": "Yahoo chat ID"
       },
       "attributes": [],
-      "comment": {"unset": "A Yahoo chat ID"},
+      "comment": {"undefined": "A Yahoo chat ID"},
       "uri": "http://xmlns.com/foaf/0.1/yahooChatID"
     },
     {
-      "id": "property693",
+      "id": "property15",
       "equivalent": [],
-      "range": "thing22",
+      "range": "thing5",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class15",
       "label": {
-        "iriBased": "pastProject",
-        "unset": "past project"
+        "IRI-based": "pastProject",
+        "undefined": "past project"
       },
       "attributes": [],
-      "comment": {"unset": "A project this person has previously worked on."},
+      "comment": {"undefined": "A project this person has previously worked on."},
       "uri": "http://xmlns.com/foaf/0.1/pastProject"
     },
     {
-      "id": "property680",
+      "id": "property2",
       "equivalent": [],
-      "range": "class267",
+      "range": "class21",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class267",
+      "domain": "class21",
       "label": {
-        "iriBased": "thumbnail",
-        "unset": "thumbnail"
+        "IRI-based": "thumbnail",
+        "undefined": "thumbnail"
       },
       "attributes": [],
-      "comment": {"unset": "A derived thumbnail image."},
+      "comment": {"undefined": "A derived thumbnail image."},
       "uri": "http://xmlns.com/foaf/0.1/thumbnail"
     },
     {
-      "id": "property742",
+      "id": "property64",
       "equivalent": [],
-      "range": "literal125",
+      "range": "literal24",
       "disjoint": [],
       "subproperty": [
-        "property709",
-        "property718",
-        "property685",
-        "property724",
-        "property697"
+        "property31",
+        "property40",
+        "property7",
+        "property46",
+        "property19"
       ],
       "superproperty": [],
-      "domain": "thing21",
+      "domain": "thing4",
       "label": {
-        "iriBased": "nick",
-        "unset": "nickname"
+        "IRI-based": "nick",
+        "undefined": "nickname"
       },
       "attributes": [],
-      "comment": {"unset": "A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames)."},
+      "comment": {"undefined": "A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames)."},
       "uri": "http://xmlns.com/foaf/0.1/nick"
     },
     {
-      "id": "property711",
+      "id": "property82",
       "equivalent": [],
-      "range": "thing23",
+      "range": "class10",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class257",
+      "domain": "class15",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property33",
+      "equivalent": [],
+      "range": "thing6",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class11",
       "label": {
-        "iriBased": "focus",
-        "unset": "focus"
+        "IRI-based": "focus",
+        "undefined": "focus"
       },
       "attributes": [],
-      "comment": {"unset": "The underlying or 'focal' entity associated with some SKOS-described concept."},
+      "comment": {"undefined": "The underlying or 'focal' entity associated with some SKOS-described concept."},
       "uri": "http://xmlns.com/foaf/0.1/focus"
     },
     {
-      "id": "property703",
+      "id": "property25",
       "equivalent": [],
-      "range": "class261",
+      "range": "class15",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class15",
       "label": {
-        "iriBased": "knows",
-        "unset": "knows"
+        "IRI-based": "knows",
+        "undefined": "knows"
       },
       "attributes": [],
-      "comment": {"unset": "A person known by this person (indicating some level of reciprocated interaction between the parties)."},
+      "comment": {"undefined": "A person known by this person (indicating some level of reciprocated interaction between the parties)."},
       "uri": "http://xmlns.com/foaf/0.1/knows"
     },
     {
-      "id": "property743",
+      "id": "property80",
       "equivalent": [],
-      "range": "literal126",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class4",
+      "label": {},
+      "attributes": [],
+      "comment": {}
+    },
+    {
+      "id": "property65",
+      "equivalent": [],
+      "range": "literal25",
+      "disjoint": [],
+      "subproperty": [],
+      "superproperty": [],
+      "domain": "class15",
       "label": {
-        "iriBased": "plan",
-        "unset": "plan"
+        "IRI-based": "plan",
+        "undefined": "plan"
       },
       "attributes": [],
-      "comment": {"unset": "A .plan comment, in the tradition of finger and '.plan' files."},
+      "comment": {"undefined": "A .plan comment, in the tradition of finger and '.plan' files."},
       "uri": "http://xmlns.com/foaf/0.1/plan"
     },
     {
-      "id": "property749",
+      "id": "property34",
       "equivalent": [],
-      "range": "class251",
+      "range": "thing4",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class266",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property712",
-      "equivalent": [],
-      "range": "thing21",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "thing21",
+      "domain": "thing4",
       "label": {
-        "iriBased": "phone",
-        "unset": "phone"
+        "IRI-based": "phone",
+        "undefined": "phone"
       },
       "attributes": [],
-      "comment": {"unset": "A phone,  specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel)."},
+      "comment": {"undefined": "A phone,  specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel)."},
       "uri": "http://xmlns.com/foaf/0.1/phone"
     },
     {
-      "id": "property725",
+      "id": "property47",
       "equivalent": [],
-      "range": "literal108",
+      "range": "literal7",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing21",
+      "domain": "thing4",
       "label": {
-        "iriBased": "mbox_sha1sum",
-        "unset": "sha1sum of a personal mailbox URI name"
+        "IRI-based": "mbox_sha1sum",
+        "undefined": "sha1sum of a personal mailbox URI name"
       },
       "attributes": [],
-      "comment": {"unset": "The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the  first owner of the mailbox."},
+      "comment": {"undefined": "The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the  first owner of the mailbox."},
       "uri": "http://xmlns.com/foaf/0.1/mbox_sha1sum"
     },
     {
-      "id": "property748",
+      "id": "property18",
       "equivalent": [],
-      "range": "class249",
+      "range": "thing4",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property747",
-      "equivalent": [],
-      "range": "class249",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class262",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property746",
-      "equivalent": [],
-      "range": "class249",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class263",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property696",
-      "equivalent": [],
-      "range": "thing21",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "thing21",
+      "domain": "thing4",
       "label": {
-        "iriBased": "fundedBy",
-        "unset": "funded by"
+        "IRI-based": "fundedBy",
+        "undefined": "funded by"
       },
       "attributes": [],
-      "comment": {"unset": "An organization funding a project or person."},
+      "comment": {"undefined": "An organization funding a project or person."},
       "uri": "http://xmlns.com/foaf/0.1/fundedBy"
     },
     {
-      "id": "property705",
+      "id": "property27",
       "equivalent": [],
-      "range": "class251",
+      "range": "class5",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class249",
+      "domain": "class3",
       "label": {
-        "iriBased": "account",
-        "unset": "account"
+        "IRI-based": "account",
+        "undefined": "account"
       },
       "attributes": [],
-      "comment": {"unset": "Indicates an account held by this agent."},
+      "comment": {"undefined": "Indicates an account held by this agent."},
       "uri": "http://xmlns.com/foaf/0.1/account"
     },
     {
-      "id": "property735",
+      "id": "property57",
       "equivalent": [],
-      "range": "literal118",
+      "range": "literal17",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class15",
       "label": {
-        "iriBased": "geekcode",
-        "unset": "geekcode"
+        "IRI-based": "geekcode",
+        "undefined": "geekcode"
       },
       "attributes": [],
-      "comment": {"unset": "A textual geekcode for this person, see http://www.geekcode.com/geek.html"},
+      "comment": {"undefined": "A textual geekcode for this person, see http://www.geekcode.com/geek.html"},
       "uri": "http://xmlns.com/foaf/0.1/geekcode"
     },
     {
-      "id": "property686",
+      "id": "property8",
       "equivalent": [],
-      "range": "class255",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class15",
       "label": {
-        "iriBased": "publications",
-        "unset": "publications"
+        "IRI-based": "publications",
+        "undefined": "publications"
       },
       "attributes": [],
-      "comment": {"unset": "A link to the publications of this person."},
+      "comment": {"undefined": "A link to the publications of this person."},
       "uri": "http://xmlns.com/foaf/0.1/publications"
     },
     {
-      "id": "property733",
+      "id": "property55",
       "equivalent": [],
-      "range": "literal116",
+      "range": "literal15",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class251",
+      "domain": "class5",
       "label": {
-        "iriBased": "accountName",
-        "unset": "account name"
+        "IRI-based": "accountName",
+        "undefined": "account name"
       },
       "attributes": [],
-      "comment": {"unset": "Indicates the name (identifier) associated with this online account."},
+      "comment": {"undefined": "Indicates the name (identifier) associated with this online account."},
       "uri": "http://xmlns.com/foaf/0.1/accountName"
     },
     {
-      "id": "property734",
+      "id": "property56",
       "equivalent": [],
-      "range": "literal117",
+      "range": "literal16",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": ["property742"],
-      "domain": "thing21",
+      "superproperty": ["property64"],
+      "domain": "thing4",
       "label": {
-        "iriBased": "icqChatID",
-        "unset": "ICQ chat ID"
+        "IRI-based": "icqChatID",
+        "undefined": "ICQ chat ID"
       },
       "attributes": [],
-      "comment": {"unset": "An ICQ chat ID"},
+      "comment": {"undefined": "An ICQ chat ID"},
       "uri": "http://xmlns.com/foaf/0.1/icqChatID"
     },
     {
-      "id": "property751",
+      "id": "property23",
       "equivalent": [],
-      "range": "class251",
+      "range": "class21",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": [],
-      "domain": "class259",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property752",
-      "equivalent": [],
-      "range": "class262",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": [],
-      "domain": "class261",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property701",
-      "equivalent": [],
-      "range": "class267",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": ["property690"],
-      "domain": "class261",
+      "superproperty": ["property12"],
+      "domain": "class15",
       "label": {
-        "iriBased": "img",
-        "unset": "image"
+        "IRI-based": "img",
+        "undefined": "image"
       },
       "attributes": [],
-      "comment": {"unset": "An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one's photo on a homepage)."},
+      "comment": {"undefined": "An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one's photo on a homepage)."},
       "uri": "http://xmlns.com/foaf/0.1/img"
     },
     {
-      "id": "property684",
+      "id": "property6",
       "equivalent": [],
-      "range": "class255",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class249",
+      "domain": "class3",
       "label": {
-        "iriBased": "interest",
-        "unset": "interest"
+        "IRI-based": "interest",
+        "undefined": "interest"
       },
       "attributes": [],
-      "comment": {"unset": "A page about a topic of interest to this person."},
+      "comment": {"undefined": "A page about a topic of interest to this person."},
       "uri": "http://xmlns.com/foaf/0.1/interest"
     },
     {
-      "id": "property750",
+      "id": "property11",
       "equivalent": [],
-      "range": "class251",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
-      "superproperty": [],
-      "domain": "class258",
-      "label": {},
-      "attributes": [],
-      "comment": {}
-    },
-    {
-      "id": "property689",
-      "equivalent": [],
-      "range": "class255",
-      "disjoint": [],
-      "subproperty": [],
-      "superproperty": ["property702"],
-      "domain": "class249",
+      "superproperty": ["property24"],
+      "domain": "class3",
       "label": {
-        "iriBased": "openid",
-        "unset": "openid"
+        "IRI-based": "openid",
+        "undefined": "openid"
       },
       "attributes": ["inverse functional"],
-      "comment": {"unset": "An OpenID for an Agent."},
+      "comment": {"undefined": "An OpenID for an Agent."},
       "uri": "http://xmlns.com/foaf/0.1/openid"
     },
     {
-      "id": "property730",
+      "id": "property52",
       "equivalent": [],
-      "range": "literal113",
+      "range": "literal12",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing21",
+      "domain": "thing4",
       "label": {
-        "iriBased": "givenname",
-        "unset": "Given name"
+        "IRI-based": "givenname",
+        "undefined": "Given name"
       },
       "attributes": [],
-      "comment": {"unset": "The given name of some person."},
+      "comment": {"undefined": "The given name of some person."},
       "uri": "http://xmlns.com/foaf/0.1/givenname"
     },
     {
-      "id": "property736",
+      "id": "property58",
       "equivalent": [],
-      "range": "literal119",
+      "range": "literal18",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class15",
       "label": {
-        "iriBased": "myersBriggs",
-        "unset": "myersBriggs"
+        "IRI-based": "myersBriggs",
+        "undefined": "myersBriggs"
       },
       "attributes": [],
-      "comment": {"unset": "A Myers Briggs (MBTI) personality classification."},
+      "comment": {"undefined": "A Myers Briggs (MBTI) personality classification."},
       "uri": "http://xmlns.com/foaf/0.1/myersBriggs"
     },
     {
-      "id": "property727",
+      "id": "property49",
       "equivalent": [],
-      "range": "literal110",
+      "range": "literal9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "thing21",
+      "domain": "thing4",
       "label": {
-        "iriBased": "jabberID",
-        "unset": "jabber ID"
+        "IRI-based": "jabberID",
+        "undefined": "jabber ID"
       },
       "attributes": [],
-      "comment": {"unset": "A jabber ID for something."},
+      "comment": {"undefined": "A jabber ID for something."},
       "uri": "http://xmlns.com/foaf/0.1/jabberID"
     },
     {
-      "id": "property714",
+      "id": "property36",
       "equivalent": [],
-      "range": "class255",
+      "range": "class9",
       "disjoint": [],
       "subproperty": [],
       "superproperty": [],
-      "domain": "class261",
+      "domain": "class15",
       "label": {
-        "iriBased": "schoolHomepage",
-        "unset": "schoolHomepage"
+        "IRI-based": "schoolHomepage",
+        "undefined": "schoolHomepage"
       },
       "attributes": [],
-      "comment": {"unset": "A homepage of a school attended by the person."},
+      "comment": {"undefined": "A homepage of a school attended by the person."},
       "uri": "http://xmlns.com/foaf/0.1/schoolHomepage"
     }
   ],
@@ -1171,55 +1171,55 @@
   "classAttribute": [
     {
       "complement": [],
-      "id": "class249",
+      "id": "class3",
       "intersection": [],
-      "equivalent": ["class260"],
+      "equivalent": ["class14"],
       "superClasses": [],
       "union": [],
       "subClasses": [
-        "class263",
-        "class262",
-        "class261"
+        "class17",
+        "class16",
+        "class15"
       ],
       "label": {
-        "iriBased": "Agent",
-        "unset": "Agent"
+        "IRI-based": "Agent",
+        "undefined": "Agent"
       },
       "attributes": ["equivalent"],
       "instances": 0,
-      "comment": {"unset": "An agent (eg. person, group, software or physical artifact)."},
+      "comment": {"undefined": "An agent (eg. person, group, software or physical artifact)."},
       "uri": "http://xmlns.com/foaf/0.1/Agent"
     },
     {
       "complement": [],
-      "id": "class251",
+      "id": "class5",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [
-        "class266",
-        "class258",
-        "class259"
+        "class20",
+        "class12",
+        "class13"
       ],
       "label": {
-        "iriBased": "OnlineAccount",
-        "unset": "Online Account"
+        "IRI-based": "OnlineAccount",
+        "undefined": "Online Account"
       },
       "attributes": [],
       "instances": 0,
-      "comment": {"unset": "An online account."},
+      "comment": {"undefined": "An online account."},
       "uri": "http://xmlns.com/foaf/0.1/OnlineAccount"
     },
     {
       "complement": [],
-      "id": "class260",
+      "id": "class14",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
-      "label": {"iriBased": "Agent"},
+      "label": {"IRI-based": "Agent"},
       "attributes": [
         "external",
         "equivalent"
@@ -1230,13 +1230,13 @@
     },
     {
       "complement": [],
-      "id": "class253",
+      "id": "class7",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
-      "label": {"iriBased": "CreativeWork"},
+      "label": {"IRI-based": "CreativeWork"},
       "attributes": [
         "external",
         "equivalent"
@@ -1247,13 +1247,13 @@
     },
     {
       "complement": [],
-      "id": "class254",
+      "id": "class8",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
-      "label": {"iriBased": "Person"},
+      "label": {"IRI-based": "Person"},
       "attributes": [
         "external",
         "equivalent"
@@ -1264,70 +1264,70 @@
     },
     {
       "complement": [],
-      "id": "class259",
+      "id": "class13",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class251"],
+      "superClasses": ["class5"],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "OnlineGamingAccount",
-        "unset": "Online Gaming Account"
+        "IRI-based": "OnlineGamingAccount",
+        "undefined": "Online Gaming Account"
       },
       "attributes": [],
       "instances": 0,
-      "comment": {"unset": "An online gaming account."},
+      "comment": {"undefined": "An online gaming account."},
       "uri": "http://xmlns.com/foaf/0.1/OnlineGamingAccount"
     },
     {
       "complement": [],
-      "id": "class262",
+      "id": "class16",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class249"],
+      "superClasses": ["class3"],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "Organization",
-        "unset": "Organization"
+        "IRI-based": "Organization",
+        "undefined": "Organization"
       },
       "attributes": [],
       "instances": 0,
-      "comment": {"unset": "An organization."},
+      "comment": {"undefined": "An organization."},
       "uri": "http://xmlns.com/foaf/0.1/Organization"
     },
     {
       "complement": [],
-      "id": "class261",
+      "id": "class15",
       "intersection": [],
       "equivalent": [
-        "class252",
-        "class254"
+        "class6",
+        "class8"
       ],
       "superClasses": [
-        "class256",
-        "class249"
+        "class10",
+        "class3"
       ],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "Person",
-        "unset": "Person"
+        "IRI-based": "Person",
+        "undefined": "Person"
       },
       "attributes": ["equivalent"],
-      "instances": 3,
-      "comment": {"unset": "A person."},
+      "instances": 0,
+      "comment": {"undefined": "A person."},
       "uri": "http://xmlns.com/foaf/0.1/Person"
     },
     {
       "complement": [],
-      "id": "class247",
+      "id": "class1",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
-      "label": {"iriBased": "ImageObject"},
+      "label": {"IRI-based": "ImageObject"},
       "attributes": [
         "external",
         "equivalent"
@@ -1338,30 +1338,30 @@
     },
     {
       "complement": [],
-      "id": "class266",
+      "id": "class20",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class251"],
+      "superClasses": ["class5"],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "OnlineChatAccount",
-        "unset": "Online Chat Account"
+        "IRI-based": "OnlineChatAccount",
+        "undefined": "Online Chat Account"
       },
       "attributes": [],
       "instances": 0,
-      "comment": {"unset": "An online chat account."},
+      "comment": {"undefined": "An online chat account."},
       "uri": "http://xmlns.com/foaf/0.1/OnlineChatAccount"
     },
     {
       "complement": [],
-      "id": "class265",
+      "id": "class19",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
-      "label": {"iriBased": "Class"},
+      "label": {"IRI-based": "Class"},
       "attributes": ["external"],
       "instances": 0,
       "comment": {},
@@ -1369,15 +1369,15 @@
     },
     {
       "complement": [],
-      "id": "class257",
+      "id": "class11",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "Concept",
-        "unset": "Concept"
+        "IRI-based": "Concept",
+        "undefined": "Concept"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1386,35 +1386,35 @@
     },
     {
       "complement": [],
-      "id": "class255",
+      "id": "class9",
       "intersection": [],
-      "equivalent": ["class253"],
+      "equivalent": ["class7"],
       "superClasses": [],
       "union": [],
       "subClasses": [
-        "class267",
-        "class264"
+        "class21",
+        "class18"
       ],
       "label": {
-        "iriBased": "Document",
-        "unset": "Document"
+        "IRI-based": "Document",
+        "undefined": "Document"
       },
       "attributes": ["equivalent"],
       "instances": 0,
-      "comment": {"unset": "A document."},
+      "comment": {"undefined": "A document."},
       "uri": "http://xmlns.com/foaf/0.1/Document"
     },
     {
       "complement": [],
-      "id": "class256",
+      "id": "class10",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
-      "subClasses": ["class261"],
+      "subClasses": ["class15"],
       "label": {
-        "iriBased": "SpatialThing",
-        "unset": "Spatial Thing"
+        "IRI-based": "SpatialThing",
+        "undefined": "Spatial Thing"
       },
       "attributes": ["external"],
       "instances": 0,
@@ -1423,115 +1423,115 @@
     },
     {
       "complement": [],
-      "id": "class267",
+      "id": "class21",
       "intersection": [],
-      "equivalent": ["class247"],
-      "superClasses": ["class255"],
+      "equivalent": ["class1"],
+      "superClasses": ["class9"],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "Image",
-        "unset": "Image"
+        "IRI-based": "Image",
+        "undefined": "Image"
       },
       "attributes": ["equivalent"],
       "instances": 0,
-      "comment": {"unset": "An image."},
+      "comment": {"undefined": "An image."},
       "uri": "http://xmlns.com/foaf/0.1/Image"
     },
     {
       "complement": [],
-      "id": "class248",
+      "id": "class2",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "LabelProperty",
-        "unset": "Label Property"
+        "IRI-based": "LabelProperty",
+        "undefined": "Label Property"
       },
       "attributes": [],
       "instances": 0,
-      "comment": {"unset": "A foaf:LabelProperty is any RDF property with texual values that serve as labels."},
+      "comment": {"undefined": "A foaf:LabelProperty is any RDF property with texual values that serve as labels."},
       "uri": "http://xmlns.com/foaf/0.1/LabelProperty"
     },
     {
       "complement": [],
-      "id": "class258",
+      "id": "class12",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class251"],
+      "superClasses": ["class5"],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "OnlineEcommerceAccount",
-        "unset": "Online E-commerce Account"
+        "IRI-based": "OnlineEcommerceAccount",
+        "undefined": "Online E-commerce Account"
       },
       "attributes": [],
       "instances": 0,
-      "comment": {"unset": "An online e-commerce account."},
+      "comment": {"undefined": "An online e-commerce account."},
       "uri": "http://xmlns.com/foaf/0.1/OnlineEcommerceAccount"
     },
     {
       "complement": [],
-      "id": "class263",
+      "id": "class17",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class249"],
+      "superClasses": ["class3"],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "Group",
-        "unset": "Group"
+        "IRI-based": "Group",
+        "undefined": "Group"
       },
       "attributes": [],
       "instances": 0,
-      "comment": {"unset": "A class of Agents."},
+      "comment": {"undefined": "A class of Agents."},
       "uri": "http://xmlns.com/foaf/0.1/Group"
     },
     {
       "complement": [],
-      "id": "class250",
+      "id": "class4",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "Project",
-        "unset": "Project"
+        "IRI-based": "Project",
+        "undefined": "Project"
       },
       "attributes": [],
       "instances": 0,
-      "comment": {"unset": "A project (a collective endeavour of some kind)."},
+      "comment": {"undefined": "A project (a collective endeavour of some kind)."},
       "uri": "http://xmlns.com/foaf/0.1/Project"
     },
     {
       "complement": [],
-      "id": "class264",
+      "id": "class18",
       "intersection": [],
       "equivalent": [],
-      "superClasses": ["class255"],
+      "superClasses": ["class9"],
       "union": [],
       "subClasses": [],
       "label": {
-        "iriBased": "PersonalProfileDocument",
-        "unset": "PersonalProfileDocument"
+        "IRI-based": "PersonalProfileDocument",
+        "undefined": "PersonalProfileDocument"
       },
       "attributes": [],
       "instances": 0,
-      "comment": {"unset": "A personal profile RDF document."},
+      "comment": {"undefined": "A personal profile RDF document."},
       "uri": "http://xmlns.com/foaf/0.1/PersonalProfileDocument"
     },
     {
       "complement": [],
-      "id": "class252",
+      "id": "class6",
       "intersection": [],
       "equivalent": [],
       "superClasses": [],
       "union": [],
       "subClasses": [],
-      "label": {"iriBased": "Person"},
+      "label": {"IRI-based": "Person"},
       "attributes": [
         "external",
         "equivalent"
@@ -1541,779 +1541,779 @@
       "uri": "http://www.w3.org/2000/10/swap/pim/contact#Person"
     },
     {
-      "id": "thing21",
+      "id": "thing6",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing20",
+      "id": "thing1",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing23",
+      "id": "thing4",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing22",
+      "id": "thing5",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing19",
+      "id": "thing2",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     },
     {
-      "id": "thing18",
+      "id": "thing3",
       "label": "Thing",
       "uri": "http://www.w3.org/2002/07/owl#Thing"
     }
   ],
   "class": [
     {
-      "id": "class249",
+      "id": "class3",
       "type": "owl:equivalentClass"
     },
     {
-      "id": "class251",
+      "id": "class5",
       "type": "owl:Class"
     },
     {
-      "id": "class260",
+      "id": "class14",
       "type": "owl:equivalentClass"
     },
     {
-      "id": "class253",
+      "id": "class7",
       "type": "owl:equivalentClass"
     },
     {
-      "id": "class254",
+      "id": "class8",
       "type": "owl:equivalentClass"
     },
     {
-      "id": "class259",
+      "id": "class13",
       "type": "owl:Class"
     },
     {
-      "id": "class262",
+      "id": "class16",
       "type": "owl:Class"
     },
     {
-      "id": "class261",
+      "id": "class15",
       "type": "owl:equivalentClass"
     },
     {
-      "id": "class247",
+      "id": "class1",
       "type": "owl:equivalentClass"
     },
     {
-      "id": "class266",
+      "id": "class20",
       "type": "owl:Class"
     },
     {
-      "id": "class265",
+      "id": "class19",
       "type": "externalclass"
     },
     {
-      "id": "class257",
+      "id": "class11",
       "type": "externalclass"
     },
     {
-      "id": "class255",
+      "id": "class9",
       "type": "owl:equivalentClass"
     },
     {
-      "id": "class256",
+      "id": "class10",
       "type": "externalclass"
     },
     {
-      "id": "class267",
+      "id": "class21",
       "type": "owl:equivalentClass"
     },
     {
-      "id": "class248",
+      "id": "class2",
       "type": "owl:Class"
     },
     {
-      "id": "class258",
+      "id": "class12",
       "type": "owl:Class"
     },
     {
-      "id": "class263",
+      "id": "class17",
       "type": "owl:Class"
     },
     {
-      "id": "class250",
+      "id": "class4",
       "type": "owl:Class"
     },
     {
-      "id": "class264",
+      "id": "class18",
       "type": "owl:Class"
     },
     {
-      "id": "class252",
+      "id": "class6",
       "type": "owl:equivalentClass"
     },
     {
-      "id": "thing21",
+      "id": "thing6",
       "type": "owl:Thing"
     },
     {
-      "id": "thing20",
+      "id": "thing1",
       "type": "owl:Thing"
     },
     {
-      "id": "thing23",
+      "id": "thing4",
       "type": "owl:Thing"
     },
     {
-      "id": "thing22",
+      "id": "thing5",
       "type": "owl:Thing"
     },
     {
-      "id": "thing19",
+      "id": "thing2",
       "type": "owl:Thing"
     },
     {
-      "id": "thing18",
+      "id": "thing3",
       "type": "owl:Thing"
     }
   ],
   "property": [
     {
-      "id": "property700",
+      "id": "property22",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property688",
+      "id": "property10",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property704",
+      "id": "property26",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property716",
+      "id": "property38",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property690",
+      "id": "property12",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property694",
+      "id": "property71",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property70",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property16",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property692",
+      "id": "property14",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property698",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property740",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property682",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property707",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property702",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property741",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property683",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property719",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property729",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property738",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property706",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property739",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property717",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property722",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property726",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property687",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property699",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property745",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property720",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property728",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property695",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property737",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property721",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property724",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property758",
+      "id": "property76",
       "type": "owl:disjointWith"
     },
     {
-      "id": "property757",
+      "id": "property20",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property78",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property731",
+      "id": "property62",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property679",
+      "id": "property4",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property715",
+      "id": "property79",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property29",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property754",
+      "id": "property72",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property24",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property73",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "property74",
       "type": "owl:disjointWith"
     },
     {
-      "id": "property691",
-      "type": "owl:objectProperty"
+      "id": "property63",
+      "type": "owl:datatypeProperty"
     },
     {
-      "id": "property753",
+      "id": "property75",
       "type": "owl:disjointWith"
     },
     {
-      "id": "property756",
+      "id": "property5",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property41",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property51",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property60",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property28",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property61",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property39",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property44",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property48",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property9",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property21",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property67",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property42",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property68",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property744",
+      "id": "property50",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property760",
+      "id": "property17",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property69",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property710",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property732",
+      "id": "property59",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property708",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property723",
+      "id": "property43",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property693",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property680",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property742",
+      "id": "property46",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property711",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property703",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property743",
+      "id": "property53",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property749",
+      "id": "property1",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property37",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property13",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property66",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property32",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property54",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property30",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property45",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property15",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property2",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property64",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property82",
       "type": "rdfs:SubClassOf"
     },
     {
-      "id": "property712",
+      "id": "property33",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property725",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property748",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property747",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property746",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property696",
+      "id": "property25",
       "type": "owl:objectProperty"
     },
     {
-      "id": "property705",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property735",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property686",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property733",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property734",
-      "type": "owl:datatypeProperty"
-    },
-    {
-      "id": "property751",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property752",
+      "id": "property80",
       "type": "owl:disjointWith"
     },
     {
-      "id": "property701",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property684",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property750",
-      "type": "rdfs:SubClassOf"
-    },
-    {
-      "id": "property689",
-      "type": "owl:objectProperty"
-    },
-    {
-      "id": "property730",
+      "id": "property65",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property736",
+      "id": "property34",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property47",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property727",
+      "id": "property18",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property27",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property57",
       "type": "owl:datatypeProperty"
     },
     {
-      "id": "property714",
+      "id": "property8",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property55",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property56",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property23",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property6",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property11",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "property52",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property58",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property49",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "property36",
       "type": "owl:objectProperty"
     }
   ],
   "datatype": [
     {
-      "id": "literal118",
+      "id": "literal26",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal117",
+      "id": "literal25",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal119",
+      "id": "literal24",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal114",
+      "id": "literal23",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal113",
+      "id": "literal27",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal116",
+      "id": "literal21",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal115",
+      "id": "literal22",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal110",
+      "id": "literal20",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal112",
+      "id": "literal8",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal111",
+      "id": "literal7",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal102",
+      "id": "literal9",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal103",
+      "id": "literal13",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal104",
+      "id": "literal4",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal105",
+      "id": "literal12",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal106",
+      "id": "literal3",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal107",
+      "id": "literal6",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal108",
+      "id": "literal15",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal109",
+      "id": "literal5",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal128",
+      "id": "literal14",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal127",
+      "id": "literal17",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal126",
+      "id": "literal16",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal125",
+      "id": "literal2",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal124",
+      "id": "literal19",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal123",
+      "id": "literal1",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal122",
+      "id": "literal18",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal121",
+      "id": "literal10",
       "type": "rdfs:Literal"
     },
     {
-      "id": "literal120",
+      "id": "literal11",
       "type": "rdfs:Literal"
     }
   ],
   "datatypeAttribute": [
     {
-      "id": "literal118",
+      "id": "literal26",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal117",
+      "id": "literal25",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal119",
+      "id": "literal24",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal114",
+      "id": "literal23",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal113",
+      "id": "literal27",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal116",
+      "id": "literal21",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal115",
+      "id": "literal22",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal110",
+      "id": "literal20",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal112",
+      "id": "literal8",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal111",
+      "id": "literal7",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal102",
+      "id": "literal9",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal103",
+      "id": "literal13",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal104",
+      "id": "literal4",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal105",
+      "id": "literal12",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal106",
+      "id": "literal3",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal107",
+      "id": "literal6",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal108",
+      "id": "literal15",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal109",
+      "id": "literal5",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal128",
+      "id": "literal14",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal127",
+      "id": "literal17",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal126",
+      "id": "literal16",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal125",
+      "id": "literal2",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal124",
+      "id": "literal19",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal123",
+      "id": "literal1",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal122",
+      "id": "literal18",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal121",
+      "id": "literal10",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     },
     {
-      "id": "literal120",
+      "id": "literal11",
       "superClasses": [],
       "subClasses": [],
-      "label": {"iriBased": "Literal"},
+      "label": {"IRI-based": "Literal"},
       "attributes": [],
       "comment": {}
     }
   ],
   "header": {
     "languages": [
-      "iriBased",
-      "unset"
+      "IRI-based",
+      "undefined"
     ],
-    "title": {"unset": "Friend of a Friend (FOAF) vocabulary"},
-    "description": {"unset": "The Friend of a Friend (FOAF) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language."},
+    "title": {"undefined": "Friend of a Friend (FOAF) vocabulary"},
+    "description": {"undefined": "The Friend of a Friend (FOAF) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language."},
     "uri": "http://xmlns.com/foaf/0.1/"
   },
   "namespace": [{}]
