@@ -3,9 +3,8 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta name="author" content="Vincent Link, Steffen Lohmann, Eduard Marbach, Stefan Negru"/>
-	<meta name="keywords"
-	      content="webvowl, vowl, visual notation, web ontology language, owl, rdf, ontology visualization, ontologies, semantic web"/>
-	<meta name="description" content="WebVOWL - Visualizing Ontologies with VOWL"/>
+	<meta name="keywords" content="webvowl, vowl, visual notation, web ontology language, owl, rdf, ontology visualization, ontologies, semantic web"/>
+	<meta name="description" content="WebVOWL - Web-based Visualization of Ontologies"/>
 	<meta name="robots" content="noindex,nofollow"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,7 +17,7 @@
 <main>
 	<section id="canvasArea">
 		<div id="logo">
-			<!-- build:process --><h2>WebVOWL <br/><span> beta <%= version %> </span></h2><!-- /build -->
+			<!-- build:process --><h2>WebVOWL <br/><span>beta <%= version %></span></h2><!-- /build -->
 		</div>
 		<div id="loading-info">
 			<div id="loading-error" class="hidden">
@@ -26,7 +25,7 @@
 				<span id="custom-error-message"></span>
 			</div>
 			<div id="loading-progress" class="hidden">
-				<span>Loading ontology... </span><div class="spin">&#x27f3;</div>
+				<span>Loading ontology... </span><div class="spin">&#8635;</div>
 			</div>
 		</div>
 		<div id="graph"></div>
@@ -50,7 +49,7 @@
 				<p class="statisticDetails">Object Prop.: <span id="objectPropertyCount"></span></p>
 				<p class="statisticDetails">Datatype Prop.: <span id="datatypePropertyCount"></span></p>
 				<div class="small-whitespace-separator"></div>
-				<p class="statisticDetails">Total Instance Count: <span id="instanceCount"></span></p>
+				<p class="statisticDetails">Instances: <span id="instanceCount"></span></p>
 				<div class="small-whitespace-separator"></div>
 				<p class="statisticDetails">Nodes: <span id="nodeCount"></span></p>
 				<p class="statisticDetails">Edges: <span id="edgeCount"></span></p>
@@ -129,8 +128,9 @@
 					<li><a href="#foaf" id="foaf">Friend of a Friend (FOAF) vocabulary</a></li>
 					<li><a href="#muto" id="muto">Modular and Unified Tagging Ontology (MUTO)</a></li>
 					<li><a href="#personasonto" id="personasonto">Personas Ontology (PersonasOnto)</a></li>
-					<li><a href="#sioc" id="sioc">SIOC Core Ontology</a></li>
-					<li><a href="#ontovibe" id="ontovibe">OntoViBe</a></li>
+					<li><a href="#sioc" id="sioc">SIOC (Semantically-Interlinked Online Communities) Core Ontology</a></li>
+					<li><a href="#ontovibe" id="ontovibe">Ontology Visualization Benchmark (OntoViBe)</a></li>
+					<li><a href="#benchmark" id="benchmark">Benchmark Graph for VOWL</a></li>
 					<li>
 						<form class="converter-form">
 							<input type="text" id="convert-iri" placeholder="Ontology IRI">
