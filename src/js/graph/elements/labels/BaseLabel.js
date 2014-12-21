@@ -268,7 +268,7 @@ webvowl.labels.BaseLabel = (function () {
 				.attr("dy", "0.5ex");
 
 			if (this.minCardinality() !== undefined) {
-				var cardString = this.minCardinality();
+				var cardString = this.minCardinality().toString();
 				cardString = cardString.concat(" .. ");
 				cardString = cardString.concat(this.maxCardinality() !== undefined ? this.maxCardinality() : "*");
 
