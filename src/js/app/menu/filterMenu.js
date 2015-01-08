@@ -5,9 +5,10 @@
  * @param datatypeFilter filter for all datatypes
  * @param subclassFilter filter for all subclasses
  * @param disjointFilter filter for all disjoint with properties
+ * @param setOperatorFilter filter for all set operators with properties
  * @returns {{}}
  */
-webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjointFilter) {
+webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter) {
 
 	var filterMenu = {},
 		checkboxData = [];
@@ -20,6 +21,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 		addFilterItem(datatypeFilter, "datatype", "Datatypes", "#datatypeFilteringOption");
 		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
 		addFilterItem(disjointFilter, "disjoint", "Disjointness info", "#disjointFilteringOption");
+		addFilterItem(setOperatorFilter, "setoperator", "Set Operators", "#setOperatorFilteringOption");
 	};
 
 	function addFilterItem(filter, identifier, pluralNameOfFilteredItems, selector) {
