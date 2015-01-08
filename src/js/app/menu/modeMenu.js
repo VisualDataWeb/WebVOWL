@@ -32,7 +32,8 @@ webvowlApp.modeMenu = function (graph, pickAndPin, nodeScaling) {
 		moduleCheckbox = moduleOptionContainer.append("input")
 			.classed("moduleCheckbox", true)
 			.attr("id", identifier + "ModuleCheckbox")
-			.attr("type", "checkbox");
+			.attr("type", "checkbox")
+			.property("checked", module.enabled());
 
 		// Store for easier resetting all modes
 		checkboxes.push(moduleCheckbox);
