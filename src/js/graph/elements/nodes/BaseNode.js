@@ -6,13 +6,14 @@ webvowl.nodes.BaseNode = (function () {
 		var that = this,
 		// Basic attributes
 			complement,
+			disjointWith,
 			instances = 0,
-			maxInstanceCount,
 			intersection,
 			links,
 			union,
 		// Additional attributes
-			disjointWith,
+			scaleNodesByInstances,
+			maxInstanceCount,
 		// Fixed Location attributes
 			locked = false,
 			frozen = false,
@@ -61,6 +62,12 @@ webvowl.nodes.BaseNode = (function () {
 		this.nodeElement = function (p) {
 			if (!arguments.length) return nodeElement;
 			nodeElement = p;
+			return this;
+		};
+
+		this.scaleNodesByInstances = function (p) {
+			if (!arguments.length) return scaleNodesByInstances;
+			scaleNodesByInstances = p;
 			return this;
 		};
 

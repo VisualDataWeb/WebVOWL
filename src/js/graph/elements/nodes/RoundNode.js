@@ -44,7 +44,7 @@ webvowl.nodes.RoundNode = (function () {
 		};
 
 		this.actualRadius = function () {
-			if (this.instances() <= 0) {
+			if (!this.scaleNodesByInstances() || this.instances() <= 0) {
 				return this.radius();
 			} else {
 				// we could "listen" for radius and maxInstanceCount changes, but this is easier
