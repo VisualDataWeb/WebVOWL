@@ -50,7 +50,7 @@ module.exports = function (grunt) {
 					base: deployPath,
 					directory: deployPath,
 					livereload: true,
-					open: "http://localhost:8000/webvowl.html",
+					open: "http://localhost:8000/index.html",
 					middleware: function (connect, options) {
 						return [
 							connect.favicon("favicon.ico"),
@@ -77,7 +77,7 @@ module.exports = function (grunt) {
 		},
 		htmlbuild: {
 			dist: {
-				src: "src/webvowl.html",
+				src: "src/index.html",
 				dest: deployPath,
 				options: {
 					beautify: true,
