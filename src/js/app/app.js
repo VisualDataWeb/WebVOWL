@@ -112,6 +112,7 @@ webvowlApp.app = function () {
 
 		d3.json(relativePath, function (error, data) {
 			pauseMenu.reset();
+			exportMenu.setJson(data);
 
 			var loadingFailed = !!error;
 			if (loadingFailed) {
@@ -125,7 +126,7 @@ webvowlApp.app = function () {
 			sidebar.updateOntologyInformation(data, statistics);
 
 			var filename = relativePath.slice(relativePath.lastIndexOf("/") + 1);
-			exportMenu.setFilename(filename.split(".")[0] + ".svg");
+			exportMenu.setFilename(filename.split(".")[0]);
 		});
 	}
 
