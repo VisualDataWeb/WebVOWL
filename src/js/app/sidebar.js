@@ -251,7 +251,10 @@ webvowlApp.sidebar = function (graph) {
 		var tag;
 
 		if (uri) {
-			tag = element.append("a").attr("href", uri).attr("target", "_blank");
+			tag = element.append("a")
+				.attr("href", uri)
+				.attr("title", uri)
+				.attr("target", "_blank");
 		} else {
 			tag = element.append("span");
 		}
