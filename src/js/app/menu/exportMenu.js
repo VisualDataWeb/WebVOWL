@@ -40,7 +40,7 @@ webvowlApp.exportMenu = function (graphSelector) {
 
 		// inline the styles, so that the exported svg code contains the css rules
 		inlineVowlStyles();
-		hideNotExportableElements();
+		hideNonExportableElements();
 
 		graphSvgCode = graphSvg.attr("version", 1.1)
 			.attr("xmlns", "http://www.w3.org/2000/svg")
@@ -59,7 +59,7 @@ webvowlApp.exportMenu = function (graphSelector) {
 
 		// remove graphic styles for interaction to go back to normal
 		removeVowlInlineStyles();
-		showNotExportableElements();
+		showNonExportableElements();
 	}
 
 	function escapeUnicodeCharacters(text) {
@@ -75,9 +75,7 @@ webvowlApp.exportMenu = function (graphSelector) {
 			if (charCode < 255) {
 				textSnippets.push(character);
 			} else {
-				textSnippets.push("&#");
-				textSnippets.push(charCode);
-				textSnippets.push(";");
+				textSnippets.push("&#" + charCode + ";");
 			}
 		}
 
@@ -116,7 +114,7 @@ webvowlApp.exportMenu = function (graphSelector) {
 	/**
 	 * For example the pin of the pick&pin module should be invisible in the exported graphic.
 	 */
-	function hideNotExportableElements() {
+	function hideNonExportableElements() {
 		d3.selectAll(".hidden-in-export").style("display", "none");
 	}
 
@@ -124,7 +122,7 @@ webvowlApp.exportMenu = function (graphSelector) {
 		d3.selectAll(".text, .subtext, .cardinality, .text, .embedded, .class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .label .datatype, .datatypeproperty, .rdf, .rdfproperty, .literal, .node .datatype, .deprecated, .deprecatedproperty, .external, .externalproperty, path, .nofill, .symbol, .arrowhead, marker path, .class, path, line, .fineline, .white, .subclass, .dottedMarker path, .subclassproperty, .external + text, .class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .normalMarker path.hovered, .cardinality.focused, .normalMarker path.focused, circle.pin, .focused, path.hovered, .label .indirectHighlighting, .feature:hover, .class, path, line, .fineline, .special, .dotted, rect.focused, circle.focused, .nostroke, #width-test, marker path").attr("style", null);
 	}
 
-	function showNotExportableElements() {
+	function showNonExportableElements() {
 		d3.selectAll(".hidden-in-export").style("display", null);
 	}
 
