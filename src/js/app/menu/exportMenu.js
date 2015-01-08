@@ -7,23 +7,31 @@
 webvowlApp.exportMenu = function (graphSelector) {
 
 	var exportMenu = {},
-		exportButton,
-		exportFilename;
+		exportSvgButton,
+		exportFilename,
+		exportJsonButton,
+		exportableJson;
 
 
 	/**
 	 * Adds the export button to the website.
 	 */
 	exportMenu.setup = function () {
-		exportButton = d3.select("#exportSvg")
-			.on("click", exportSVG);
+		exportSvgButton = d3.select("#exportSvg")
+			.on("click", exportSvg);
+		exportJsonButton = d3.select("#exportJson")
+			.on("click", exportJson);
 	};
 
 	exportMenu.setFilename = function (filename) {
 		exportFilename = filename;
 	};
 
-	function exportSVG() {
+	exportMenu.setJson = function (json) {
+		exportableJson = json;
+	};
+
+	function exportSvg() {
 		// Get the d3js SVG element
 		var graphSvg = d3.select(graphSelector).select("svg"),
 			graphSvgCode,
@@ -40,14 +48,14 @@ webvowlApp.exportMenu = function (graphSelector) {
 
 		// Insert the reference to VOWL
 		graphSvgCode = "<!-- Created with WebVOWL (version " + webvowlApp.version + ")" +
-			", http://vowl.visualdataweb.org -->\n" + graphSvgCode;
+		", http://vowl.visualdataweb.org -->\n" + graphSvgCode;
 
 		escapedGraphSvgCode = escapeUnicodeCharacters(graphSvgCode);
 		//btoa(); Creates a base-64 encoded ASCII string from a "string" of binary data.
 		dataURI = "data:image/svg+xml;base64," + btoa(escapedGraphSvgCode);
 
-		exportButton.attr("href", dataURI)
-			.attr("download", exportFilename);
+		exportSvgButton.attr("href", dataURI)
+			.attr("download", exportFilename + ".svg");
 
 		// remove graphic styles for interaction to go back to normal
 		removeVowlInlineStyles();
@@ -120,6 +128,18 @@ webvowlApp.exportMenu = function (graphSelector) {
 		d3.selectAll(".hidden-in-export").style("display", null);
 	}
 
+	function exportJson() {
+		if (!exportableJson) {
+			alert("No graph data available.");
+			// Stop the redirection to the path of the href attribute
+			d3.event.preventDefault();
+			return;
+		}
+
+		var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportableJson));
+		exportJsonButton.attr("href", dataURI)
+			.attr("download", exportFilename + ".json");
+	}
 
 	return exportMenu;
 };
