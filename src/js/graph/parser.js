@@ -351,9 +351,9 @@ webvowl.parser = function (graph) {
 
 				var inversePropertyId = findId(property.inverse());
 				// Look if an inverse property exists
-				if (typeof  inversePropertyId !== "undefined") {
+				if (inversePropertyId) {
 					inverse = propertyMap[inversePropertyId];
-					if (typeof inverse === "undefined") {
+					if (!inverse) {
 						console.warn("No inverse property was found for id: " + inversePropertyId);
 					}
 				}
@@ -636,7 +636,7 @@ webvowl.parser = function (graph) {
 	 * @returns {string} the id of the passed object or undefined
 	 */
 	function findId(object) {
-		if (typeof object === "undefined") {
+		if (!object) {
 			return undefined;
 		} else if (typeof object === "string") {
 			return object;

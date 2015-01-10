@@ -6,7 +6,6 @@
     },
     "uri" : "http://ontovibe.visualdataweb.org",
     "version" : "http://ontovibe.visualdataweb.org/1.0",
-    "author" : null,
     "description" : { },
     "languages" : [ "de", "IRI-based", "zh-hans", "undefined", "fr", "en" ]
   },
@@ -164,7 +163,7 @@
     "uri" : "http://ontovibe.visualdataweb.org#Subclass",
     "comment" : { },
     "instances" : 0,
-    "equivalent" : [ "class135", "class147" ],
+    "equivalent" : [ "class147", "class135" ],
     "attributes" : [ "equivalent" ],
     "union" : [ ],
     "intersection" : [ ],
@@ -241,7 +240,7 @@
     "instances" : 0,
     "equivalent" : [ ],
     "attributes" : [ ],
-    "union" : [ "class137", "class140" ],
+    "union" : [ "class140", "class137" ],
     "intersection" : [ ],
     "complement" : [ ],
     "subClasses" : [ ],
@@ -346,7 +345,7 @@
     "instances" : 0,
     "equivalent" : [ ],
     "attributes" : [ ],
-    "union" : [ "class143", "class156", "class138" ],
+    "union" : [ "class143", "class138", "class156" ],
     "intersection" : [ ],
     "complement" : [ ],
     "subClasses" : [ ],
@@ -567,7 +566,6 @@
   } ],
   "datatypeAttribute" : [ {
     "id" : "datatype95",
-    "uri" : null,
     "label" : {
       "IRI-based" : "IntersectionDatatype"
     },
@@ -577,7 +575,6 @@
     "superClasses" : [ ]
   }, {
     "id" : "datatype98",
-    "uri" : null,
     "label" : {
       "IRI-based" : "rational"
     },
@@ -587,7 +584,6 @@
     "superClasses" : [ ]
   }, {
     "id" : "literal101",
-    "uri" : null,
     "label" : {
       "IRI-based" : "Literal"
     },
@@ -597,7 +593,6 @@
     "superClasses" : [ ]
   }, {
     "id" : "datatype89",
-    "uri" : null,
     "label" : {
       "IRI-based" : "integer"
     },
@@ -607,7 +602,6 @@
     "superClasses" : [ ]
   }, {
     "id" : "datatype99",
-    "uri" : null,
     "label" : {
       "IRI-based" : "hexBinary"
     },
@@ -617,7 +611,6 @@
     "superClasses" : [ ]
   }, {
     "id" : "literal90",
-    "uri" : null,
     "label" : {
       "IRI-based" : "Literal"
     },
@@ -627,7 +620,6 @@
     "superClasses" : [ ]
   }, {
     "id" : "literal96",
-    "uri" : null,
     "label" : {
       "IRI-based" : "Literal"
     },
@@ -637,7 +629,6 @@
     "superClasses" : [ ]
   }, {
     "id" : "literal97",
-    "uri" : null,
     "label" : {
       "IRI-based" : "Literal"
     },
@@ -647,7 +638,6 @@
     "superClasses" : [ ]
   }, {
     "id" : "datatype91",
-    "uri" : null,
     "label" : {
       "IRI-based" : "real"
     },
@@ -657,7 +647,6 @@
     "superClasses" : [ ]
   }, {
     "id" : "datatype92",
-    "uri" : null,
     "label" : {
       "IRI-based" : "DivisibleByFiveEnumeration"
     },
@@ -667,7 +656,6 @@
     "superClasses" : [ ]
   }, {
     "id" : "datatype100",
-    "uri" : null,
     "label" : {
       "IRI-based" : "date"
     },
@@ -677,7 +665,6 @@
     "superClasses" : [ ]
   }, {
     "id" : "datatype93",
-    "uri" : null,
     "label" : {
       "IRI-based" : "UnionDatatype"
     },
@@ -687,7 +674,6 @@
     "superClasses" : [ ]
   }, {
     "id" : "datatype94",
-    "uri" : null,
     "label" : {
       "IRI-based" : "DivisibleByThreeEnumeration"
     },
@@ -831,12 +817,10 @@
   } ],
   "propertyAttribute" : [ {
     "id" : "property640",
-    "uri" : null,
     "label" : { },
     "comment" : { },
-    "domain" : "class138",
+    "domain" : "class156",
     "range" : "class143",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -844,12 +828,10 @@
     "disjoint" : [ ]
   }, {
     "id" : "property641",
-    "uri" : null,
     "label" : { },
     "comment" : { },
     "domain" : "class131",
     "range" : "class143",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -864,7 +846,6 @@
     "comment" : { },
     "domain" : "class134",
     "range" : "class134",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -872,12 +853,10 @@
     "disjoint" : [ ]
   }, {
     "id" : "property636",
-    "uri" : null,
     "label" : { },
     "comment" : { },
-    "domain" : "class137",
-    "range" : "class140",
-    "inverse" : null,
+    "domain" : "class140",
+    "range" : "class137",
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -892,7 +871,6 @@
     "comment" : { },
     "domain" : "class134",
     "range" : "class134",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -900,12 +878,10 @@
     "disjoint" : [ ]
   }, {
     "id" : "property639",
-    "uri" : null,
     "label" : { },
     "comment" : { },
-    "domain" : "class156",
-    "range" : "class138",
-    "inverse" : null,
+    "domain" : "class138",
+    "range" : "class156",
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -920,7 +896,6 @@
     "comment" : { },
     "domain" : "thing26",
     "range" : "class154",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -935,7 +910,6 @@
     "comment" : { },
     "domain" : "class134",
     "range" : "class134",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -943,12 +917,10 @@
     "disjoint" : [ ]
   }, {
     "id" : "property638",
-    "uri" : null,
     "label" : { },
     "comment" : { },
     "domain" : "class143",
-    "range" : "class156",
-    "inverse" : null,
+    "range" : "class138",
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -956,14 +928,12 @@
     "disjoint" : [ ]
   }, {
     "id" : "property633",
-    "uri" : null,
     "label" : {
       "IRI-based" : "instance of"
     },
     "comment" : { },
     "domain" : "class146",
     "range" : "class134",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -971,14 +941,12 @@
     "disjoint" : [ ]
   }, {
     "id" : "property632",
-    "uri" : null,
     "label" : {
       "IRI-based" : "instance of"
     },
     "comment" : { },
     "domain" : "class146",
     "range" : "class154",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -986,12 +954,10 @@
     "disjoint" : [ ]
   }, {
     "id" : "property634",
-    "uri" : null,
     "label" : { },
     "comment" : { },
     "domain" : "class153",
     "range" : "class140",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1006,7 +972,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "class148",
-    "inverse" : null,
     "equivalent" : [ "property613" ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1022,7 +987,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "class140",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1038,7 +1002,6 @@
     "comment" : { },
     "domain" : "thing27",
     "range" : "thing27",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1053,7 +1016,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "class136",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ "functional" ],
     "subproperty" : [ ],
@@ -1068,7 +1030,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "class134",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1083,7 +1044,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "class134",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1098,7 +1058,6 @@
     "comment" : { },
     "domain" : "thing27",
     "range" : "literal90",
-    "inverse" : null,
     "equivalent" : [ "property621", "property616" ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1113,7 +1072,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "datatype92",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1129,7 +1087,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "datatype91",
-    "inverse" : null,
     "equivalent" : [ "property621", "property615" ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1160,7 +1117,6 @@
     "comment" : { },
     "domain" : "thing27",
     "range" : "literal97",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1175,7 +1131,6 @@
     "comment" : { },
     "domain" : "thing27",
     "range" : "literal96",
-    "inverse" : null,
     "equivalent" : [ "property615", "property616" ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1190,7 +1145,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "literal101",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1205,7 +1159,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "datatype100",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
@@ -1220,7 +1173,6 @@
     "comment" : { },
     "domain" : "thing27",
     "range" : "thing27",
-    "inverse" : null,
     "equivalent" : [ "property601" ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1228,12 +1180,10 @@
     "disjoint" : [ ]
   }, {
     "id" : "property630",
-    "uri" : null,
     "label" : { },
     "comment" : { },
     "domain" : "class145",
     "range" : "class148",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1241,12 +1191,10 @@
     "disjoint" : [ ]
   }, {
     "id" : "property631",
-    "uri" : null,
     "label" : { },
     "comment" : { },
     "domain" : "class153",
     "range" : "class148",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1261,7 +1209,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "datatype89",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1269,12 +1216,10 @@
     "disjoint" : [ ]
   }, {
     "id" : "property628",
-    "uri" : null,
     "label" : { },
     "comment" : { },
     "domain" : "class153",
     "range" : "class134",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1282,12 +1227,10 @@
     "disjoint" : [ ]
   }, {
     "id" : "property627",
-    "uri" : null,
     "label" : { },
     "comment" : { },
     "domain" : "class140",
     "range" : "class134",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1302,7 +1245,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "thing26",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ "symmetric" ],
     "subproperty" : [ ],
@@ -1317,7 +1259,6 @@
     "comment" : { },
     "domain" : "class148",
     "range" : "class154",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1332,7 +1273,6 @@
     "comment" : { },
     "domain" : "class136",
     "range" : "datatype99",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ "functional" ],
     "subproperty" : [ ],
@@ -1350,7 +1290,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "datatype94",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1365,7 +1304,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "datatype98",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1380,7 +1318,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "datatype95",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1395,7 +1332,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "class154",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1410,7 +1346,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "class136",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1425,7 +1360,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "datatype93",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1433,12 +1367,10 @@
     "disjoint" : [ ]
   }, {
     "id" : "property629",
-    "uri" : null,
     "label" : { },
     "comment" : { },
     "domain" : "class131",
     "range" : "class148",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -1453,7 +1385,6 @@
     "comment" : { },
     "domain" : "class154",
     "range" : "thing26",
-    "inverse" : null,
     "equivalent" : [ ],
     "attributes" : [ "deprecated" ],
     "subproperty" : [ "property606" ],
