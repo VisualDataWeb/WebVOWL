@@ -30,16 +30,6 @@ webvowlApp.gravityMenu = function (graph) {
 			.datum({distanceFunction: distanceFunction}) // connect the options-function with the slider
 			.classed("distanceSliderContainer", true);
 
-		sliderValueLabel = sliderContainer.append("label")
-			.classed("distanceSliderValue", true)
-			.attr("for", identifier + "DistanceSlider")
-			.text(distanceFunction());
-
-		sliderContainer.append("label")
-			.classed("distanceSliderLabel", true)
-			.attr("for", identifier + "DistanceSlider")
-			.text(label);
-
 		var slider = sliderContainer.append("input")
 			.attr("id", identifier + "DistanceSlider")
 			.attr("type", "range")
@@ -47,6 +37,16 @@ webvowlApp.gravityMenu = function (graph) {
 			.attr("max", 600)
 			.attr("value", distanceFunction())
 			.attr("step", 10);
+
+		sliderContainer.append("label")
+			.classed("description", true)
+			.attr("for", identifier + "DistanceSlider")
+			.text(label);
+
+		sliderValueLabel = sliderContainer.append("label")
+			.classed("value", true)
+			.attr("for", identifier + "DistanceSlider")
+			.text(distanceFunction());
 
 		// Store slider for easier resetting
 		sliders.push(slider);
