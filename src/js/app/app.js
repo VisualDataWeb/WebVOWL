@@ -22,6 +22,7 @@ webvowlApp.app = function () {
 		datatypeFilter = webvowl.modules.datatypeFilter(),
 		subclassFilter = webvowl.modules.subclassFilter(),
 		disjointFilter = webvowl.modules.disjointFilter(),
+		nodeDegreeFilter = webvowl.modules.nodeDegreeFilter(),
 		setOperatorFilter = webvowl.modules.setOperatorFilter(),
 		nodeScalingSwitch = webvowl.modules.nodeScalingSwitch(),
 		pickAndPin = webvowl.modules.pickAndPin(),
@@ -40,13 +41,14 @@ webvowlApp.app = function () {
 		options.filterModules().push(disjointFilter);
 		options.filterModules().push(setOperatorFilter);
 		options.filterModules().push(nodeScalingSwitch);
+		options.filterModules().push(nodeDegreeFilter);
 
 		setupConverterButton();
 		parseUrlAndLoadOntology();
 
 		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
 		gravityMenu = webvowlApp.gravityMenu(graph);
-		filterMenu = webvowlApp.filterMenu(graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter);
+		filterMenu = webvowlApp.filterMenu(graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
 		modeMenu = webvowlApp.modeMenu(graph, pickAndPin, nodeScalingSwitch);
 		pauseMenu = webvowlApp.pauseMenu(graph);
 		resetMenu = webvowlApp.resetMenu(graph, [gravityMenu, filterMenu, modeMenu,

@@ -359,6 +359,9 @@ webvowl.graph = function (graphContainerSelector) {
 
 		// Filter the data
 		options.filterModules().forEach(function (module) {
+			links = linkCreator.createLinks(preprocessedProperties);
+			storeLinksOnNodes(preprocessedNodes, links);
+
 			module.filter(preprocessedNodes, preprocessedProperties);
 			preprocessedNodes = module.filteredNodes();
 			preprocessedProperties = module.filteredProperties();
