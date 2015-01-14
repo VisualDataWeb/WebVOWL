@@ -194,16 +194,48 @@ ul#optionsMenu > li:hover .aboutMenu {
 	min-width: 150px;
 }
 .gravity, .filter, .module {
-	min-width: 160px;
+	min-width: 180px;
 }
 .toggleOption {
 	padding: 8px 5px;
 	min-width: 150px;
 }
 .slideOption {
-	padding: 8px 5px;
-	min-height: 50px;
 	position: relative;
+	padding: 8px 5px;
+}
+.slideOption .value {
+	float: right;
+}
+.slideOption input[type="range"] {
+	box-sizing: border-box;
+	margin: 0;
+	-webkit-appearance: none !important;
+	background: none repeat scroll 0 0 grey;
+	border-radius: 3px;
+	height: 12px;
+	width: 100%;
+	box-shadow: none;
+	left: 0;
+	position: relative;
+	transition: all 0.5s ease;
+}
+.slideOption input[type="range"]:hover {
+	background-color: grey;
+}
+.slideOption input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none !important;
+	background-color: grey;
+	border-radius: 30px;
+	height: 20px;
+	transition: all 0.5s ease;
+	width: 20px;
+}
+.slideOption input[type="range"]::-webkit-slider-thumb:hover {
+	background-color: grey;
+}
+.slideOption input[type="range"]::-webkit-slider-thumb:active {
+	box-shadow: 0px 0px 1px grey;
 }
 #optionsMenu > li > a::before {
 	font-size: 1em;
@@ -236,50 +268,6 @@ a#pause:not(.paused)::before {
 }
 #aboutMenu > a::before {
 	content: "\00A9";
-}
-.distanceSliderLabel {
-	position: absolute;
-	bottom: 5px;
-	left: 10px;
-}
-.distanceSliderValue {
-	position: absolute;
-	top: 10px;
-	left: 115px;
-}
-input[type="range"] {
-	-webkit-appearance: none !important;
-	background: none repeat scroll 0% 0% grey;
-	border-radius: 3px;
-	height: 12px;
-	width: 90%;
-	box-shadow: none;
-	left: 0;
-	position: absolute;
-	top: 30px;
-	transition: all 0.5s ease;
-	/*-webkit-transform:rotate(-90deg);
-	-moz-transform:rotate(-90deg);
-	-o-transform:rotate(-90deg);
-	-ms-transform:rotate(-90deg);
-	transform:rotate(-90deg);*/
-}
-input[type="range"]:hover {
-	background-color: grey;
-}
-input[type="range"]::-webkit-slider-thumb {
-	-webkit-appearance: none !important;
-	background-color: grey;
-	border-radius: 30px;
-	height: 20px;
-	transition: all 0.5s ease;
-	width: 20px;
-}
-input[type="range"]::-webkit-slider-thumb:hover {
-	background-color: grey;
-}
-input[type="range"]::-webkit-slider-thumb:active {
-	box-shadow: 0px 0px 1px grey;
 }
 #detailsArea {
 	bottom: 0;
