@@ -6,12 +6,14 @@
  * @param subclassFilter filter for all subclasses
  * @param disjointFilter filter for all disjoint with properties
  * @param setOperatorFilter filter for all set operators with properties
+ * @param nodeDegreeFilter filters nodes by their degree
  * @returns {{}}
  */
-webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter) {
+webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
 
 	var filterMenu = {},
-		checkboxData = [];
+		checkboxData = [],
+		degreeSlider;
 
 
 	/**
@@ -22,7 +24,10 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
 		addFilterItem(disjointFilter, "disjoint", "Disjointness info", "#disjointFilteringOption");
 		addFilterItem(setOperatorFilter, "setoperator", "Set Operators", "#setOperatorFilteringOption");
+
+		addNodeDegreeFilter("#nodeDegreeFilteringOption");
 	};
+
 
 	function addFilterItem(filter, identifier, pluralNameOfFilteredItems, selector) {
 		var filterContainer,
@@ -54,6 +59,46 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 			.text(pluralNameOfFilteredItems);
 	}
 
+	function addNodeDegreeFilter(selector) {
+		nodeDegreeFilter.setMaxDegreeSetter(function(maxDegree) {
+			degreeSlider.attr("max", maxDegree);
+			degreeSlider.property("value", Math.min(maxDegree, degreeSlider.property("value")));
+		});
+
+		nodeDegreeFilter.setDegreeQueryFunction(function () {
+			return degreeSlider.property("value");
+		});
+
+		var sliderContainer,
+			sliderValueLabel;
+
+		sliderContainer = d3.select(selector)
+			.append("div")
+			.classed("distanceSliderContainer", true);
+
+		degreeSlider = sliderContainer.append("input")
+			.attr("id", "nodeDegreeDistanceSlider")
+			.attr("type", "range")
+			.attr("min", 0)
+			.attr("step", 1);
+
+		sliderContainer.append("label")
+			.classed("description", true)
+			.attr("for", "nodeDegreeDistanceSlider")
+			.text("Min. Node Degree");
+
+		sliderValueLabel = sliderContainer.append("label")
+			.classed("value", true)
+			.attr("for", "nodeDegreeDistanceSlider")
+			.text(0);
+
+		degreeSlider.on("change", function () {
+			var degree = degreeSlider.property("value");
+			sliderValueLabel.text(degree);
+			graph.update();
+		});
+	}
+
 	/**
 	 * Resets the filters (and also filtered elements) to their default.
 	 */
@@ -69,6 +114,9 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 				checkbox.on("click")();
 			}
 		});
+
+		degreeSlider.property("value", 0);
+		degreeSlider.on("change")();
 	};
 
 
