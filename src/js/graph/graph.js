@@ -293,6 +293,16 @@ webvowl.graph = function (graphContainerSelector) {
 			}
 		});
 
+		// Place subclass label groups on the bottom of all labels
+		labelGroupElements.each(function(link) {
+			if (link.property() instanceof webvowl.labels.rdfssubclassof ||
+				link.inverse() instanceof webvowl.labels.rdfssubclassof) {
+
+				var parentNode = this.parentNode;
+				parentNode.insertBefore(this, parentNode.firstChild);
+			}
+		});
+
 		// Draw cardinalities
 		cardinalityElements = cardinalityContainer.selectAll(".cardinality")
 			.data(properties).enter()
