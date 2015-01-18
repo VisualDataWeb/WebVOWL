@@ -4,7 +4,7 @@
  *
  * @returns {{}}
  */
-webvowl.modules.nodeScalingSwitch = function () {
+webvowl.modules.nodeScalingSwitch = function (graph) {
 
 	var filter = {},
 		nodes,
@@ -23,17 +23,11 @@ webvowl.modules.nodeScalingSwitch = function () {
 		nodes = untouchedNodes;
 		properties = untouchedProperties;
 
-		setNodeScaling();
+		graph.options().scaleNodesByInstances(enabled);
 
 		filteredNodes = nodes;
 		filteredProperties = properties;
 	};
-
-	function setNodeScaling() {
-		nodes.forEach(function (node) {
-			node.scaleNodesByInstances(enabled);
-		});
-	}
 
 	filter.enabled = function (p) {
 		if (!arguments.length) return enabled;
