@@ -24,7 +24,7 @@ webvowlApp.app = function () {
 		disjointFilter = webvowl.modules.disjointFilter(),
 		nodeDegreeFilter = webvowl.modules.nodeDegreeFilter(),
 		setOperatorFilter = webvowl.modules.setOperatorFilter(),
-		nodeScalingSwitch = webvowl.modules.nodeScalingSwitch(),
+		nodeScalingSwitch = webvowl.modules.nodeScalingSwitch(graph),
 		pickAndPin = webvowl.modules.pickAndPin(),
 	// Selections for the app
 		loadingError = d3.select("#loading-error"),

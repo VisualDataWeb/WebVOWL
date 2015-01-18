@@ -16,7 +16,8 @@ webvowl.options = function () {
 		selectionModules = [],
 		filterModules = [],
 		minMagnification = 0.1,
-		maxMagnification = 4;
+		maxMagnification = 4,
+		scaleNodesByInstances = false;
 
 	/* Read-only properties */
 	options.defaultLinkDistance = function () {
@@ -87,6 +88,12 @@ webvowl.options = function () {
 	options.maxMagnification = function (p) {
 		if (!arguments.length) return maxMagnification;
 		maxMagnification = +p;
+		return options;
+	};
+
+	options.scaleNodesByInstances = function (p) {
+		if (!arguments.length) return scaleNodesByInstances;
+		scaleNodesByInstances = p;
 		return options;
 	};
 

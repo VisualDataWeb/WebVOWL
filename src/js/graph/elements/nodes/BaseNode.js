@@ -12,7 +12,6 @@ webvowl.nodes.BaseNode = (function () {
 			links,
 			union,
 		// Additional attributes
-			scaleNodesByInstances,
 			maxInstanceCount,
 		// Fixed Location attributes
 			locked = false,
@@ -62,12 +61,6 @@ webvowl.nodes.BaseNode = (function () {
 		this.nodeElement = function (p) {
 			if (!arguments.length) return nodeElement;
 			nodeElement = p;
-			return this;
-		};
-
-		this.scaleNodesByInstances = function (p) {
-			if (!arguments.length) return scaleNodesByInstances;
-			scaleNodesByInstances = p;
 			return this;
 		};
 

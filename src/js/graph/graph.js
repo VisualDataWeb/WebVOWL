@@ -430,6 +430,10 @@ webvowl.graph = function (graphContainerSelector) {
 		}
 	}
 
+	graph.options = function() {
+		return options;
+	};
+
 	graph.setLanguage = function (l) {
 		if (language !== l) {
 			language = l || "default";
