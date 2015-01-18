@@ -291,19 +291,19 @@ a#pause:not(.paused)::before {
 	padding: 10px 0;
 	text-align: center;
 }
-#detailsArea #generalDetails {
+#generalDetails {
 	width: auto;
 	box-sizing: border-box;
 	height: 100%;
 }
-#detailsArea #generalDetails span #about {
+#generalDetails span #about {
 	border-bottom: solid 1px #34495e;
 	display: block;
 	padding: 10px;
 	text-align: center;
 	word-wrap: break-word;
 }
-#detailsArea #generalDetails h4, #detailsArea #otherDetails h4 {
+#generalDetails h4 {
 	background: rgb(27, 37, 46);
 	color: #ecf0f1;
 	display: block;
@@ -340,28 +340,28 @@ a#pause:not(.paused)::before {
 	padding: 0 10px;
 	display: inline;
 }
-#detailsArea #otherDetails .propDetails a {
+#selection-details .propDetails a {
 	color: #69c;
 }
-#detailsArea #otherDetails .propDetails > span {
+#selection-details .propDetails > span {
 	font-weight: 100;
 	font-style: italic;
 	padding: 10px;
 }
-#detailsArea #otherDetails #classEquivUri span, #detailsArea #otherDetails #disjointNodes span {
+#selection-details #classEquivUri span, #selection-details #disjointNodes span {
 	padding: 0;
 }
-#detailsArea #otherDetails .propDetails div {
+#selection-details .propDetails div {
 	font-weight: 100;
 	font-style: italic;
 	margin: 10px 0;
 	padding: 0 10px;
 	display: inline;
 }
-#detailsArea #otherDetails .propDetails div span {
+#selection-details .propDetails div span {
 	padding: 0;
 }
-#detailsArea #generalDetails {
+#generalDetails {
 	border-bottom: solid 1px #34495e;
 	padding: 0 0 5px;
 }
