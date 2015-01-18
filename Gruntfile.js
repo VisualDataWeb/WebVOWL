@@ -103,7 +103,8 @@ module.exports = function (grunt) {
 		},
 		uglify: {
 			options: {
-				banner: "/*! <%= pkg.name %> v<%= pkg.version %> */\n"
+				banner: "/*! <%= pkg.name %> v<%= pkg.version %> */\n",
+				sourceMap: true
 			},
 			graph: {
 				src: graphPath,
