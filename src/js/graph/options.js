@@ -24,27 +24,9 @@ webvowl.options = function () {
 	};
 
 	/* Properties with read-write access */
-	options.selectionModules = function (p) {
-		if (!arguments.length) return selectionModules;
-		selectionModules = p;
-		return options;
-	};
-
-	options.filterModules = function (p) {
-		if (!arguments.length) return filterModules;
-		filterModules = p;
-		return options;
-	};
-
-	options.data = function (p) {
-		if (!arguments.length) return data;
-		data = p;
-		return options;
-	};
-
-	options.graphContainerSelector = function (p) {
-		if (!arguments.length) return graphContainerSelector;
-		graphContainerSelector = p;
+	options.charge = function (p) {
+		if (!arguments.length) return charge;
+		charge = +p;
 		return options;
 	};
 
@@ -54,15 +36,27 @@ webvowl.options = function () {
 		return options;
 	};
 
+	options.data = function (p) {
+		if (!arguments.length) return data;
+		data = p;
+		return options;
+	};
+
 	options.datatypeDistance = function (p) {
 		if (!arguments.length) return datatypeDistance;
 		datatypeDistance = +p;
 		return options;
 	};
 
-	options.charge = function (p) {
-		if (!arguments.length) return charge;
-		charge = +p;
+	options.filterModules = function (p) {
+		if (!arguments.length) return filterModules;
+		filterModules = p;
+		return options;
+	};
+
+	options.graphContainerSelector = function (p) {
+		if (!arguments.length) return graphContainerSelector;
+		graphContainerSelector = p;
 		return options;
 	};
 
@@ -72,21 +66,15 @@ webvowl.options = function () {
 		return options;
 	};
 
-	options.linkStrength = function (p) {
-		if (!arguments.length) return linkStrength;
-		linkStrength = +p;
-		return options;
-	};
-
 	options.height = function (p) {
 		if (!arguments.length) return height;
 		height = +p;
 		return options;
 	};
 
-	options.width = function (p) {
-		if (!arguments.length) return width;
-		width = +p;
+	options.linkStrength = function (p) {
+		if (!arguments.length) return linkStrength;
+		linkStrength = +p;
 		return options;
 	};
 
@@ -99,6 +87,18 @@ webvowl.options = function () {
 	options.maxMagnification = function (p) {
 		if (!arguments.length) return maxMagnification;
 		maxMagnification = +p;
+		return options;
+	};
+
+	options.selectionModules = function (p) {
+		if (!arguments.length) return selectionModules;
+		selectionModules = p;
+		return options;
+	};
+
+	options.width = function (p) {
+		if (!arguments.length) return width;
+		width = +p;
 		return options;
 	};
 
