@@ -5,7 +5,7 @@ webvowlApp.app = function () {
 		options = graph.graphOptions(),
 		graphSelector = "#graph",
 		jsonBasePath = "js/data/",
-		defaultJsonPath = jsonBasePath + "foaf.json", // This file is loaded by default
+		defaultJsonName = "foaf", // This file is loaded by default
 	// Modules for the webvowl app
 		exportMenu,
 		gravityMenu,
@@ -96,20 +96,32 @@ webvowlApp.app = function () {
 		var hashParameter = location.hash.slice(1);
 
 		if (!hashParameter) {
-			loadOntology(defaultJsonPath);
-			return;
+			hashParameter = defaultJsonName;
 		}
+
+		var ontologyOptions = d3.selectAll(".select li").classed("selected-ontology", false);
 
 		// IRI parameter
 		var iriKey = "iri=";
 		if (hashParameter.substr(0, iriKey.length) === iriKey) {
 			var iri = hashParameter.slice(iriKey.length);
 			loadOntology("converter.php?iri=" + encodeURIComponent(iri));
-			return;
-		}
 
-		// id of an existing ontology as parameter
-		loadOntology(jsonBasePath + hashParameter + ".json");
+			d3.select("#converter-option").classed("selected-ontology", true);
+		} else {
+			// id of an existing ontology as parameter
+			loadOntology(jsonBasePath + hashParameter + ".json");
+
+			ontologyOptions.each(function() {
+				var ontologyOption = d3.select(this);
+				if (ontologyOption.select("a").size() > 0) {
+
+					if (ontologyOption.select("a").attr("href") === "#" + hashParameter) {
+						ontologyOption.classed("selected-ontology", true);
+					}
+				}
+			});
+		}
 	}
 
 	function loadOntology(relativePath) {

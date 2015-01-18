@@ -147,7 +147,10 @@ ul.toolTipMenu li a:only-child, .option {
 	vertical-align: middle;
 }
 ul#optionsMenu li > ul.toolTipMenu li a:hover {
-	background: #eee;
+	background: #e1e1e1;
+}
+.selected-ontology {
+	background-color: #eee;
 }
 ul#optionsMenu > li:hover .toolTipMenu {
 	bottom: 40px;
@@ -441,10 +444,6 @@ a#pause:not(.paused)::before {
 }
 #language option {
 	background-color: #24323e;
-}
-#converter-option {
-	box-sizing: border-box;
-	position: relative;
 }
 .converter-form label {
 	line-height: normal;
