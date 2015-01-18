@@ -174,7 +174,7 @@ ul#optionsMenu > li:hover .aboutMenu {
 	bottom: -999em;
 	font-size: 14px;
 	list-style: none;
-	min-width: 250px;
+	min-width: 300px;
 	margin: 0;
 	padding: 0;
 	position: absolute;
@@ -442,14 +442,24 @@ a#pause:not(.paused)::before {
 #language option {
 	background-color: #24323e;
 }
-.converter-form {
-	/*display: inline-block;*/
+#converter-option {
+	box-sizing: border-box;
+	position: relative;
+}
+.converter-form label {
+	line-height: normal;
 }
 .converter-form input {
-	/*width: 70%;*/
+	box-sizing: border-box;
+	height: 20px;
+	width: 74%;
+	border: 1px solid #34495E;
 }
 .converter-form button {
-	border-width: 0;
+	float: right;
+	height: 20px;
+	width: 25%;
+	border: none;
 }
 #loading-info {
 	position: fixed;
