@@ -293,7 +293,8 @@ a#pause:not(.paused)::before {
 }
 #detailsArea #generalDetails, #detailsArea #otherDetails {
 	width: auto;
-	height: 90%;
+	box-sizing: border-box;
+	height: 100%;
 }
 #detailsArea #generalDetails span #about {
 	border-bottom: solid 1px #34495e;
@@ -426,12 +427,9 @@ a#pause:not(.paused)::before {
 	padding-right: 4px;
 	content: "\25BA"
 }
-.accordion-container {
+.accordion-container:first-of-type {
 	max-height: 40%;
 	overflow: auto;
-}
-.accordion-container:nth-child(2) {
-	overflow-y: visible; /* the statistics get a scrollbar and atm I don't know how else you could fix this */
 }
 .small-whitespace-separator {
 	height: 3px;
