@@ -122,6 +122,7 @@ webvowl.graph = function (graphContainerSelector) {
 
 		// Apply the zooming factor.
 		zoom = d3.behavior.zoom()
+			.duration(150)
 			.scaleExtent([options.minMagnification(), options.maxMagnification()])
 			.on("zoom", zoomed);
 
