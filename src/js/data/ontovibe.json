@@ -1,13 +1,23 @@
 {
+  "license" : {
+    "authors" : [ "Vincent Link", "Steffem Lohmann", "Eduard Marbach" ],
+    "license-type" : "The MIT License (MIT) Copyright (c) 2015 Vincent Link, Steffen Lohmann, Eduard Marbach"
+  },
   "namespace" : [ { } ],
   "header" : {
+    "languages" : [ "de", "IRI-based", "zh-hans", "undefined", "fr", "en" ],
     "title" : {
       "undefined" : "Ontology Visualization Benchmark (OntoViBe)"
     },
     "uri" : "http://ontovibe.visualdataweb.org",
     "version" : "http://ontovibe.visualdataweb.org/1.0",
+    "author" : [ ],
     "description" : { },
-    "languages" : [ "de", "IRI-based", "zh-hans", "undefined", "fr", "en" ]
+    "seeAlso" : [ ],
+    "issued" : [ ],
+    "license" : [ ],
+    "rdfsLabel" : [ ],
+    "other" : { }
   },
   "metrics" : {
     "classCount" : 28,
@@ -240,7 +250,7 @@
     "instances" : 0,
     "equivalent" : [ ],
     "attributes" : [ ],
-    "union" : [ "class140", "class137" ],
+    "union" : [ "class137", "class140" ],
     "intersection" : [ ],
     "complement" : [ ],
     "subClasses" : [ ],
@@ -345,7 +355,7 @@
     "instances" : 0,
     "equivalent" : [ ],
     "attributes" : [ ],
-    "union" : [ "class143", "class138", "class156" ],
+    "union" : [ "class156", "class138", "class143" ],
     "intersection" : [ ],
     "complement" : [ ],
     "subClasses" : [ ],
@@ -388,7 +398,7 @@
     "uri" : "http://ontovibe.visualdataweb.org#AlsoEquivalentToSubclass",
     "comment" : { },
     "instances" : 0,
-    "equivalent" : [ "class135", "class145" ],
+    "equivalent" : [ "class145", "class135" ],
     "attributes" : [ "equivalent" ],
     "union" : [ ],
     "intersection" : [ ],
@@ -819,8 +829,8 @@
     "id" : "property640",
     "label" : { },
     "comment" : { },
-    "domain" : "class156",
-    "range" : "class143",
+    "domain" : "class143",
+    "range" : "class156",
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -855,8 +865,8 @@
     "id" : "property636",
     "label" : { },
     "comment" : { },
-    "domain" : "class140",
-    "range" : "class137",
+    "domain" : "class137",
+    "range" : "class140",
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -881,7 +891,7 @@
     "label" : { },
     "comment" : { },
     "domain" : "class138",
-    "range" : "class156",
+    "range" : "class143",
     "equivalent" : [ ],
     "attributes" : [ ],
     "subproperty" : [ ],
@@ -919,7 +929,7 @@
     "id" : "property638",
     "label" : { },
     "comment" : { },
-    "domain" : "class143",
+    "domain" : "class156",
     "range" : "class138",
     "equivalent" : [ ],
     "attributes" : [ ],
@@ -929,7 +939,7 @@
   }, {
     "id" : "property633",
     "label" : {
-      "IRI-based" : "instance of"
+      "IRI-based" : "is a"
     },
     "comment" : { },
     "domain" : "class146",
@@ -942,7 +952,7 @@
   }, {
     "id" : "property632",
     "label" : {
-      "IRI-based" : "instance of"
+      "IRI-based" : "is a"
     },
     "comment" : { },
     "domain" : "class146",
@@ -992,7 +1002,7 @@
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ],
-    "minCardinality" : 3
+    "cardinality" : 3
   }, {
     "id" : "property606",
     "uri" : "http://ontovibe.visualdataweb.org#subproperty",
@@ -1077,7 +1087,7 @@
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ],
-    "minCardinality" : 2
+    "cardinality" : 2
   }, {
     "id" : "property616",
     "uri" : "http://ontovibe.visualdataweb.org#realProperty",
