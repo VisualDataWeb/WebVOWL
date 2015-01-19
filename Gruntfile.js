@@ -75,6 +75,17 @@ module.exports = function (grunt) {
 				]
 			}
 		},
+		cssmin: {
+			all: {
+				files: [{
+					expand: true,
+					cwd: deployPath + "css/",
+					src: ["*.css", "!*.min.css"],
+					dest: deployPath + "css/",
+					ext: ".min.css"
+				}]
+			}
+		},
 		htmlbuild: {
 			dist: {
 				src: "src/index.html",
@@ -121,7 +132,7 @@ module.exports = function (grunt) {
 			},
 			css: {
 				files: ["src/css/**/*.css"],
-				tasks: ["copy"]
+				tasks: ["copy", "cssmin"]
 			},
 			html: {
 				files: ["src/**/*.html"],
@@ -139,13 +150,14 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-connect");
 	grunt.loadNpmTasks("grunt-contrib-copy");
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-contrib-watch");
 	grunt.loadNpmTasks("grunt-html-build");
 	grunt.loadNpmTasks("grunt-karma");
 
-	grunt.registerTask("build", ["clean", "copy", "concat", "htmlbuild"]);
+	grunt.registerTask("build", ["clean", "copy", "cssmin", "concat", "htmlbuild"]);
 	grunt.registerTask("default", ["package"]);
 	grunt.registerTask("package", ["build", "uglify"]);
 	grunt.registerTask("webserver", ["package", "connect:devserver", "watch"]);
