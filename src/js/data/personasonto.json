@@ -1,16 +1,50 @@
 {
+  "license" : {
+    "authors" : [ "Vincent Link", "Steffem Lohmann", "Eduard Marbach" ],
+    "license-type" : "The MIT License (MIT) Copyright (c) 2015 Vincent Link, Steffen Lohmann, Eduard Marbach"
+  },
   "namespace" : [ { } ],
   "header" : {
+    "languages" : [ "IRI-based", "undefined", "en" ],
     "title" : {
       "en" : "PersonasOnto"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl",
     "version" : "1.5",
-    "author" : "Stefan Negru",
+    "author" : [ "Stefan Negru" ],
     "description" : {
       "en" : "The PersonasOnto is depicts the personas domain along with relating concept and properties. A persona is regarded as a user archetype which can be used to \"help guide decisions about product features, navigation, interactions, and even visual design\" (Goodwin, 2005).\n\nThis ontology wants to address some of the issues regarding this methodology like how personas are reconciled with other information and who is responsible for interpreting and validating them."
     },
-    "languages" : [ "IRI-based", "undefined", "en" ]
+    "seeAlso" : [ "http://blankdots.com/open/schema" ],
+    "issued" : [ ],
+    "license" : [ ],
+    "rdfsLabel" : [ ],
+    "other" : {
+      "contributor" : [ {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "Sabin Buraga",
+        "type" : "label"
+      } ],
+      "rights" : [ {
+        "identifier" : "rights",
+        "language" : "undefined",
+        "value" : "This ontology is distributed under Attribution-ShareAlike 3.0 Unported - http://creativecommons.org/licenses/by-sa/3.0/",
+        "type" : "label"
+      } ],
+      "date" : [ {
+        "identifier" : "date",
+        "language" : null,
+        "value" : "2014-02-28",
+        "type" : "label"
+      } ],
+      "commen" : [ {
+        "identifier" : "commen",
+        "language" : "en",
+        "value" : "PersonasOnto ontology incorporates concepts and properties used to model personas.",
+        "type" : "label"
+      } ]
+    }
   },
   "metrics" : {
     "classCount" : 53,
