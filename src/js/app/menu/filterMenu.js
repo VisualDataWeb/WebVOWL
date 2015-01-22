@@ -20,10 +20,10 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 	 * Connects the website with graph filters.
 	 */
 	filterMenu.setup = function () {
-		addFilterItem(datatypeFilter, "datatype", "Datatypes", "#datatypeFilteringOption");
+		addFilterItem(datatypeFilter, "datatype", "Datatype prop.", "#datatypeFilteringOption");
 		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
 		addFilterItem(disjointFilter, "disjoint", "Disjointness info", "#disjointFilteringOption");
-		addFilterItem(setOperatorFilter, "setoperator", "Set Operators", "#setOperatorFilteringOption");
+		addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");
 
 		addNodeDegreeFilter("#nodeDegreeFilteringOption");
 	};
@@ -85,7 +85,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 		sliderContainer.append("label")
 			.classed("description", true)
 			.attr("for", "nodeDegreeDistanceSlider")
-			.text("Min. Node Degree");
+			.text("Degree of collapsing");
 
 		sliderValueLabel = sliderContainer.append("label")
 			.classed("value", true)
