@@ -129,7 +129,10 @@ webvowlApp.sidebar = function (graph) {
 		d3.select("#about").attr("href", ontologyInfo.uri).attr("target", "_blank").text(ontologyInfo.uri);
 		d3.select("#version").text(ontologyInfo.version || "--");
 		var authors = ontologyInfo.author;
-		if (authors) {
+		if (typeof authors === "string") {
+			// Stay compatible with author info as strings after change in january 2015
+			d3.select("#authors").text(authors);
+		} else if (authors instanceof Array) {
 			d3.select("#authors").text(authors.join(", "));
 		} else {
 			d3.select("#authors").text("--");
