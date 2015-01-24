@@ -6,14 +6,21 @@ webvowl.nodes.RoundNode = (function () {
 		var that = this,
 			collapsible = false,
 			radius = 50,
+			collapsingGroupElement,
 			pinGroupElement,
-			collapsingGroupElement;
+			textBlock;
 
 
 		// Properties
 		this.collapsible = function (p) {
 			if (!arguments.length) return collapsible;
 			collapsible = p;
+			return this;
+		};
+
+		this.textBlock = function (p) {
+			if (!arguments.length) return textBlock;
+			textBlock = p;
 			return this;
 		};
 
@@ -144,18 +151,18 @@ webvowl.nodes.RoundNode = (function () {
 			}
 			drawTools.appendCircularClass(parentElement, that.actualRadius(), cssClasses, that.labelForCurrentLanguage());
 
-			// Add the text to the node
-			textBlock = webvowl.util.textElement(parentElement);
-			textBlock.addTextline(that.labelForCurrentLanguage());
-			textBlock.addSubTextNode(that.indicationString());
-
-			that.postDrawActions();
+			that.postDrawActions(parentElement);
 		};
 
 		/**
 		 * Common actions that should be invoked after drawing a node.
 		 */
 		this.postDrawActions = function () {
+			var textBlock = webvowl.util.textElement(this.nodeElement());
+			textBlock.addTextline(that.labelForCurrentLanguage());
+			textBlock.addSubTextNode(that.indicationString());
+			this.textBlock(textBlock);
+
 			that.addMouseListeners();
 			if (that.pinned()) {
 				that.drawPin();

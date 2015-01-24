@@ -40,6 +40,7 @@ webvowl.nodes.owlunionof = (function () {
 				(that.radius() - 15) / 100 + ")scale(" + scale + ")");
 
 			that.postDrawActions();
+			that.textBlock().clear();
 		};
 	};
 	o.prototype = Object.create(webvowl.nodes.SetOperatorNode.prototype);
