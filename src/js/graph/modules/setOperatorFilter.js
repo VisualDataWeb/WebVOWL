@@ -39,13 +39,29 @@ webvowl.modules.setOperatorFilter = function () {
 		});
 
 		properties.forEach(function (property) {
-			if (!removedNodes.has(property.domain()) && !removedNodes.has(property.range())) {
+			if (propertyHasVisibleNodes(removedNodes, property)) {
 				cleanedProperties.push(property);
+			} else if (property instanceof webvowl.labels.owldatatypeproperty) {
+				// Remove floating datatypes/literals, because they belong to their datatype property
+				var index = cleanedNodes.indexOf(property.range());
+				if (index >= 0) {
+					cleanedNodes.splice(index, 1);
+				}
 			}
 		});
 
 		nodes = cleanedNodes;
 		properties = cleanedProperties;
+	}
+
+	/**
+	 * Returns true, if the domain and the range of this property have not been removed.
+	 * @param removedNodes
+	 * @param property
+	 * @returns {boolean} true if property isn't dangling
+	 */
+	function propertyHasVisibleNodes(removedNodes, property) {
+		return !removedNodes.has(property.domain()) && !removedNodes.has(property.range());
 	}
 
 	filter.enabled = function (p) {
