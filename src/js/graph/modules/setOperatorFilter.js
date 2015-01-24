@@ -5,7 +5,8 @@ webvowl.modules.setOperatorFilter = function () {
 		properties,
 		enabled = false,
 		filteredNodes,
-		filteredProperties;
+		filteredProperties,
+		filterTools = webvowl.util.filterTools();
 
 
 	/**
@@ -26,42 +27,14 @@ webvowl.modules.setOperatorFilter = function () {
 	};
 
 	function removeSetOperators() {
-		var removedNodes = webvowl.util.set(),
-			cleanedNodes = [],
-			cleanedProperties = [];
+		var filteredData = filterTools.filterNodesAndTidy(nodes, properties, isSetOperatorNode);
 
-		nodes.forEach(function (node) {
-			if (node instanceof webvowl.nodes.SetOperatorNode) {
-				removedNodes.add(node);
-			} else {
-				cleanedNodes.push(node);
-			}
-		});
-
-		properties.forEach(function (property) {
-			if (propertyHasVisibleNodes(removedNodes, property)) {
-				cleanedProperties.push(property);
-			} else if (property instanceof webvowl.labels.owldatatypeproperty) {
-				// Remove floating datatypes/literals, because they belong to their datatype property
-				var index = cleanedNodes.indexOf(property.range());
-				if (index >= 0) {
-					cleanedNodes.splice(index, 1);
-				}
-			}
-		});
-
-		nodes = cleanedNodes;
-		properties = cleanedProperties;
+		nodes = filteredData.nodes;
+		properties = filteredData.properties;
 	}
 
-	/**
-	 * Returns true, if the domain and the range of this property have not been removed.
-	 * @param removedNodes
-	 * @param property
-	 * @returns {boolean} true if property isn't dangling
-	 */
-	function propertyHasVisibleNodes(removedNodes, property) {
-		return !removedNodes.has(property.domain()) && !removedNodes.has(property.range());
+	function isSetOperatorNode(node) {
+		return node instanceof webvowl.nodes.SetOperatorNode;
 	}
 
 	filter.enabled = function (p) {

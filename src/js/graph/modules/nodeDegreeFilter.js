@@ -7,7 +7,8 @@ webvowl.modules.nodeDegreeFilter = function () {
 		filteredNodes,
 		filteredProperties,
 		maxDegreeSetter,
-		degreeQueryFunction;
+		degreeQueryFunction,
+		filterTools = webvowl.util.filterTools();
 
 
 	/**
@@ -41,26 +42,16 @@ webvowl.modules.nodeDegreeFilter = function () {
 	}
 
 	function filterByNodeDegree(minDegree) {
-		var removedNodes = webvowl.util.set(),
-			cleanedNodes = [],
-			cleanedProperties = [];
+		var filteredData = filterTools.filterNodesAndTidy(nodes, properties, isDegreeTooLess(minDegree));
 
-		nodes.forEach(function (node) {
-			if (node.links().length < minDegree) {
-				removedNodes.add(node);
-			} else {
-				cleanedNodes.push(node);
-			}
-		});
+		nodes = filteredData.nodes;
+		properties = filteredData.properties;
+	}
 
-		properties.forEach(function (property) {
-			if (!removedNodes.has(property.domain()) && !removedNodes.has(property.range())) {
-				cleanedProperties.push(property);
-			}
-		});
-
-		nodes = cleanedNodes;
-		properties = cleanedProperties;
+	function isDegreeTooLess(minDegree) {
+		return function (node) {
+			return node.links().length < minDegree;
+		};
 	}
 
 	filter.setMaxDegreeSetter = function(maxNodeDegreeSetter) {

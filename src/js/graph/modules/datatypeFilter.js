@@ -5,7 +5,8 @@ webvowl.modules.datatypeFilter = function () {
 		properties,
 		enabled = false,
 		filteredNodes,
-		filteredProperties;
+		filteredProperties,
+		filterTools = webvowl.util.filterTools();
 
 
 	/**
@@ -26,26 +27,10 @@ webvowl.modules.datatypeFilter = function () {
 	};
 
 	function removeDatatypesAndLiterals() {
-		var removedNodes = webvowl.util.set(),
-			cleanedNodes = [],
-			cleanedProperties = [];
+		var filteredData = filterTools.filterNodesAndTidy(nodes, properties, isDatatypeOrLiteral);
 
-		nodes.forEach(function (node) {
-			if (isDatatypeOrLiteral(node)) {
-				removedNodes.add(node);
-			} else {
-				cleanedNodes.push(node);
-			}
-		});
-
-		properties.forEach(function (property) {
-			if (!removedNodes.has(property.domain()) && !removedNodes.has(property.range())) {
-				cleanedProperties.push(property);
-			}
-		});
-
-		nodes = cleanedNodes;
-		properties = cleanedProperties;
+		nodes = filteredData.nodes;
+		properties = filteredData.properties;
 	}
 
 	function isDatatypeOrLiteral(node) {
