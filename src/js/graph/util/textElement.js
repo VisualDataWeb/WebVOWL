@@ -118,5 +118,9 @@ webvowl.util.textElement = function (element) {
 		textBlock.attr("transform", "translate(" + x + ", " + y + ")");
 	};
 
+	textElement.clear = function() {
+		textBlock.selectAll("*").remove();
+	};
+
 	return textElement;
 };
