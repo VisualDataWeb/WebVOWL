@@ -6,10 +6,12 @@
  */
 webvowl.modules.nodeScalingSwitch = function (graph) {
 
+	var DEFAULT_STATE = true;
+
 	var filter = {},
 		nodes,
 		properties,
-		enabled = true,
+		enabled = DEFAULT_STATE,
 		filteredNodes,
 		filteredProperties;
 
@@ -33,6 +35,10 @@ webvowl.modules.nodeScalingSwitch = function (graph) {
 		if (!arguments.length) return enabled;
 		enabled = p;
 		return filter;
+	};
+
+	filter.reset = function() {
+		enabled = DEFAULT_STATE;
 	};
 
 
