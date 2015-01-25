@@ -27,14 +27,14 @@ webvowl.modules.setOperatorFilter = function () {
 	};
 
 	function removeSetOperators() {
-		var filteredData = filterTools.filterNodesAndTidy(nodes, properties, isSetOperatorNode);
+		var filteredData = filterTools.filterNodesAndTidy(nodes, properties, isNoSetOperator);
 
 		nodes = filteredData.nodes;
 		properties = filteredData.properties;
 	}
 
-	function isSetOperatorNode(node) {
-		return node instanceof webvowl.nodes.SetOperatorNode;
+	function isNoSetOperator(node) {
+		return !(node instanceof webvowl.nodes.SetOperatorNode);
 	}
 
 	filter.enabled = function (p) {

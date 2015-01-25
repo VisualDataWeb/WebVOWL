@@ -6,19 +6,19 @@ webvowl.util.filterTools = (function () {
 	 * Filters the passed nodes and removes dangling properties.
 	 * @param nodes
 	 * @param properties
-	 * @param canNodeBeDeleted function that returns true if the node has to be filtered
+	 * @param shouldKeepNode function that returns true if the node should be kept
 	 * @returns {{nodes: Array, properties: Array}} the filtered nodes and properties
 	 */
-	tools.filterNodesAndTidy = function (nodes, properties, canNodeBeDeleted) {
+	tools.filterNodesAndTidy = function (nodes, properties, shouldKeepNode) {
 		var removedNodes = webvowl.util.set(),
 			cleanedNodes = [],
 			cleanedProperties = [];
 
 		nodes.forEach(function (node) {
-			if (canNodeBeDeleted(node)) {
-				removedNodes.add(node);
-			} else {
+			if (shouldKeepNode(node)) {
 				cleanedNodes.push(node);
+			} else {
+				removedNodes.add(node);
 			}
 		});
 

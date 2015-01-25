@@ -42,15 +42,15 @@ webvowl.modules.nodeDegreeFilter = function () {
 	}
 
 	function filterByNodeDegree(minDegree) {
-		var filteredData = filterTools.filterNodesAndTidy(nodes, properties, isDegreeTooLess(minDegree));
+		var filteredData = filterTools.filterNodesAndTidy(nodes, properties, hasRequiredDegree(minDegree));
 
 		nodes = filteredData.nodes;
 		properties = filteredData.properties;
 	}
 
-	function isDegreeTooLess(minDegree) {
+	function hasRequiredDegree(minDegree) {
 		return function (node) {
-			return node.links().length < minDegree;
+			return node.links().length >= minDegree;
 		};
 	}
 
