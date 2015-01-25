@@ -141,7 +141,6 @@ webvowlApp.app = function () {
 			var jsonText = request.responseText,
 				data = JSON.parse(jsonText);
 
-			console.log(jsonText)
 			exportMenu.setJsonText(jsonText);
 
 			options.data(data);

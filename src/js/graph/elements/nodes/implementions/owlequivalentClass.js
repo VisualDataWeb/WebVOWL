@@ -10,7 +10,6 @@ webvowl.nodes.owlequivalentclass = (function () {
 
 		this.drawNode = function (parentElement) {
 			var drawTools = webvowl.nodes.drawTools(),
-				textBlock,
 				cssClasses = that.collectCssClasses();
 
 			that.nodeElement(parentElement);
