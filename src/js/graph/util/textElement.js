@@ -17,8 +17,8 @@ webvowl.util.textElement = function (element) {
 	 */
 	function repositionTextBlock() {
 		// Nothing to do if no child elements exist
-		var textBlockChildCount = textBlock.property("childElementCount");
-		if (textBlockChildCount < 1) {
+		var lineCount = getLineCount();
+		if (lineCount < 1) {
 			return;
 		}
 
@@ -30,7 +30,7 @@ webvowl.util.textElement = function (element) {
 	 * Adds a new line of text to the element.
 	 * @param text
 	 */
-	textElement.addTextline = function (text) {
+	textElement.addText = function (text) {
 		addTextline(text);
 	};
 
@@ -38,7 +38,7 @@ webvowl.util.textElement = function (element) {
 	 * Adds a line of text in subproperty style.
 	 * @param text
 	 */
-	textElement.addSubTextNode = function (text) {
+	textElement.addSubText = function (text) {
 		addTextline(text, SUBTEXT_CSS_CLASS, "(", ")");
 	};
 
@@ -46,7 +46,7 @@ webvowl.util.textElement = function (element) {
 	 * Adds a line of text in equivalent node listing style.
 	 * @param text
 	 */
-	textElement.addEquivalentSpan = function (text) {
+	textElement.addEquivalents = function (text) {
 		addTextline(text, SUBTEXT_CSS_CLASS, "[", "]");
 	};
 
@@ -59,6 +59,10 @@ webvowl.util.textElement = function (element) {
 			addTextline(instanceCount.toString(), "instance-count");
 		}
 	};
+
+	function getLineCount() {
+		return textBlock.property("childElementCount") - textBlock.selectAll(".instance-count").size();
+	}
 
 	function addTextline(text, subtextCssClass, prefix, postfix) {
 		if (!text) {
@@ -77,11 +81,10 @@ webvowl.util.textElement = function (element) {
 			.attr("x", 0)
 			.attr("dy", function () {
 				var heightInPixels = getPixelHeightOfTextLine(d3.select(this)),
-					siblingCount = textBlock.property("childElementCount") - 1,
+					siblingCount = getLineCount() - 1,
 					lineDistance = siblingCount > 0 ? LINE_DISTANCE : 0;
 				return heightInPixels + lineDistance + "px";
 			});
-
 
 		repositionTextBlock();
 	}
