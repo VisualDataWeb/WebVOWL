@@ -3,10 +3,18 @@ webvowl.nodes.owlequivalentclass = (function () {
 	var o = function (graph) {
 		webvowl.nodes.RoundNode.apply(this, arguments);
 
-		var that = this;
+		var CIRCLE_SIZE_DIFFERENCE = 4;
+
+		var that = this,
+			superActualRadiusFunction = that.actualRadius;
 
 		this.styleClass("equivalentclass")
 			.type("owl:equivalentClass");
+
+		this.actualRadius = function () {
+			return superActualRadiusFunction() - CIRCLE_SIZE_DIFFERENCE;
+		};
+
 
 		this.drawNode = function (parentElement) {
 			var drawTools = webvowl.nodes.drawTools(),
@@ -15,7 +23,8 @@ webvowl.nodes.owlequivalentclass = (function () {
 			that.nodeElement(parentElement);
 
 			drawTools.appendCircularClass(parentElement, that.actualRadius(), ["white", "embedded"]);
-			drawTools.appendCircularClass(parentElement, that.actualRadius() - 4, cssClasses, that.labelForCurrentLanguage());
+			drawTools.appendCircularClass(parentElement, that.actualRadius() + CIRCLE_SIZE_DIFFERENCE,
+				cssClasses, that.labelForCurrentLanguage());
 
 			that.postDrawActions();
 			appendEquivalentClasses(that.textBlock(), that.equivalents());

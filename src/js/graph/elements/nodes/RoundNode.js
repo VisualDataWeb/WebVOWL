@@ -51,14 +51,14 @@ webvowl.nodes.RoundNode = (function () {
 		};
 
 		this.actualRadius = function () {
-			if (!graph.options().scaleNodesByInstances() || this.instances() <= 0) {
-				return this.radius();
+			if (!graph.options().scaleNodesByInstances() || that.instances() <= 0) {
+				return that.radius();
 			} else {
 				// we could "listen" for radius and maxInstanceCount changes, but this is easier
 				var MULTIPLIER = 8,
-					additionalRadius = Math.log(this.instances() + 1) * MULTIPLIER;
+					additionalRadius = Math.log(that.instances() + 1) * MULTIPLIER;
 
-				return this.radius() + additionalRadius;
+				return that.radius() + additionalRadius;
 			}
 		};
 
