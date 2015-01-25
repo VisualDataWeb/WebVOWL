@@ -33,12 +33,20 @@ webvowl.modules.nodeDegreeFilter = function () {
 	function setMaxLinkCount() {
 		var maxLinkCount = 0;
 		for (var i = 0, l = nodes.length; i < l; i++) {
-			maxLinkCount = Math.max(maxLinkCount, nodes[i].links().length);
+			var linksWithoutDatatypes = filterOutDatatypes(nodes[i].links());
+
+			maxLinkCount = Math.max(maxLinkCount, linksWithoutDatatypes.length);
 		}
 
 		if (maxDegreeSetter instanceof Function) {
 			maxDegreeSetter(maxLinkCount);
 		}
+	}
+
+	function filterOutDatatypes(links) {
+		return links.filter(function(link) {
+			return !(link.property() instanceof webvowl.labels.owldatatypeproperty);
+		});
 	}
 
 	function filterByNodeDegree(minDegree) {
@@ -50,7 +58,7 @@ webvowl.modules.nodeDegreeFilter = function () {
 
 	function hasRequiredDegree(minDegree) {
 		return function (node) {
-			return node.links().length >= minDegree;
+			return filterOutDatatypes(node.links()).length >= minDegree;
 		};
 	}
 
