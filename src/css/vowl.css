@@ -10,6 +10,12 @@
 .subtext {
     font-size: 9px;
 }
+.text.instance-count {
+    fill: #666;
+}
+.external + text .instance-count {
+    fill: #aaa;
+}
 .cardinality {
     font-size: 10px;
 }
@@ -98,4 +104,3 @@ marker path {
        Use any value that is larger than the length of the marker path. */
     stroke-dasharray: 50;
 }
-
