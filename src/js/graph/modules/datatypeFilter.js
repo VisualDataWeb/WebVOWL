@@ -27,18 +27,18 @@ webvowl.modules.datatypeFilter = function () {
 	};
 
 	function removeDatatypesAndLiterals() {
-		var filteredData = filterTools.filterNodesAndTidy(nodes, properties, isDatatypeOrLiteral);
+		var filteredData = filterTools.filterNodesAndTidy(nodes, properties, isNoDatatypeOrLiteral);
 
 		nodes = filteredData.nodes;
 		properties = filteredData.properties;
 	}
 
-	function isDatatypeOrLiteral(node) {
+	function isNoDatatypeOrLiteral(node) {
 		if (node instanceof webvowl.nodes.rdfsdatatype ||
 			node instanceof webvowl.nodes.rdfsliteral) {
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	filter.enabled = function (p) {
