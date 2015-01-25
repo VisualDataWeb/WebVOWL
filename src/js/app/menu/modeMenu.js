@@ -27,7 +27,7 @@ webvowlApp.modeMenu = function (graph, pickAndPin, nodeScaling) {
 		moduleOptionContainer = d3.select(selector)
 			.append("div")
 			.classed("checkboxContainer", true)
-			.datum({module: module});
+			.datum({module: module, defaultState: module.enabled()});
 
 		moduleCheckbox = moduleOptionContainer.append("input")
 			.classed("moduleCheckbox", true)
@@ -57,9 +57,11 @@ webvowlApp.modeMenu = function (graph, pickAndPin, nodeScaling) {
 	 */
 	modeMenu.reset = function () {
 		checkboxes.forEach(function (checkbox) {
-			var isChecked = checkbox.property("checked");
-			if (isChecked) {
-				checkbox.property("checked", false);
+			var defaultState = checkbox.datum().defaultState,
+				isChecked = checkbox.property("checked");
+
+			if (isChecked !== defaultState) {
+				checkbox.property("checked", defaultState);
 				// Call onclick event handlers programmatically
 				checkbox.on("click")(checkbox.datum());
 			}
