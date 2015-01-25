@@ -159,9 +159,9 @@ webvowl.nodes.RoundNode = (function () {
 		 */
 		this.postDrawActions = function () {
 			var textBlock = webvowl.util.textElement(this.nodeElement());
-			textBlock.addTextline(that.labelForCurrentLanguage());
+			textBlock.addText(that.labelForCurrentLanguage());
 			textBlock.addInstanceCount(that.instances());
-			textBlock.addSubTextNode(that.indicationString());
+			textBlock.addSubText(that.indicationString());
 			this.textBlock(textBlock);
 
 			that.addMouseListeners();

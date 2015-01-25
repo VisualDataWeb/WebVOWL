@@ -168,10 +168,10 @@ webvowl.labels.BaseLabel = (function () {
 					property.addDisjointLabel(labelGroup, textBox);
 					return label;
 				} else {
-					textBox.addTextline(property.labelForCurrentLanguage());
+					textBox.addText(property.labelForCurrentLanguage());
 				}
 
-				textBox.addSubTextNode(property.indicationString());
+				textBox.addSubText(property.indicationString());
 				property.addEquivalentsToLabel(textBox);
 
 				return label;
@@ -236,7 +236,7 @@ webvowl.labels.BaseLabel = (function () {
 				.attr("cx", 12.5)
 				.attr("r", 10);
 
-			textTag.addSubTextNode("disjoint");
+			textTag.addSubText("disjoint");
 			textTag.setTranslation(0, 20);
 		};
 		this.addEquivalentsToLabel = function (textBox) {
@@ -249,7 +249,7 @@ webvowl.labels.BaseLabel = (function () {
 				});
 				equivalentString = equivalentLabels.join(", ");
 
-				textBox.addEquivalentSpan(equivalentString);
+				textBox.addEquivalents(equivalentString);
 			}
 		};
 		this.drawCardinality = function (cardinalityGroup) {

@@ -35,7 +35,7 @@ webvowl.nodes.owlequivalentclass = (function () {
 			});
 			equivalentNamesString = equivalentNames.join(", ");
 
-			textBlock.addEquivalentSpan(equivalentNamesString);
+			textBlock.addEquivalents(equivalentNamesString);
 		}
 
 		/**
