@@ -10,7 +10,7 @@ webvowlApp.exportMenu = function (graphSelector) {
 		exportSvgButton,
 		exportFilename,
 		exportJsonButton,
-		exportableJson;
+		exportableJsonText;
 
 
 	/**
@@ -27,8 +27,8 @@ webvowlApp.exportMenu = function (graphSelector) {
 		exportFilename = filename;
 	};
 
-	exportMenu.setJson = function (json) {
-		exportableJson = json;
+	exportMenu.setJsonText = function (jsonText) {
+		exportableJsonText = jsonText;
 	};
 
 	function exportSvg() {
@@ -127,14 +127,14 @@ webvowlApp.exportMenu = function (graphSelector) {
 	}
 
 	function exportJson() {
-		if (!exportableJson) {
+		if (!exportableJsonText) {
 			alert("No graph data available.");
 			// Stop the redirection to the path of the href attribute
 			d3.event.preventDefault();
 			return;
 		}
 
-		var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportableJson));
+		var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(exportableJsonText);
 		exportJsonButton.attr("href", dataURI)
 			.attr("download", exportFilename + ".json");
 	}

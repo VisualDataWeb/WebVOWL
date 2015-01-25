@@ -128,9 +128,8 @@ webvowlApp.app = function () {
 		loadingError.classed("hidden", true);
 		loadingProgress.classed("hidden", false);
 
-		d3.json(relativePath, function (error, data) {
+		d3.xhr(relativePath, 'application/json', function (error, request) {
 			pauseMenu.reset();
-			exportMenu.setJson(data);
 
 			var loadingFailed = !!error;
 			if (loadingFailed) {
@@ -138,6 +137,12 @@ webvowlApp.app = function () {
 			}
 			loadingError.classed("hidden", !loadingFailed);
 			loadingProgress.classed("hidden", true);
+
+			var jsonText = request.responseText,
+				data = JSON.parse(jsonText);
+
+			console.log(jsonText)
+			exportMenu.setJsonText(jsonText);
 
 			options.data(data);
 			graph.reload();
