@@ -50,6 +50,16 @@ webvowl.util.textElement = function (element) {
 		addTextline(text, SUBTEXT_CSS_CLASS, "[", "]");
 	};
 
+	/**
+	 * Adds a label with the instance count.
+	 * @param instanceCount
+	 */
+	textElement.addInstanceCount = function (instanceCount) {
+		if (instanceCount) {
+			addTextline(instanceCount.toString(), "instance-count");
+		}
+	};
+
 	function addTextline(text, subtextCssClass, prefix, postfix) {
 		if (!text) {
 			return;
