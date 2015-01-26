@@ -1,8 +1,5 @@
 {
-  "license" : {
-    "authors" : [ "Vincent Link", "Steffen Lohmann", "Eduard Marbach" ],
-    "license-type" : "The MIT License (MIT) Copyright (c) 2015 Vincent Link, Steffen Lohmann, Eduard Marbach"
-  },
+  "_comment" : "Created with OWL2VOWL (version 0.1.4), http://vowl.visualdataweb.org",
   "namespace" : [ { } ],
   "header" : {
     "languages" : [ "de", "IRI-based", "undefined", "jp", "fr", "en", "es", "ja", "cs" ],
@@ -50,22 +47,22 @@
   },
   "class" : [ {
     "id" : "class200",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class187",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class186",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class194",
     "type" : "externalclass"
   }, {
     "id" : "class190",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class192",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class199",
     "type" : "externalclass"
@@ -77,28 +74,28 @@
     "type" : "externalclass"
   }, {
     "id" : "class196",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class191",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class193",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class189",
     "type" : "externalclass"
   }, {
     "id" : "class202",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class197",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class188",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class195",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class205",
     "type" : "owl:intersectionOf"
@@ -130,7 +127,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -158,7 +155,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -186,7 +183,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -221,7 +218,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -249,7 +246,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -328,7 +325,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -356,7 +353,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -376,7 +373,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -422,7 +419,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -450,7 +447,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -470,7 +467,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -498,7 +495,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -797,7 +794,7 @@
     "domain" : "class196",
     "range" : "thing28",
     "equivalent" : [ ],
-    "attributes" : [ "external", "inverse functional" ],
+    "attributes" : [ "inverse functional" ],
     "subproperty" : [ ],
     "superproperty" : [ "property980" ],
     "disjoint" : [ ]
@@ -841,7 +838,7 @@
     "domain" : "thing27",
     "range" : "literal139",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -860,7 +857,7 @@
     "domain" : "class196",
     "range" : "class194",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -890,7 +887,7 @@
     "domain" : "class196",
     "range" : "class194",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -917,7 +914,7 @@
     "domain" : "class196",
     "range" : "class195",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -997,7 +994,7 @@
     "domain" : "class196",
     "range" : "class198",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1044,7 +1041,7 @@
     "domain" : "class196",
     "range" : "class188",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1071,7 +1068,7 @@
     "domain" : "class205",
     "range" : "literal142",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1120,7 +1117,7 @@
     "domain" : "class195",
     "range" : "literal146",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1158,7 +1155,7 @@
     "domain" : "class196",
     "range" : "class199",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1185,7 +1182,7 @@
     "domain" : "thing27",
     "range" : "literal141",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1212,7 +1209,7 @@
     "domain" : "class196",
     "range" : "class199",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1238,7 +1235,7 @@
     "domain" : "class196",
     "range" : "class199",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1256,7 +1253,7 @@
     "domain" : "class196",
     "range" : "literal140",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1283,7 +1280,7 @@
     "domain" : "class196",
     "range" : "class197",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1310,7 +1307,7 @@
     "domain" : "class196",
     "range" : "class199",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1329,7 +1326,7 @@
     "domain" : "class206",
     "range" : "literal144",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1348,7 +1345,7 @@
     "domain" : "class196",
     "range" : "literal145",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1375,7 +1372,7 @@
     "domain" : "thing27",
     "range" : "literal138",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1402,7 +1399,7 @@
     "domain" : "class196",
     "range" : "class199",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1440,7 +1437,7 @@
     "domain" : "class196",
     "range" : "thing28",
     "equivalent" : [ ],
-    "attributes" : [ "external", "inverse functional" ],
+    "attributes" : [ "inverse functional" ],
     "subproperty" : [ ],
     "superproperty" : [ "property980" ],
     "disjoint" : [ ]
@@ -1467,7 +1464,7 @@
     "domain" : "class196",
     "range" : "class199",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1494,7 +1491,7 @@
     "domain" : "class196",
     "range" : "literal147",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1521,7 +1518,7 @@
     "domain" : "class197",
     "range" : "literal143",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
