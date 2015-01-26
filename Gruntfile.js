@@ -87,17 +87,26 @@ module.exports = function (grunt) {
 			}
 		},
 		htmlbuild: {
-			dist: {
+			options: {
+				beautify: true,
+				relative: true,
+				data: {
+					// Data to pass to templates
+					version: "<%= pkg.version %>"
+				}
+			},
+			dev: {
 				src: "src/index.html",
 				dest: deployPath,
 				options: {
-					beautify: true,
-					relative: true,
 					data: {
-						// Data to pass to templates
-						version: "<%= pkg.version %>"
+						benchmarkOntologyTemplate: "<li><a href='#benchmark' id='benchmark'>Benchmark Graph for VOWL</a></li>"
 					}
 				}
+			},
+			release: {
+				src: "src/index.html",
+				dest: deployPath
 			}
 		},
 		jshint: {
@@ -136,7 +145,7 @@ module.exports = function (grunt) {
 			},
 			html: {
 				files: ["src/**/*.html"],
-				tasks: ["htmlbuild"]
+				tasks: ["htmlbuild:dev"]
 			},
 			scripts: {
 				files: ["src/js/**/*"],
@@ -157,9 +166,10 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-html-build");
 	grunt.loadNpmTasks("grunt-karma");
 
-	grunt.registerTask("build", ["clean", "copy", "cssmin", "concat", "htmlbuild"]);
+	grunt.registerTask("build-common", ["clean", "copy", "cssmin", "concat", "uglify"]);
 	grunt.registerTask("default", ["package"]);
-	grunt.registerTask("package", ["build", "uglify"]);
+	grunt.registerTask("package", ["build-common", "htmlbuild:dev"]);
+	grunt.registerTask("release", ["build-common", "htmlbuild:release"]);
 	grunt.registerTask("webserver", ["package", "connect:devserver", "watch"]);
 	grunt.registerTask("test", ["karma"]);
 };
