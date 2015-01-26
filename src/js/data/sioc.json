@@ -29,7 +29,7 @@
   },
   "class" : [ {
     "id" : "class165",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class166",
     "type" : "externalclass"
@@ -41,19 +41,19 @@
     "type" : "owl:equivalentClass"
   }, {
     "id" : "class172",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class178",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class170",
     "type" : "externalclass"
   }, {
     "id" : "class164",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class171",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class167",
     "type" : "externalclass"
@@ -62,19 +62,19 @@
     "type" : "owl:equivalentClass"
   }, {
     "id" : "class174",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class176",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class177",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class173",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "class175",
-    "type" : "externalclass"
+    "type" : "owl:Class"
   }, {
     "id" : "thing21",
     "type" : "owl:Thing"
@@ -106,7 +106,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -154,7 +154,7 @@
     },
     "instances" : 0,
     "equivalent" : [ "class168" ],
-    "attributes" : [ "external", "equivalent" ],
+    "attributes" : [ "equivalent" ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -172,7 +172,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -190,7 +190,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -223,7 +223,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -241,7 +241,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -274,7 +274,7 @@
     },
     "instances" : 0,
     "equivalent" : [ "class179" ],
-    "attributes" : [ "deprecated", "external", "equivalent" ],
+    "attributes" : [ "deprecated", "equivalent" ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -292,7 +292,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -310,7 +310,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -328,7 +328,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -346,7 +346,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -364,7 +364,7 @@
     },
     "instances" : 0,
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "union" : [ ],
     "intersection" : [ ],
     "complement" : [ ],
@@ -1068,7 +1068,7 @@
     "range" : "class179",
     "inverse" : "property879",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1085,7 +1085,7 @@
     "domain" : "thing21",
     "range" : "thing21",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ "property840" ],
     "disjoint" : [ ]
@@ -1114,7 +1114,7 @@
     "range" : "class174",
     "inverse" : "property870",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ "property883" ],
     "disjoint" : [ ]
@@ -1154,7 +1154,7 @@
     "range" : "class178",
     "inverse" : "property851",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1183,7 +1183,7 @@
     "range" : "class165",
     "inverse" : "property893",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1211,7 +1211,7 @@
     "domain" : "class175",
     "range" : "datatype137",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1254,7 +1254,7 @@
     "range" : "class179",
     "inverse" : "property880",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1271,7 +1271,7 @@
     "domain" : "class173",
     "range" : "thing25",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1288,7 +1288,7 @@
     "domain" : "thing21",
     "range" : "thing21",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1305,7 +1305,7 @@
     "domain" : "thing21",
     "range" : "literal135",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ "property907" ],
     "disjoint" : [ ]
@@ -1322,7 +1322,7 @@
     "domain" : "thing21",
     "range" : "thing21",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1351,7 +1351,7 @@
     "range" : "class177",
     "inverse" : "property854",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1368,7 +1368,7 @@
     "domain" : "class173",
     "range" : "literal116",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1385,7 +1385,7 @@
     "domain" : "class173",
     "range" : "literal119",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1447,7 +1447,7 @@
     "range" : "class165",
     "inverse" : "property843",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1476,7 +1476,7 @@
     "range" : "class176",
     "inverse" : "property860",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1507,7 +1507,7 @@
     "domain" : "thing21",
     "range" : "literal136",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1535,7 +1535,7 @@
     "domain" : "thing21",
     "range" : "literal114",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ "property907" ],
     "disjoint" : [ ]
@@ -1552,7 +1552,7 @@
     "domain" : "class174",
     "range" : "class174",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1569,7 +1569,7 @@
     "domain" : "class174",
     "range" : "class167",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1587,7 +1587,7 @@
     "range" : "class174",
     "inverse" : "property857",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1605,7 +1605,7 @@
     "range" : "class179",
     "inverse" : "property873",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1623,7 +1623,7 @@
     "range" : "class179",
     "inverse" : "property864",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1640,7 +1640,7 @@
     "domain" : "class179",
     "range" : "literal129",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1658,7 +1658,7 @@
     "range" : "class179",
     "inverse" : "property863",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1675,7 +1675,7 @@
     "domain" : "thing21",
     "range" : "datatype115",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1692,7 +1692,7 @@
     "domain" : "class177",
     "range" : "literal120",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ "property907" ],
     "disjoint" : [ ]
@@ -1709,7 +1709,7 @@
     "domain" : "class173",
     "range" : "literal126",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1726,7 +1726,7 @@
     "domain" : "thing21",
     "range" : "datatype133",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1744,7 +1744,7 @@
     "range" : "class174",
     "inverse" : "property896",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ "property887" ],
     "disjoint" : [ ]
@@ -1762,7 +1762,7 @@
     "range" : "class171",
     "inverse" : "property875",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1780,7 +1780,7 @@
     "range" : "class175",
     "inverse" : "property839",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1797,7 +1797,7 @@
     "domain" : "class173",
     "range" : "literal113",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1814,7 +1814,7 @@
     "domain" : "class179",
     "range" : "thing24",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1853,7 +1853,7 @@
     "domain" : "class174",
     "range" : "literal118",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1896,7 +1896,7 @@
     "range" : "class171",
     "inverse" : "property842",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1914,7 +1914,7 @@
     "range" : "thing21",
     "inverse" : "property884",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1931,7 +1931,7 @@
     "domain" : "class179",
     "range" : "literal117",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1949,7 +1949,7 @@
     "range" : "class174",
     "inverse" : "property848",
     "equivalent" : [ ],
-    "attributes" : [ "external", "transitive" ],
+    "attributes" : [ "transitive" ],
     "subproperty" : [ "property867" ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1981,7 +1981,7 @@
     "range" : "class174",
     "inverse" : "property883",
     "equivalent" : [ ],
-    "attributes" : [ "external", "transitive" ],
+    "attributes" : [ "transitive" ],
     "subproperty" : [ "property870" ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -1998,7 +1998,7 @@
     "domain" : "class177",
     "range" : "datatype130",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2016,7 +2016,7 @@
     "range" : "thing26",
     "inverse" : "property858",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2033,7 +2033,7 @@
     "domain" : "class174",
     "range" : "thing22",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2050,7 +2050,7 @@
     "domain" : "class174",
     "range" : "thing22",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2068,7 +2068,7 @@
     "range" : "class179",
     "inverse" : "property895",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2085,7 +2085,7 @@
     "domain" : "thing21",
     "range" : "literal123",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2102,7 +2102,7 @@
     "domain" : "thing21",
     "range" : "thing21",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ "property878" ],
     "disjoint" : [ ]
@@ -2134,7 +2134,7 @@
     "range" : "class174",
     "inverse" : "property892",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2151,7 +2151,7 @@
     "domain" : "class179",
     "range" : "class179",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2168,7 +2168,7 @@
     "domain" : "thing21",
     "range" : "datatype131",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2186,7 +2186,7 @@
     "range" : "class177",
     "inverse" : "property890",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2203,7 +2203,7 @@
     "domain" : "class179",
     "range" : "thing24",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ "property872" ],
     "disjoint" : [ ]
@@ -2230,7 +2230,7 @@
     "range" : "thing21",
     "inverse" : "property856",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2258,7 +2258,7 @@
     "domain" : "class174",
     "range" : "thing22",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2275,7 +2275,7 @@
     "domain" : "class173",
     "range" : "literal125",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2292,7 +2292,7 @@
     "domain" : "class179",
     "range" : "literal134",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2321,7 +2321,7 @@
     "range" : "thing24",
     "inverse" : "property897",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2372,7 +2372,7 @@
     "range" : "class174",
     "inverse" : "property861",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2390,7 +2390,7 @@
     "range" : "class177",
     "inverse" : "property853",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2406,7 +2406,7 @@
     "range" : "thing21",
     "inverse" : "property891",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2449,7 +2449,7 @@
     "range" : "class177",
     "inverse" : "property865",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2467,7 +2467,7 @@
     "range" : "thing21",
     "inverse" : "property874",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2485,7 +2485,7 @@
     "range" : "class166",
     "inverse" : "property889",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2503,7 +2503,7 @@
     "range" : "thing24",
     "inverse" : "property876",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2520,7 +2520,7 @@
     "domain" : "class174",
     "range" : "literal121",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2537,7 +2537,7 @@
     "domain" : "class174",
     "range" : "thing22",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2555,7 +2555,7 @@
     "range" : "class176",
     "inverse" : "property885",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2573,7 +2573,7 @@
     "range" : "class174",
     "inverse" : "property867",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ "property848" ],
     "disjoint" : [ ]
@@ -2590,7 +2590,7 @@
     "domain" : "thing21",
     "range" : "literal132",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2608,7 +2608,7 @@
     "range" : "class175",
     "inverse" : "property838",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2637,7 +2637,7 @@
     "range" : "class179",
     "inverse" : "property877",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2687,7 +2687,7 @@
     "domain" : "class173",
     "range" : "literal127",
     "equivalent" : [ ],
-    "attributes" : [ "external", "deprecated" ],
+    "attributes" : [ "deprecated" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2705,7 +2705,7 @@
     "range" : "class174",
     "inverse" : "property837",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2722,7 +2722,7 @@
     "domain" : "thing21",
     "range" : "thing21",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ "property855", "property896" ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2755,7 +2755,7 @@
     "range" : "class174",
     "inverse" : "property855",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ "property887" ],
     "disjoint" : [ ]
@@ -2773,7 +2773,7 @@
     "range" : "thing23",
     "inverse" : "property888",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2791,7 +2791,7 @@
     "range" : "thing23",
     "inverse" : "property846",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2808,7 +2808,7 @@
     "domain" : "class174",
     "range" : "class174",
     "equivalent" : [ ],
-    "attributes" : [ "external", "symmetric" ],
+    "attributes" : [ "symmetric" ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
@@ -2826,7 +2826,7 @@
     "range" : "class178",
     "inverse" : "property868",
     "equivalent" : [ ],
-    "attributes" : [ "external" ],
+    "attributes" : [ ],
     "subproperty" : [ ],
     "superproperty" : [ ],
     "disjoint" : [ ]
