@@ -177,36 +177,36 @@ webvowl.labels.BaseLabel = (function () {
 				return label;
 			}
 
-			if (!this.labelVisible()) {
+			if (!that.labelVisible()) {
 				return undefined;
 			}
 
-			this.labelElement(attachLabel(this));
+			that.labelElement(attachLabel(that));
 
 			// Draw an inverse label and reposition both labels if necessary
-			if (this.inverse()) {
-				var yTransformation = (this.labelHeight() / 2) + 1 /* additional space */;
-				this.inverse()
-					.labelElement(attachLabel(this.inverse()));
+			if (that.inverse()) {
+				var yTransformation = (that.labelHeight() / 2) + 1 /* additional space */;
+				that.inverse()
+					.labelElement(attachLabel(that.inverse()));
 
-				this.labelElement()
+				that.labelElement()
 					.attr("transform", "translate(" + 0 + ",-" + yTransformation + ")");
-				this.inverse()
+				that.inverse()
 					.labelElement()
 					.attr("transform", "translate(" + 0 + "," + yTransformation + ")");
 			}
 
-			return this.labelElement();
+			return that.labelElement();
 		};
 
 		this.addRect = function (groupTag) {
 			var rect = groupTag.append("rect")
-				.classed(this.styleClass(), true)
+				.classed(that.styleClass(), true)
 				.classed("property", true)
-				.attr("x", -this.labelWidth() / 2)
-				.attr("y", -this.labelHeight() / 2)
-				.attr("width", this.labelWidth())
-				.attr("height", this.labelHeight())
+				.attr("x", -that.labelWidth() / 2)
+				.attr("y", -that.labelHeight() / 2)
+				.attr("width", that.labelWidth())
+				.attr("height", that.labelHeight())
 				.on("mouseover", function () {
 					onMouseOver();
 				})
@@ -215,10 +215,10 @@ webvowl.labels.BaseLabel = (function () {
 				});
 
 			rect.append("title")
-				.text(this.labelForCurrentLanguage());
+				.text(that.labelForCurrentLanguage());
 
-			if (this.visualAttribute()) {
-				rect.classed(this.visualAttribute(), true);
+			if (that.visualAttribute()) {
+				rect.classed(that.visualAttribute(), true);
 			}
 		};
 		this.addDisjointLabel = function (groupTag, textTag) {
@@ -240,11 +240,11 @@ webvowl.labels.BaseLabel = (function () {
 			textTag.setTranslation(0, 20);
 		};
 		this.addEquivalentsToLabel = function (textBox) {
-			if (this.equivalents()) {
+			if (that.equivalents()) {
 				var equivalentLabels,
 					equivalentString;
 
-				equivalentLabels = this.equivalents().map(function (property) {
+				equivalentLabels = that.equivalents().map(function (property) {
 					return property.labelForCurrentLanguage();
 				});
 				equivalentString = equivalentLabels.join(", ");
@@ -253,31 +253,31 @@ webvowl.labels.BaseLabel = (function () {
 			}
 		};
 		this.drawCardinality = function (cardinalityGroup) {
-			if (this.minCardinality() === undefined &&
-				this.maxCardinality() === undefined &&
-				this.cardinality() === undefined) {
+			if (that.minCardinality() === undefined &&
+				that.maxCardinality() === undefined &&
+				that.cardinality() === undefined) {
 				return undefined;
 			}
 
 			// Drawing cardinality groups
-			this.cardinalityElement(cardinalityGroup.classed("cardinality", true));
+			that.cardinalityElement(cardinalityGroup.classed("cardinality", true));
 
 			var cardText = cardinalityGroup.append("text")
 				.classed("cardinality", true)
 				.attr("text-anchor", "middle")
 				.attr("dy", "0.5ex");
 
-			if (this.minCardinality() !== undefined) {
-				var cardString = this.minCardinality().toString();
+			if (that.minCardinality() !== undefined) {
+				var cardString = that.minCardinality().toString();
 				cardString = cardString.concat(" .. ");
-				cardString = cardString.concat(this.maxCardinality() !== undefined ? this.maxCardinality() : "*");
+				cardString = cardString.concat(that.maxCardinality() !== undefined ? that.maxCardinality() : "*");
 
 				cardText.text(cardString);
-			} else if (this.cardinality() !== undefined) {
-				cardText.text(this.cardinality());
+			} else if (that.cardinality() !== undefined) {
+				cardText.text(that.cardinality());
 			}
 
-			return this.cardinalityElement();
+			return that.cardinalityElement();
 		};
 		function onMouseOver() {
 			if (that.mouseEntered()) {
