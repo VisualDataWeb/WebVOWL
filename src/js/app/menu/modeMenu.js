@@ -4,9 +4,10 @@
  * @param graph the graph that belongs to these controls
  * @param pickAndPin mode for picking and pinning of nodes
  * @param nodeScaling mode for toggling node scaling
+ * @param compactNotation mode for toggling the compact node
  * @returns {{}}
  */
-webvowlApp.modeMenu = function (graph, pickAndPin, nodeScaling) {
+webvowlApp.modeMenu = function (graph, pickAndPin, nodeScaling, compactNotation) {
 
 	var modeMenu = {},
 		checkboxes = [];
@@ -18,6 +19,7 @@ webvowlApp.modeMenu = function (graph, pickAndPin, nodeScaling) {
 	modeMenu.setup = function () {
 		addModeItem(pickAndPin, "pickandpin", "Pick & Pin", "#pickAndPinOption", false);
 		addModeItem(nodeScaling, "nodescaling", "Node Scaling", "#nodeScalingOption", true);
+		addModeItem(compactNotation, "compactnotation", "Compact Notation", "#compactNotationOption", true);
 	};
 
 	function addModeItem(module, identifier, modeName, selector, updateGraphOnClick) {

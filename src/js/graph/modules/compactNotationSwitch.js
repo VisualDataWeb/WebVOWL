@@ -3,9 +3,9 @@
  *
  * @returns {{}}
  */
-webvowl.modules.nodeScalingSwitch = function (graph) {
+webvowl.modules.compactNotationSwitch = function (graph) {
 
-	var DEFAULT_STATE = true;
+	var DEFAULT_STATE = false;
 
 	var filter = {},
 		nodes,
@@ -16,7 +16,7 @@ webvowl.modules.nodeScalingSwitch = function (graph) {
 
 
 	/**
-	 * If enabled, the scaling of nodes according to instances will be enabled.
+	 * If enabled, redundant details won't be drawn anymore.
 	 * @param untouchedNodes
 	 * @param untouchedProperties
 	 */
@@ -24,7 +24,7 @@ webvowl.modules.nodeScalingSwitch = function (graph) {
 		nodes = untouchedNodes;
 		properties = untouchedProperties;
 
-		graph.options().scaleNodesByInstances(enabled);
+		graph.options().compactNotation(enabled);
 
 		filteredNodes = nodes;
 		filteredProperties = properties;
