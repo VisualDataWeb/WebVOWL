@@ -296,6 +296,11 @@ webvowl.graph = function (graphContainerSelector) {
 
 		// Place subclass label groups on the bottom of all labels
 		labelGroupElements.each(function(link) {
+			// the label might be hidden e.g. in compact notation
+			if (!this.parentNode) {
+				return;
+			}
+
 			if (link.property() instanceof webvowl.labels.rdfssubclassof ||
 				link.inverse() instanceof webvowl.labels.rdfssubclassof) {
 
