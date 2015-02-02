@@ -161,7 +161,9 @@ webvowl.nodes.RoundNode = (function () {
 			var textBlock = webvowl.util.textElement(this.nodeElement());
 			textBlock.addText(that.labelForCurrentLanguage());
 			textBlock.addInstanceCount(that.instances());
-			textBlock.addSubText(that.indicationString());
+			if (!graph.options().compactNotation()) {
+				textBlock.addSubText(that.indicationString());
+			}
 			this.textBlock(textBlock);
 
 			that.addMouseListeners();
