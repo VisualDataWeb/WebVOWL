@@ -236,7 +236,9 @@ webvowl.labels.BaseLabel = (function () {
 				.attr("cx", 12.5)
 				.attr("r", 10);
 
-			textTag.addSubText("disjoint");
+			if (!graph.options().compactNotation()) {
+				textTag.addSubText("disjoint");
+			}
 			textTag.setTranslation(0, 20);
 		};
 		this.addEquivalentsToLabel = function (textBox) {
