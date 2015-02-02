@@ -25,6 +25,7 @@ webvowlApp.app = function () {
 		nodeDegreeFilter = webvowl.modules.nodeDegreeFilter(),
 		setOperatorFilter = webvowl.modules.setOperatorFilter(),
 		nodeScalingSwitch = webvowl.modules.nodeScalingSwitch(graph),
+		compactNotationSwitch = webvowl.modules.compactNotationSwitch(graph),
 		pickAndPin = webvowl.modules.pickAndPin(),
 	// Selections for the app
 		loadingError = d3.select("#loading-error"),
@@ -42,6 +43,7 @@ webvowlApp.app = function () {
 		options.filterModules().push(setOperatorFilter);
 		options.filterModules().push(nodeScalingSwitch);
 		options.filterModules().push(nodeDegreeFilter);
+		options.filterModules().push(compactNotationSwitch);
 
 		setupConverterButton();
 		parseUrlAndLoadOntology();
@@ -49,7 +51,7 @@ webvowlApp.app = function () {
 		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
 		gravityMenu = webvowlApp.gravityMenu(graph);
 		filterMenu = webvowlApp.filterMenu(graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
-		modeMenu = webvowlApp.modeMenu(graph, pickAndPin, nodeScalingSwitch);
+		modeMenu = webvowlApp.modeMenu(graph, pickAndPin, nodeScalingSwitch, compactNotationSwitch);
 		pauseMenu = webvowlApp.pauseMenu(graph);
 		resetMenu = webvowlApp.resetMenu(graph, [gravityMenu, filterMenu, modeMenu,
 			focuser, selectionDetailDisplayer, pauseMenu]);

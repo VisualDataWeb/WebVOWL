@@ -17,6 +17,7 @@ webvowl.options = function () {
 		filterModules = [],
 		minMagnification = 0.1,
 		maxMagnification = 4,
+		compactNotation = false,
 		scaleNodesByInstances = false;
 
 	/* Read-only properties */
@@ -34,6 +35,12 @@ webvowl.options = function () {
 	options.classDistance = function (p) {
 		if (!arguments.length) return classDistance;
 		classDistance = +p;
+		return options;
+	};
+
+	options.compactNotation = function (p) {
+		if (!arguments.length) return compactNotation;
+		compactNotation = p;
 		return options;
 	};
 
