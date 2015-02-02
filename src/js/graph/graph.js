@@ -12,7 +12,7 @@ webvowl.graph = function (graphContainerSelector) {
 				return d.y;
 			})
 			.interpolate("cardinal"),
-		options,
+		options = webvowl.options(),
 		parser = webvowl.parser(graph),
 		linkCreator = webvowl.parsing.linkCreator(),
 		language = "default",
@@ -97,7 +97,6 @@ webvowl.graph = function (graphContainerSelector) {
 	 * Initializes the graph.
 	 */
 	function initializeGraph() {
-		options = webvowl.options();
 		options.graphContainerSelector(graphContainerSelector);
 
 		force = d3.layout.force()
