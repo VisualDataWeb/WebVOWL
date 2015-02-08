@@ -10,7 +10,7 @@ webvowl.modules.statistics = function () {
 		datatypePropertyCount,
 		objectPropertyCount,
 		propertyCount,
-		totalInstanceCount,
+		totalIndividualCount,
 		filteredNodes,
 		filteredProperties;
 
@@ -25,7 +25,7 @@ webvowl.modules.statistics = function () {
 		storeOccurencesOfTypes(classesAndDatatypes, occurencesOfClassAndDatatypeTypes);
 		storeOccurencesOfTypes(properties, occurencesOfPropertyTypes);
 
-		storeTotalInstanceCount(classesAndDatatypes);
+		storeTotalIndividualCount(classesAndDatatypes);
 
 		filteredNodes = classesAndDatatypes;
 		filteredProperties = properties;
@@ -39,7 +39,7 @@ webvowl.modules.statistics = function () {
 		datatypePropertyCount = 0;
 		objectPropertyCount = 0;
 		propertyCount = 0;
-		totalInstanceCount = 0;
+		totalIndividualCount = 0;
 	}
 
 	function storeTotalCounts(classesAndDatatypes, properties) {
@@ -136,12 +136,12 @@ webvowl.modules.statistics = function () {
 		});
 	}
 
-	function storeTotalInstanceCount(nodes) {
+	function storeTotalIndividualCount(nodes) {
 	 	var totalCount = 0;
 		for (var i = 0, l = nodes.length; i < l; i++) {
-			totalCount += nodes[i].instances() || 0;
+			totalCount += nodes[i].individuals() || 0;
 		}
-		totalInstanceCount = totalCount;
+		totalIndividualCount = totalCount;
 	}
 
 
@@ -181,8 +181,8 @@ webvowl.modules.statistics = function () {
 		return propertyCount;
 	};
 
-	statistics.totalInstanceCount = function () {
-		return totalInstanceCount;
+	statistics.totalIndividualCount = function () {
+		return totalIndividualCount;
 	};
 
 

@@ -18,7 +18,7 @@ webvowl.options = function () {
 		minMagnification = 0.1,
 		maxMagnification = 4,
 		compactNotation = false,
-		scaleNodesByInstances = false;
+		scaleNodesByIndividuals = false;
 
 	/* Read-only properties */
 	options.defaultLinkDistance = function () {
@@ -98,9 +98,9 @@ webvowl.options = function () {
 		return options;
 	};
 
-	options.scaleNodesByInstances = function (p) {
-		if (!arguments.length) return scaleNodesByInstances;
-		scaleNodesByInstances = p;
+	options.scaleNodesByIndividuals = function (p) {
+		if (!arguments.length) return scaleNodesByIndividuals;
+		scaleNodesByIndividuals = p;
 		return options;
 	};
 

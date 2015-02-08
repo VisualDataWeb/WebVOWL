@@ -95,7 +95,7 @@ webvowl.parser = function (graph) {
 						.complement(element.complement)
 						.equivalents(element.equivalent)
 						.id(element.id)
-						.instances(element.instances)
+						.individuals(element.instances)
 						.intersection(element.intersection)
 						.label(element.label)
 						// .type(element.type) Ignore, because we predefined it
@@ -267,9 +267,9 @@ webvowl.parser = function (graph) {
 		var nodes = [];
 
 		// Set the default values
-		var maxInstanceCount = 0;
+		var maxIndividualCount = 0;
 		rawNodes.forEach(function (node) {
-		maxInstanceCount = Math.max(maxInstanceCount, node.instances());
+		maxIndividualCount = Math.max(maxIndividualCount, node.individuals());
 			node.visible(true);
 		});
 
@@ -279,7 +279,7 @@ webvowl.parser = function (graph) {
 
 			attributeParser.parseClassAttributes(node);
 
-			node.maxInstanceCount(maxInstanceCount);
+			node.maxIndividualCount(maxIndividualCount);
 		});
 
 		// Collect all nodes that should be displayed

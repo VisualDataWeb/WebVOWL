@@ -12,7 +12,7 @@ webvowl.nodes.BaseNode = (function () {
 			links,
 			union,
 		// Additional attributes
-			maxInstanceCount,
+			maxIndividualCount,
 		// Fixed Location attributes
 			locked = false,
 			frozen = false,
@@ -34,7 +34,7 @@ webvowl.nodes.BaseNode = (function () {
 			return this;
 		};
 
-		this.instances = function (p) {
+		this.individuals = function (p) {
 			if (!arguments.length) return instances;
 			instances = p || 0;
 			return this;
@@ -52,9 +52,9 @@ webvowl.nodes.BaseNode = (function () {
 			return this;
 		};
 
-		this.maxInstanceCount = function (p) {
-			if (!arguments.length) return maxInstanceCount;
-			maxInstanceCount = p;
+		this.maxIndividualCount = function (p) {
+			if (!arguments.length) return maxIndividualCount;
+			maxIndividualCount = p;
 			return this;
 		};
 

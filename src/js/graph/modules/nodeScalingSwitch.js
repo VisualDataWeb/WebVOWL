@@ -16,7 +16,7 @@ webvowl.modules.nodeScalingSwitch = function (graph) {
 
 
 	/**
-	 * If enabled, the scaling of nodes according to instances will be enabled.
+	 * If enabled, the scaling of nodes according to individuals will be enabled.
 	 * @param untouchedNodes
 	 * @param untouchedProperties
 	 */
@@ -24,7 +24,7 @@ webvowl.modules.nodeScalingSwitch = function (graph) {
 		nodes = untouchedNodes;
 		properties = untouchedProperties;
 
-		graph.options().scaleNodesByInstances(enabled);
+		graph.options().scaleNodesByIndividuals(enabled);
 
 		filteredNodes = nodes;
 		filteredProperties = properties;
