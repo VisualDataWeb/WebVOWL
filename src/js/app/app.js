@@ -170,14 +170,12 @@ webvowlApp.app = function () {
 	}
 
 	function setupConverterButton() {
-		function setActionAttribute() {
-			d3.select(".converter-form").attr("action", "#iri=" + d3.select("#convert-iri").property("value"));
-		}
+		d3.select("#iri-converter-form").on("submit", function() {
+			location.hash = "iri=" + d3.select("#iri-converter-input").property("value");
 
-		// Call it initially because there might be a value already in the input field
-		setActionAttribute();
-		d3.select("#convert-iri").on("change", function() {
-			setActionAttribute();
+			// abort the form submission because we set the hash parameter manually to prevent the ? attached in chrome
+			d3.event.preventDefault();
+			return false;
 		});
 	}
 
