@@ -431,7 +431,7 @@ a#pause:not(.paused)::before {
 	padding-right: 4px;
 	content: "\25BA"
 }
-.accordion-container:first-of-type {
+.accordion-container.scrollable {
 	max-height: 40%;
 	overflow: auto;
 }
