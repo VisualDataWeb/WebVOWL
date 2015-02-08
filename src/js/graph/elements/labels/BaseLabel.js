@@ -297,6 +297,9 @@ webvowl.labels.BaseLabel = (function () {
 			that.labelElement().select("rect").classed("hovered", enable);
 			that.linkGroup().selectAll("path, text").classed("hovered", enable);
 			that.markerElement().select("path").classed("hovered", enable);
+			if (that.cardinalityElement()) {
+				that.cardinalityElement().classed("hovered", enable);
+			}
 
 			var subAndSuperProperties = getSubAndSuperProperties();
 			subAndSuperProperties.forEach(function (property) {
