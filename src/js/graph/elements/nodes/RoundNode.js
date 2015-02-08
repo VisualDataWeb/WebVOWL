@@ -56,7 +56,7 @@ webvowl.nodes.RoundNode = (function () {
 			} else {
 				// we could "listen" for radius and maxInstanceCount changes, but this is easier
 				var MULTIPLIER = 8,
-					additionalRadius = Math.log(that.instances() + 1) * MULTIPLIER;
+					additionalRadius = Math.log(that.instances() + 1) * MULTIPLIER + 5;
 
 				return that.radius() + additionalRadius;
 			}
@@ -141,7 +141,6 @@ webvowl.nodes.RoundNode = (function () {
 		 */
 		this.drawNode = function (parentElement, additionalCssClasses) {
 			var drawTools = webvowl.nodes.drawTools(),
-				textBlock,
 				cssClasses = that.collectCssClasses();
 
 			that.nodeElement(parentElement);
