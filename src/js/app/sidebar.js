@@ -152,8 +152,8 @@ webvowlApp.sidebar = function (graph) {
 			.text(deliveredMetrics.objectPropertyCount || statistics.objectPropertyCount());
 		d3.select("#datatypePropertyCount")
 			.text(deliveredMetrics.datatypePropertyCount || statistics.datatypePropertyCount());
-		d3.select("#instanceCount")
-			.text(deliveredMetrics.totalInstanceCount || statistics.totalInstanceCount());
+		d3.select("#individualCount")
+			.text(deliveredMetrics.totalIndividualCount || statistics.totalIndividualCount());
 		d3.select("#nodeCount")
 			.text(statistics.nodeCount());
 		d3.select("#edgeCount")
@@ -305,7 +305,7 @@ webvowlApp.sidebar = function (graph) {
 		listNodeArray(node.equivalents(), equivalentUriSpan);
 
 		d3.select("#typeNode").text(node.type());
-		d3.select("#instances").text(node.instances());
+		d3.select("#individuals").text(node.individuals());
 
 		/* Disjoint stuff. */
 		var disjointNodes = d3.select("#disjointNodes");
