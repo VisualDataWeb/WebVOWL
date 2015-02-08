@@ -7,6 +7,10 @@ webvowl.util.languageTools = (function () {
 
 
 	languageTools.textForCurrentLanguage = function (textObject, preferredLanguage) {
+		if (typeof textObject === "undefined") {
+			return undefined;
+		}
+
 		if (typeof textObject === "string") {
 			return textObject;
 		}
