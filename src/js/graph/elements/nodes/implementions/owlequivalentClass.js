@@ -22,9 +22,8 @@ webvowl.nodes.owlequivalentclass = (function () {
 
 			that.nodeElement(parentElement);
 
-			drawTools.appendCircularClass(parentElement, that.actualRadius(), ["white", "embedded"]);
-			drawTools.appendCircularClass(parentElement, that.actualRadius() - CIRCLE_SIZE_DIFFERENCE,
-				cssClasses, that.labelForCurrentLanguage());
+			drawTools.appendCircularClass(parentElement, that.actualRadius() + CIRCLE_SIZE_DIFFERENCE, ["white", "embedded"]);
+			drawTools.appendCircularClass(parentElement, that.actualRadius(), cssClasses, that.labelForCurrentLanguage());
 
 			that.postDrawActions();
 			appendEquivalentClasses(that.textBlock(), that.equivalents());
