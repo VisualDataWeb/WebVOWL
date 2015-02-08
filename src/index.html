@@ -141,12 +141,10 @@
 					<li><a href="#ontovibe" id="ontovibe">Ontology Visualization Benchmark (OntoViBe)</a></li>
 					<!-- build:process --><%= benchmarkOntologyTemplate %><!-- /build -->
 					<li class="option" id="converter-option">
-                        <form class="converter-form">
-                            <label for="convert-iri">Custom Ontology:</label>
-                            <input type="text" id="convert-iri" placeholder="Ontology IRI">
-                            <button type="submit" id="convert-button">
-                                Convert
-                            </button>
+                        <form class="converter-form" id="iri-converter-form">
+                            <label for="iri-converter-input">Custom Ontology:</label>
+                            <input type="text" id="iri-converter-input" placeholder="Ontology IRI">
+                            <button type="submit" id="iri-converter-button">Convert</button>
                         </form>
                     </li>
 				</ul>
