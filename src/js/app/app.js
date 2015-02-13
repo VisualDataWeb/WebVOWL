@@ -7,6 +7,7 @@ webvowlApp.app = function () {
 		jsonBasePath = "js/data/",
 		defaultJsonName = "foaf", // This file is loaded by default
 	// Modules for the webvowl app
+		ontologyMenu,
 		exportMenu,
 		gravityMenu,
 		filterMenu,
@@ -45,9 +46,9 @@ webvowlApp.app = function () {
 		options.filterModules().push(nodeDegreeFilter);
 		options.filterModules().push(compactNotationSwitch);
 
-		setupConverterButton();
 		parseUrlAndLoadOntology();
 
+		ontologyMenu = webvowlApp.ontologyMenu();
 		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
 		gravityMenu = webvowlApp.gravityMenu(graph);
 		filterMenu = webvowlApp.filterMenu(graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
@@ -59,13 +60,13 @@ webvowlApp.app = function () {
 		d3.select(window).on("resize", adjustSize);
 
 		// setup all bottom bar modules
-		setupableMenues = [exportMenu, gravityMenu, filterMenu, modeMenu, resetMenu, pauseMenu, sidebar];
+		setupableMenues = [ontologyMenu, exportMenu, gravityMenu, filterMenu, modeMenu, resetMenu, pauseMenu, sidebar];
 		setupableMenues.forEach(function (menu) {
 			menu.setup();
 		});
 
 		// reload ontology when hash parameter gets changed manually
-		d3.select(window).on("hashchange", function() {
+		d3.select(window).on("hashchange", function () {
 			var oldURL = d3.event.oldURL, newURL = d3.event.newURL;
 
 			if (oldURL !== newURL) {
@@ -114,7 +115,7 @@ webvowlApp.app = function () {
 			// id of an existing ontology as parameter
 			loadOntology(jsonBasePath + hashParameter + ".json");
 
-			ontologyOptions.each(function() {
+			ontologyOptions.each(function () {
 				var ontologyOption = d3.select(this);
 				if (ontologyOption.select("a").size() > 0) {
 
@@ -137,11 +138,15 @@ webvowlApp.app = function () {
 			if (loadingFailed) {
 				d3.select("#custom-error-message").text(error.response || "");
 			}
+
 			loadingError.classed("hidden", !loadingFailed);
 			loadingProgress.classed("hidden", true);
 
-			var jsonText = request.responseText,
+			var jsonText, data;
+			if (!loadingFailed) {
+				jsonText = request.responseText;
 				data = JSON.parse(jsonText);
+			}
 
 			exportMenu.setJsonText(jsonText);
 
@@ -167,16 +172,6 @@ webvowlApp.app = function () {
 		options.width(width)
 			.height(height);
 		graph.updateStyle();
-	}
-
-	function setupConverterButton() {
-		d3.select("#iri-converter-form").on("submit", function() {
-			location.hash = "iri=" + d3.select("#iri-converter-input").property("value");
-
-			// abort the form submission because we set the hash parameter manually to prevent the ? attached in chrome
-			d3.event.preventDefault();
-			return false;
-		});
 	}
 
 	return app;
