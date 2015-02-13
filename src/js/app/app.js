@@ -4,8 +4,6 @@ webvowlApp.app = function () {
 		graph = webvowl.graph(),
 		options = graph.graphOptions(),
 		graphSelector = "#graph",
-		jsonBasePath = "js/data/",
-		defaultJsonName = "foaf", // This file is loaded by default
 	// Modules for the webvowl app
 		ontologyMenu,
 		exportMenu,
@@ -27,10 +25,7 @@ webvowlApp.app = function () {
 		setOperatorFilter = webvowl.modules.setOperatorFilter(),
 		nodeScalingSwitch = webvowl.modules.nodeScalingSwitch(graph),
 		compactNotationSwitch = webvowl.modules.compactNotationSwitch(graph),
-		pickAndPin = webvowl.modules.pickAndPin(),
-	// Selections for the app
-		loadingError = d3.select("#loading-error"),
-		loadingProgress = d3.select("#loading-progress");
+		pickAndPin = webvowl.modules.pickAndPin();
 
 	app.initialize = function () {
 		options.graphContainerSelector(graphSelector);
@@ -46,9 +41,7 @@ webvowlApp.app = function () {
 		options.filterModules().push(nodeDegreeFilter);
 		options.filterModules().push(compactNotationSwitch);
 
-		parseUrlAndLoadOntology();
-
-		ontologyMenu = webvowlApp.ontologyMenu();
+		ontologyMenu = webvowlApp.ontologyMenu(loadOntologyFromText);
 		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
 		gravityMenu = webvowlApp.gravityMenu(graph);
 		filterMenu = webvowlApp.filterMenu(graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
@@ -65,98 +58,25 @@ webvowlApp.app = function () {
 			menu.setup();
 		});
 
-		// reload ontology when hash parameter gets changed manually
-		d3.select(window).on("hashchange", function () {
-			var oldURL = d3.event.oldURL, newURL = d3.event.newURL;
-
-			if (oldURL !== newURL) {
-				// don't reload when just the hash parameter gets appended
-				if (newURL === oldURL + "#") {
-					return;
-				}
-
-				updateNavigationHrefs();
-				parseUrlAndLoadOntology();
-			}
-		});
-
-		updateNavigationHrefs();
-
 		graph.start();
 		adjustSize();
 	};
 
-	/**
-	 * Quick fix: update all anchor tags that are used as buttons because a click on them
-	 * changes the url and this will load an other ontology.
-	 */
-	function updateNavigationHrefs() {
-		d3.selectAll("#optionsMenu > li > a").attr("href", location.hash || "#");
-	}
+	function loadOntologyFromText(jsonText, filename) {
+		pauseMenu.reset();
 
-	function parseUrlAndLoadOntology() {
-		// slice the "#" character
-		var hashParameter = location.hash.slice(1);
-
-		if (!hashParameter) {
-			hashParameter = defaultJsonName;
+		var data;
+		if (jsonText) {
+			data = JSON.parse(jsonText);
 		}
 
-		var ontologyOptions = d3.selectAll(".select li").classed("selected-ontology", false);
+		exportMenu.setJsonText(jsonText);
 
-		// IRI parameter
-		var iriKey = "iri=";
-		if (hashParameter.substr(0, iriKey.length) === iriKey) {
-			var iri = hashParameter.slice(iriKey.length);
-			loadOntology("converter.php?iri=" + encodeURIComponent(iri));
+		options.data(data);
+		graph.reload();
+		sidebar.updateOntologyInformation(data, statistics);
 
-			d3.select("#converter-option").classed("selected-ontology", true);
-		} else {
-			// id of an existing ontology as parameter
-			loadOntology(jsonBasePath + hashParameter + ".json");
-
-			ontologyOptions.each(function () {
-				var ontologyOption = d3.select(this);
-				if (ontologyOption.select("a").size() > 0) {
-
-					if (ontologyOption.select("a").attr("href") === "#" + hashParameter) {
-						ontologyOption.classed("selected-ontology", true);
-					}
-				}
-			});
-		}
-	}
-
-	function loadOntology(relativePath) {
-		loadingError.classed("hidden", true);
-		loadingProgress.classed("hidden", false);
-
-		d3.xhr(relativePath, 'application/json', function (error, request) {
-			pauseMenu.reset();
-
-			var loadingFailed = !!error;
-			if (loadingFailed) {
-				d3.select("#custom-error-message").text(error.response || "");
-			}
-
-			loadingError.classed("hidden", !loadingFailed);
-			loadingProgress.classed("hidden", true);
-
-			var jsonText, data;
-			if (!loadingFailed) {
-				jsonText = request.responseText;
-				data = JSON.parse(jsonText);
-			}
-
-			exportMenu.setJsonText(jsonText);
-
-			options.data(data);
-			graph.reload();
-			sidebar.updateOntologyInformation(data, statistics);
-
-			var filename = relativePath.slice(relativePath.lastIndexOf("/") + 1);
-			exportMenu.setFilename(filename.split(".")[0]);
-		});
+		exportMenu.setFilename(filename.split(".")[0]);
 	}
 
 	function adjustSize() {
