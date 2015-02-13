@@ -59,6 +59,10 @@ webvowlApp.sidebar = function (graph) {
 	 * @param statistics the statistics module
 	 */
 	sidebar.updateOntologyInformation = function (data, statistics) {
+		if (!data) {
+			return;
+		}
+
 		ontologyInfo = data.header;
 
 		updateGraphInformation();
