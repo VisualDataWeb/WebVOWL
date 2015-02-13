@@ -16,6 +16,7 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		setupUriListener();
 
 		setupConverterButton();
+		setupUploadButton();
 	};
 
 
@@ -30,6 +31,11 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 			if (oldURL !== newURL) {
 				// don't reload when just the hash parameter gets appended
 				if (newURL === oldURL + "#") {
+					return;
+				}
+
+				// don't reload on file uploads, when the uri gets adjusted
+				if (location.hash === "#file") {
 					return;
 				}
 
@@ -83,17 +89,12 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 	}
 
 	function loadOntologyFromUri(relativePath) {
-		loadingError.classed("hidden", true);
-		loadingProgress.classed("hidden", false);
-
+		displayLoadingInformations();
 		d3.xhr(relativePath, 'application/json', function (error, request) {
 			var loadingFailed = !!error;
-			if (loadingFailed) {
-				d3.select("#custom-error-message").text(error.response || "");
-			}
 
-			loadingError.classed("hidden", !loadingFailed);
-			loadingProgress.classed("hidden", true);
+			displayLoadingStatus(!loadingFailed, error ? error.response : undefined);
+			hideLoadingInformations();
 
 			var jsonText;
 			if (!loadingFailed) {
@@ -113,6 +114,63 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 			d3.event.preventDefault();
 			return false;
 		});
+	}
+
+	function setupUploadButton() {
+		var input = d3.select("#file-converter-input"),
+			uploadButton = d3.select("#file-converter-button");
+
+		input.on("change", function() {
+			var selectedFiles = input.property("files");
+			uploadButton.property("disabled", selectedFiles.length <= 0);
+		});
+
+		uploadButton.on("click", function() {
+			var selectedFile = input.property("files")[0];
+			if (!selectedFile) {
+				return false;
+			}
+
+			displayLoadingInformations();
+			uploadButton.property("disabled", true);
+			location.hash = "file";
+
+			var formData = new FormData();
+			formData.append("ontology", selectedFile);
+
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "converter.php", true);
+
+			xhr.onload = function() {
+				uploadButton.property("disabled", false);
+
+				if (xhr.status === 200) {
+					loadOntologyFromText(xhr.responseText, selectedFile.name)
+				} else {
+					displayLoadingStatus(false, xhr.responseText);
+				}
+				hideLoadingInformations();
+			};
+
+			xhr.send(formData);
+		});
+	}
+
+
+	function displayLoadingInformations() {
+		loadingError.classed("hidden", true);
+		loadingProgress.classed("hidden", false);
+	}
+
+	function displayLoadingStatus(success, message) {
+		if (!success) {
+			d3.select("#custom-error-message").text(message || "");
+		}
+		loadingError.classed("hidden", success);
+	}
+
+	function hideLoadingInformations() {
+		loadingProgress.classed("hidden", true);
 	}
 
 	return ontologyMenu;
