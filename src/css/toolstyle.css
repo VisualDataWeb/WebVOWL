@@ -446,6 +446,9 @@ a#pause:not(.paused)::before {
 #language option {
 	background-color: #24323e;
 }
+.converter-form:not(:first-child) {
+	margin-top: 5px;
+}
 .converter-form label {
 	line-height: normal;
 }
