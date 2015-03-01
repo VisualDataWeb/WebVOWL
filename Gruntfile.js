@@ -53,7 +53,7 @@ module.exports = function (grunt) {
 					open: "http://localhost:8000/index.html",
 					middleware: function (connect, options) {
 						return [
-							connect.favicon("favicon.ico"),
+							connect.favicon("deploy/favicon.ico"),
 							connect.static(options.base[0]),
 							connect.directory(options.base[0])
 						];
@@ -71,7 +71,8 @@ module.exports = function (grunt) {
 				files: [
 					{expand: true, cwd: "src/css/", src: ["**"], dest: deployPath + "css/"},
 					{expand: true, cwd: "src/js/data/", src: ["**"], dest: deployPath + "js/data/"},
-					{expand: true, src: ["license.txt", "favicon.ico"], dest: deployPath}
+					{expand: true, cwd: "src/", src: ["favicon.ico"], dest: deployPath},
+					{expand: true, src: ["license.txt"], dest: deployPath}
 				]
 			},
 			deploy: {
