@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 			}
 		},
 		clean: {
-			js: [deployPath]
+			js: ["!" + deployPath + ".htaccess", deployPath + "**/*"]
 		},
 		concat: {
 			options: {
