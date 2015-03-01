@@ -76,7 +76,8 @@ module.exports = function (grunt) {
 			},
 			deploy: {
 				files: [
-					{expand: true, cwd: "src", src: ".htaccess", dest: deployPath}
+					{expand: true, cwd: "src", src: ".htaccess", dest: deployPath},
+					{expand: true, cwd: "src/log", src: ".dummy", dest: deployPath + "log/"}
 				]
 			}
 		},
