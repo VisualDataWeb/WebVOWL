@@ -73,6 +73,11 @@ module.exports = function (grunt) {
 					{expand: true, cwd: "src/js/data/", src: ["**"], dest: deployPath + "js/data/"},
 					{expand: true, src: ["license.txt", "favicon.ico"], dest: deployPath}
 				]
+			},
+			deploy: {
+				files: [
+					{expand: true, cwd: "src", src: ".htaccess", dest: deployPath}
+				]
 			}
 		},
 		cssmin: {
