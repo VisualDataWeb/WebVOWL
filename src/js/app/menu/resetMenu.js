@@ -16,13 +16,7 @@ webvowlApp.resetMenu = function (graph, resettableModules) {
 	 * Adds the reset button to the website.
 	 */
 	resetMenu.setup = function () {
-		d3.select("#resetOption")
-			.append("a")
-			.attr("id", "reset")
-			.attr("href", "#")
-			.property("type", "reset")
-			.text("Reset")
-			.on("click", resetGraph);
+		d3.select("#reset-button").on("click", resetGraph);
 	};
 
 	function resetGraph() {
