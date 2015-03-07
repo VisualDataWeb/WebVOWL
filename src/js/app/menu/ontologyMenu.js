@@ -115,11 +115,18 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 
 	function setupUploadButton() {
 		var input = d3.select("#file-converter-input"),
+			inputLabel = d3.select("#file-converter-label"),
 			uploadButton = d3.select("#file-converter-button");
 
 		input.on("change", function() {
 			var selectedFiles = input.property("files");
-			uploadButton.property("disabled", selectedFiles.length <= 0);
+			if (selectedFiles <= 0) {
+			    inputLabel.text("Please select a file");
+				uploadButton.property("disabled", true);
+			} else {
+				inputLabel.text(selectedFiles[0].name);
+				uploadButton.property("disabled", false);
+			}
 		});
 
 		uploadButton.on("click", function() {

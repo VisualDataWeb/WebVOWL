@@ -450,6 +450,7 @@ a#pause:not(.paused)::before {
 	margin-top: 5px;
 }
 .converter-form label {
+	display: inline-block;
 	line-height: normal;
 }
 .converter-form input {
@@ -459,11 +460,19 @@ a#pause:not(.paused)::before {
 	border: 1px solid #34495E;
 }
 .converter-form button {
+	cursor: pointer;
 	float: right;
 	height: 20px;
 	width: 25%;
 	border: 1px solid #34495E;
 	background-color: #ecf0f1;
+}
+#file-converter-label {
+	border: 1px solid #34495E;
+	box-sizing: border-box;
+	cursor: pointer;
+	height: 20px;
+	width: 74%;
 }
 #loading-info {
 	position: fixed;
