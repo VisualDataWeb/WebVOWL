@@ -10,7 +10,8 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		defaultJsonName = "foaf", // This file is loaded by default
 	// Selections for the app
 		loadingError = d3.select("#loading-error"),
-		loadingProgress = d3.select("#loading-progress");
+		loadingProgress = d3.select("#loading-progress"),
+		ontologyMenuTimeout;
 
 	ontologyMenu.setup = function () {
 		setupUriListener();
@@ -104,7 +105,13 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 	}
 
 	function setupConverterButton() {
-		d3.select("#iri-converter-form").on("submit", function() {
+		d3.select("#iri-converter-input").on("input", function() {
+			keepOntologySelectionShortly();
+		}).on("click", function() {
+			keepOntologySelectionShortly();
+		});
+
+		d3.select("#iri-converter-form").on("submit", function () {
 			location.hash = "iri=" + d3.select("#iri-converter-input").property("value");
 
 			// abort the form submission because we set the hash parameter manually to prevent the ? attached in chrome
@@ -118,18 +125,20 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 			inputLabel = d3.select("#file-converter-label"),
 			uploadButton = d3.select("#file-converter-button");
 
-		input.on("change", function() {
+		input.on("change", function () {
 			var selectedFiles = input.property("files");
-			if (selectedFiles <= 0) {
-			    inputLabel.text("Please select a file");
+			if (selectedFiles.length <= 0) {
+				inputLabel.text("Please select a file");
 				uploadButton.property("disabled", true);
 			} else {
 				inputLabel.text(selectedFiles[0].name);
 				uploadButton.property("disabled", false);
+
+				keepOntologySelectionShortly();
 			}
 		});
 
-		uploadButton.on("click", function() {
+		uploadButton.on("click", function () {
 			var selectedFile = input.property("files")[0];
 			if (!selectedFile) {
 				return false;
@@ -145,7 +154,7 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "converter.php", true);
 
-			xhr.onload = function() {
+			xhr.onload = function () {
 				uploadButton.property("disabled", false);
 
 				if (xhr.status === 200) {
@@ -157,6 +166,43 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 			};
 
 			xhr.send(formData);
+		});
+	}
+
+	function keepOntologySelectionShortly() {
+		// Events in the menu should not be considered
+		var ontologySelection = d3.select("#select .toolTipMenu");
+		ontologySelection.on("click", function() {
+			d3.event.stopPropagation();
+		}).on("keydown", function() {
+			d3.event.stopPropagation();
+		});
+
+		ontologySelection.style("display", "block");
+
+		function disableKeepingOpen() {
+			ontologySelection.style("display", undefined);
+
+			clearTimeout(ontologyMenuTimeout);
+			d3.select(window).on("click", undefined).on("keydown", undefined);
+			ontologySelection.on("mouseover", undefined);
+		}
+
+		// Clear the timeout to handle fast calls of this function
+		clearTimeout(ontologyMenuTimeout);
+		ontologyMenuTimeout = setTimeout(function () {
+			disableKeepingOpen();
+		}, 3000);
+
+		// Disable forced open selection on interaction
+		d3.select(window).on("click", function () {
+			disableKeepingOpen();
+		}).on("keydown", function () {
+			disableKeepingOpen();
+		});
+
+		ontologySelection.on("mouseover", function () {
+			disableKeepingOpen();
 		});
 	}
 
