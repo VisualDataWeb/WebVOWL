@@ -14,11 +14,8 @@ webvowlApp.pauseMenu = function (graph) {
 	 * Adds the pause button to the website.
 	 */
 	pauseMenu.setup = function () {
-		pauseButton = d3.select("#pauseOption")
-			.append("a")
+		pauseButton = d3.select("#pause-button")
 			.datum({paused: false})
-			.attr("id", "pause")
-			.attr("href", "#")
 			.on("click", function (d) {
 				if (d.paused) {
 					graph.unfreeze();
