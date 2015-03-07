@@ -93,9 +93,12 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 			.text(0);
 
 		degreeSlider.on("change", function () {
+			graph.update();
+		});
+
+		degreeSlider.on("input", function() {
 			var degree = degreeSlider.property("value");
 			sliderValueLabel.text(degree);
-			graph.update();
 		});
 	}
 
