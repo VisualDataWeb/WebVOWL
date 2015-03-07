@@ -34,11 +34,6 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 					return;
 				}
 
-				// don't reload on file uploads, when the uri gets adjusted
-				if (location.hash === "#file") {
-					return;
-				}
-
 				updateNavigationHrefs();
 				parseUrlAndLoadOntology();
 			}
@@ -67,7 +62,9 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 
 		// IRI parameter
 		var iriKey = "iri=";
-		if (hashParameter.substr(0, iriKey.length) === iriKey) {
+		if (location.hash === "#file") {
+			displayLoadingStatus(false, "No file was uploaded");
+		} else if (hashParameter.substr(0, iriKey.length) === iriKey) {
 			var iri = hashParameter.slice(iriKey.length);
 			loadOntologyFromUri("converter.php?iri=" + encodeURIComponent(iri));
 
