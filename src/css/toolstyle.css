@@ -153,8 +153,7 @@ ul#optionsMenu li > ul.toolTipMenu li a:hover {
 	background-color: #eee;
 }
 ul#optionsMenu > li:hover .toolTipMenu {
-	bottom: 40px;
-	left: -1px;
+	display: block;
 }
 ul#optionsMenu > li:hover .aboutMenu {
 	left: -145px;
@@ -174,7 +173,8 @@ ul#optionsMenu > li:hover .aboutMenu {
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	border-bottom: none;
 	border-radius: 4px 4px 0 0;
-	bottom: -999em;
+	bottom: 40px;
+	display: none;
 	font-size: 14px;
 	list-style: none;
 	min-width: 300px;
