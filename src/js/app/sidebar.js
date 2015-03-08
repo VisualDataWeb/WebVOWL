@@ -243,10 +243,10 @@ webvowlApp.sidebar = function (graph) {
 		}
 
 		var equivalentUriSpan = d3.select("#propEquivUri");
-		listNodeArray(property.equivalents(), equivalentUriSpan);
+		listNodeArray(equivalentUriSpan, property.equivalents());
 
-		listNodeArray(property.subproperties(), d3.select("#subproperties"));
-		listNodeArray(property.superproperties(), d3.select("#superproperties"));
+		listNodeArray(d3.select("#subproperties"), property.subproperties());
+		listNodeArray(d3.select("#superproperties"), property.superproperties());
 
 		if (property.minCardinality() !== undefined) {
 			d3.select("#infoCardinality").style("display", "none");
@@ -333,7 +333,7 @@ webvowlApp.sidebar = function (graph) {
 
 		/* Equivalent stuff. */
 		var equivalentUriSpan = d3.select("#classEquivUri");
-		listNodeArray(node.equivalents(), equivalentUriSpan);
+		listNodeArray(equivalentUriSpan, node.equivalents());
 
 		d3.select("#typeNode").text(node.type());
 		d3.select("#individuals").text(node.individuals());
@@ -364,7 +364,7 @@ webvowlApp.sidebar = function (graph) {
 		setSelectionInformationVisibility(true, false, false);
 	}
 
-	function listNodeArray(nodes, textSpan) {
+	function listNodeArray(textSpan, nodes) {
 		var spanParent = d3.select(textSpan.node().parentNode);
 
 		if (nodes && nodes.length) {
