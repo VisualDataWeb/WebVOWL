@@ -67,6 +67,8 @@ webvowlApp.sidebar = function (graph) {
 
 		updateGraphInformation();
 		displayGraphStatistics(data.metrics, statistics);
+		displayMetadata(ontologyInfo.other);
+
 		// Reset the sidebar selection
 		sidebar.updateSelectionInformation(undefined);
 
@@ -162,6 +164,31 @@ webvowlApp.sidebar = function (graph) {
 			.text(statistics.nodeCount());
 		d3.select("#edgeCount")
 			.text(statistics.edgeCount());
+	}
+
+	function displayMetadata(metadata) {
+		metadata = metadata || {};  //todo
+
+		var annotations = [];
+		for (var annotation in metadata) {
+			annotations.push(metadata[annotation][0]);
+		}
+
+		var container = d3.select("#ontology-metadata");
+		container.selectAll("*").remove();
+		container.selectAll("p").data(annotations).enter().append("p")
+			.classed("statisticDetails", true)
+			.text(function (d) {
+				return d.identifier + ":";
+			})
+			.append("span")
+			.each(function (d) {
+				appendUriLabel(d3.select(this), d.value, d.type === "iri" ? d.value : undefined);
+			});
+
+		if (!annotations.length) {
+			container.append("p").text("No annotations available.");
+		}
 	}
 
 	/**
