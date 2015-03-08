@@ -60,7 +60,6 @@ main {
 	width: 78%;
 }
 #canvasArea #graph {
-	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box;
 	margin: 0 0 2px 0;
 	background-color: #ecf0f1;
@@ -69,7 +68,6 @@ main {
 	width: 100%;
 }
 #canvasArea svg {
-	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box;
 	margin: 0;
 	overflow: hidden;
@@ -81,8 +79,6 @@ nav#optionsArea {
 	padding: 0;
 }
 ul#optionsMenu {
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box;
 	color: #fff;
 	display: block;
@@ -110,8 +106,6 @@ ul#optionsMenu {
 	font-size: 0.6em;
 }
 ul#optionsMenu > li {
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box;
 	float: right;
 	font-size: 1.1em;
@@ -122,15 +116,11 @@ ul#optionsMenu > li {
 	vertical-align: middle;
 }
 ul#optionsMenu > li > a:hover {
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box;
 	background: rgb(27, 37, 46);
 	color: #bdc3c7;
 }
 ul#optionsMenu > li > a {
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box;
 	color: #fff;
 	display: block;
@@ -166,8 +156,6 @@ ul#optionsMenu > li:hover .aboutMenu {
 .toolTipMenu {
 	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box; /* Firefox, other Gecko */
 	box-sizing: border-box;
 	background-color: #ffffff;
 	border: 1px solid rgba(0, 0, 0, 0.15);
