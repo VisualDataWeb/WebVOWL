@@ -13,6 +13,7 @@ webvowl.elements.BaseElement = (function () {
 			type,
 			uri,
 		// Additional attributes
+			annotations,
 			attributes = [],
 			visualAttribute,
 			comment,
@@ -31,6 +32,12 @@ webvowl.elements.BaseElement = (function () {
 		this.attributes = function (p) {
 			if (!arguments.length) return attributes;
 			attributes = p;
+			return this;
+		};
+
+		this.annotations = function (p) {
+			if (!arguments.length) return annotations;
+			annotations = p;
 			return this;
 		};
 
@@ -113,7 +120,7 @@ webvowl.elements.BaseElement = (function () {
 		};
 
 
-		this.commentForCurrentLanguage = function() {
+		this.commentForCurrentLanguage = function () {
 			return languageTools.textForCurrentLanguage(this.comment(), graph.getLanguage());
 		};
 

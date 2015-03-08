@@ -167,16 +167,25 @@ webvowlApp.sidebar = function (graph) {
 	}
 
 	function displayMetadata(metadata) {
-		metadata = metadata || {};  //todo
+		var container = d3.select("#ontology-metadata");
+		listAnnotations(container, metadata);
+
+		if (container.selectAll(".annotation").size() <= 0) {
+			container.append("p").text("No annotations available.");
+		}
+	}
+
+	function listAnnotations(container, annotationObject) {
+		annotationObject = annotationObject || {};  //todo
 
 		var annotations = [];
-		for (var annotation in metadata) {
-			annotations.push(metadata[annotation][0]);
+		for (var annotation in annotationObject) {
+			annotations.push(annotationObject[annotation][0]);
 		}
 
-		var container = d3.select("#ontology-metadata");
-		container.selectAll("*").remove();
-		container.selectAll("p").data(annotations).enter().append("p")
+		container.selectAll(".annotation").remove();
+		container.selectAll(".annotation").data(annotations).enter().append("p")
+			.classed("annotation", true)
 			.classed("statisticDetails", true)
 			.text(function (d) {
 				return d.identifier + ":";
@@ -185,10 +194,6 @@ webvowlApp.sidebar = function (graph) {
 			.each(function (d) {
 				appendUriLabel(d3.select(this), d.value, d.type === "iri" ? d.value : undefined);
 			});
-
-		if (!annotations.length) {
-			container.append("p").text("No annotations available.");
-		}
 	}
 
 	/**
@@ -275,6 +280,8 @@ webvowlApp.sidebar = function (graph) {
 		setUriLabel(d3.select("#range"), property.range().labelForCurrentLanguage(), property.range().uri());
 
 		displayAttributes(property.attributes(), d3.select("#propAttributes"));
+
+		listAnnotations(d3.select("#propertySelectionInformation"), property.annotations());
 	}
 
 	function showPropertyInformations() {
@@ -358,6 +365,8 @@ webvowlApp.sidebar = function (graph) {
 		}
 
 		displayAttributes(node.attributes(), d3.select("#classAttributes"));
+
+		listAnnotations(d3.select("#classSelectionInformation"), node.annotations());
 	}
 
 	function showClassInformations() {
