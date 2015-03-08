@@ -106,9 +106,9 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 
 	function setupConverterButton() {
 		d3.select("#iri-converter-input").on("input", function() {
-			keepOntologySelectionShortly();
+			keepOntologySelectionOpenShortly();
 		}).on("click", function() {
-			keepOntologySelectionShortly();
+			keepOntologySelectionOpenShortly();
 		});
 
 		d3.select("#iri-converter-form").on("submit", function () {
@@ -134,7 +134,7 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 				inputLabel.text(selectedFiles[0].name);
 				uploadButton.property("disabled", false);
 
-				keepOntologySelectionShortly();
+				keepOntologySelectionOpenShortly();
 			}
 		});
 
@@ -169,7 +169,7 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		});
 	}
 
-	function keepOntologySelectionShortly() {
+	function keepOntologySelectionOpenShortly() {
 		// Events in the menu should not be considered
 		var ontologySelection = d3.select("#select .toolTipMenu");
 		ontologySelection.on("click", function() {
