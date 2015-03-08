@@ -171,7 +171,7 @@ webvowlApp.sidebar = function (graph) {
 		listAnnotations(container, metadata);
 
 		if (container.selectAll(".annotation").size() <= 0) {
-			container.append("p").text("No annotations available.");
+			container.append("p").classed("annotation", true).text("No annotations available.");
 		}
 	}
 
