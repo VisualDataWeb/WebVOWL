@@ -139,7 +139,7 @@ webvowl.modules.statistics = function () {
 	function storeTotalIndividualCount(nodes) {
 	 	var totalCount = 0;
 		for (var i = 0, l = nodes.length; i < l; i++) {
-			totalCount += nodes[i].individuals() || 0;
+			totalCount += nodes[i].individuals().length || 0;
 		}
 		totalIndividualCount = totalCount;
 	}

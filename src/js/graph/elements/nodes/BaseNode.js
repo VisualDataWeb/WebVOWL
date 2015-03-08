@@ -7,7 +7,7 @@ webvowl.nodes.BaseNode = (function () {
 		// Basic attributes
 			complement,
 			disjointWith,
-			instances = 0,
+			individuals = [],
 			intersection,
 			links,
 			union,
@@ -35,8 +35,8 @@ webvowl.nodes.BaseNode = (function () {
 		};
 
 		this.individuals = function (p) {
-			if (!arguments.length) return instances;
-			instances = p || 0;
+			if (!arguments.length) return individuals;
+			individuals = p || [];
 			return this;
 		};
 

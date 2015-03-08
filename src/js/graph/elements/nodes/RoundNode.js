@@ -51,12 +51,12 @@ webvowl.nodes.RoundNode = (function () {
 		};
 
 		this.actualRadius = function () {
-			if (!graph.options().scaleNodesByIndividuals() || that.individuals() <= 0) {
+			if (!graph.options().scaleNodesByIndividuals() || that.individuals().length <= 0) {
 				return that.radius();
 			} else {
 				// we could "listen" for radius and maxIndividualCount changes, but this is easier
 				var MULTIPLIER = 8,
-					additionalRadius = Math.log(that.individuals() + 1) * MULTIPLIER + 5;
+					additionalRadius = Math.log(that.individuals().length + 1) * MULTIPLIER + 5;
 
 				return that.radius() + additionalRadius;
 			}
@@ -162,7 +162,7 @@ webvowl.nodes.RoundNode = (function () {
 			if (!graph.options().compactNotation()) {
 				textBlock.addSubText(that.indicationString());
 			}
-			textBlock.addInstanceCount(that.individuals());
+			textBlock.addInstanceCount(that.individuals().length);
 			this.textBlock(textBlock);
 
 			that.addMouseListeners();

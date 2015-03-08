@@ -336,7 +336,7 @@ webvowlApp.sidebar = function (graph) {
 		listNodeArray(equivalentUriSpan, node.equivalents());
 
 		d3.select("#typeNode").text(node.type());
-		d3.select("#individuals").text(node.individuals());
+		listNodeArray(d3.select("#individuals"), node.individuals());
 
 		/* Disjoint stuff. */
 		var disjointNodes = d3.select("#disjointNodes");

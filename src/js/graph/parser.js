@@ -95,12 +95,22 @@ webvowl.parser = function (graph) {
 						.complement(element.complement)
 						.equivalents(element.equivalent)
 						.id(element.id)
-						.individuals(element.instances)
 						.intersection(element.intersection)
 						.label(element.label)
 						// .type(element.type) Ignore, because we predefined it
 						.union(element.union)
 						.uri(element.uri);
+
+					// Create node objects for all individuals
+					if (element.individuals) {
+						element.individuals.forEach(function (individual) {
+							var individualNode = new prototypes[elementType](graph);
+							individualNode.label(individual.labels)
+								.uri(individual.iri);
+
+							node.individuals().push(individualNode);
+						});
+					}
 
 					if (element.attributes) {
 						var deduplicatedAttributes = d3.set(element.attributes.concat(node.attributes()));
@@ -247,7 +257,7 @@ webvowl.parser = function (graph) {
 		var i, l;
 
 		for (i = 0, l = properties.length; i < l; i++) {
-	        var property = properties[i];
+			var property = properties[i];
 			if (property.domain() === nodeId || property.range() === nodeId) {
 				return true;
 			}
@@ -269,7 +279,7 @@ webvowl.parser = function (graph) {
 		// Set the default values
 		var maxIndividualCount = 0;
 		rawNodes.forEach(function (node) {
-		maxIndividualCount = Math.max(maxIndividualCount, node.individuals());
+			maxIndividualCount = Math.max(maxIndividualCount, node.individuals().length);
 			node.visible(true);
 		});
 
@@ -507,7 +517,7 @@ webvowl.parser = function (graph) {
 					var rangeId = setIds[i],
 						property = {};
 
-					property.id = "GENERATED-"+ operatorType +"-" + domainId + "-" + rangeId + "-" + i;
+					property.id = "GENERATED-" + operatorType + "-" + domainId + "-" + rangeId + "-" + i;
 					property.type = "setOperatorProperty";
 					property.domain = domainId;
 					property.range = rangeId;
