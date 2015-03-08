@@ -1,18 +1,11 @@
 {
   "_comment" : "Created with OWL2VOWL (version 0.1.4), http://vowl.visualdataweb.org",
-  "namespace" : [ { } ],
+  "namespace" : [ ],
   "header" : {
     "languages" : [ "IRI-based", "en" ],
-    "title" : { },
     "uri" : "http://rdfs.org/sioc/ns#",
     "version" : "Revision: 1.35",
-    "author" : [ ],
-    "description" : { },
-    "seeAlso" : [ "http://rdfs.org/sioc/spec" ],
-    "issued" : [ ],
-    "license" : [ ],
-    "rdfsLabel" : [ ],
-    "other" : { }
+    "seeAlso" : [ "http://rdfs.org/sioc/spec" ]
   },
   "metrics" : {
     "classCount" : 17,
@@ -25,52 +18,52 @@
     "individualCount" : 1
   },
   "class" : [ {
-    "id" : "class165",
-    "type" : "owl:Class"
-  }, {
-    "id" : "class166",
-    "type" : "externalclass"
-  }, {
-    "id" : "class169",
-    "type" : "externalclass"
-  }, {
-    "id" : "class179",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "class172",
-    "type" : "owl:Class"
-  }, {
-    "id" : "class178",
-    "type" : "owl:Class"
-  }, {
     "id" : "class170",
-    "type" : "externalclass"
-  }, {
-    "id" : "class164",
     "type" : "owl:Class"
   }, {
     "id" : "class171",
-    "type" : "owl:Class"
-  }, {
-    "id" : "class167",
     "type" : "externalclass"
   }, {
-    "id" : "class168",
+    "id" : "class174",
+    "type" : "externalclass"
+  }, {
+    "id" : "class184",
     "type" : "owl:equivalentClass"
   }, {
-    "id" : "class174",
+    "id" : "class177",
+    "type" : "owl:Class"
+  }, {
+    "id" : "class183",
+    "type" : "owl:Class"
+  }, {
+    "id" : "class175",
+    "type" : "externalclass"
+  }, {
+    "id" : "class169",
     "type" : "owl:Class"
   }, {
     "id" : "class176",
     "type" : "owl:Class"
   }, {
-    "id" : "class177",
-    "type" : "owl:Class"
+    "id" : "class172",
+    "type" : "externalclass"
   }, {
     "id" : "class173",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "class179",
     "type" : "owl:Class"
   }, {
-    "id" : "class175",
+    "id" : "class181",
+    "type" : "owl:Class"
+  }, {
+    "id" : "class182",
+    "type" : "owl:Class"
+  }, {
+    "id" : "class178",
+    "type" : "owl:Class"
+  }, {
+    "id" : "class180",
     "type" : "owl:Class"
   }, {
     "id" : "thing21",
@@ -92,7 +85,7 @@
     "type" : "owl:Thing"
   } ],
   "classAttribute" : [ {
-    "id" : "class165",
+    "id" : "class170",
     "label" : {
       "IRI-based" : "Site",
       "en" : "Site"
@@ -101,46 +94,28 @@
     "comment" : {
       "en" : "A Site can be the location of an online community or set of communities, with UserAccounts and Usergroups creating Items in a set of Containers. It can be thought of as a web-accessible data Space."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class171" ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "superClasses" : [ "class176" ],
+    "instances" : 0
   }, {
-    "id" : "class166",
+    "id" : "class171",
     "label" : {
       "IRI-based" : "Agent"
     },
     "uri" : "http://xmlns.com/foaf/0.1/Agent",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
     "attributes" : [ "external" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "instances" : 0
   }, {
-    "id" : "class169",
+    "id" : "class174",
     "label" : {
       "IRI-based" : "OnlineAccount"
     },
     "uri" : "http://xmlns.com/foaf/0.1/OnlineAccount",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
     "attributes" : [ "external" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ "class168", "class179" ],
-    "superClasses" : [ ]
+    "subClasses" : [ "class173", "class184" ],
+    "instances" : 0
   }, {
-    "id" : "class179",
+    "id" : "class184",
     "label" : {
       "IRI-based" : "UserAccount",
       "en" : "User Account"
@@ -149,16 +124,13 @@
     "comment" : {
       "en" : "A user account in an online community site."
     },
-    "instances" : 0,
-    "equivalent" : [ "class168" ],
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "attributes" : [ "equivalent" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class169" ]
+    "superClasses" : [ "class174" ],
+    "instances" : 0,
+    "equivalent" : [ "class173" ]
   }, {
-    "id" : "class172",
+    "id" : "class177",
     "label" : {
       "IRI-based" : "Community",
       "en" : "Community"
@@ -167,16 +139,10 @@
     "comment" : {
       "en" : "Community is a high-level concept that defines an online community and what it consists of."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "instances" : 0
   }, {
-    "id" : "class178",
+    "id" : "class183",
     "label" : {
       "IRI-based" : "Role",
       "en" : "Role"
@@ -185,31 +151,19 @@
     "comment" : {
       "en" : "A Role is a function of a UserAccount within a scope of a particular Forum, Site, etc."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "instances" : 0
   }, {
-    "id" : "class170",
+    "id" : "class175",
     "label" : {
       "IRI-based" : "Document"
     },
     "uri" : "http://xmlns.com/foaf/0.1/Document",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
     "attributes" : [ "external" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ "class173" ],
-    "superClasses" : [ ]
+    "subClasses" : [ "class178" ],
+    "instances" : 0
   }, {
-    "id" : "class164",
+    "id" : "class169",
     "label" : {
       "IRI-based" : "Thread",
       "en" : "Thread"
@@ -218,16 +172,11 @@
     "comment" : {
       "en" : "A container for a series of threaded discussion Posts or Items."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class177" ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "superClasses" : [ "class182" ],
+    "instances" : 0
   }, {
-    "id" : "class171",
+    "id" : "class176",
     "label" : {
       "IRI-based" : "Space",
       "en" : "Space"
@@ -236,31 +185,19 @@
     "comment" : {
       "en" : "A Space is a place where data resides, e.g. on a website, desktop, fileshare, etc."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ "class165" ],
-    "superClasses" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "subClasses" : [ "class170" ],
+    "instances" : 0
   }, {
-    "id" : "class167",
+    "id" : "class172",
     "label" : {
       "IRI-based" : "Graph"
     },
     "uri" : "http://www.w3.org/2004/03/trix/rdfg-1/Graph",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
     "attributes" : [ "external" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "instances" : 0
   }, {
-    "id" : "class168",
+    "id" : "class173",
     "label" : {
       "IRI-based" : "User",
       "en" : "User"
@@ -269,16 +206,14 @@
     "comment" : {
       "en" : "UserAccount is now preferred. This is a deprecated class for a User in an online community site."
     },
-    "instances" : 0,
-    "equivalent" : [ "class179" ],
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "owlVersion" : "This class is deprecated. Use sioc:UserAccount from the SIOC ontology instead.",
     "attributes" : [ "deprecated", "equivalent" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class169" ]
+    "superClasses" : [ "class174" ],
+    "instances" : 0,
+    "equivalent" : [ "class184" ]
   }, {
-    "id" : "class174",
+    "id" : "class179",
     "label" : {
       "IRI-based" : "Item",
       "en" : "Item"
@@ -287,16 +222,11 @@
     "comment" : {
       "en" : "An Item is something which can be in a Container."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ "class173" ],
-    "superClasses" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "subClasses" : [ "class178" ],
+    "instances" : 0
   }, {
-    "id" : "class176",
+    "id" : "class181",
     "label" : {
       "IRI-based" : "Usergroup",
       "en" : "Usergroup"
@@ -305,16 +235,10 @@
     "comment" : {
       "en" : "A set of UserAccounts whose owners have a common purpose or interest. Can be used for access control purposes."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "instances" : 0
   }, {
-    "id" : "class177",
+    "id" : "class182",
     "label" : {
       "IRI-based" : "Container",
       "en" : "Container"
@@ -323,16 +247,11 @@
     "comment" : {
       "en" : "An area in which content Items are contained."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ "class175", "class164" ],
-    "superClasses" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "subClasses" : [ "class180", "class169" ],
+    "instances" : 0
   }, {
-    "id" : "class173",
+    "id" : "class178",
     "label" : {
       "IRI-based" : "Post",
       "en" : "Post"
@@ -341,16 +260,11 @@
     "comment" : {
       "en" : "An article or message that can be posted to a Forum."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class174", "class170" ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "superClasses" : [ "class179", "class175" ],
+    "instances" : 0
   }, {
-    "id" : "class175",
+    "id" : "class180",
     "label" : {
       "IRI-based" : "Forum",
       "en" : "Forum"
@@ -359,38 +273,51 @@
     "comment" : {
       "en" : "A discussion area on which Posts or entries are made."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class177" ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "superClasses" : [ "class182" ],
+    "instances" : 0
   }, {
     "id" : "thing21",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing23",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing22",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing24",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing25",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing26",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   } ],
   "datatype" : [ {
     "id" : "literal118",
@@ -473,2370 +400,1881 @@
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal117",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal119",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal114",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal132",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal113",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal116",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal134",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal136",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal135",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype115",
     "label" : {
       "IRI-based" : "nonNegativeInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "datatype137",
     "label" : {
       "IRI-based" : "nonNegativeInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "literal129",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal128",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal127",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal126",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal125",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal124",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype133",
     "label" : {
       "IRI-based" : "nonNegativeInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "literal123",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype130",
     "label" : {
       "IRI-based" : "nonNegativeInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "literal122",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype131",
     "label" : {
       "IRI-based" : "nonNegativeInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "literal121",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal120",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   } ],
   "property" : [ {
-    "id" : "property926",
+    "id" : "property840",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property885",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property859",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property927",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property867",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property928",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property929",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property888",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property923",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property863",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property924",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property922",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property925",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property907",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property876",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property852",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property844",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property920",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property886",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property939",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property857",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property901",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property904",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property931",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property932",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property930",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property935",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property838",
+    "id" : "property910",
     "type" : "owl:objectProperty"
   }, {
     "id" : "property936",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property842",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property913",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property921",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property934",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property899",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property866",
+    "id" : "property918",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property850",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property854",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property897",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property839",
+    "id" : "property939",
     "type" : "owl:objectProperty"
   }, {
     "id" : "property914",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property893",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property900",
+    "id" : "property973",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property905",
+    "id" : "property958",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property911",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property918",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property855",
+    "id" : "property927",
     "type" : "owl:objectProperty"
-  }, {
-    "id" : "property858",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property864",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property898",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property847",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property962",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property967",
-    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property903",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property872",
     "type" : "owl:objectProperty"
-  }, {
-    "id" : "property968",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property860",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property874",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property902",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property883",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property840",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property848",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property915",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property875",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property869",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property845",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property892",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property908",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property871",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property909",
-    "type" : "owl:datatypeProperty"
   }, {
     "id" : "property895",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property894",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property916",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property877",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property849",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property945",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property891",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property947",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property841",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property910",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property919",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property941",
+    "id" : "property838",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "property873",
-    "type" : "owl:objectProperty"
+    "id" : "property971",
+    "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property940",
+    "id" : "property839",
     "type" : "owl:disjointWith"
-  }, {
-    "id" : "property943",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property942",
-    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property837",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property937",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property865",
+    "id" : "property908",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property856",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property948",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property878",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property853",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property884",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property882",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property880",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property906",
+    "id" : "property952",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property862",
+    "id" : "property955",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property889",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property879",
+    "id" : "property893",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property870",
+    "id" : "property972",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property964",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property950",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property901",
     "type" : "owl:objectProperty"
   }, {
     "id" : "property917",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property843",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property955",
-    "type" : "owl:disjointWith"
+    "id" : "property905",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property948",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "property890",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property953",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property952",
+    "id" : "property862",
     "type" : "owl:disjointWith"
-  }, {
-    "id" : "property951",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property912",
-    "type" : "owl:datatypeProperty"
   }, {
     "id" : "property861",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property965",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property944",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property887",
+    "id" : "property854",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property855",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property951",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property956",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property853",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property859",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property856",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property857",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property850",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property962",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property969",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property849",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property906",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property889",
+    "id" : "property909",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property841",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property842",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property843",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property915",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property949",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property844",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property845",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property846",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property898",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property848",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property954",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property874",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property923",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property876",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property911",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property925",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property953",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property934",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property891",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property881",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property966",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property899",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property882",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property926",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property869",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property920",
     "type" : "owl:objectProperty"
   }, {
     "id" : "property896",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property851",
+    "id" : "property867",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property866",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property943",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property868",
-    "type" : "owl:objectProperty"
+    "id" : "property865",
+    "type" : "owl:disjointWith"
   }, {
-    "id" : "property881",
-    "type" : "owl:objectProperty"
+    "id" : "property959",
+    "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property846",
+    "id" : "property922",
     "type" : "owl:objectProperty"
   }, {
     "id" : "property960",
-    "type" : "owl:disjointWith"
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property946",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property945",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property967",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property928",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property900",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property942",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property892",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property970",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property961",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property924",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property888",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property916",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property907",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property904",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property929",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property935",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property933",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property931",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property957",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property913",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property930",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property921",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property968",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property894",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property941",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property963",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property912",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property938",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property940",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property947",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property902",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property919",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property897",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property932",
+    "type" : "owl:objectProperty"
   } ],
   "propertyAttribute" : [ {
-    "id" : "property926",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class178",
-    "range" : "class179",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property885",
-    "uri" : "http://rdfs.org/sioc/ns#has_member",
+    "id" : "property840",
     "label" : {
-      "IRI-based" : "has_member",
-      "en" : "has member"
+      "IRI-based" : "Disjoint With"
     },
-    "comment" : {
-      "en" : "A UserAccount that is a member of this Usergroup."
-    },
-    "domain" : "class176",
-    "range" : "class179",
-    "inverse" : "property879",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class183",
+    "range" : "class184"
   }, {
-    "id" : "property859",
-    "uri" : "http://rdfs.org/sioc/ns#links_to",
+    "id" : "property910",
     "label" : {
       "IRI-based" : "links_to",
       "en" : "links to"
     },
+    "uri" : "http://rdfs.org/sioc/ns#links_to",
     "comment" : {
       "en" : "Links extracted from hyperlinks within a SIOC concept, e.g. Post or Site."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
     "range" : "thing21",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property840" ],
-    "disjoint" : [ ]
+    "superproperty" : [ "property891" ]
   }, {
-    "id" : "property927",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class171",
-    "range" : "class179",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property936",
+    "label" : {
+      "IRI-based" : "has_member",
+      "en" : "has member"
+    },
+    "uri" : "http://rdfs.org/sioc/ns#has_member",
+    "comment" : {
+      "en" : "A UserAccount that is a member of this Usergroup."
+    },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class181",
+    "range" : "class184",
+    "inverse" : "property930"
   }, {
-    "id" : "property867",
-    "uri" : "http://rdfs.org/sioc/ns#next_version",
+    "id" : "property918",
     "label" : {
       "IRI-based" : "next_version",
       "en" : "next version"
     },
+    "uri" : "http://rdfs.org/sioc/ns#next_version",
     "comment" : {
       "en" : "Links to the next revision of this Item or Post."
     },
-    "domain" : "class174",
-    "range" : "class174",
-    "inverse" : "property870",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property883" ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property928",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class172",
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
     "range" : "class179",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property921",
+    "superproperty" : [ "property934" ]
   }, {
-    "id" : "property929",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class174",
-    "range" : "class179",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property888",
-    "uri" : "http://rdfs.org/sioc/ns#scope_of",
+    "id" : "property939",
     "label" : {
       "IRI-based" : "scope_of",
       "en" : "scope of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#scope_of",
     "comment" : {
       "en" : "A Role that has a scope of this resource."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing23",
-    "range" : "class178",
-    "inverse" : "property851",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class183",
+    "inverse" : "property902"
   }, {
-    "id" : "property923",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class168",
-    "range" : "class169",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property863",
-    "uri" : "http://rdfs.org/sioc/ns#administrator_of",
+    "id" : "property914",
     "label" : {
       "IRI-based" : "administrator_of",
       "en" : "administrator of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#administrator_of",
     "comment" : {
       "en" : "A Site that the UserAccount is an administrator of."
     },
-    "domain" : "class179",
-    "range" : "class165",
-    "inverse" : "property893",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class184",
+    "range" : "class170",
+    "inverse" : "property944"
   }, {
-    "id" : "property924",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class179",
-    "range" : "class169",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property922",
-    "uri" : "http://rdfs.org/sioc/ns#num_threads",
+    "id" : "property973",
     "label" : {
       "IRI-based" : "num_threads",
       "en" : "num threads"
     },
+    "uri" : "http://rdfs.org/sioc/ns#num_threads",
     "comment" : {
       "en" : "The number of Threads (AKA discussion topics) in a Forum."
     },
-    "domain" : "class175",
-    "range" : "datatype137",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class180",
+    "range" : "datatype137"
   }, {
-    "id" : "property925",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class177",
-    "range" : "class179",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property907",
-    "uri" : "http://purl.org/dc/terms/date",
+    "id" : "property958",
     "label" : {
       "IRI-based" : "date"
     },
-    "comment" : { },
+    "uri" : "http://purl.org/dc/terms/date",
+    "attributes" : [ "external" ],
     "domain" : "thing21",
     "range" : "literal122",
-    "equivalent" : [ ],
-    "attributes" : [ "external" ],
-    "subproperty" : [ "property899", "property905", "property920" ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "subproperty" : [ "property950", "property956", "property971" ]
   }, {
-    "id" : "property876",
-    "uri" : "http://rdfs.org/sioc/ns#has_owner",
+    "id" : "property927",
     "label" : {
       "IRI-based" : "has_owner",
       "en" : "has owner"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_owner",
     "comment" : {
       "en" : "A UserAccount that this resource is owned by."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing24",
-    "range" : "class179",
-    "inverse" : "property880",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class184",
+    "inverse" : "property931"
   }, {
-    "id" : "property852",
-    "uri" : "http://rdfs.org/sioc/ns#reference",
+    "id" : "property903",
     "label" : {
       "IRI-based" : "reference",
       "en" : "reference"
     },
+    "uri" : "http://rdfs.org/sioc/ns#reference",
     "comment" : {
       "en" : "Links either created explicitly or extracted implicitly on the HTML level from the Post."
     },
-    "domain" : "class173",
-    "range" : "thing25",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "owlVersion" : "\"Renamed to sioc:links_to.\"",
     "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class178",
+    "range" : "thing25"
   }, {
-    "id" : "property844",
-    "uri" : "http://rdfs.org/sioc/ns#link",
+    "id" : "property895",
     "label" : {
       "IRI-based" : "link",
       "en" : "link"
     },
+    "uri" : "http://rdfs.org/sioc/ns#link",
     "comment" : {
       "en" : "A URI of a document which contains this SIOC object."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
-    "range" : "thing21",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "thing21"
   }, {
-    "id" : "property920",
-    "uri" : "http://rdfs.org/sioc/ns#last_reply_date",
+    "id" : "property838",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class184",
+    "range" : "class174"
+  }, {
+    "id" : "property971",
     "label" : {
       "IRI-based" : "last_reply_date",
       "en" : "last reply date"
     },
+    "uri" : "http://rdfs.org/sioc/ns#last_reply_date",
     "comment" : {
       "en" : "The date and time of the last reply Post or Comment, which could be associated with a starter Item or Post or with a Thread, and expressed in ISO 8601 format."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
     "range" : "literal135",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property907" ],
-    "disjoint" : [ ]
+    "superproperty" : [ "property958" ]
   }, {
-    "id" : "property886",
-    "uri" : "http://rdfs.org/sioc/ns#feed",
+    "id" : "property839",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class182",
+    "range" : "class184"
+  }, {
+    "id" : "property837",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class173",
+    "range" : "class174"
+  }, {
+    "id" : "property937",
     "label" : {
       "IRI-based" : "feed",
       "en" : "feed"
     },
+    "uri" : "http://rdfs.org/sioc/ns#feed",
     "comment" : {
       "en" : "A feed (e.g. RSS, Atom, etc.) pertaining to this resource (e.g. for a Forum, Site, UserAccount, etc.)."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
-    "range" : "thing21",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "thing21"
   }, {
-    "id" : "property939",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class174",
-    "range" : "class178",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property857",
-    "uri" : "http://rdfs.org/sioc/ns#has_container",
+    "id" : "property908",
     "label" : {
       "IRI-based" : "has_container",
       "en" : "has container"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_container",
     "comment" : {
       "en" : "The Container to which this Item belongs."
     },
-    "domain" : "class174",
-    "range" : "class177",
-    "inverse" : "property854",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "class182",
+    "inverse" : "property905"
   }, {
-    "id" : "property901",
-    "uri" : "http://rdfs.org/sioc/ns#description",
+    "id" : "property952",
     "label" : {
       "IRI-based" : "description",
       "en" : "description"
     },
+    "uri" : "http://rdfs.org/sioc/ns#description",
     "comment" : {
       "en" : "The content of the Post."
     },
-    "domain" : "class173",
-    "range" : "literal116",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "owlVersion" : "\"This property is deprecated. Use sioc:content or other methods (AtomOwl, content:encoded from RSS 1.0, etc.) instead.\"",
     "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class178",
+    "range" : "literal116"
   }, {
-    "id" : "property904",
-    "uri" : "http://rdfs.org/sioc/ns#title",
+    "id" : "property955",
     "label" : {
       "IRI-based" : "title",
       "en" : "title"
     },
+    "uri" : "http://rdfs.org/sioc/ns#title",
     "comment" : {
       "en" : "This is the title (subject line) of the Post. Note that for a Post within a threaded discussion that has no parents, it would detail the topic thread."
     },
-    "domain" : "class173",
-    "range" : "literal119",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "owlVersion" : "\"This property is deprecated. Use dcterms:title from the Dublin Core ontology instead.\"",
     "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property931",
-    "label" : { },
-    "comment" : { },
     "domain" : "class178",
-    "range" : "class172",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "literal119"
   }, {
-    "id" : "property932",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class174",
-    "range" : "class172",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property930",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class176",
-    "range" : "class179",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property935",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class177",
-    "range" : "class178",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property838",
-    "uri" : "http://rdfs.org/sioc/ns#has_host",
+    "id" : "property889",
     "label" : {
       "IRI-based" : "has_host",
       "en" : "has host"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_host",
     "comment" : {
       "en" : "The Site that hosts this Forum."
     },
-    "domain" : "class175",
-    "range" : "class165",
-    "inverse" : "property843",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class180",
+    "range" : "class170",
+    "inverse" : "property894"
   }, {
-    "id" : "property936",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class171",
-    "range" : "class178",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property842",
-    "uri" : "http://rdfs.org/sioc/ns#has_usergroup",
+    "id" : "property893",
     "label" : {
       "IRI-based" : "has_usergroup",
       "en" : "has usergroup"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_usergroup",
     "comment" : {
       "en" : "Points to a Usergroup that has certain access to this Space."
     },
-    "domain" : "class171",
-    "range" : "class176",
-    "inverse" : "property860",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class176",
+    "range" : "class181",
+    "inverse" : "property911"
   }, {
-    "id" : "property913",
-    "uri" : "http://purl.org/dc/terms/title",
-    "label" : {
-      "IRI-based" : "title"
-    },
-    "comment" : { },
-    "domain" : "thing21",
-    "range" : "literal128",
-    "equivalent" : [ ],
-    "attributes" : [ "external" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property921",
-    "uri" : "http://rdfs.org/sioc/ns#note",
+    "id" : "property972",
     "label" : {
       "IRI-based" : "note",
       "en" : "note"
     },
+    "uri" : "http://rdfs.org/sioc/ns#note",
     "comment" : {
       "en" : "A note associated with this resource, for example, if it has been edited by a UserAccount."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
-    "range" : "literal136",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "literal136"
   }, {
-    "id" : "property934",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class168",
-    "range" : "class178",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property964",
+    "label" : {
+      "IRI-based" : "title"
+    },
+    "uri" : "http://purl.org/dc/terms/title",
+    "attributes" : [ "external" ],
+    "domain" : "thing21",
+    "range" : "literal128"
   }, {
-    "id" : "property899",
-    "uri" : "http://rdfs.org/sioc/ns#last_activity_date",
+    "id" : "property950",
     "label" : {
       "IRI-based" : "last_activity_date",
       "en" : "last activity date"
     },
+    "uri" : "http://rdfs.org/sioc/ns#last_activity_date",
     "comment" : {
       "en" : "The date and time of the last activity associated with a SIOC concept instance, and expressed in ISO 8601 format. This could be due to a reply Post or Comment, a modification to an Item, etc."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
     "range" : "literal114",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property907" ],
-    "disjoint" : [ ]
+    "superproperty" : [ "property958" ]
   }, {
-    "id" : "property866",
-    "uri" : "http://rdfs.org/sioc/ns#latest_version",
-    "label" : {
-      "IRI-based" : "latest_version",
-      "en" : "latest version"
-    },
-    "comment" : {
-      "en" : "Links to the latest revision of this Item or Post."
-    },
-    "domain" : "class174",
-    "range" : "class174",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property850",
-    "uri" : "http://rdfs.org/sioc/ns#embeds_knowledge",
+    "id" : "property901",
     "label" : {
       "IRI-based" : "embeds_knowledge",
       "en" : "embeds knowledge"
     },
+    "uri" : "http://rdfs.org/sioc/ns#embeds_knowledge",
     "comment" : {
       "en" : "This links Items to embedded statements, facts and structured content."
     },
-    "domain" : "class174",
-    "range" : "class167",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "class172"
   }, {
-    "id" : "property854",
-    "uri" : "http://rdfs.org/sioc/ns#container_of",
+    "id" : "property917",
+    "label" : {
+      "IRI-based" : "latest_version",
+      "en" : "latest version"
+    },
+    "uri" : "http://rdfs.org/sioc/ns#latest_version",
+    "comment" : {
+      "en" : "Links to the latest revision of this Item or Post."
+    },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "class179"
+  }, {
+    "id" : "property905",
     "label" : {
       "IRI-based" : "container_of",
       "en" : "container of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#container_of",
     "comment" : {
       "en" : "An Item that this Container contains."
     },
-    "domain" : "class177",
-    "range" : "class174",
-    "inverse" : "property857",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class182",
+    "range" : "class179",
+    "inverse" : "property908"
   }, {
-    "id" : "property897",
-    "uri" : "http://rdfs.org/sioc/ns#has_creator",
+    "id" : "property948",
     "label" : {
       "IRI-based" : "has_creator",
       "en" : "has creator"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_creator",
     "comment" : {
       "en" : "This is the UserAccount that made this resource."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing24",
-    "range" : "class179",
-    "inverse" : "property873",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class184",
+    "inverse" : "property924"
   }, {
-    "id" : "property839",
-    "uri" : "http://rdfs.org/sioc/ns#has_moderator",
+    "id" : "property890",
     "label" : {
       "IRI-based" : "has_moderator",
       "en" : "has moderator"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_moderator",
     "comment" : {
       "en" : "A UserAccount that is a moderator of this Forum."
     },
-    "domain" : "class175",
-    "range" : "class179",
-    "inverse" : "property864",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class180",
+    "range" : "class184",
+    "inverse" : "property915"
   }, {
-    "id" : "property914",
-    "uri" : "http://rdfs.org/sioc/ns#email_sha1",
+    "id" : "property862",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class182",
+    "range" : "class173"
+  }, {
+    "id" : "property861",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class181",
+    "range" : "class176"
+  }, {
+    "id" : "property965",
     "label" : {
       "IRI-based" : "email_sha1",
       "en" : "email sha1"
     },
+    "uri" : "http://rdfs.org/sioc/ns#email_sha1",
     "comment" : {
       "en" : "An electronic mail address of the UserAccount, encoded using SHA1."
     },
-    "domain" : "class179",
-    "range" : "literal129",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class184",
+    "range" : "literal129"
   }, {
-    "id" : "property893",
-    "uri" : "http://rdfs.org/sioc/ns#has_administrator",
+    "id" : "property944",
     "label" : {
       "IRI-based" : "has_administrator",
       "en" : "has administrator"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_administrator",
     "comment" : {
       "en" : "A UserAccount that is an administrator of this Site."
     },
-    "domain" : "class165",
-    "range" : "class179",
-    "inverse" : "property863",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class170",
+    "range" : "class184",
+    "inverse" : "property914"
   }, {
-    "id" : "property900",
-    "uri" : "http://rdfs.org/sioc/ns#num_authors",
+    "id" : "property854",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class181",
+    "range" : "class183"
+  }, {
+    "id" : "property855",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class178",
+    "range" : "class175"
+  }, {
+    "id" : "property951",
     "label" : {
       "IRI-based" : "num_authors",
       "en" : "num authors"
     },
+    "uri" : "http://rdfs.org/sioc/ns#num_authors",
     "comment" : {
       "en" : "The number of unique authors (UserAccounts and unregistered posters) who have contributed to this Item, Thread, Post, etc."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
-    "range" : "datatype115",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "datatype115"
   }, {
-    "id" : "property905",
-    "uri" : "http://rdfs.org/sioc/ns#last_item_date",
+    "id" : "property956",
     "label" : {
       "IRI-based" : "last_item_date",
       "en" : "last item date"
     },
+    "uri" : "http://rdfs.org/sioc/ns#last_item_date",
     "comment" : {
       "en" : "The date and time of the last Post (or Item) in a Forum (or a Container), in ISO 8601 format."
     },
-    "domain" : "class177",
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class182",
     "range" : "literal120",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property907" ],
-    "disjoint" : [ ]
+    "superproperty" : [ "property958" ]
   }, {
-    "id" : "property911",
-    "uri" : "http://rdfs.org/sioc/ns#subject",
+    "id" : "property853",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class179",
+    "range" : "class183"
+  }, {
+    "id" : "property859",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class179",
+    "range" : "class176"
+  }, {
+    "id" : "property856",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class170",
+    "range" : "class176"
+  }, {
+    "id" : "property857",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class173",
+    "range" : "class176"
+  }, {
+    "id" : "property850",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class176",
+    "range" : "class183"
+  }, {
+    "id" : "property962",
     "label" : {
       "IRI-based" : "subject",
       "en" : "subject"
     },
+    "uri" : "http://rdfs.org/sioc/ns#subject",
     "comment" : {
       "en" : "Keyword(s) describing subject of the Post."
     },
-    "domain" : "class173",
-    "range" : "literal126",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "owlVersion" : "\"This property is deprecated. Use dcterms:subject from the Dublin Core ontology for text keywords and sioc:topic if the subject can be represented by a URI instead.\"",
     "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class178",
+    "range" : "literal126"
   }, {
-    "id" : "property918",
-    "uri" : "http://rdfs.org/sioc/ns#num_views",
+    "id" : "property969",
     "label" : {
       "IRI-based" : "num_views",
       "en" : "num views"
     },
+    "uri" : "http://rdfs.org/sioc/ns#num_views",
     "comment" : {
       "en" : "The number of times this Item, Thread, UserAccount profile, etc. has been viewed."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
-    "range" : "datatype133",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "datatype133"
   }, {
-    "id" : "property855",
-    "uri" : "http://rdfs.org/sioc/ns#has_reply",
+    "id" : "property849",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class182",
+    "range" : "class183"
+  }, {
+    "id" : "property906",
     "label" : {
       "IRI-based" : "has_reply",
       "en" : "has reply"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_reply",
     "comment" : {
       "en" : "Points to an Item or Post that is a reply or response to this Item or Post."
     },
-    "domain" : "class174",
-    "range" : "class174",
-    "inverse" : "property896",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property887" ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "class179",
+    "inverse" : "property947",
+    "superproperty" : [ "property938" ]
   }, {
-    "id" : "property858",
-    "uri" : "http://rdfs.org/sioc/ns#has_space",
+    "id" : "property909",
     "label" : {
       "IRI-based" : "has_space",
       "en" : "has space"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_space",
     "comment" : {
       "en" : "A data Space which this resource is a part of."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing26",
-    "range" : "class171",
-    "inverse" : "property875",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class176",
+    "inverse" : "property926"
   }, {
-    "id" : "property864",
-    "uri" : "http://rdfs.org/sioc/ns#moderator_of",
+    "id" : "property841",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class176",
+    "range" : "class184"
+  }, {
+    "id" : "property842",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class177",
+    "range" : "class184"
+  }, {
+    "id" : "property843",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class179",
+    "range" : "class184"
+  }, {
+    "id" : "property915",
     "label" : {
       "IRI-based" : "moderator_of",
       "en" : "moderator of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#moderator_of",
     "comment" : {
       "en" : "A Forum that a UserAccount is a moderator of."
     },
-    "domain" : "class179",
-    "range" : "class175",
-    "inverse" : "property839",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class184",
+    "range" : "class180",
+    "inverse" : "property890"
   }, {
-    "id" : "property898",
-    "uri" : "http://rdfs.org/sioc/ns#modified_at",
+    "id" : "property949",
     "label" : {
       "IRI-based" : "modified_at",
       "en" : "modified at"
     },
+    "uri" : "http://rdfs.org/sioc/ns#modified_at",
     "comment" : {
       "en" : "When this was modified, in ISO 8601 format."
     },
-    "domain" : "class173",
-    "range" : "literal113",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "owlVersion" : "\"This property is deprecated. Use dcterms:modified from the Dublin Core ontology instead.\"",
     "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class178",
+    "range" : "literal113"
   }, {
-    "id" : "property847",
-    "uri" : "http://rdfs.org/sioc/ns#email",
+    "id" : "property844",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class181",
+    "range" : "class184"
+  }, {
+    "id" : "property845",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class183",
+    "range" : "class177"
+  }, {
+    "id" : "property846",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class179",
+    "range" : "class177"
+  }, {
+    "id" : "property898",
     "label" : {
       "IRI-based" : "email",
       "en" : "email"
     },
+    "uri" : "http://rdfs.org/sioc/ns#email",
     "comment" : {
       "en" : "An electronic mail address of the UserAccount."
     },
-    "domain" : "class179",
-    "range" : "thing24",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class184",
+    "range" : "thing24"
   }, {
-    "id" : "property962",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class177",
-    "range" : "class176",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property848",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class173",
+    "range" : "class183"
   }, {
-    "id" : "property967",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class175",
-    "range" : "class177",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property903",
-    "uri" : "http://rdfs.org/sioc/ns#ip_address",
+    "id" : "property954",
     "label" : {
       "IRI-based" : "ip_address",
       "en" : "ip address"
     },
+    "uri" : "http://rdfs.org/sioc/ns#ip_address",
     "comment" : {
       "en" : "The IP address used when creating this Item. This can be associated with a creator. Some wiki articles list the IP addresses for the creator or modifiers when the usernames are absent."
     },
-    "domain" : "class174",
-    "range" : "literal118",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "literal118"
   }, {
-    "id" : "property872",
-    "uri" : "http://xmlns.com/foaf/0.1/depiction",
+    "id" : "property874",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class181",
+    "range" : "class179"
+  }, {
+    "id" : "property923",
     "label" : {
       "IRI-based" : "depiction"
     },
-    "comment" : { },
+    "uri" : "http://xmlns.com/foaf/0.1/depiction",
+    "attributes" : [ "external" ],
     "domain" : "thing21",
     "range" : "thing21",
-    "equivalent" : [ ],
-    "attributes" : [ "external" ],
-    "subproperty" : [ "property849" ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "subproperty" : [ "property900" ]
   }, {
-    "id" : "property968",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class164",
-    "range" : "class177",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property876",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class182",
+    "range" : "class181"
   }, {
-    "id" : "property860",
-    "uri" : "http://rdfs.org/sioc/ns#usergroup_of",
+    "id" : "property911",
     "label" : {
       "IRI-based" : "usergroup_of",
       "en" : "usergroup of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#usergroup_of",
     "comment" : {
       "en" : "A Space that the Usergroup has access to."
     },
-    "domain" : "class176",
-    "range" : "class171",
-    "inverse" : "property842",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class181",
+    "range" : "class176",
+    "inverse" : "property893"
   }, {
-    "id" : "property874",
-    "uri" : "http://rdfs.org/sioc/ns#has_part",
+    "id" : "property925",
     "label" : {
       "IRI-based" : "has_part",
       "en" : "has part"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_part",
     "comment" : {
       "en" : "An resource that is a part of this subject."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "owlVersion" : "\"This property is deprecated. Use dcterms:hasPart from the Dublin Core ontology instead.\"",
+    "attributes" : [ "deprecated" ],
     "domain" : "thing21",
     "range" : "thing21",
-    "inverse" : "property884",
-    "equivalent" : [ ],
-    "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property935"
   }, {
-    "id" : "property902",
-    "uri" : "http://rdfs.org/sioc/ns#last_name",
+    "id" : "property953",
     "label" : {
       "IRI-based" : "last_name",
       "en" : "last name"
     },
+    "uri" : "http://rdfs.org/sioc/ns#last_name",
     "comment" : {
       "en" : "Last (real) name of this user. Synonyms include surname or family name."
     },
-    "domain" : "class179",
-    "range" : "literal117",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "owlVersion" : "\"This property is deprecated. Use foaf:name or foaf:surname from the FOAF vocabulary instead.\"",
     "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class184",
+    "range" : "literal117"
   }, {
-    "id" : "property883",
-    "uri" : "http://rdfs.org/sioc/ns#later_version",
+    "id" : "property934",
     "label" : {
       "IRI-based" : "later_version",
       "en" : "later version"
     },
+    "uri" : "http://rdfs.org/sioc/ns#later_version",
     "comment" : {
       "en" : "Links to a later (newer) revision of this Item or Post."
     },
-    "domain" : "class174",
-    "range" : "class174",
-    "inverse" : "property848",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "attributes" : [ "transitive" ],
-    "subproperty" : [ "property867" ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class179",
+    "range" : "class179",
+    "inverse" : "property899",
+    "subproperty" : [ "property918" ]
   }, {
-    "id" : "property840",
-    "uri" : "http://purl.org/dc/terms/references",
+    "id" : "property891",
     "label" : {
       "IRI-based" : "references"
     },
-    "comment" : { },
+    "uri" : "http://purl.org/dc/terms/references",
+    "attributes" : [ "external" ],
     "domain" : "thing21",
     "range" : "thing21",
-    "equivalent" : [ ],
-    "attributes" : [ "external" ],
-    "subproperty" : [ "property859" ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "subproperty" : [ "property910" ]
   }, {
-    "id" : "property848",
-    "uri" : "http://rdfs.org/sioc/ns#earlier_version",
+    "id" : "property881",
     "label" : {
-      "IRI-based" : "earlier_version",
-      "en" : "earlier version"
+      "IRI-based" : "Subclass Of"
     },
-    "comment" : {
-      "en" : "Links to a previous (older) revision of this Item or Post."
-    },
-    "domain" : "class174",
-    "range" : "class174",
-    "inverse" : "property883",
-    "equivalent" : [ ],
-    "attributes" : [ "transitive" ],
-    "subproperty" : [ "property870" ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class180",
+    "range" : "class182"
   }, {
-    "id" : "property915",
-    "uri" : "http://rdfs.org/sioc/ns#num_items",
+    "id" : "property966",
     "label" : {
       "IRI-based" : "num_items",
       "en" : "num items"
     },
+    "uri" : "http://rdfs.org/sioc/ns#num_items",
     "comment" : {
       "en" : "The number of Posts (or Items) in a Forum (or a Container)."
     },
-    "domain" : "class177",
-    "range" : "datatype130",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class182",
+    "range" : "datatype130"
   }, {
-    "id" : "property875",
-    "uri" : "http://rdfs.org/sioc/ns#space_of",
+    "id" : "property899",
+    "label" : {
+      "IRI-based" : "earlier_version",
+      "en" : "earlier version"
+    },
+    "uri" : "http://rdfs.org/sioc/ns#earlier_version",
+    "comment" : {
+      "en" : "Links to a previous (older) revision of this Item or Post."
+    },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "attributes" : [ "transitive" ],
+    "domain" : "class179",
+    "range" : "class179",
+    "inverse" : "property934",
+    "subproperty" : [ "property921" ]
+  }, {
+    "id" : "property882",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class169",
+    "range" : "class182"
+  }, {
+    "id" : "property926",
     "label" : {
       "IRI-based" : "space_of",
       "en" : "space of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#space_of",
     "comment" : {
       "en" : "A resource which belongs to this data Space."
     },
-    "domain" : "class171",
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class176",
     "range" : "thing26",
-    "inverse" : "property858",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property909"
   }, {
     "id" : "property869",
-    "uri" : "http://rdfs.org/sioc/ns#addressed_to",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class182",
+    "range" : "class179"
+  }, {
+    "id" : "property920",
     "label" : {
       "IRI-based" : "addressed_to",
       "en" : "addressed to"
     },
+    "uri" : "http://rdfs.org/sioc/ns#addressed_to",
     "comment" : {
       "en" : "Refers to who (e.g. a UserAccount, e-mail address, etc.) a particular Item is addressed to."
     },
-    "domain" : "class174",
-    "range" : "thing22",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "thing22"
   }, {
-    "id" : "property845",
-    "uri" : "http://rdfs.org/sioc/ns#about",
+    "id" : "property896",
     "label" : {
       "IRI-based" : "about",
       "en" : "about"
     },
+    "uri" : "http://rdfs.org/sioc/ns#about",
     "comment" : {
       "en" : "Specifies that this Item is about a particular resource, e.g. a Post describing a book, hotel, etc."
     },
-    "domain" : "class174",
-    "range" : "thing22",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "thing22"
   }, {
-    "id" : "property892",
-    "uri" : "http://rdfs.org/sioc/ns#has_modifier",
+    "id" : "property867",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class178",
+    "range" : "class179"
+  }, {
+    "id" : "property866",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class181",
+    "range" : "class173"
+  }, {
+    "id" : "property943",
     "label" : {
       "IRI-based" : "has_modifier",
       "en" : "has modifier"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_modifier",
     "comment" : {
       "en" : "A UserAccount that modified this Item."
     },
-    "domain" : "class174",
-    "range" : "class179",
-    "inverse" : "property895",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "class184",
+    "inverse" : "property946"
   }, {
-    "id" : "property908",
-    "uri" : "http://rdfs.org/sioc/ns#id",
+    "id" : "property865",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class179",
+    "range" : "class173"
+  }, {
+    "id" : "property959",
     "label" : {
       "IRI-based" : "id",
       "en" : "id"
     },
+    "uri" : "http://rdfs.org/sioc/ns#id",
     "comment" : {
       "en" : "An identifier of a SIOC concept instance. For example, a user ID. Must be unique for instances of each type of SIOC concept within the same site."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
-    "range" : "literal123",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "literal123"
   }, {
-    "id" : "property871",
-    "uri" : "http://rdfs.org/sioc/ns#topic",
+    "id" : "property922",
     "label" : {
       "IRI-based" : "topic",
       "en" : "topic"
     },
+    "uri" : "http://rdfs.org/sioc/ns#topic",
     "comment" : {
       "en" : "A topic of interest, linking to the appropriate URI, e.g. in the Open Directory Project or of a SKOS category."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
     "range" : "thing21",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property878" ],
-    "disjoint" : [ ]
+    "superproperty" : [ "property929" ]
   }, {
-    "id" : "property909",
-    "uri" : "http://purl.org/dc/terms/description",
+    "id" : "property960",
     "label" : {
       "IRI-based" : "description"
     },
-    "comment" : { },
-    "domain" : "thing21",
-    "range" : "literal124",
-    "equivalent" : [ ],
+    "uri" : "http://purl.org/dc/terms/description",
     "attributes" : [ "external" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "thing21",
+    "range" : "literal124"
   }, {
-    "id" : "property895",
-    "uri" : "http://rdfs.org/sioc/ns#modifier_of",
+    "id" : "property946",
     "label" : {
       "IRI-based" : "modifier_of",
       "en" : "modifier of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#modifier_of",
     "comment" : {
       "en" : "An Item that this UserAccount has modified."
     },
-    "domain" : "class179",
-    "range" : "class174",
-    "inverse" : "property892",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class184",
+    "range" : "class179",
+    "inverse" : "property943"
   }, {
-    "id" : "property894",
-    "uri" : "http://rdfs.org/sioc/ns#follows",
+    "id" : "property945",
     "label" : {
       "IRI-based" : "follows",
       "en" : "follows"
     },
+    "uri" : "http://rdfs.org/sioc/ns#follows",
     "comment" : {
       "en" : "Indicates that one UserAccount follows another UserAccount (e.g. for microblog posts or other content item updates)."
     },
-    "domain" : "class179",
-    "range" : "class179",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class184",
+    "range" : "class184"
   }, {
-    "id" : "property916",
-    "uri" : "http://rdfs.org/sioc/ns#num_replies",
+    "id" : "property967",
     "label" : {
       "IRI-based" : "num_replies",
       "en" : "num replies"
     },
+    "uri" : "http://rdfs.org/sioc/ns#num_replies",
     "comment" : {
       "en" : "The number of replies that this Item, Thread, Post, etc. has. Useful for when the reply structure is absent."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
-    "range" : "datatype131",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "datatype131"
   }, {
-    "id" : "property877",
-    "uri" : "http://rdfs.org/sioc/ns#subscriber_of",
+    "id" : "property928",
     "label" : {
       "IRI-based" : "subscriber_of",
       "en" : "subscriber of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#subscriber_of",
     "comment" : {
       "en" : "A Container that a UserAccount is subscribed to."
     },
-    "domain" : "class179",
-    "range" : "class177",
-    "inverse" : "property890",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://rdfs.org/sioc/ns#feed",
+        "type" : "iri"
+      } ]
+    },
+    "domain" : "class184",
+    "range" : "class182",
+    "inverse" : "property941"
   }, {
-    "id" : "property849",
-    "uri" : "http://rdfs.org/sioc/ns#avatar",
+    "id" : "property900",
     "label" : {
       "IRI-based" : "avatar",
       "en" : "avatar"
     },
+    "uri" : "http://rdfs.org/sioc/ns#avatar",
     "comment" : {
       "en" : "An image or depiction used to represent this UserAccount."
     },
-    "domain" : "class179",
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class184",
     "range" : "thing24",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property872" ],
-    "disjoint" : [ ]
+    "superproperty" : [ "property923" ]
   }, {
-    "id" : "property945",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class174",
-    "range" : "class171",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property891",
-    "uri" : "http://rdfs.org/sioc/ns#group_of",
+    "id" : "property942",
     "label" : {
       "IRI-based" : "group_of",
       "en" : "group of"
     },
-    "comment" : { },
+    "uri" : "http://rdfs.org/sioc/ns#group_of",
+    "owlVersion" : "\"This property has been renamed. Use sioc:usergroup_of instead.\"",
+    "attributes" : [ "deprecated" ],
     "domain" : "thing21",
     "range" : "thing21",
-    "inverse" : "property856",
-    "equivalent" : [ ],
-    "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property907"
   }, {
-    "id" : "property947",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class176",
-    "range" : "class171",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property841",
-    "uri" : "http://rdfs.org/sioc/ns#attachment",
+    "id" : "property892",
     "label" : {
       "IRI-based" : "attachment",
       "en" : "attachment"
     },
+    "uri" : "http://rdfs.org/sioc/ns#attachment",
     "comment" : {
       "en" : "The URI of a file attached to an Item."
     },
-    "domain" : "class174",
-    "range" : "thing22",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "thing22"
   }, {
-    "id" : "property910",
-    "uri" : "http://rdfs.org/sioc/ns#created_at",
-    "label" : {
-      "IRI-based" : "created_at",
-      "en" : "created at"
-    },
-    "comment" : {
-      "en" : "When this was created, in ISO 8601 format."
-    },
-    "domain" : "class173",
-    "range" : "literal125",
-    "equivalent" : [ ],
-    "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property919",
-    "uri" : "http://rdfs.org/sioc/ns#first_name",
+    "id" : "property970",
     "label" : {
       "IRI-based" : "first_name",
       "en" : "first name"
     },
+    "uri" : "http://rdfs.org/sioc/ns#first_name",
     "comment" : {
       "en" : "First (real) name of this User. Synonyms include given name or christian name."
     },
-    "domain" : "class179",
-    "range" : "literal134",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "owlVersion" : "\"This property is deprecated. Use foaf:name or foaf:firstName from the FOAF vocabulary instead.\"",
     "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class184",
+    "range" : "literal134"
   }, {
-    "id" : "property941",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class173",
-    "range" : "class170",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property961",
+    "label" : {
+      "IRI-based" : "created_at",
+      "en" : "created at"
+    },
+    "uri" : "http://rdfs.org/sioc/ns#created_at",
+    "comment" : {
+      "en" : "When this was created, in ISO 8601 format."
+    },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "owlVersion" : "\"This property is deprecated. Use dcterms:created from the Dublin Core ontology instead.\"",
+    "attributes" : [ "deprecated" ],
+    "domain" : "class178",
+    "range" : "literal125"
   }, {
-    "id" : "property873",
-    "uri" : "http://rdfs.org/sioc/ns#creator_of",
+    "id" : "property924",
     "label" : {
       "IRI-based" : "creator_of",
       "en" : "creator of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#creator_of",
     "comment" : {
       "en" : "A resource that the UserAccount is a creator of."
     },
-    "domain" : "class179",
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class184",
     "range" : "thing24",
-    "inverse" : "property897",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property948"
   }, {
-    "id" : "property940",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class176",
-    "range" : "class178",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property943",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class168",
-    "range" : "class171",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property942",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class165",
-    "range" : "class171",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property837",
-    "uri" : "http://rdfs.org/sioc/ns#next_by_date",
+    "id" : "property888",
     "label" : {
       "IRI-based" : "next_by_date",
       "en" : "next by date"
     },
+    "uri" : "http://rdfs.org/sioc/ns#next_by_date",
     "comment" : {
       "en" : "Next Item or Post in a given Container sorted by date."
     },
-    "domain" : "class174",
-    "range" : "class174",
-    "inverse" : "property861",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "class179",
+    "inverse" : "property912"
   }, {
-    "id" : "property865",
-    "uri" : "http://rdfs.org/sioc/ns#parent_of",
+    "id" : "property916",
     "label" : {
       "IRI-based" : "parent_of",
       "en" : "parent of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#parent_of",
     "comment" : {
       "en" : "A child Container or Forum that this Container or Forum is a parent of."
     },
-    "domain" : "class177",
-    "range" : "class177",
-    "inverse" : "property853",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class182",
+    "range" : "class182",
+    "inverse" : "property904"
   }, {
-    "id" : "property856",
-    "uri" : "http://rdfs.org/sioc/ns#has_group",
+    "id" : "property907",
     "label" : {
       "IRI-based" : "has_group",
       "en" : "has group"
     },
-    "comment" : { },
-    "domain" : "thing21",
-    "range" : "thing21",
-    "inverse" : "property891",
-    "equivalent" : [ ],
+    "uri" : "http://rdfs.org/sioc/ns#has_group",
+    "owlVersion" : "\"This property has been renamed. Use sioc:has_usergroup instead.\"",
     "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property948",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class177",
-    "range" : "class168",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property878",
-    "uri" : "http://purl.org/dc/terms/subject",
-    "label" : {
-      "IRI-based" : "subject"
-    },
-    "comment" : { },
     "domain" : "thing21",
     "range" : "thing21",
-    "equivalent" : [ ],
-    "attributes" : [ "external" ],
-    "subproperty" : [ "property871" ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property942"
   }, {
-    "id" : "property853",
-    "uri" : "http://rdfs.org/sioc/ns#has_parent",
+    "id" : "property904",
     "label" : {
       "IRI-based" : "has_parent",
       "en" : "has parent"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_parent",
     "comment" : {
       "en" : "A Container or Forum that this Container or Forum is a child of."
     },
-    "domain" : "class177",
-    "range" : "class177",
-    "inverse" : "property865",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class182",
+    "range" : "class182",
+    "inverse" : "property916"
   }, {
-    "id" : "property884",
-    "uri" : "http://rdfs.org/sioc/ns#part_of",
+    "id" : "property929",
+    "label" : {
+      "IRI-based" : "subject"
+    },
+    "uri" : "http://purl.org/dc/terms/subject",
+    "attributes" : [ "external" ],
+    "domain" : "thing21",
+    "range" : "thing21",
+    "subproperty" : [ "property922" ]
+  }, {
+    "id" : "property935",
     "label" : {
       "IRI-based" : "part_of",
       "en" : "part of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#part_of",
     "comment" : {
       "en" : "A resource that the subject is a part of."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "owlVersion" : "\"This property is deprecated. Use dcterms:isPartOf from the Dublin Core ontology instead.\"",
+    "attributes" : [ "deprecated" ],
     "domain" : "thing21",
     "range" : "thing21",
-    "inverse" : "property874",
-    "equivalent" : [ ],
-    "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property925"
   }, {
-    "id" : "property882",
-    "uri" : "http://rdfs.org/sioc/ns#account_of",
+    "id" : "property933",
     "label" : {
       "IRI-based" : "account_of",
       "en" : "account of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#account_of",
     "comment" : {
       "en" : "Refers to the foaf:Agent or foaf:Person who owns this sioc:UserAccount."
     },
-    "domain" : "class179",
-    "range" : "class166",
-    "inverse" : "property889",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class184",
+    "range" : "class171",
+    "inverse" : "property940"
   }, {
-    "id" : "property880",
-    "uri" : "http://rdfs.org/sioc/ns#owner_of",
+    "id" : "property931",
     "label" : {
       "IRI-based" : "owner_of",
       "en" : "owner of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#owner_of",
     "comment" : {
       "en" : "A resource owned by a particular UserAccount, for example, a weblog or image gallery."
     },
-    "domain" : "class179",
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class184",
     "range" : "thing24",
-    "inverse" : "property876",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property927"
   }, {
-    "id" : "property906",
-    "uri" : "http://rdfs.org/sioc/ns#content",
+    "id" : "property957",
     "label" : {
       "IRI-based" : "content",
       "en" : "content"
     },
+    "uri" : "http://rdfs.org/sioc/ns#content",
     "comment" : {
       "en" : "The content of the Item in plain text format."
     },
-    "domain" : "class174",
-    "range" : "literal121",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "literal121"
   }, {
-    "id" : "property862",
-    "uri" : "http://rdfs.org/sioc/ns#has_discussion",
+    "id" : "property913",
     "label" : {
       "IRI-based" : "has_discussion",
       "en" : "has discussion"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_discussion",
     "comment" : {
       "en" : "The discussion that is related to this Item."
     },
-    "domain" : "class174",
-    "range" : "thing22",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "thing22"
   }, {
-    "id" : "property879",
-    "uri" : "http://rdfs.org/sioc/ns#member_of",
+    "id" : "property930",
     "label" : {
       "IRI-based" : "member_of",
       "en" : "member of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#member_of",
     "comment" : {
       "en" : "A Usergroup that this UserAccount is a member of."
     },
-    "domain" : "class179",
-    "range" : "class176",
-    "inverse" : "property885",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class184",
+    "range" : "class181",
+    "inverse" : "property936"
   }, {
-    "id" : "property870",
-    "uri" : "http://rdfs.org/sioc/ns#previous_version",
+    "id" : "property921",
     "label" : {
       "IRI-based" : "previous_version",
       "en" : "previous version"
     },
+    "uri" : "http://rdfs.org/sioc/ns#previous_version",
     "comment" : {
       "en" : "Links to the previous revision of this Item or Post."
     },
-    "domain" : "class174",
-    "range" : "class174",
-    "inverse" : "property867",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property848" ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "class179",
+    "inverse" : "property918",
+    "superproperty" : [ "property899" ]
   }, {
-    "id" : "property917",
-    "uri" : "http://rdfs.org/sioc/ns#name",
+    "id" : "property968",
     "label" : {
       "IRI-based" : "name",
       "en" : "name"
     },
+    "uri" : "http://rdfs.org/sioc/ns#name",
     "comment" : {
       "en" : "The name of a SIOC concept instance, e.g. a username for a UserAccount, group name for a Usergroup, etc."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
-    "range" : "literal132",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "literal132"
   }, {
-    "id" : "property843",
-    "uri" : "http://rdfs.org/sioc/ns#host_of",
+    "id" : "property894",
     "label" : {
       "IRI-based" : "host_of",
       "en" : "host of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#host_of",
     "comment" : {
       "en" : "A Forum that is hosted on this Site."
     },
-    "domain" : "class165",
-    "range" : "class175",
-    "inverse" : "property838",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class170",
+    "range" : "class180",
+    "inverse" : "property889"
   }, {
-    "id" : "property955",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class177",
-    "range" : "class174",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property890",
-    "uri" : "http://rdfs.org/sioc/ns#has_subscriber",
+    "id" : "property941",
     "label" : {
       "IRI-based" : "has_subscriber",
       "en" : "has subscriber"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_subscriber",
     "comment" : {
       "en" : "A UserAccount that is subscribed to this Container."
     },
-    "domain" : "class177",
-    "range" : "class179",
-    "inverse" : "property877",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://rdfs.org/sioc/ns#feed",
+        "type" : "iri"
+      } ]
+    },
+    "domain" : "class182",
+    "range" : "class184",
+    "inverse" : "property928"
   }, {
-    "id" : "property953",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class173",
-    "range" : "class174",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property952",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class176",
-    "range" : "class168",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property951",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class174",
-    "range" : "class168",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property912",
-    "uri" : "http://rdfs.org/sioc/ns#content_encoded",
+    "id" : "property963",
     "label" : {
       "IRI-based" : "content_encoded",
       "en" : "content encoded"
     },
+    "uri" : "http://rdfs.org/sioc/ns#content_encoded",
     "comment" : {
       "en" : "The encoded content of the Post, contained in CDATA areas."
     },
-    "domain" : "class173",
-    "range" : "literal127",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "owlVersion" : "\"This property is deprecated. Use content:encoded from the RSS 1.0 content module instead.\"",
     "attributes" : [ "deprecated" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class178",
+    "range" : "literal127"
   }, {
-    "id" : "property861",
-    "uri" : "http://rdfs.org/sioc/ns#previous_by_date",
+    "id" : "property912",
     "label" : {
       "IRI-based" : "previous_by_date",
       "en" : "previous by date"
     },
+    "uri" : "http://rdfs.org/sioc/ns#previous_by_date",
     "comment" : {
       "en" : "Previous Item or Post in a given Container sorted by date."
     },
-    "domain" : "class174",
-    "range" : "class174",
-    "inverse" : "property837",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "class179",
+    "inverse" : "property888"
   }, {
-    "id" : "property887",
-    "uri" : "http://rdfs.org/sioc/ns#related_to",
+    "id" : "property938",
     "label" : {
       "IRI-based" : "related_to",
       "en" : "related to"
     },
+    "uri" : "http://rdfs.org/sioc/ns#related_to",
     "comment" : {
       "en" : "Related Posts for this Post, perhaps determined implicitly from topics or references."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing21",
     "range" : "thing21",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ "property855", "property896" ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "subproperty" : [ "property906", "property947" ]
   }, {
-    "id" : "property889",
-    "uri" : "http://xmlns.com/foaf/0.1/account",
+    "id" : "property940",
     "label" : {
       "IRI-based" : "account"
     },
-    "comment" : { },
-    "domain" : "class166",
-    "range" : "class179",
-    "inverse" : "property882",
-    "equivalent" : [ ],
+    "uri" : "http://xmlns.com/foaf/0.1/account",
     "attributes" : [ "external" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class171",
+    "range" : "class184",
+    "inverse" : "property933"
   }, {
-    "id" : "property896",
-    "uri" : "http://rdfs.org/sioc/ns#reply_of",
+    "id" : "property947",
     "label" : {
       "IRI-based" : "reply_of",
       "en" : "reply of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#reply_of",
     "comment" : {
       "en" : "Links to an Item or Post which this Item or Post is a reply to."
     },
-    "domain" : "class174",
-    "range" : "class174",
-    "inverse" : "property855",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property887" ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class179",
+    "range" : "class179",
+    "inverse" : "property906",
+    "superproperty" : [ "property938" ]
   }, {
-    "id" : "property851",
-    "uri" : "http://rdfs.org/sioc/ns#has_scope",
+    "id" : "property902",
     "label" : {
       "IRI-based" : "has_scope",
       "en" : "has scope"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_scope",
     "comment" : {
       "en" : "A resource that this Role applies to."
     },
-    "domain" : "class178",
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class183",
     "range" : "thing23",
-    "inverse" : "property888",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property939"
   }, {
-    "id" : "property868",
-    "uri" : "http://rdfs.org/sioc/ns#function_of",
+    "id" : "property919",
     "label" : {
       "IRI-based" : "function_of",
       "en" : "function of"
     },
+    "uri" : "http://rdfs.org/sioc/ns#function_of",
     "comment" : {
       "en" : "A UserAccount that has this Role."
     },
-    "domain" : "class178",
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "domain" : "class183",
     "range" : "thing23",
-    "inverse" : "property846",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property897"
   }, {
-    "id" : "property881",
-    "uri" : "http://rdfs.org/sioc/ns#sibling",
-    "label" : {
-      "IRI-based" : "sibling",
-      "en" : "sibling"
-    },
-    "comment" : {
-      "en" : "An Item may have a sibling or a twin that exists in a different Container, but the siblings may differ in some small way (for example, language, category, etc.). The sibling of this Item should be self-describing (that is, it should contain all available information)."
-    },
-    "domain" : "class174",
-    "range" : "class174",
-    "equivalent" : [ ],
-    "attributes" : [ "symmetric" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property846",
-    "uri" : "http://rdfs.org/sioc/ns#has_function",
+    "id" : "property897",
     "label" : {
       "IRI-based" : "has_function",
       "en" : "has function"
     },
+    "uri" : "http://rdfs.org/sioc/ns#has_function",
     "comment" : {
       "en" : "A Role that this UserAccount has."
     },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
     "domain" : "thing23",
-    "range" : "class178",
-    "inverse" : "property868",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class183",
+    "inverse" : "property919"
   }, {
-    "id" : "property960",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class176",
-    "range" : "class174",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property932",
+    "label" : {
+      "IRI-based" : "sibling",
+      "en" : "sibling"
+    },
+    "uri" : "http://rdfs.org/sioc/ns#sibling",
+    "comment" : {
+      "en" : "An Item may have a sibling or a twin that exists in a different Container, but the siblings may differ in some small way (for example, language, category, etc.). The sibling of this Item should be self-describing (that is, it should contain all available information)."
+    },
+    "isDefinedBy" : "http://rdfs.org/sioc/ns#",
+    "attributes" : [ "symmetric" ],
+    "domain" : "class179",
+    "range" : "class179"
   } ]
 }

@@ -1,6 +1,6 @@
 {
   "_comment" : "Created with OWL2VOWL (version 0.1.4), http://vowl.visualdataweb.org",
-  "namespace" : [ { } ],
+  "namespace" : [ ],
   "header" : {
     "languages" : [ "de", "IRI-based", "undefined", "jp", "fr", "en", "es", "ja", "cs" ],
     "title" : {
@@ -16,10 +16,6 @@
       "ja" : "プロジェクトの説明の語彙(DOAP)。W3C RDF SchemaとWeb Ontology Languageで作られた。",
       "cs" : "Slovník Description of a Project (DOAP, Popis projektu), popsaný použitím W3C RDF Schema a Web Ontology Language."
     },
-    "seeAlso" : [ ],
-    "issued" : [ ],
-    "license" : [ ],
-    "rdfsLabel" : [ ],
     "other" : {
       "rights" : [ {
         "identifier" : "rights",
@@ -46,61 +42,61 @@
     "individualCount" : 2
   },
   "class" : [ {
-    "id" : "class200",
-    "type" : "owl:Class"
-  }, {
-    "id" : "class187",
-    "type" : "owl:Class"
-  }, {
-    "id" : "class186",
-    "type" : "owl:Class"
-  }, {
-    "id" : "class194",
-    "type" : "externalclass"
-  }, {
-    "id" : "class190",
+    "id" : "class205",
     "type" : "owl:Class"
   }, {
     "id" : "class192",
     "type" : "owl:Class"
   }, {
-    "id" : "class199",
-    "type" : "externalclass"
-  }, {
-    "id" : "class198",
-    "type" : "externalclass"
-  }, {
-    "id" : "class201",
-    "type" : "externalclass"
-  }, {
-    "id" : "class196",
-    "type" : "owl:Class"
-  }, {
     "id" : "class191",
     "type" : "owl:Class"
   }, {
-    "id" : "class193",
-    "type" : "owl:Class"
-  }, {
-    "id" : "class189",
+    "id" : "class199",
     "type" : "externalclass"
   }, {
-    "id" : "class202",
+    "id" : "class195",
     "type" : "owl:Class"
   }, {
     "id" : "class197",
     "type" : "owl:Class"
   }, {
-    "id" : "class188",
-    "type" : "owl:Class"
+    "id" : "class204",
+    "type" : "externalclass"
   }, {
-    "id" : "class195",
-    "type" : "owl:Class"
-  }, {
-    "id" : "class205",
-    "type" : "owl:intersectionOf"
+    "id" : "class203",
+    "type" : "externalclass"
   }, {
     "id" : "class206",
+    "type" : "externalclass"
+  }, {
+    "id" : "class201",
+    "type" : "owl:Class"
+  }, {
+    "id" : "class196",
+    "type" : "owl:Class"
+  }, {
+    "id" : "class198",
+    "type" : "owl:Class"
+  }, {
+    "id" : "class194",
+    "type" : "externalclass"
+  }, {
+    "id" : "class207",
+    "type" : "owl:Class"
+  }, {
+    "id" : "class202",
+    "type" : "owl:Class"
+  }, {
+    "id" : "class193",
+    "type" : "owl:Class"
+  }, {
+    "id" : "class200",
+    "type" : "owl:Class"
+  }, {
+    "id" : "class211",
+    "type" : "owl:intersectionOf"
+  }, {
+    "id" : "class210",
     "type" : "owl:intersectionOf"
   }, {
     "id" : "thing28",
@@ -110,7 +106,7 @@
     "type" : "owl:Thing"
   } ],
   "classAttribute" : [ {
-    "id" : "class200",
+    "id" : "class205",
     "label" : {
       "IRI-based" : "DarcsRepository",
       "fr" : "Dépôt darcs",
@@ -125,16 +121,11 @@
       "es" : "Repositorio darcs del código fuente.",
       "ja" : "ソースコードのdarcsのリポジトリ"
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class197" ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "superClasses" : [ "class202" ],
+    "instances" : 0
   }, {
-    "id" : "class187",
+    "id" : "class192",
     "label" : {
       "IRI-based" : "CVSRepository",
       "de" : "CVS Repository",
@@ -153,16 +144,11 @@
       "ja" : "ソースコードのCVSのリポジトリ",
       "cs" : "Úložiště zdrojových kódů CVS."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class197" ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "superClasses" : [ "class202" ],
+    "instances" : 0
   }, {
-    "id" : "class186",
+    "id" : "class191",
     "label" : {
       "IRI-based" : "SVNRepository",
       "de" : "Subversion Repository",
@@ -181,31 +167,20 @@
       "ja" : "ソースコードのSubversionのリポジトリ",
       "cs" : "Úložiště zdrojových kódů Subversion."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class197" ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "superClasses" : [ "class202" ],
+    "instances" : 0
   }, {
-    "id" : "class194",
+    "id" : "class199",
     "label" : {
       "IRI-based" : "Resource"
     },
     "uri" : "http://www.w3.org/2000/01/rdf-schema#Resource",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
     "attributes" : [ "external" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ "class188" ],
-    "superClasses" : [ ]
+    "subClasses" : [ "class193" ],
+    "instances" : 0
   }, {
-    "id" : "class190",
+    "id" : "class195",
     "label" : {
       "IRI-based" : "BazaarBranch",
       "en" : "Bazaar Branch",
@@ -216,16 +191,11 @@
       "en" : "Bazaar source code branch.",
       "ja" : "ソースコードのBazzarのリポジトリ"
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class197" ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "superClasses" : [ "class202" ],
+    "instances" : 0
   }, {
-    "id" : "class192",
+    "id" : "class197",
     "label" : {
       "IRI-based" : "ArchRepository",
       "de" : "GNU Arch repository",
@@ -244,16 +214,11 @@
       "ja" : "ソースコードのGNU Archのリポジトリ",
       "cs" : "Úložiště zdrojových kódů GNU Arch."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class197" ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "superClasses" : [ "class202" ],
+    "instances" : 0
   }, {
-    "id" : "class199",
+    "id" : "class204",
     "label" : {
       "IRI-based" : "Person",
       "undefined" : "Person"
@@ -262,16 +227,19 @@
     "comment" : {
       "undefined" : "A person."
     },
-    "instances" : 1,
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://xmlns.com/foaf/0.1/",
     "attributes" : [ "external" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "term_status" : [ {
+        "identifier" : "term_status",
+        "language" : "undefined",
+        "value" : "stable",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
-    "id" : "class198",
+    "id" : "class203",
     "label" : {
       "IRI-based" : "Organization",
       "undefined" : "Organization"
@@ -280,31 +248,28 @@
     "comment" : {
       "undefined" : "An organization."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://xmlns.com/foaf/0.1/",
     "attributes" : [ "external" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "term_status" : [ {
+        "identifier" : "term_status",
+        "language" : "undefined",
+        "value" : "stable",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
-    "id" : "class201",
+    "id" : "class206",
     "label" : {
       "IRI-based" : "Project"
     },
     "uri" : "http://xmlns.com/wordnet/1.6/Project",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
     "attributes" : [ "external" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ "class196" ],
-    "superClasses" : [ ]
+    "subClasses" : [ "class201" ],
+    "instances" : 0
   }, {
-    "id" : "class196",
+    "id" : "class201",
     "label" : {
       "IRI-based" : "Project",
       "de" : "Prijekt",
@@ -323,16 +288,11 @@
       "ja" : "プログラミングのプロジェクト",
       "cs" : "Projekt."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class189", "class201" ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "superClasses" : [ "class194", "class206" ],
+    "instances" : 0
   }, {
-    "id" : "class191",
+    "id" : "class196",
     "label" : {
       "IRI-based" : "GitRepository",
       "de" : "Git repository",
@@ -351,16 +311,11 @@
       "ja" : "ソースコードのGitのリポジトリ",
       "cs" : "Úložiště zdrojových kódů Git."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class197" ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "superClasses" : [ "class202" ],
+    "instances" : 0
   }, {
-    "id" : "class193",
+    "id" : "class198",
     "label" : {
       "IRI-based" : "HgRepository",
       "en" : "Mercurial Repository",
@@ -371,16 +326,11 @@
       "en" : "Mercurial source code repository.",
       "ja" : "ソースコードのMercurialのリポジトリ"
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class197" ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "superClasses" : [ "class202" ],
+    "instances" : 0
   }, {
-    "id" : "class189",
+    "id" : "class194",
     "label" : {
       "IRI-based" : "Project",
       "undefined" : "Project"
@@ -389,16 +339,20 @@
     "comment" : {
       "undefined" : "A project (a collective endeavour of some kind)."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://xmlns.com/foaf/0.1/",
     "attributes" : [ "external" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ "class196" ],
-    "superClasses" : [ ]
+    "subClasses" : [ "class201" ],
+    "annotations" : {
+      "term_status" : [ {
+        "identifier" : "term_status",
+        "language" : "undefined",
+        "value" : "testing",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
-    "id" : "class202",
+    "id" : "class207",
     "label" : {
       "IRI-based" : "BKRepository",
       "de" : "BitKeeper Repository",
@@ -417,16 +371,11 @@
       "ja" : "ソースコードのBitKeeperのリポジトリ",
       "cs" : "Úložiště zdrojových kódů BitKeeper."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class197" ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "superClasses" : [ "class202" ],
+    "instances" : 0
   }, {
-    "id" : "class197",
+    "id" : "class202",
     "label" : {
       "IRI-based" : "Repository",
       "de" : "Repository",
@@ -445,16 +394,11 @@
       "ja" : "ソースコードのリポジトリ",
       "cs" : "Úložiště zdrojových kódů."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ "class192", "class202", "class190", "class187", "class200", "class191", "class193", "class186" ],
-    "superClasses" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "subClasses" : [ "class197", "class207", "class195", "class192", "class205", "class196", "class198", "class191" ],
+    "instances" : 0
   }, {
-    "id" : "class188",
+    "id" : "class193",
     "label" : {
       "IRI-based" : "Specification",
       "en" : "Specification",
@@ -465,16 +409,11 @@
       "en" : "A specification of a system's aspects, technical or otherwise.",
       "ja" : "あるシステムの詳しく書いた明細書。多分技術的なもの。"
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class194" ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "superClasses" : [ "class199" ],
+    "instances" : 0
   }, {
-    "id" : "class195",
+    "id" : "class200",
     "label" : {
       "IRI-based" : "Version",
       "de" : "Version",
@@ -493,46 +432,30 @@
       "es" : "Información sobre la versión de un release del proyecto.",
       "cs" : "Informace o uvolněné verzi projektu."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "instances" : 0
   }, {
-    "id" : "class205",
-    "label" : { },
-    "comment" : { },
+    "id" : "class211",
     "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ "class196", "class195" ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "intersection" : [ "class201", "class200" ]
   }, {
-    "id" : "class206",
-    "label" : { },
-    "comment" : { },
+    "id" : "class210",
     "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ "class196", "class195" ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "intersection" : [ "class201", "class200" ]
   }, {
     "id" : "thing28",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing27",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   } ],
   "datatype" : [ {
     "id" : "literal139",
@@ -570,210 +493,179 @@
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal140",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal141",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal145",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal144",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal143",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal142",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal147",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal138",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal146",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   } ],
   "property" : [ {
-    "id" : "property981",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property984",
-    "type" : "owl:objectProperty"
-  }, {
     "id" : "property992",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property978",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property1006",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property983",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property977",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property1007",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property987",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property1004",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property1005",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property1008",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property985",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property1009",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property980",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property982",
     "type" : "owl:objectProperty"
   }, {
     "id" : "property995",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property1002",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "property1003",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property999",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property1001",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property979",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property994",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property975",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property988",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property993",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property974",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property976",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property997",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property998",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property991",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "property989",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property1011",
+    "id" : "property988",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property994",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property998",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property996",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property991",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property993",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property1006",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property1010",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property984",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property976",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property1005",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property975",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property990",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property974",
     "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property986",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property990",
+    "id" : "property1004",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property999",
     "type" : "owl:objectProperty"
   }, {
+    "id" : "property979",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property978",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property977",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property985",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property987",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property1008",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property1009",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property1002",
+    "type" : "owl:datatypeProperty"
+  }, {
     "id" : "property1000",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property997",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property1001",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property1011",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property996",
+    "id" : "property1007",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property1010",
+    "id" : "property982",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property983",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property980",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property981",
     "type" : "rdfs:SubClassOf"
   } ],
   "propertyAttribute" : [ {
-    "id" : "property981",
-    "uri" : "http://usefulinc.com/ns/doap#homepage",
+    "id" : "property992",
     "label" : {
       "IRI-based" : "homepage",
       "de" : "Homepage",
@@ -783,6 +675,7 @@
       "ja" : "ホームページ",
       "cs" : "domovská stránka"
     },
+    "uri" : "http://usefulinc.com/ns/doap#homepage",
     "comment" : {
       "de" : "URL der Projekt-Homepage,\n\t\tverbunden mit genau einem Projekt.",
       "fr" : "L'URL de la page web d'un projet,\n\t\tassociée avec un unique projet.",
@@ -791,33 +684,35 @@
       "ja" : "このプロジェクトのホームページのURL。このホームページは他のプロジェクトのホームページじゃないこと。",
       "cs" : "URL adresa domovské stránky projektu asociované s právě jedním projektem."
     },
-    "domain" : "class196",
-    "range" : "thing28",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
     "attributes" : [ "inverse functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property980" ],
-    "disjoint" : [ ]
+    "domain" : "class201",
+    "range" : "thing28",
+    "superproperty" : [ "property991" ]
   }, {
-    "id" : "property984",
-    "uri" : "http://xmlns.com/foaf/0.1/maker",
+    "id" : "property995",
     "label" : {
       "IRI-based" : "maker",
       "undefined" : "maker"
     },
+    "uri" : "http://xmlns.com/foaf/0.1/maker",
     "comment" : {
       "undefined" : "An agent that  made this thing."
     },
-    "domain" : "thing27",
-    "range" : "thing27",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://xmlns.com/foaf/0.1/",
     "attributes" : [ "external" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "annotations" : {
+      "term_status" : [ {
+        "identifier" : "term_status",
+        "language" : "undefined",
+        "value" : "stable",
+        "type" : "label"
+      } ]
+    },
+    "domain" : "thing27",
+    "range" : "thing27"
   }, {
-    "id" : "property992",
-    "uri" : "http://usefulinc.com/ns/doap#shortdesc",
+    "id" : "property1003",
     "label" : {
       "IRI-based" : "shortdesc",
       "de" : "Kurzbeschreibung",
@@ -827,6 +722,7 @@
       "ja" : "簡単な説明",
       "cs" : "krátký popis"
     },
+    "uri" : "http://usefulinc.com/ns/doap#shortdesc",
     "comment" : {
       "de" : "Kurzbeschreibung (8 oder 9 Wörter) eines Projects als einfacher Text.",
       "fr" : "Texte descriptif concis (8 ou 9 mots) d'un projet.",
@@ -835,65 +731,26 @@
       "ja" : "日本語の二十文字ぐらいの説明",
       "cs" : "Krátký (8 nebo 9 slov) čistě textový popis projektu."
     },
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
     "domain" : "thing27",
-    "range" : "literal139",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "literal139"
   }, {
-    "id" : "property978",
-    "uri" : "http://usefulinc.com/ns/doap#blog",
+    "id" : "property989",
     "label" : {
       "IRI-based" : "blog",
       "en" : "blog",
       "ja" : "ブログ"
     },
+    "uri" : "http://usefulinc.com/ns/doap#blog",
     "comment" : {
       "en" : "URI of a blog related to a project",
       "ja" : "このプロジェクトに関するブログのURI"
     },
-    "domain" : "class196",
-    "range" : "class194",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "class199"
   }, {
-    "id" : "property1006",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class190",
-    "range" : "class197",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property983",
-    "uri" : "http://usefulinc.com/ns/doap#service-endpoint",
-    "label" : {
-      "IRI-based" : "service-endpoint",
-      "en" : "service endpoint",
-      "ja" : "サービスサイト"
-    },
-    "comment" : {
-      "en" : "The URI of a web service endpoint where software as a service may be accessed",
-      "ja" : "ことプロジェクトが提供したサーブスを載せるサイト。"
-    },
-    "domain" : "class196",
-    "range" : "class194",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property977",
-    "uri" : "http://usefulinc.com/ns/doap#release",
+    "id" : "property988",
     "label" : {
       "IRI-based" : "release",
       "de" : "Release",
@@ -903,6 +760,7 @@
       "ja" : "リリース",
       "cs" : "release"
     },
+    "uri" : "http://usefulinc.com/ns/doap#release",
     "comment" : {
       "de" : "Ein Release (Version) eines Projekts.",
       "fr" : "Une release (révision) d'un projet.",
@@ -911,143 +769,101 @@
       "ja" : "このプロジェクトのリリース",
       "cs" : "Relase (verze) projektu."
     },
-    "domain" : "class196",
-    "range" : "class195",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "class200"
   }, {
-    "id" : "property1007",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class187",
-    "range" : "class197",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property994",
+    "label" : {
+      "IRI-based" : "service-endpoint",
+      "en" : "service endpoint",
+      "ja" : "サービスサイト"
+    },
+    "uri" : "http://usefulinc.com/ns/doap#service-endpoint",
+    "comment" : {
+      "en" : "The URI of a web service endpoint where software as a service may be accessed",
+      "ja" : "ことプロジェクトが提供したサーブスを載せるサイト。"
+    },
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "class199"
   }, {
-    "id" : "property987",
-    "uri" : "http://xmlns.com/foaf/0.1/mbox",
+    "id" : "property998",
     "label" : {
       "IRI-based" : "mbox",
       "undefined" : "personal mailbox"
     },
+    "uri" : "http://xmlns.com/foaf/0.1/mbox",
     "comment" : {
       "undefined" : "A  personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. This is a 'static inverse functional property', in that  there is (across time and change) at most one individual that ever has any particular value for foaf:mbox."
     },
-    "domain" : "thing27",
-    "range" : "thing27",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://xmlns.com/foaf/0.1/",
     "attributes" : [ "external" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "annotations" : {
+      "term_status" : [ {
+        "identifier" : "term_status",
+        "language" : "undefined",
+        "value" : "stable",
+        "type" : "label"
+      } ]
+    },
+    "domain" : "thing27",
+    "range" : "thing27"
   }, {
-    "id" : "property1004",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class192",
-    "range" : "class197",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property1005",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class202",
-    "range" : "class197",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property1008",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class200",
-    "range" : "class197",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property985",
-    "uri" : "http://usefulinc.com/ns/doap#vendor",
+    "id" : "property996",
     "label" : {
       "IRI-based" : "vendor",
       "en" : "vendor",
       "ja" : "提供組織"
     },
+    "uri" : "http://usefulinc.com/ns/doap#vendor",
     "comment" : {
       "en" : "Vendor organization: commercial, free or otherwise",
       "ja" : "提供組織、商業の組織や自由の組織。"
     },
-    "domain" : "class196",
-    "range" : "class198",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "class203"
   }, {
-    "id" : "property1009",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class191",
-    "range" : "class197",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property980",
-    "uri" : "http://xmlns.com/foaf/0.1/homepage",
+    "id" : "property991",
     "label" : {
       "IRI-based" : "homepage",
       "undefined" : "homepage"
     },
+    "uri" : "http://xmlns.com/foaf/0.1/homepage",
     "comment" : {
       "undefined" : "A homepage for some thing."
     },
+    "isDefinedBy" : "http://xmlns.com/foaf/0.1/",
+    "attributes" : [ "external" ],
+    "annotations" : {
+      "term_status" : [ {
+        "identifier" : "term_status",
+        "language" : "undefined",
+        "value" : "stable",
+        "type" : "label"
+      } ]
+    },
     "domain" : "thing27",
     "range" : "thing27",
-    "equivalent" : [ ],
-    "attributes" : [ "external" ],
-    "subproperty" : [ "property981", "property986" ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "subproperty" : [ "property992", "property997" ]
   }, {
-    "id" : "property982",
-    "uri" : "http://usefulinc.com/ns/doap#implements",
+    "id" : "property993",
     "label" : {
       "IRI-based" : "implements",
       "en" : "Implements specification",
       "ja" : "実装した明細書"
     },
+    "uri" : "http://usefulinc.com/ns/doap#implements",
     "comment" : {
       "en" : "A specification that a project implements. Could be a standard, API or legally defined level of conformance.",
       "ja" : "このプロジェクトが実装したシステムの明細書。標準やAPIや明細書のようなもの。"
     },
-    "domain" : "class196",
-    "range" : "class188",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "class193"
   }, {
-    "id" : "property995",
-    "uri" : "http://usefulinc.com/ns/doap#os",
+    "id" : "property1006",
     "label" : {
       "IRI-based" : "os",
       "de" : "Betriebssystem",
@@ -1057,6 +873,7 @@
       "ja" : "オペレーティングシステム",
       "cs" : "operační systém"
     },
+    "uri" : "http://usefulinc.com/ns/doap#os",
     "comment" : {
       "de" : "Betriebssystem auf dem das Projekt eingesetzt werden kann. Diese Eigenschaft kann ausgelassen werden, wenn das Projekt nicht BS-spezifisch ist.",
       "fr" : "Système d'exploitation auquel est limité le projet. Omettez cette propriété si le\n\t\tprojet n'est pas limité à un système d'exploitation.",
@@ -1065,38 +882,11 @@
       "ja" : "このプロジェクトの限られたオペレーティングシステム。もし、プロジェクトはどのOSも大丈夫なら、このプロパティを書き落としていい。",
       "cs" : "Operační systém, na jehož použití je projekt limitován. Vynechejte tuto vlastnost, pokud je projekt nezávislý na operačním systému."
     },
-    "domain" : "class205",
-    "range" : "literal142",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class210",
+    "range" : "literal142"
   }, {
-    "id" : "property1002",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class196",
-    "range" : "class201",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property1003",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class196",
-    "range" : "class189",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property999",
-    "uri" : "http://usefulinc.com/ns/doap#revision",
+    "id" : "property1010",
     "label" : {
       "IRI-based" : "revision",
       "de" : "Version",
@@ -1106,6 +896,7 @@
       "ja" : "リビジョンコート",
       "cs" : "verze"
     },
+    "uri" : "http://usefulinc.com/ns/doap#revision",
     "comment" : {
       "de" : "Versionsidentifikator eines Software-Releases.",
       "fr" : "Identifiant de révision d'une release du programme.",
@@ -1114,54 +905,25 @@
       "ja" : "このリリースのリビジョン識別子",
       "cs" : "Identifikátor zpřístupněné revize softwaru."
     },
-    "domain" : "class195",
-    "range" : "literal146",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class200",
+    "range" : "literal146"
   }, {
-    "id" : "property1001",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class188",
-    "range" : "class194",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property979",
-    "uri" : "http://usefulinc.com/ns/doap#developer",
+    "id" : "property984",
     "label" : {
-      "IRI-based" : "developer",
-      "de" : "Entwickler",
-      "fr" : "développeur",
-      "en" : "developer",
-      "es" : "desarrollador",
-      "ja" : "開発者",
-      "cs" : "vývojář"
+      "IRI-based" : "Subclass Of"
     },
-    "comment" : {
-      "de" : "Software-Entwickler für eine Projekt.",
-      "fr" : "Développeur pour le projet.",
-      "en" : "Developer of software for the project.",
-      "es" : "Desarrollador de software para el proyecto.",
-      "ja" : "プロジェクトのソフトウェアの開発者",
-      "cs" : "Vývojář softwaru projektu."
-    },
-    "domain" : "class196",
-    "range" : "class199",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class191",
+    "range" : "class202"
   }, {
-    "id" : "property994",
-    "uri" : "http://usefulinc.com/ns/doap#created",
+    "id" : "property976",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class201",
+    "range" : "class194"
+  }, {
+    "id" : "property1005",
     "label" : {
       "IRI-based" : "created",
       "de" : "erstellt",
@@ -1171,6 +933,7 @@
       "ja" : "作成日付",
       "cs" : "vytvořeno"
     },
+    "uri" : "http://usefulinc.com/ns/doap#created",
     "comment" : {
       "de" : "Erstellungsdatum von Irgendwas, angegeben im YYYY-MM-DD Format, z.B. 2004-04-05.",
       "fr" : "Date à laquelle a été créé quelque chose, au format AAAA-MM-JJ (par ex. 2004-04-05)",
@@ -1179,16 +942,48 @@
       "ja" : "何かが作成された日付、AAAA-MM-JJの型、例えば2004-04-05。",
       "cs" : "Datum, kdy bylo něco vytvořeno ve formátu RRRR-MM-DD, např. 2004-04-05"
     },
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
     "domain" : "thing27",
-    "range" : "literal141",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "literal141"
   }, {
     "id" : "property975",
-    "uri" : "http://usefulinc.com/ns/doap#maintainer",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class201",
+    "range" : "class206"
+  }, {
+    "id" : "property990",
+    "label" : {
+      "IRI-based" : "developer",
+      "de" : "Entwickler",
+      "fr" : "développeur",
+      "en" : "developer",
+      "es" : "desarrollador",
+      "ja" : "開発者",
+      "cs" : "vývojář"
+    },
+    "uri" : "http://usefulinc.com/ns/doap#developer",
+    "comment" : {
+      "de" : "Software-Entwickler für eine Projekt.",
+      "fr" : "Développeur pour le projet.",
+      "en" : "Developer of software for the project.",
+      "es" : "Desarrollador de software para el proyecto.",
+      "ja" : "プロジェクトのソフトウェアの開発者",
+      "cs" : "Vývojář softwaru projektu."
+    },
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "class204"
+  }, {
+    "id" : "property974",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class193",
+    "range" : "class199"
+  }, {
+    "id" : "property986",
     "label" : {
       "IRI-based" : "maintainer",
       "de" : "Projektverantwortlicher",
@@ -1198,6 +993,7 @@
       "ja" : "メンテナー",
       "cs" : "správce"
     },
+    "uri" : "http://usefulinc.com/ns/doap#maintainer",
     "comment" : {
       "de" : "Hauptentwickler eines Projektes, der Projektleiter",
       "fr" : "Développeur principal d'un projet, un meneur du projet.",
@@ -1206,16 +1002,25 @@
       "ja" : "このプロジェクトのメンテなー及びリーダ。",
       "cs" : "Správce projektu, vedoucí projektu."
     },
-    "domain" : "class196",
-    "range" : "class199",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "class204"
   }, {
-    "id" : "property988",
-    "uri" : "http://usefulinc.com/ns/doap#tester",
+    "id" : "property1004",
+    "label" : {
+      "IRI-based" : "language",
+      "en" : "language",
+      "ja" : "言語"
+    },
+    "uri" : "http://usefulinc.com/ns/doap#language",
+    "comment" : {
+      "en" : "ISO language code a project has been translated into"
+    },
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "literal140"
+  }, {
+    "id" : "property999",
     "label" : {
       "IRI-based" : "tester",
       "de" : "Tester",
@@ -1225,6 +1030,7 @@
       "ja" : "試験者",
       "cs" : "tester"
     },
+    "uri" : "http://usefulinc.com/ns/doap#tester",
     "comment" : {
       "de" : "Ein Tester oder anderer Mitarbeiter der Qualitätskontrolle.",
       "fr" : "Un testeur ou un collaborateur au contrôle qualité.",
@@ -1232,34 +1038,32 @@
       "es" : "Un tester u otro proveedor de control de calidad.",
       "cs" : "Tester nebo jiný spoluautor kontrolující kvalitu."
     },
-    "domain" : "class196",
-    "range" : "class199",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "class204"
   }, {
-    "id" : "property993",
-    "uri" : "http://usefulinc.com/ns/doap#language",
+    "id" : "property979",
     "label" : {
-      "IRI-based" : "language",
-      "en" : "language",
-      "ja" : "言語"
+      "IRI-based" : "Subclass Of"
     },
-    "comment" : {
-      "en" : "ISO language code a project has been translated into"
-    },
-    "domain" : "class196",
-    "range" : "literal140",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "domain" : "class195",
+    "range" : "class202"
   }, {
-    "id" : "property974",
-    "uri" : "http://usefulinc.com/ns/doap#repository",
+    "id" : "property978",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class207",
+    "range" : "class202"
+  }, {
+    "id" : "property977",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class197",
+    "range" : "class202"
+  }, {
+    "id" : "property985",
     "label" : {
       "IRI-based" : "repository",
       "de" : "Repository",
@@ -1269,6 +1073,7 @@
       "ja" : "リポジトリ",
       "cs" : "úložiště"
     },
+    "uri" : "http://usefulinc.com/ns/doap#repository",
     "comment" : {
       "de" : "Quellcode-Versionierungssystem.",
       "fr" : "Dépôt du code source.",
@@ -1277,16 +1082,11 @@
       "ja" : "このプロジェクトのソースコードのリポジトリ",
       "cs" : "Úložiště zdrojových kódů."
     },
-    "domain" : "class196",
-    "range" : "class197",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "class202"
   }, {
-    "id" : "property976",
-    "uri" : "http://usefulinc.com/ns/doap#helper",
+    "id" : "property987",
     "label" : {
       "IRI-based" : "helper",
       "de" : "Helfer",
@@ -1296,6 +1096,7 @@
       "ja" : "貢献者",
       "cs" : "spoluautor"
     },
+    "uri" : "http://usefulinc.com/ns/doap#helper",
     "comment" : {
       "de" : "Projekt-Mitarbeiter.",
       "fr" : "Collaborateur au projet.",
@@ -1304,54 +1105,41 @@
       "ja" : "このプロジェクトの貢献者",
       "cs" : "Spoluautor projektu."
     },
-    "domain" : "class196",
-    "range" : "class199",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "class204"
   }, {
-    "id" : "property997",
-    "uri" : "http://usefulinc.com/ns/doap#platform",
+    "id" : "property1008",
     "label" : {
       "IRI-based" : "platform",
       "en" : "platform",
       "ja" : "プラットフォーム"
     },
+    "uri" : "http://usefulinc.com/ns/doap#platform",
     "comment" : {
       "en" : "Indicator of software platform (non-OS specific), e.g. Java, Firefox, ECMA CLR",
       "ja" : "このプロジェクトの必要なプラットフォーム（OSに関係ない）。例えば：Java、Firefox、ECMA CLRとか。"
     },
-    "domain" : "class206",
-    "range" : "literal144",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class211",
+    "range" : "literal144"
   }, {
-    "id" : "property998",
-    "uri" : "http://usefulinc.com/ns/doap#audience",
+    "id" : "property1009",
     "label" : {
       "IRI-based" : "audience",
       "en" : "audience",
       "ja" : "目指したユーザ"
     },
+    "uri" : "http://usefulinc.com/ns/doap#audience",
     "comment" : {
       "en" : "Description of target user base",
       "ja" : "目指したユーザたちの説明"
     },
-    "domain" : "class196",
-    "range" : "literal145",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "literal145"
   }, {
-    "id" : "property991",
-    "uri" : "http://usefulinc.com/ns/doap#description",
+    "id" : "property1002",
     "label" : {
       "IRI-based" : "description",
       "de" : "Beschreibung",
@@ -1361,6 +1149,7 @@
       "ja" : "説明",
       "cs" : "popis"
     },
+    "uri" : "http://usefulinc.com/ns/doap#description",
     "comment" : {
       "de" : "Beschreibung eines Projekts als einfacher Text mit der Länge von 2 bis 4 Sätzen.",
       "fr" : "Texte descriptif d'un projet, long de 2 à 4 phrases.",
@@ -1369,16 +1158,11 @@
       "ja" : "プロジェクトの文の説明、2から4までの行数。",
       "cs" : "Čistě textový, 2 až 4 věty dlouhý popis projektu."
     },
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
     "domain" : "thing27",
-    "range" : "literal138",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "literal138"
   }, {
-    "id" : "property989",
-    "uri" : "http://usefulinc.com/ns/doap#documenter",
+    "id" : "property1000",
     "label" : {
       "IRI-based" : "documenter",
       "de" : "Dokumentator",
@@ -1388,6 +1172,7 @@
       "ja" : "文章制作者",
       "cs" : "dokumentarista"
     },
+    "uri" : "http://usefulinc.com/ns/doap#documenter",
     "comment" : {
       "de" : "Mitarbeiter an der Dokumentation eines Projektes.",
       "fr" : "Collaborateur à la documentation du projet.",
@@ -1396,27 +1181,11 @@
       "ja" : "このプロジェクトのドキュメントの貢献者",
       "cs" : "Spoluautor dokumentace projektu."
     },
-    "domain" : "class196",
-    "range" : "class199",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "class204"
   }, {
-    "id" : "property1011",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class186",
-    "range" : "class197",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property986",
-    "uri" : "http://usefulinc.com/ns/doap#old-homepage",
+    "id" : "property997",
     "label" : {
       "IRI-based" : "old-homepage",
       "de" : "Alte Homepage",
@@ -1426,6 +1195,7 @@
       "ja" : "前のホームページ",
       "cs" : "stará domovská stránka"
     },
+    "uri" : "http://usefulinc.com/ns/doap#old-homepage",
     "comment" : {
       "de" : "URL der letzten Projekt-Homepage,\n\t\tverbunden mit genau einem Projekt.",
       "fr" : "L'URL d'une ancienne page web d'un\n\t\tprojet, associée avec un unique projet.",
@@ -1434,16 +1204,13 @@
       "ja" : "このプロジェクトの前のホームページ。他のプロジェクトの前のホームページじゃないこと。",
       "cs" : "URL adresa předešlé domovské stránky projektu asociované s právě jedním projektem."
     },
-    "domain" : "class196",
-    "range" : "thing28",
-    "equivalent" : [ ],
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
     "attributes" : [ "inverse functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property980" ],
-    "disjoint" : [ ]
+    "domain" : "class201",
+    "range" : "thing28",
+    "superproperty" : [ "property991" ]
   }, {
-    "id" : "property990",
-    "uri" : "http://usefulinc.com/ns/doap#translator",
+    "id" : "property1001",
     "label" : {
       "IRI-based" : "translator",
       "de" : "Übersetzer",
@@ -1453,6 +1220,7 @@
       "ja" : "翻訳者",
       "cs" : "překladatel"
     },
+    "uri" : "http://usefulinc.com/ns/doap#translator",
     "comment" : {
       "de" : "Mitarbeiter an den Übersetzungen eines Projektes.",
       "fr" : "Collaborateur à la traduction du projet.",
@@ -1461,16 +1229,11 @@
       "ja" : "このプロジェクトを翻訳する貢献者",
       "cs" : "Spoluautor překladu projektu."
     },
-    "domain" : "class196",
-    "range" : "class199",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "class204"
   }, {
-    "id" : "property1000",
-    "uri" : "http://usefulinc.com/ns/doap#programming-language",
+    "id" : "property1011",
     "label" : {
       "IRI-based" : "programming-language",
       "de" : "Programmiersprache",
@@ -1480,6 +1243,7 @@
       "ja" : "プログラミング言語",
       "cs" : "programovací jazyk"
     },
+    "uri" : "http://usefulinc.com/ns/doap#programming-language",
     "comment" : {
       "de" : "Programmiersprache in der ein Projekt implementiert ist oder intendiert wird zu benutzen.",
       "fr" : "Langage de programmation avec lequel un projet est implémenté,\n\t\tou avec lequel il est prévu de l'utiliser.",
@@ -1488,16 +1252,11 @@
       "ja" : "このプログラミングの実装のプログラミング言語、または目指した言語。",
       "cs" : "Programovací jazyk, ve kterém je projekt implementován nebo pro který je zamýšlen k použití."
     },
-    "domain" : "class196",
-    "range" : "literal147",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class201",
+    "range" : "literal147"
   }, {
-    "id" : "property996",
-    "uri" : "http://usefulinc.com/ns/doap#anon-root",
+    "id" : "property1007",
     "label" : {
       "IRI-based" : "anon-root",
       "de" : "Anonymes Root",
@@ -1507,6 +1266,7 @@
       "ja" : "匿名ルート",
       "cs" : "anonymní kořen"
     },
+    "uri" : "http://usefulinc.com/ns/doap#anon-root",
     "comment" : {
       "de" : "Repository für anonymen Zugriff",
       "fr" : "Dépôt pour accès anonyme.",
@@ -1515,23 +1275,36 @@
       "ja" : "匿名でアクセスできるパス",
       "cs" : "Úložiště pro anonymní přístup."
     },
-    "domain" : "class197",
-    "range" : "literal143",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "isDefinedBy" : "http://usefulinc.com/ns/doap#",
+    "domain" : "class202",
+    "range" : "literal143"
   }, {
-    "id" : "property1010",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class193",
-    "range" : "class197",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property982",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class196",
+    "range" : "class202"
+  }, {
+    "id" : "property983",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class198",
+    "range" : "class202"
+  }, {
+    "id" : "property980",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class192",
+    "range" : "class202"
+  }, {
+    "id" : "property981",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class205",
+    "range" : "class202"
   } ]
 }

@@ -1,6 +1,6 @@
 {
   "_comment" : "Created with OWL2VOWL (version 0.1.4), http://vowl.visualdataweb.org",
-  "namespace" : [ { } ],
+  "namespace" : [ ],
   "header" : {
     "languages" : [ "IRI-based", "undefined", "en" ],
     "title" : {
@@ -13,9 +13,6 @@
       "en" : "The PersonasOnto is depicts the personas domain along with relating concept and properties. A persona is regarded as a user archetype which can be used to \"help guide decisions about product features, navigation, interactions, and even visual design\" (Goodwin, 2005).\n\nThis ontology wants to address some of the issues regarding this methodology like how personas are reconciled with other information and who is responsible for interpreting and validating them."
     },
     "seeAlso" : [ "http://blankdots.com/open/schema" ],
-    "issued" : [ ],
-    "license" : [ ],
-    "rdfsLabel" : [ ],
     "other" : {
       "contributor" : [ {
         "identifier" : "contributor",
@@ -31,12 +28,12 @@
       } ],
       "date" : [ {
         "identifier" : "date",
-        "language" : null,
+        "language" : "undefined",
         "value" : "2014-02-28",
         "type" : "label"
       } ],
-      "commen" : [ {
-        "identifier" : "commen",
+      "comment" : [ {
+        "identifier" : "comment",
         "language" : "en",
         "value" : "PersonasOnto ontology incorporates concepts and properties used to model personas.",
         "type" : "label"
@@ -241,36 +238,28 @@
     "type" : "owl:Thing"
   }, {
     "id" : "class99",
-    "type" : "owl:unionOf",
-    "label" : "Union"
+    "type" : "owl:unionOf"
   }, {
     "id" : "class100",
-    "type" : "owl:unionOf",
-    "label" : "Union"
+    "type" : "owl:unionOf"
   }, {
     "id" : "class92",
-    "type" : "owl:unionOf",
-    "label" : "Union"
+    "type" : "owl:unionOf"
   }, {
     "id" : "class101",
-    "type" : "owl:unionOf",
-    "label" : "Union"
+    "type" : "owl:unionOf"
   }, {
     "id" : "class94",
-    "type" : "owl:unionOf",
-    "label" : "Union"
+    "type" : "owl:unionOf"
   }, {
     "id" : "class103",
-    "type" : "owl:unionOf",
-    "label" : "Union"
+    "type" : "owl:unionOf"
   }, {
     "id" : "class96",
-    "type" : "owl:unionOf",
-    "label" : "Union"
+    "type" : "owl:unionOf"
   }, {
     "id" : "class107",
-    "type" : "owl:unionOf",
-    "label" : "Union"
+    "type" : "owl:unionOf"
   } ],
   "classAttribute" : [ {
     "id" : "class62",
@@ -278,15 +267,16 @@
       "IRI-based" : "HearingImpairment"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#HearingImpairment",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class64" ]
+    "superClasses" : [ "class64" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Conditions in which persons are fully or partially unable to detect or perceive at least some frequencies of sound.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class55",
     "label" : {
@@ -296,659 +286,705 @@
     "comment" : {
       "undefined" : "A Context might only be described at a certain Time."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class63" ]
+    "superClasses" : [ "class63" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The appropriate Time which describes the Context. ",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class64",
     "label" : {
       "IRI-based" : "Disability"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Disability",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
     "subClasses" : [ "class47", "class83", "class62", "class58", "class52", "class76", "class89" ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person’s disabilities mental and/or physical.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class54",
     "label" : {
       "IRI-based" : "Tangible"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Tangible",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class63" ]
+    "superClasses" : [ "class63" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A context might be described by an Tangible enviroment - real world.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class76",
     "label" : {
       "IRI-based" : "SomatosensoryImpairment"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#SomatosensoryImpairment",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class64" ]
+    "superClasses" : [ "class64" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Insensitivity to stimuli such as touch, heat, cold, and pain.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class67",
     "label" : {
       "IRI-based" : "GovermentOrganization"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#GovermentOrganization",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class40" ]
+    "superClasses" : [ "class40" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A governmental organization or agency. ",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class69",
     "label" : {
       "IRI-based" : "Person"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Person",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
     "subClasses" : [ "class57", "class79" ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person represents an individual, most likely a human.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class52",
     "label" : {
       "IRI-based" : "MentalEmotionalDisorder"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#MentalEmotionalDisorder",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class64" ]
+    "superClasses" : [ "class64" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Any mental disorder/illness described as a psychological or behavioral pattern associated with distress or disability that occurs in an person.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class44",
     "label" : {
       "IRI-based" : "Intangible"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Intangible",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class63" ]
+    "superClasses" : [ "class63" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A context might be described by an Intangible enviroment (Operating System, Application etc. -- virtual world).",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class47",
     "label" : {
       "IRI-based" : "DevelopmentDisability"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#DevelopmentDisability",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class64" ]
+    "superClasses" : [ "class64" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Any disability that related to growth and development problems.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class50",
     "label" : {
       "IRI-based" : "Feeling"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Feeling",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class65" ]
+    "superClasses" : [ "class65" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Feelings relate more to a property associated to and object or being, than to a person’s state of mind.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class70",
     "label" : {
       "IRI-based" : "Task"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Task",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
     "subClasses" : [ "class39", "class87" ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Tasks performed by a Person in a Scenario.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class86",
     "label" : {
       "IRI-based" : "ExperienceGoals"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#ExperienceGoals",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class49" ]
+    "superClasses" : [ "class49" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Experience goals are simple, universal, and personal.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class83",
     "label" : {
       "IRI-based" : "GustatoryImpairment"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#GustatoryImpairment",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class64" ]
+    "superClasses" : [ "class64" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Impairment of the sense of smell and taste.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class65",
     "label" : {
       "IRI-based" : "AffectiveState"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#AffectiveState",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
     "attributes" : [ "equivalent" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
     "subClasses" : [ "class60", "class50", "class88" ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The affective state of a person at a certain moment and in a certain Context.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class42",
     "label" : {
       "IRI-based" : "Resource"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Resource",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
     "subClasses" : [ "class77", "class74", "class72" ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Type of resources available, physical or digital.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class74",
     "label" : {
       "IRI-based" : "Image"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Image",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class42" ]
+    "superClasses" : [ "class42" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "An image, which might be used to describe a product or person.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class73",
     "label" : {
       "IRI-based" : "SportsTeam"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#SportsTeam",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class40" ]
+    "superClasses" : [ "class40" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A sports team (football, basketball, bowling etc.).",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class39",
     "label" : {
       "IRI-based" : "InteractiveTask"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#InteractiveTask",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class70" ]
+    "superClasses" : [ "class70" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "InteractiveTask could be certain action performed by a person (not too often by a machine).",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class53",
     "label" : {
       "IRI-based" : "MediumBusiness"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#MediumBusiness",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class40" ]
+    "superClasses" : [ "class40" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A particular medium sized business or branch of an organization. ( restaurant, medical practice etc.)",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class59",
     "label" : {
       "IRI-based" : "Corporation"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Corporation",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class40" ]
+    "superClasses" : [ "class40" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A business corporation. ",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class51",
     "label" : {
       "IRI-based" : "SupplementalType"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#SupplementalType",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class41" ]
+    "superClasses" : [ "class41" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Needs are completely satisfied by one of the primary interfaces yet they are part of the set or personas to ensure comprehensive representation.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class60",
     "label" : {
       "IRI-based" : "Emotion"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Emotion",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class65" ]
+    "superClasses" : [ "class65" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Emotion encompasses physiological, affective, behavioral, andcognitive components.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class79",
     "label" : {
       "IRI-based" : "Persona"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Persona",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
     "subClasses" : [ "class41" ],
-    "superClasses" : [ "class69" ]
+    "superClasses" : [ "class69" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "As a subclass of Person, the Persona class could be regarded of being a separate identity of a person, although it has the same usage.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class56",
     "label" : {
       "IRI-based" : "NegativeType"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#NegativeType",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class41" ]
+    "superClasses" : [ "class41" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Are used to remind and communicate, who is NOT the target of the design.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class78",
     "label" : {
       "IRI-based" : "ServedType"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#ServedType",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class41" ]
+    "superClasses" : [ "class41" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Do not directly use the product you are designing but they are somehow affected by the system.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class48",
     "label" : {
       "IRI-based" : "Group"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Group",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class40" ]
+    "superClasses" : [ "class40" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Any kind of (small or large) group a person might be part of (book club).",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class77",
     "label" : {
       "IRI-based" : "Document"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Document",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class42" ]
+    "superClasses" : [ "class42" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A paper or digital document (web-page, text document etc.).",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class43",
     "label" : {
       "IRI-based" : "UsabilityTest"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#UsabilityTest",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A usability test evaluates the usability of a certain Product in a Scenario.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class45",
     "label" : {
       "IRI-based" : "NGO"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#NGO",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class40" ]
+    "superClasses" : [ "class40" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A Non-Governamental Organization.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class66",
     "label" : {
       "IRI-based" : "TechnicalGoals"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#TechnicalGoals",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class49" ]
+    "superClasses" : [ "class49" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Technical goals reflect technical aspects regarding an application/product for example: run in a variety of browser, data privacy\netc.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class68",
     "label" : {
       "IRI-based" : "Personality"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Personality",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
     "attributes" : [ "equivalent" ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The MyersBriggs personality of a person.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class40",
     "label" : {
       "IRI-based" : "Organization"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Organization",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
     "subClasses" : [ "class59", "class71", "class67", "class48", "class53", "class45", "class61", "class73" ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The type of Organization a Person belongs to.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class81",
     "label" : {
       "IRI-based" : "Scenario"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Scenario",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A series of tasks the user performs in a certain context.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class41",
     "label" : {
       "IRI-based" : "PersonaType"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#PersonaType",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
     "subClasses" : [ "class85", "class56", "class46", "class82", "class78", "class51" ],
-    "superClasses" : [ "class79" ]
+    "superClasses" : [ "class79" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Each Persona is classified by a PersonaType and a Person might fit into several PersonaTypes.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class80",
     "label" : {
       "IRI-based" : "EndGoals"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#EndGoals",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class49" ]
+    "superClasses" : [ "class49" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "End goals represent the user’s motivation for performing the tasks associated with using a specific product.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class87",
     "label" : {
       "IRI-based" : "NonInteractiveTask"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#NonInteractiveTask",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class70" ]
+    "superClasses" : [ "class70" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "NonInteractiveTask could be a machine response to that action.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class61",
     "label" : {
       "IRI-based" : "SmallBusiness"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#SmallBusiness",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class40" ]
+    "superClasses" : [ "class40" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A particular small business like a local shop or market (usually under 5 employees).",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class89",
     "label" : {
       "IRI-based" : "VisualImpairment"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#VisualImpairment",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class64" ]
+    "superClasses" : [ "class64" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Visual impairment refers to vision loss to such a degree as a person needs an additional support to get through its surroundings.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class57",
     "label" : {
       "IRI-based" : "Participant"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Participant",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class69" ]
+    "superClasses" : [ "class69" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person that participates in the usability test. Usualy a participant has a diresct correspondent to a Persona type.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class75",
     "label" : {
       "IRI-based" : "LifeGoals"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#LifeGoals",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class49" ]
+    "superClasses" : [ "class49" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Life goals represent personal aspirations of the user that typically go beyond the context of the product being designed.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class58",
     "label" : {
       "IRI-based" : "IntellectualImpairment"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#IntellectualImpairment",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class64" ]
+    "superClasses" : [ "class64" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "This type of impairment ranges from mental retardation to cognitive deficits too mild or too specific.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class49",
     "label" : {
       "IRI-based" : "Goals"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Goals",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
     "subClasses" : [ "class38", "class80", "class86", "class75", "class66" ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The goals of a Persona. The goals are divided accordingly, depending on each persona type.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class46",
     "label" : {
       "IRI-based" : "PrimaryType"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#PrimaryType",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class41" ]
+    "superClasses" : [ "class41" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "\"The goal is to find a single persona from the set whose needs and goals can be completely and happily satisfied by a single interface without disenfranchising any of the other personas\", About Face 2.0, Cooper, pg. 71. This is the Primary Persona Type",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class63",
     "label" : {
       "IRI-based" : "Context"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Context",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
     "subClasses" : [ "class44", "class84", "class54", "class55" ],
-    "superClasses" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The Context in which a scenario takes place.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class84",
     "label" : {
@@ -958,175 +994,213 @@
     "comment" : {
       "undefined" : "A Context might only be described by a certain Place."
     },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class63" ]
+    "superClasses" : [ "class63" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The appropriate Place which describes the Context. ",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class88",
     "label" : {
       "IRI-based" : "Mood"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Mood",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class65" ]
+    "superClasses" : [ "class65" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Are not directed at any object in particular and are experienced as more diffuse, global, and general state.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class72",
     "label" : {
       "IRI-based" : "Product"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#Product",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class42" ]
+    "superClasses" : [ "class42" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A physical product or a digital product (Software Application).",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class85",
     "label" : {
       "IRI-based" : "CustomerType"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#CustomerType",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class41" ]
+    "superClasses" : [ "class41" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Are not the end user but the customer of the product, but might be the person making, buying decisions.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class82",
     "label" : {
       "IRI-based" : "SecondaryType"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#SecondaryType",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class41" ]
+    "superClasses" : [ "class41" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The secondary persona's goals and needs can mostly be met by focusing on the primary persona. Still, there are a few goals specific to them that are not a priority for the primary persona.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class71",
     "label" : {
       "IRI-based" : "EducationalOrganization"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#EducationalOrganization",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class40" ]
+    "superClasses" : [ "class40" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "An educational organization. ",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "class38",
     "label" : {
       "IRI-based" : "BusinessGoals"
     },
     "uri" : "http://blankdots.com/open/personasonto.owl#BusinessGoals",
-    "comment" : { },
-    "instances" : 0,
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "union" : [ ],
-    "intersection" : [ ],
-    "complement" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ "class49" ]
+    "superClasses" : [ "class49" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Business goals represent the goals of the organization the persons works for.",
+        "type" : "label"
+      } ]
+    },
+    "instances" : 0
   }, {
     "id" : "thing12",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing11",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing10",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing19",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing17",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing18",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing15",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing16",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing13",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "thing14",
-    "label" : "Thing",
-    "uri" : "http://www.w3.org/2002/07/owl#Thing"
+    "label" : {
+      "undefined" : "Thing"
+    },
+    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "instances" : 0
   }, {
     "id" : "class99",
-    "attributes" : [ ],
+    "instances" : 0,
     "union" : [ "class43", "class81", "class42" ]
   }, {
     "id" : "class100",
-    "attributes" : [ ],
+    "instances" : 0,
     "union" : [ "class44", "class54" ]
   }, {
     "id" : "class92",
-    "attributes" : [ ],
+    "instances" : 0,
     "union" : [ "class57", "class69" ]
   }, {
     "id" : "class101",
-    "attributes" : [ ],
+    "instances" : 0,
     "union" : [ "class55", "class84" ]
   }, {
     "id" : "class94",
-    "attributes" : [ ],
+    "instances" : 0,
     "union" : [ "class43", "class81" ]
   }, {
     "id" : "class103",
-    "attributes" : [ ],
+    "instances" : 0,
     "union" : [ "class68", "class65" ]
   }, {
     "id" : "class96",
-    "attributes" : [ ],
+    "instances" : 0,
     "union" : [ "class81", "class57", "class70" ]
   }, {
     "id" : "class107",
-    "attributes" : [ ],
+    "instances" : 0,
     "union" : [ "class84", "class40" ]
   } ],
   "datatype" : [ {
@@ -1224,416 +1298,255 @@
     "id" : "datatype57",
     "label" : {
       "IRI-based" : "positiveInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "datatype37",
     "label" : {
       "IRI-based" : "dateTime"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "datatype56",
     "label" : {
       "IRI-based" : "positiveInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "datatype54",
     "label" : {
       "IRI-based" : "positiveInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "datatype53",
     "label" : {
       "IRI-based" : "positiveInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "datatype52",
     "label" : {
       "IRI-based" : "positiveInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "literal49",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype35",
     "label" : {
       "IRI-based" : "positiveInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "datatype36",
     "label" : {
       "IRI-based" : "float"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "literal46",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype59",
     "label" : {
       "IRI-based" : "positiveInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "literal45",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal44",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal41",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal40",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype60",
     "label" : {
       "IRI-based" : "string"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "datatype61",
     "label" : {
       "IRI-based" : "positiveInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "datatype48",
     "label" : {
       "IRI-based" : "positiveInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "literal58",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype63",
     "label" : {
       "IRI-based" : "string"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "datatype62",
     "label" : {
       "IRI-based" : "string"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "literal39",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal38",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype42",
     "label" : {
       "IRI-based" : "double"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "datatype43",
     "label" : {
       "IRI-based" : "positiveInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "literal34",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype47",
     "label" : {
       "IRI-based" : "positiveInteger"
-    },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    }
   }, {
     "id" : "literal51",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal50",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal55",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "comment" : { },
-    "attributes" : [ ],
-    "subClasses" : [ ],
-    "superClasses" : [ ]
+    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   } ],
   "property" : [ {
     "id" : "property307",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property306",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property309",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property116",
-    "type" : "owl:objectProperty"
-  }, {
     "id" : "property308",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property303",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property305",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property304",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property142",
+    "id" : "property397",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property139",
+    "id" : "property423",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property310",
-    "type" : "owl:disjointWith"
+    "id" : "property420",
+    "type" : "owl:objectProperty"
   }, {
-    "id" : "property311",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property176",
+    "id" : "property457",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "property319",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property318",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property317",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property316",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property315",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "property314",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property313",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property135",
+    "id" : "property416",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property123",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property147",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property322",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property321",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property122",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property327",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property326",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property329",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property166",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property328",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property134",
+    "id" : "property404",
     "type" : "owl:objectProperty"
   }, {
     "id" : "property428",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property427",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property429",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property426",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property167",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property430",
+    "id" : "property320",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "property153",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property156",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property120",
+    "id" : "property403",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property334",
+    "id" : "property325",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property338",
+    "id" : "property447",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property415",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property448",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property434",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property437",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property333",
     "type" : "owl:disjointWith"
+  }, {
+    "id" : "property401",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "property190",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property192",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property191",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property194",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property113",
+    "id" : "property394",
     "type" : "owl:objectProperty"
   }, {
     "id" : "property193",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property339",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property196",
@@ -1642,65 +1555,41 @@
     "id" : "property195",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property198",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property197",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property199",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property144",
+    "id" : "property425",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property442",
-    "type" : "owl:disjointWith"
+    "id" : "property341",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property344",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property345",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "property133",
+    "id" : "property342",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property414",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property171",
+    "id" : "property343",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property452",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property127",
+    "id" : "property408",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property210",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property211",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property407",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property212",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property408",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property213",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property409",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property136",
+    "id" : "property417",
     "type" : "owl:objectProperty"
   }, {
     "id" : "property204",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property203",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property206",
     "type" : "owl:disjointWith"
@@ -1714,37 +1603,28 @@
     "id" : "property207",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property411",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property410",
-    "type" : "rdfs:SubClassOf"
-  }, {
     "id" : "property209",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property415",
+    "id" : "property220",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property223",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property112",
-    "type" : "owl:objectProperty"
-  }, {
     "id" : "property224",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property221",
-    "type" : "owl:disjointWith"
+    "id" : "property393",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "property222",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property119",
+    "id" : "property400",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property157",
+    "id" : "property438",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "property217",
@@ -1757,9 +1637,6 @@
     "type" : "owl:disjointWith"
   }, {
     "id" : "property214",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property422",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property219",
@@ -1768,97 +1645,121 @@
     "id" : "property218",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property130",
+    "id" : "property411",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property174",
+    "id" : "property455",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property160",
+    "id" : "property441",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property159",
+    "id" : "property440",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property118",
+    "id" : "property399",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property161",
+    "id" : "property442",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property148",
+    "id" : "property429",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property201",
+    "type" : "owl:disjointWith"
   }, {
     "id" : "property202",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property200",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property140",
+    "id" : "property421",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property115",
+    "id" : "property396",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property125",
+    "id" : "property406",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property152",
+    "id" : "property433",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property141",
+    "id" : "property422",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property173",
+    "id" : "property454",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property128",
+    "id" : "property409",
     "type" : "owl:objectProperty"
+  }, {
+    "id" : "property137",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property138",
+    "type" : "owl:disjointWith"
   }, {
     "id" : "property280",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property281",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property282",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property283",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property284",
+    "id" : "property139",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property285",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property286",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property288",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property289",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property163",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property114",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "property270",
+    "id" : "property287",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "property271",
+    "id" : "property288",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property289",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property444",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property395",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property145",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property274",
+    "id" : "property144",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property275",
+    "id" : "property147",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property146",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property141",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property140",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property143",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property142",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property128",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property129",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property126",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property127",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property272",
@@ -1867,41 +1768,92 @@
     "id" : "property273",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property138",
+    "id" : "property278",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property279",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property426",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property145",
+    "id" : "property419",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property269",
+    "id" : "property136",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property134",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property133",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property132",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property131",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property130",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property407",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "property115",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property116",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property117",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "property126",
-    "type" : "owl:objectProperty"
+    "id" : "property118",
+    "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "property170",
+    "id" : "property119",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property451",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property155",
+    "id" : "property121",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property436",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property129",
-    "type" : "owl:objectProperty"
+    "id" : "property120",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property123",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property122",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property125",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property124",
+    "type" : "owl:disjointWith"
   }, {
     "id" : "property292",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property410",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "property293",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property290",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property291",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property399",
-    "type" : "owl:disjointWith"
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property298",
     "type" : "owl:disjointWith"
@@ -1909,169 +1861,157 @@
     "id" : "property299",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property391",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property296",
-    "type" : "owl:disjointWith"
-  }, {
     "id" : "property297",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property143",
+    "id" : "property424",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property154",
+    "id" : "property294",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property435",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property132",
+    "id" : "property413",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property131",
+    "id" : "property114",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property113",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property112",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property412",
     "type" : "owl:objectProperty"
+  }, {
+    "id" : "property111",
+    "type" : "owl:disjointWith"
   }, {
     "id" : "property240",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property381",
+    "id" : "property242",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "property242",
+    "id" : "property241",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property241",
+    "id" : "property244",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property243",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property246",
+    "id" : "property245",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property386",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property383",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property382",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property162",
+    "id" : "property443",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property385",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property384",
-    "type" : "rdfs:SubClassOf"
-  }, {
     "id" : "property188",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:disjointWith"
   }, {
     "id" : "property189",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "property184",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property185",
-    "type" : "rdfs:SubClassOf"
-  }, {
     "id" : "property186",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property187",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property180",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property236",
+    "id" : "property180",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property181",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property237",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:disjointWith"
   }, {
     "id" : "property182",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property238",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property183",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:disjointWith"
   }, {
     "id" : "property239",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property146",
+    "id" : "property231",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property427",
     "type" : "owl:objectProperty"
   }, {
     "id" : "property230",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property164",
+    "id" : "property445",
     "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property234",
-    "type" : "owl:disjointWith"
   }, {
     "id" : "property233",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property137",
+    "id" : "property232",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property376",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property418",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property374",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property373",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property121",
+    "id" : "property402",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property179",
-    "type" : "owl:disjointWith"
+    "id" : "property431",
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "property177",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property150",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property178",
+    "id" : "property175",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property169",
+    "id" : "property450",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property165",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property228",
+    "id" : "property176",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property151",
+    "id" : "property446",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property173",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property174",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property227",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property171",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property172",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property225",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property432",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "property226",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property229",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "property266",
+    "id" : "property170",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property268",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property267",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property262",
@@ -2080,91 +2020,118 @@
     "id" : "property261",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property360",
+    "id" : "property263",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property361",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "property363",
+    "id" : "property360",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property260",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property365",
-    "type" : "owl:disjointWith"
+    "id" : "property363",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property362",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property364",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "property162",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property357",
-    "type" : "rdfs:SubClassOf"
+    "id" : "property163",
+    "type" : "owl:disjointWith"
   }, {
-    "id" : "property358",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property124",
+    "id" : "property392",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property111",
+    "id" : "property405",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property359",
-    "type" : "rdfs:SubClassOf"
+    "id" : "property164",
+    "type" : "owl:disjointWith"
   }, {
-    "id" : "property158",
+    "id" : "property439",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property258",
+    "id" : "property167",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property259",
+    "id" : "property168",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property257",
-    "type" : "rdfs:SubClassOf"
+    "id" : "property160",
+    "type" : "owl:disjointWith"
   }, {
     "id" : "property256",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:disjointWith"
   }, {
     "id" : "property255",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:disjointWith"
   }, {
-    "id" : "property254",
+    "id" : "property253",
     "type" : "owl:disjointWith"
   }, {
     "id" : "property252",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property117",
+    "id" : "property398",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "property351",
+    "id" : "property149",
     "type" : "owl:disjointWith"
+  }, {
+    "id" : "property148",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "property356",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property355",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property354",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property353",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "property172",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "property346",
     "type" : "owl:disjointWith"
   }, {
-    "id" : "property149",
+    "id" : "property453",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property168",
+    "id" : "property153",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property349",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property151",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property152",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property157",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property158",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property155",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property156",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property430",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "property175",
+    "id" : "property449",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "property249",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property150",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "property456",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "property247",
@@ -2175,2710 +2142,2186 @@
   } ],
   "propertyAttribute" : [ {
     "id" : "property307",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class85",
-    "range" : "class51",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class63",
+    "range" : "class81"
   }, {
-    "id" : "property306",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class78",
-    "range" : "class51",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property308",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class49",
+    "range" : "class81"
   }, {
-    "id" : "property309",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class46",
-    "range" : "class56",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property116",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasEndGoal",
+    "id" : "property397",
     "label" : {
       "IRI-based" : "hasEndGoal"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasEndGoal",
     "domain" : "thing11",
     "range" : "class80",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property112" ],
-    "disjoint" : [ "property145", "property111", "property127", "property124" ]
+    "superproperty" : [ "property393" ],
+    "disjoint" : [ "property426", "property392", "property408", "property405" ]
   }, {
-    "id" : "property308",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class41",
-    "range" : "class79",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property303",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class46",
-    "range" : "class51",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property305",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class56",
-    "range" : "class51",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property304",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class82",
-    "range" : "class51",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property142",
-    "uri" : "http://blankdots.com/open/personasonto.owl#performs",
+    "id" : "property423",
     "label" : {
       "IRI-based" : "performs"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#performs",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person performs a task in the usability test or when using a product/application.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "class70",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class70"
   }, {
-    "id" : "property139",
-    "uri" : "http://blankdots.com/open/personasonto.owl#uses",
+    "id" : "property420",
     "label" : {
       "IRI-based" : "uses"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#uses",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person makes use of a resource (document, image, product).",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class42"
   }, {
-    "id" : "property310",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class82",
-    "range" : "class56",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property311",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class78",
-    "range" : "class56",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property176",
-    "uri" : "http://blankdots.com/open/personasonto.owl#firstName",
+    "id" : "property457",
     "label" : {
       "IRI-based" : "firstName"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#firstName",
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "First or Given name of a person.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
     "range" : "datatype63",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property175" ]
+    "disjoint" : [ "property456" ]
   }, {
     "id" : "property319",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class45",
-    "range" : "class48",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class78",
+    "range" : "class41"
   }, {
     "id" : "property318",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class85",
-    "range" : "class78",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class82",
+    "range" : "class41"
+  }, {
+    "id" : "property317",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class46",
+    "range" : "class41"
+  }, {
+    "id" : "property316",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class56",
+    "range" : "class41"
   }, {
     "id" : "property315",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class82",
-    "range" : "class78",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property314",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class46",
-    "range" : "class78",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property313",
-    "label" : { },
-    "comment" : { },
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
     "domain" : "class85",
-    "range" : "class56",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class41"
   }, {
-    "id" : "property135",
-    "uri" : "http://blankdots.com/open/personasonto.owl#includes",
+    "id" : "property416",
     "label" : {
       "IRI-based" : "includes"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#includes",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "In order to describe context we consider the medium of interaction Tangible or Intangible which is included in a Place and/or Time.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class100",
-    "range" : "class101",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class101"
   }, {
-    "id" : "property123",
-    "uri" : "http://blankdots.com/open/personasonto.owl#involvedIn",
+    "id" : "property404",
     "label" : {
       "IRI-based" : "involvedIn"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#involvedIn",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A participant (a certain user or observer) is involvedIn a scenario or Usability Test.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class57",
-    "range" : "class94",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class94"
   }, {
-    "id" : "property147",
-    "uri" : "http://blankdots.com/open/personasonto.owl#userRole",
+    "id" : "property428",
     "label" : {
       "IRI-based" : "userRole"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#userRole",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The role of the user in the application/product.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class57",
-    "range" : "literal34",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "literal34"
   }, {
-    "id" : "property322",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class61",
-    "range" : "class48",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property320",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class51",
+    "range" : "class41"
   }, {
-    "id" : "property321",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class71",
-    "range" : "class48",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property122",
-    "uri" : "http://blankdots.com/open/personasonto.owl#depictsProduct",
+    "id" : "property403",
     "label" : {
       "IRI-based" : "depictsProduct"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#depictsProduct",
     "domain" : "thing12",
     "range" : "class72",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property137" ],
-    "disjoint" : [ ]
+    "superproperty" : [ "property418" ]
   }, {
-    "id" : "property327",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class81",
-    "range" : "class43",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property325",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class71",
+    "range" : "class61"
   }, {
-    "id" : "property326",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class68",
-    "range" : "class43",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property329",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class49",
-    "range" : "class43",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property166",
-    "uri" : "http://blankdots.com/open/personasonto.owl#maxBustSize",
+    "id" : "property447",
     "label" : {
       "IRI-based" : "maxBustSize"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#maxBustSize",
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Maximum Bust Size.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class79",
     "range" : "datatype53",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property156", "property169", "property160", "property161", "property148", "property167", "property172", "property170", "property165" ]
+    "disjoint" : [ "property437", "property450", "property441", "property442", "property429", "property448", "property453", "property451", "property446" ]
   }, {
-    "id" : "property328",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class63",
-    "range" : "class43",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property134",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasReview",
+    "id" : "property415",
     "label" : {
       "IRI-based" : "hasReview"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasReview",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A resource, scenario or usability test is described, reviewed via a document.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class99",
-    "range" : "class77",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class77"
   }, {
-    "id" : "property428",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class84",
-    "range" : "class63",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property427",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class44",
-    "range" : "class63",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property429",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class54",
-    "range" : "class63",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property426",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class85",
-    "range" : "class46",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property167",
-    "uri" : "http://blankdots.com/open/personasonto.owl#minFeetSize",
+    "id" : "property448",
     "label" : {
       "IRI-based" : "minFeetSize"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#minFeetSize",
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Minimum Feet Size.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class79",
     "range" : "datatype54",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property166", "property156", "property169", "property160", "property161", "property148", "property172", "property170", "property165" ]
+    "disjoint" : [ "property447", "property437", "property450", "property441", "property442", "property429", "property453", "property451", "property446" ]
   }, {
-    "id" : "property430",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class55",
-    "range" : "class63",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property153",
-    "uri" : "http://blankdots.com/open/personasonto.owl#frustrationPoint",
+    "id" : "property434",
     "label" : {
       "IRI-based" : "frustrationPoint"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#frustrationPoint",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Elements of a UI/UX or certain characteristics that frustrate the user or (s)he sees as pain points.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "literal40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "literal40"
   }, {
-    "id" : "property156",
-    "uri" : "http://blankdots.com/open/personasonto.owl#maxFeetSize",
+    "id" : "property437",
     "label" : {
       "IRI-based" : "maxFeetSize"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#maxFeetSize",
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Maximum Feet Size.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class79",
     "range" : "datatype43",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property166", "property169", "property160", "property161", "property148", "property167", "property172", "property170", "property165" ]
+    "disjoint" : [ "property447", "property450", "property441", "property442", "property429", "property448", "property453", "property451", "property446" ]
   }, {
-    "id" : "property120",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasPersonaType",
+    "id" : "property333",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class58",
+    "range" : "class89"
+  }, {
+    "id" : "property401",
     "label" : {
       "IRI-based" : "hasPersonaType"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasPersonaType",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The type of Persona: Primary, Secondary, Negative, Supplemental, Served or Customer.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class92",
-    "range" : "class41",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property334",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class40",
-    "range" : "class43",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property338",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class71",
-    "range" : "class45",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class41"
   }, {
     "id" : "property190",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class68",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class50",
+    "range" : "class65"
   }, {
     "id" : "property192",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class81",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class68",
+    "range" : "class65"
   }, {
     "id" : "property191",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class43",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class88",
+    "range" : "class65"
   }, {
     "id" : "property194",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class49",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class81",
+    "range" : "class65"
   }, {
-    "id" : "property113",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasPublications",
+    "id" : "property394",
     "label" : {
       "IRI-based" : "hasPublications"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasPublications",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person (of academic, journalistic profession) has published several documents.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "class77",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class77"
   }, {
     "id" : "property193",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class63",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property339",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class61",
-    "range" : "class45",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class43",
+    "range" : "class65"
   }, {
     "id" : "property196",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class70",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class49",
+    "range" : "class65"
   }, {
     "id" : "property195",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class69",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class63",
+    "range" : "class65"
   }, {
-    "id" : "property198",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class40",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property197",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class65",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property199",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class42",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property144",
-    "uri" : "http://blankdots.com/open/personasonto.owl#depictsImage",
+    "id" : "property425",
     "label" : {
       "IRI-based" : "depictsImage"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#depictsImage",
     "domain" : "thing17",
     "range" : "class74",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property137" ],
-    "disjoint" : [ ]
+    "superproperty" : [ "property418" ]
   }, {
-    "id" : "property442",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class82",
-    "range" : "class85",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property341",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class38",
+    "range" : "class49"
   }, {
     "id" : "property344",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class81",
-    "range" : "class68",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class75",
+    "range" : "class49"
   }, {
     "id" : "property345",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class63",
-    "range" : "class68",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class66",
+    "range" : "class49"
   }, {
-    "id" : "property133",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasPersonality",
+    "id" : "property342",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class80",
+    "range" : "class49"
+  }, {
+    "id" : "property414",
     "label" : {
       "IRI-based" : "hasPersonality"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasPersonality",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person has a certain personality corresponding to Myers Briggs personality classification.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "class68",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class68"
   }, {
-    "id" : "property171",
-    "uri" : "http://blankdots.com/open/personasonto.owl#title",
+    "id" : "property343",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class86",
+    "range" : "class49"
+  }, {
+    "id" : "property452",
     "label" : {
       "IRI-based" : "title"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#title",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Academic, professional or military prefix/suffix for a person. ",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "literal58",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "literal58"
   }, {
-    "id" : "property127",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasLifeGoal",
+    "id" : "property408",
     "label" : {
       "IRI-based" : "hasLifeGoal"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasLifeGoal",
     "domain" : "thing14",
     "range" : "class75",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property112" ],
-    "disjoint" : [ "property145", "property116", "property111", "property124" ]
+    "superproperty" : [ "property393" ],
+    "disjoint" : [ "property426", "property397", "property392", "property405" ]
   }, {
-    "id" : "property210",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class61",
-    "range" : "class67",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property211",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class53",
-    "range" : "class67",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property407",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class38",
-    "range" : "class49",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property212",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class73",
-    "range" : "class67",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property408",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class80",
-    "range" : "class49",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property213",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class57",
-    "range" : "class69",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property409",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class86",
-    "range" : "class49",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property136",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasContext",
+    "id" : "property417",
     "label" : {
       "IRI-based" : "hasContext"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasContext",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A scenario is characterized by a certain context.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class81",
     "range" : "class63",
-    "inverse" : "property131",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property412"
   }, {
     "id" : "property204",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class52",
-    "range" : "class76",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class72",
+    "range" : "class42"
   }, {
     "id" : "property203",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class58",
-    "range" : "class76",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class74",
+    "range" : "class42"
   }, {
     "id" : "property206",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class45",
-    "range" : "class67",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class43",
+    "range" : "class42"
   }, {
     "id" : "property205",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class89",
-    "range" : "class76",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class68",
+    "range" : "class42"
   }, {
     "id" : "property208",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class59",
-    "range" : "class67",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class63",
+    "range" : "class42"
   }, {
     "id" : "property207",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class48",
-    "range" : "class67",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property411",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class66",
-    "range" : "class49",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property410",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class75",
-    "range" : "class49",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class81",
+    "range" : "class42"
   }, {
     "id" : "property209",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class71",
-    "range" : "class67",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class49",
+    "range" : "class42"
   }, {
-    "id" : "property415",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class63",
-    "range" : "class49",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property220",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class53",
+    "range" : "class73"
   }, {
     "id" : "property223",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class40",
-    "range" : "class69",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class45",
+    "range" : "class53"
   }, {
-    "id" : "property112",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasGoal",
+    "id" : "property224",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class48",
+    "range" : "class53"
+  }, {
+    "id" : "property393",
     "label" : {
       "IRI-based" : "hasGoal"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasGoal",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person might have one or more (short/long term) goals depending on the context.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
     "range" : "class49",
-    "inverse" : "property115",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ "property145", "property116", "property111", "property127", "property124" ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property224",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class42",
-    "range" : "class69",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property221",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class70",
-    "range" : "class69",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property396",
+    "subproperty" : [ "property426", "property397", "property392", "property408", "property405" ]
   }, {
     "id" : "property222",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class65",
-    "range" : "class69",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class87",
+    "range" : "class39"
   }, {
-    "id" : "property119",
-    "uri" : "http://blankdots.com/open/personasonto.owl#dependsOn",
+    "id" : "property400",
     "label" : {
       "IRI-based" : "dependsOn"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#dependsOn",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The completion of a Task might depend on another Task, as several Tasks are part of a Scenario.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class70",
-    "range" : "class70",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class70"
   }, {
-    "id" : "property157",
-    "uri" : "http://blankdots.com/open/personasonto.owl#mainPoint",
+    "id" : "property438",
     "label" : {
       "IRI-based" : "mainPoint"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#mainPoint",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Main points are specific elements to each persona category.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "literal44",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "literal44"
   }, {
     "id" : "property217",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class81",
-    "range" : "class69",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class59",
+    "range" : "class73"
   }, {
     "id" : "property216",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class43",
-    "range" : "class69",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class48",
+    "range" : "class73"
   }, {
     "id" : "property215",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class68",
-    "range" : "class69",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class45",
+    "range" : "class73"
   }, {
     "id" : "property214",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class79",
-    "range" : "class69",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property422",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class82",
-    "range" : "class46",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class40",
+    "range" : "class42"
   }, {
     "id" : "property219",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class49",
-    "range" : "class69",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class61",
+    "range" : "class73"
   }, {
     "id" : "property218",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class63",
-    "range" : "class69",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class71",
+    "range" : "class73"
   }, {
-    "id" : "property130",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasDisability",
+    "id" : "property411",
     "label" : {
       "IRI-based" : "hasDisability"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasDisability",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person might have a disability.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class64"
   }, {
-    "id" : "property174",
-    "uri" : "http://blankdots.com/open/personasonto.owl#interactionCount",
+    "id" : "property455",
     "label" : {
       "IRI-based" : "interactionCount"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#interactionCount",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A count of specific user actions (comments, facebook likes, tweets, etc.).",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class39",
-    "range" : "datatype61",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "datatype61"
   }, {
-    "id" : "property160",
-    "uri" : "http://blankdots.com/open/personasonto.owl#maxWaistSize",
+    "id" : "property441",
     "label" : {
       "IRI-based" : "maxWaistSize"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#maxWaistSize",
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Maximum Waist Size.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class79",
     "range" : "datatype47",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property166", "property156", "property169", "property161", "property148", "property167", "property172", "property170", "property165" ]
+    "disjoint" : [ "property447", "property437", "property450", "property442", "property429", "property448", "property453", "property451", "property446" ]
   }, {
-    "id" : "property159",
-    "uri" : "http://blankdots.com/open/personasonto.owl#details",
+    "id" : "property440",
     "label" : {
       "IRI-based" : "details"
     },
-    "comment" : { },
-    "domain" : "thing19",
-    "range" : "literal46",
-    "equivalent" : [ ],
+    "uri" : "http://blankdots.com/open/personasonto.owl#details",
     "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Any kind of details.",
+        "type" : "label"
+      } ]
+    },
+    "domain" : "thing19",
+    "range" : "literal46"
   }, {
-    "id" : "property118",
-    "uri" : "http://blankdots.com/open/personasonto.owl#influencedBy",
+    "id" : "property399",
     "label" : {
       "IRI-based" : "influencedBy"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#influencedBy",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The affective state of a person is influenced by the personality of that person. (inverse property influences)",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class65",
     "range" : "class68",
-    "inverse" : "property121",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property402"
   }, {
-    "id" : "property161",
-    "uri" : "http://blankdots.com/open/personasonto.owl#maxWeight",
+    "id" : "property442",
     "label" : {
       "IRI-based" : "maxWeight"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#maxWeight",
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Maximum Weight.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class79",
     "range" : "datatype48",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property166", "property156", "property169", "property160", "property148", "property167", "property172", "property170", "property165" ]
+    "disjoint" : [ "property447", "property437", "property450", "property441", "property429", "property448", "property453", "property451", "property446" ]
   }, {
-    "id" : "property148",
-    "uri" : "http://blankdots.com/open/personasonto.owl#minBustSize",
+    "id" : "property429",
     "label" : {
       "IRI-based" : "minBustSize"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#minBustSize",
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Minimum Bust Size.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class79",
     "range" : "datatype35",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property166", "property156", "property169", "property160", "property161", "property167", "property172", "property170", "property165" ]
+    "disjoint" : [ "property447", "property437", "property450", "property441", "property442", "property448", "property453", "property451", "property446" ]
+  }, {
+    "id" : "property201",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class42",
+    "range" : "class65"
   }, {
     "id" : "property202",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class83",
-    "range" : "class76",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class77",
+    "range" : "class42"
   }, {
     "id" : "property200",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class47",
-    "range" : "class76",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class40",
+    "range" : "class65"
   }, {
-    "id" : "property140",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasInfluence",
+    "id" : "property421",
     "label" : {
       "IRI-based" : "hasInfluence"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasInfluence",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The disability of a person migh have an effect on the affective state or personality on the person.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class64",
-    "range" : "class103",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class103"
   }, {
-    "id" : "property115",
-    "uri" : "http://blankdots.com/open/personasonto.owl#isGoalOf",
+    "id" : "property396",
     "label" : {
       "IRI-based" : "isGoalOf"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#isGoalOf",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Inverse property of hasGoal, isGoalof represents the goal belonging to a person.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class49",
     "range" : "class69",
-    "inverse" : "property112",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property393"
   }, {
-    "id" : "property125",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasAffectiveState",
+    "id" : "property406",
     "label" : {
       "IRI-based" : "hasAffectiveState"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasAffectiveState",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person might have a certain affective state on a given moment or in a given context.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "class65",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class65"
   }, {
-    "id" : "property152",
-    "uri" : "http://blankdots.com/open/personasonto.owl#gender",
+    "id" : "property433",
     "label" : {
       "IRI-based" : "gender"
     },
-    "comment" : { },
-    "domain" : "class69",
-    "range" : "literal39",
-    "equivalent" : [ ],
+    "uri" : "http://blankdots.com/open/personasonto.owl#gender",
     "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Gender of a person.",
+        "type" : "label"
+      } ]
+    },
+    "domain" : "class69",
+    "range" : "literal39"
   }, {
-    "id" : "property141",
-    "uri" : "http://blankdots.com/open/personasonto.owl#isTaskFor",
+    "id" : "property422",
     "label" : {
       "IRI-based" : "isTaskFor"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#isTaskFor",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A certain task (or a series of tasks) is (are) part of a scenario.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class70",
     "range" : "class81",
-    "inverse" : "property114",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property395"
   }, {
-    "id" : "property173",
-    "uri" : "http://blankdots.com/open/personasonto.owl#location",
+    "id" : "property454",
     "label" : {
       "IRI-based" : "location"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#location",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Geographic location (City/Country).",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class107",
-    "range" : "datatype60",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "datatype60"
   }, {
-    "id" : "property128",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasAffiliation",
+    "id" : "property409",
     "label" : {
       "IRI-based" : "hasAffiliation"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasAffiliation",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person might have a certain type of affiliation to an organization and might not be member of it.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class40"
+  }, {
+    "id" : "property137",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class58",
+    "range" : "class76"
+  }, {
+    "id" : "property138",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class52",
+    "range" : "class76"
   }, {
     "id" : "property280",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class40",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class49",
+    "range" : "class68"
   }, {
-    "id" : "property281",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class45",
-    "range" : "class73",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property282",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class48",
-    "range" : "class73",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property283",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class59",
-    "range" : "class73",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property284",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class71",
-    "range" : "class73",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property139",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class89",
+    "range" : "class76"
   }, {
     "id" : "property285",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class61",
-    "range" : "class73",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class40",
+    "range" : "class68"
   }, {
-    "id" : "property286",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class53",
-    "range" : "class73",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property287",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class59",
+    "range" : "class40"
   }, {
     "id" : "property288",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class87",
-    "range" : "class39",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class71",
+    "range" : "class40"
   }, {
     "id" : "property289",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class45",
-    "range" : "class53",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class67",
+    "range" : "class40"
   }, {
-    "id" : "property163",
-    "uri" : "http://blankdots.com/open/personasonto.owl#scenarioName",
+    "id" : "property444",
     "label" : {
       "IRI-based" : "scenarioName"
     },
-    "comment" : { },
-    "domain" : "class81",
-    "range" : "literal50",
-    "equivalent" : [ ],
+    "uri" : "http://blankdots.com/open/personasonto.owl#scenarioName",
     "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The name of each scenario.",
+        "type" : "label"
+      } ]
+    },
+    "domain" : "class81",
+    "range" : "literal50"
   }, {
-    "id" : "property114",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasTask",
+    "id" : "property395",
     "label" : {
       "IRI-based" : "hasTask"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasTask",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A scenario has a set of tasks (or just one). (inverseproperty isTaskfor)",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class81",
     "range" : "class70",
-    "inverse" : "property141",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property270",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class72",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property271",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class68",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property274",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class63",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property275",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class49",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property272",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class43",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property273",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class81",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property138",
-    "uri" : "http://blankdots.com/open/personasonto.owl#isMemberOf",
-    "label" : {
-      "IRI-based" : "isMemberOf"
-    },
-    "comment" : { },
-    "domain" : "class69",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property422"
   }, {
     "id" : "property145",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasBusinessGoal",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class53",
+    "range" : "class67"
+  }, {
+    "id" : "property144",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class61",
+    "range" : "class67"
+  }, {
+    "id" : "property147",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class57",
+    "range" : "class69"
+  }, {
+    "id" : "property146",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class73",
+    "range" : "class67"
+  }, {
+    "id" : "property141",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class48",
+    "range" : "class67"
+  }, {
+    "id" : "property140",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class45",
+    "range" : "class67"
+  }, {
+    "id" : "property143",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class71",
+    "range" : "class67"
+  }, {
+    "id" : "property142",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class59",
+    "range" : "class67"
+  }, {
+    "id" : "property128",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class49",
+    "range" : "class64"
+  }, {
+    "id" : "property129",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class69",
+    "range" : "class64"
+  }, {
+    "id" : "property126",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class81",
+    "range" : "class64"
+  }, {
+    "id" : "property127",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class63",
+    "range" : "class64"
+  }, {
+    "id" : "property272",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class71",
+    "range" : "class45"
+  }, {
+    "id" : "property273",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class61",
+    "range" : "class45"
+  }, {
+    "id" : "property278",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class81",
+    "range" : "class68"
+  }, {
+    "id" : "property279",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class63",
+    "range" : "class68"
+  }, {
+    "id" : "property426",
     "label" : {
       "IRI-based" : "hasBusinessGoal"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasBusinessGoal",
     "domain" : "thing18",
     "range" : "class38",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property112" ],
-    "disjoint" : [ "property116", "property111", "property127", "property124" ]
+    "superproperty" : [ "property393" ],
+    "disjoint" : [ "property397", "property392", "property408", "property405" ]
   }, {
-    "id" : "property269",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class74",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property419",
+    "label" : {
+      "IRI-based" : "isMemberOf"
+    },
+    "uri" : "http://blankdots.com/open/personasonto.owl#isMemberOf",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person might be memeber of an organization.",
+        "type" : "label"
+      } ]
+    },
+    "domain" : "class69",
+    "range" : "class40"
   }, {
-    "id" : "property126",
-    "uri" : "http://blankdots.com/open/personasonto.owl#isPartOfTest",
+    "id" : "property136",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class83",
+    "range" : "class76"
+  }, {
+    "id" : "property134",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class47",
+    "range" : "class76"
+  }, {
+    "id" : "property133",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class42",
+    "range" : "class64"
+  }, {
+    "id" : "property132",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class40",
+    "range" : "class64"
+  }, {
+    "id" : "property131",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class65",
+    "range" : "class64"
+  }, {
+    "id" : "property130",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class70",
+    "range" : "class64"
+  }, {
+    "id" : "property407",
     "label" : {
       "IRI-based" : "isPartOfTest"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#isPartOfTest",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Usability tests have participants (observers and users), tasks and a scenario.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class96",
-    "range" : "class43",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class43"
   }, {
-    "id" : "property170",
-    "uri" : "http://blankdots.com/open/personasonto.owl#minWaistSize",
+    "id" : "property115",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class52",
+    "range" : "class62"
+  }, {
+    "id" : "property116",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class89",
+    "range" : "class62"
+  }, {
+    "id" : "property117",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class47",
+    "range" : "class64"
+  }, {
+    "id" : "property118",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class83",
+    "range" : "class64"
+  }, {
+    "id" : "property119",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class62",
+    "range" : "class64"
+  }, {
+    "id" : "property451",
     "label" : {
       "IRI-based" : "minWaistSize"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#minWaistSize",
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Minimum Waist Size.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class79",
     "range" : "datatype57",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property166", "property156", "property169", "property160", "property161", "property148", "property167", "property172", "property165" ]
+    "disjoint" : [ "property447", "property437", "property450", "property441", "property442", "property429", "property448", "property453", "property446" ]
   }, {
-    "id" : "property155",
-    "uri" : "http://blankdots.com/open/personasonto.owl#sensorData",
+    "id" : "property121",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class52",
+    "range" : "class64"
+  }, {
+    "id" : "property436",
     "label" : {
       "IRI-based" : "sensorData"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#sensorData",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Data recieved from a sensor (could be a number, temperature, etc.).",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class63",
-    "range" : "datatype42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "datatype42"
   }, {
-    "id" : "property129",
-    "uri" : "http://blankdots.com/open/personasonto.owl#depictsDocument",
+    "id" : "property120",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class58",
+    "range" : "class64"
+  }, {
+    "id" : "property123",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class89",
+    "range" : "class64"
+  }, {
+    "id" : "property122",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class76",
+    "range" : "class64"
+  }, {
+    "id" : "property125",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class43",
+    "range" : "class64"
+  }, {
+    "id" : "property124",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class68",
+    "range" : "class64"
+  }, {
+    "id" : "property292",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class45",
+    "range" : "class40"
+  }, {
+    "id" : "property410",
     "label" : {
       "IRI-based" : "depictsDocument"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#depictsDocument",
     "domain" : "thing15",
     "range" : "class77",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property137" ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property292",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class71",
-    "range" : "class53",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "superproperty" : [ "property418" ]
   }, {
     "id" : "property293",
-    "label" : { },
-    "comment" : { },
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
     "domain" : "class61",
-    "range" : "class53",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class40"
   }, {
     "id" : "property290",
-    "label" : { },
-    "comment" : { },
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
     "domain" : "class48",
-    "range" : "class53",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class40"
   }, {
     "id" : "property291",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class59",
-    "range" : "class53",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property399",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class58",
-    "range" : "class89",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class53",
+    "range" : "class40"
   }, {
     "id" : "property298",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class71",
-    "range" : "class59",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class63",
+    "range" : "class40"
   }, {
     "id" : "property299",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class61",
-    "range" : "class59",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property391",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class71",
-    "range" : "class61",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property296",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class45",
-    "range" : "class59",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class49",
+    "range" : "class40"
   }, {
     "id" : "property297",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class48",
-    "range" : "class59",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class81",
+    "range" : "class40"
   }, {
-    "id" : "property143",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasAward",
+    "id" : "property424",
     "label" : {
       "IRI-based" : "hasAward"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasAward",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person might have been awarded with some sort of distinction (depicted usually by a trophy or document).",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class42"
   }, {
-    "id" : "property154",
-    "uri" : "http://blankdots.com/open/personasonto.owl#technicalLevel",
+    "id" : "property294",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class73",
+    "range" : "class40"
+  }, {
+    "id" : "property435",
     "label" : {
       "IRI-based" : "technicalLevel"
     },
+    "uri" : "http://blankdots.com/open/personasonto.owl#technicalLevel",
     "comment" : {
       "undefined" : "If a person has technical or programming skills it's relevant."
     },
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Reflects the technical level of a person.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
     "range" : "literal41",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property168" ]
+    "disjoint" : [ "property449" ]
   }, {
-    "id" : "property132",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasTopicOfInterest",
+    "id" : "property413",
     "label" : {
       "IRI-based" : "hasTopicOfInterest"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasTopicOfInterest",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person might have a certain topic of interest which is correspondent to a cetain resource.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class42"
   }, {
-    "id" : "property131",
-    "uri" : "http://blankdots.com/open/personasonto.owl#isContextOf",
+    "id" : "property114",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class58",
+    "range" : "class62"
+  }, {
+    "id" : "property113",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class83",
+    "range" : "class62"
+  }, {
+    "id" : "property112",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class47",
+    "range" : "class62"
+  }, {
+    "id" : "property412",
     "label" : {
       "IRI-based" : "isContextOf"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#isContextOf",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Inverse property of hasContext, isContextof represents the context belonging to a scenario.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class63",
     "range" : "class81",
-    "inverse" : "property136",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property417"
+  }, {
+    "id" : "property111",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class76",
+    "range" : "class62"
   }, {
     "id" : "property240",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class43",
-    "range" : "class70",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property381",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class85",
-    "range" : "class41",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class78",
+    "range" : "class51"
   }, {
     "id" : "property242",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class63",
-    "range" : "class70",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class41",
+    "range" : "class79"
   }, {
     "id" : "property241",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class81",
-    "range" : "class70",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class85",
+    "range" : "class51"
+  }, {
+    "id" : "property244",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class82",
+    "range" : "class56"
   }, {
     "id" : "property243",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class49",
-    "range" : "class70",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property246",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class65",
-    "range" : "class70",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property386",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class51",
-    "range" : "class41",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property383",
-    "label" : { },
-    "comment" : { },
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
     "domain" : "class46",
-    "range" : "class41",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class56"
   }, {
-    "id" : "property382",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class56",
-    "range" : "class41",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property245",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class78",
+    "range" : "class56"
   }, {
-    "id" : "property162",
-    "uri" : "http://blankdots.com/open/personasonto.owl#taskName",
+    "id" : "property443",
     "label" : {
       "IRI-based" : "taskName"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#taskName",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A generic (short) name for a task.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class70",
-    "range" : "literal49",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property385",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class78",
-    "range" : "class41",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property384",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class82",
-    "range" : "class41",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "literal49"
   }, {
     "id" : "property188",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class76",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class89",
+    "range" : "class83"
   }, {
     "id" : "property189",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class89",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property184",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class83",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property185",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class62",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class60",
+    "range" : "class65"
   }, {
     "id" : "property186",
-    "label" : { },
-    "comment" : { },
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
     "domain" : "class58",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property187",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class52",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class83"
   }, {
     "id" : "property180",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class58",
-    "range" : "class62",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property236",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class89",
-    "range" : "class47",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class65",
+    "range" : "class70"
   }, {
     "id" : "property181",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class52",
-    "range" : "class62",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class40",
+    "range" : "class70"
   }, {
     "id" : "property237",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class39",
-    "range" : "class70",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class46",
+    "range" : "class51"
   }, {
     "id" : "property182",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class89",
-    "range" : "class62",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class42",
+    "range" : "class70"
   }, {
     "id" : "property238",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class87",
-    "range" : "class70",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property183",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class47",
-    "range" : "class64",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class82",
+    "range" : "class51"
   }, {
     "id" : "property239",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class68",
-    "range" : "class70",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class56",
+    "range" : "class51"
   }, {
-    "id" : "property146",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasInterest",
+    "id" : "property231",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class48",
+    "range" : "class59"
+  }, {
+    "id" : "property427",
     "label" : {
       "IRI-based" : "hasInterest"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasInterest",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person might be interested in a certain resource (product, application, document).",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class42"
   }, {
     "id" : "property230",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class89",
-    "range" : "class52",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class45",
+    "range" : "class59"
   }, {
-    "id" : "property164",
-    "uri" : "http://blankdots.com/open/personasonto.owl#status",
+    "id" : "property445",
     "label" : {
       "IRI-based" : "status"
     },
-    "comment" : { },
-    "domain" : "class65",
-    "range" : "literal51",
-    "equivalent" : [ ],
+    "uri" : "http://blankdots.com/open/personasonto.owl#status",
     "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property234",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class58",
-    "range" : "class47",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Marital status or a person.",
+        "type" : "label"
+      } ]
+    },
+    "domain" : "class65",
+    "range" : "literal51"
   }, {
     "id" : "property233",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class83",
-    "range" : "class47",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class61",
+    "range" : "class59"
   }, {
-    "id" : "property137",
-    "uri" : "http://blankdots.com/open/personasonto.owl#depiction",
+    "id" : "property232",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class71",
+    "range" : "class59"
+  }, {
+    "id" : "property376",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class82",
+    "range" : "class85"
+  }, {
+    "id" : "property418",
     "label" : {
       "IRI-based" : "depiction"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#depiction",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A certain resource might depict a/any thing.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "thing16",
     "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ "property129", "property144", "property122" ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "subproperty" : [ "property410", "property425", "property403" ]
   }, {
-    "id" : "property374",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class49",
-    "range" : "class81",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property373",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class63",
-    "range" : "class81",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property121",
-    "uri" : "http://blankdots.com/open/personasonto.owl#influences",
+    "id" : "property402",
     "label" : {
       "IRI-based" : "influences"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#influences",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "The personality influences the affective state o a person.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class68",
     "range" : "class65",
-    "inverse" : "property118",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "inverse" : "property399"
   }, {
-    "id" : "property179",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class83",
-    "range" : "class62",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property177",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class76",
-    "range" : "class62",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property150",
-    "uri" : "http://blankdots.com/open/personasonto.owl#birthday",
+    "id" : "property431",
     "label" : {
       "IRI-based" : "birthday"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#birthday",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Date of birth of a person.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "datatype37",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "datatype37"
   }, {
-    "id" : "property178",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class47",
-    "range" : "class62",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property177",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class49",
+    "range" : "class70"
   }, {
-    "id" : "property169",
-    "uri" : "http://blankdots.com/open/personasonto.owl#maxHeight",
+    "id" : "property175",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class81",
+    "range" : "class70"
+  }, {
+    "id" : "property450",
     "label" : {
       "IRI-based" : "maxHeight"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#maxHeight",
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Maximum Height.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class79",
     "range" : "datatype56",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property166", "property156", "property160", "property161", "property148", "property167", "property172", "property170", "property165" ]
+    "disjoint" : [ "property447", "property437", "property441", "property442", "property429", "property448", "property453", "property451", "property446" ]
   }, {
-    "id" : "property165",
-    "uri" : "http://blankdots.com/open/personasonto.owl#minWeight",
+    "id" : "property176",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class63",
+    "range" : "class70"
+  }, {
+    "id" : "property446",
     "label" : {
       "IRI-based" : "minWeight"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#minWeight",
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Minimum Weight.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class79",
     "range" : "datatype52",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property166", "property156", "property169", "property160", "property161", "property148", "property167", "property172", "property170" ]
+    "disjoint" : [ "property447", "property437", "property450", "property441", "property442", "property429", "property448", "property453", "property451" ]
   }, {
-    "id" : "property228",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class83",
-    "range" : "class52",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property173",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class68",
+    "range" : "class70"
   }, {
-    "id" : "property151",
-    "uri" : "http://blankdots.com/open/personasonto.owl#myerBriggs",
+    "id" : "property174",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class43",
+    "range" : "class70"
+  }, {
+    "id" : "property227",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class61",
+    "range" : "class53"
+  }, {
+    "id" : "property171",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class39",
+    "range" : "class70"
+  }, {
+    "id" : "property172",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class87",
+    "range" : "class70"
+  }, {
+    "id" : "property225",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class59",
+    "range" : "class53"
+  }, {
+    "id" : "property432",
     "label" : {
       "IRI-based" : "myerBriggs"
     },
-    "comment" : { },
-    "domain" : "class68",
-    "range" : "literal38",
-    "equivalent" : [ ],
+    "uri" : "http://blankdots.com/open/personasonto.owl#myerBriggs",
     "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Inspired by FOAF Myers Briggs personality classification which includes 16 4-letter textual codes.",
+        "type" : "label"
+      } ]
+    },
+    "domain" : "class68",
+    "range" : "literal38"
   }, {
     "id" : "property226",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class47",
-    "range" : "class52",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class71",
+    "range" : "class53"
   }, {
-    "id" : "property229",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class58",
-    "range" : "class52",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property266",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class40",
-    "range" : "class65",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property170",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class89",
+    "range" : "class47"
   }, {
     "id" : "property268",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class77",
-    "range" : "class42",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property267",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class42",
-    "range" : "class65",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class40",
+    "range" : "class43"
   }, {
     "id" : "property262",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class49",
-    "range" : "class65",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class63",
+    "range" : "class43"
   }, {
     "id" : "property261",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class63",
-    "range" : "class65",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class81",
+    "range" : "class43"
+  }, {
+    "id" : "property263",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class49",
+    "range" : "class43"
+  }, {
+    "id" : "property361",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class44",
+    "range" : "class63"
   }, {
     "id" : "property360",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class73",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property363",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class81",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class85",
+    "range" : "class46"
   }, {
     "id" : "property260",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class81",
-    "range" : "class65",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class68",
+    "range" : "class43"
   }, {
-    "id" : "property365",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class49",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property363",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class54",
+    "range" : "class63"
+  }, {
+    "id" : "property362",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class84",
+    "range" : "class63"
   }, {
     "id" : "property364",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class63",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property357",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class53",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property358",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class45",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property124",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasTechnicalGoal",
     "label" : {
-      "IRI-based" : "hasTechnicalGoal"
+      "IRI-based" : "Subclass Of"
     },
-    "comment" : { },
-    "domain" : "thing13",
-    "range" : "class66",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property112" ],
-    "disjoint" : [ "property145", "property116", "property111", "property127" ]
+    "domain" : "class55",
+    "range" : "class63"
   }, {
-    "id" : "property111",
-    "uri" : "http://blankdots.com/open/personasonto.owl#hasExperienceGoal",
+    "id" : "property162",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class83",
+    "range" : "class52"
+  }, {
+    "id" : "property163",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class58",
+    "range" : "class52"
+  }, {
+    "id" : "property392",
     "label" : {
       "IRI-based" : "hasExperienceGoal"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasExperienceGoal",
     "domain" : "thing10",
     "range" : "class86",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ "property112" ],
-    "disjoint" : [ "property145", "property116", "property127", "property124" ]
+    "superproperty" : [ "property393" ],
+    "disjoint" : [ "property426", "property397", "property408", "property405" ]
   }, {
-    "id" : "property359",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class61",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property405",
+    "label" : {
+      "IRI-based" : "hasTechnicalGoal"
+    },
+    "uri" : "http://blankdots.com/open/personasonto.owl#hasTechnicalGoal",
+    "domain" : "thing13",
+    "range" : "class66",
+    "superproperty" : [ "property393" ],
+    "disjoint" : [ "property426", "property397", "property392", "property408" ]
   }, {
-    "id" : "property158",
-    "uri" : "http://blankdots.com/open/personasonto.owl#tagline",
+    "id" : "property164",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class89",
+    "range" : "class52"
+  }, {
+    "id" : "property439",
     "label" : {
       "IRI-based" : "tagline"
     },
-    "comment" : { },
-    "domain" : "class79",
-    "range" : "literal45",
-    "equivalent" : [ ],
+    "uri" : "http://blankdots.com/open/personasonto.owl#tagline",
     "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A tagline specific to a persona.",
+        "type" : "label"
+      } ]
+    },
+    "domain" : "class79",
+    "range" : "literal45"
   }, {
-    "id" : "property258",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class68",
-    "range" : "class65",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property167",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class83",
+    "range" : "class47"
   }, {
-    "id" : "property259",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class43",
-    "range" : "class65",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property168",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class58",
+    "range" : "class47"
   }, {
-    "id" : "property257",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class88",
-    "range" : "class65",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property160",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class47",
+    "range" : "class52"
   }, {
     "id" : "property256",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class50",
-    "range" : "class65",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class61",
+    "range" : "class48"
   }, {
     "id" : "property255",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class60",
-    "range" : "class65",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class71",
+    "range" : "class48"
   }, {
-    "id" : "property254",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class89",
-    "range" : "class83",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property253",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class45",
+    "range" : "class48"
   }, {
     "id" : "property252",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class58",
-    "range" : "class83",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class85",
+    "range" : "class78"
   }, {
-    "id" : "property117",
-    "uri" : "http://blankdots.com/open/personasonto.owl#knows",
+    "id" : "property398",
     "label" : {
       "IRI-based" : "knows"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#knows",
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "A person knows another person (similar to FOAF ontology).",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
-    "range" : "class69",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class69"
   }, {
-    "id" : "property351",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class40",
-    "range" : "class68",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "id" : "property149",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class68",
+    "range" : "class69"
+  }, {
+    "id" : "property148",
+    "label" : {
+      "IRI-based" : "Subclass Of"
+    },
+    "domain" : "class79",
+    "range" : "class69"
   }, {
     "id" : "property356",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class48",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class82",
+    "range" : "class46"
   }, {
-    "id" : "property355",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class67",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property354",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class71",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property353",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class59",
-    "range" : "class40",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
-  }, {
-    "id" : "property172",
-    "uri" : "http://blankdots.com/open/personasonto.owl#minHeight",
+    "id" : "property453",
     "label" : {
       "IRI-based" : "minHeight"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#minHeight",
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Minimum Height.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class79",
     "range" : "datatype59",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property166", "property156", "property169", "property160", "property161", "property148", "property167", "property170", "property165" ]
+    "disjoint" : [ "property447", "property437", "property450", "property441", "property442", "property429", "property448", "property451", "property446" ]
   }, {
-    "id" : "property346",
-    "label" : { },
-    "comment" : { },
+    "id" : "property153",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
     "domain" : "class49",
-    "range" : "class68",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "range" : "class69"
   }, {
-    "id" : "property149",
-    "uri" : "http://blankdots.com/open/personasonto.owl#age",
+    "id" : "property349",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class63",
+    "range" : "class49"
+  }, {
+    "id" : "property151",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class81",
+    "range" : "class69"
+  }, {
+    "id" : "property152",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class63",
+    "range" : "class69"
+  }, {
+    "id" : "property157",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class40",
+    "range" : "class69"
+  }, {
+    "id" : "property158",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class42",
+    "range" : "class69"
+  }, {
+    "id" : "property155",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class70",
+    "range" : "class69"
+  }, {
+    "id" : "property156",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class65",
+    "range" : "class69"
+  }, {
+    "id" : "property430",
     "label" : {
       "IRI-based" : "age"
     },
-    "comment" : { },
-    "domain" : "class69",
-    "range" : "datatype36",
-    "equivalent" : [ ],
+    "uri" : "http://blankdots.com/open/personasonto.owl#age",
     "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Age of a person.",
+        "type" : "label"
+      } ]
+    },
+    "domain" : "class69",
+    "range" : "datatype36"
   }, {
-    "id" : "property168",
-    "uri" : "http://blankdots.com/open/personasonto.owl#experienceLevel",
+    "id" : "property449",
     "label" : {
       "IRI-based" : "experienceLevel"
     },
+    "uri" : "http://blankdots.com/open/personasonto.owl#experienceLevel",
     "comment" : {
       "undefined" : "It is different from technical level, because a person might be experienced in some product or application but does not have technical skills."
     },
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Reflects the experience level of a persona with the application\nor product; proposed levels: Beginner, Intermediate, Advanced.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
     "range" : "literal55",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property154" ]
+    "disjoint" : [ "property435" ]
   }, {
-    "id" : "property175",
-    "uri" : "http://blankdots.com/open/personasonto.owl#familyName",
+    "id" : "property249",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class82",
+    "range" : "class78"
+  }, {
+    "id" : "property150",
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class43",
+    "range" : "class69"
+  }, {
+    "id" : "property456",
     "label" : {
       "IRI-based" : "familyName"
     },
-    "comment" : { },
+    "uri" : "http://blankdots.com/open/personasonto.owl#familyName",
+    "attributes" : [ "functional" ],
+    "annotations" : {
+      "description" : [ {
+        "identifier" : "description",
+        "language" : "undefined",
+        "value" : "Family or Last name of a person.",
+        "type" : "label"
+      } ]
+    },
     "domain" : "class69",
     "range" : "datatype62",
-    "equivalent" : [ ],
-    "attributes" : [ "functional" ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ "property176" ]
+    "disjoint" : [ "property457" ]
   }, {
     "id" : "property247",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class40",
-    "range" : "class70",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class85",
+    "range" : "class56"
   }, {
     "id" : "property248",
-    "label" : { },
-    "comment" : { },
-    "domain" : "class42",
-    "range" : "class70",
-    "equivalent" : [ ],
-    "attributes" : [ ],
-    "subproperty" : [ ],
-    "superproperty" : [ ],
-    "disjoint" : [ ]
+    "label" : {
+      "IRI-based" : "Disjoint With"
+    },
+    "domain" : "class46",
+    "range" : "class78"
   } ]
 }
