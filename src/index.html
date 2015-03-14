@@ -23,8 +23,14 @@
 		</div>
 		<div id="loading-info">
 			<div id="loading-error" class="hidden">
-				<span>Ontology could not be loaded.</span>
-				<span id="custom-error-message"></span>
+				<p>Ontology could not be loaded. (
+					<a target="_blank" href="http://mowl-power.cs.man.ac.uk:8080/validator/">Validator</a>
+					)
+				</p>
+				<p id="button-error">Show/Hide</p>
+				<div id="error-container">
+					<pre id="custom-error-message"></pre>
+				</div>
 			</div>
 			<div id="loading-progress" class="hidden">
 				<span>Loading ontology... </span><div class="spin">&#8635;</div>
