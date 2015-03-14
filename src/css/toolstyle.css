@@ -473,6 +473,22 @@ a#pause:not(.paused)::before {
 #loading-info > div > div {
 	display: inline-block;
 }
+#loading-info > div > #error-container {
+	display: none;
+}
+#button-error {
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
+	color: #2e51f1;
+	border: 1px solid #ffffff;
+	padding: 4px 4px 4px 4px;
+}
+#error-container {
+	display: none;
+	border: 1px solid #ffffff;
+	padding: 2px 2px 2px 2px;
+}
 .spin {
 	-webkit-animation: spin 2s infinite linear;
 	animation: spin 2s infinite linear;
