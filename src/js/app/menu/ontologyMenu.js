@@ -214,9 +214,26 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 
 	function displayLoadingStatus(success, message) {
 		if (!success) {
+			d3.select("#error-container").style("display", "none");
+			d3.select("#button-error").on("click", function () {
+				toggleErrorMessage();
+			});
 			d3.select("#custom-error-message").text(message || "");
 		}
 		loadingError.classed("hidden", success);
+	}
+
+	function toggleErrorMessage() {
+		var selection = d3.select("#error-container");
+		console.log(selection.style("display"));
+
+		if (selection.style("display") == "block") {
+			selection.style("display", "none");
+		}
+		else {
+			selection.style("display", "block");
+		}
+		console.log(selection.style("display"));
 	}
 
 	function hideLoadingInformations() {
