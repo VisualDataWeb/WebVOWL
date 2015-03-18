@@ -18,6 +18,10 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 
 		setupConverterButton();
 		setupUploadButton();
+
+		d3.select("#button-error").on("click", function () {
+			toggleErrorMessage();
+		});
 	};
 
 
@@ -105,9 +109,9 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 	}
 
 	function setupConverterButton() {
-		d3.select("#iri-converter-input").on("input", function() {
+		d3.select("#iri-converter-input").on("input", function () {
 			keepOntologySelectionOpenShortly();
-		}).on("click", function() {
+		}).on("click", function () {
 			keepOntologySelectionOpenShortly();
 		});
 
@@ -172,9 +176,9 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 	function keepOntologySelectionOpenShortly() {
 		// Events in the menu should not be considered
 		var ontologySelection = d3.select("#select .toolTipMenu");
-		ontologySelection.on("click", function() {
+		ontologySelection.on("click", function () {
 			d3.event.stopPropagation();
-		}).on("keydown", function() {
+		}).on("keydown", function () {
 			d3.event.stopPropagation();
 		});
 
@@ -214,26 +218,16 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 
 	function displayLoadingStatus(success, message) {
 		if (!success) {
-			d3.select("#error-container").style("display", "none");
-			d3.select("#button-error").on("click", function () {
-				toggleErrorMessage();
-			});
 			d3.select("#custom-error-message").text(message || "");
 		}
 		loadingError.classed("hidden", success);
 	}
 
 	function toggleErrorMessage() {
-		var selection = d3.select("#error-container");
-		console.log(selection.style("display"));
+		var errorContainer = d3.select("#error-container");
 
-		if (selection.style("display") == "block") {
-			selection.style("display", "none");
-		}
-		else {
-			selection.style("display", "block");
-		}
-		console.log(selection.style("display"));
+		var invisible = errorContainer.style("display") === "none";
+		errorContainer.style("display", invisible ? "block" : "none");
 	}
 
 	function hideLoadingInformations() {
