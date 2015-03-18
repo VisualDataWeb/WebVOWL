@@ -226,8 +226,8 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 	function toggleErrorMessage() {
 		var errorContainer = d3.select("#error-container");
 
-		var invisible = errorContainer.style("display") === "none";
-		errorContainer.style("display", invisible ? "block" : "none");
+		var invisible = errorContainer.classed("hidden");
+		errorContainer.classed("hidden", !invisible);
 	}
 
 	function hideLoadingInformations() {
