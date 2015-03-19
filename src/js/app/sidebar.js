@@ -283,6 +283,9 @@ webvowlApp.sidebar = function (graph) {
 
 		displayAttributes(property.attributes(), d3.select("#propAttributes"));
 
+		setTextAndVisibility(d3.select("#propDescription"), property.descriptionForCurrentLanguage());
+		setTextAndVisibility(d3.select("#propComment"), property.commentForCurrentLanguage());
+
 		listAnnotations(d3.select("#propertySelectionInformation"), property.annotations());
 	}
 
@@ -368,6 +371,9 @@ webvowlApp.sidebar = function (graph) {
 
 		displayAttributes(node.attributes(), d3.select("#classAttributes"));
 
+		setTextAndVisibility(d3.select("#nodeDescription"), node.descriptionForCurrentLanguage());
+		setTextAndVisibility(d3.select("#nodeComment"), node.commentForCurrentLanguage());
+
 		listAnnotations(d3.select("#classSelectionInformation"), node.annotations());
 	}
 
@@ -390,6 +396,15 @@ webvowlApp.sidebar = function (graph) {
 			spanParent.classed("hidden", false);
 		} else {
 			spanParent.classed("hidden", true);
+		}
+	}
+
+	function setTextAndVisibility(label, value) {
+		if (!value) {
+			var parentNode = d3.select(label.node().parentNode);
+			parentNode.classed("hidden", true);
+		} else {
+			label.text(value).classed("hidden", false);
 		}
 	}
 
