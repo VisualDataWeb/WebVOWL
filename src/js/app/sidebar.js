@@ -22,11 +22,11 @@ webvowlApp.sidebar = function (graph) {
 	function setupCollapsing() {
 		// adapted version of this example: http://www.normansblog.de/simple-jquery-accordion/
 		function collapseContainers(containers) {
-			containers.style("display", "none");
+			containers.classed("hidden", true);
 		}
 
 		function expandContainers(containers) {
-			containers.style("display", null);
+			containers.classed("hidden", false);
 		}
 
 		var triggers = d3.selectAll(".accordion-trigger");
@@ -168,10 +168,12 @@ webvowlApp.sidebar = function (graph) {
 
 	function displayMetadata(metadata) {
 		var container = d3.select("#ontology-metadata");
+		container.selectAll("*").remove();
+
 		listAnnotations(container, metadata);
 
 		if (container.selectAll(".annotation").size() <= 0) {
-			container.append("p").classed("annotation", true).text("No annotations available.");
+			container.append("p").text("No annotations available.");
 		}
 	}
 
@@ -241,10 +243,10 @@ webvowlApp.sidebar = function (graph) {
 		d3.select("#typeProp").text(property.type());
 
 		if (property.inverse() !== undefined) {
-			d3.select("#inverse").style("display", "block");
+			d3.select("#inverse").classed("hidden", false);
 			setUriLabel(d3.select("#inverse span"), property.inverse().labelForCurrentLanguage(), property.inverse().uri());
 		} else {
-			d3.select("#inverse").style("display", "none");
+			d3.select("#inverse").classed("hidden", true);
 		}
 
 		var equivalentUriSpan = d3.select("#propEquivUri");
@@ -254,10 +256,10 @@ webvowlApp.sidebar = function (graph) {
 		listNodeArray(d3.select("#superproperties"), property.superproperties());
 
 		if (property.minCardinality() !== undefined) {
-			d3.select("#infoCardinality").style("display", "none");
-			d3.select("#minCardinality").style("display", "block");
+			d3.select("#infoCardinality").classed("hidden", true);
+			d3.select("#minCardinality").classed("hidden", false);
 			d3.select("#minCardinality span").text(property.minCardinality());
-			d3.select("#maxCardinality").style("display", "block");
+			d3.select("#maxCardinality").classed("hidden", false);
 
 			if (property.maxCardinality() !== undefined) {
 				d3.select("#maxCardinality span").text(property.maxCardinality());
@@ -266,14 +268,14 @@ webvowlApp.sidebar = function (graph) {
 			}
 
 		} else if (property.cardinality() !== undefined) {
-			d3.select("#minCardinality").style("display", "none");
-			d3.select("#maxCardinality").style("display", "none");
-			d3.select("#infoCardinality").style("display", "block");
+			d3.select("#minCardinality").classed("hidden", true);
+			d3.select("#maxCardinality").classed("hidden", true);
+			d3.select("#infoCardinality").classed("hidden", false);
 			d3.select("#infoCardinality span").text(property.cardinality());
 		} else {
-			d3.select("#infoCardinality").style("display", "none");
-			d3.select("#minCardinality").style("display", "none");
-			d3.select("#maxCardinality").style("display", "none");
+			d3.select("#infoCardinality").classed("hidden", true);
+			d3.select("#minCardinality").classed("hidden", true);
+			d3.select("#maxCardinality").classed("hidden", true);
 		}
 
 		setUriLabel(d3.select("#domain"), property.domain().labelForCurrentLanguage(), property.domain().uri());
