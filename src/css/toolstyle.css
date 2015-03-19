@@ -93,7 +93,7 @@ ul#optionsMenu {
 #logo {
 	position: fixed;
 	padding: 10px;
-	pointer-events: none; 
+	pointer-events: none;
 }
 #logo h2 {
 	color: #3498db;
@@ -507,4 +507,9 @@ a#pause:not(.paused)::before {
 		-webkit-transform: rotate(359deg);
 		transform: rotate(359deg);
 	}
+}
+.truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
