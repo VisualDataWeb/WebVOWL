@@ -17,6 +17,7 @@ webvowl.elements.BaseElement = (function () {
 			attributes = [],
 			visualAttribute,
 			comment,
+			description,
 			equivalentBase,
 		// Style attributes
 			focused = false,
@@ -44,6 +45,12 @@ webvowl.elements.BaseElement = (function () {
 		this.comment = function (p) {
 			if (!arguments.length) return comment;
 			comment = p;
+			return this;
+		};
+
+		this.description = function (p) {
+			if (!arguments.length) return description;
+			description = p;
 			return this;
 		};
 
@@ -122,6 +129,10 @@ webvowl.elements.BaseElement = (function () {
 
 		this.commentForCurrentLanguage = function () {
 			return languageTools.textForCurrentLanguage(this.comment(), graph.getLanguage());
+		};
+
+		this.descriptionForCurrentLanguage = function() {
+			return languageTools.textForCurrentLanguage(this.description(), graph.getLanguage());
 		};
 
 		this.defaultLabel = function () {
