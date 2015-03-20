@@ -87,9 +87,6 @@ ul#optionsMenu {
 	padding: 0;
 	width: 78%;
 }
-#loading-info {
-	padding: 10px;
-}
 #logo {
 	position: fixed;
 	padding: 10px;
@@ -459,10 +456,12 @@ a#pause:not(.paused)::before {
 	width: 74%;
 }
 #loading-info {
+	box-sizing: border-box;
 	position: fixed;
 	width: 78%;
 	text-align: center;
 	vertical-align: middle;
+	padding: 10px;
 }
 #loading-info > div {
 	display: inline-block;
@@ -482,6 +481,10 @@ a#pause:not(.paused)::before {
 	display: block;
 	border: 1px solid #ffffff;
 	padding: 2px 2px 2px 2px;
+	text-align: left;
+}
+#error-container pre {
+	white-space: pre-wrap;
 }
 .spin {
 	display: inline-block;
