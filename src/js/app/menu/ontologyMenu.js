@@ -93,7 +93,7 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 
 	function loadOntologyFromUri(relativePath) {
 		displayLoadingInformations();
-		d3.xhr(relativePath, 'application/json', function (error, request) {
+		d3.xhr(relativePath, "application/json", function (error, request) {
 			var loadingFailed = !!error;
 
 			var jsonText;
