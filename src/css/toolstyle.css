@@ -467,29 +467,24 @@ a#pause-button:not(.paused)::before {
 	top: 0;
 }
 #loading-info > div {
-	background-color: #24323e;
 	display: inline-block;
 	color: #ffffff;
-	padding: 5px;
-}
-#loading-error {
-	position: relative;
+	background-color: #18202A;
 	border-bottom-left-radius: 2px;
 	border-bottom-right-radius: 2px;
 }
-#error-description {
-	padding: 0 0 10px;
+#loading-info > * > * {
+	padding: 5px;
 }
 #error-details-button {
+	margin: 5px 0 0 0;
+	font-size: 12px;
 	color: #2980B9;
 	cursor: pointer;
 	text-align: center;
 }
 #error-details-container {
 	box-sizing: border-box;
-	background-color: #24323E;
-	margin: 10px 0 0;
-	display: block;
 	text-align: left;
 	max-height: calc(100vh - 100px);
 	overflow: auto;
