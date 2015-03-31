@@ -23,10 +23,12 @@
 		</div>
 		<div id="loading-info">
 			<div id="loading-error" class="hidden">
-				<p>Ontology could not be loaded. (<a target="_blank" href="http://mowl-power.cs.man.ac.uk:8080/validator/">Validator</a>)
-				</p>
-				<p id="button-error">Show/Hide</p>
-				<div id="error-container" class="hidden">
+				<div id="error-description">
+					Ontology could not be loaded. Verify it with the <a target="_blank"
+					                                  href="http://mowl-power.cs.man.ac.uk:8080/validator/">OWL Validator</a>.
+				</div>
+				<div id="error-details-button">Show error details</div>
+				<div id="error-details-container" class="hidden">
 					<pre id="custom-error-message"></pre>
 				</div>
 			</div>
