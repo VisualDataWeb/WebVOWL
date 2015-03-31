@@ -19,6 +19,7 @@ webvowl.util.textElement = function (element) {
 		// Nothing to do if no child elements exist
 		var lineCount = getLineCount();
 		if (lineCount < 1) {
+			textBlock.attr("y", 0);
 			return;
 		}
 
