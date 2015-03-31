@@ -35,9 +35,7 @@ webvowl.nodes.owlunionof = (function () {
 				.attr("class", "link")
 				.attr("d", "m 1,-3 c 0,2 0,4 0,6 0,0 0,0 0,0 0,2 2,3 4,3 2,0 4,-1 4,-3 0,-2 0,-4 0,-6");
 
-			var scale = that.actualRadius() / that.radius();
-			symbol.attr("transform", "translate(-" + scale * (that.radius() - 15) / 5 + ",-" +
-				(that.radius() - 15) / 100 + ")scale(" + scale + ")");
+			symbol.attr("transform", "translate(-" + (that.radius() - 15) / 5 + ",-" + (that.radius() - 15) / 100 + ")");
 
 			that.postDrawActions();
 			that.textBlock().clear();

@@ -27,9 +27,7 @@ webvowl.nodes.owlcomplementof = (function () {
 				.attr("class", "nofill")
 				.attr("d", "m -7,-1.5 12,0 0,6");
 
-			var scale = that.actualRadius() / that.radius();
-			symbol.attr("transform", "translate(-" + scale * (that.radius() - 15) / 100 + ",-" +
-				(that.radius() - 15) / 100 + ")scale(" + scale + ")");
+			symbol.attr("transform", "translate(-" + (that.radius() - 15) / 100 + ",-" + (that.radius() - 15) / 100 + ")");
 
 			that.postDrawActions();
 			that.textBlock().clear();
