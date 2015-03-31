@@ -22,7 +22,7 @@ webvowl.nodes.SetOperatorNode = (function () {
 
 			that.textBlock().clear();
 			that.textBlock().addInstanceCount(that.individuals().length);
-			that.textBlock().setTranslation(0, 11 / 10 * that.radius());
+			that.textBlock().setTranslation(0, that.radius() - 15);
 		};
 	};
 	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);
