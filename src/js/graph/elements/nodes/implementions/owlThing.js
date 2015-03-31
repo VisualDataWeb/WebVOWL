@@ -8,7 +8,8 @@ webvowl.nodes.owlthing = (function () {
 		this.label("Thing")
 			.radius(30)
 			.styleClass("thing")
-			.type("owl:Thing");
+			.type("owl:Thing")
+			.uri("http://www.w3.org/2002/07/owl#Thing");
 
 		this.drawNode = function (element) {
 			superDrawFunction(element, ["white", "special"]);
