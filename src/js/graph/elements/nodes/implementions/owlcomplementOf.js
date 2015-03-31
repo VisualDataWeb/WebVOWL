@@ -30,7 +30,6 @@ webvowl.nodes.owlcomplementof = (function () {
 			symbol.attr("transform", "translate(-" + (that.radius() - 15) / 100 + ",-" + (that.radius() - 15) / 100 + ")");
 
 			that.postDrawActions();
-			that.textBlock().clear();
 		};
 	};
 	o.prototype = Object.create(webvowl.nodes.SetOperatorNode.prototype);

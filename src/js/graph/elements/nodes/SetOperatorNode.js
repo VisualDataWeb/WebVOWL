@@ -6,7 +6,8 @@ webvowl.nodes.SetOperatorNode = (function () {
 		webvowl.nodes.RoundNode.apply(this, arguments);
 
 		var that = this,
-			superHoverHighlightingFunction = this.setHoverHighlighting;
+			superHoverHighlightingFunction = this.setHoverHighlighting,
+			superPostDrawActions = this.postDrawActions;
 
 		this.radius(radius);
 
@@ -14,6 +15,14 @@ webvowl.nodes.SetOperatorNode = (function () {
 			superHoverHighlightingFunction(enable);
 
 			d3.selectAll(".special." + that.cssClassOfNode()).classed("hovered", enable);
+		};
+
+		this.postDrawActions = function () {
+			superPostDrawActions();
+
+			that.textBlock().clear();
+			that.textBlock().addInstanceCount(that.individuals().length);
+			that.textBlock().setTranslation(0, 11 / 10 * that.radius());
 		};
 	};
 	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);
