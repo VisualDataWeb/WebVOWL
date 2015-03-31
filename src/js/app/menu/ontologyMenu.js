@@ -12,7 +12,7 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 		loadingError = d3.select("#loading-error"),
 		loadingProgress = d3.select("#loading-progress"),
 		ontologyMenuTimeout,
-		ontologyLoaded = false,
+		ontologyLoadingSuccessful = false,
 		cachedIriConversions = {};
 
 	ontologyMenu.setup = function () {
@@ -99,6 +99,9 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 				}
 			});
 		}
+
+		// Reset the loaded state to handle upcoming iri changes correctly
+		ontologyLoadingSuccessful = false;
 	}
 
 	function loadOntologyFromUri(relativePath) {
@@ -129,7 +132,7 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 	}
 
 	function loadOntologyFromText(jsonText, filename) {
-		ontologyLoaded = !!jsonText;
+		ontologyLoadingSuccessful = !!jsonText;
 
 		loadFromText(jsonText, filename);
 	}
@@ -244,10 +247,10 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 	}
 
 	function setLoadingStatus(message) {
-		if (!ontologyLoaded) {
+		if (!ontologyLoadingSuccessful) {
 			d3.select("#custom-error-message").text(message || "");
 		}
-		loadingError.classed("hidden", ontologyLoaded);
+		loadingError.classed("hidden", ontologyLoadingSuccessful);
 	}
 
 	function hideLoadingInformations() {
