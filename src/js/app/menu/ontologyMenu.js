@@ -12,7 +12,8 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 		loadingError = d3.select("#loading-error"),
 		loadingProgress = d3.select("#loading-progress"),
 		ontologyMenuTimeout,
-		ontologyLoaded = false;
+		ontologyLoaded = false,
+		cachedIriConversions = {};
 
 	ontologyMenu.setup = function () {
 		setupUriListener();
@@ -78,7 +79,7 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 		// IRI parameter
 		var iriKey = "iri=";
 		if (location.hash === "#file") {
-			displayLoadingStatus("No file was uploaded");
+			setLoadingStatus("No file was uploaded");
 		} else if (hashParameter.substr(0, iriKey.length) === iriKey) {
 			var iri = hashParameter.slice(iriKey.length);
 			loadOntologyFromUri("converter.php?iri=" + encodeURIComponent(iri));
@@ -101,21 +102,30 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 	}
 
 	function loadOntologyFromUri(relativePath) {
-		displayLoadingInformations();
-		d3.xhr(relativePath, "application/json", function (error, request) {
-			var loadingFailed = !!error;
+		var filename = relativePath.slice(relativePath.lastIndexOf("/") + 1);
+		var cachedOntology = cachedIriConversions[relativePath];
 
-			var jsonText;
-			if (!loadingFailed) {
-				jsonText = request.responseText;
-			}
+		displayLoadingIndicators();
 
-			var filename = relativePath.slice(relativePath.lastIndexOf("/") + 1);
-			loadOntologyFromText(jsonText, filename);
-
-			displayLoadingStatus(error ? error.response : undefined);
+		if (cachedOntology) {
+			loadOntologyFromText(cachedOntology, filename);
 			hideLoadingInformations();
-		});
+		} else {
+			d3.xhr(relativePath, "application/json", function (error, request) {
+				var loadingFailed = !!error;
+
+				var jsonText;
+				if (!loadingFailed) {
+					jsonText = request.responseText;
+					cachedIriConversions[relativePath] = jsonText;
+				}
+
+				loadOntologyFromText(jsonText, filename);
+
+				setLoadingStatus(error ? error.response : undefined);
+				hideLoadingInformations();
+			});
+		}
 	}
 
 	function loadOntologyFromText(jsonText, filename) {
@@ -164,7 +174,7 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 				return false;
 			}
 
-			displayLoadingInformations();
+			displayLoadingIndicators();
 			uploadButton.property("disabled", true);
 
 			var formData = new FormData();
@@ -182,7 +192,7 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 				} else {
 					loadOntologyFromText(undefined, selectedFile.name);
 				}
-				displayLoadingStatus(xhr.responseText);
+				setLoadingStatus(xhr.responseText);
 				hideLoadingInformations();
 			};
 
@@ -228,12 +238,12 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 	}
 
 
-	function displayLoadingInformations() {
+	function displayLoadingIndicators() {
 		loadingError.classed("hidden", true);
 		loadingProgress.classed("hidden", false);
 	}
 
-	function displayLoadingStatus(message) {
+	function setLoadingStatus(message) {
 		if (!ontologyLoaded) {
 			d3.select("#custom-error-message").text(message || "");
 		}
