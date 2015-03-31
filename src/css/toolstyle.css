@@ -460,33 +460,43 @@ a#pause-button:not(.paused)::before {
 }
 #loading-info {
 	box-sizing: border-box;
-	position: fixed;
-	width: 78%;
+	position: absolute;
 	text-align: center;
-	vertical-align: middle;
-	padding: 10px;
+	width: 100%;
+	top: 0;
 }
 #loading-info > div {
-	display: inline-block;
 	background-color: #24323e;
+	display: inline-block;
 	color: #ffffff;
 	padding: 5px;
 }
-#button-error {
-	display: inline-block;
+#loading-error {
+	position: relative;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+#error-description {
+	padding: 0 0 10px;
+}
+#error-details-button {
+	color: #2980B9;
 	cursor: pointer;
 	text-align: center;
-	color: #2e51f1;
-	border: 1px solid #ffffff;
-	padding: 4px 4px 4px 4px;
 }
-#error-container {
+#error-details-container {
+	box-sizing: border-box;
+	background-color: #24323E;
+	margin: 10px 0 0;
 	display: block;
-	border: 1px solid #ffffff;
-	padding: 2px 2px 2px 2px;
 	text-align: left;
+	max-height: calc(100vh - 100px);
+	overflow: auto;
 }
-#error-container pre {
+#error-details-container pre {
+	background-color: #34495E;
+	padding: 2px;
+	margin: 0;
 	white-space: pre-wrap;
 }
 .spin {

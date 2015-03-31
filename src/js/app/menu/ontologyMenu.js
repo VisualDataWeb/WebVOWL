@@ -20,8 +20,17 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 		setupConverterButton();
 		setupUploadButton();
 
-		d3.select("#button-error").on("click", function () {
-			toggleErrorMessage();
+		d3.select("#error-details-button").on("click", function () {
+			var errorContainer = d3.select("#error-details-container");
+			var errorDetailsButton = d3.select(this);
+
+			var invisible = errorContainer.classed("hidden");
+			if (invisible) {
+				errorDetailsButton.text("Hide error details");
+			} else {
+				errorDetailsButton.text("Show error details");
+			}
+			errorContainer.classed("hidden", !invisible);
 		});
 	};
 
@@ -229,13 +238,6 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 			d3.select("#custom-error-message").text(message || "");
 		}
 		loadingError.classed("hidden", ontologyLoaded);
-	}
-
-	function toggleErrorMessage() {
-		var errorContainer = d3.select("#error-container");
-
-		var invisible = errorContainer.classed("hidden");
-		errorContainer.classed("hidden", !invisible);
 	}
 
 	function hideLoadingInformations() {
