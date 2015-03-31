@@ -157,13 +157,13 @@ webvowl.nodes.RoundNode = (function () {
 		 * Common actions that should be invoked after drawing a node.
 		 */
 		this.postDrawActions = function () {
-			var textBlock = webvowl.util.textElement(this.nodeElement());
+			var textBlock = webvowl.util.textElement(that.nodeElement());
 			textBlock.addText(that.labelForCurrentLanguage());
 			if (!graph.options().compactNotation()) {
 				textBlock.addSubText(that.indicationString());
 			}
 			textBlock.addInstanceCount(that.individuals().length);
-			this.textBlock(textBlock);
+			that.textBlock(textBlock);
 
 			that.addMouseListeners();
 			if (that.pinned()) {
