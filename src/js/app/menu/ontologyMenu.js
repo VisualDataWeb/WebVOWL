@@ -127,6 +127,8 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 
 				setLoadingStatus(error ? error.response : undefined);
 				hideLoadingInformations();
+
+				ontologyLoadingSuccessful = false;
 			});
 		}
 	}
@@ -249,6 +251,7 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 	function setLoadingStatus(message) {
 		if (!ontologyLoadingSuccessful) {
 			d3.select("#custom-error-message").text(message || "");
+			loadOntologyFromText(undefined, undefined);
 		}
 		loadingError.classed("hidden", ontologyLoadingSuccessful);
 	}
