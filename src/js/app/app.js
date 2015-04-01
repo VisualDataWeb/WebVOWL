@@ -41,7 +41,6 @@ webvowlApp.app = function () {
 		options.filterModules().push(nodeDegreeFilter);
 		options.filterModules().push(compactNotationSwitch);
 
-		ontologyMenu = webvowlApp.ontologyMenu(loadOntologyFromText);
 		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
 		gravityMenu = webvowlApp.gravityMenu(graph);
 		filterMenu = webvowlApp.filterMenu(graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
@@ -49,11 +48,12 @@ webvowlApp.app = function () {
 		pauseMenu = webvowlApp.pauseMenu(graph);
 		resetMenu = webvowlApp.resetMenu(graph, [gravityMenu, filterMenu, modeMenu,
 			focuser, selectionDetailDisplayer, pauseMenu]);
+		ontologyMenu = webvowlApp.ontologyMenu(loadOntologyFromText);
 
 		d3.select(window).on("resize", adjustSize);
 
 		// setup all bottom bar modules
-		setupableMenues = [ontologyMenu, exportMenu, gravityMenu, filterMenu, modeMenu, resetMenu, pauseMenu, sidebar];
+		setupableMenues = [exportMenu, gravityMenu, filterMenu, modeMenu, resetMenu, pauseMenu, sidebar, ontologyMenu];
 		setupableMenues.forEach(function (menu) {
 			menu.setup();
 		});
@@ -63,6 +63,7 @@ webvowlApp.app = function () {
 	};
 
 	function loadOntologyFromText(jsonText, filename) {
+		filename = filename || "export";
 		pauseMenu.reset();
 
 		var data;
