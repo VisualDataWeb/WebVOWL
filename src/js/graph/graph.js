@@ -252,6 +252,10 @@ webvowl.graph = function (graphContainerSelector) {
 	function redrawContent() {
 		var markerContainer;
 
+		if (!graphContainer) {
+			return;
+		}
+
 		// Empty the graph container
 		graphContainer.selectAll("*").remove();
 
@@ -416,7 +420,9 @@ webvowl.graph = function (graphContainerSelector) {
 	 */
 	function refreshGraphStyle() {
 		zoom = zoom.scaleExtent([options.minMagnification(), options.maxMagnification()]);
-		zoom.event(graphContainer);
+		if (graphContainer) {
+			zoom.event(graphContainer);
+		}
 
 		force.charge(options.charge())
 			.size([options.width(), options.height()])
