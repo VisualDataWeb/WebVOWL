@@ -20,8 +20,8 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		setupConverterButtons();
 		setupUploadButton();
 
-		d3.select("#error-details-button").on("click", function () {
-			var errorContainer = d3.select("#error-details-container");
+		d3.select("#error-description-button").on("click", function () {
+			var errorContainer = d3.select("#error-description-container");
 			var errorDetailsButton = d3.select(this);
 
 			var invisible = errorContainer.classed("hidden");
@@ -80,13 +80,8 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		var fileKey = "file=";
 		if (hashParameter.substr(0, fileKey.length) === fileKey) {
 			var filename = hashParameter.slice(fileKey.length);
-			var cachedOntology = cachedConversions[filename];
 
-			if (cachedOntology) {
-				loadOntologyFromText(cachedOntology, filename);
-			} else {
-				setLoadingStatus(false, "No cached version of \"" + filename + "\" available. Please reupload the file.");
-			}
+			loadOntologyFromFile(filename);
 		} else if (hashParameter.substr(0, iriKey.length) === iriKey) {
 			var iri = hashParameter.slice(iriKey.length);
 			loadOntologyFromUri("converter.php?iri=" + encodeURIComponent(iri), iri);
@@ -121,16 +116,21 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		} else {
 			d3.xhr(relativePath, "application/json", function (error, request) {
 				var loadingSuccessful = !error;
+				var errorInfo;
 
 				var jsonText;
 				if (loadingSuccessful) {
 					jsonText = request.responseText;
 					cachedConversions[relativePath] = jsonText;
+				} else {
+					if (error.status === 404) {
+						errorInfo = "Converter.php was not found. Please make sure that PHP is running."
+					}
 				}
 
 				loadOntologyFromText(jsonText, undefined, filename);
 
-				setLoadingStatus(loadingSuccessful, error ? error.response : undefined);
+				setLoadingStatus(loadingSuccessful, error ? error.response : undefined, errorInfo);
 				hideLoadingInformations();
 			});
 		}
@@ -178,32 +178,56 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 			if (!selectedFile) {
 				return false;
 			}
-
-			displayLoadingIndicators();
-			uploadButton.property("disabled", true);
-
-			var formData = new FormData();
-			formData.append("ontology", selectedFile);
-
-			var xhr = new XMLHttpRequest();
-			xhr.open("POST", "converter.php", true);
-
-			xhr.onload = function () {
-				location.hash = "file=" + selectedFile.name;
-				uploadButton.property("disabled", false);
-
-				if (xhr.status === 200) {
-					loadOntologyFromText(xhr.responseText, selectedFile.name);
-					cachedConversions[selectedFile.name] = xhr.responseText;
-				} else {
-					loadOntologyFromText(undefined, selectedFile.name);
-					setLoadingStatus(false, xhr.responseText);
-				}
-				hideLoadingInformations();
-			};
-
-			xhr.send(formData);
+			var newHashParameter = "file=" + selectedFile.name;
+			if (location.hash === "#" + newHashParameter) {
+				loadOntologyFromFile();
+			}   else {
+				location.hash = newHashParameter;
+			}
 		});
+	}
+
+	function loadOntologyFromFile(filename) {
+		var input = d3.select("#file-converter-input"),
+			uploadButton = d3.select("#file-converter-button");
+
+		var selectedFile = input.property("files")[0];
+		filename = filename || selectedFile.name;
+		// No selection -> this was triggered by the iri
+		if (!selectedFile) {
+			loadOntologyFromText(undefined, undefined);
+			setLoadingStatus(false, undefined, "No cached version of \"" + filename + "\" was found. Please reupload the file.");
+			return;
+		}
+
+		var cachedOntology = cachedConversions[filename];
+		if (cachedOntology) {
+			loadOntologyFromText(cachedOntology, filename);
+			return;
+		}
+
+		displayLoadingIndicators();
+		uploadButton.property("disabled", true);
+
+		var formData = new FormData();
+		formData.append("ontology", selectedFile);
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "converter.php", true);
+
+		xhr.onload = function () {
+			uploadButton.property("disabled", false);
+
+			if (xhr.status === 200) {
+				loadOntologyFromText(xhr.responseText, filename);
+				cachedConversions[filename] = xhr.responseText;
+			} else {
+				setLoadingStatus(false, xhr.responseText);
+			}
+			hideLoadingInformations();
+		};
+
+		xhr.send(formData);
 	}
 
 	function keepOntologySelectionOpenShortly() {
@@ -249,9 +273,20 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		loadingProgress.classed("hidden", false);
 	}
 
-	function setLoadingStatus(success, message) {
-		d3.select("#custom-error-message").text(message || "");
+	function setLoadingStatus(success, description, information) {
 		loadingError.classed("hidden", success);
+
+		var errorInfo = d3.select("#error-info");
+		if (information) {
+			errorInfo.text(information);
+		} else {
+			errorInfo.html("Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
+			"href=\"http://mowl-power.cs.man.ac.uk:8080/validator/\">OWL Validator</a>.");
+		}
+
+		var descriptionMissing = !description;
+		d3.select("#error-description").text(description || "");
+		d3.select("#error-description-button").classed("hidden", descriptionMissing);
 	}
 
 	function hideLoadingInformations() {
