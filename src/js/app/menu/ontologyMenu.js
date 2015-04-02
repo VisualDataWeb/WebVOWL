@@ -18,7 +18,7 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 	ontologyMenu.setup = function () {
 		setupUriListener();
 
-		setupConverterButton();
+		setupConverterButtons();
 		setupUploadButton();
 
 		d3.select("#error-details-button").on("click", function () {
@@ -139,9 +139,12 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 		loadFromText(jsonText, filename);
 	}
 
-	function setupConverterButton() {
+	function setupConverterButtons() {
 		d3.select("#iri-converter-input").on("input", function () {
 			keepOntologySelectionOpenShortly();
+
+			var inputIsEmpty = d3.select(this).property("value") === "";
+			d3.select("#iri-converter-button").attr("disabled",  inputIsEmpty || undefined);
 		}).on("click", function () {
 			keepOntologySelectionOpenShortly();
 		});
