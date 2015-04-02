@@ -82,12 +82,12 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 			setLoadingStatus("No file was uploaded");
 		} else if (hashParameter.substr(0, iriKey.length) === iriKey) {
 			var iri = hashParameter.slice(iriKey.length);
-			loadOntologyFromUri("converter.php?iri=" + encodeURIComponent(iri));
+			loadOntologyFromUri("converter.php?iri=" + encodeURIComponent(iri), iri);
 
 			d3.select("#converter-option").classed("selected-ontology", true);
 		} else {
 			// id of an existing ontology as parameter
-			loadOntologyFromUri(jsonBasePath + hashParameter + ".json");
+			loadOntologyFromUri(jsonBasePath + hashParameter + ".json", hashParameter);
 
 			ontologyOptions.each(function () {
 				var ontologyOption = d3.select(this);
@@ -104,14 +104,15 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 		ontologyLoadingSuccessful = false;
 	}
 
-	function loadOntologyFromUri(relativePath) {
-		var filename = relativePath.slice(relativePath.lastIndexOf("/") + 1);
+	function loadOntologyFromUri(relativePath, requestedUri) {
+		var trimmedRequestedUri = requestedUri.replace(/\/$/g, "");
+		var filename = trimmedRequestedUri.slice(trimmedRequestedUri.lastIndexOf("/") + 1);
 		var cachedOntology = cachedIriConversions[relativePath];
 
 		displayLoadingIndicators();
 
 		if (cachedOntology) {
-			loadOntologyFromText(cachedOntology, filename);
+			loadOntologyFromText(cachedOntology, undefined, filename);
 			hideLoadingInformations();
 		} else {
 			d3.xhr(relativePath, "application/json", function (error, request) {
@@ -123,7 +124,7 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 					cachedIriConversions[relativePath] = jsonText;
 				}
 
-				loadOntologyFromText(jsonText, filename);
+				loadOntologyFromText(jsonText, undefined, filename);
 
 				setLoadingStatus(error ? error.response : undefined);
 				hideLoadingInformations();
@@ -133,10 +134,10 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 		}
 	}
 
-	function loadOntologyFromText(jsonText, filename) {
+	function loadOntologyFromText(jsonText, filename, alternativeFilename) {
 		ontologyLoadingSuccessful = !!jsonText;
 
-		loadFromText(jsonText, filename);
+		loadFromText(jsonText, filename, alternativeFilename);
 	}
 
 	function setupConverterButtons() {

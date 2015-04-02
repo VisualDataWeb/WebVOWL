@@ -24,7 +24,7 @@ webvowlApp.exportMenu = function (graphSelector) {
 	};
 
 	exportMenu.setFilename = function (filename) {
-		exportFilename = filename;
+		exportFilename = filename || "export";
 	};
 
 	exportMenu.setJsonText = function (jsonText) {
