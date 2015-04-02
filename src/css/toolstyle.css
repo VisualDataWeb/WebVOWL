@@ -12,11 +12,14 @@ img, iframe {
 	clear: both;
 }
 a {
-	color: #2980b9;
+	color: #69c;
 	text-decoration: none;
 }
 a:hover {
 	color: #3498db;
+}
+#optionsArea a {
+	color: #2980b9;
 }
 #browserCheck {
 	/* checking for IE where WebVOWl is not working */
@@ -479,7 +482,7 @@ a#pause-button:not(.paused)::before {
 #error-details-button {
 	margin: 5px 0 0 0;
 	font-size: 12px;
-	color: #2980B9;
+	color: #69c;
 	cursor: pointer;
 	text-align: center;
 }
