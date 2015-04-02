@@ -486,14 +486,15 @@ a#pause-button:not(.paused)::before {
 #error-details-container {
 	box-sizing: border-box;
 	text-align: left;
-	max-height: calc(100vh - 100px);
-	overflow: auto;
 }
 #error-details-container pre {
 	background-color: #34495E;
 	padding: 2px;
 	margin: 0;
 	white-space: pre-wrap;
+	max-height: calc(100vh - 110px);
+	max-width: 75vw;
+	overflow: auto;
 }
 .spin {
 	display: inline-block;
