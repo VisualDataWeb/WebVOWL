@@ -3,7 +3,7 @@
  *
  * @returns {{}}
  */
-webvowlApp.ontologyMenu = function (loadFromText) {
+webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 
 	var ontologyMenu = {},
 		jsonBasePath = "js/data/",
@@ -12,8 +12,7 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 		loadingError = d3.select("#loading-error"),
 		loadingProgress = d3.select("#loading-progress"),
 		ontologyMenuTimeout,
-		ontologyLoadingSuccessful = false,
-		cachedIriConversions = {};
+		cachedConversions = {};
 
 	ontologyMenu.setup = function () {
 		setupUriListener();
@@ -78,8 +77,16 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 
 		// IRI parameter
 		var iriKey = "iri=";
-		if (location.hash === "#file") {
-			setLoadingStatus("No file was uploaded");
+		var fileKey = "file=";
+		if (hashParameter.substr(0, fileKey.length) === fileKey) {
+			var filename = hashParameter.slice(fileKey.length);
+			var cachedOntology = cachedConversions[filename];
+
+			if (cachedOntology) {
+				loadOntologyFromText(cachedOntology, filename);
+			} else {
+				setLoadingStatus(false, "No cached version of \"" + filename + "\" available. Please reupload the file.");
+			}
 		} else if (hashParameter.substr(0, iriKey.length) === iriKey) {
 			var iri = hashParameter.slice(iriKey.length);
 			loadOntologyFromUri("converter.php?iri=" + encodeURIComponent(iri), iri);
@@ -99,15 +106,12 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 				}
 			});
 		}
-
-		// Reset the loaded state to handle upcoming iri changes correctly
-		ontologyLoadingSuccessful = false;
 	}
 
 	function loadOntologyFromUri(relativePath, requestedUri) {
+		var cachedOntology = cachedConversions[relativePath];
 		var trimmedRequestedUri = requestedUri.replace(/\/$/g, "");
 		var filename = trimmedRequestedUri.slice(trimmedRequestedUri.lastIndexOf("/") + 1);
-		var cachedOntology = cachedIriConversions[relativePath];
 
 		displayLoadingIndicators();
 
@@ -116,28 +120,20 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 			hideLoadingInformations();
 		} else {
 			d3.xhr(relativePath, "application/json", function (error, request) {
-				var loadingFailed = !!error;
+				var loadingSuccessful = !error;
 
 				var jsonText;
-				if (!loadingFailed) {
+				if (loadingSuccessful) {
 					jsonText = request.responseText;
-					cachedIriConversions[relativePath] = jsonText;
+					cachedConversions[relativePath] = jsonText;
 				}
 
 				loadOntologyFromText(jsonText, undefined, filename);
 
-				setLoadingStatus(error ? error.response : undefined);
+				setLoadingStatus(loadingSuccessful, error ? error.response : undefined);
 				hideLoadingInformations();
-
-				ontologyLoadingSuccessful = false;
 			});
 		}
-	}
-
-	function loadOntologyFromText(jsonText, filename, alternativeFilename) {
-		ontologyLoadingSuccessful = !!jsonText;
-
-		loadFromText(jsonText, filename, alternativeFilename);
 	}
 
 	function setupConverterButtons() {
@@ -145,7 +141,7 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 			keepOntologySelectionOpenShortly();
 
 			var inputIsEmpty = d3.select(this).property("value") === "";
-			d3.select("#iri-converter-button").attr("disabled",  inputIsEmpty || undefined);
+			d3.select("#iri-converter-button").attr("disabled", inputIsEmpty || undefined);
 		}).on("click", function () {
 			keepOntologySelectionOpenShortly();
 		});
@@ -193,15 +189,16 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 			xhr.open("POST", "converter.php", true);
 
 			xhr.onload = function () {
-				location.hash = "file";
+				location.hash = "file=" + selectedFile.name;
 				uploadButton.property("disabled", false);
 
 				if (xhr.status === 200) {
 					loadOntologyFromText(xhr.responseText, selectedFile.name);
+					cachedConversions[selectedFile.name] = xhr.responseText;
 				} else {
 					loadOntologyFromText(undefined, selectedFile.name);
+					setLoadingStatus(false, xhr.responseText);
 				}
-				setLoadingStatus(xhr.responseText);
 				hideLoadingInformations();
 			};
 
@@ -252,12 +249,9 @@ webvowlApp.ontologyMenu = function (loadFromText) {
 		loadingProgress.classed("hidden", false);
 	}
 
-	function setLoadingStatus(message) {
-		if (!ontologyLoadingSuccessful) {
-			d3.select("#custom-error-message").text(message || "");
-			loadOntologyFromText(undefined, undefined);
-		}
-		loadingError.classed("hidden", ontologyLoadingSuccessful);
+	function setLoadingStatus(success, message) {
+		d3.select("#custom-error-message").text(message || "");
+		loadingError.classed("hidden", success);
 	}
 
 	function hideLoadingInformations() {
