@@ -226,7 +226,8 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 			uploadButton.property("disabled", false);
 
 			if (xhr.status === 200) {
-				loadOntologyFromText(xhr.responseText, filename);
+				var trimmedFilename = filename.split(".")[0];
+				loadOntologyFromText(xhr.responseText, trimmedFilename);
 				cachedConversions[filename] = xhr.responseText;
 			} else {
 				setLoadingStatus(false, xhr.responseText);
