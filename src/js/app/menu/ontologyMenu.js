@@ -137,17 +137,22 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 	}
 
 	function setupConverterButtons() {
-		d3.select("#iri-converter-input").on("input", function () {
+		var iriConverterButton = d3.select("#iri-converter-button");
+		var iriConverterInput = d3.select("#iri-converter-input");
+
+		iriConverterInput.on("input", function () {
 			keepOntologySelectionOpenShortly();
 
-			var inputIsEmpty = d3.select(this).property("value") === "";
-			d3.select("#iri-converter-button").attr("disabled", inputIsEmpty || undefined);
+			var inputIsEmpty = iriConverterInput.property("value") === "";
+			iriConverterButton.attr("disabled", inputIsEmpty || undefined);
 		}).on("click", function () {
 			keepOntologySelectionOpenShortly();
 		});
 
 		d3.select("#iri-converter-form").on("submit", function () {
-			location.hash = "iri=" + d3.select("#iri-converter-input").property("value");
+			location.hash = "iri=" + iriConverterInput.property("value");
+			iriConverterInput.property("value", "");
+			iriConverterInput.on("input")();
 
 			// abort the form submission because we set the hash parameter manually to prevent the ? attached in chrome
 			d3.event.preventDefault();
@@ -179,9 +184,10 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 				return false;
 			}
 			var newHashParameter = "file=" + selectedFile.name;
+			// Trigger the reupload manually, because the iri is not changing
 			if (location.hash === "#" + newHashParameter) {
 				loadOntologyFromFile();
-			}   else {
+			} else {
 				location.hash = newHashParameter;
 			}
 		});
