@@ -108,12 +108,11 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		var trimmedRequestedUri = requestedUri.replace(/\/$/g, "");
 		var filename = trimmedRequestedUri.slice(trimmedRequestedUri.lastIndexOf("/") + 1);
 
-		displayLoadingIndicators();
 
 		if (cachedOntology) {
 			loadOntologyFromText(cachedOntology, undefined, filename);
-			hideLoadingInformations();
 		} else {
+			displayLoadingIndicators();
 			d3.xhr(relativePath, "application/json", function (error, request) {
 				var loadingSuccessful = !error;
 				var errorInfo;
@@ -200,16 +199,18 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		var cachedOntology = cachedConversions[filename];
 		if (cachedOntology) {
 			loadOntologyFromText(cachedOntology, filename);
+			setLoadingStatus(true);
 			return;
 		}
 
 		var selectedFile = input.property("files")[0];
-		filename = filename || selectedFile.name;
-		// No selection -> this was triggered by the iri
-		if (!selectedFile) {
+		// No selection -> this was triggered by the iri. Unequal names -> reuploading another file
+		if (!selectedFile || filename !== selectedFile.name) {
 			loadOntologyFromText(undefined, undefined);
 			setLoadingStatus(false, undefined, "No cached version of \"" + filename + "\" was found. Please reupload the file.");
 			return;
+		} else {
+			filename = selectedFile.name;
 		}
 
 		displayLoadingIndicators();
