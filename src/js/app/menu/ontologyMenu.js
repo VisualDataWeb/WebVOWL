@@ -197,18 +197,18 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		var input = d3.select("#file-converter-input"),
 			uploadButton = d3.select("#file-converter-button");
 
+		var cachedOntology = cachedConversions[filename];
+		if (cachedOntology) {
+			loadOntologyFromText(cachedOntology, filename);
+			return;
+		}
+
 		var selectedFile = input.property("files")[0];
 		filename = filename || selectedFile.name;
 		// No selection -> this was triggered by the iri
 		if (!selectedFile) {
 			loadOntologyFromText(undefined, undefined);
 			setLoadingStatus(false, undefined, "No cached version of \"" + filename + "\" was found. Please reupload the file.");
-			return;
-		}
-
-		var cachedOntology = cachedConversions[filename];
-		if (cachedOntology) {
-			loadOntologyFromText(cachedOntology, filename);
 			return;
 		}
 
