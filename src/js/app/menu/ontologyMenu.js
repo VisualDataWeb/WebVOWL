@@ -205,7 +205,7 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 
 		var selectedFile = input.property("files")[0];
 		// No selection -> this was triggered by the iri. Unequal names -> reuploading another file
-		if (!selectedFile || filename !== selectedFile.name) {
+		if (!selectedFile || (filename && (filename !== selectedFile.name))) {
 			loadOntologyFromText(undefined, undefined);
 			setLoadingStatus(false, undefined, "No cached version of \"" + filename + "\" was found. Please reupload the file.");
 			return;
