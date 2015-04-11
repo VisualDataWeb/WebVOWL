@@ -293,8 +293,9 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		}
 
 		var descriptionMissing = !description;
-		d3.select("#error-description").text(description || "");
 		d3.select("#error-description-button").classed("hidden", descriptionMissing);
+		d3.select("#error-description-container").classed("hidden", descriptionMissing);
+		d3.select("#error-description").text(description || "");
 	}
 
 	function hideLoadingInformations() {
