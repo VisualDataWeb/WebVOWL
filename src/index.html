@@ -23,13 +23,10 @@
 		</div>
 		<div id="loading-info">
 			<div id="loading-error" class="hidden">
-				<div id="error-description">
-					Ontology could not be loaded. You might verify it with the <a target="_blank"
-					                                  href="http://mowl-power.cs.man.ac.uk:8080/validator/">OWL Validator</a>.
-				</div>
-				<div id="error-details-button">Show error details</div>
-				<div id="error-details-container" class="hidden">
-					<pre id="custom-error-message"></pre>
+				<div id="error-info"></div>
+				<div id="error-description-button" class="hidden">Show error details</div>
+				<div id="error-description-container" class="hidden">
+					<pre id="error-description"></pre>
 				</div>
 			</div>
 			<div id="loading-progress" class="hidden">
@@ -149,19 +146,18 @@
 					<li><a href="#personasonto" id="personasonto">Personas Ontology (PersonasOnto)</a></li>
 					<li><a href="#goodrelations" id="goodrelations">Good Relations</a></li>
 					<li><a href="#sioc" id="sioc">SIOC (Semantically-Interlinked Online Communities) Core Ontology</a></li>
-					<li><a href="#doap" id="doap">Description of a Project (DOAP) Vocabulary</a></li>
 					<li><a href="#ontovibe" id="ontovibe">Ontology Visualization Benchmark (OntoViBe)</a></li>
-					<!-- build:process --><%= benchmarkOntologyTemplate %><!-- /build -->
+					<!-- build:remove release--><li><a href="#benchmark" id="benchmark">Benchmark Graph for VOWL</a></li><!-- /build -->
 					<li class="option" id="converter-option">
 						<form class="converter-form" id="iri-converter-form">
 							<label for="iri-converter-input">Custom Ontology:</label>
 							<input type="text" id="iri-converter-input" placeholder="Ontology IRI">
-							<button type="submit" id="iri-converter-button">Convert</button>
+							<button type="submit" id="iri-converter-button" disabled>Convert</button>
 						</form>
 						<div class="converter-form">
 							<input class="hidden" type="file" id="file-converter-input" autocomplete="off">
 							<label class="truncate" id="file-converter-label" for="file-converter-input">Please select a file</label>
-							<button type="submit" id="file-converter-button" autocomplete="off" disabled="true">
+							<button type="submit" id="file-converter-button" autocomplete="off" disabled>
 								Upload
 							</button>
 						</div>

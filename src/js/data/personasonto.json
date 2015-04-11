@@ -1,5 +1,5 @@
 {
-  "_comment" : "Created with OWL2VOWL (version 0.1.4), http://vowl.visualdataweb.org",
+  "_comment" : "Created with OWL2VOWL (version 0.2.0), http://vowl.visualdataweb.org",
   "namespace" : [ ],
   "header" : {
     "languages" : [ "IRI-based", "undefined", "en" ],
@@ -1172,34 +1172,58 @@
     "instances" : 0
   }, {
     "id" : "class99",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class43", "class81", "class42" ]
   }, {
     "id" : "class100",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class44", "class54" ]
   }, {
     "id" : "class92",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class57", "class69" ]
   }, {
     "id" : "class101",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class55", "class84" ]
   }, {
     "id" : "class94",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class43", "class81" ]
   }, {
     "id" : "class103",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class68", "class65" ]
   }, {
     "id" : "class96",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class81", "class57", "class70" ]
   }, {
     "id" : "class107",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class84", "class40" ]
   } ],
@@ -1298,32 +1322,38 @@
     "id" : "datatype57",
     "label" : {
       "IRI-based" : "positiveInteger"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#positiveInteger"
   }, {
     "id" : "datatype37",
     "label" : {
       "IRI-based" : "dateTime"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#dateTime"
   }, {
     "id" : "datatype56",
     "label" : {
       "IRI-based" : "positiveInteger"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#positiveInteger"
   }, {
     "id" : "datatype54",
     "label" : {
       "IRI-based" : "positiveInteger"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#positiveInteger"
   }, {
     "id" : "datatype53",
     "label" : {
       "IRI-based" : "positiveInteger"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#positiveInteger"
   }, {
     "id" : "datatype52",
     "label" : {
       "IRI-based" : "positiveInteger"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#positiveInteger"
   }, {
     "id" : "literal49",
     "label" : {
@@ -1334,12 +1364,14 @@
     "id" : "datatype35",
     "label" : {
       "IRI-based" : "positiveInteger"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#positiveInteger"
   }, {
     "id" : "datatype36",
     "label" : {
       "IRI-based" : "float"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#float"
   }, {
     "id" : "literal46",
     "label" : {
@@ -1350,7 +1382,8 @@
     "id" : "datatype59",
     "label" : {
       "IRI-based" : "positiveInteger"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#positiveInteger"
   }, {
     "id" : "literal45",
     "label" : {
@@ -1379,17 +1412,20 @@
     "id" : "datatype60",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "datatype61",
     "label" : {
       "IRI-based" : "positiveInteger"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#positiveInteger"
   }, {
     "id" : "datatype48",
     "label" : {
       "IRI-based" : "positiveInteger"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#positiveInteger"
   }, {
     "id" : "literal58",
     "label" : {
@@ -1400,12 +1436,14 @@
     "id" : "datatype63",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "datatype62",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "literal39",
     "label" : {
@@ -1422,12 +1460,14 @@
     "id" : "datatype42",
     "label" : {
       "IRI-based" : "double"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#double"
   }, {
     "id" : "datatype43",
     "label" : {
       "IRI-based" : "positiveInteger"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#positiveInteger"
   }, {
     "id" : "literal34",
     "label" : {
@@ -1438,7 +1478,8 @@
     "id" : "datatype47",
     "label" : {
       "IRI-based" : "positiveInteger"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#positiveInteger"
   }, {
     "id" : "literal51",
     "label" : {

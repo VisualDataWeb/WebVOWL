@@ -1,5 +1,5 @@
 {
-  "_comment" : "Created with OWL2VOWL (version 0.1.4), http://vowl.visualdataweb.org",
+  "_comment" : "Created with OWL2VOWL (version 0.2.0), http://vowl.visualdataweb.org",
   "namespace" : [ ],
   "header" : {
     "languages" : [ "IRI-based", "en" ],
@@ -292,96 +292,21 @@
     "subClasses" : [ "class132" ],
     "instances" : 9,
     "individuals" : [ {
-      "iri" : "http://purl.org/goodrelations/v1#DirectDebit",
+      "iri" : "http://purl.org/goodrelations/v1#PaySwarm",
       "labels" : {
-        "IRI-based" : "DirectDebit"
+        "IRI-based" : "PaySwarm"
       },
       "annotations" : {
         "comment" : [ {
           "identifier" : "comment",
           "language" : "en",
-          "value" : "Payment by direct debit, i.e., the buying party will inform the offering gr:BusinessEntity about its bank account details and authorizes the gr:BusinessEntity to collect the agreed amount directly from that account.",
+          "value" : "Payment via the PaySwarm distributed micropayment service.",
           "type" : "label"
         } ],
         "label" : [ {
           "identifier" : "label",
           "language" : "en",
-          "value" : "Direct debit (payment method)",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ]
-      }
-    }, {
-      "iri" : "http://purl.org/goodrelations/v1#ByInvoice",
-      "labels" : {
-        "IRI-based" : "ByInvoice"
-      },
-      "annotations" : {
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "By invoice (payment method)",
-          "type" : "label"
-        } ],
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Payment by bank transfer after delivery, i.e., the offering gr:BusinessEntity will deliver first, inform the buying party about the due amount and their bank account details, and expect payment shortly after delivery.",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ]
-      }
-    }, {
-      "iri" : "http://purl.org/goodrelations/v1#ByBankTransferInAdvance",
-      "labels" : {
-        "IRI-based" : "ByBankTransferInAdvance"
-      },
-      "annotations" : {
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Payment by bank transfer in advance, i.e., the offering gr:BusinessEntity will inform the buying party about their bank account details and will deliver the goods upon receipt of the due amount.\nThis is equivalent to payment by wire transfer.",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ],
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "By bank transfer in advance (payment method)",
-          "type" : "label"
-        } ]
-      }
-    }, {
-      "iri" : "http://purl.org/goodrelations/v1#COD",
-      "labels" : {
-        "IRI-based" : "COD"
-      },
-      "annotations" : {
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Collect on delivery / Cash on delivery - A payment method where the recipient of goods pays at the time of delivery. Usually, the amount of money is collected by the transportation company handling the goods.",
-          "type" : "label"
-        } ],
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "COD (payment method)",
+          "value" : "PaySwarm (payment method)",
           "type" : "label"
         } ],
         "isDefinedBy" : [ {
@@ -417,6 +342,81 @@
         } ]
       }
     }, {
+      "iri" : "http://purl.org/goodrelations/v1#DirectDebit",
+      "labels" : {
+        "IRI-based" : "DirectDebit"
+      },
+      "annotations" : {
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Payment by direct debit, i.e., the buying party will inform the offering gr:BusinessEntity about its bank account details and authorizes the gr:BusinessEntity to collect the agreed amount directly from that account.",
+          "type" : "label"
+        } ],
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "Direct debit (payment method)",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ]
+      }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#COD",
+      "labels" : {
+        "IRI-based" : "COD"
+      },
+      "annotations" : {
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Collect on delivery / Cash on delivery - A payment method where the recipient of goods pays at the time of delivery. Usually, the amount of money is collected by the transportation company handling the goods.",
+          "type" : "label"
+        } ],
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "COD (payment method)",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ]
+      }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#ByInvoice",
+      "labels" : {
+        "IRI-based" : "ByInvoice"
+      },
+      "annotations" : {
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "By invoice (payment method)",
+          "type" : "label"
+        } ],
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Payment by bank transfer after delivery, i.e., the offering gr:BusinessEntity will deliver first, inform the buying party about the due amount and their bank account details, and expect payment shortly after delivery.",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ]
+      }
+    }, {
       "iri" : "http://purl.org/goodrelations/v1#CheckInAdvance",
       "labels" : {
         "IRI-based" : "CheckInAdvance"
@@ -432,56 +432,6 @@
           "identifier" : "label",
           "language" : "en",
           "value" : "Check in advance (payment method)",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ]
-      }
-    }, {
-      "iri" : "http://purl.org/goodrelations/v1#PayPal",
-      "labels" : {
-        "IRI-based" : "PayPal"
-      },
-      "annotations" : {
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Payment via the PayPal payment service.",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ],
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "PayPal (payment method)",
-          "type" : "label"
-        } ]
-      }
-    }, {
-      "iri" : "http://purl.org/goodrelations/v1#PaySwarm",
-      "labels" : {
-        "IRI-based" : "PaySwarm"
-      },
-      "annotations" : {
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Payment via the PaySwarm distributed micropayment service.",
-          "type" : "label"
-        } ],
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "PaySwarm (payment method)",
           "type" : "label"
         } ],
         "isDefinedBy" : [ {
@@ -513,6 +463,56 @@
           "identifier" : "comment",
           "language" : "en",
           "value" : "Payment by cash upon delivery or pickup.",
+          "type" : "label"
+        } ]
+      }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#ByBankTransferInAdvance",
+      "labels" : {
+        "IRI-based" : "ByBankTransferInAdvance"
+      },
+      "annotations" : {
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Payment by bank transfer in advance, i.e., the offering gr:BusinessEntity will inform the buying party about their bank account details and will deliver the goods upon receipt of the due amount.\nThis is equivalent to payment by wire transfer.",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ],
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "By bank transfer in advance (payment method)",
+          "type" : "label"
+        } ]
+      }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#PayPal",
+      "labels" : {
+        "IRI-based" : "PayPal"
+      },
+      "annotations" : {
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Payment via the PayPal payment service.",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ],
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "PayPal (payment method)",
           "type" : "label"
         } ]
       }
@@ -569,11 +569,17 @@
     "isDefinedBy" : "http://purl.org/goodrelations/v1",
     "instances" : 4,
     "individuals" : [ {
-      "iri" : "http://purl.org/goodrelations/v1#Business",
+      "iri" : "http://purl.org/goodrelations/v1#Enduser",
       "labels" : {
-        "IRI-based" : "Business"
+        "IRI-based" : "Enduser"
       },
       "annotations" : {
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "The gr:BusinessEntityType representing such agents that are purchasing the good or service for private consumption, in particular not for resale or for usage within an industrial enterprise. By default, a Business Entity is an Enduser.",
+          "type" : "label"
+        } ],
         "isDefinedBy" : [ {
           "identifier" : "isDefinedBy",
           "language" : "undefined",
@@ -583,13 +589,7 @@
         "label" : [ {
           "identifier" : "label",
           "language" : "en",
-          "value" : "Business (business entity type)",
-          "type" : "label"
-        } ],
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "The gr:BusinessEntityType representing such agents that are themselves offering commercial services or products on the market. Usually, businesses are characterized by the fact that they are officially registered with the public administration and strive for profits by their activities.",
+          "value" : "Enduser (business entity type)",
           "type" : "label"
         } ]
       }
@@ -619,6 +619,31 @@
         } ]
       }
     }, {
+      "iri" : "http://purl.org/goodrelations/v1#Business",
+      "labels" : {
+        "IRI-based" : "Business"
+      },
+      "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ],
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "Business (business entity type)",
+          "type" : "label"
+        } ],
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "The gr:BusinessEntityType representing such agents that are themselves offering commercial services or products on the market. Usually, businesses are characterized by the fact that they are officially registered with the public administration and strive for profits by their activities.",
+          "type" : "label"
+        } ]
+      }
+    }, {
       "iri" : "http://purl.org/goodrelations/v1#Reseller",
       "labels" : {
         "IRI-based" : "Reseller"
@@ -643,31 +668,6 @@
           "type" : "label"
         } ]
       }
-    }, {
-      "iri" : "http://purl.org/goodrelations/v1#Enduser",
-      "labels" : {
-        "IRI-based" : "Enduser"
-      },
-      "annotations" : {
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "The gr:BusinessEntityType representing such agents that are purchasing the good or service for private consumption, in particular not for resale or for usage within an industrial enterprise. By default, a Business Entity is an Enduser.",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ],
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "Enduser (business entity type)",
-          "type" : "label"
-        } ]
-      }
     } ]
   }, {
     "id" : "class123",
@@ -682,31 +682,6 @@
     "isDefinedBy" : "http://purl.org/goodrelations/v1",
     "instances" : 3,
     "individuals" : [ {
-      "iri" : "http://purl.org/goodrelations/v1#Labor-BringIn",
-      "labels" : {
-        "IRI-based" : "Labor-BringIn"
-      },
-      "annotations" : {
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "In case of a defect or malfunction, the buying party has the right to transport the good to a service location determined by the the selling gr:BusinessEntity and will be charged only for parts and materials needed to fix the problem. Labor will be covered by the selling business entity or one of its partnering business entities.\n\nNote: This is just a rough classification for filtering offers. It is up to the buying party to check the exact scope and terms and conditions of the gr:WarrantyPromise.",
-          "type" : "label"
-        } ],
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "Labor / bring-in (warranty scope)",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ]
-      }
-    }, {
       "iri" : "http://purl.org/goodrelations/v1#PartsAndLabor-BringIn",
       "labels" : {
         "IRI-based" : "PartsAndLabor-BringIn"
@@ -747,6 +722,31 @@
           "identifier" : "label",
           "language" : "en",
           "value" : "Parts and labor / pick up (warranty scope)",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ]
+      }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#Labor-BringIn",
+      "labels" : {
+        "IRI-based" : "Labor-BringIn"
+      },
+      "annotations" : {
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "In case of a defect or malfunction, the buying party has the right to transport the good to a service location determined by the the selling gr:BusinessEntity and will be charged only for parts and materials needed to fix the problem. Labor will be covered by the selling business entity or one of its partnering business entities.\n\nNote: This is just a rough classification for filtering offers. It is up to the buying party to check the exact scope and terms and conditions of the gr:WarrantyPromise.",
+          "type" : "label"
+        } ],
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "Labor / bring-in (warranty scope)",
           "type" : "label"
         } ],
         "isDefinedBy" : [ {
@@ -860,31 +860,6 @@
         } ]
       }
     }, {
-      "iri" : "http://purl.org/goodrelations/v1#DeliveryModeFreight",
-      "labels" : {
-        "IRI-based" : "DeliveryModeFreight"
-      },
-      "annotations" : {
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "Delivery mode freight (delivery method)",
-          "type" : "label"
-        } ],
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Delivery by an unspecified air, sea, or ground freight carrier or cargo company.",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ]
-      }
-    }, {
       "iri" : "http://purl.org/goodrelations/v1#DeliveryModePickUp",
       "labels" : {
         "IRI-based" : "DeliveryModePickUp"
@@ -909,6 +884,31 @@
           "type" : "iri"
         } ]
       }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#DeliveryModeFreight",
+      "labels" : {
+        "IRI-based" : "DeliveryModeFreight"
+      },
+      "annotations" : {
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "Delivery mode freight (delivery method)",
+          "type" : "label"
+        } ],
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Delivery by an unspecified air, sea, or ground freight carrier or cargo company.",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ]
+      }
     } ]
   }, {
     "id" : "class135",
@@ -924,31 +924,6 @@
     "subClasses" : [ "class115" ],
     "instances" : 8,
     "individuals" : [ {
-      "iri" : "http://purl.org/goodrelations/v1#ProvideService",
-      "labels" : {
-        "IRI-based" : "ProvideService"
-      },
-      "annotations" : {
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "Provide service (business function)",
-          "type" : "label"
-        } ],
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "This gr:BusinessFunction indicates that the gr:BusinessEntity offers (or seeks) the respective type of service.\n\nNote: Maintain and Repair are also types of Services. However, products and services ontologies often provide classes for tangible products as well as for types of services. The business function gr:ProvideService is to be used with such goods that are services, while gr:Maintain and gr:Repair can be used with goods for which only the class of product exists in the ontology, but not the respective type of service.\n\nExample: Car maintenance could be expressed both as \"provide the service car maintenance\" or \"maintain cars\".",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ]
-      }
-    }, {
       "iri" : "http://purl.org/goodrelations/v1#Sell",
       "labels" : {
         "IRI-based" : "Sell"
@@ -964,6 +939,56 @@
           "identifier" : "comment",
           "language" : "en",
           "value" : "This gr:BusinessFunction indicates that the gr:BusinessEntity offers to permanently transfer all property rights on the specified gr:ProductOrService.",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ]
+      }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#LeaseOut",
+      "labels" : {
+        "IRI-based" : "LeaseOut"
+      },
+      "annotations" : {
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "This gr:BusinessFunction indicates that the gr:BusinessEntity offers (or seeks) the temporary right to use the specified gr:ProductOrService.",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ],
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "Lease Out (business function)",
+          "type" : "label"
+        } ]
+      }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#ProvideService",
+      "labels" : {
+        "IRI-based" : "ProvideService"
+      },
+      "annotations" : {
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "Provide service (business function)",
+          "type" : "label"
+        } ],
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "This gr:BusinessFunction indicates that the gr:BusinessEntity offers (or seeks) the respective type of service.\n\nNote: Maintain and Repair are also types of Services. However, products and services ontologies often provide classes for tangible products as well as for types of services. The business function gr:ProvideService is to be used with such goods that are services, while gr:Maintain and gr:Repair can be used with goods for which only the class of product exists in the ontology, but not the respective type of service.\n\nExample: Car maintenance could be expressed both as \"provide the service car maintenance\" or \"maintain cars\".",
           "type" : "label"
         } ],
         "isDefinedBy" : [ {
@@ -999,6 +1024,31 @@
         } ]
       }
     }, {
+      "iri" : "http://purl.org/goodrelations/v1#ConstructionInstallation",
+      "labels" : {
+        "IRI-based" : "ConstructionInstallation"
+      },
+      "annotations" : {
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "Construction / installation (business function)",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ],
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "This gr:BusinessFunction indicates that the gr:BusinessEntity offers (or seeks) the construction and/or installation of the specified gr:ProductOrService at the customer's location.",
+          "type" : "label"
+        } ]
+      }
+    }, {
       "iri" : "http://purl.org/goodrelations/v1#Repair",
       "labels" : {
         "IRI-based" : "Repair"
@@ -1021,56 +1071,6 @@
           "language" : "en",
           "value" : "Repair (business function)",
           "type" : "label"
-        } ]
-      }
-    }, {
-      "iri" : "http://purl.org/goodrelations/v1#LeaseOut",
-      "labels" : {
-        "IRI-based" : "LeaseOut"
-      },
-      "annotations" : {
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "This gr:BusinessFunction indicates that the gr:BusinessEntity offers (or seeks) the temporary right to use the specified gr:ProductOrService.",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ],
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "Lease Out (business function)",
-          "type" : "label"
-        } ]
-      }
-    }, {
-      "iri" : "http://purl.org/goodrelations/v1#Dispose",
-      "labels" : {
-        "IRI-based" : "Dispose"
-      },
-      "annotations" : {
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "Dispose (business function)",
-          "type" : "label"
-        } ],
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "This gr:BusinessFunction indicates that the gr:BusinessEntity offers (or seeks) the acceptance of the specified gr:ProductOrService for proper disposal, recycling, or any other kind of allowed usages, freeing the current owner from all rights and obligations of ownership.",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
         } ]
       }
     }, {
@@ -1105,15 +1105,21 @@
         } ]
       }
     }, {
-      "iri" : "http://purl.org/goodrelations/v1#ConstructionInstallation",
+      "iri" : "http://purl.org/goodrelations/v1#Dispose",
       "labels" : {
-        "IRI-based" : "ConstructionInstallation"
+        "IRI-based" : "Dispose"
       },
       "annotations" : {
         "label" : [ {
           "identifier" : "label",
           "language" : "en",
-          "value" : "Construction / installation (business function)",
+          "value" : "Dispose (business function)",
+          "type" : "label"
+        } ],
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "This gr:BusinessFunction indicates that the gr:BusinessEntity offers (or seeks) the acceptance of the specified gr:ProductOrService for proper disposal, recycling, or any other kind of allowed usages, freeing the current owner from all rights and obligations of ownership.",
           "type" : "label"
         } ],
         "isDefinedBy" : [ {
@@ -1121,12 +1127,6 @@
           "language" : "undefined",
           "value" : "http://purl.org/goodrelations/v1",
           "type" : "iri"
-        } ],
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "This gr:BusinessFunction indicates that the gr:BusinessEntity offers (or seeks) the construction and/or installation of the specified gr:ProductOrService at the customer's location.",
-          "type" : "label"
         } ]
       }
     } ]
@@ -1191,21 +1191,71 @@
     "superClasses" : [ "class116" ],
     "instances" : 6,
     "individuals" : [ {
-      "iri" : "http://purl.org/goodrelations/v1#MasterCard",
+      "iri" : "http://purl.org/goodrelations/v1#AmericanExpress",
       "labels" : {
-        "IRI-based" : "MasterCard"
+        "IRI-based" : "AmericanExpress"
       },
       "annotations" : {
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ],
         "comment" : [ {
           "identifier" : "comment",
           "language" : "en",
-          "value" : "Payment by credit or debit cards issued by the MasterCard network.",
+          "value" : "Payment by credit or debit cards issued by the American Express network.",
           "type" : "label"
         } ],
         "label" : [ {
           "identifier" : "label",
           "language" : "en",
-          "value" : "MasterCard (payment method)",
+          "value" : "American Express (payment method)",
+          "type" : "label"
+        } ]
+      }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#JCB",
+      "labels" : {
+        "IRI-based" : "JCB"
+      },
+      "annotations" : {
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Payment by credit or debit cards issued by the JCB network.",
+          "type" : "label"
+        } ],
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "JCB (payment method)",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ]
+      }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#VISA",
+      "labels" : {
+        "IRI-based" : "VISA"
+      },
+      "annotations" : {
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "VISA (payment method)",
+          "type" : "label"
+        } ],
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Payment by credit or debit cards issued by the VISA network.",
           "type" : "label"
         } ],
         "isDefinedBy" : [ {
@@ -1241,81 +1291,6 @@
         } ]
       }
     }, {
-      "iri" : "http://purl.org/goodrelations/v1#AmericanExpress",
-      "labels" : {
-        "IRI-based" : "AmericanExpress"
-      },
-      "annotations" : {
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ],
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Payment by credit or debit cards issued by the American Express network.",
-          "type" : "label"
-        } ],
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "American Express (payment method)",
-          "type" : "label"
-        } ]
-      }
-    }, {
-      "iri" : "http://purl.org/goodrelations/v1#VISA",
-      "labels" : {
-        "IRI-based" : "VISA"
-      },
-      "annotations" : {
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "VISA (payment method)",
-          "type" : "label"
-        } ],
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Payment by credit or debit cards issued by the VISA network.",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ]
-      }
-    }, {
-      "iri" : "http://purl.org/goodrelations/v1#JCB",
-      "labels" : {
-        "IRI-based" : "JCB"
-      },
-      "annotations" : {
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Payment by credit or debit cards issued by the JCB network.",
-          "type" : "label"
-        } ],
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "JCB (payment method)",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ]
-      }
-    }, {
       "iri" : "http://purl.org/goodrelations/v1#Discover",
       "labels" : {
         "IRI-based" : "Discover"
@@ -1338,6 +1313,31 @@
           "language" : "en",
           "value" : "Payment by credit or debit cards issued by the Discover network.",
           "type" : "label"
+        } ]
+      }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#MasterCard",
+      "labels" : {
+        "IRI-based" : "MasterCard"
+      },
+      "annotations" : {
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Payment by credit or debit cards issued by the MasterCard network.",
+          "type" : "label"
+        } ],
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "MasterCard (payment method)",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
         } ]
       }
     } ]
@@ -1406,21 +1406,15 @@
     "superClasses" : [ "class126" ],
     "instances" : 3,
     "individuals" : [ {
-      "iri" : "http://purl.org/goodrelations/v1#UPS",
+      "iri" : "http://purl.org/goodrelations/v1#DHL",
       "labels" : {
-        "IRI-based" : "UPS"
+        "IRI-based" : "DHL"
       },
       "annotations" : {
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Delivery via the parcel service UPS.",
-          "type" : "label"
-        } ],
         "label" : [ {
           "identifier" : "label",
           "language" : "en",
-          "value" : "UPS (delivery method)",
+          "value" : "DHL (delivery method)",
           "type" : "label"
         } ],
         "isDefinedBy" : [ {
@@ -1428,6 +1422,12 @@
           "language" : "undefined",
           "value" : "http://purl.org/goodrelations/v1",
           "type" : "iri"
+        } ],
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Delivery via the parcel service DHL.",
+          "type" : "label"
         } ]
       }
     }, {
@@ -1456,15 +1456,21 @@
         } ]
       }
     }, {
-      "iri" : "http://purl.org/goodrelations/v1#DHL",
+      "iri" : "http://purl.org/goodrelations/v1#UPS",
       "labels" : {
-        "IRI-based" : "DHL"
+        "IRI-based" : "UPS"
       },
       "annotations" : {
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Delivery via the parcel service UPS.",
+          "type" : "label"
+        } ],
         "label" : [ {
           "identifier" : "label",
           "language" : "en",
-          "value" : "DHL (delivery method)",
+          "value" : "UPS (delivery method)",
           "type" : "label"
         } ],
         "isDefinedBy" : [ {
@@ -1472,12 +1478,6 @@
           "language" : "undefined",
           "value" : "http://purl.org/goodrelations/v1",
           "type" : "iri"
-        } ],
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Delivery via the parcel service DHL.",
-          "type" : "label"
         } ]
       }
     } ]
@@ -1655,27 +1655,21 @@
     "isDefinedBy" : "http://purl.org/goodrelations/v1",
     "instances" : 8,
     "individuals" : [ {
-      "iri" : "http://purl.org/goodrelations/v1#PublicHolidays",
+      "iri" : "http://purl.org/goodrelations/v1#Thursday",
       "labels" : {
-        "IRI-based" : "PublicHolidays"
+        "IRI-based" : "Thursday"
       },
       "annotations" : {
-        "displayPosition" : [ {
-          "identifier" : "displayPosition",
-          "language" : "undefined",
-          "value" : "8",
-          "type" : "label"
-        } ],
         "comment" : [ {
           "identifier" : "comment",
           "language" : "en",
-          "value" : "A placeholder for all official public holidays at the gr:Location. This allows specifying the opening hours on public holidays. If a given day is a public holiday, this specification supersedes the opening hours for the respective day of the week.",
+          "value" : "Thursday as a day of the week.",
           "type" : "label"
         } ],
         "label" : [ {
           "identifier" : "label",
           "language" : "en",
-          "value" : "Public holidays (day of week)",
+          "value" : "Thursday (day of week)",
           "type" : "label"
         } ],
         "isDefinedBy" : [ {
@@ -1683,6 +1677,43 @@
           "language" : "undefined",
           "value" : "http://purl.org/goodrelations/v1",
           "type" : "iri"
+        } ],
+        "displayPosition" : [ {
+          "identifier" : "displayPosition",
+          "language" : "undefined",
+          "value" : "4",
+          "type" : "label"
+        } ]
+      }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#Wednesday",
+      "labels" : {
+        "IRI-based" : "Wednesday"
+      },
+      "annotations" : {
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "Wednesday (day of week)",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
+        } ],
+        "displayPosition" : [ {
+          "identifier" : "displayPosition",
+          "language" : "undefined",
+          "value" : "3",
+          "type" : "label"
+        } ],
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Wednesday as a day of the week.",
+          "type" : "label"
         } ]
       }
     }, {
@@ -1748,15 +1779,27 @@
         } ]
       }
     }, {
-      "iri" : "http://purl.org/goodrelations/v1#Wednesday",
+      "iri" : "http://purl.org/goodrelations/v1#Saturday",
       "labels" : {
-        "IRI-based" : "Wednesday"
+        "IRI-based" : "Saturday"
       },
       "annotations" : {
         "label" : [ {
           "identifier" : "label",
           "language" : "en",
-          "value" : "Wednesday (day of week)",
+          "value" : "Saturday (day of week)",
+          "type" : "label"
+        } ],
+        "displayPosition" : [ {
+          "identifier" : "displayPosition",
+          "language" : "undefined",
+          "value" : "6",
+          "type" : "label"
+        } ],
+        "comment" : [ {
+          "identifier" : "comment",
+          "language" : "en",
+          "value" : "Saturday as a day of the week.",
           "type" : "label"
         } ],
         "isDefinedBy" : [ {
@@ -1764,18 +1807,37 @@
           "language" : "undefined",
           "value" : "http://purl.org/goodrelations/v1",
           "type" : "iri"
-        } ],
+        } ]
+      }
+    }, {
+      "iri" : "http://purl.org/goodrelations/v1#PublicHolidays",
+      "labels" : {
+        "IRI-based" : "PublicHolidays"
+      },
+      "annotations" : {
         "displayPosition" : [ {
           "identifier" : "displayPosition",
           "language" : "undefined",
-          "value" : "3",
+          "value" : "8",
           "type" : "label"
         } ],
         "comment" : [ {
           "identifier" : "comment",
           "language" : "en",
-          "value" : "Wednesday as a day of the week.",
+          "value" : "A placeholder for all official public holidays at the gr:Location. This allows specifying the opening hours on public holidays. If a given day is a public holiday, this specification supersedes the opening hours for the respective day of the week.",
           "type" : "label"
+        } ],
+        "label" : [ {
+          "identifier" : "label",
+          "language" : "en",
+          "value" : "Public holidays (day of week)",
+          "type" : "label"
+        } ],
+        "isDefinedBy" : [ {
+          "identifier" : "isDefinedBy",
+          "language" : "undefined",
+          "value" : "http://purl.org/goodrelations/v1",
+          "type" : "iri"
         } ]
       }
     }, {
@@ -1840,68 +1902,6 @@
           "type" : "label"
         } ]
       }
-    }, {
-      "iri" : "http://purl.org/goodrelations/v1#Saturday",
-      "labels" : {
-        "IRI-based" : "Saturday"
-      },
-      "annotations" : {
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "Saturday (day of week)",
-          "type" : "label"
-        } ],
-        "displayPosition" : [ {
-          "identifier" : "displayPosition",
-          "language" : "undefined",
-          "value" : "6",
-          "type" : "label"
-        } ],
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Saturday as a day of the week.",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ]
-      }
-    }, {
-      "iri" : "http://purl.org/goodrelations/v1#Thursday",
-      "labels" : {
-        "IRI-based" : "Thursday"
-      },
-      "annotations" : {
-        "comment" : [ {
-          "identifier" : "comment",
-          "language" : "en",
-          "value" : "Thursday as a day of the week.",
-          "type" : "label"
-        } ],
-        "label" : [ {
-          "identifier" : "label",
-          "language" : "en",
-          "value" : "Thursday (day of week)",
-          "type" : "label"
-        } ],
-        "isDefinedBy" : [ {
-          "identifier" : "isDefinedBy",
-          "language" : "undefined",
-          "value" : "http://purl.org/goodrelations/v1",
-          "type" : "iri"
-        } ],
-        "displayPosition" : [ {
-          "identifier" : "displayPosition",
-          "language" : "undefined",
-          "value" : "4",
-          "type" : "label"
-        } ]
-      }
     } ]
   }, {
     "id" : "class137",
@@ -1926,94 +1926,163 @@
     "instances" : 0
   }, {
     "id" : "class146",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class108", "class136", "class129", "class144" ]
   }, {
     "id" : "class145",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class108", "class129" ]
   }, {
     "id" : "class148",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class111", "class127" ]
   }, {
     "id" : "class147",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class121", "class143" ]
   }, {
     "id" : "class149",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class111", "class127", "class113" ]
   }, {
     "id" : "class160",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class111", "class127", "class130", "class113", "class115" ]
   }, {
     "id" : "class163",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class109", "class110", "class112", "class113", "class116", "class117", "class118", "class119", "class120", "class122", "class123", "class125", "class126", "class128", "class127", "class129", "class130", "class132", "class133", "class134", "class135", "class137", "class138", "class140", "class142", "class144", "class143" ]
   }, {
     "id" : "class150",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class137", "class117" ]
   }, {
     "id" : "class164",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class108", "class111", "class127", "class129" ]
   }, {
     "id" : "class151",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class134", "class122" ]
   }, {
     "id" : "class161",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class108", "class127", "class129" ]
   }, {
     "id" : "class152",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class111", "class127", "class138" ]
   }, {
     "id" : "class162",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class109", "class110", "class112", "class113", "class116", "class117", "class118", "class119", "class120", "class122", "class123", "class125", "class126", "class128", "class127", "class129", "class130", "class132", "class133", "class134", "class135", "class137", "class138", "class140", "class142", "class144", "class143" ]
   }, {
     "id" : "class153",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class111", "class127", "class137" ]
   }, {
     "id" : "class167",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class109", "class111", "class127", "class115" ]
   }, {
     "id" : "class154",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class108", "class137", "class117" ]
   }, {
     "id" : "class168",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class108", "class127", "class117" ]
   }, {
     "id" : "class155",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class136", "class144" ]
   }, {
     "id" : "class165",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class134", "class110", "class138" ]
   }, {
     "id" : "class166",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class136", "class121", "class144", "class143" ]
   }, {
     "id" : "class157",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class136", "class131", "class144" ]
   }, {
     "id" : "class158",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class111", "class127", "class115" ]
   }, {
     "id" : "class159",
+    "label" : {
+      "IRI-based" : "anonymous"
+    },
     "instances" : 0,
     "union" : [ "class108", "class136", "class111", "class127", "class129", "class121", "class144", "class143" ]
   } ],
@@ -2169,57 +2238,68 @@
     "id" : "datatype76",
     "label" : {
       "IRI-based" : "time"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#time"
   }, {
     "id" : "datatype104",
     "label" : {
       "IRI-based" : "int"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#int"
   }, {
     "id" : "datatype74",
     "label" : {
       "IRI-based" : "float"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#float"
   }, {
     "id" : "datatype106",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "datatype73",
     "label" : {
       "IRI-based" : "dateTime"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#dateTime"
   }, {
     "id" : "datatype105",
     "label" : {
       "IRI-based" : "boolean"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#boolean"
   }, {
     "id" : "datatype108",
     "label" : {
       "IRI-based" : "float"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#float"
   }, {
     "id" : "datatype79",
     "label" : {
       "IRI-based" : "float"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#float"
   }, {
     "id" : "datatype107",
     "label" : {
       "IRI-based" : "int"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#int"
   }, {
     "id" : "datatype78",
     "label" : {
       "IRI-based" : "float"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#float"
   }, {
     "id" : "datatype109",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "literal91",
     "label" : {
@@ -2242,22 +2322,26 @@
     "id" : "datatype82",
     "label" : {
       "IRI-based" : "float"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#float"
   }, {
     "id" : "datatype83",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "datatype100",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "datatype80",
     "label" : {
       "IRI-based" : "float"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#float"
   }, {
     "id" : "literal81",
     "label" : {
@@ -2274,32 +2358,38 @@
     "id" : "datatype95",
     "label" : {
       "IRI-based" : "int"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#int"
   }, {
     "id" : "datatype96",
     "label" : {
       "IRI-based" : "time"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#time"
   }, {
     "id" : "datatype87",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "datatype97",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "datatype86",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "datatype98",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "literal101",
     "label" : {
@@ -2310,12 +2400,14 @@
     "id" : "datatype89",
     "label" : {
       "IRI-based" : "dateTime"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#dateTime"
   }, {
     "id" : "datatype99",
     "label" : {
       "IRI-based" : "float"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#float"
   }, {
     "id" : "literal102",
     "label" : {
@@ -2326,7 +2418,8 @@
     "id" : "datatype88",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "literal103",
     "label" : {
@@ -2349,27 +2442,32 @@
     "id" : "datatype90",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "datatype112",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "datatype92",
     "label" : {
       "IRI-based" : "dateTime"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#dateTime"
   }, {
     "id" : "datatype110",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "datatype94",
     "label" : {
       "IRI-based" : "int"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#int"
   }, {
     "id" : "literal68",
     "label" : {
@@ -2392,37 +2490,44 @@
     "id" : "datatype67",
     "label" : {
       "IRI-based" : "float"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#float"
   }, {
     "id" : "datatype69",
     "label" : {
       "IRI-based" : "dateTime"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#dateTime"
   }, {
     "id" : "datatype65",
     "label" : {
       "IRI-based" : "int"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#int"
   }, {
     "id" : "datatype64",
     "label" : {
       "IRI-based" : "int"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#int"
   }, {
     "id" : "datatype70",
     "label" : {
       "IRI-based" : "boolean"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#boolean"
   }, {
     "id" : "datatype71",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   }, {
     "id" : "datatype72",
     "label" : {
       "IRI-based" : "string"
-    }
+    },
+    "uri" : "http://www.w3.org/2001/XMLSchema#string"
   } ],
   "property" : [ {
     "id" : "property769",

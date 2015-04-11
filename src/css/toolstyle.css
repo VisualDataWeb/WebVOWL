@@ -12,11 +12,14 @@ img, iframe {
 	clear: both;
 }
 a {
-	color: #2980b9;
+	color: #69c;
 	text-decoration: none;
 }
 a:hover {
 	color: #3498db;
+}
+#optionsArea a {
+	color: #2980b9;
 }
 #browserCheck {
 	/* checking for IE where WebVOWl is not working */
@@ -476,24 +479,25 @@ a#pause-button:not(.paused)::before {
 #loading-info > * > * {
 	padding: 5px;
 }
-#error-details-button {
+#error-description-button {
 	margin: 5px 0 0 0;
 	font-size: 12px;
-	color: #2980B9;
+	color: #69c;
 	cursor: pointer;
 	text-align: center;
 }
-#error-details-container {
+#error-description-container {
 	box-sizing: border-box;
 	text-align: left;
-	max-height: calc(100vh - 100px);
-	overflow: auto;
 }
-#error-details-container pre {
+#error-description-container pre {
 	background-color: #34495E;
 	padding: 2px;
 	margin: 0;
 	white-space: pre-wrap;
+	max-height: calc(100vh - 125px);
+	max-width: 75vw;
+	overflow: auto;
 }
 .spin {
 	display: inline-block;

@@ -3,6 +3,7 @@ webvowlApp.app = function () {
 	var app = {},
 		graph = webvowl.graph(),
 		options = graph.graphOptions(),
+		languageTools = webvowl.util.languageTools(),
 		graphSelector = "#graph",
 	// Modules for the webvowl app
 		ontologyMenu,
@@ -62,13 +63,24 @@ webvowlApp.app = function () {
 		adjustSize();
 	};
 
-	function loadOntologyFromText(jsonText, filename) {
-		filename = filename || "export";
+	function loadOntologyFromText(jsonText, filename, alternativeFilename) {
 		pauseMenu.reset();
 
 		var data;
 		if (jsonText) {
 			data = JSON.parse(jsonText);
+
+			if (!filename) {
+				// First look if an ontology title exists, otherwise take the alternative filename
+				var ontologyNames = data.header ? data.header.title : undefined;
+				var ontologyName = languageTools.textForCurrentLanguage(ontologyNames);
+
+				if (ontologyName) {
+					filename = ontologyName;
+				} else {
+					filename = alternativeFilename;
+				}
+			}
 		}
 
 		exportMenu.setJsonText(jsonText);
@@ -77,7 +89,7 @@ webvowlApp.app = function () {
 		graph.reload();
 		sidebar.updateOntologyInformation(data, statistics);
 
-		exportMenu.setFilename(filename.split(".")[0]);
+		exportMenu.setFilename(filename);
 	}
 
 	function adjustSize() {
