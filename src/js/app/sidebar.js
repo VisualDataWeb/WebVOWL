@@ -59,11 +59,8 @@ webvowlApp.sidebar = function (graph) {
 	 * @param statistics the statistics module
 	 */
 	sidebar.updateOntologyInformation = function (data, statistics) {
-		if (!data) {
-			return;
-		}
-
-		ontologyInfo = data.header;
+		data = data || {};
+		ontologyInfo = data.header || {};
 
 		updateGraphInformation();
 		displayGraphStatistics(data.metrics, statistics);
@@ -72,7 +69,7 @@ webvowlApp.sidebar = function (graph) {
 		// Reset the sidebar selection
 		sidebar.updateSelectionInformation(undefined);
 
-		setLanguages(data.header.languages);
+		setLanguages(ontologyInfo.languages);
 	};
 
 	function setLanguages(languages) {
