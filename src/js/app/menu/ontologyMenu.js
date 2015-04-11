@@ -80,7 +80,6 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		var fileKey = "file=";
 		if (hashParameter.substr(0, fileKey.length) === fileKey) {
 			var filename = hashParameter.slice(fileKey.length);
-
 			loadOntologyFromFile(filename);
 		} else if (hashParameter.substr(0, iriKey.length) === iriKey) {
 			var iri = hashParameter.slice(iriKey.length);
@@ -230,6 +229,7 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 				loadOntologyFromText(xhr.responseText, trimmedFilename);
 				cachedConversions[filename] = xhr.responseText;
 			} else {
+				loadOntologyFromText(undefined, undefined);
 				setLoadingStatus(false, xhr.responseText);
 			}
 			hideLoadingInformations();
