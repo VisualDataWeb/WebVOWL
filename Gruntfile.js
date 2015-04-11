@@ -107,7 +107,6 @@ module.exports = function (grunt) {
 				dest: deployPath,
 				options: {
 					data: {
-						benchmarkOntologyTemplate: "<li><a href='#benchmark' id='benchmark'>Benchmark Graph for VOWL</a></li>",
 						version: "<%= pkg.version %>"
 					}
 				}
