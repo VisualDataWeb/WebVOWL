@@ -11,7 +11,7 @@ webvowl.elements.BaseElement = (function () {
 			id,
 			label,
 			type,
-			uri,
+			iri,
 		// Additional attributes
 			annotations,
 			attributes = [],
@@ -84,6 +84,12 @@ webvowl.elements.BaseElement = (function () {
 			return this;
 		};
 
+		this.iri = function (p) {
+			if (!arguments.length) return iri;
+			iri = p;
+			return this;
+		};
+
 		this.label = function (p) {
 			if (!arguments.length) return label;
 			label = p || DEFAULT_LABEL;
@@ -105,12 +111,6 @@ webvowl.elements.BaseElement = (function () {
 		this.type = function (p) {
 			if (!arguments.length) return type;
 			type = p;
-			return this;
-		};
-
-		this.uri = function (p) {
-			if (!arguments.length) return uri;
-			uri = p;
 			return this;
 		};
 

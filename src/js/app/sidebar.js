@@ -129,7 +129,7 @@ webvowlApp.sidebar = function (graph) {
 	function updateGraphInformation() {
 		var title = languageTools.textForCurrentLanguage(ontologyInfo.title, graph.getLanguage());
 		d3.select("#title").text(title || "No title available");
-		d3.select("#about").attr("href", ontologyInfo.uri).attr("target", "_blank").text(ontologyInfo.uri);
+		d3.select("#about").attr("href", ontologyInfo.iri).attr("target", "_blank").text(ontologyInfo.iri);
 		d3.select("#version").text(ontologyInfo.version || "--");
 		var authors = ontologyInfo.author;
 		if (typeof authors === "string") {
@@ -191,7 +191,7 @@ webvowlApp.sidebar = function (graph) {
 			})
 			.append("span")
 			.each(function (d) {
-				appendUriLabel(d3.select(this), d.value, d.type === "iri" ? d.value : undefined);
+				appendIriLabel(d3.select(this), d.value, d.type === "iri" ? d.value : undefined);
 			});
 	}
 
@@ -236,18 +236,18 @@ webvowlApp.sidebar = function (graph) {
 	function displayLabelInformation(property) {
 		showPropertyInformations();
 
-		setUriLabel(d3.select("#propname"), property.labelForCurrentLanguage(), property.uri());
+		setIriLabel(d3.select("#propname"), property.labelForCurrentLanguage(), property.iri());
 		d3.select("#typeProp").text(property.type());
 
 		if (property.inverse() !== undefined) {
 			d3.select("#inverse").classed("hidden", false);
-			setUriLabel(d3.select("#inverse span"), property.inverse().labelForCurrentLanguage(), property.inverse().uri());
+			setIriLabel(d3.select("#inverse span"), property.inverse().labelForCurrentLanguage(), property.inverse().iri());
 		} else {
 			d3.select("#inverse").classed("hidden", true);
 		}
 
-		var equivalentUriSpan = d3.select("#propEquivUri");
-		listNodeArray(equivalentUriSpan, property.equivalents());
+		var equivalentIriSpan = d3.select("#propEquivUri");
+		listNodeArray(equivalentIriSpan, property.equivalents());
 
 		listNodeArray(d3.select("#subproperties"), property.subproperties());
 		listNodeArray(d3.select("#superproperties"), property.superproperties());
@@ -275,8 +275,8 @@ webvowlApp.sidebar = function (graph) {
 			d3.select("#maxCardinality").classed("hidden", true);
 		}
 
-		setUriLabel(d3.select("#domain"), property.domain().labelForCurrentLanguage(), property.domain().uri());
-		setUriLabel(d3.select("#range"), property.range().labelForCurrentLanguage(), property.range().uri());
+		setIriLabel(d3.select("#domain"), property.domain().labelForCurrentLanguage(), property.domain().iri());
+		setIriLabel(d3.select("#range"), property.range().labelForCurrentLanguage(), property.range().iri());
 
 		displayAttributes(property.attributes(), d3.select("#propAttributes"));
 
@@ -290,18 +290,18 @@ webvowlApp.sidebar = function (graph) {
 		setSelectionInformationVisibility(false, true, false);
 	}
 
-	function setUriLabel(element, name, uri) {
+	function setIriLabel(element, name, iri) {
 		element.selectAll("*").remove();
-		appendUriLabel(element, name, uri);
+		appendIriLabel(element, name, iri);
 	}
 
-	function appendUriLabel(element, name, uri) {
+	function appendIriLabel(element, name, iri) {
 		var tag;
 
-		if (uri) {
+		if (iri) {
 			tag = element.append("a")
-				.attr("href", uri)
-				.attr("title", uri)
+				.attr("href", iri)
+				.attr("title", iri)
 				.attr("target", "_blank");
 		} else {
 			tag = element.append("span");
@@ -338,11 +338,11 @@ webvowlApp.sidebar = function (graph) {
 	function displayNodeInformation(node) {
 		showClassInformations();
 
-		setUriLabel(d3.select("#name"), node.labelForCurrentLanguage(), node.uri());
+		setIriLabel(d3.select("#name"), node.labelForCurrentLanguage(), node.iri());
 
 		/* Equivalent stuff. */
-		var equivalentUriSpan = d3.select("#classEquivUri");
-		listNodeArray(equivalentUriSpan, node.equivalents());
+		var equivalentIriSpan = d3.select("#classEquivUri");
+		listNodeArray(equivalentIriSpan, node.equivalents());
 
 		d3.select("#typeNode").text(node.type());
 		listNodeArray(d3.select("#individuals"), node.individuals());
@@ -358,7 +358,7 @@ webvowlApp.sidebar = function (graph) {
 				if (index > 0) {
 					disjointNodes.append("span").text(", ");
 				}
-				appendUriLabel(disjointNodes, element.labelForCurrentLanguage(), element.uri());
+				appendIriLabel(disjointNodes, element.labelForCurrentLanguage(), element.iri());
 			});
 
 			disjointNodesParent.classed("hidden", false);
@@ -387,7 +387,7 @@ webvowlApp.sidebar = function (graph) {
 				if (index > 0) {
 					textSpan.append("span").text(", ");
 				}
-				appendUriLabel(textSpan, element.labelForCurrentLanguage(), element.uri());
+				appendIriLabel(textSpan, element.labelForCurrentLanguage(), element.iri());
 			});
 
 			spanParent.classed("hidden", false);
