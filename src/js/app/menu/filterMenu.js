@@ -22,7 +22,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 	filterMenu.setup = function () {
 		addFilterItem(datatypeFilter, "datatype", "Datatype prop.", "#datatypeFilteringOption");
 		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
-		addFilterItem(disjointFilter, "disjoint", "Disjointedness info", "#disjointFilteringOption");
+		addFilterItem(disjointFilter, "disjoint", "Disjointness info", "#disjointFilteringOption");
 		addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");
 
 		addNodeDegreeFilter("#nodeDegreeFilteringOption");
