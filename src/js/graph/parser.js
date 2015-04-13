@@ -39,8 +39,8 @@ webvowl.parser = function (graph) {
 		mergeRangesOfEquivalentProperties(combinedProperties, combinedClassesAndDatatypes);
 
 		// Process the graph data
-		convertTypesToUris(combinedClassesAndDatatypes, ontologyData.namespace);
-		convertTypesToUris(combinedProperties, ontologyData.namespace);
+		convertTypesToIris(combinedClassesAndDatatypes, ontologyData.namespace);
+		convertTypesToIris(combinedProperties, ontologyData.namespace);
 
 		nodes = createNodeStructure(combinedClassesAndDatatypes, classMap);
 		properties = createPropertyStructure(combinedProperties, classMap, propertyMap);
@@ -101,14 +101,14 @@ webvowl.parser = function (graph) {
 						.label(element.label)
 						// .type(element.type) Ignore, because we predefined it
 						.union(element.union)
-						.uri(element.uri);
+						.iri(element.iri);
 
 					// Create node objects for all individuals
 					if (element.individuals) {
 						element.individuals.forEach(function (individual) {
 							var individualNode = new prototypes[elementType](graph);
 							individualNode.label(individual.labels)
-								.uri(individual.iri);
+								.iri(individual.iri);
 
 							node.individuals().push(individualNode);
 						});
@@ -170,7 +170,7 @@ webvowl.parser = function (graph) {
 						.subproperties(element.subproperty)
 						.superproperties(element.superproperty)
 						// .type(element.type) Ignore, because we predefined it
-						.uri(element.uri);
+						.iri(element.iri);
 
 					if (element.attributes) {
 						var deduplicatedAttributes = d3.set(element.attributes.concat(property.attributes()));
@@ -492,9 +492,9 @@ webvowl.parser = function (graph) {
 				continue;
 			}
 
-			// Check for an equal URI, if non existent compare label and type
-			if (referenceProperty.uri() && property.uri()) {
-				if (referenceProperty.uri() === property.uri()) {
+			// Check for an equal IRI, if non existent compare label and type
+			if (referenceProperty.iri() && property.iri()) {
+				if (referenceProperty.iri() === property.iri()) {
 					return property;
 				}
 			} else if (referenceProperty.type() === property.type() &&
@@ -572,14 +572,14 @@ webvowl.parser = function (graph) {
 	}
 
 	/**
-	 * Tries to convert the type to an uri and sets it.
+	 * Tries to convert the type to an iri and sets it.
 	 * @param elements classes or properties
 	 * @param namespaces an array of namespaces
 	 */
-	function convertTypesToUris(elements, namespaces) {
+	function convertTypesToIris(elements, namespaces) {
 		elements.forEach(function (element) {
-			if (typeof element.uri() === "string") {
-				element.uri(replaceNamespace(element.uri(), namespaces));
+			if (typeof element.iri() === "string") {
+				element.iri(replaceNamespace(element.iri(), namespaces));
 			}
 		});
 	}

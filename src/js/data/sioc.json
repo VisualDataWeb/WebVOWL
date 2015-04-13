@@ -3,7 +3,7 @@
   "namespace" : [ ],
   "header" : {
     "languages" : [ "IRI-based", "en" ],
-    "uri" : "http://rdfs.org/sioc/ns#",
+    "iri" : "http://rdfs.org/sioc/ns#",
     "version" : "Revision: 1.35",
     "seeAlso" : [ "http://rdfs.org/sioc/spec" ]
   },
@@ -90,7 +90,7 @@
       "IRI-based" : "Site",
       "en" : "Site"
     },
-    "uri" : "http://rdfs.org/sioc/ns#Site",
+    "iri" : "http://rdfs.org/sioc/ns#Site",
     "comment" : {
       "en" : "A Site can be the location of an online community or set of communities, with UserAccounts and Usergroups creating Items in a set of Containers. It can be thought of as a web-accessible data Space."
     },
@@ -102,7 +102,7 @@
     "label" : {
       "IRI-based" : "Agent"
     },
-    "uri" : "http://xmlns.com/foaf/0.1/Agent",
+    "iri" : "http://xmlns.com/foaf/0.1/Agent",
     "attributes" : [ "external" ],
     "instances" : 0
   }, {
@@ -110,7 +110,7 @@
     "label" : {
       "IRI-based" : "OnlineAccount"
     },
-    "uri" : "http://xmlns.com/foaf/0.1/OnlineAccount",
+    "iri" : "http://xmlns.com/foaf/0.1/OnlineAccount",
     "attributes" : [ "external" ],
     "subClasses" : [ "class173", "class184" ],
     "instances" : 0
@@ -120,7 +120,7 @@
       "IRI-based" : "UserAccount",
       "en" : "User Account"
     },
-    "uri" : "http://rdfs.org/sioc/ns#UserAccount",
+    "iri" : "http://rdfs.org/sioc/ns#UserAccount",
     "comment" : {
       "en" : "A user account in an online community site."
     },
@@ -135,7 +135,7 @@
       "IRI-based" : "Community",
       "en" : "Community"
     },
-    "uri" : "http://rdfs.org/sioc/ns#Community",
+    "iri" : "http://rdfs.org/sioc/ns#Community",
     "comment" : {
       "en" : "Community is a high-level concept that defines an online community and what it consists of."
     },
@@ -147,7 +147,7 @@
       "IRI-based" : "Role",
       "en" : "Role"
     },
-    "uri" : "http://rdfs.org/sioc/ns#Role",
+    "iri" : "http://rdfs.org/sioc/ns#Role",
     "comment" : {
       "en" : "A Role is a function of a UserAccount within a scope of a particular Forum, Site, etc."
     },
@@ -158,7 +158,7 @@
     "label" : {
       "IRI-based" : "Document"
     },
-    "uri" : "http://xmlns.com/foaf/0.1/Document",
+    "iri" : "http://xmlns.com/foaf/0.1/Document",
     "attributes" : [ "external" ],
     "subClasses" : [ "class178" ],
     "instances" : 0
@@ -168,7 +168,7 @@
       "IRI-based" : "Thread",
       "en" : "Thread"
     },
-    "uri" : "http://rdfs.org/sioc/ns#Thread",
+    "iri" : "http://rdfs.org/sioc/ns#Thread",
     "comment" : {
       "en" : "A container for a series of threaded discussion Posts or Items."
     },
@@ -181,7 +181,7 @@
       "IRI-based" : "Space",
       "en" : "Space"
     },
-    "uri" : "http://rdfs.org/sioc/ns#Space",
+    "iri" : "http://rdfs.org/sioc/ns#Space",
     "comment" : {
       "en" : "A Space is a place where data resides, e.g. on a website, desktop, fileshare, etc."
     },
@@ -193,7 +193,7 @@
     "label" : {
       "IRI-based" : "Graph"
     },
-    "uri" : "http://www.w3.org/2004/03/trix/rdfg-1/Graph",
+    "iri" : "http://www.w3.org/2004/03/trix/rdfg-1/Graph",
     "attributes" : [ "external" ],
     "instances" : 0
   }, {
@@ -202,7 +202,7 @@
       "IRI-based" : "User",
       "en" : "User"
     },
-    "uri" : "http://rdfs.org/sioc/ns#User",
+    "iri" : "http://rdfs.org/sioc/ns#User",
     "comment" : {
       "en" : "UserAccount is now preferred. This is a deprecated class for a User in an online community site."
     },
@@ -218,7 +218,7 @@
       "IRI-based" : "Item",
       "en" : "Item"
     },
-    "uri" : "http://rdfs.org/sioc/ns#Item",
+    "iri" : "http://rdfs.org/sioc/ns#Item",
     "comment" : {
       "en" : "An Item is something which can be in a Container."
     },
@@ -231,7 +231,7 @@
       "IRI-based" : "Usergroup",
       "en" : "Usergroup"
     },
-    "uri" : "http://rdfs.org/sioc/ns#Usergroup",
+    "iri" : "http://rdfs.org/sioc/ns#Usergroup",
     "comment" : {
       "en" : "A set of UserAccounts whose owners have a common purpose or interest. Can be used for access control purposes."
     },
@@ -243,7 +243,7 @@
       "IRI-based" : "Container",
       "en" : "Container"
     },
-    "uri" : "http://rdfs.org/sioc/ns#Container",
+    "iri" : "http://rdfs.org/sioc/ns#Container",
     "comment" : {
       "en" : "An area in which content Items are contained."
     },
@@ -256,7 +256,7 @@
       "IRI-based" : "Post",
       "en" : "Post"
     },
-    "uri" : "http://rdfs.org/sioc/ns#Post",
+    "iri" : "http://rdfs.org/sioc/ns#Post",
     "comment" : {
       "en" : "An article or message that can be posted to a Forum."
     },
@@ -269,7 +269,7 @@
       "IRI-based" : "Forum",
       "en" : "Forum"
     },
-    "uri" : "http://rdfs.org/sioc/ns#Forum",
+    "iri" : "http://rdfs.org/sioc/ns#Forum",
     "comment" : {
       "en" : "A discussion area on which Posts or entries are made."
     },
@@ -281,42 +281,42 @@
     "label" : {
       "undefined" : "Thing"
     },
-    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "instances" : 0
   }, {
     "id" : "thing23",
     "label" : {
       "undefined" : "Thing"
     },
-    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "instances" : 0
   }, {
     "id" : "thing22",
     "label" : {
       "undefined" : "Thing"
     },
-    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "instances" : 0
   }, {
     "id" : "thing24",
     "label" : {
       "undefined" : "Thing"
     },
-    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "instances" : 0
   }, {
     "id" : "thing25",
     "label" : {
       "undefined" : "Thing"
     },
-    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "instances" : 0
   }, {
     "id" : "thing26",
     "label" : {
       "undefined" : "Thing"
     },
-    "uri" : "http://www.w3.org/2002/07/owl#Thing",
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "instances" : 0
   } ],
   "datatype" : [ {
@@ -400,151 +400,151 @@
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal117",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal119",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal114",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal132",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal113",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal116",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal134",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal136",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal135",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype115",
     "label" : {
       "IRI-based" : "nonNegativeInteger"
     },
-    "uri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    "iri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
   }, {
     "id" : "datatype137",
     "label" : {
       "IRI-based" : "nonNegativeInteger"
     },
-    "uri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    "iri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
   }, {
     "id" : "literal129",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal128",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal127",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal126",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal125",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal124",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype133",
     "label" : {
       "IRI-based" : "nonNegativeInteger"
     },
-    "uri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    "iri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
   }, {
     "id" : "literal123",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype130",
     "label" : {
       "IRI-based" : "nonNegativeInteger"
     },
-    "uri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    "iri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
   }, {
     "id" : "literal122",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "datatype131",
     "label" : {
       "IRI-based" : "nonNegativeInteger"
     },
-    "uri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    "iri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
   }, {
     "id" : "literal121",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   }, {
     "id" : "literal120",
     "label" : {
       "IRI-based" : "Literal"
     },
-    "uri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   } ],
   "property" : [ {
     "id" : "property840",
@@ -905,7 +905,7 @@
       "IRI-based" : "links_to",
       "en" : "links to"
     },
-    "uri" : "http://rdfs.org/sioc/ns#links_to",
+    "iri" : "http://rdfs.org/sioc/ns#links_to",
     "comment" : {
       "en" : "Links extracted from hyperlinks within a SIOC concept, e.g. Post or Site."
     },
@@ -919,7 +919,7 @@
       "IRI-based" : "has_member",
       "en" : "has member"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_member",
+    "iri" : "http://rdfs.org/sioc/ns#has_member",
     "comment" : {
       "en" : "A UserAccount that is a member of this Usergroup."
     },
@@ -933,7 +933,7 @@
       "IRI-based" : "next_version",
       "en" : "next version"
     },
-    "uri" : "http://rdfs.org/sioc/ns#next_version",
+    "iri" : "http://rdfs.org/sioc/ns#next_version",
     "comment" : {
       "en" : "Links to the next revision of this Item or Post."
     },
@@ -948,7 +948,7 @@
       "IRI-based" : "scope_of",
       "en" : "scope of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#scope_of",
+    "iri" : "http://rdfs.org/sioc/ns#scope_of",
     "comment" : {
       "en" : "A Role that has a scope of this resource."
     },
@@ -962,7 +962,7 @@
       "IRI-based" : "administrator_of",
       "en" : "administrator of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#administrator_of",
+    "iri" : "http://rdfs.org/sioc/ns#administrator_of",
     "comment" : {
       "en" : "A Site that the UserAccount is an administrator of."
     },
@@ -976,7 +976,7 @@
       "IRI-based" : "num_threads",
       "en" : "num threads"
     },
-    "uri" : "http://rdfs.org/sioc/ns#num_threads",
+    "iri" : "http://rdfs.org/sioc/ns#num_threads",
     "comment" : {
       "en" : "The number of Threads (AKA discussion topics) in a Forum."
     },
@@ -988,7 +988,7 @@
     "label" : {
       "IRI-based" : "date"
     },
-    "uri" : "http://purl.org/dc/terms/date",
+    "iri" : "http://purl.org/dc/terms/date",
     "attributes" : [ "external" ],
     "domain" : "thing21",
     "range" : "literal122",
@@ -999,7 +999,7 @@
       "IRI-based" : "has_owner",
       "en" : "has owner"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_owner",
+    "iri" : "http://rdfs.org/sioc/ns#has_owner",
     "comment" : {
       "en" : "A UserAccount that this resource is owned by."
     },
@@ -1013,7 +1013,7 @@
       "IRI-based" : "reference",
       "en" : "reference"
     },
-    "uri" : "http://rdfs.org/sioc/ns#reference",
+    "iri" : "http://rdfs.org/sioc/ns#reference",
     "comment" : {
       "en" : "Links either created explicitly or extracted implicitly on the HTML level from the Post."
     },
@@ -1028,7 +1028,7 @@
       "IRI-based" : "link",
       "en" : "link"
     },
-    "uri" : "http://rdfs.org/sioc/ns#link",
+    "iri" : "http://rdfs.org/sioc/ns#link",
     "comment" : {
       "en" : "A URI of a document which contains this SIOC object."
     },
@@ -1048,7 +1048,7 @@
       "IRI-based" : "last_reply_date",
       "en" : "last reply date"
     },
-    "uri" : "http://rdfs.org/sioc/ns#last_reply_date",
+    "iri" : "http://rdfs.org/sioc/ns#last_reply_date",
     "comment" : {
       "en" : "The date and time of the last reply Post or Comment, which could be associated with a starter Item or Post or with a Thread, and expressed in ISO 8601 format."
     },
@@ -1076,7 +1076,7 @@
       "IRI-based" : "feed",
       "en" : "feed"
     },
-    "uri" : "http://rdfs.org/sioc/ns#feed",
+    "iri" : "http://rdfs.org/sioc/ns#feed",
     "comment" : {
       "en" : "A feed (e.g. RSS, Atom, etc.) pertaining to this resource (e.g. for a Forum, Site, UserAccount, etc.)."
     },
@@ -1089,7 +1089,7 @@
       "IRI-based" : "has_container",
       "en" : "has container"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_container",
+    "iri" : "http://rdfs.org/sioc/ns#has_container",
     "comment" : {
       "en" : "The Container to which this Item belongs."
     },
@@ -1103,7 +1103,7 @@
       "IRI-based" : "description",
       "en" : "description"
     },
-    "uri" : "http://rdfs.org/sioc/ns#description",
+    "iri" : "http://rdfs.org/sioc/ns#description",
     "comment" : {
       "en" : "The content of the Post."
     },
@@ -1118,7 +1118,7 @@
       "IRI-based" : "title",
       "en" : "title"
     },
-    "uri" : "http://rdfs.org/sioc/ns#title",
+    "iri" : "http://rdfs.org/sioc/ns#title",
     "comment" : {
       "en" : "This is the title (subject line) of the Post. Note that for a Post within a threaded discussion that has no parents, it would detail the topic thread."
     },
@@ -1133,7 +1133,7 @@
       "IRI-based" : "has_host",
       "en" : "has host"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_host",
+    "iri" : "http://rdfs.org/sioc/ns#has_host",
     "comment" : {
       "en" : "The Site that hosts this Forum."
     },
@@ -1147,7 +1147,7 @@
       "IRI-based" : "has_usergroup",
       "en" : "has usergroup"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_usergroup",
+    "iri" : "http://rdfs.org/sioc/ns#has_usergroup",
     "comment" : {
       "en" : "Points to a Usergroup that has certain access to this Space."
     },
@@ -1161,7 +1161,7 @@
       "IRI-based" : "note",
       "en" : "note"
     },
-    "uri" : "http://rdfs.org/sioc/ns#note",
+    "iri" : "http://rdfs.org/sioc/ns#note",
     "comment" : {
       "en" : "A note associated with this resource, for example, if it has been edited by a UserAccount."
     },
@@ -1173,7 +1173,7 @@
     "label" : {
       "IRI-based" : "title"
     },
-    "uri" : "http://purl.org/dc/terms/title",
+    "iri" : "http://purl.org/dc/terms/title",
     "attributes" : [ "external" ],
     "domain" : "thing21",
     "range" : "literal128"
@@ -1183,7 +1183,7 @@
       "IRI-based" : "last_activity_date",
       "en" : "last activity date"
     },
-    "uri" : "http://rdfs.org/sioc/ns#last_activity_date",
+    "iri" : "http://rdfs.org/sioc/ns#last_activity_date",
     "comment" : {
       "en" : "The date and time of the last activity associated with a SIOC concept instance, and expressed in ISO 8601 format. This could be due to a reply Post or Comment, a modification to an Item, etc."
     },
@@ -1197,7 +1197,7 @@
       "IRI-based" : "embeds_knowledge",
       "en" : "embeds knowledge"
     },
-    "uri" : "http://rdfs.org/sioc/ns#embeds_knowledge",
+    "iri" : "http://rdfs.org/sioc/ns#embeds_knowledge",
     "comment" : {
       "en" : "This links Items to embedded statements, facts and structured content."
     },
@@ -1210,7 +1210,7 @@
       "IRI-based" : "latest_version",
       "en" : "latest version"
     },
-    "uri" : "http://rdfs.org/sioc/ns#latest_version",
+    "iri" : "http://rdfs.org/sioc/ns#latest_version",
     "comment" : {
       "en" : "Links to the latest revision of this Item or Post."
     },
@@ -1223,7 +1223,7 @@
       "IRI-based" : "container_of",
       "en" : "container of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#container_of",
+    "iri" : "http://rdfs.org/sioc/ns#container_of",
     "comment" : {
       "en" : "An Item that this Container contains."
     },
@@ -1237,7 +1237,7 @@
       "IRI-based" : "has_creator",
       "en" : "has creator"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_creator",
+    "iri" : "http://rdfs.org/sioc/ns#has_creator",
     "comment" : {
       "en" : "This is the UserAccount that made this resource."
     },
@@ -1251,7 +1251,7 @@
       "IRI-based" : "has_moderator",
       "en" : "has moderator"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_moderator",
+    "iri" : "http://rdfs.org/sioc/ns#has_moderator",
     "comment" : {
       "en" : "A UserAccount that is a moderator of this Forum."
     },
@@ -1279,7 +1279,7 @@
       "IRI-based" : "email_sha1",
       "en" : "email sha1"
     },
-    "uri" : "http://rdfs.org/sioc/ns#email_sha1",
+    "iri" : "http://rdfs.org/sioc/ns#email_sha1",
     "comment" : {
       "en" : "An electronic mail address of the UserAccount, encoded using SHA1."
     },
@@ -1292,7 +1292,7 @@
       "IRI-based" : "has_administrator",
       "en" : "has administrator"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_administrator",
+    "iri" : "http://rdfs.org/sioc/ns#has_administrator",
     "comment" : {
       "en" : "A UserAccount that is an administrator of this Site."
     },
@@ -1320,7 +1320,7 @@
       "IRI-based" : "num_authors",
       "en" : "num authors"
     },
-    "uri" : "http://rdfs.org/sioc/ns#num_authors",
+    "iri" : "http://rdfs.org/sioc/ns#num_authors",
     "comment" : {
       "en" : "The number of unique authors (UserAccounts and unregistered posters) who have contributed to this Item, Thread, Post, etc."
     },
@@ -1333,7 +1333,7 @@
       "IRI-based" : "last_item_date",
       "en" : "last item date"
     },
-    "uri" : "http://rdfs.org/sioc/ns#last_item_date",
+    "iri" : "http://rdfs.org/sioc/ns#last_item_date",
     "comment" : {
       "en" : "The date and time of the last Post (or Item) in a Forum (or a Container), in ISO 8601 format."
     },
@@ -1382,7 +1382,7 @@
       "IRI-based" : "subject",
       "en" : "subject"
     },
-    "uri" : "http://rdfs.org/sioc/ns#subject",
+    "iri" : "http://rdfs.org/sioc/ns#subject",
     "comment" : {
       "en" : "Keyword(s) describing subject of the Post."
     },
@@ -1397,7 +1397,7 @@
       "IRI-based" : "num_views",
       "en" : "num views"
     },
-    "uri" : "http://rdfs.org/sioc/ns#num_views",
+    "iri" : "http://rdfs.org/sioc/ns#num_views",
     "comment" : {
       "en" : "The number of times this Item, Thread, UserAccount profile, etc. has been viewed."
     },
@@ -1417,7 +1417,7 @@
       "IRI-based" : "has_reply",
       "en" : "has reply"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_reply",
+    "iri" : "http://rdfs.org/sioc/ns#has_reply",
     "comment" : {
       "en" : "Points to an Item or Post that is a reply or response to this Item or Post."
     },
@@ -1432,7 +1432,7 @@
       "IRI-based" : "has_space",
       "en" : "has space"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_space",
+    "iri" : "http://rdfs.org/sioc/ns#has_space",
     "comment" : {
       "en" : "A data Space which this resource is a part of."
     },
@@ -1467,7 +1467,7 @@
       "IRI-based" : "moderator_of",
       "en" : "moderator of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#moderator_of",
+    "iri" : "http://rdfs.org/sioc/ns#moderator_of",
     "comment" : {
       "en" : "A Forum that a UserAccount is a moderator of."
     },
@@ -1481,7 +1481,7 @@
       "IRI-based" : "modified_at",
       "en" : "modified at"
     },
-    "uri" : "http://rdfs.org/sioc/ns#modified_at",
+    "iri" : "http://rdfs.org/sioc/ns#modified_at",
     "comment" : {
       "en" : "When this was modified, in ISO 8601 format."
     },
@@ -1517,7 +1517,7 @@
       "IRI-based" : "email",
       "en" : "email"
     },
-    "uri" : "http://rdfs.org/sioc/ns#email",
+    "iri" : "http://rdfs.org/sioc/ns#email",
     "comment" : {
       "en" : "An electronic mail address of the UserAccount."
     },
@@ -1537,7 +1537,7 @@
       "IRI-based" : "ip_address",
       "en" : "ip address"
     },
-    "uri" : "http://rdfs.org/sioc/ns#ip_address",
+    "iri" : "http://rdfs.org/sioc/ns#ip_address",
     "comment" : {
       "en" : "The IP address used when creating this Item. This can be associated with a creator. Some wiki articles list the IP addresses for the creator or modifiers when the usernames are absent."
     },
@@ -1556,7 +1556,7 @@
     "label" : {
       "IRI-based" : "depiction"
     },
-    "uri" : "http://xmlns.com/foaf/0.1/depiction",
+    "iri" : "http://xmlns.com/foaf/0.1/depiction",
     "attributes" : [ "external" ],
     "domain" : "thing21",
     "range" : "thing21",
@@ -1574,7 +1574,7 @@
       "IRI-based" : "usergroup_of",
       "en" : "usergroup of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#usergroup_of",
+    "iri" : "http://rdfs.org/sioc/ns#usergroup_of",
     "comment" : {
       "en" : "A Space that the Usergroup has access to."
     },
@@ -1588,7 +1588,7 @@
       "IRI-based" : "has_part",
       "en" : "has part"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_part",
+    "iri" : "http://rdfs.org/sioc/ns#has_part",
     "comment" : {
       "en" : "An resource that is a part of this subject."
     },
@@ -1604,7 +1604,7 @@
       "IRI-based" : "last_name",
       "en" : "last name"
     },
-    "uri" : "http://rdfs.org/sioc/ns#last_name",
+    "iri" : "http://rdfs.org/sioc/ns#last_name",
     "comment" : {
       "en" : "Last (real) name of this user. Synonyms include surname or family name."
     },
@@ -1619,7 +1619,7 @@
       "IRI-based" : "later_version",
       "en" : "later version"
     },
-    "uri" : "http://rdfs.org/sioc/ns#later_version",
+    "iri" : "http://rdfs.org/sioc/ns#later_version",
     "comment" : {
       "en" : "Links to a later (newer) revision of this Item or Post."
     },
@@ -1634,7 +1634,7 @@
     "label" : {
       "IRI-based" : "references"
     },
-    "uri" : "http://purl.org/dc/terms/references",
+    "iri" : "http://purl.org/dc/terms/references",
     "attributes" : [ "external" ],
     "domain" : "thing21",
     "range" : "thing21",
@@ -1652,7 +1652,7 @@
       "IRI-based" : "num_items",
       "en" : "num items"
     },
-    "uri" : "http://rdfs.org/sioc/ns#num_items",
+    "iri" : "http://rdfs.org/sioc/ns#num_items",
     "comment" : {
       "en" : "The number of Posts (or Items) in a Forum (or a Container)."
     },
@@ -1665,7 +1665,7 @@
       "IRI-based" : "earlier_version",
       "en" : "earlier version"
     },
-    "uri" : "http://rdfs.org/sioc/ns#earlier_version",
+    "iri" : "http://rdfs.org/sioc/ns#earlier_version",
     "comment" : {
       "en" : "Links to a previous (older) revision of this Item or Post."
     },
@@ -1688,7 +1688,7 @@
       "IRI-based" : "space_of",
       "en" : "space of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#space_of",
+    "iri" : "http://rdfs.org/sioc/ns#space_of",
     "comment" : {
       "en" : "A resource which belongs to this data Space."
     },
@@ -1709,7 +1709,7 @@
       "IRI-based" : "addressed_to",
       "en" : "addressed to"
     },
-    "uri" : "http://rdfs.org/sioc/ns#addressed_to",
+    "iri" : "http://rdfs.org/sioc/ns#addressed_to",
     "comment" : {
       "en" : "Refers to who (e.g. a UserAccount, e-mail address, etc.) a particular Item is addressed to."
     },
@@ -1722,7 +1722,7 @@
       "IRI-based" : "about",
       "en" : "about"
     },
-    "uri" : "http://rdfs.org/sioc/ns#about",
+    "iri" : "http://rdfs.org/sioc/ns#about",
     "comment" : {
       "en" : "Specifies that this Item is about a particular resource, e.g. a Post describing a book, hotel, etc."
     },
@@ -1749,7 +1749,7 @@
       "IRI-based" : "has_modifier",
       "en" : "has modifier"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_modifier",
+    "iri" : "http://rdfs.org/sioc/ns#has_modifier",
     "comment" : {
       "en" : "A UserAccount that modified this Item."
     },
@@ -1770,7 +1770,7 @@
       "IRI-based" : "id",
       "en" : "id"
     },
-    "uri" : "http://rdfs.org/sioc/ns#id",
+    "iri" : "http://rdfs.org/sioc/ns#id",
     "comment" : {
       "en" : "An identifier of a SIOC concept instance. For example, a user ID. Must be unique for instances of each type of SIOC concept within the same site."
     },
@@ -1783,7 +1783,7 @@
       "IRI-based" : "topic",
       "en" : "topic"
     },
-    "uri" : "http://rdfs.org/sioc/ns#topic",
+    "iri" : "http://rdfs.org/sioc/ns#topic",
     "comment" : {
       "en" : "A topic of interest, linking to the appropriate URI, e.g. in the Open Directory Project or of a SKOS category."
     },
@@ -1796,7 +1796,7 @@
     "label" : {
       "IRI-based" : "description"
     },
-    "uri" : "http://purl.org/dc/terms/description",
+    "iri" : "http://purl.org/dc/terms/description",
     "attributes" : [ "external" ],
     "domain" : "thing21",
     "range" : "literal124"
@@ -1806,7 +1806,7 @@
       "IRI-based" : "modifier_of",
       "en" : "modifier of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#modifier_of",
+    "iri" : "http://rdfs.org/sioc/ns#modifier_of",
     "comment" : {
       "en" : "An Item that this UserAccount has modified."
     },
@@ -1820,7 +1820,7 @@
       "IRI-based" : "follows",
       "en" : "follows"
     },
-    "uri" : "http://rdfs.org/sioc/ns#follows",
+    "iri" : "http://rdfs.org/sioc/ns#follows",
     "comment" : {
       "en" : "Indicates that one UserAccount follows another UserAccount (e.g. for microblog posts or other content item updates)."
     },
@@ -1833,7 +1833,7 @@
       "IRI-based" : "num_replies",
       "en" : "num replies"
     },
-    "uri" : "http://rdfs.org/sioc/ns#num_replies",
+    "iri" : "http://rdfs.org/sioc/ns#num_replies",
     "comment" : {
       "en" : "The number of replies that this Item, Thread, Post, etc. has. Useful for when the reply structure is absent."
     },
@@ -1846,7 +1846,7 @@
       "IRI-based" : "subscriber_of",
       "en" : "subscriber of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#subscriber_of",
+    "iri" : "http://rdfs.org/sioc/ns#subscriber_of",
     "comment" : {
       "en" : "A Container that a UserAccount is subscribed to."
     },
@@ -1868,7 +1868,7 @@
       "IRI-based" : "avatar",
       "en" : "avatar"
     },
-    "uri" : "http://rdfs.org/sioc/ns#avatar",
+    "iri" : "http://rdfs.org/sioc/ns#avatar",
     "comment" : {
       "en" : "An image or depiction used to represent this UserAccount."
     },
@@ -1882,7 +1882,7 @@
       "IRI-based" : "group_of",
       "en" : "group of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#group_of",
+    "iri" : "http://rdfs.org/sioc/ns#group_of",
     "owlVersion" : "\"This property has been renamed. Use sioc:usergroup_of instead.\"",
     "attributes" : [ "deprecated" ],
     "domain" : "thing21",
@@ -1894,7 +1894,7 @@
       "IRI-based" : "attachment",
       "en" : "attachment"
     },
-    "uri" : "http://rdfs.org/sioc/ns#attachment",
+    "iri" : "http://rdfs.org/sioc/ns#attachment",
     "comment" : {
       "en" : "The URI of a file attached to an Item."
     },
@@ -1907,7 +1907,7 @@
       "IRI-based" : "first_name",
       "en" : "first name"
     },
-    "uri" : "http://rdfs.org/sioc/ns#first_name",
+    "iri" : "http://rdfs.org/sioc/ns#first_name",
     "comment" : {
       "en" : "First (real) name of this User. Synonyms include given name or christian name."
     },
@@ -1922,7 +1922,7 @@
       "IRI-based" : "created_at",
       "en" : "created at"
     },
-    "uri" : "http://rdfs.org/sioc/ns#created_at",
+    "iri" : "http://rdfs.org/sioc/ns#created_at",
     "comment" : {
       "en" : "When this was created, in ISO 8601 format."
     },
@@ -1937,7 +1937,7 @@
       "IRI-based" : "creator_of",
       "en" : "creator of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#creator_of",
+    "iri" : "http://rdfs.org/sioc/ns#creator_of",
     "comment" : {
       "en" : "A resource that the UserAccount is a creator of."
     },
@@ -1951,7 +1951,7 @@
       "IRI-based" : "next_by_date",
       "en" : "next by date"
     },
-    "uri" : "http://rdfs.org/sioc/ns#next_by_date",
+    "iri" : "http://rdfs.org/sioc/ns#next_by_date",
     "comment" : {
       "en" : "Next Item or Post in a given Container sorted by date."
     },
@@ -1965,7 +1965,7 @@
       "IRI-based" : "parent_of",
       "en" : "parent of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#parent_of",
+    "iri" : "http://rdfs.org/sioc/ns#parent_of",
     "comment" : {
       "en" : "A child Container or Forum that this Container or Forum is a parent of."
     },
@@ -1979,7 +1979,7 @@
       "IRI-based" : "has_group",
       "en" : "has group"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_group",
+    "iri" : "http://rdfs.org/sioc/ns#has_group",
     "owlVersion" : "\"This property has been renamed. Use sioc:has_usergroup instead.\"",
     "attributes" : [ "deprecated" ],
     "domain" : "thing21",
@@ -1991,7 +1991,7 @@
       "IRI-based" : "has_parent",
       "en" : "has parent"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_parent",
+    "iri" : "http://rdfs.org/sioc/ns#has_parent",
     "comment" : {
       "en" : "A Container or Forum that this Container or Forum is a child of."
     },
@@ -2004,7 +2004,7 @@
     "label" : {
       "IRI-based" : "subject"
     },
-    "uri" : "http://purl.org/dc/terms/subject",
+    "iri" : "http://purl.org/dc/terms/subject",
     "attributes" : [ "external" ],
     "domain" : "thing21",
     "range" : "thing21",
@@ -2015,7 +2015,7 @@
       "IRI-based" : "part_of",
       "en" : "part of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#part_of",
+    "iri" : "http://rdfs.org/sioc/ns#part_of",
     "comment" : {
       "en" : "A resource that the subject is a part of."
     },
@@ -2031,7 +2031,7 @@
       "IRI-based" : "account_of",
       "en" : "account of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#account_of",
+    "iri" : "http://rdfs.org/sioc/ns#account_of",
     "comment" : {
       "en" : "Refers to the foaf:Agent or foaf:Person who owns this sioc:UserAccount."
     },
@@ -2045,7 +2045,7 @@
       "IRI-based" : "owner_of",
       "en" : "owner of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#owner_of",
+    "iri" : "http://rdfs.org/sioc/ns#owner_of",
     "comment" : {
       "en" : "A resource owned by a particular UserAccount, for example, a weblog or image gallery."
     },
@@ -2059,7 +2059,7 @@
       "IRI-based" : "content",
       "en" : "content"
     },
-    "uri" : "http://rdfs.org/sioc/ns#content",
+    "iri" : "http://rdfs.org/sioc/ns#content",
     "comment" : {
       "en" : "The content of the Item in plain text format."
     },
@@ -2072,7 +2072,7 @@
       "IRI-based" : "has_discussion",
       "en" : "has discussion"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_discussion",
+    "iri" : "http://rdfs.org/sioc/ns#has_discussion",
     "comment" : {
       "en" : "The discussion that is related to this Item."
     },
@@ -2085,7 +2085,7 @@
       "IRI-based" : "member_of",
       "en" : "member of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#member_of",
+    "iri" : "http://rdfs.org/sioc/ns#member_of",
     "comment" : {
       "en" : "A Usergroup that this UserAccount is a member of."
     },
@@ -2099,7 +2099,7 @@
       "IRI-based" : "previous_version",
       "en" : "previous version"
     },
-    "uri" : "http://rdfs.org/sioc/ns#previous_version",
+    "iri" : "http://rdfs.org/sioc/ns#previous_version",
     "comment" : {
       "en" : "Links to the previous revision of this Item or Post."
     },
@@ -2114,7 +2114,7 @@
       "IRI-based" : "name",
       "en" : "name"
     },
-    "uri" : "http://rdfs.org/sioc/ns#name",
+    "iri" : "http://rdfs.org/sioc/ns#name",
     "comment" : {
       "en" : "The name of a SIOC concept instance, e.g. a username for a UserAccount, group name for a Usergroup, etc."
     },
@@ -2127,7 +2127,7 @@
       "IRI-based" : "host_of",
       "en" : "host of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#host_of",
+    "iri" : "http://rdfs.org/sioc/ns#host_of",
     "comment" : {
       "en" : "A Forum that is hosted on this Site."
     },
@@ -2141,7 +2141,7 @@
       "IRI-based" : "has_subscriber",
       "en" : "has subscriber"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_subscriber",
+    "iri" : "http://rdfs.org/sioc/ns#has_subscriber",
     "comment" : {
       "en" : "A UserAccount that is subscribed to this Container."
     },
@@ -2163,7 +2163,7 @@
       "IRI-based" : "content_encoded",
       "en" : "content encoded"
     },
-    "uri" : "http://rdfs.org/sioc/ns#content_encoded",
+    "iri" : "http://rdfs.org/sioc/ns#content_encoded",
     "comment" : {
       "en" : "The encoded content of the Post, contained in CDATA areas."
     },
@@ -2178,7 +2178,7 @@
       "IRI-based" : "previous_by_date",
       "en" : "previous by date"
     },
-    "uri" : "http://rdfs.org/sioc/ns#previous_by_date",
+    "iri" : "http://rdfs.org/sioc/ns#previous_by_date",
     "comment" : {
       "en" : "Previous Item or Post in a given Container sorted by date."
     },
@@ -2192,7 +2192,7 @@
       "IRI-based" : "related_to",
       "en" : "related to"
     },
-    "uri" : "http://rdfs.org/sioc/ns#related_to",
+    "iri" : "http://rdfs.org/sioc/ns#related_to",
     "comment" : {
       "en" : "Related Posts for this Post, perhaps determined implicitly from topics or references."
     },
@@ -2205,7 +2205,7 @@
     "label" : {
       "IRI-based" : "account"
     },
-    "uri" : "http://xmlns.com/foaf/0.1/account",
+    "iri" : "http://xmlns.com/foaf/0.1/account",
     "attributes" : [ "external" ],
     "domain" : "class171",
     "range" : "class184",
@@ -2216,7 +2216,7 @@
       "IRI-based" : "reply_of",
       "en" : "reply of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#reply_of",
+    "iri" : "http://rdfs.org/sioc/ns#reply_of",
     "comment" : {
       "en" : "Links to an Item or Post which this Item or Post is a reply to."
     },
@@ -2231,7 +2231,7 @@
       "IRI-based" : "has_scope",
       "en" : "has scope"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_scope",
+    "iri" : "http://rdfs.org/sioc/ns#has_scope",
     "comment" : {
       "en" : "A resource that this Role applies to."
     },
@@ -2245,7 +2245,7 @@
       "IRI-based" : "function_of",
       "en" : "function of"
     },
-    "uri" : "http://rdfs.org/sioc/ns#function_of",
+    "iri" : "http://rdfs.org/sioc/ns#function_of",
     "comment" : {
       "en" : "A UserAccount that has this Role."
     },
@@ -2259,7 +2259,7 @@
       "IRI-based" : "has_function",
       "en" : "has function"
     },
-    "uri" : "http://rdfs.org/sioc/ns#has_function",
+    "iri" : "http://rdfs.org/sioc/ns#has_function",
     "comment" : {
       "en" : "A Role that this UserAccount has."
     },
@@ -2273,7 +2273,7 @@
       "IRI-based" : "sibling",
       "en" : "sibling"
     },
-    "uri" : "http://rdfs.org/sioc/ns#sibling",
+    "iri" : "http://rdfs.org/sioc/ns#sibling",
     "comment" : {
       "en" : "An Item may have a sibling or a twin that exists in a different Container, but the siblings may differ in some small way (for example, language, category, etc.). The sibling of this Item should be self-describing (that is, it should contain all available information)."
     },
