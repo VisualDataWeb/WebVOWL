@@ -15,23 +15,27 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		cachedConversions = {};
 
 	ontologyMenu.setup = function () {
-		setupUriListener();
-
 		setupConverterButtons();
 		setupUploadButton();
 
-		d3.select("#error-description-button").on("click", function () {
+		var descriptionButton = d3.select("#error-description-button").datum({open: false});
+		descriptionButton.on("click", function (data) {
 			var errorContainer = d3.select("#error-description-container");
 			var errorDetailsButton = d3.select(this);
 
-			var invisible = errorContainer.classed("hidden");
-			if (invisible) {
+			// toggle the state
+			data.open = !data.open;
+			var descriptionVisible = data.open;
+			console.log(descriptionVisible);
+			if (descriptionVisible) {
 				errorDetailsButton.text("Hide error details");
 			} else {
 				errorDetailsButton.text("Show error details");
 			}
-			errorContainer.classed("hidden", !invisible);
+			errorContainer.classed("hidden", !descriptionVisible);
 		});
+
+		setupUriListener();
 	};
 
 
@@ -294,8 +298,8 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		}
 
 		var descriptionMissing = !description;
-		d3.select("#error-description-button").classed("hidden", descriptionMissing);
-		d3.select("#error-description-container").classed("hidden", descriptionMissing);
+		var descriptionVisible = d3.select("#error-description-button").classed("hidden", descriptionMissing).datum().open;
+		d3.select("#error-description-container").classed("hidden", descriptionMissing || !descriptionVisible);
 		d3.select("#error-description").text(description || "");
 	}
 
