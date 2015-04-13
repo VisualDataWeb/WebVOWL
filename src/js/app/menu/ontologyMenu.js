@@ -110,6 +110,7 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 
 		if (cachedOntology) {
 			loadOntologyFromText(cachedOntology, undefined, filename);
+			setLoadingStatus(true);
 		} else {
 			displayLoadingIndicators();
 			d3.xhr(relativePath, "application/json", function (error, request) {
