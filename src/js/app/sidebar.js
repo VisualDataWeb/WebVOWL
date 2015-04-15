@@ -397,12 +397,12 @@ webvowlApp.sidebar = function (graph) {
 	}
 
 	function setTextAndVisibility(label, value) {
-		if (!value) {
-			var parentNode = d3.select(label.node().parentNode);
-			parentNode.classed("hidden", true);
-		} else {
-			label.text(value).classed("hidden", false);
+		var parentNode = d3.select(label.node().parentNode);
+		var hasValue = !!value;
+		if (value) {
+			label.text(value);
 		}
+		parentNode.classed("hidden", !hasValue);
 	}
 
 
