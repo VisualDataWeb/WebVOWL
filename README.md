@@ -1,40 +1,30 @@
 WebVOWL
 =======
 
-How to use WebVOWL?
--------------------
+After the release of version 0.4.0 this repository was ported from an internal SVN repository to
+Github. Due to cleanups with `git filter-branch` there might be some strange commits.
 
-The whole compiled and minified application can be found in the deploy
-directory of every tagged release.
 
-The source files are located in the src directory. We use a template for html
-files for automatic insertion of the version number and later other details.
+Requirements
+------------
+
+Node.js for installing the development tools and the dependencies.
 
 Development setup
 -----------------
 
-<ol>
-  <li>Download and install Node.js from http://nodejs.org/download/</li>
-  <li>
-    <ol>
-      <li>Download and install Git from http://git-scm.com/downloads e.g. for Bower</li>
-      <li>The path to the git executable must maybe added to the PATH variable if the installation didn't do this.</li>
-    </ol>
-  </li>
-  <li>Open the command line interface in the project directory (shift + right click -> CLI on Windows)</li>
-  <li>Enter 'npm install' to install grunt and bower and automatically download d3</li>
-  <li>Edit the code files</li>
-  <li>Run 'npm run-script package' to (re-)build all necessary files into the deploy directory</li>
-</ol>
+### Simple ###
+1. Download and install Node.js from http://nodejs.org/download/
+2. Open the terminal in the root directory
+3. Run `npm install` to install the dependencies automatically install d3 with bower
+4. Edit the code
+5. Run `npm run-script release` to (re-)build all necessary files into the deploy directory
 
-Development setup - advanced
-----------------------------
+### Advanced ###
+Instead of the last step of the simple setup, install the npm package `grunt-cli` globally with
+`npm install grunt-cli -g`. Now you can execute a few more advanced commands in the terminal:
 
- A webserver can be easily started with the command 'npm run-script webserver'.
- This is useful, because some browsers like Chrome prevent loading scripts from
- the local file system. The webserver also notices file changes, rebuilds the
- project automatically and reloads the web page in the browser.
- The dependency management bower and the build system grunt are at the moment
- called via node. This can be changed by installing both globally in the node
- cli with 'node install -g bower grunt-cli'. From now on you can run more
- advanced task combinations listed e.g. in the Gruntfile.js.
+* `grunt` or `grunt release` builds the release files into the deploy directory
+* `grunt package` builds the development version
+* `grunt webserver` starts a local live-updating webserver with the current development version
+* `grunt test` starts the test runner
