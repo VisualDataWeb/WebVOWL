@@ -17,7 +17,7 @@ Development setup
 ### Simple ###
 1. Download and install Node.js from http://nodejs.org/download/
 2. Open the terminal in the root directory
-3. Run `npm install` to install the dependencies automatically install d3 with bower
+3. Run `npm install` to install the dependencies and automatically install d3 with bower
 4. Edit the code
 5. Run `npm run-script release` to (re-)build all necessary files into the deploy directory
 
@@ -34,9 +34,9 @@ Instead of the last step of the simple setup, install the npm package `grunt-cli
 Additional information
 ----------------------
 
-To export the current graph to SVG file, we have to inline all css styles into the SVG code.
+To export the current graph to an SVG image, we have to inline all css styles into the SVG code.
 That means, that if you change the CSS in the `vowl.css` file, you have to update the code that
 inlines the styles or otherwise the exported SVG will not look the same as the displayed graph.
 
 The tool which creates the code that inlines the styles can be found in the util directory. Please
-follow the instructions in its README file.
+follow the instructions in its [README](util/VowlCssToD3RuleConverter/README.md) file.
