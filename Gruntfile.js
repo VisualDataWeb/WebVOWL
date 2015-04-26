@@ -174,7 +174,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-karma");
 
 	grunt.registerTask("build-common", ["clean", "copy", "cssmin", "concat", "uglify"]);
-	grunt.registerTask("default", ["package"]);
+	grunt.registerTask("default", ["release"]);
 	grunt.registerTask("package", ["build-common", "htmlbuild:dev"]);
 	grunt.registerTask("release", ["build-common", "htmlbuild:release"]);
 	grunt.registerTask("webserver", ["package", "connect:devserver", "watch"]);
