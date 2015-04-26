@@ -2,9 +2,15 @@ describe("Collapsing of subclassOf properties", function () {
 	var collapser;
 
 	beforeEach(function () {
-		this.addMatchers({
-			toBeInstanceOf: function (expected) {
-				return this.actual instanceof expected;
+		jasmine.addMatchers({
+			toBeInstanceOf: function () {
+				return {
+					compare: function (actual, expected) {
+						return {
+							pass: actual instanceof expected
+						};
+					}
+				};
 			}
 		});
 	});
@@ -119,7 +125,7 @@ describe("Collapsing of subclassOf properties", function () {
 		expect(collapser.filteredProperties()).toEqual(properties);
 	});
 
-	it("should be able to handle circles", function() {
+	it("should be able to handle circles", function () {
 		var loopSubClass = new webvowl.nodes.owlclass(),
 			subProperty = new webvowl.labels.rdfssubclassof(),
 			nodes = [loopSubClass],
