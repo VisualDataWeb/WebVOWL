@@ -74,12 +74,6 @@ module.exports = function (grunt) {
 					{expand: true, cwd: "src/", src: ["favicon.ico"], dest: deployPath},
 					{expand: true, src: ["license.txt"], dest: deployPath}
 				]
-			},
-			deploy: {
-				files: [
-					{expand: true, cwd: "src", src: ".htaccess", dest: deployPath},
-					{expand: true, cwd: "src/log", src: ".dummy", dest: deployPath + "log/"}
-				]
 			}
 		},
 		cssmin: {
@@ -103,15 +97,6 @@ module.exports = function (grunt) {
 				}
 			},
 			dev: {
-				src: "src/index.html",
-				dest: deployPath,
-				options: {
-					data: {
-						version: "<%= pkg.version %>"
-					}
-				}
-			},
-			release: {
 				src: "src/index.html",
 				dest: deployPath
 			}
@@ -175,8 +160,8 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("build-common", ["clean", "copy", "cssmin", "concat", "uglify"]);
 	grunt.registerTask("default", ["release"]);
-	grunt.registerTask("package", ["build-common", "htmlbuild:dev"]);
-	grunt.registerTask("release", ["build-common", "htmlbuild:release"]);
+	grunt.registerTask("package", ["build-common", "htmlbuild"]);
+	grunt.registerTask("release", ["build-common", "htmlbuild"]);
 	grunt.registerTask("webserver", ["package", "connect:devserver", "watch"]);
 	grunt.registerTask("test", ["karma"]);
 };
