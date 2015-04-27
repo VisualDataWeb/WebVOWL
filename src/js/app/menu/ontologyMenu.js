@@ -127,7 +127,7 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 					cachedConversions[relativePath] = jsonText;
 				} else {
 					if (error.status === 404) {
-						errorInfo = "Converter.php was not found. Please make sure that PHP is running."
+						errorInfo = "Converter.php was not found. Please make sure that PHP is running.";
 					}
 				}
 

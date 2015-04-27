@@ -177,9 +177,12 @@ webvowlApp.sidebar = function (graph) {
 	function listAnnotations(container, annotationObject) {
 		annotationObject = annotationObject || {};  //todo
 
+		// Collect the annotations in an array for simpler processing
 		var annotations = [];
 		for (var annotation in annotationObject) {
-			annotations.push(annotationObject[annotation][0]);
+			if (annotationObject.hasOwnProperty(annotation)) {
+				annotations.push(annotationObject[annotation][0]);
+			}
 		}
 
 		container.selectAll(".annotation").remove();
