@@ -90,7 +90,6 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 		sliderValueLabel = sliderContainer.append("label")
 			.classed("value", true)
 			.attr("for", "nodeDegreeDistanceSlider")
-			.attr("id", "nodeDegreeDistanceSliderValue")
 			.text(0);
 
 		degreeSlider.on("change", function () {
@@ -110,8 +109,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 		checkboxData.forEach(function (checkboxData) {
 			var checkbox = checkboxData.checkbox,
 				enabledByDefault = checkboxData.defaultState,
-				isChecked = checkbox.property("checked"),
-				sliderValueLabel = d3.select('#nodeDegreeDistanceSliderValue');
+				isChecked = checkbox.property("checked");
 
 			if (isChecked !== enabledByDefault) {
 				checkbox.property("checked", enabledByDefault);
@@ -122,7 +120,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 
 		degreeSlider.property("value", 0);
 		degreeSlider.on("change")();
-		sliderValueLabel.text(0);
+		degreeSlider.on("input")();
 	};
 
 
