@@ -120,6 +120,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 
 		degreeSlider.property("value", 0);
 		degreeSlider.on("change")();
+		degreeSlider.on("input")();
 	};
 
 
