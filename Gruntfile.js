@@ -95,6 +95,11 @@ module.exports = function (grunt) {
 			dev: {
 				src: "src/index.html",
 				dest: deployPath
+			},
+			release: {
+				// required for removing the benchmark ontology from the selection menu
+				src: "src/index.html",
+				dest: deployPath
 			}
 		},
 		jshint: {
@@ -172,8 +177,8 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("build-common", ["clean", "copy", "cssmin", "concat", "uglify", "replace"]);
 	grunt.registerTask("default", ["release"]);
-	grunt.registerTask("package", ["build-common", "htmlbuild"]);
-	grunt.registerTask("release", ["build-common", "htmlbuild"]);
+	grunt.registerTask("package", ["build-common", "htmlbuild:dev"]);
+	grunt.registerTask("release", ["build-common", "htmlbuild:release"]);
 	grunt.registerTask("webserver", ["package", "connect:devserver", "watch"]);
 	grunt.registerTask("test", ["karma"]);
 };
