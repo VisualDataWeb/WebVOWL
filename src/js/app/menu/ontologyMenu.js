@@ -26,7 +26,6 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 			// toggle the state
 			data.open = !data.open;
 			var descriptionVisible = data.open;
-			console.log(descriptionVisible);
 			if (descriptionVisible) {
 				errorDetailsButton.text("Hide error details");
 			} else {
