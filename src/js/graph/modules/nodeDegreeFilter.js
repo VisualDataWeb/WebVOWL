@@ -23,7 +23,11 @@ webvowl.modules.nodeDegreeFilter = function () {
 		setMaxLinkCount();
 
 		if (this.enabled()) {
-			filterByNodeDegree(degreeQueryFunction());
+			if (degreeQueryFunction instanceof Function) {
+				filterByNodeDegree(degreeQueryFunction());
+			} else {
+				console.error("No degree query function set.");
+			}
 		}
 
 		filteredNodes = nodes;
