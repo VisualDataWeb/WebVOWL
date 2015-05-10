@@ -90,11 +90,7 @@ module.exports = function (grunt) {
 		htmlbuild: {
 			options: {
 				beautify: true,
-				relative: true,
-				data: {
-					// Data to pass to templates
-					version: "<%= pkg.version %>"
-				}
+				relative: true
 			},
 			dev: {
 				src: "src/index.html",
@@ -111,6 +107,21 @@ module.exports = function (grunt) {
 		karma: {
 			unit: {
 				configFile: "test/karma.conf.js"
+			}
+		},
+		replace: {
+			options: {
+				patterns: [
+					{
+						match: "WEBVOWL_VERSION",
+						replacement: "<%= pkg.version %>"
+					}
+				]
+			},
+			dist: {
+				files: [
+					{expand: true, cwd: "deploy/js/", src: "webvowl*.js", dest: "deploy/js/"}
+				]
 			}
 		},
 		uglify: {
@@ -157,8 +168,9 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-contrib-watch");
 	grunt.loadNpmTasks("grunt-html-build");
 	grunt.loadNpmTasks("grunt-karma");
+	grunt.loadNpmTasks("grunt-replace");
 
-	grunt.registerTask("build-common", ["clean", "copy", "cssmin", "concat", "uglify"]);
+	grunt.registerTask("build-common", ["clean", "copy", "cssmin", "concat", "uglify", "replace"]);
 	grunt.registerTask("default", ["release"]);
 	grunt.registerTask("package", ["build-common", "htmlbuild"]);
 	grunt.registerTask("release", ["build-common", "htmlbuild"]);

@@ -7,3 +7,4 @@ webvowl.nodes = webvowl.nodes || {};
 webvowl.util = webvowl.util || {};
 webvowl.modules = webvowl.modules || {};
 webvowl.parsing = webvowl.parsing || {};
+webvowl.version = "@@WEBVOWL_VERSION";
