@@ -92,7 +92,7 @@ webvowlApp.sidebar = function (graph) {
 
 		var languageSelection = d3.select("#language")
 			.on("change", function () {
-				graph.setLanguage(d3.event.target.value);
+				graph.language(d3.event.target.value);
 				updateGraphInformation();
 				sidebar.updateSelectionInformation(lastSelectedElement);
 			});
@@ -119,7 +119,7 @@ webvowlApp.sidebar = function (graph) {
 		var langIndex = languages.indexOf(language);
 		if (langIndex >= 0) {
 			selection.property("selectedIndex", langIndex);
-			graph.setLanguage(language);
+			graph.language(language);
 			return true;
 		}
 
@@ -127,7 +127,7 @@ webvowlApp.sidebar = function (graph) {
 	}
 
 	function updateGraphInformation() {
-		var title = languageTools.textForCurrentLanguage(ontologyInfo.title, graph.getLanguage());
+		var title = languageTools.textForCurrentLanguage(ontologyInfo.title, graph.language());
 		d3.select("#title").text(title || "No title available");
 		d3.select("#about").attr("href", ontologyInfo.iri).attr("target", "_blank").text(ontologyInfo.iri);
 		d3.select("#version").text(ontologyInfo.version || "--");
@@ -141,7 +141,7 @@ webvowlApp.sidebar = function (graph) {
 			d3.select("#authors").text("--");
 		}
 
-		var description = languageTools.textForCurrentLanguage(ontologyInfo.description, graph.getLanguage());
+		var description = languageTools.textForCurrentLanguage(ontologyInfo.description, graph.language());
 		d3.select("#description").text(description || "No description available.");
 	}
 

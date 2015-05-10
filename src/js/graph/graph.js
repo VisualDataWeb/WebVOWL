@@ -445,16 +445,16 @@ webvowl.graph = function (graphContainerSelector) {
 		return options;
 	};
 
-	graph.setLanguage = function (l) {
-		if (language !== l) {
-			language = l || "default";
+	graph.language = function (newLanguage) {
+		if (!arguments.length) return language;
+
+		// Just update if the language changes
+		if (language !== newLanguage) {
+			language = newLanguage || "default";
 			redrawContent();
 			recalculatePositions();
 		}
-	};
-
-	graph.getLanguage = function () {
-		return language;
+		return graph;
 	};
 
 

@@ -128,11 +128,11 @@ webvowl.elements.BaseElement = (function () {
 
 
 		this.commentForCurrentLanguage = function () {
-			return languageTools.textForCurrentLanguage(this.comment(), graph.getLanguage());
+			return languageTools.textForCurrentLanguage(this.comment(), graph.language());
 		};
 
 		this.descriptionForCurrentLanguage = function() {
-			return languageTools.textForCurrentLanguage(this.description(), graph.getLanguage());
+			return languageTools.textForCurrentLanguage(this.description(), graph.language());
 		};
 
 		this.defaultLabel = function () {
@@ -144,7 +144,7 @@ webvowl.elements.BaseElement = (function () {
 		};
 
 		this.labelForCurrentLanguage = function () {
-			return languageTools.textForCurrentLanguage(this.label(), graph.getLanguage());
+			return languageTools.textForCurrentLanguage(this.label(), graph.language());
 		};
 	};
 
