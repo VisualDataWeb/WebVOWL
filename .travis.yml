@@ -1,2 +1,5 @@
 language: node_js
 before_install: npm install -g grunt-cli
+script:
+  - "npm test"
+  - "grunt jshint"
