@@ -24,8 +24,9 @@
   },
   "scripts": {
     "package": "grunt package",
-    "release": "grunt release",
     "postinstall": "bower install",
+    "release": "grunt release",
+    "test": "grunt test-ci",
     "webserver": "grunt webserver"
   },
   "dependencies": {},

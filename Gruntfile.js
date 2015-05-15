@@ -110,8 +110,14 @@ module.exports = function (grunt) {
 			tests: ["test/*/**/*.js"]
 		},
 		karma: {
-			unit: {
+			options: {
 				configFile: "test/karma.conf.js"
+			},
+			dev: {
+
+			},
+			continuous: {
+				singleRun: true
 			}
 		},
 		replace: {
@@ -180,5 +186,6 @@ module.exports = function (grunt) {
 	grunt.registerTask("package", ["build-common", "htmlbuild:dev"]);
 	grunt.registerTask("release", ["build-common", "htmlbuild:release"]);
 	grunt.registerTask("webserver", ["package", "connect:devserver", "watch"]);
-	grunt.registerTask("test", ["karma"]);
+	grunt.registerTask("test", ["karma:dev"]);
+	grunt.registerTask("test-ci", ["karma:continuous"]);
 };

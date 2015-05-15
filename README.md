@@ -1,4 +1,4 @@
-WebVOWL
+WebVOWL [![Build Status](https://travis-ci.org/VisualDataWeb/WebVOWL.svg?branch=master)](https://travis-ci.org/VisualDataWeb/WebVOWL)
 =======
 
 After the release of version 0.4.0 this repository was ported from an internal SVN repository to
