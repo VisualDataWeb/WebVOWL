@@ -1,7 +1,7 @@
 # VOWLCSSToD3RuleConverter
 
-This tool converts all rules from the `vowl.css` file into javascript code, that can be executed to
-inline the styles. This is required, because otherwise the exported SVG files won't have any styles.
+This tool converts all rules from the `vowl.css` file into javascript code that can be executed to
+inline the styles. This is required because otherwise the exported SVG files won't have any styles.
 
 This should be integrated into the build process so it won't be overlooked.
 
