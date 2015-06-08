@@ -1,14 +1,13 @@
 WebVOWL [![Build Status](https://travis-ci.org/VisualDataWeb/WebVOWL.svg?branch=master)](https://travis-ci.org/VisualDataWeb/WebVOWL)
 =======
 
-After the release of version 0.4.0 this repository was ported from an internal SVN repository to
-Github. Due to cleanups with `git filter-branch` there might be some strange commits.
+This repository was ported from an internal SVN repository to Github after the release of WebVOWL 0.4.0. Due to cleanups with `git filter-branch`, the commit history might show some strange effects.
 
 
 Requirements
 ------------
 
-Node.js for installing the development tools and the dependencies.
+Node.js for installing the development tools and dependencies.
 
 
 Development setup
@@ -34,9 +33,9 @@ Instead of the last step of the simple setup, install the npm package `grunt-cli
 Additional information
 ----------------------
 
-To export the current graph to an SVG image, we have to inline all css styles into the SVG code.
-That means, that if you change the CSS in the `vowl.css` file, you have to update the code that
-inlines the styles or otherwise the exported SVG will not look the same as the displayed graph.
+To export the VOWL visualization to an SVG image, all css styles have to be included into the SVG code.
+This means that if you change the CSS code in the `vowl.css` file, you also have to update the code that
+inlines the styles - otherwise the exported SVG will not look the same as the displayed graph.
 
 The tool which creates the code that inlines the styles can be found in the util directory. Please
 follow the instructions in its [README](util/VowlCssToD3RuleConverter/README.md) file.
