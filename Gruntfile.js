@@ -90,7 +90,11 @@ module.exports = function (grunt) {
 		htmlbuild: {
 			options: {
 				beautify: true,
-				relative: true
+				relative: true,
+				data: {
+					// Data to pass to templates
+					version: "<%= pkg.version %>"
+				}
 			},
 			dev: {
 				src: "src/index.html",
