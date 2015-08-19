@@ -62,7 +62,8 @@ webvowl.modules.statistics = function () {
 	function storeClassAndDatatypeCount(classesAndDatatypes) {
 		// Each datatype should be counted just a single time
 		var datatypeSet = d3.set(),
-			hasThing = false;
+			hasThing = false,
+			hasNothing = false;
 
 		function isDatatype(node) {
 			if (node instanceof webvowl.nodes.rdfsdatatype ||
@@ -78,6 +79,8 @@ webvowl.modules.statistics = function () {
 			} else if (!(node instanceof webvowl.nodes.SetOperatorNode)) {
 				if (node instanceof webvowl.nodes.owlthing) {
 					hasThing = true;
+				} else if (node instanceof webvowl.nodes.owlnothing) {
+					hasNothing = true;
 				} else {
 					classCount += 1;
 					classCount += countElementArray(node.equivalents());
@@ -85,8 +88,9 @@ webvowl.modules.statistics = function () {
 			}
 		});
 
-		// count things just a single time
+		// count things and nothings just a single time
 		classCount += hasThing ? 1 : 0;
+		classCount += hasNothing ? 1 : 0;
 
 		datatypeCount = datatypeSet.size();
 	}

@@ -144,6 +144,11 @@
 			"label": "OwlThing"
 		},
 		{
+			"id": "OwlNothing",
+			"type": "owl:Nothing",
+			"label": "OwlNothing"
+		},
+		{
 			"id": "RdfsResource",
 			"type": "rdfs:Resource",
 			"label": "RdfsResource"
@@ -402,6 +407,9 @@
 		},
 		{
 			"id": "testOwlThing"
+		},
+		{
+			"id": "testOwlNothing"
 		},
 		{
 			"id": "testRdfsResource"
@@ -785,6 +793,12 @@
 			"id": "testOwlThing",
 			"domain": "NodeTest",
 			"range": "OwlThing",
+			"type": "owl:ObjectProperty"
+		},
+		{
+			"id": "testOwlNothing",
+			"domain": "NodeTest",
+			"range": "OwlNothing",
 			"type": "owl:ObjectProperty"
 		},
 		{
