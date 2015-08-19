@@ -6,7 +6,7 @@ webvowl.util.languageTools = (function () {
 	var languageTools = {};
 
 
-	languageTools.textForCurrentLanguage = function (textObject, preferredLanguage) {
+	languageTools.textInLanguage = function (textObject, preferredLanguage) {
 		if (typeof textObject === "undefined") {
 			return undefined;
 		}
@@ -15,7 +15,7 @@ webvowl.util.languageTools = (function () {
 			return textObject;
 		}
 
-		if (textObject.hasOwnProperty(preferredLanguage)) {
+		if (preferredLanguage && textObject.hasOwnProperty(preferredLanguage)) {
 			return textObject[preferredLanguage];
 		}
 

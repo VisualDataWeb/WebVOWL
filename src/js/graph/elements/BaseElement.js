@@ -128,15 +128,15 @@ webvowl.elements.BaseElement = (function () {
 
 
 		this.commentForCurrentLanguage = function () {
-			return languageTools.textForCurrentLanguage(this.comment(), graph.language());
+			return languageTools.textInLanguage(this.comment(), graph.language());
 		};
 
 		this.descriptionForCurrentLanguage = function() {
-			return languageTools.textForCurrentLanguage(this.description(), graph.language());
+			return languageTools.textInLanguage(this.description(), graph.language());
 		};
 
 		this.defaultLabel = function () {
-			return languageTools.textForCurrentLanguage(this.label(), "default");
+			return languageTools.textInLanguage(this.label(), "default");
 		};
 
 		this.indicationString = function () {
@@ -144,7 +144,7 @@ webvowl.elements.BaseElement = (function () {
 		};
 
 		this.labelForCurrentLanguage = function () {
-			return languageTools.textForCurrentLanguage(this.label(), graph.language());
+			return languageTools.textInLanguage(this.label(), graph.language());
 		};
 	};
 

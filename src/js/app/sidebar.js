@@ -127,7 +127,7 @@ webvowlApp.sidebar = function (graph) {
 	}
 
 	function updateGraphInformation() {
-		var title = languageTools.textForCurrentLanguage(ontologyInfo.title, graph.language());
+		var title = languageTools.textInLanguage(ontologyInfo.title, graph.language());
 		d3.select("#title").text(title || "No title available");
 		d3.select("#about").attr("href", ontologyInfo.iri).attr("target", "_blank").text(ontologyInfo.iri);
 		d3.select("#version").text(ontologyInfo.version || "--");
@@ -141,7 +141,7 @@ webvowlApp.sidebar = function (graph) {
 			d3.select("#authors").text("--");
 		}
 
-		var description = languageTools.textForCurrentLanguage(ontologyInfo.description, graph.language());
+		var description = languageTools.textInLanguage(ontologyInfo.description, graph.language());
 		d3.select("#description").text(description || "No description available.");
 	}
 

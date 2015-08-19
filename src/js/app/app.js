@@ -73,7 +73,7 @@ webvowlApp.app = function () {
 			if (!filename) {
 				// First look if an ontology title exists, otherwise take the alternative filename
 				var ontologyNames = data.header ? data.header.title : undefined;
-				var ontologyName = languageTools.textForCurrentLanguage(ontologyNames);
+				var ontologyName = languageTools.textInLanguage(ontologyNames);
 
 				if (ontologyName) {
 					filename = ontologyName;
