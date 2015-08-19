@@ -196,9 +196,6 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 	}
 
 	function loadOntologyFromFile(filename) {
-		var input = d3.select("#file-converter-input"),
-			uploadButton = d3.select("#file-converter-button");
-
 		var cachedOntology = cachedConversions[filename];
 		if (cachedOntology) {
 			loadOntologyFromText(cachedOntology, filename);
@@ -206,7 +203,7 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 			return;
 		}
 
-		var selectedFile = input.property("files")[0];
+		var selectedFile = d3.select("#file-converter-input").property("files")[0];
 		// No selection -> this was triggered by the iri. Unequal names -> reuploading another file
 		if (!selectedFile || (filename && (filename !== selectedFile.name))) {
 			loadOntologyFromText(undefined, undefined);
@@ -215,6 +212,24 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		} else {
 			filename = selectedFile.name;
 		}
+
+		if (filename.match(/\.json$/)) {
+			loadFromJson(selectedFile, filename);
+		} else {
+			loadFromOntology(selectedFile, filename);
+		}
+	}
+
+	function loadFromJson(file, filename) {
+		var reader = new FileReader();
+		reader.readAsText(file);
+		reader.onload = function() {
+			loadOntologyFromTextAndTrimFilename(reader.result, filename);
+		}
+	}
+
+	function loadFromOntology(selectedFile, filename) {
+		var uploadButton = d3.select("#file-converter-button");
 
 		displayLoadingIndicators();
 		uploadButton.property("disabled", true);
@@ -229,8 +244,7 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 			uploadButton.property("disabled", false);
 
 			if (xhr.status === 200) {
-				var trimmedFilename = filename.split(".")[0];
-				loadOntologyFromText(xhr.responseText, trimmedFilename);
+				loadOntologyFromTextAndTrimFilename(xhr.responseText, filename);
 				cachedConversions[filename] = xhr.responseText;
 			} else {
 				loadOntologyFromText(undefined, undefined);
@@ -240,6 +254,11 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		};
 
 		xhr.send(formData);
+	}
+
+	function loadOntologyFromTextAndTrimFilename(text, filename) {
+		var trimmedFilename = filename.split(".")[0];
+		loadOntologyFromText(text, trimmedFilename);
 	}
 
 	function keepOntologySelectionOpenShortly() {
