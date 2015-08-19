@@ -161,7 +161,7 @@ webvowl.util.math = (function () {
 			innerDistance;
 
 		if (target instanceof webvowl.nodes.RoundNode) {
-			innerDistance = target.actualRadius();
+			innerDistance = target.radius();
 		} else {
 			var m_link = Math.abs(dy / dx),
 				m_rect = target.height() / target.width();
