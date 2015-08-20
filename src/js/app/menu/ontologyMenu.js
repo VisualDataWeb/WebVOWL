@@ -225,7 +225,8 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 		reader.readAsText(file);
 		reader.onload = function() {
 			loadOntologyFromTextAndTrimFilename(reader.result, filename);
-		}
+			setLoadingStatus(true);
+		};
 	}
 
 	function loadFromOntology(selectedFile, filename) {
