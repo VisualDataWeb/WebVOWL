@@ -72,7 +72,7 @@ webvowlApp.exportMenu = function (graphSelector) {
 			character = text.charAt(i);
 			charCode = character.charCodeAt(0);
 
-			if (charCode < 255) {
+			if (charCode < 128) {
 				textSnippets.push(character);
 			} else {
 				textSnippets.push("&#" + charCode + ";");
