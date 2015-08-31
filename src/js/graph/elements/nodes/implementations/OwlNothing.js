@@ -1,15 +1,15 @@
-var TopOrBottomNode = require("../TopOrBottomNode.js");
+var OwlThing = require("./OwlThing.js");
 
 module.exports = (function () {
 
 	var o = function (graph) {
-		TopOrBottomNode.apply(this, arguments);
+		OwlThing.apply(this, arguments);
 
 		this.label("Nothing")
 			.type("owl:Nothing")
 			.iri("http://www.w3.org/2002/07/owl#Nothing");
 	};
-	o.prototype = Object.create(TopOrBottomNode.prototype);
+	o.prototype = Object.create(OwlThing.prototype);
 	o.prototype.constructor = o;
 
 	return o;
