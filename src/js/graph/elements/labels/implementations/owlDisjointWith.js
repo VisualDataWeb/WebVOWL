@@ -1,7 +1,9 @@
-webvowl.labels.owldisjointwith = (function () {
+var BaseLabel = require("../BaseLabel.js");
+
+module.exports = (function () {
 
 	var o = function (graph) {
-		webvowl.labels.BaseLabel.apply(this, arguments);
+		BaseLabel.apply(this, arguments);
 
 		var label = "Disjoint With";
 		// Disallow overwriting the label
@@ -15,7 +17,7 @@ webvowl.labels.owldisjointwith = (function () {
 			.styleClass("disjointwith")
 			.type("owl:disjointWith");
 	};
-	o.prototype = Object.create(webvowl.labels.BaseLabel.prototype);
+	o.prototype = Object.create(BaseLabel.prototype);
 	o.prototype.constructor = o;
 
 	return o;

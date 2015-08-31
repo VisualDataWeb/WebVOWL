@@ -1,4 +1,6 @@
-webvowl.modules.disjointFilter = function () {
+var OwlDisjointWith = require("../elements/labels/implementations/owlDisjointWith.js");
+
+module.exports = function () {
 
 	var filter = {},
 		nodes,
@@ -33,7 +35,7 @@ webvowl.modules.disjointFilter = function () {
 		for (i = 0, l = properties.length; i < l; i++) {
 			property = properties[i];
 
-			if (!(property instanceof webvowl.labels.owldisjointwith)) {
+			if (!(property instanceof OwlDisjointWith)) {
 				cleanedProperties.push(property);
 			}
 		}

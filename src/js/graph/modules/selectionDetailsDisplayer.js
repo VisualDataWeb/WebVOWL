@@ -1,4 +1,4 @@
-webvowl.modules.selectionDetailsDisplayer = function (handlerFunction) {
+module.exports = function (handlerFunction) {
 	var viewer = {},
 		lastSelectedElement;
 

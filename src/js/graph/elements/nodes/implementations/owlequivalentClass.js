@@ -1,7 +1,10 @@
-webvowl.nodes.owlequivalentclass = (function () {
+var RoundNode = require("../RoundNode.js");
+var drawTools = require("../drawTools.js")();
+
+module.exports = (function () {
 
 	var o = function (graph) {
-		webvowl.nodes.RoundNode.apply(this, arguments);
+		RoundNode.apply(this, arguments);
 
 		var CIRCLE_SIZE_DIFFERENCE = 4;
 
@@ -17,8 +20,7 @@ webvowl.nodes.owlequivalentclass = (function () {
 
 
 		this.drawNode = function (parentElement) {
-			var drawTools = webvowl.nodes.drawTools(),
-				cssClasses = that.collectCssClasses();
+			var cssClasses = that.collectCssClasses();
 
 			that.nodeElement(parentElement);
 
@@ -53,7 +55,7 @@ webvowl.nodes.owlequivalentclass = (function () {
 			that.nodeElement().selectAll("circle:last-of-type").classed("hovered", enable);
 		};
 	};
-	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);
+	o.prototype = Object.create(RoundNode.prototype);
 	o.prototype.constructor = o;
 
 	return o;

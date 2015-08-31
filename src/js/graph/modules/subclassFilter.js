@@ -1,4 +1,6 @@
-webvowl.modules.subclassFilter = function () {
+var elementTools = require("../util/elementTools.js")();
+
+module.exports = function () {
 
 	var filter = {},
 		nodes,
@@ -38,7 +40,7 @@ webvowl.modules.subclassFilter = function () {
 
 		for (i = 0, l = properties.length; i < l; i++) {
 			property = properties[i];
-			if (property instanceof webvowl.labels.rdfssubclassof) {
+			if (elementTools.isRdfsSubClassOf(property)) {
 				subclasses.push(property.domain());
 			}
 		}
@@ -89,9 +91,9 @@ webvowl.modules.subclassFilter = function () {
 				 */
 
 				// Look only for subclass properties, because these are the relevant properties
-				if (property instanceof webvowl.labels.rdfssubclassof) {
+				if (elementTools.isRdfsSubClassOf(property)) {
 					var domain = property.domain();
-					visitedNodes = visitedNodes || webvowl.util.set();
+					visitedNodes = visitedNodes || require("../util/set.js")();
 
 					// If we have the range, there might be a nested property on the domain
 					if (node === property.range() && !visitedNodes.has(domain)) {
@@ -115,7 +117,7 @@ webvowl.modules.subclassFilter = function () {
 		for (i = 0, l = connectedProperties.length; i < l; i++) {
 			property = connectedProperties[i];
 
-			if (!(property instanceof webvowl.labels.rdfssubclassof)) {
+			if (!elementTools.isRdfsSubClassOf(property)) {
 				onlySubclassProperties = false;
 				break;
 			}

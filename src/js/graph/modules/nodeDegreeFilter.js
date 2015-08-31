@@ -1,4 +1,7 @@
-webvowl.modules.nodeDegreeFilter = function () {
+var elementTools = require("../util/elementTools.js")();
+var filterTools = require("../util/filterTools.js")();
+
+module.exports = function () {
 
 	var filter = {},
 		nodes,
@@ -7,8 +10,7 @@ webvowl.modules.nodeDegreeFilter = function () {
 		filteredNodes,
 		filteredProperties,
 		maxDegreeSetter,
-		degreeQueryFunction,
-		filterTools = webvowl.util.filterTools();
+		degreeQueryFunction;
 
 
 	/**
@@ -48,8 +50,8 @@ webvowl.modules.nodeDegreeFilter = function () {
 	}
 
 	function filterOutDatatypes(links) {
-		return links.filter(function(link) {
-			return !(link.property() instanceof webvowl.labels.owldatatypeproperty);
+		return links.filter(function (link) {
+			return !elementTools.isDatatypeProperty(link.property());
 		});
 	}
 
@@ -66,11 +68,11 @@ webvowl.modules.nodeDegreeFilter = function () {
 		};
 	}
 
-	filter.setMaxDegreeSetter = function(maxNodeDegreeSetter) {
+	filter.setMaxDegreeSetter = function (maxNodeDegreeSetter) {
 		maxDegreeSetter = maxNodeDegreeSetter;
 	};
 
-	filter.setDegreeQueryFunction = function(nodeDegreeQueryFunction) {
+	filter.setDegreeQueryFunction = function (nodeDegreeQueryFunction) {
 		degreeQueryFunction = nodeDegreeQueryFunction;
 	};
 

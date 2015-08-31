@@ -1,8 +1,10 @@
+var RoundNode = require("../elements/nodes/RoundNode.js");
+
 /**
  * Contains a collection of mathematical functions with some additional data
  * used for WebVOWL.
  */
-webvowl.util.math = (function () {
+module.exports = (function () {
 
 	var math = {},
 		loopFunction = d3.svg.line()
@@ -160,7 +162,7 @@ webvowl.util.math = (function () {
 			dy = target.y - source.y,
 			innerDistance;
 
-		if (target instanceof webvowl.nodes.RoundNode) {
+		if (target instanceof RoundNode) {
 			innerDistance = target.radius();
 		} else {
 			var m_link = Math.abs(dy / dx),

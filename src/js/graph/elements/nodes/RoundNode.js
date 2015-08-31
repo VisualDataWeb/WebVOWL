@@ -1,7 +1,10 @@
-webvowl.nodes.RoundNode = (function () {
+var BaseNode = require("./BaseNode.js");
+var drawTools = require("./drawTools.js")();
+
+module.exports = (function () {
 
 	var o = function (graph) {
-		webvowl.nodes.BaseNode.apply(this, arguments);
+		BaseNode.apply(this, arguments);
 
 		var that = this,
 			collapsible = false,
@@ -140,8 +143,7 @@ webvowl.nodes.RoundNode = (function () {
 		 * @param [additionalCssClasses] additional css classes
 		 */
 		this.drawNode = function (parentElement, additionalCssClasses) {
-			var drawTools = webvowl.nodes.drawTools(),
-				cssClasses = that.collectCssClasses();
+			var cssClasses = that.collectCssClasses();
 
 			that.nodeElement(parentElement);
 
@@ -157,7 +159,7 @@ webvowl.nodes.RoundNode = (function () {
 		 * Common actions that should be invoked after drawing a node.
 		 */
 		this.postDrawActions = function () {
-			var textBlock = webvowl.util.textElement(that.nodeElement());
+			var textBlock = require("../../util/textElement.js")(that.nodeElement());
 			textBlock.addText(that.labelForCurrentLanguage());
 			if (!graph.options().compactNotation()) {
 				textBlock.addSubText(that.indicationString());
@@ -174,7 +176,7 @@ webvowl.nodes.RoundNode = (function () {
 			}
 		};
 	};
-	o.prototype = Object.create(webvowl.nodes.BaseNode.prototype);
+	o.prototype = Object.create(BaseNode.prototype);
 	o.prototype.constructor = o;
 
 	return o;

@@ -1,4 +1,4 @@
-webvowl.modules.focuser = function () {
+module.exports = function () {
 	var focuser = {},
 		focusedElement;
 

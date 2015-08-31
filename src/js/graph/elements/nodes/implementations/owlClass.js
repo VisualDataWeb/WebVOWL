@@ -1,17 +1,11 @@
-var RoundNode = require("./RoundNode.js");
+var RoundNode = require("../RoundNode.js");
 
 module.exports = (function () {
 
 	var o = function (graph) {
 		RoundNode.apply(this, arguments);
 
-		var superDrawFunction = this.drawNode;
-
-		this.radius(30);
-
-		this.drawNode = function (element) {
-			superDrawFunction(element, ["white", "special"]);
-		};
+		this.type("owl:Class");
 	};
 	o.prototype = Object.create(RoundNode.prototype);
 	o.prototype.constructor = o;

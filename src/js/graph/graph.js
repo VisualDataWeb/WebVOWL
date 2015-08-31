@@ -1,6 +1,9 @@
-"use strict";
+var math = require("./util/math.js")();
+var linkCreator = require("./parsing/linkCreator.js")();
+var elementTools = require("./util/elementTools.js")();
 
-webvowl.graph = function (graphContainerSelector) {
+
+module.exports = function (graphContainerSelector) {
 	var graph = {},
 		CARDINALITY_HDISTANCE = 20,
 		CARDINALITY_VDISTANCE = 10,
@@ -12,9 +15,8 @@ webvowl.graph = function (graphContainerSelector) {
 				return d.y;
 			})
 			.interpolate("cardinal"),
-		options = webvowl.options(),
-		parser = webvowl.parser(graph),
-		linkCreator = webvowl.parsing.linkCreator(),
+		options = require("./options.js")(),
+		parser = require("./parser.js")(graph),
 		language = "default",
 	// Container for visual elements
 		graphContainer,
@@ -51,20 +53,20 @@ webvowl.graph = function (graphContainerSelector) {
 		// Set link paths and calculate additional informations
 		linkPathElements.attr("d", function (l) {
 			if (l.domain() === l.range()) {
-				return webvowl.util.math().calculateLoopPath(l);
+				return math.calculateLoopPath(l);
 			}
 
 			// Calculate these every time to get nicer curved paths
-			var pathStart = webvowl.util.math().calculateIntersection(l.range(), l.domain(), 1),
-				pathEnd = webvowl.util.math().calculateIntersection(l.domain(), l.range(), 1),
+			var pathStart = math.calculateIntersection(l.range(), l.domain(), 1),
+				pathEnd = math.calculateIntersection(l.domain(), l.range(), 1),
 				linkDistance = getVisibleLinkDistance(l),
-				curvePoint = webvowl.util.math().calculateCurvePoint(pathStart, pathEnd, l,
+				curvePoint = math.calculateCurvePoint(pathStart, pathEnd, l,
 					linkDistance / options.defaultLinkDistance());
 
 			l.curvePoint(curvePoint);
 
-			return curveFunction([webvowl.util.math().calculateIntersection(l.curvePoint(), l.domain(), 1),
-				curvePoint, webvowl.util.math().calculateIntersection(l.curvePoint(), l.range(), 1)]);
+			return curveFunction([math.calculateIntersection(l.curvePoint(), l.domain(), 1),
+				curvePoint, math.calculateIntersection(l.curvePoint(), l.range(), 1)]);
 		});
 
 		// Set label group positions
@@ -79,8 +81,8 @@ webvowl.graph = function (graphContainerSelector) {
 		// Set cardinality positions
 		cardinalityElements.attr("transform", function (p) {
 			var curve = p.link().curvePoint(),
-				pos = webvowl.util.math().calculateIntersection(curve, p.range(), CARDINALITY_HDISTANCE),
-				normalV = webvowl.util.math().calculateNormalVector(curve, p.domain(), CARDINALITY_VDISTANCE);
+				pos = math.calculateIntersection(curve, p.range(), CARDINALITY_HDISTANCE),
+				normalV = math.calculateNormalVector(curve, p.domain(), CARDINALITY_VDISTANCE);
 
 			return "translate(" + (pos.x + normalV.x) + "," + (pos.y + normalV.y) + ")";
 		});
@@ -215,15 +217,7 @@ webvowl.graph = function (graphContainerSelector) {
 	}
 
 	function getVisibleLinkDistance(link) {
-		function isDatatype(node) {
-			if (node instanceof webvowl.nodes.rdfsdatatype ||
-				node instanceof webvowl.nodes.rdfsliteral) {
-				return true;
-			}
-			return false;
-		}
-
-		if (isDatatype(link.domain()) || isDatatype(link.range())) {
+		if (elementTools.isDatatype(link.domain()) || elementTools.isDatatype(link.range())) {
 			return options.datatypeDistance();
 		} else {
 			return options.classDistance();
@@ -304,9 +298,7 @@ webvowl.graph = function (graphContainerSelector) {
 				return;
 			}
 
-			if (link.property() instanceof webvowl.labels.rdfssubclassof ||
-				link.inverse() instanceof webvowl.labels.rdfssubclassof) {
-
+			if (elementTools.isRdfsSubClassOf(link.property())) {
 				var parentNode = this.parentNode;
 				parentNode.insertBefore(this, parentNode.firstChild);
 			}

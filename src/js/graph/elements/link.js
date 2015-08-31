@@ -1,4 +1,4 @@
-webvowl.elements.link = function () {
+module.exports = function () {
 	var l = {},
 		curvePoint,
 		domain,

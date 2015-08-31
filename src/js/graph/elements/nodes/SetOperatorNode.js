@@ -1,9 +1,11 @@
-webvowl.nodes.SetOperatorNode = (function () {
+var RoundNode = require("./RoundNode.js");
+
+module.exports = (function () {
 
 	var radius = 40;
 
 	var o = function (graph) {
-		webvowl.nodes.RoundNode.apply(this, arguments);
+		RoundNode.apply(this, arguments);
 
 		var that = this,
 			superHoverHighlightingFunction = this.setHoverHighlighting,
@@ -25,7 +27,7 @@ webvowl.nodes.SetOperatorNode = (function () {
 			that.textBlock().setTranslation(0, that.radius() - 15);
 		};
 	};
-	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);
+	o.prototype = Object.create(RoundNode.prototype);
 	o.prototype.constructor = o;
 
 	return o;

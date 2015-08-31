@@ -1,7 +1,9 @@
-webvowl.nodes.rdfsresource = (function () {
+var RoundNode = require("../RoundNode.js");
+
+module.exports = (function () {
 
 	var o = function (graph) {
-		webvowl.nodes.RoundNode.apply(this, arguments);
+		RoundNode.apply(this, arguments);
 
 		var superDrawFunction = this.drawNode;
 
@@ -15,7 +17,7 @@ webvowl.nodes.rdfsresource = (function () {
 			superDrawFunction(element, ["rdf", "special"]);
 		};
 	};
-	o.prototype = Object.create(webvowl.nodes.RoundNode.prototype);
+	o.prototype = Object.create(RoundNode.prototype);
 	o.prototype.constructor = o;
 
 	return o;

@@ -1,12 +1,14 @@
-webvowl.modules.datatypeFilter = function () {
+var elementTools = require("../util/elementTools.js")();
+var filterTools = require("../util/filterTools.js")();
+
+module.exports = function () {
 
 	var filter = {},
 		nodes,
 		properties,
 		enabled = false,
 		filteredNodes,
-		filteredProperties,
-		filterTools = webvowl.util.filterTools();
+		filteredProperties;
 
 
 	/**
@@ -34,11 +36,7 @@ webvowl.modules.datatypeFilter = function () {
 	}
 
 	function isNoDatatypeOrLiteral(node) {
-		if (node instanceof webvowl.nodes.rdfsdatatype ||
-			node instanceof webvowl.nodes.rdfsliteral) {
-			return false;
-		}
-		return true;
+		return !elementTools.isDatatype(node);
 	}
 
 	filter.enabled = function (p) {

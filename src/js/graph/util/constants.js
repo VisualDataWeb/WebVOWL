@@ -1,4 +1,4 @@
-webvowl.util.constants = (function () {
+module.exports = (function () {
 
 	var constants = {};
 

@@ -1,4 +1,4 @@
-webvowl.options = function () {
+module.exports = function () {
 	/**
 	 * @constructor
 	 */

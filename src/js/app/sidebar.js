@@ -7,6 +7,7 @@ webvowlApp.sidebar = function (graph) {
 
 	var sidebar = {},
 		languageTools = webvowl.util.languageTools(),
+		elementTools = webvowl.util.elementTools(),
 	// Required for reloading when the language changes
 		ontologyInfo,
 		lastSelectedElement;
@@ -219,9 +220,9 @@ webvowlApp.sidebar = function (graph) {
 			return;
 		}
 
-		if (selectedElement instanceof webvowl.labels.BaseLabel) {
+		if (elementTools.isLabel(selectedElement)) {
 			displayLabelInformation(selectedElement);
-		} else if (selectedElement instanceof webvowl.nodes.BaseNode) {
+		} else if (elementTools.isNode(selectedElement)) {
 			displayNodeInformation(selectedElement);
 		}
 	};

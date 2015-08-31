@@ -3,7 +3,7 @@
  *
  * @returns {{}}
  */
-webvowl.modules.nodeScalingSwitch = function (graph) {
+module.exports = function (graph) {
 
 	var DEFAULT_STATE = true;
 

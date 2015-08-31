@@ -1,7 +1,9 @@
-webvowl.nodes.owlcomplementof = (function () {
+var SetOperatorNode = require("../SetOperatorNode.js");
+
+module.exports = (function () {
 
 	var o = function (graph) {
-		webvowl.nodes.SetOperatorNode.apply(this, arguments);
+		SetOperatorNode.apply(this, arguments);
 
 		var that = this;
 
@@ -32,7 +34,7 @@ webvowl.nodes.owlcomplementof = (function () {
 			that.postDrawActions();
 		};
 	};
-	o.prototype = Object.create(webvowl.nodes.SetOperatorNode.prototype);
+	o.prototype = Object.create(SetOperatorNode.prototype);
 	o.prototype.constructor = o;
 
 	return o;

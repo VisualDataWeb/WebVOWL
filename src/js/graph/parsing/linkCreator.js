@@ -2,7 +2,7 @@
  * Stores the passed properties in links.
  * @returns {Function}
  */
-webvowl.parsing.linkCreator = (function () {
+module.exports = (function () {
 	var linkCreator = {};
 
 	/**
@@ -30,13 +30,13 @@ webvowl.parsing.linkCreator = (function () {
 	function groupPropertiesToLinks(properties) {
 		var links = [],
 			property,
-			addedProperties = webvowl.util.set();
+			addedProperties = require("../util/set.js")();
 
 		for (var i = 0, l = properties.length; i < l; i++) {
 			property = properties[i];
 
 			if (!addedProperties.has(property)) {
-				var link = webvowl.elements.link();
+				var link = require("../elements/link.js")();
 				link.property(property);
 				link.domain(property.domain());
 				link.range(property.range());

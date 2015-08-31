@@ -1,4 +1,7 @@
-webvowl.labels.BaseLabel = (function () {
+var BaseElement = require("../BaseElement.js");
+var OwlDisjointWith = require("./implementations/owlDisjointWith.js");
+
+module.exports = (function () {
 
 	// Static variables
 	var labelHeight = 28,
@@ -7,7 +10,7 @@ webvowl.labels.BaseLabel = (function () {
 
 	// Constructor, private variables and privileged methods
 	var base = function (graph) {
-		webvowl.elements.BaseElement.apply(this, arguments);
+		BaseElement.apply(this, arguments);
 
 		var that = this,
 		// Basic attributes
@@ -163,8 +166,8 @@ webvowl.labels.BaseLabel = (function () {
 				property.addRect(label);
 
 				// Attach the text and perhaps special elements
-				var textBox = webvowl.util.textElement(label);
-				if (property instanceof webvowl.labels.owldisjointwith) {
+				var textBox = require("../../util/textElement.js")(label);
+				if (property instanceof OwlDisjointWith) {
 					property.addDisjointLabel(labelGroup, textBox);
 					return label;
 				} else {
@@ -360,7 +363,7 @@ webvowl.labels.BaseLabel = (function () {
 
 	};
 
-	base.prototype = Object.create(webvowl.elements.BaseElement.prototype);
+	base.prototype = Object.create(BaseElement.prototype);
 	base.prototype.constructor = base;
 
 	base.prototype.labelHeight = function () {

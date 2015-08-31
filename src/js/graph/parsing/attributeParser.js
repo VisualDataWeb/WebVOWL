@@ -2,7 +2,7 @@
  * Parses the attributes an element has and sets the corresponding attributes.
  * @returns {Function}
  */
-webvowl.parsing.attributeParser = (function () {
+module.exports = (function () {
 	var attributeParser = {},
 	// Style
 		DEPRECATED = "deprecated",
@@ -35,7 +35,7 @@ webvowl.parsing.attributeParser = (function () {
 
 		for (i = 0, l = orderedAttributes.length; i < l; i++) {
 			attribute = orderedAttributes[i];
-			if (element.attributes().contains(attribute)) {
+			if (element.attributes().indexOf(attribute) >= 0) {
 				element.visualAttribute(attribute);
 
 				// Just a single attribute is possible
@@ -51,7 +51,7 @@ webvowl.parsing.attributeParser = (function () {
 		for (i = 0, l = indications.length; i < l; i++) {
 			indication = indications[i];
 
-			if (clazz.attributes().contains(indication)) {
+			if (clazz.attributes().indexOf(indication) >= 0) {
 				clazz.indications().push(indication);
 			}
 		}
@@ -77,7 +77,7 @@ webvowl.parsing.attributeParser = (function () {
 		for (i = 0, l = indications.length; i < l; i++) {
 			indication = indications[i];
 
-			if (property.attributes().contains(indication)) {
+			if (property.attributes().indexOf(indication) >= 0) {
 				property.indications().push(indication);
 			}
 		}

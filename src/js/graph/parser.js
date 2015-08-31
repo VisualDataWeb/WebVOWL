@@ -1,16 +1,22 @@
+var OwlThing = require("./elements/nodes/implementations/owlThing.js");
+var RdfsLiteral = require("./elements/nodes/implementations/rdfsLiteral.js");
+var OwlDisjointWith = require("./elements/labels/implementations/owlDisjointWith.js");
+var attributeParser = require("./parsing/attributeParser.js")();
+var elementTools = require("./util/elementTools.js")();
+var nodeMap = require("./elements/nodes/nodeMap.js")();
+var labelMap = require("./elements/labels/labelMap.js")();
+
 /**
  * Encapsulates the parsing and preparation logic of the input data.
  * @param graph the graph object that will be passed to the elements
  * @returns {{}}
  */
-webvowl.parser = function (graph) {
+module.exports = function (graph) {
 	var parser = {},
 		nodes,
 		properties,
 		classMap,
-		propertyMap,
-	// Modules
-		attributeParser = webvowl.parsing.attributeParser();
+		propertyMap;
 
 	/**
 	 * Parses the ontology data and preprocesses it (e.g. connecting inverse properties and so on).
@@ -23,15 +29,15 @@ webvowl.parser = function (graph) {
 			return;
 		}
 
-		var classes = combineClasses(ontologyData.class, ontologyData.classAttribute, webvowl.nodes),
-			datatypes = combineClasses(ontologyData.datatype, ontologyData.datatypeAttribute, webvowl.nodes),
+		var classes = combineClasses(ontologyData.class, ontologyData.classAttribute),
+			datatypes = combineClasses(ontologyData.datatype, ontologyData.datatypeAttribute),
 			combinedClassesAndDatatypes = classes.concat(datatypes),
 			combinedProperties;
 
 		// Inject properties for unions, intersections, ...
 		addSetOperatorProperties(combinedClassesAndDatatypes, ontologyData.property);
 
-		combinedProperties = combineProperties(ontologyData.property, ontologyData.propertyAttribute, webvowl.labels);
+		combinedProperties = combineProperties(ontologyData.property, ontologyData.propertyAttribute);
 
 		classMap = mapElements(combinedClassesAndDatatypes);
 		propertyMap = mapElements(combinedProperties);
@@ -64,13 +70,12 @@ webvowl.parser = function (graph) {
 	 * Combines the passed objects with its attributes and prototypes. This also applies
 	 * attributes defined in the base of the prototype.
 	 */
-	function combineClasses(baseObjects, attributes, prototypes) {
+	function combineClasses(baseObjects, attributes) {
 		var combinations = [];
 
 		if (baseObjects) {
 			baseObjects.forEach(function (element) {
-				var matchingAttribute,
-					elementType;
+				var matchingAttribute;
 
 				if (attributes) {
 					// Look for an attribute with the same id and merge them
@@ -85,12 +90,12 @@ webvowl.parser = function (graph) {
 				}
 
 				// Then look for a prototype to add its properties
-				elementType = element.type.replace(":", "").toLowerCase();
+				var Prototype = nodeMap.get(element.type);
 
-				if (elementType in prototypes) {
-					addAdditionalAttributes(element, prototypes[elementType]);
+				if (Prototype) {
+					addAdditionalAttributes(element, Prototype); // TODO might be unnecessary
 
-					var node = new prototypes[elementType](graph);
+					var node = new Prototype(graph);
 					node.annotations(element.annotations)
 						.comment(element.comment)
 						.complement(element.complement)
@@ -106,7 +111,7 @@ webvowl.parser = function (graph) {
 					// Create node objects for all individuals
 					if (element.individuals) {
 						element.individuals.forEach(function (individual) {
-							var individualNode = new prototypes[elementType](graph);
+							var individualNode = new Prototype(graph);
 							individualNode.label(individual.labels)
 								.iri(individual.iri);
 
@@ -121,7 +126,7 @@ webvowl.parser = function (graph) {
 
 					combinations.push(node);
 				} else {
-					console.error("Unknown element type: " + elementType);
+					console.error("Unknown element type: " + element.type);
 				}
 			});
 		}
@@ -129,13 +134,12 @@ webvowl.parser = function (graph) {
 		return combinations;
 	}
 
-	function combineProperties(baseObjects, attributes, prototypes) {
+	function combineProperties(baseObjects, attributes) {
 		var combinations = [];
 
 		if (baseObjects) {
 			baseObjects.forEach(function (element) {
-				var matchingAttribute,
-					elementType;
+				var matchingAttribute;
 
 				if (attributes) {
 					// Look for an attribute with the same id and merge them
@@ -150,11 +154,11 @@ webvowl.parser = function (graph) {
 				}
 
 				// Then look for a prototype to add its properties
-				elementType = element.type.replace(":", "").toLowerCase();
+				var Prototype = labelMap.get(element.type);
 
-				if (elementType in prototypes) {
+				if (Prototype) {
 					// Create the matching object and set the properties
-					var property = new prototypes[elementType](graph);
+					var property = new Prototype(graph);
 					property.annotations(element.annotations)
 						.cardinality(element.cardinality)
 						.comment(element.comment)
@@ -179,7 +183,7 @@ webvowl.parser = function (graph) {
 
 					combinations.push(property);
 				} else {
-					console.error("Unknown element type: " + elementType);
+					console.error("Unknown element type: " + element.type);
 				}
 
 			});
@@ -217,10 +221,10 @@ webvowl.parser = function (graph) {
 			}
 
 			var mergedRange;
-			if (property instanceof webvowl.labels.owldatatypeproperty) {
-				mergedRange = new webvowl.nodes.rdfsliteral(graph);
+			if (elementTools.isDatatypeProperty(property)) {
+				mergedRange = new RdfsLiteral(graph);
 			} else {
-				mergedRange = new webvowl.nodes.owlthing(graph);
+				mergedRange = new OwlThing(graph);
 			}
 			mergedRange.id(prefix + property.id());
 			nodes.push(mergedRange);
@@ -311,7 +315,7 @@ webvowl.parser = function (graph) {
 	 * @param property
 	 */
 	function processDisjoints(property) {
-		if (property instanceof webvowl.labels.owldisjointwith === false) {
+		if (property instanceof OwlDisjointWith === false) {
 			return;
 		}
 

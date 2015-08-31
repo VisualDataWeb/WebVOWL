@@ -1,4 +1,9 @@
-webvowl.modules.statistics = function () {
+var SetOperatorNode = require("../elements/nodes/SetOperatorNode.js");
+var OwlThing = require("../elements/nodes/implementations/owlThing.js");
+var OwlNothing = require("../elements/nodes/implementations/owlNothing.js");
+var elementTools = require("../util/elementTools")();
+
+module.exports = function () {
 
 	var statistics = {},
 		nodeCount,
@@ -45,7 +50,7 @@ webvowl.modules.statistics = function () {
 	function storeTotalCounts(classesAndDatatypes, properties) {
 		nodeCount = classesAndDatatypes.length;
 
-		var seenProperties = webvowl.util.set(), i, l, property;
+		var seenProperties = require("../util/set.js")(), i, l, property;
 		for (i = 0, l = properties.length; i < l; i++) {
 			property = properties[i];
 			if (!seenProperties.has(property)) {
@@ -65,21 +70,13 @@ webvowl.modules.statistics = function () {
 			hasThing = false,
 			hasNothing = false;
 
-		function isDatatype(node) {
-			if (node instanceof webvowl.nodes.rdfsdatatype ||
-				node instanceof webvowl.nodes.rdfsliteral) {
-				return true;
-			}
-			return false;
-		}
-
 		classesAndDatatypes.forEach(function (node) {
-			if (isDatatype(node)) {
+			if (elementTools.isDatatype(node)) {
 				datatypeSet.add(node.defaultLabel());
-			} else if (!(node instanceof webvowl.nodes.SetOperatorNode)) {
-				if (node instanceof webvowl.nodes.owlthing) {
+			} else if (!(node instanceof SetOperatorNode)) {
+				if (node instanceof OwlThing) {
 					hasThing = true;
-				} else if (node instanceof webvowl.nodes.owlnothing) {
+				} else if (node instanceof OwlNothing) {
 					hasNothing = true;
 				} else {
 					classCount += 1;
@@ -99,9 +96,9 @@ webvowl.modules.statistics = function () {
 		for (var i = 0, l = properties.length; i < l; i++) {
 			var property = properties[i];
 
-			if (property instanceof webvowl.labels.owlobjectproperty) {
+			if (elementTools.isObjectProperty(property)) {
 				objectPropertyCount += getExtendedPropertyCount(property);
-			} else if (property instanceof webvowl.labels.owldatatypeproperty) {
+			} else if (elementTools.isDatatypeProperty(properties)) {
 				datatypePropertyCount += getExtendedPropertyCount(property);
 			}
 		}

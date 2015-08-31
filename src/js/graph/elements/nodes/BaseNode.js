@@ -1,7 +1,9 @@
-webvowl.nodes.BaseNode = (function () {
+var BaseElement = require("../BaseElement.js");
+
+module.exports = (function () {
 
 	var base = function (graph) {
-		webvowl.elements.BaseElement.apply(this, arguments);
+		BaseElement.apply(this, arguments);
 
 		var that = this,
 		// Basic attributes
@@ -165,7 +167,7 @@ webvowl.nodes.BaseNode = (function () {
 
 	};
 
-	base.prototype = Object.create(webvowl.elements.BaseElement.prototype);
+	base.prototype = Object.create(BaseElement.prototype);
 	base.prototype.constructor = base;
 
 	// Define d3 properties

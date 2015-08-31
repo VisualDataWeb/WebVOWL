@@ -1,9 +1,11 @@
+var textTools = require("./textTools");
+
 /**
  * Creates a new textblock in the specified element.
  * @param element The element/group where the text block should be appended.
  * @constructor New text block where additional <tspan>'s can be applied to.
  */
-webvowl.util.textElement = function (element) {
+module.exports = function (element) {
 
 	var textElement = {},
 		LINE_DISTANCE = 1,
@@ -73,7 +75,7 @@ webvowl.util.textElement = function (element) {
 		var truncatedText, tspan;
 
 		subtextCssClass = subtextCssClass || "text";
-		truncatedText = text.truncate(element.datum().textWidth(), subtextCssClass);
+		truncatedText = textTools.truncate(text, element.datum().textWidth(), subtextCssClass);
 
 		tspan = textBlock.append("tspan")
 			.classed("text", true)
@@ -132,7 +134,7 @@ webvowl.util.textElement = function (element) {
 		textBlock.attr("transform", "translate(" + x + ", " + y + ")");
 	};
 
-	textElement.clear = function() {
+	textElement.clear = function () {
 		textBlock.selectAll("*").remove();
 	};
 

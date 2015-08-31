@@ -1,7 +1,9 @@
-webvowl.nodes.rdfsliteral = (function () {
+var DatatypeNode = require("../DatatypeNode.js");
+
+module.exports = (function () {
 
 	var o = function (graph) {
-		webvowl.nodes.RectangularNode.apply(this, arguments);
+		DatatypeNode.apply(this, arguments);
 
 		var superDrawFunction = this.drawNode,
 			superLabelFunction = this.label;
@@ -21,7 +23,7 @@ webvowl.nodes.rdfsliteral = (function () {
 			return this;
 		};
 	};
-	o.prototype = Object.create(webvowl.nodes.RectangularNode.prototype);
+	o.prototype = Object.create(DatatypeNode.prototype);
 	o.prototype.constructor = o;
 
 	return o;

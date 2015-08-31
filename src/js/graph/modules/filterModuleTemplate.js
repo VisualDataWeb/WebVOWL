@@ -1,4 +1,4 @@
-webvowl.modules.filterModuleTemplate = function () {
+module.exports = function () {
 
 	var filter = {},
 		filteredNodes,

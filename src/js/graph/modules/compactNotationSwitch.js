@@ -3,7 +3,7 @@
  *
  * @returns {{}}
  */
-webvowl.modules.compactNotationSwitch = function (graph) {
+module.exports = function (graph) {
 
 	var DEFAULT_STATE = false;
 

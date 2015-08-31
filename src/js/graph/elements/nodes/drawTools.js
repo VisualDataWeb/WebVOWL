@@ -1,7 +1,7 @@
 /**
  * Contains reusable function for drawing nodes.
  */
-webvowl.nodes.drawTools = (function () {
+module.exports = (function () {
 
 	var tools = {};
 

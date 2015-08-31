@@ -1,4 +1,6 @@
-webvowl.modules.collapsing = function () {
+var elementTools = require("../util/elementTools.js");
+
+module.exports = function () {
 	var collapsing = {},
 		enabled = false,
 		filteredNodes, filteredProperties;
@@ -13,7 +15,7 @@ webvowl.modules.collapsing = function () {
 
 		for (i = 0, l = nodes.length; i < l; i++) {
 			node = nodes[i];
-			if (node instanceof webvowl.nodes.RoundNode) {
+			if (!elementTools.isDatatype(node)) {
 				node.collapsible(enabled);
 			}
 		}

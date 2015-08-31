@@ -1,7 +1,10 @@
-webvowl.nodes.RectangularNode = (function () {
+var BaseNode = require("./BaseNode.js");
+var drawTools = require("./drawTools.js")();
+
+module.exports = (function () {
 
 	var o = function (graph) {
-		webvowl.nodes.BaseNode.apply(this, arguments);
+		BaseNode.apply(this, arguments);
 
 		var that = this,
 			height = 20,
@@ -47,8 +50,7 @@ webvowl.nodes.RectangularNode = (function () {
 		 * @param [additionalCssClasses] additional css classes
 		 */
 		this.drawNode = function (parentElement, additionalCssClasses) {
-			var drawTools = webvowl.nodes.drawTools(),
-				textBlock,
+			var textBlock,
 				cssClasses = that.collectCssClasses();
 
 			that.nodeElement(parentElement);
@@ -58,13 +60,13 @@ webvowl.nodes.RectangularNode = (function () {
 			}
 			drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses, that.labelForCurrentLanguage());
 
-			textBlock = webvowl.util.textElement(parentElement);
+			textBlock = require("../../util/textElement.js")(parentElement);
 			textBlock.addText(that.labelForCurrentLanguage());
 
 			that.addMouseListeners();
 		};
 	};
-	o.prototype = Object.create(webvowl.nodes.BaseNode.prototype);
+	o.prototype = Object.create(BaseNode.prototype);
 	o.prototype.constructor = o;
 
 	return o;

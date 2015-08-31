@@ -1,10 +1,45 @@
-"use strict";
+var nodeMap = require("./graph/elements/nodes/nodeMap.js")();
+var labelMap = require("./graph/elements/labels/labelMap.js")();
 
-var webvowl = webvowl || {};
-webvowl.elements = webvowl.elements || {};
-webvowl.labels = webvowl.labels || {};
-webvowl.nodes = webvowl.nodes || {};
-webvowl.util = webvowl.util || {};
-webvowl.modules = webvowl.modules || {};
-webvowl.parsing = webvowl.parsing || {};
+
+var webvowl = {};
+webvowl.graph = require("./graph/graph.js");
+webvowl.options = require("./graph/options.js");
 webvowl.version = "@@WEBVOWL_VERSION";
+
+webvowl.util = {};
+webvowl.util.constants = require("./graph/util/constants.js");
+webvowl.util.languageTools = require("./graph/util/languageTools.js");
+webvowl.util.elementTools = require("./graph/util/elementTools.js");
+
+webvowl.modules = {};
+webvowl.modules.compactNotationSwitch = require("./graph/modules/compactNotationSwitch.js");
+webvowl.modules.datatypeFilter = require("./graph/modules/datatypeFilter.js");
+webvowl.modules.disjointFilter = require("./graph/modules/disjointFilter.js");
+webvowl.modules.focuser = require("./graph/modules/focuser.js");
+webvowl.modules.nodeDegreeFilter = require("./graph/modules/nodeDegreeFilter.js");
+webvowl.modules.nodeScalingSwitch = require("./graph/modules/nodeScalingSwitch.js");
+webvowl.modules.pickAndPin = require("./graph/modules/pickAndPin.js");
+webvowl.modules.selectionDetailsDisplayer = require("./graph/modules/selectionDetailsDisplayer.js");
+webvowl.modules.setOperatorFilter = require("./graph/modules/setOperatorFilter.js");
+webvowl.modules.statistics = require("./graph/modules/statistics.js");
+webvowl.modules.subclassFilter = require("./graph/modules/subclassFilter.js");
+
+
+webvowl.nodes = {};
+nodeMap.values().forEach(function(node) {
+	mapElementToIdentifier(webvowl.nodes, node);
+});
+
+webvowl.labels = {};
+labelMap.values().forEach(function(label) {
+	mapElementToIdentifier(webvowl.labels, label);
+});
+
+function mapElementToIdentifier(map, element) {
+	var identifier = element.type().replace(":", "").toLowerCase();
+	map[identifier] = element;
+}
+
+
+window.webvowl = webvowl;

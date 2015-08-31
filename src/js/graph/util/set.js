@@ -2,7 +2,7 @@
  * A simple incomplete encapsulation of the d3 set, which is able to store webvowl
  * elements by using their id.
  */
-webvowl.util.set = function (array) {
+module.exports = function (array) {
 
 	var set = {},
 		d3Set = d3.set(array);

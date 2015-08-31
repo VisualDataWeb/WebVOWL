@@ -1,7 +1,9 @@
+var constants = require("./constants.js");
+
 /**
  * Encapsulates methods which return a label in a specific language for a preferred language.
  */
-webvowl.util.languageTools = (function () {
+module.exports = (function () {
 
 	var languageTools = {};
 
@@ -23,16 +25,16 @@ webvowl.util.languageTools = (function () {
 		if (textForLanguage) {
 			return textForLanguage;
 		}
-		textForLanguage = searchLanguage(textObject, webvowl.util.constants().LANG_UNDEFINED);
+		textForLanguage = searchLanguage(textObject, constants.LANG_UNDEFINED);
 		if (textForLanguage) {
 			return textForLanguage;
 		}
 
-		return textObject[webvowl.util.constants().LANG_IRIBASED];
+		return textObject[constants.LANG_IRIBASED];
 	};
 
 
-	function searchLanguage (textObject, preferredLanguage) {
+	function searchLanguage(textObject, preferredLanguage) {
 		for (var language in textObject) {
 			if (language === preferredLanguage && textObject.hasOwnProperty(language)) {
 				return textObject[language];

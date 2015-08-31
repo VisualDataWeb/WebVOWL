@@ -1,4 +1,6 @@
-webvowl.modules.pickAndPin = function () {
+var elementTools = require("../util/elementTools.js");
+
+module.exports = function () {
 	var pap = {},
 		enabled = false,
 		pinnedNodes = [];
@@ -8,7 +10,7 @@ webvowl.modules.pickAndPin = function () {
 			return;
 		}
 
-		if (selectedElement instanceof webvowl.nodes.RoundNode && !selectedElement.pinned()) {
+		if (!elementTools.isDatatype(selectedElement) && !selectedElement.pinned()) {
 			selectedElement.drawPin();
 			pinnedNodes.push(selectedElement);
 		}

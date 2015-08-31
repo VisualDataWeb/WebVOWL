@@ -1,4 +1,6 @@
-webvowl.modules.setOperatorFilter = function () {
+var SetOperatorNode = require("../elements/nodes/SetOperatorNode.js");
+
+module.exports = function () {
 
 	var filter = {},
 		nodes,
@@ -6,7 +8,7 @@ webvowl.modules.setOperatorFilter = function () {
 		enabled = false,
 		filteredNodes,
 		filteredProperties,
-		filterTools = webvowl.util.filterTools();
+		filterTools = require("../util/filterTools.js")();
 
 
 	/**
@@ -34,7 +36,7 @@ webvowl.modules.setOperatorFilter = function () {
 	}
 
 	function isNoSetOperator(node) {
-		return !(node instanceof webvowl.nodes.SetOperatorNode);
+		return !(node instanceof SetOperatorNode);
 	}
 
 	filter.enabled = function (p) {

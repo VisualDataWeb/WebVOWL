@@ -1,4 +1,6 @@
-webvowl.util.filterTools = (function () {
+var elementTools = require("./elementTools.js");
+
+module.exports = (function () {
 
 	var tools = {};
 
@@ -10,7 +12,7 @@ webvowl.util.filterTools = (function () {
 	 * @returns {{nodes: Array, properties: Array}} the filtered nodes and properties
 	 */
 	tools.filterNodesAndTidy = function (nodes, properties, shouldKeepNode) {
-		var removedNodes = webvowl.util.set(),
+		var removedNodes = require("./set.js")(),
 			cleanedNodes = [],
 			cleanedProperties = [];
 
@@ -25,7 +27,7 @@ webvowl.util.filterTools = (function () {
 		properties.forEach(function (property) {
 			if (propertyHasVisibleNodes(removedNodes, property)) {
 				cleanedProperties.push(property);
-			} else if (property instanceof webvowl.labels.owldatatypeproperty) {
+			} else if (elementTools.isDatatypeProperty(property)) {
 				// Remove floating datatypes/literals, because they belong to their datatype property
 				var index = cleanedNodes.indexOf(property.range());
 				if (index >= 0) {

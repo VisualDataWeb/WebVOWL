@@ -1,7 +1,7 @@
 /**
  * The base element for all visual elements of webvowl.
  */
-webvowl.elements.BaseElement = (function () {
+module.exports = (function () {
 
 	var DEFAULT_LABEL = "DEFAULT_LABEL";
 
@@ -26,7 +26,7 @@ webvowl.elements.BaseElement = (function () {
 			styleClass,
 			visible = true,
 		// Other
-			languageTools = webvowl.util.languageTools();
+			languageTools = require("../util/languageTools.js")();
 
 
 		// Properties
