@@ -195,7 +195,7 @@ module.exports = function (graph) {
 	}
 
 	function createLowerCasePrototypeMap(prototypeMap) {
-		return d3.map(prototypeMap.values(), function(Prototype) {
+		return d3.map(prototypeMap.values(), function (Prototype) {
 			return new Prototype().type().toLowerCase();
 		});
 	}
@@ -354,9 +354,7 @@ module.exports = function (graph) {
 	 * @param propertyMap the properties in a map
 	 */
 	function createPropertyStructure(rawProperties, classMap, propertyMap) {
-		var properties = [],
-			i, // loop index
-			l; // array length
+		var properties = [];
 
 		// Set default values
 		rawProperties.forEach(function (property) {

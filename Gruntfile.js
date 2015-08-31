@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 			}
 		},
 		clean: {
-			js: ["!" + deployPath + ".htaccess", deployPath + "**/*"]
+			deploy: deployPath
 		},
 		copy: {
 			dependencies: {
