@@ -2,6 +2,7 @@
 
 var ADDITIONAL_TEXT_SPACE = 4;
 
+var tools = {};
 
 function measureTextWidth(text, textStyle) {
 	// Set a default value
@@ -18,7 +19,7 @@ function measureTextWidth(text, textStyle) {
 	return w;
 }
 
-function truncate(text, maxLength, textStyle) {
+tools.truncate = function (text, maxLength, textStyle) {
 	maxLength -= ADDITIONAL_TEXT_SPACE;
 	if (isNaN(maxLength) || maxLength <= 0) {
 		return text;
@@ -43,9 +44,9 @@ function truncate(text, maxLength, textStyle) {
 		return text.substring(0, textLength - 3) + "...";
 	}
 	return text;
-}
+};
 
 
-module.exports = {
-	truncate: truncate
+module.exports = function () {
+	return tools;
 };
