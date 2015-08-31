@@ -9,7 +9,7 @@ module.exports = (function () {
 			superDrawFunction = that.drawProperty,
 			label = "Subclass of";
 
-		this.drawProperty = function(labelGroup) {
+		this.drawProperty = function (labelGroup) {
 			that.labelVisible(!graph.options().compactNotation());
 			return superDrawFunction(labelGroup);
 		};

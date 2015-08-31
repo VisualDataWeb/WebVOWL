@@ -72,6 +72,7 @@ module.exports = function (graph) {
 	 */
 	function combineClasses(baseObjects, attributes) {
 		var combinations = [];
+		var prototypeMap = createLowerCasePrototypeMap(nodeMap);
 
 		if (baseObjects) {
 			baseObjects.forEach(function (element) {
@@ -90,7 +91,7 @@ module.exports = function (graph) {
 				}
 
 				// Then look for a prototype to add its properties
-				var Prototype = nodeMap.get(element.type);
+				var Prototype = prototypeMap.get(element.type.toLowerCase());
 
 				if (Prototype) {
 					addAdditionalAttributes(element, Prototype); // TODO might be unnecessary
@@ -136,6 +137,7 @@ module.exports = function (graph) {
 
 	function combineProperties(baseObjects, attributes) {
 		var combinations = [];
+		var prototypeMap = createLowerCasePrototypeMap(labelMap);
 
 		if (baseObjects) {
 			baseObjects.forEach(function (element) {
@@ -154,7 +156,7 @@ module.exports = function (graph) {
 				}
 
 				// Then look for a prototype to add its properties
-				var Prototype = labelMap.get(element.type);
+				var Prototype = prototypeMap.get(element.type.toLowerCase());
 
 				if (Prototype) {
 					// Create the matching object and set the properties
@@ -190,6 +192,12 @@ module.exports = function (graph) {
 		}
 
 		return combinations;
+	}
+
+	function createLowerCasePrototypeMap(prototypeMap) {
+		return d3.map(prototypeMap.values(), function(Prototype) {
+			return new Prototype().type().toLowerCase();
+		});
 	}
 
 	/**

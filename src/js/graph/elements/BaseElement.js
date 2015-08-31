@@ -131,7 +131,7 @@ module.exports = (function () {
 			return languageTools.textInLanguage(this.comment(), graph.language());
 		};
 
-		this.descriptionForCurrentLanguage = function() {
+		this.descriptionForCurrentLanguage = function () {
 			return languageTools.textInLanguage(this.description(), graph.language());
 		};
 

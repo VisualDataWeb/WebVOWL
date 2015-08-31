@@ -11,10 +11,10 @@ labels.push(require("./implementations/RdfProperty.js"));
 labels.push(require("./implementations/RdfsSubClassOf.js"));
 labels.push(require("./implementations/SetOperatorProperty.js"));
 
-var map = d3.map(labels, function(array, element) {
-	return element.type();
+var map = d3.map(labels, function (Prototype) {
+	return new Prototype().type();
 });
 
-module.exports = function() {
+module.exports = function () {
 	return map;
 };

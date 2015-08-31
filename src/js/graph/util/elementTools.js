@@ -8,11 +8,11 @@ var RdfsSubClassOf = require("../elements/labels/implementations/RdfsSubClassOf.
 module.exports = (function () {
 	var tools = {};
 
-	tools.isLabel = function(element) {
+	tools.isLabel = function (element) {
 		return element instanceof BaseLabel;
 	};
 
-	tools.isNode = function(element) {
+	tools.isNode = function (element) {
 		return element instanceof BaseNode;
 	};
 
@@ -20,12 +20,12 @@ module.exports = (function () {
 		return node instanceof DatatypeNode;
 	};
 
-	tools.isObjectProperty = function(element) {
+	tools.isObjectProperty = function (element) {
 		return element instanceof ObjectProperty;
 	};
 
-	tools.isDatatypeProperty = function(element) {
-	  	return element instanceof DatatypeProperty;
+	tools.isDatatypeProperty = function (element) {
+		return element instanceof DatatypeProperty;
 	};
 
 	tools.isRdfsSubClassOf = function (property) {

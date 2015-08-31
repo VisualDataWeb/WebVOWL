@@ -1,4 +1,4 @@
-var textTools = require("./textTools");
+var textTools = require("./textTools")();
 
 /**
  * Creates a new textblock in the specified element.

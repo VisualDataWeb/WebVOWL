@@ -1,4 +1,4 @@
-var constants = require("./constants.js");
+var constants = require("./constants.js")();
 
 /**
  * Encapsulates methods which return a label in a specific language for a preferred language.

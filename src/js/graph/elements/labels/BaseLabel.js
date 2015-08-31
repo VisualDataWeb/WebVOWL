@@ -1,5 +1,4 @@
 var BaseElement = require("../BaseElement.js");
-var OwlDisjointWith = require("./implementations/OwlDisjointWith.js");
 
 module.exports = (function () {
 
@@ -167,7 +166,7 @@ module.exports = (function () {
 
 				// Attach the text and perhaps special elements
 				var textBox = require("../../util/textElement.js")(label);
-				if (property instanceof OwlDisjointWith) {
+				if (property instanceof require("./implementations/OwlDisjointWith.js")) {
 					property.addDisjointLabel(labelGroup, textBox);
 					return label;
 				} else {

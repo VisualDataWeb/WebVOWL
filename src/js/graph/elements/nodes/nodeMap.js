@@ -13,10 +13,10 @@ nodes.push(require("./implementations/RdfsDatatype.js"));
 nodes.push(require("./implementations/RdfsLiteral.js"));
 nodes.push(require("./implementations/RdfsResource.js"));
 
-var map = d3.map(nodes, function(array, element) {
-	return element.type();
+var map = d3.map(nodes, function (Prototype) {
+	return new Prototype().type().toLowerCase();
 });
 
-module.exports = function() {
+module.exports = function () {
 	return map;
 };

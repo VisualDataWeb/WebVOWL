@@ -138,7 +138,7 @@ module.exports = function () {
 	}
 
 	function storeTotalIndividualCount(nodes) {
-	 	var totalCount = 0;
+		var totalCount = 0;
 		for (var i = 0, l = nodes.length; i < l; i++) {
 			totalCount += nodes[i].individuals().length || 0;
 		}

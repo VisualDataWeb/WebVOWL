@@ -36,7 +36,7 @@ module.exports = function (graph) {
 		return filter;
 	};
 
-	filter.reset = function() {
+	filter.reset = function () {
 		enabled = DEFAULT_STATE;
 	};
 

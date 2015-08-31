@@ -27,18 +27,18 @@ webvowl.modules.subclassFilter = require("./graph/modules/subclassFilter.js");
 
 
 webvowl.nodes = {};
-nodeMap.values().forEach(function(node) {
-	mapElementToIdentifier(webvowl.nodes, node);
+nodeMap.entries().forEach(function (entry) {
+	mapEntryToIdentifier(webvowl.nodes, entry);
 });
 
 webvowl.labels = {};
-labelMap.values().forEach(function(label) {
-	mapElementToIdentifier(webvowl.labels, label);
+labelMap.entries().forEach(function (entry) {
+	mapEntryToIdentifier(webvowl.labels, entry);
 });
 
-function mapElementToIdentifier(map, element) {
-	var identifier = element.type().replace(":", "").toLowerCase();
-	map[identifier] = element;
+function mapEntryToIdentifier(map, entry) {
+	var identifier = entry.key.replace(":", "").toLowerCase();
+	map[identifier] = entry.value;
 }
 
 

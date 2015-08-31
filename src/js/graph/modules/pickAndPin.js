@@ -1,4 +1,4 @@
-var elementTools = require("../util/elementTools.js");
+var elementTools = require("../util/elementTools.js")();
 
 module.exports = function () {
 	var pap = {},

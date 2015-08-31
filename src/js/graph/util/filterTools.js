@@ -1,4 +1,4 @@
-var elementTools = require("./elementTools.js");
+var elementTools = require("./elementTools.js")();
 
 module.exports = (function () {
 
