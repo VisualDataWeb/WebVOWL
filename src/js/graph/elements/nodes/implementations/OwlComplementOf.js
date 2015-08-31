@@ -7,8 +7,8 @@ module.exports = (function () {
 
 		var that = this;
 
-		this.styleClass("intersectionof")
-			.type("owl:intersectionOf");
+		this.styleClass("complementof")
+			.type("owl:complementOf");
 
 		this.drawNode = function (element) {
 			that.nodeElement(element);
