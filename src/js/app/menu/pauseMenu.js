@@ -4,7 +4,7 @@
  * @param graph the associated webvowl graph
  * @returns {{}}
  */
-webvowlApp.pauseMenu = function (graph) {
+module.exports = function (graph) {
 
 	var pauseMenu = {},
 		pauseButton;
@@ -49,7 +49,7 @@ webvowlApp.pauseMenu = function (graph) {
 		}
 	}
 
-	pauseMenu.reset = function() {
+	pauseMenu.reset = function () {
 		// Simulate resuming
 		pauseButton.datum().paused = false;
 		graph.unfreeze();

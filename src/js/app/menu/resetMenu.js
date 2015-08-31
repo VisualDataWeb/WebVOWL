@@ -5,7 +5,7 @@
  * @param resettableModules modules that can be resetted
  * @returns {{}}
  */
-webvowlApp.resetMenu = function (graph, resettableModules) {
+module.exports = function (graph, resettableModules) {
 
 	var resetMenu = {},
 		options = graph.graphOptions(),

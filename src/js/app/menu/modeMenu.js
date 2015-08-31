@@ -7,7 +7,7 @@
  * @param compactNotation mode for toggling the compact node
  * @returns {{}}
  */
-webvowlApp.modeMenu = function (graph, pickAndPin, nodeScaling, compactNotation) {
+module.exports = function (graph, pickAndPin, nodeScaling, compactNotation) {
 
 	var modeMenu = {},
 		checkboxes = [];

@@ -17,14 +17,19 @@ function getInternetExplorerVersion() {
 	return rv;
 }
 
-var version = getInternetExplorerVersion();
-if (version > 0 && version <= 11) {
-	document.write("<div id=\"browserCheck\">The WebVOWL demo does not work in Internet Explorer. Please use another browser, such as <a href=\"http://www.mozilla.org/firefox/\">Mozilla Firefox</a> or <a href=\"https://www.google.com/chrome/\">Google Chrome</a>, to run the WebVOWL demo.</div>");
-	// hiding any additional menus and features
-	var canvasArea = document.getElementById("canvasArea"),
-		detailsArea = document.getElementById("detailsArea"),
-		optionsArea = document.getElementById("optionsArea");
-	canvasArea.className = "hidden";
-	detailsArea.className = "hidden";
-	optionsArea.className = "hidden";
+function showBrowserWarningIfRequired() {
+	var version = getInternetExplorerVersion();
+	if (version > 0 && version <= 11) {
+		document.write("<div id=\"browserCheck\">The WebVOWL demo does not work in Internet Explorer. Please use another browser, such as <a href=\"http://www.mozilla.org/firefox/\">Mozilla Firefox</a> or <a href=\"https://www.google.com/chrome/\">Google Chrome</a>, to run the WebVOWL demo.</div>");
+		// hiding any additional menus and features
+		var canvasArea = document.getElementById("canvasArea"),
+			detailsArea = document.getElementById("detailsArea"),
+			optionsArea = document.getElementById("optionsArea");
+		canvasArea.className = "hidden";
+		detailsArea.className = "hidden";
+		optionsArea.className = "hidden";
+	}
 }
+
+
+module.exports = showBrowserWarningIfRequired;

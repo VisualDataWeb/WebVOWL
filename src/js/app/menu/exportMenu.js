@@ -4,7 +4,7 @@
  * @param graphSelector the associated graph svg selector
  * @returns {{}}
  */
-webvowlApp.exportMenu = function (graphSelector) {
+module.exports = function (graphSelector) {
 
 	var exportMenu = {},
 		exportSvgButton,

@@ -9,7 +9,7 @@
  * @param nodeDegreeFilter filters nodes by their degree
  * @returns {{}}
  */
-webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
+module.exports = function (graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
 
 	var filterMenu = {},
 		checkboxData = [],
@@ -60,7 +60,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 	}
 
 	function addNodeDegreeFilter(selector) {
-		nodeDegreeFilter.setMaxDegreeSetter(function(maxDegree) {
+		nodeDegreeFilter.setMaxDegreeSetter(function (maxDegree) {
 			degreeSlider.attr("max", maxDegree);
 			degreeSlider.property("value", Math.min(maxDegree, degreeSlider.property("value")));
 		});
@@ -96,7 +96,7 @@ webvowlApp.filterMenu = function (graph, datatypeFilter, subclassFilter, disjoin
 			graph.update();
 		});
 
-		degreeSlider.on("input", function() {
+		degreeSlider.on("input", function () {
 			var degree = degreeSlider.property("value");
 			sliderValueLabel.text(degree);
 		});

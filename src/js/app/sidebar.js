@@ -3,7 +3,7 @@
  * @param graph the graph that belongs to these controls
  * @returns {{}}
  */
-webvowlApp.sidebar = function (graph) {
+module.exports = function (graph) {
 
 	var sidebar = {},
 		languageTools = webvowl.util.languageTools(),

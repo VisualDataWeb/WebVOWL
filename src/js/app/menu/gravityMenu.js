@@ -4,7 +4,7 @@
  * @param graph the associated webvowl graph
  * @returns {{}}
  */
-webvowlApp.gravityMenu = function (graph) {
+module.exports = function (graph) {
 
 	var gravityMenu = {},
 		sliders = [],

@@ -1,4 +1,4 @@
-webvowlApp.app = function () {
+module.exports = function () {
 
 	var app = {},
 		graph = webvowl.graph(),
@@ -13,7 +13,7 @@ webvowlApp.app = function () {
 		modeMenu,
 		resetMenu,
 		pauseMenu,
-		sidebar = webvowlApp.sidebar(graph),
+		sidebar = require("./sidebar.js")(graph),
 		setupableMenues,
 	// Graph modules
 		statistics = webvowl.modules.statistics(),
@@ -42,14 +42,14 @@ webvowlApp.app = function () {
 		options.filterModules().push(nodeDegreeFilter);
 		options.filterModules().push(compactNotationSwitch);
 
-		exportMenu = webvowlApp.exportMenu(options.graphContainerSelector());
-		gravityMenu = webvowlApp.gravityMenu(graph);
-		filterMenu = webvowlApp.filterMenu(graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
-		modeMenu = webvowlApp.modeMenu(graph, pickAndPin, nodeScalingSwitch, compactNotationSwitch);
-		pauseMenu = webvowlApp.pauseMenu(graph);
-		resetMenu = webvowlApp.resetMenu(graph, [gravityMenu, filterMenu, modeMenu,
+		exportMenu = require("./menu/exportMenu.js")(options.graphContainerSelector());
+		gravityMenu = require("./menu/gravityMenu.js")(graph);
+		filterMenu = require("./menu/filterMenu.js")(graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
+		modeMenu = require("./menu/modeMenu.js")(graph, pickAndPin, nodeScalingSwitch, compactNotationSwitch);
+		pauseMenu = require("./menu/pauseMenu.js")(graph);
+		resetMenu = require("./menu/resetMenu.js")(graph, [gravityMenu, filterMenu, modeMenu,
 			focuser, selectionDetailDisplayer, pauseMenu]);
-		ontologyMenu = webvowlApp.ontologyMenu(loadOntologyFromText);
+		ontologyMenu = require("./menu/ontologyMenu.js")(loadOntologyFromText);
 
 		d3.select(window).on("resize", adjustSize);
 

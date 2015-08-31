@@ -3,7 +3,7 @@
  *
  * @returns {{}}
  */
-webvowlApp.ontologyMenu = function (loadOntologyFromText) {
+module.exports = function (loadOntologyFromText) {
 
 	var ontologyMenu = {},
 		jsonBasePath = "js/data/",
@@ -223,7 +223,7 @@ webvowlApp.ontologyMenu = function (loadOntologyFromText) {
 	function loadFromJson(file, filename) {
 		var reader = new FileReader();
 		reader.readAsText(file);
-		reader.onload = function() {
+		reader.onload = function () {
 			loadOntologyFromTextAndTrimFilename(reader.result, filename);
 			setLoadingStatus(true);
 		};
