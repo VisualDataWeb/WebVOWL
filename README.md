@@ -16,7 +16,7 @@ Development setup
 ### Simple ###
 1. Download and install Node.js from http://nodejs.org/download/
 2. Open the terminal in the root directory
-3. Run `npm install` to install the dependencies and automatically install d3 with bower
+3. Run `npm install` to install the dependencies
 4. Edit the code
 5. Run `npm run-script release` to (re-)build all necessary files into the deploy directory
 
