@@ -3,9 +3,7 @@ module.exports = function (config) {
 		basePath: "../",
 		frameworks: ["jasmine"],
 		files: [
-			"components/d3/d3.js",
-			"src/js/header.js",
-			"src/js/graph/**/*.js",
+			"deploy/js/**/*.js",
 			"test/unit/**/*.js"
 		],
 		reporters: ["progress"],
