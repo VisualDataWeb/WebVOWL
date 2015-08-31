@@ -1,5 +1,5 @@
 var BaseElement = require("../BaseElement.js");
-var OwlDisjointWith = require("./implementations/owlDisjointWith.js");
+var OwlDisjointWith = require("./implementations/OwlDisjointWith.js");
 
 module.exports = (function () {
 

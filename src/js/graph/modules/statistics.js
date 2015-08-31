@@ -1,6 +1,6 @@
 var SetOperatorNode = require("../elements/nodes/SetOperatorNode.js");
-var OwlThing = require("../elements/nodes/implementations/owlThing.js");
-var OwlNothing = require("../elements/nodes/implementations/owlNothing.js");
+var OwlThing = require("../elements/nodes/implementations/OwlThing.js");
+var OwlNothing = require("../elements/nodes/implementations/OwlNothing.js");
 var elementTools = require("../util/elementTools")();
 
 module.exports = function () {

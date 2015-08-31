@@ -1,15 +1,15 @@
 var labels = [];
-labels.push(require("./implementations/owlDatatypeProperty.js"));
-labels.push(require("./implementations/owlDeprecatedProperty.js"));
-labels.push(require("./implementations/owlDisjointWith.js"));
-labels.push(require("./implementations/owlEquivalentProperty.js"));
-labels.push(require("./implementations/owlInverseFunctionalProperty.js"));
-labels.push(require("./implementations/owlObjectProperty.js"));
-labels.push(require("./implementations/owlSymmetricProperty.js"));
-labels.push(require("./implementations/owlTransitiveProperty.js"));
-labels.push(require("./implementations/rdfProperty.js"));
-labels.push(require("./implementations/rdfsSubClassOf.js"));
-labels.push(require("./implementations/setOperatorProperty.js"));
+labels.push(require("./implementations/OwlDatatypeProperty.js"));
+labels.push(require("./implementations/OwlDeprecatedProperty.js"));
+labels.push(require("./implementations/OwlDisjointWith.js"));
+labels.push(require("./implementations/OwlEquivalentProperty.js"));
+labels.push(require("./implementations/OwlInverseFunctionalProperty.js"));
+labels.push(require("./implementations/OwlObjectProperty.js"));
+labels.push(require("./implementations/OwlSymmetricProperty.js"));
+labels.push(require("./implementations/OwlTransitiveProperty.js"));
+labels.push(require("./implementations/RdfProperty.js"));
+labels.push(require("./implementations/RdfsSubClassOf.js"));
+labels.push(require("./implementations/SetOperatorProperty.js"));
 
 var map = d3.map(labels, function(array, element) {
 	return element.type();

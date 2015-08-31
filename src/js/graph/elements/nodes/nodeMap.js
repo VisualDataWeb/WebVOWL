@@ -1,17 +1,17 @@
 var nodes = [];
 nodes.push(require("./implementations/ExternalClass.js"));
-nodes.push(require("./implementations/owlClass.js"));
-nodes.push(require("./implementations/owlcomplementOf.js"));
-nodes.push(require("./implementations/owlDeprecatedClass.js"));
-nodes.push(require("./implementations/owlequivalentClass.js"));
-nodes.push(require("./implementations/owlintersectionOf.js"));
-nodes.push(require("./implementations/owlNothing.js"));
-nodes.push(require("./implementations/owlThing.js"));
-nodes.push(require("./implementations/owlunionOf.js"));
-nodes.push(require("./implementations/rdfsClass.js"));
-nodes.push(require("./implementations/rdfsDatatype.js"));
-nodes.push(require("./implementations/rdfsLiteral.js"));
-nodes.push(require("./implementations/rdfsResource.js"));
+nodes.push(require("./implementations/OwlClass.js"));
+nodes.push(require("./implementations/OwlComplementOf.js"));
+nodes.push(require("./implementations/OwlDeprecatedClass.js"));
+nodes.push(require("./implementations/OwlEquivalentClass.js"));
+nodes.push(require("./implementations/OwlIntersectionOf.js"));
+nodes.push(require("./implementations/OwlNothing.js"));
+nodes.push(require("./implementations/OwlThing.js"));
+nodes.push(require("./implementations/OwlUnionOf.js"));
+nodes.push(require("./implementations/RdfsClass.js"));
+nodes.push(require("./implementations/RdfsDatatype.js"));
+nodes.push(require("./implementations/RdfsLiteral.js"));
+nodes.push(require("./implementations/RdfsResource.js"));
 
 var map = d3.map(nodes, function(array, element) {
 	return element.type();
