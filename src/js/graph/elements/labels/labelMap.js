@@ -3,6 +3,7 @@ labels.push(require("./implementations/OwlDatatypeProperty.js"));
 labels.push(require("./implementations/OwlDeprecatedProperty.js"));
 labels.push(require("./implementations/OwlDisjointWith.js"));
 labels.push(require("./implementations/OwlEquivalentProperty.js"));
+labels.push(require("./implementations/OwlFunctionalProperty.js"));
 labels.push(require("./implementations/OwlInverseFunctionalProperty.js"));
 labels.push(require("./implementations/OwlObjectProperty.js"));
 labels.push(require("./implementations/OwlSymmetricProperty.js"));
