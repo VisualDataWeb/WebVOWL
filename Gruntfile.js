@@ -160,6 +160,6 @@ module.exports = function (grunt) {
 	grunt.registerTask("package", ["pre-js", "webpack:build-dev", "post-js", "htmlbuild:dev"]);
 	grunt.registerTask("release", ["pre-js", "webpack:build", "post-js", "htmlbuild:release"]);
 	grunt.registerTask("webserver", ["package", "webpack-dev-server", "watch"]);
-	grunt.registerTask("test", ["release", "karma:dev"]);
-	grunt.registerTask("test-ci", ["release", "karma:continuous"]);
+	grunt.registerTask("test", ["karma:dev"]);
+	grunt.registerTask("test-ci", ["karma:continuous"]);
 };

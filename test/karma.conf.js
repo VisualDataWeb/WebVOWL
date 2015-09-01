@@ -1,9 +1,13 @@
 module.exports = function (config) {
 	config.set({
 		basePath: "../",
-		frameworks: ["jasmine"],
+		frameworks: ["jasmine", "commonjs"],
+		preprocessors: {
+			"src/js/**/*.js": ["commonjs"]
+		},
 		files: [
-			"deploy/js/**/*.js",
+			"node_modules/d3/d3.min.js",
+			"src/js/**/*.js",
 			"test/unit/**/*.js"
 		],
 		reporters: ["progress"],
@@ -12,7 +16,8 @@ module.exports = function (config) {
 		browsers : ["PhantomJS"],
 		plugins : [
 			"karma-phantomjs-launcher",
-			"karma-jasmine"
+			"karma-jasmine",
+			"karma-commonjs"
 		],
 		singleRun: false
 	});
