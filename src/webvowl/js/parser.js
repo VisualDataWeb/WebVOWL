@@ -522,23 +522,21 @@ module.exports = function (graph) {
 	 * @param properties unprocessed properties
 	 */
 	function addSetOperatorProperties(classes, properties) {
-		var i, // index
-			l; // array length
-
-		function addProperties(domainId, setIds, operatorType) {
-			if (typeof setIds !== "undefined") {
-				for (i = 0, l = setIds.length; i < l; ++i) {
-					var rangeId = setIds[i],
-						property = {};
-
-					property.id = "GENERATED-" + operatorType + "-" + domainId + "-" + rangeId + "-" + i;
-					property.type = "setOperatorProperty";
-					property.domain = domainId;
-					property.range = rangeId;
-
-					properties.push(property);
-				}
+		function addProperties(domainId, rangeIds, operatorType) {
+			if (!rangeIds) {
+				return;
 			}
+
+			rangeIds.forEach(function (rangeId, index) {
+				var property = {
+					id: "GENERATED-" + operatorType + "-" + domainId + "-" + rangeId + "-" + index,
+					type: "setOperatorProperty",
+					domain: domainId,
+					range: rangeId
+				};
+
+				properties.push(property);
+			});
 		}
 
 		classes.forEach(function (clss) {
