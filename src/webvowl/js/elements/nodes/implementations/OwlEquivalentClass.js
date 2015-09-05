@@ -19,7 +19,7 @@ module.exports = (function () {
 		};
 
 
-		this.drawNode = function (parentElement) {
+		this.draw = function (parentElement) {
 			var cssClasses = that.collectCssClasses();
 
 			that.nodeElement(parentElement);

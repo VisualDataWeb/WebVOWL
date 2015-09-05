@@ -272,8 +272,8 @@ module.exports = function (graphContainerSelector) {
 			})
 			.call(dragBehaviour);
 
-		nodeElements.each(function (d) {
-			d.drawNode(d3.select(this));
+		nodeElements.each(function (node) {
+			node.draw(d3.select(this));
 		});
 
 
@@ -284,7 +284,7 @@ module.exports = function (graphContainerSelector) {
 			.classed("labelGroup", true);
 
 		labelGroupElements.each(function (link) {
-			var success = link.property().drawProperty(d3.select(this));
+			var success = link.property().draw(d3.select(this));
 			// Remove empty groups without a label.
 			if (!success) {
 				d3.select(this).remove();
@@ -326,7 +326,7 @@ module.exports = function (graphContainerSelector) {
 			.classed("link", true);
 
 		linkGroups.each(function (link) {
-			link.drawLink(d3.select(this), markerContainer);
+			link.draw(d3.select(this), markerContainer);
 		});
 
 		// Select the path for direct access to receive a better performance

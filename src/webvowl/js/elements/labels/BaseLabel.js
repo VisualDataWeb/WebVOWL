@@ -155,7 +155,7 @@ module.exports = (function () {
 
 
 		// Reused functions TODO refactor
-		this.drawProperty = function (labelGroup) {
+		this.draw = function (labelGroup) {
 			function attachLabel(property) {
 				// Draw the label and its background
 				var label = labelGroup.append("g")

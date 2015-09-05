@@ -10,7 +10,7 @@ module.exports = (function () {
 		this.styleClass("unionof")
 			.type("owl:unionOf");
 
-		this.drawNode = function (element) {
+		this.draw = function (element) {
 			that.nodeElement(element);
 
 			element.append("circle")

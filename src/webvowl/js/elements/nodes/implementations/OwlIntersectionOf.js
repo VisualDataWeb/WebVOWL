@@ -10,7 +10,7 @@ module.exports = (function () {
 		this.styleClass("intersectionof")
 			.type("owl:intersectionOf");
 
-		this.drawNode = function (element) {
+		this.draw = function (element) {
 			that.nodeElement(element);
 
 			element.append("circle")

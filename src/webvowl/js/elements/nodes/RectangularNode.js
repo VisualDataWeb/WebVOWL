@@ -49,7 +49,7 @@ module.exports = (function () {
 		 * @param parentElement the element to which this node will be appended
 		 * @param [additionalCssClasses] additional css classes
 		 */
-		this.drawNode = function (parentElement, additionalCssClasses) {
+		this.draw = function (parentElement, additionalCssClasses) {
 			var textBlock,
 				cssClasses = that.collectCssClasses();
 

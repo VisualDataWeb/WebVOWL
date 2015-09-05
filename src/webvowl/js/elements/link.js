@@ -88,7 +88,7 @@ module.exports = function () {
 	});
 
 
-	l.drawLink = function (linkGroup, markerContainer) {
+	l.draw = function (linkGroup, markerContainer) {
 		property.linkGroup(linkGroup);
 		if (inverse) {
 			inverse.linkGroup(linkGroup);

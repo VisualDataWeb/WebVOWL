@@ -6,10 +6,10 @@ module.exports = (function () {
 		BaseLabel.apply(this, arguments);
 
 		var that = this,
-			superDrawFunction = that.drawProperty,
+			superDrawFunction = that.draw,
 			label = "Subclass of";
 
-		this.drawProperty = function (labelGroup) {
+		this.draw = function (labelGroup) {
 			that.labelVisible(!graph.options().compactNotation());
 			return superDrawFunction(labelGroup);
 		};

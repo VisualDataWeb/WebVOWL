@@ -5,7 +5,7 @@ module.exports = (function () {
 	var o = function (graph) {
 		DatatypeNode.apply(this, arguments);
 
-		var superDrawFunction = this.drawNode,
+		var superDrawFunction = this.draw,
 			superLabelFunction = this.label;
 
 		this.attributes(["datatype"])
@@ -14,7 +14,7 @@ module.exports = (function () {
 			.type("rdfs:Literal")
 			.iri("http://www.w3.org/2000/01/rdf-schema#Literal");
 
-		this.drawNode = function (element) {
+		this.draw = function (element) {
 			superDrawFunction(element, ["special"]);
 		};
 
