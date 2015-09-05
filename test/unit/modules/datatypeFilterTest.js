@@ -1,5 +1,9 @@
+var OwlClass = require("../../../src/webvowl/js/elements/nodes/implementations/OwlClass");
+var RdfsDatatype = require("../../../src/webvowl/js/elements/nodes/implementations/RdfsDatatype");
+var DatatypeProperty = require("../../../src/webvowl/js/elements/labels/implementations/OwlDatatypeProperty");
+
 describe("Collapsing of datatypes", function () {
-	var collapser;
+	var filter;
 
 	beforeEach(function () {
 		jasmine.addMatchers({
@@ -16,23 +20,23 @@ describe("Collapsing of datatypes", function () {
 	});
 
 	beforeEach(function () {
-		collapser = webvowl.modules.datatypeFilter();
-		collapser.enabled(true);
+		filter = require("../../../src/webvowl/js/modules/datatypeFilter")();
+		filter.enabled(true);
 	});
 
 
 	it("should remove datatypes with their properties", function () {
-		var domain = new webvowl.nodes.owlclass(),
-			datatypeProperty = new webvowl.labels.owldatatypeproperty(),
-			datatypeClass = new webvowl.nodes.rdfsdatatype();
+		var domain = new OwlClass(),
+			datatypeProperty = new DatatypeProperty(),
+			datatypeClass = new RdfsDatatype();
 
 		datatypeProperty.domain(domain).range(datatypeClass);
 
-		collapser.filter([domain, datatypeClass], [datatypeProperty]);
+		filter.filter([domain, datatypeClass], [datatypeProperty]);
 
-		expect(collapser.filteredNodes().length).toBe(1);
-		expect(collapser.filteredNodes()[0]).toBeInstanceOf(webvowl.nodes.owlclass);
-		expect(collapser.filteredProperties().length).toBe(0);
+		expect(filter.filteredNodes().length).toBe(1);
+		expect(filter.filteredNodes()[0]).toBeInstanceOf(OwlClass);
+		expect(filter.filteredProperties().length).toBe(0);
 	});
 
 });

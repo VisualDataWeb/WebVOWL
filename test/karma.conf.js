@@ -1,24 +1,36 @@
 module.exports = function (config) {
 	config.set({
 		basePath: "../",
-		frameworks: ["jasmine", "commonjs"],
+		frameworks: ["jasmine"],
 		preprocessors: {
-			"src/js/**/*.js": ["commonjs"]
+			"test/unit/**/*.js": ["webpack"]
 		},
 		files: [
-			"node_modules/d3/d3.min.js",
-			"src/js/**/*.js",
+			"node_modules/d3/d3.js",
 			"test/unit/**/*.js"
 		],
 		reporters: ["progress"],
-		port: 9876,
-		autoWatch: true,
-		browsers : ["PhantomJS"],
-		plugins : [
+		browsers: ["PhantomJS"],
+		plugins: [
 			"karma-phantomjs-launcher",
 			"karma-jasmine",
-			"karma-commonjs"
+			"karma-webpack"
 		],
+		webpack: {
+			cache: true,
+			entry: {
+				webvowl: "./src/webvowl/js/entry.js"
+			},
+			module: {
+				loaders: [
+					{test: /\.css$/, loader: "style!css"},
+					{test: /\.json$/, loader: "file"}
+				]
+			}
+		},
+		webpackMiddleware: {
+			noInfo: true
+		},
 		singleRun: false
 	});
 };
