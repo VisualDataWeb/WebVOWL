@@ -42,4 +42,4 @@ function mapEntryToIdentifier(map, entry) {
 }
 
 
-window.webvowl = webvowl;
+module.exports = webvowl;
