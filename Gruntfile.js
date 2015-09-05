@@ -6,11 +6,7 @@ module.exports = function (grunt) {
 	var webpack = require("webpack");
 	var webpackConfig = require("./webpack.config.js");
 
-	var deployPath = "deploy/",
-		graphPath = deployPath + "js/<%= pkg.name %>.js",
-		minGraphPath = deployPath + "js/<%= pkg.name %>.min.js",
-		appPath = deployPath + "js/<%= pkg.name %>-app.js",
-		minAppPath = deployPath + "js/<%= pkg.name %>-app.min.js";
+	var deployPath = "deploy/";
 
 	// Project configuration.
 	grunt.initConfig({
@@ -37,22 +33,9 @@ module.exports = function (grunt) {
 			},
 			static: {
 				files: [
-					{expand: true, cwd: "src/css/", src: ["**"], dest: deployPath + "css/"},
-					{expand: true, cwd: "src/js/data/", src: ["**"], dest: deployPath + "js/data/"},
 					{expand: true, cwd: "src/", src: ["favicon.ico"], dest: deployPath},
 					{expand: true, src: ["license.txt"], dest: deployPath}
 				]
-			}
-		},
-		cssmin: {
-			all: {
-				files: [{
-					expand: true,
-					cwd: deployPath + "css/",
-					src: ["*.css", "!*.min.css"],
-					dest: deployPath + "css/",
-					ext: ".min.css"
-				}]
 			}
 		},
 		htmlbuild: {
@@ -78,7 +61,7 @@ module.exports = function (grunt) {
 			options: {
 				jshintrc: true
 			},
-			source: ["src/js/**/*.js"],
+			source: ["src/**/*.js"],
 			tests: ["test/*/**/*.js"]
 		},
 		karma: {
@@ -144,7 +127,7 @@ module.exports = function (grunt) {
 			},
 			css: {
 				files: ["src/css/**/*.css"],
-				tasks: ["copy", "cssmin"]
+				tasks: ["copy"]
 			},
 			html: {
 				files: ["src/**/*.html"],
@@ -155,7 +138,7 @@ module.exports = function (grunt) {
 
 
 	grunt.registerTask("default", ["release"]);
-	grunt.registerTask("pre-js", ["clean", "copy", "cssmin"]);
+	grunt.registerTask("pre-js", ["clean", "copy"]);
 	grunt.registerTask("post-js", ["replace"]);
 	grunt.registerTask("package", ["pre-js", "webpack:build-dev", "post-js", "htmlbuild:dev"]);
 	grunt.registerTask("release", ["pre-js", "webpack:build", "post-js", "htmlbuild:release"]);

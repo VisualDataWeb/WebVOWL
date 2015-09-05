@@ -47,7 +47,7 @@ module.exports = function (graphSelector) {
 			.node().parentNode.innerHTML;
 
 		// Insert the reference to VOWL
-		graphSvgCode = "<!-- Created with WebVOWL (version " + webvowlApp.version + ")" +
+		graphSvgCode = "<!-- Created with WebVOWL (version " + webvowl.version + ")" +
 		", http://vowl.visualdataweb.org -->\n" + graphSvgCode;
 
 		escapedGraphSvgCode = escapeUnicodeCharacters(graphSvgCode);

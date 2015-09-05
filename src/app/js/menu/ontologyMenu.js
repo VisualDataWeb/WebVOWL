@@ -6,7 +6,6 @@
 module.exports = function (loadOntologyFromText) {
 
 	var ontologyMenu = {},
-		jsonBasePath = "js/data/",
 		defaultJsonName = "foaf", // This file is loaded by default
 	// Selections for the app
 		loadingError = d3.select("#loading-error"),
@@ -91,7 +90,7 @@ module.exports = function (loadOntologyFromText) {
 			d3.select("#converter-option").classed("selected-ontology", true);
 		} else {
 			// id of an existing ontology as parameter
-			loadOntologyFromUri(jsonBasePath + hashParameter + ".json", hashParameter);
+			loadOntologyFromUri(require("../../data/" + hashParameter + ".json"), hashParameter);
 
 			ontologyOptions.each(function () {
 				var ontologyOption = d3.select(this);
