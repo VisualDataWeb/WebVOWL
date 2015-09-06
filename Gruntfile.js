@@ -25,6 +25,25 @@ module.exports = function (grunt) {
 		clean: {
 			deploy: deployPath
 		},
+		connect: {
+			devserver: {
+				options: {
+					protocol: "http",
+					hostname: "localhost",
+					port: 8000,
+					base: deployPath,
+					directory: deployPath,
+					livereload: true,
+					open: "http://localhost:8000/",
+					middleware: function (connect, options, middlewares) {
+						return middlewares.concat([
+							require("serve-favicon")("deploy/favicon.ico"),
+							require("serve-static")(options.base[0])
+						]);
+					}
+				}
+			}
+		},
 		copy: {
 			dependencies: {
 				files: [
@@ -68,9 +87,7 @@ module.exports = function (grunt) {
 			options: {
 				configFile: "test/karma.conf.js"
 			},
-			dev: {
-
-			},
+			dev: {},
 			continuous: {
 				singleRun: true
 			}
@@ -103,31 +120,14 @@ module.exports = function (grunt) {
 				debug: true
 			}
 		},
-		"webpack-dev-server": {
-			options: {
-				webpack: webpackConfig,
-				publicPath: "/" + webpackConfig.output.publicPath,
-				port: 8000,
-				contentBase: "deploy/"
-			},
-			start: {
-				webpack: {
-					devtool: "eval",
-					debug: true
-				}
-			}
-		},
 		watch: {
-			js: {
-				files: ["src/js/**/*"],
-				tasks: ["webpack:build-dev", "post-js"],
-				options: {
-					spawn: false
-				}
+			options: {
+				livereload: true,
+				spawn: false
 			},
-			css: {
-				files: ["src/css/**/*.css"],
-				tasks: ["copy"]
+			js: {
+				files: ["src/app/**/*", "src/webvowl/**/*"],
+				tasks: ["webpack:build-dev", "post-js"]
 			},
 			html: {
 				files: ["src/**/*.html"],
@@ -142,7 +142,7 @@ module.exports = function (grunt) {
 	grunt.registerTask("post-js", ["replace"]);
 	grunt.registerTask("package", ["pre-js", "webpack:build-dev", "post-js", "htmlbuild:dev"]);
 	grunt.registerTask("release", ["pre-js", "webpack:build", "post-js", "htmlbuild:release"]);
-	grunt.registerTask("webserver", ["package", "webpack-dev-server", "watch"]);
+	grunt.registerTask("webserver", ["package", "connect:devserver", "watch"]);
 	grunt.registerTask("test", ["karma:dev"]);
 	grunt.registerTask("test-ci", ["karma:continuous"]);
 };

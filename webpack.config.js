@@ -10,7 +10,7 @@ module.exports = {
 	},
 	output: {
 		path: path.join(__dirname, "deploy/js/"),
-		publicPath: "deploy/js/",
+		publicPath: "js/",
 		filename: "[name].js",
 		chunkFilename: "[chunkhash].js",
 		libraryTarget: "assign",
