@@ -2,44 +2,28 @@
 
 module.exports = function (grunt) {
 
-	var deployPath = "deploy/",
-		graphPath = deployPath + "js/<%= pkg.name %>.js",
-		minGraphPath = deployPath + "js/<%= pkg.name %>.min.js",
-		appPath = deployPath + "js/<%= pkg.name %>-app.js",
-		minAppPath = deployPath + "js/<%= pkg.name %>-app.min.js";
+	require('load-grunt-tasks')(grunt);
+	var webpack = require("webpack");
+	var webpackConfig = require("./webpack.config.js");
+
+	var deployPath = "deploy/";
 
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
-		bowerrc: grunt.file.readJSON(".bowerrc"),
 		bump: {
 			options: {
-				files: ["bower.json", "package.json"],
+				files: ["package.json"],
 				updateConfigs: ["pkg"],
 				commit: true,
 				commitMessage: "Bump version to %VERSION%",
-				commitFiles: ["bower.json", "package.json"],
+				commitFiles: ["package.json"],
 				createTag: false,
 				push: false
 			}
 		},
 		clean: {
-			js: ["!" + deployPath + ".htaccess", deployPath + "**/*"]
-		},
-		concat: {
-			options: {
-				process: function (src, filepath) {
-					return "// Source: " + filepath + "\n" + src;
-				}
-			},
-			graph: {
-				src: ["src/js/header.js", "src/js/graph/**/*.js"],
-				dest: graphPath
-			},
-			app: {
-				src: ["src/js/app/header.js", "src/js/app/**/*.js"],
-				dest: appPath
-			}
+			deploy: deployPath
 		},
 		connect: {
 			devserver: {
@@ -50,13 +34,12 @@ module.exports = function (grunt) {
 					base: deployPath,
 					directory: deployPath,
 					livereload: true,
-					open: "http://localhost:8000/index.html",
-					middleware: function (connect, options) {
-						return [
-							connect.favicon("deploy/favicon.ico"),
-							connect.static(options.base[0]),
-							connect.directory(options.base[0])
-						];
+					open: "http://localhost:8000/",
+					middleware: function (connect, options, middlewares) {
+						return middlewares.concat([
+							require("serve-favicon")("deploy/favicon.ico"),
+							require("serve-static")(options.base[0])
+						]);
 					}
 				}
 			}
@@ -64,27 +47,14 @@ module.exports = function (grunt) {
 		copy: {
 			dependencies: {
 				files: [
-					{expand: true, cwd: "<%= bowerrc.directory %>/d3/", src: ["d3*.js"], dest: deployPath + "/js/"}
+					{expand: true, cwd: "node_modules/d3/", src: ["d3*.js"], dest: deployPath + "/js/"}
 				]
 			},
 			static: {
 				files: [
-					{expand: true, cwd: "src/css/", src: ["**"], dest: deployPath + "css/"},
-					{expand: true, cwd: "src/js/data/", src: ["**"], dest: deployPath + "js/data/"},
 					{expand: true, cwd: "src/", src: ["favicon.ico"], dest: deployPath},
 					{expand: true, src: ["license.txt"], dest: deployPath}
 				]
-			}
-		},
-		cssmin: {
-			all: {
-				files: [{
-					expand: true,
-					cwd: deployPath + "css/",
-					src: ["*.css", "!*.min.css"],
-					dest: deployPath + "css/",
-					ext: ".min.css"
-				}]
 			}
 		},
 		htmlbuild: {
@@ -110,16 +80,14 @@ module.exports = function (grunt) {
 			options: {
 				jshintrc: true
 			},
-			source: ["src/js/**/*.js"],
+			source: ["src/**/*.js"],
 			tests: ["test/*/**/*.js"]
 		},
 		karma: {
 			options: {
 				configFile: "test/karma.conf.js"
 			},
-			dev: {
-
-			},
+			dev: {},
 			continuous: {
 				singleRun: true
 			}
@@ -139,56 +107,51 @@ module.exports = function (grunt) {
 				]
 			}
 		},
-		uglify: {
-			options: {
-				banner: "/*! <%= pkg.name %> v<%= pkg.version %> */\n",
-				sourceMap: true
+		webpack: {
+			options: webpackConfig,
+			build: {
+				plugins: webpackConfig.plugins.concat(
+					new webpack.optimize.DedupePlugin(),
+					new webpack.optimize.UglifyJsPlugin()
+				)
 			},
-			graph: {
-				src: graphPath,
-				dest: minGraphPath
-			},
-			app: {
-				src: appPath,
-				dest: minAppPath
+			"build-dev": {
+				devtool: "sourcemap",
+				debug: true
 			}
 		},
 		watch: {
-			options: {
-				livereload: true
+			configs: {
+				files: ["Gruntfile.js"],
+				options: {
+					reload: true
+				}
 			},
-			css: {
-				files: ["src/css/**/*.css"],
-				tasks: ["copy", "cssmin"]
+			js: {
+				files: ["src/app/**/*", "src/webvowl/**/*"],
+				tasks: ["webpack:build-dev", "post-js"],
+				options: {
+					livereload: true,
+					spawn: false
+				}
 			},
 			html: {
 				files: ["src/**/*.html"],
-				tasks: ["htmlbuild:dev"]
-			},
-			scripts: {
-				files: ["src/js/**/*"],
-				tasks: ["package"]
+				tasks: ["htmlbuild:dev"],
+				options: {
+					livereload: true,
+					spawn: false
+				}
 			}
 		}
 	});
 
-	grunt.loadNpmTasks("grunt-bump");
-	grunt.loadNpmTasks("grunt-contrib-clean");
-	grunt.loadNpmTasks("grunt-contrib-concat");
-	grunt.loadNpmTasks("grunt-contrib-connect");
-	grunt.loadNpmTasks("grunt-contrib-copy");
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks("grunt-contrib-jshint");
-	grunt.loadNpmTasks("grunt-contrib-uglify");
-	grunt.loadNpmTasks("grunt-contrib-watch");
-	grunt.loadNpmTasks("grunt-html-build");
-	grunt.loadNpmTasks("grunt-karma");
-	grunt.loadNpmTasks("grunt-replace");
 
-	grunt.registerTask("build-common", ["clean", "copy", "cssmin", "concat", "uglify", "replace"]);
 	grunt.registerTask("default", ["release"]);
-	grunt.registerTask("package", ["build-common", "htmlbuild:dev"]);
-	grunt.registerTask("release", ["build-common", "htmlbuild:release"]);
+	grunt.registerTask("pre-js", ["clean", "copy"]);
+	grunt.registerTask("post-js", ["replace"]);
+	grunt.registerTask("package", ["pre-js", "webpack:build-dev", "post-js", "htmlbuild:dev"]);
+	grunt.registerTask("release", ["pre-js", "webpack:build", "post-js", "htmlbuild:release"]);
 	grunt.registerTask("webserver", ["package", "connect:devserver", "watch"]);
 	grunt.registerTask("test", ["karma:dev"]);
 	grunt.registerTask("test-ci", ["karma:continuous"]);

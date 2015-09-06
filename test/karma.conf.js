@@ -3,19 +3,28 @@ module.exports = function (config) {
 		basePath: "../",
 		frameworks: ["jasmine"],
 		files: [
-			"components/d3/d3.js",
-			"src/js/header.js",
-			"src/js/graph/**/*.js",
-			"test/unit/**/*.js"
+			"node_modules/d3/d3.js",
+			"test/unit/index.js"
 		],
-		reporters: ["progress"],
-		port: 9876,
-		autoWatch: true,
-		browsers : ["PhantomJS"],
-		plugins : [
-			"karma-phantomjs-launcher",
-			"karma-jasmine"
+		preprocessors: {
+			"test/unit/index.js": ["webpack"]
+		},
+		reporters: ["spec"],
+		browsers: ["PhantomJS"],
+		plugins: [
+			require("karma-jasmine"),
+			require("karma-phantomjs-launcher"),
+			require("karma-spec-reporter"),
+			require("karma-webpack")
 		],
+		webpack: {
+			resolve: {
+				extensions: ["", ".js"]
+			}
+		},
+		webpackMiddleware: {
+			noInfo: true
+		},
 		singleRun: false
 	});
 };
