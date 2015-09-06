@@ -121,17 +121,27 @@ module.exports = function (grunt) {
 			}
 		},
 		watch: {
-			options: {
-				livereload: true,
-				spawn: false
+			configs: {
+				files: ["Gruntfile.js"],
+				options: {
+					reload: true
+				}
 			},
 			js: {
 				files: ["src/app/**/*", "src/webvowl/**/*"],
-				tasks: ["webpack:build-dev", "post-js"]
+				tasks: ["webpack:build-dev", "post-js"],
+				options: {
+					livereload: true,
+					spawn: false
+				}
 			},
 			html: {
 				files: ["src/**/*.html"],
-				tasks: ["htmlbuild:dev"]
+				tasks: ["htmlbuild:dev"],
+				options: {
+					livereload: true,
+					spawn: false
+				}
 			}
 		}
 	});
