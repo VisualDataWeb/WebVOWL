@@ -9,11 +9,12 @@ module.exports = function (config) {
 		preprocessors: {
 			"test/unit/index.js": ["webpack"]
 		},
-		reporters: ["progress"],
+		reporters: ["spec"],
 		browsers: ["PhantomJS"],
 		plugins: [
-			require("karma-phantomjs-launcher"),
 			require("karma-jasmine"),
+			require("karma-phantomjs-launcher"),
+			require("karma-spec-reporter"),
 			require("karma-webpack")
 		],
 		webpack: {
