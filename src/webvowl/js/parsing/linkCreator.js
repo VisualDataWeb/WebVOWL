@@ -36,40 +36,19 @@ module.exports = (function () {
 			property = properties[i];
 
 			if (!addedProperties.has(property)) {
-				var link = require("../elements/link.js")();
-				link.domain(property.domain());
-				link.range(property);
+				var link = require("../elements/links/link")(property.domain(), property.range(), property);
 
-				link.property(property);
 				property.link(link);
-				addedProperties.add(property);
-
-				var inverse = property.inverse();
-				if (inverse) {
-					link.inverse(inverse);
-					inverse.link(link);
-					addedProperties.add(inverse);
+				if (property.inverse()) {
+					property.inverse().link(link);
 				}
 
 				links.push(link);
 
-
-				link = require("../elements/link.js")();
-				link.domain(property);
-				link.range(property.range());
-
-				link.property(property);
-				property.link(link);
 				addedProperties.add(property);
-
-				inverse = property.inverse();
-				if (inverse) {
-					link.inverse(inverse);
-					inverse.link(link);
-					addedProperties.add(inverse);
+				if (property.inverse()) {
+					addedProperties.add(property.inverse());
 				}
-
-				links.push(link);
 			}
 		}
 

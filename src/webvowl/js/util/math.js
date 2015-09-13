@@ -127,7 +127,6 @@ module.exports = (function () {
 			dx = ((x1 + x2) / 2) * distanceMultiplier,
 			dy = ((y1 + y2) / 2) * distanceMultiplier,
 			curvePoint = {"x": node.x + dx, "y": node.y + dy};
-		link.curvePoint(curvePoint);
 
 		return loopFunction([fixPoint1, curvePoint, fixPoint2]);
 	};

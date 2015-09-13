@@ -63,10 +63,8 @@ module.exports = function (graphContainerSelector) {
 				curvePoint = math.calculateCurvePoint(pathStart, pathEnd, l,
 					linkDistance / options.defaultLinkDistance());
 
-			l.curvePoint(curvePoint);
-
-			return curveFunction([math.calculateIntersection(l.curvePoint(), l.domain(), 1),
-				curvePoint, math.calculateIntersection(l.curvePoint(), l.range(), 1)]);
+			return curveFunction([math.calculateIntersection(curvePoint, l.domain(), 1),
+				curvePoint, math.calculateIntersection(curvePoint, l.range(), 1)]);
 		});
 
 		// Set label group positions
@@ -77,7 +75,7 @@ module.exports = function (graphContainerSelector) {
 
 		// Set cardinality positions
 		cardinalityElements.attr("transform", function (p) {
-			var curve = p.link().curvePoint(),
+			var curve = p, // TODO fix cardinalities
 				pos = math.calculateIntersection(curve, p.range(), CARDINALITY_HDISTANCE),
 				normalV = math.calculateNormalVector(curve, p.domain(), CARDINALITY_VDISTANCE);
 
@@ -380,8 +378,12 @@ module.exports = function (graphContainerSelector) {
 
 		storeLinksOnNodes(nodes, links);
 
+		var d3Links = links.reduce(function (array, link) {
+			return array.concat(link.linkParts());
+		}, []);
+
 		force.nodes(nodes.concat(properties))
-			.links(links);
+			.links(d3Links);
 	}
 
 	function storeLinksOnNodes(nodes, links) {
