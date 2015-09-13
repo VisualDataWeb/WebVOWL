@@ -60,8 +60,8 @@ module.exports = function (graphContainerSelector) {
 		});
 
 		// Set label group positions
-		labelGroupElements.attr("transform", function (property) {
-			return "translate(" + property.x + "," + property.y + ")";
+		labelGroupElements.attr("transform", function (link) {
+			return "translate(" + link.property().x + "," + link.property().y + ")";
 		});
 
 
@@ -261,12 +261,12 @@ module.exports = function (graphContainerSelector) {
 
 		// Draw label groups (property + inverse)
 		labelGroupElements = labelContainer.selectAll(".labelGroup")
-			.data(properties).enter()
+			.data(links).enter()
 			.append("g")
 			.classed("labelGroup", true);
 
-		labelGroupElements.each(function (property) {
-			var success = property.draw(d3.select(this));
+		labelGroupElements.each(function (link) {
+			var success = link.property().draw(d3.select(this));
 			// Remove empty groups without a label.
 			if (!success) {
 				d3.select(this).remove();
@@ -274,13 +274,13 @@ module.exports = function (graphContainerSelector) {
 		});
 
 		// Place subclass label groups on the bottom of all labels
-		labelGroupElements.each(function (property) {
+		labelGroupElements.each(function (link) {
 			// the label might be hidden e.g. in compact notation
 			if (!this.parentNode) {
 				return;
 			}
 
-			if (elementTools.isRdfsSubClassOf(property)) {
+			if (elementTools.isRdfsSubClassOf(link.property())) {
 				var parentNode = this.parentNode;
 				parentNode.insertBefore(this, parentNode.firstChild);
 			}
