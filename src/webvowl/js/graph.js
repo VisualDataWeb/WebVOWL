@@ -163,23 +163,19 @@ module.exports = function (graphContainerSelector) {
 	 * Stops the influence of the force directed layout on all nodes. They are still manually movable.
 	 */
 	graph.freeze = function () {
-		if (nodes) {
-			nodes.forEach(function (n) {
-				n.frozen(true);
-			});
-		}
+		force.nodes().forEach(function (n) {
+			n.frozen(true);
+		});
 	};
 
 	/**
 	 * Allows the influence of the force directed layout on all nodes.
 	 */
 	graph.unfreeze = function () {
-		if (nodes) {
-			nodes.forEach(function (n) {
-				n.frozen(false);
-			});
-			force.resume();
-		}
+		force.nodes().forEach(function (n) {
+			n.frozen(false);
+		});
+		force.resume();
 	};
 
 	/**
