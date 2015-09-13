@@ -55,7 +55,7 @@ module.exports = function (graphContainerSelector) {
 			var position;
 
 			// force centered positions on single-layered links
-			if (link.layers().length === 1) {
+			if (link.layers().length === 1 && !link.loops()) {
 				position = math.calculateCenter(link.domain(), link.range());
 				link.property().x = position.x;
 				link.property().y = position.y;
