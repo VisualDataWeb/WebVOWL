@@ -32,10 +32,10 @@ module.exports = function (graphContainerSelector) {
 		cardinalityElements,
 	// Internal data
 		nodes,
+		links,
 		properties,
 		unfilteredNodes,
 		unfilteredProperties,
-		links,
 	// Graph behaviour
 		force,
 		dragBehaviour,
@@ -70,11 +70,8 @@ module.exports = function (graphContainerSelector) {
 		});
 
 		// Set label group positions
-		labelGroupElements.attr("transform", function (link) {
-			var posX = link.curvePoint().x,
-				posY = link.curvePoint().y;
-
-			return "translate(" + posX + "," + posY + ")";
+		labelGroupElements.attr("transform", function (property) {
+			return "translate(" + property.x + "," + property.y + ")";
 		});
 
 
@@ -218,9 +215,9 @@ module.exports = function (graphContainerSelector) {
 
 	function getVisibleLinkDistance(link) {
 		if (elementTools.isDatatype(link.domain()) || elementTools.isDatatype(link.range())) {
-			return options.datatypeDistance();
+			return options.datatypeDistance() / 2;
 		} else {
-			return options.classDistance();
+			return options.classDistance() / 2;
 		}
 	}
 
@@ -276,15 +273,14 @@ module.exports = function (graphContainerSelector) {
 			node.draw(d3.select(this));
 		});
 
-
 		// Draw label groups (property + inverse)
 		labelGroupElements = labelContainer.selectAll(".labelGroup")
-			.data(links).enter()
+			.data(properties).enter()
 			.append("g")
 			.classed("labelGroup", true);
 
-		labelGroupElements.each(function (link) {
-			var success = link.property().draw(d3.select(this));
+		labelGroupElements.each(function (property) {
+			var success = property.draw(d3.select(this));
 			// Remove empty groups without a label.
 			if (!success) {
 				d3.select(this).remove();
@@ -292,13 +288,13 @@ module.exports = function (graphContainerSelector) {
 		});
 
 		// Place subclass label groups on the bottom of all labels
-		labelGroupElements.each(function (link) {
+		labelGroupElements.each(function (property) {
 			// the label might be hidden e.g. in compact notation
 			if (!this.parentNode) {
 				return;
 			}
 
-			if (elementTools.isRdfsSubClassOf(link.property())) {
+			if (elementTools.isRdfsSubClassOf(property)) {
 				var parentNode = this.parentNode;
 				parentNode.insertBefore(this, parentNode.firstChild);
 			}
@@ -384,7 +380,7 @@ module.exports = function (graphContainerSelector) {
 
 		storeLinksOnNodes(nodes, links);
 
-		force.nodes(nodes)
+		force.nodes(nodes.concat(properties))
 			.links(links);
 	}
 

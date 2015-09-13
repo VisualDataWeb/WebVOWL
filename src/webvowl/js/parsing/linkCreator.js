@@ -37,14 +37,32 @@ module.exports = (function () {
 
 			if (!addedProperties.has(property)) {
 				var link = require("../elements/link.js")();
-				link.property(property);
 				link.domain(property.domain());
-				link.range(property.range());
+				link.range(property);
 
+				link.property(property);
 				property.link(link);
 				addedProperties.add(property);
 
 				var inverse = property.inverse();
+				if (inverse) {
+					link.inverse(inverse);
+					inverse.link(link);
+					addedProperties.add(inverse);
+				}
+
+				links.push(link);
+
+
+				link = require("../elements/link.js")();
+				link.domain(property);
+				link.range(property.range());
+
+				link.property(property);
+				property.link(link);
+				addedProperties.add(property);
+
+				inverse = property.inverse();
 				if (inverse) {
 					link.inverse(inverse);
 					inverse.link(link);

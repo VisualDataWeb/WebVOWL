@@ -65,6 +65,10 @@ module.exports = (function () {
 			}
 		};
 
+		this.distanceToBorder = function() {
+			return that.radius();
+		};
+
 		/**
 		 * Draws the pin on a round node on a position depending on its radius.
 		 */

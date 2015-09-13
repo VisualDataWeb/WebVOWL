@@ -11,14 +11,9 @@ module.exports = (function () {
 			disjointWith,
 			individuals = [],
 			intersection,
-			links,
 			union,
 		// Additional attributes
 			maxIndividualCount,
-		// Fixed Location attributes
-			locked = false,
-			frozen = false,
-			pinned = false,
 		// Element containers
 			nodeElement;
 
@@ -48,12 +43,6 @@ module.exports = (function () {
 			return this;
 		};
 
-		this.links = function (p) {
-			if (!arguments.length) return links;
-			links = p;
-			return this;
-		};
-
 		this.maxIndividualCount = function (p) {
 			if (!arguments.length) return maxIndividualCount;
 			maxIndividualCount = p;
@@ -72,36 +61,6 @@ module.exports = (function () {
 			return this;
 		};
 
-
-		// Functions
-		this.locked = function (p) {
-			if (!arguments.length) return locked;
-			locked = p;
-			applyFixedLocationAttributes();
-			return this;
-		};
-
-		this.frozen = function (p) {
-			if (!arguments.length) return frozen;
-			frozen = p;
-			applyFixedLocationAttributes();
-			return this;
-		};
-
-		this.pinned = function (p) {
-			if (!arguments.length) return pinned;
-			pinned = p;
-			applyFixedLocationAttributes();
-			return this;
-		};
-
-		function applyFixedLocationAttributes() {
-			if (that.locked() || that.frozen() || that.pinned()) {
-				that.fixed = true;
-			} else {
-				that.fixed = false;
-			}
-		}
 
 		/**
 		 * Returns css classes generated from the data of this object.
@@ -157,29 +116,10 @@ module.exports = (function () {
 			that.mouseEntered(false);
 		}
 
-		/**
-		 * Generates a distinct css class for a node id.
-		 * @returns {string}
-		 */
-		this.cssClassOfNode = function () {
-			return "node" + that.id();
-		};
-
 	};
 
 	base.prototype = Object.create(BaseElement.prototype);
 	base.prototype.constructor = base;
-
-	// Define d3 properties
-	Object.defineProperties(base, {
-		"index": {writable: true},
-		"x": {writable: true},
-		"y": {writable: true},
-		"px": {writable: true},
-		"py": {writable: true},
-		"fixed": {writable: true},
-		"weight": {writable: true}
-	});
 
 
 	return base;

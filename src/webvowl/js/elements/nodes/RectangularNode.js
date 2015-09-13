@@ -31,6 +31,24 @@ module.exports = (function () {
 			return width;
 		};
 
+		this.distanceToBorder = function(dx, dy) {
+			var innerDistance,
+				m_link = Math.abs(dy / dx),
+				m_rect = that.height() / that.width();
+
+			if (m_link <= m_rect) {
+				var timesX = dx / (that.width() / 2),
+					rectY = dy / timesX;
+				innerDistance = Math.sqrt(Math.pow(that.width() / 2, 2) + Math.pow(rectY, 2));
+			} else {
+				var timesY = dy / (that.height() / 2),
+					rectX = dx / timesY;
+				innerDistance = Math.sqrt(Math.pow(that.height() / 2, 2) + Math.pow(rectX, 2));
+			}
+
+			return innerDistance;
+		};
+
 		this.setHoverHighlighting = function (enable) {
 			that.nodeElement().selectAll("rect").classed("hovered", enable);
 		};

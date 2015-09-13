@@ -160,27 +160,11 @@ module.exports = (function () {
 	math.calculateIntersection = function (source, target, additionalDistance) {
 		var dx = target.x - source.x,
 			dy = target.y - source.y,
-			innerDistance;
+			length = Math.sqrt(dx * dx + dy * dy);
 
-		if (target instanceof RoundNode) {
-			innerDistance = target.radius();
-		} else {
-			var m_link = Math.abs(dy / dx),
-				m_rect = target.height() / target.width();
+		var innerDistance = target.distanceToBorder(dx, dy);
 
-			if (m_link <= m_rect) {
-				var timesX = dx / (target.width() / 2),
-					rectY = dy / timesX;
-				innerDistance = Math.sqrt(Math.pow(target.width() / 2, 2) + Math.pow(rectY, 2));
-			} else {
-				var timesY = dy / (target.height() / 2),
-					rectX = dx / timesY;
-				innerDistance = Math.sqrt(Math.pow(target.height() / 2, 2) + Math.pow(rectX, 2));
-			}
-		}
-
-		var length = Math.sqrt(dx * dx + dy * dy),
-			ratio = (length - (innerDistance + additionalDistance)) / length,
+		var ratio = (length - (innerDistance + additionalDistance)) / length,
 			x = dx * ratio + source.x,
 			y = dy * ratio + source.y;
 

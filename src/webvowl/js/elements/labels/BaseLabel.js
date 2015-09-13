@@ -140,6 +140,24 @@ module.exports = (function () {
 
 
 		// Functions
+		this.distanceToBorder = function (dx, dy) {
+			var innerDistance,
+				m_link = Math.abs(dy / dx),
+				m_rect = that.height() / that.width();
+
+			if (m_link <= m_rect) {
+				var timesX = dx / (that.width() / 2),
+					rectY = dy / timesX;
+				innerDistance = Math.sqrt(Math.pow(that.width() / 2, 2) + Math.pow(rectY, 2));
+			} else {
+				var timesY = dy / (that.height() / 2),
+					rectX = dx / timesY;
+				innerDistance = Math.sqrt(Math.pow(that.height() / 2, 2) + Math.pow(rectX, 2));
+			}
+
+			return innerDistance;
+		};
+
 		this.isSpecialLink = function () {
 			return linkType === "special";
 		};
@@ -187,7 +205,7 @@ module.exports = (function () {
 
 			// Draw an inverse label and reposition both labels if necessary
 			if (that.inverse()) {
-				var yTransformation = (that.labelHeight() / 2) + 1 /* additional space */;
+				var yTransformation = (that.height() / 2) + 1 /* additional space */;
 				that.inverse()
 					.labelElement(attachLabel(that.inverse()));
 
@@ -205,10 +223,10 @@ module.exports = (function () {
 			var rect = groupTag.append("rect")
 				.classed(that.styleClass(), true)
 				.classed("property", true)
-				.attr("x", -that.labelWidth() / 2)
-				.attr("y", -that.labelHeight() / 2)
-				.attr("width", that.labelWidth())
-				.attr("height", that.labelHeight())
+				.attr("x", -that.width() / 2)
+				.attr("y", -that.height() / 2)
+				.attr("width", that.width())
+				.attr("height", that.height())
 				.on("mouseover", function () {
 					onMouseOver();
 				})
@@ -365,15 +383,16 @@ module.exports = (function () {
 	base.prototype = Object.create(BaseElement.prototype);
 	base.prototype.constructor = base;
 
-	base.prototype.labelHeight = function () {
+	base.prototype.height = function () {
 		return labelHeight;
 	};
 
-	base.prototype.labelWidth = function () {
+	base.prototype.width = function () {
 		return labelWidth;
 	};
+	base.prototype.actualRadius = base.prototype.width;
 
-	base.prototype.textWidth = base.prototype.labelWidth;
+	base.prototype.textWidth = base.prototype.width;
 
 
 	return base;

@@ -6,12 +6,15 @@ module.exports = (function () {
 	var DEFAULT_LABEL = "DEFAULT_LABEL";
 
 	var base = function (graph) {
+		var that = this;
+
 		// Basic attributes
 		var equivalents = [],
 			id,
 			label,
 			type,
 			iri,
+			links,
 		// Additional attributes
 			annotations,
 			attributes = [],
@@ -25,6 +28,10 @@ module.exports = (function () {
 			mouseEntered = false,
 			styleClass,
 			visible = true,
+		// Fixed Location attributes
+			locked = false,
+			frozen = false,
+			pinned = false,
 		// Other
 			languageTools = require("../util/languageTools.js")();
 
@@ -96,6 +103,12 @@ module.exports = (function () {
 			return this;
 		};
 
+		this.links = function (p) {
+			if (!arguments.length) return links;
+			links = p;
+			return this;
+		};
+
 		this.mouseEntered = function (p) {
 			if (!arguments.length) return mouseEntered;
 			mouseEntered = p;
@@ -131,6 +144,13 @@ module.exports = (function () {
 			return languageTools.textInLanguage(this.comment(), graph.language());
 		};
 
+		/**
+		 * @returns {string} the css class of this node..
+		 */
+		this.cssClassOfNode = function () {
+			return "node" + this.id();
+		};
+
 		this.descriptionForCurrentLanguage = function () {
 			return languageTools.textInLanguage(this.description(), graph.language());
 		};
@@ -146,9 +166,50 @@ module.exports = (function () {
 		this.labelForCurrentLanguage = function () {
 			return languageTools.textInLanguage(this.label(), graph.language());
 		};
+
+
+		this.locked = function (p) {
+			if (!arguments.length) return locked;
+			locked = p;
+			applyFixedLocationAttributes();
+			return this;
+		};
+
+		this.frozen = function (p) {
+			if (!arguments.length) return frozen;
+			frozen = p;
+			applyFixedLocationAttributes();
+			return this;
+		};
+
+		this.pinned = function (p) {
+			if (!arguments.length) return pinned;
+			pinned = p;
+			applyFixedLocationAttributes();
+			return this;
+		};
+
+		function applyFixedLocationAttributes() {
+			if (that.locked() || that.frozen() || that.pinned()) {
+				that.fixed = true;
+			} else {
+				that.fixed = false;
+			}
+		}
 	};
 
 	base.prototype.constructor = base;
+
+	// Define d3 properties
+	Object.defineProperties(base, {
+		"index": {writable: true},
+		"x": {writable: true},
+		"y": {writable: true},
+		"px": {writable: true},
+		"py": {writable: true},
+		"fixed": {writable: true},
+		"weight": {writable: true}
+	});
 
 
 	return base;
