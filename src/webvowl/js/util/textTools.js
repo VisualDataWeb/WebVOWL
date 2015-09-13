@@ -19,29 +19,30 @@ function measureTextWidth(text, textStyle) {
 	return w;
 }
 
-tools.truncate = function (text, maxLength, textStyle) {
-	maxLength -= ADDITIONAL_TEXT_SPACE;
-	if (isNaN(maxLength) || maxLength <= 0) {
+tools.truncate = function (text, maxWidth, textStyle) {
+	maxWidth -= ADDITIONAL_TEXT_SPACE;
+	if (isNaN(maxWidth) || maxWidth <= 0) {
 		return text;
 	}
 
-	var textLength = text.length,
+	var truncatedText = text,
+		newTruncatedTextLength,
 		textWidth,
 		ratio;
 
 	while (true) {
-		textWidth = measureTextWidth(text, textStyle);
-		if (textWidth <= maxLength) {
+		textWidth = measureTextWidth(truncatedText, textStyle);
+		if (textWidth <= maxWidth) {
 			break;
 		}
 
-		ratio = textWidth / maxLength;
-		textLength = Math.floor(textLength / ratio);
-		text = text.substring(0, textLength);
+		ratio = textWidth / maxWidth;
+		newTruncatedTextLength = Math.floor(truncatedText.length / ratio);
+		truncatedText = truncatedText.substring(0, newTruncatedTextLength);
 	}
 
-	if (text.length > textLength) {
-		return text.substring(0, textLength - 3) + "...";
+	if (text.length > truncatedText.length) {
+		return text.substring(0, truncatedText.length - 3) + "...";
 	}
 	return text;
 };
