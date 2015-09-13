@@ -39,69 +39,6 @@ module.exports = (function () {
 	};
 
 	/**
-	 * Calculates an additional point for the link path. This curve point
-	 * will ensure, that no links overlap each other completely.
-	 * @param linkStart the position where the link starts - might differ from link.source
-	 * @param linkEnd the position where the link ends - might differ from link.target
-	 * @param link the associated link
-	 * @param linkDistanceMultiplier is multiplied with the default distance two parallel links
-	 *                               have from each other
-	 * @returns {{x: number, y: number}}
-	 */
-	math.calculateCurvePoint = function (linkStart, linkEnd, link, linkDistanceMultiplier) {
-		var distance = calculateLayeredLinkDistance(link, linkDistanceMultiplier),
-
-		// Find the center of the two points,
-			dx = linkEnd.x - linkStart.x,
-			dy = linkEnd.y - linkStart.y,
-
-			cx = linkStart.x + dx / 2,
-			cy = linkStart.y + dy / 2,
-
-			n = math.calculateNormalVector(linkStart, linkEnd, distance);
-
-		// Every second link shoud be drawn on the opposite of the center
-		if (link.layerIndex() % 2 !== 0) {
-			n.x = -n.x;
-			n.y = -n.y;
-		}
-
-		/*
-		 If there is a link from A to B, the normal vector will point to the left
-		 in movement direction.
-		 It there is a link from B to A, the normal vector should point to the right of his
-		 own direction to not overlay the other link.
-		 */
-		if (link.domain().index < link.range().index) {
-			n.x = -n.x;
-			n.y = -n.y;
-		}
-
-		return {"x": cx + n.x, "y": cy + n.y};
-	};
-
-	/**
-	 * Calculates the height of the layer of the passed link.
-	 * @param link the associated link
-	 * @param linkDistanceMultiplier is multplied with the default distance
-	 * @returns {number}
-	 */
-	function calculateLayeredLinkDistance(link, linkDistanceMultiplier) {
-		var level = Math.floor((link.layerIndex() - link.layerCount() % 2) / 2) + 1,
-			isOddLayerCountAsFlag = (link.layerCount() % 2) * 15,
-			distance = 0;
-		switch (level) {
-			case 1:
-				distance = 20 + isOddLayerCountAsFlag;
-				break;
-			case 2:
-				distance = 50 + isOddLayerCountAsFlag;
-				break;
-		}
-		return distance * linkDistanceMultiplier;
-	}
-
-	/**
 	 * Calculates the path for a link, if it is a loop. Currently only working for circlular nodes.
 	 * @param link the link
 	 * @returns {*}

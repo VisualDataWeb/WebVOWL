@@ -52,19 +52,11 @@ module.exports = function (graphContainerSelector) {
 
 		// Set link paths and calculate additional informations
 		linkPathElements.attr("d", function (l) {
-			if (l.domain() === l.range()) {
-				return math.calculateLoopPath(l);
-			}
+			var curvePoint = l.property();
+			var pathStart = math.calculateIntersection(curvePoint, l.domain(), 1);
+			var pathEnd = math.calculateIntersection(curvePoint, l.range(), 1);
 
-			// Calculate these every time to get nicer curved paths
-			var pathStart = math.calculateIntersection(l.range(), l.domain(), 1),
-				pathEnd = math.calculateIntersection(l.domain(), l.range(), 1),
-				linkDistance = getVisibleLinkDistance(l),
-				curvePoint = math.calculateCurvePoint(pathStart, pathEnd, l,
-					linkDistance / options.defaultLinkDistance());
-
-			return curveFunction([math.calculateIntersection(curvePoint, l.domain(), 1),
-				curvePoint, math.calculateIntersection(curvePoint, l.range(), 1)]);
+			return curveFunction([pathStart, curvePoint, pathEnd]);
 		});
 
 		// Set label group positions
