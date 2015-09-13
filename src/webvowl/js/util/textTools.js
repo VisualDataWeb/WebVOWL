@@ -13,14 +13,15 @@ function measureTextWidth(text, textStyle) {
 			.append("div")
 			.attr("class", textStyle)
 			.attr("id", "width-test") // tag this element to identify it
+			.attr("style", "position:absolute; float:left; white-space:nowrap; visibility:hidden;")
 			.text(text),
 		w = document.getElementById("width-test").offsetWidth;
 	d.remove();
 	return w;
 }
 
-tools.truncate = function (text, maxWidth, textStyle) {
-	maxWidth -= ADDITIONAL_TEXT_SPACE;
+tools.truncate = function (text, maxWidth, textStyle, additionalTextSpace) {
+	maxWidth -= isNaN(additionalTextSpace) ? ADDITIONAL_TEXT_SPACE : additionalTextSpace;
 	if (isNaN(maxWidth) || maxWidth <= 0) {
 		return text;
 	}
@@ -38,6 +39,12 @@ tools.truncate = function (text, maxWidth, textStyle) {
 
 		ratio = textWidth / maxWidth;
 		newTruncatedTextLength = Math.floor(truncatedText.length / ratio);
+
+		// detect if nothing changes
+		if (truncatedText.length === newTruncatedTextLength) {
+			break;
+		}
+
 		truncatedText = truncatedText.substring(0, newTruncatedTextLength);
 	}
 
