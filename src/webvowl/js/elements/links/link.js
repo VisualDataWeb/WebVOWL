@@ -3,10 +3,8 @@ module.exports = function (_domain, _range, _property) {
 	var link = {},
 		domain = _domain,
 		layers,
-		layerCount,
 		layerIndex,
 		loops,
-		loopCount,
 		loopIndex,
 		property = _property,
 		range = _range;
@@ -21,12 +19,6 @@ module.exports = function (_domain, _range, _property) {
 		return link;
 	};
 
-	link.layerCount = function (p) {
-		if (!arguments.length) return layerCount;
-		layerCount = p;
-		return link;
-	};
-
 	link.layerIndex = function (p) {
 		if (!arguments.length) return layerIndex;
 		layerIndex = p;
@@ -36,12 +28,6 @@ module.exports = function (_domain, _range, _property) {
 	link.loops = function (p) {
 		if (!arguments.length) return loops;
 		loops = p;
-		return link;
-	};
-
-	link.loopCount = function (p) {
-		if (!arguments.length) return loopCount;
-		loopCount = p;
 		return link;
 	};
 

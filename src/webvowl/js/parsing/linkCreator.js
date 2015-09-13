@@ -60,7 +60,7 @@ module.exports = (function () {
 			layers,
 			i, l;
 
-		if (typeof link.layerCount() === "undefined") {
+		if (typeof link.layers() === "undefined") {
 			layers = [];
 
 			// Search for other links that are another layer
@@ -77,7 +77,6 @@ module.exports = (function () {
 				layer = layers[i];
 
 				layer.layerIndex(i);
-				layer.layerCount(l);
 				layer.layers(layers);
 			}
 		}
@@ -88,7 +87,7 @@ module.exports = (function () {
 			loops,
 			i, l;
 
-		if (typeof link.loopCount() === "undefined") {
+		if (typeof link.loops() === "undefined") {
 			loops = [];
 
 			// Search for other links that are also loops of the same node
@@ -104,7 +103,6 @@ module.exports = (function () {
 				loop = loops[i];
 
 				loop.loopIndex(i);
-				loop.loopCount(l);
 				loop.loops(loops);
 			}
 		}

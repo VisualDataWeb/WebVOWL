@@ -107,6 +107,19 @@ module.exports = (function () {
 		return {x: x, y: y};
 	};
 
+	/**
+	 * Calculates the position between the two points.
+	 * @param firstPoint
+	 * @param secondPoint
+	 * @returns {{x: number, y: number}}
+	 */
+	math.calculateCenter = function (firstPoint, secondPoint) {
+		return {
+			x: (firstPoint.x + secondPoint.x) / 2,
+			y: (firstPoint.y + secondPoint.y) / 2
+		};
+	};
+
 
 	return function () {
 		/* Use a function here to keep a consistent style like webvowl.path.to.module()

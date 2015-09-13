@@ -50,6 +50,22 @@ module.exports = function (graphContainerSelector) {
 			return "translate(" + node.x + "," + node.y + ")";
 		});
 
+		// Set label group positions
+		labelGroupElements.attr("transform", function (link) {
+			var position;
+
+			// force centered positions on single-layered links
+			if (link.layers().length === 1) {
+				position = math.calculateCenter(link.domain(), link.range());
+				link.property().x = position.x;
+				link.property().y = position.y;
+			} else {
+				position = link.property();
+			}
+
+			return "translate(" + position.x + "," + position.y + ")";
+		});
+
 		// Set link paths and calculate additional informations
 		linkPathElements.attr("d", function (l) {
 			var curvePoint = l.property();
@@ -58,12 +74,6 @@ module.exports = function (graphContainerSelector) {
 
 			return curveFunction([pathStart, curvePoint, pathEnd]);
 		});
-
-		// Set label group positions
-		labelGroupElements.attr("transform", function (link) {
-			return "translate(" + link.property().x + "," + link.property().y + ")";
-		});
-
 
 		// Set cardinality positions
 		cardinalityElements.attr("transform", function (p) {
