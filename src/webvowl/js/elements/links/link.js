@@ -6,11 +6,11 @@ module.exports = function (_domain, _range, _property) {
 		layerIndex,
 		loops,
 		loopIndex,
-		property = _property,
+		label = require("./label")(_property),
 		range = _range;
 
-	var backPart = require("./linkPart")(domain, property, link),
-		frontPart = require("./linkPart")(property, range, link);
+	var backPart = require("./linkPart")(domain, label, link),
+		frontPart = require("./linkPart")(label, range, link);
 
 
 	link.layers = function (p) {
@@ -51,7 +51,11 @@ module.exports = function (_domain, _range, _property) {
 	};
 
 	link.inverse = function () {
-		return property ? property.inverse() : undefined;
+		return label.inverse();
+	};
+
+	link.label = function () {
+		return label;
 	};
 
 	link.linkParts = function () {
@@ -59,7 +63,7 @@ module.exports = function (_domain, _range, _property) {
 	};
 
 	link.property = function () {
-		return property;
+		return label.property();
 	};
 
 	link.range = function () {
@@ -68,7 +72,8 @@ module.exports = function (_domain, _range, _property) {
 
 
 	link.draw = function (linkGroup, markerContainer) {
-		var inverse = link.inverse();
+		var property = label.property();
+		var inverse = label.inverse();
 
 		property.linkGroup(linkGroup);
 		if (inverse) {
@@ -115,13 +120,13 @@ module.exports = function (_domain, _range, _property) {
 			.classed(range.cssClassOfNode(), true)
 			.classed(property.linkType(), true)
 			.attr("marker-end", function (l) {
-				if (!l.property().isSpecialLink()) {
-					return "url(#" + l.property().markerId() + ")";
+				if (!l.label().property().isSpecialLink()) {
+					return "url(#" + l.label().property().markerId() + ")";
 				}
 				return "";
 			})
 			.attr("marker-start", function (l) {
-				var inverse = l.inverse();
+				var inverse = l.label().inverse();
 				if (inverse && !inverse.isSpecialLink()) {
 					return "url(#" + inverse.markerId() + ")";
 				}

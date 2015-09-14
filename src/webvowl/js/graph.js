@@ -57,10 +57,10 @@ module.exports = function (graphContainerSelector) {
 			// force centered positions on single-layered links
 			if (link.layers().length === 1 && !link.loops()) {
 				position = math.calculateCenter(link.domain(), link.range());
-				link.property().x = position.x;
-				link.property().y = position.y;
+				link.label().x = position.x;
+				link.label().y = position.y;
 			} else {
-				position = link.property();
+				position = link.label();
 			}
 
 			return "translate(" + position.x + "," + position.y + ")";
@@ -68,7 +68,7 @@ module.exports = function (graphContainerSelector) {
 
 		// Set link paths and calculate additional informations
 		linkPathElements.attr("d", function (l) {
-			var curvePoint = l.property();
+			var curvePoint = l.label();
 			var pathStart = math.calculateIntersection(curvePoint, l.domain(), 1);
 			var pathEnd = math.calculateIntersection(curvePoint, l.range(), 1);
 
@@ -76,10 +76,10 @@ module.exports = function (graphContainerSelector) {
 		});
 
 		// Set cardinality positions
-		cardinalityElements.attr("transform", function (p) {
-			var curve = p, // TODO fix cardinalities
-				pos = math.calculateIntersection(curve, p.range(), CARDINALITY_HDISTANCE),
-				normalV = math.calculateNormalVector(curve, p.domain(), CARDINALITY_VDISTANCE);
+		cardinalityElements.attr("transform", function (property) {
+			var label = property.link().label(),
+				pos = math.calculateIntersection(label, property.range(), CARDINALITY_HDISTANCE),
+				normalV = math.calculateNormalVector(label, property.domain(), CARDINALITY_VDISTANCE);
 
 			return "translate(" + (pos.x + normalV.x) + "," + (pos.y + normalV.y) + ")";
 		});
@@ -276,7 +276,7 @@ module.exports = function (graphContainerSelector) {
 			.classed("labelGroup", true);
 
 		labelGroupElements.each(function (link) {
-			var success = link.property().draw(d3.select(this));
+			var success = link.label().draw(d3.select(this));
 			// Remove empty groups without a label.
 			if (!success) {
 				d3.select(this).remove();
@@ -376,12 +376,7 @@ module.exports = function (graphContainerSelector) {
 
 		storeLinksOnNodes(nodes, links);
 
-		var d3Links = links.reduce(function (array, link) {
-			return array.concat(link.linkParts());
-		}, []);
-
-		force.nodes(nodes.concat(properties))
-			.links(d3Links);
+		setForceLayoutData(nodes, links);
 	}
 
 	function storeLinksOnNodes(nodes, links) {
@@ -400,6 +395,20 @@ module.exports = function (graphContainerSelector) {
 
 			node.links(connectedLinks);
 		}
+	}
+
+	function setForceLayoutData(nodes, links) {
+		var d3Links = links.reduce(function (array, link) {
+			return array.concat(link.linkParts());
+		}, []);
+
+		var d3Nodes = [].concat(nodes);
+		links.forEach(function (link) {
+			d3Nodes.push(link.label());
+		});
+
+		force.nodes(d3Nodes)
+			.links(d3Links);
 	}
 
 

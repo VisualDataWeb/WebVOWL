@@ -200,17 +200,6 @@ module.exports = (function () {
 
 	base.prototype.constructor = base;
 
-	// Define d3 properties
-	Object.defineProperties(base, {
-		"index": {writable: true},
-		"x": {writable: true},
-		"y": {writable: true},
-		"px": {writable: true},
-		"py": {writable: true},
-		"fixed": {writable: true},
-		"weight": {writable: true}
-	});
-
 
 	return base;
 }());
