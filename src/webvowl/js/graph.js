@@ -68,6 +68,10 @@ module.exports = function (graphContainerSelector) {
 
 		// Set link paths and calculate additional informations
 		linkPathElements.attr("d", function (l) {
+			if (l.domain() === l.range()) {
+				return math.calculateLoopPath(l);
+			}
+
 			var curvePoint = l.label();
 			var pathStart = math.calculateIntersection(curvePoint, l.domain(), 1);
 			var pathEnd = math.calculateIntersection(curvePoint, l.range(), 1);

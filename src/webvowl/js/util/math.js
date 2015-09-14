@@ -45,11 +45,21 @@ module.exports = (function () {
 	 */
 	math.calculateLoopPath = function (link) {
 		var node = link.domain(),
-			loopShiftAngle = 360 / link.loopCount(),
-			loopAngle = Math.min(60, loopShiftAngle * 0.8),
+			label = link.label();
 
-			arcFrom = calculateRadian(loopShiftAngle * link.loopIndex()),
-			arcTo = calculateRadian((loopShiftAngle * link.loopIndex()) + loopAngle),
+		var loopShiftAngle = 360 / link.loops().length,
+			loopAngle = Math.max(40, loopShiftAngle * 0.8);
+
+		var dx = label.x - node.x,
+			dy = label.y - node.y,
+			labelRadian = Math.atan2(dy, dx),
+			labelAngle = calculateAngle(labelRadian);
+
+		var startAngle = labelAngle - loopAngle / 2,
+			endAngle = labelAngle + loopAngle/ 2;
+
+		var arcFrom = calculateRadian(startAngle),
+			arcTo = calculateRadian(endAngle),
 
 			x1 = Math.cos(arcFrom) * node.actualRadius(),
 			y1 = Math.sin(arcFrom) * node.actualRadius(),
@@ -58,31 +68,29 @@ module.exports = (function () {
 			y2 = Math.sin(arcTo) * node.actualRadius(),
 
 			fixPoint1 = {"x": node.x + x1, "y": node.y + y1},
-			fixPoint2 = {"x": node.x + x2, "y": node.y + y2},
+			fixPoint2 = {"x": node.x + x2, "y": node.y + y2};
 
-			distanceMultiplier = 2.5,
-			dx = ((x1 + x2) / 2) * distanceMultiplier,
-			dy = ((y1 + y2) / 2) * distanceMultiplier,
-			curvePoint = {"x": node.x + dx, "y": node.y + dy};
-
-		return loopFunction([fixPoint1, curvePoint, fixPoint2]);
+		return loopFunction([fixPoint1, link.label(), fixPoint2]);
 	};
 
 	/**
-	 * Calculates the radian of an angle.
-	 * @param angle the angle
-	 * @returns {number}
+	 * @param angle
+	 * @returns {number} the radian of the angle
 	 */
 	function calculateRadian(angle) {
 		angle = angle % 360;
 		if (angle < 0) {
 			angle = angle + 360;
 		}
-		var arc = (2 * Math.PI * angle) / 360;
-		if (arc < 0) {
-			arc = arc + (2 * Math.PI);
-		}
-		return arc;
+		return (Math.PI * angle) / 180;
+	}
+
+	/**
+	 * @param radian
+	 * @returns {number} the angle of the radian
+	 */
+	function calculateAngle(radian) {
+		return radian * (180 / Math.PI);
 	}
 
 	/**
