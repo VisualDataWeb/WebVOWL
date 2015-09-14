@@ -1,3 +1,9 @@
+/**
+ * A label represents the element(s) which further describe a link.
+ * It encapsulates the property and its inverse property.
+ * @param _property the property; the inverse is inferred
+ * @returns {{}}
+ */
 module.exports = function (_property) {
 
 	var label = {},

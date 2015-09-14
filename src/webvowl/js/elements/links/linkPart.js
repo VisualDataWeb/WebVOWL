@@ -1,5 +1,6 @@
 /**
- * A linkPart reprents a link d3 can use.
+ * A linkPart connects two force layout nodes.
+ * It reprents a link which can be used in d3's force layout.
  * @param _domain
  * @param _range
  * @param _link

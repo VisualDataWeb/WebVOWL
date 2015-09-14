@@ -1,3 +1,11 @@
+/**
+ * A link connects at least two VOWL nodes.
+ * The properties connecting the VOWL nodes are stored separately into the label.
+ * @param _domain
+ * @param _range
+ * @param _property
+ * @returns {{}}
+ */
 module.exports = function (_domain, _range, _property) {
 
 	var link = {},
@@ -38,16 +46,8 @@ module.exports = function (_domain, _range, _property) {
 	};
 
 
-	link.backPart = function () {
-		return backPart;
-	};
-
 	link.domain = function () {
 		return domain;
-	};
-
-	link.frontPart = function () {
-		return frontPart;
 	};
 
 	link.inverse = function () {
@@ -59,7 +59,7 @@ module.exports = function (_domain, _range, _property) {
 	};
 
 	link.linkParts = function () {
-		return [link.frontPart(), link.backPart()];
+		return [frontPart, backPart];
 	};
 
 	link.property = function () {
