@@ -1,31 +1,31 @@
 require("../css/vowl.css");
 
-var nodeMap = require("./elements/nodes/nodeMap.js")();
-var labelMap = require("./elements/labels/labelMap.js")();
+var nodeMap = require("./elements/nodes/nodeMap")();
+var propertyMap = require("./elements/properties/propertyMap")();
 
 
 var webvowl = {};
-webvowl.graph = require("./graph.js");
-webvowl.options = require("./options.js");
+webvowl.graph = require("./graph");
+webvowl.options = require("./options");
 webvowl.version = "@@WEBVOWL_VERSION";
 
 webvowl.util = {};
-webvowl.util.constants = require("./util/constants.js");
-webvowl.util.languageTools = require("./util/languageTools.js");
-webvowl.util.elementTools = require("./util/elementTools.js");
+webvowl.util.constants = require("./util/constants");
+webvowl.util.languageTools = require("./util/languageTools");
+webvowl.util.elementTools = require("./util/elementTools");
 
 webvowl.modules = {};
-webvowl.modules.compactNotationSwitch = require("./modules/compactNotationSwitch.js");
-webvowl.modules.datatypeFilter = require("./modules/datatypeFilter.js");
-webvowl.modules.disjointFilter = require("./modules/disjointFilter.js");
-webvowl.modules.focuser = require("./modules/focuser.js");
-webvowl.modules.nodeDegreeFilter = require("./modules/nodeDegreeFilter.js");
-webvowl.modules.nodeScalingSwitch = require("./modules/nodeScalingSwitch.js");
-webvowl.modules.pickAndPin = require("./modules/pickAndPin.js");
-webvowl.modules.selectionDetailsDisplayer = require("./modules/selectionDetailsDisplayer.js");
-webvowl.modules.setOperatorFilter = require("./modules/setOperatorFilter.js");
-webvowl.modules.statistics = require("./modules/statistics.js");
-webvowl.modules.subclassFilter = require("./modules/subclassFilter.js");
+webvowl.modules.compactNotationSwitch = require("./modules/compactNotationSwitch");
+webvowl.modules.datatypeFilter = require("./modules/datatypeFilter");
+webvowl.modules.disjointFilter = require("./modules/disjointFilter");
+webvowl.modules.focuser = require("./modules/focuser");
+webvowl.modules.nodeDegreeFilter = require("./modules/nodeDegreeFilter");
+webvowl.modules.nodeScalingSwitch = require("./modules/nodeScalingSwitch");
+webvowl.modules.pickAndPin = require("./modules/pickAndPin");
+webvowl.modules.selectionDetailsDisplayer = require("./modules/selectionDetailsDisplayer");
+webvowl.modules.setOperatorFilter = require("./modules/setOperatorFilter");
+webvowl.modules.statistics = require("./modules/statistics");
+webvowl.modules.subclassFilter = require("./modules/subclassFilter");
 
 
 webvowl.nodes = {};
@@ -33,9 +33,9 @@ nodeMap.entries().forEach(function (entry) {
 	mapEntryToIdentifier(webvowl.nodes, entry);
 });
 
-webvowl.labels = {};
-labelMap.entries().forEach(function (entry) {
-	mapEntryToIdentifier(webvowl.labels, entry);
+webvowl.properties = {};
+propertyMap.entries().forEach(function (entry) {
+	mapEntryToIdentifier(webvowl.properties, entry);
 });
 
 function mapEntryToIdentifier(map, entry) {

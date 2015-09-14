@@ -1,5 +1,5 @@
-var RoundNode = require("../RoundNode.js");
-var drawTools = require("../drawTools.js")();
+var RoundNode = require("../RoundNode");
+var drawTools = require("../drawTools")();
 
 module.exports = (function () {
 

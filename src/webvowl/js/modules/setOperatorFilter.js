@@ -1,4 +1,4 @@
-var SetOperatorNode = require("../elements/nodes/SetOperatorNode.js");
+var SetOperatorNode = require("../elements/nodes/SetOperatorNode");
 
 module.exports = function () {
 
@@ -8,7 +8,7 @@ module.exports = function () {
 		enabled = false,
 		filteredNodes,
 		filteredProperties,
-		filterTools = require("../util/filterTools.js")();
+		filterTools = require("../util/filterTools")();
 
 
 	/**

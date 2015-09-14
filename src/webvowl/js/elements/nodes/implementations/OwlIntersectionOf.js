@@ -1,4 +1,4 @@
-var SetOperatorNode = require("../SetOperatorNode.js");
+var SetOperatorNode = require("../SetOperatorNode");
 
 module.exports = (function () {
 

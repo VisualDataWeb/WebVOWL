@@ -1,4 +1,4 @@
-var elementTools = require("../util/elementTools.js")();
+var elementTools = require("../util/elementTools")();
 
 module.exports = function () {
 
@@ -93,7 +93,7 @@ module.exports = function () {
 				// Look only for subclass properties, because these are the relevant properties
 				if (elementTools.isRdfsSubClassOf(property)) {
 					var domain = property.domain();
-					visitedNodes = visitedNodes || require("../util/set.js")();
+					visitedNodes = visitedNodes || require("../util/set")();
 
 					// If we have the range, there might be a nested property on the domain
 					if (node === property.range() && !visitedNodes.has(domain)) {

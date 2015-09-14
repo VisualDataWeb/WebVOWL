@@ -1,4 +1,4 @@
-var OwlThing = require("./OwlThing.js");
+var OwlThing = require("./OwlThing");
 
 module.exports = (function () {
 

@@ -1,6 +1,6 @@
-var SetOperatorNode = require("../elements/nodes/SetOperatorNode.js");
-var OwlThing = require("../elements/nodes/implementations/OwlThing.js");
-var OwlNothing = require("../elements/nodes/implementations/OwlNothing.js");
+var SetOperatorNode = require("../elements/nodes/SetOperatorNode");
+var OwlThing = require("../elements/nodes/implementations/OwlThing");
+var OwlNothing = require("../elements/nodes/implementations/OwlNothing");
 var elementTools = require("../util/elementTools")();
 
 module.exports = function () {
@@ -50,7 +50,7 @@ module.exports = function () {
 	function storeTotalCounts(classesAndDatatypes, properties) {
 		nodeCount = classesAndDatatypes.length;
 
-		var seenProperties = require("../util/set.js")(), i, l, property;
+		var seenProperties = require("../util/set")(), i, l, property;
 		for (i = 0, l = properties.length; i < l; i++) {
 			property = properties[i];
 			if (!seenProperties.has(property)) {

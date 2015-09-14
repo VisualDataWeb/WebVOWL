@@ -1,15 +1,15 @@
-var BaseLabel = require("../elements/labels/BaseLabel.js");
-var BaseNode = require("../elements/nodes/BaseNode.js");
-var DatatypeNode = require("../elements/nodes/DatatypeNode.js");
-var ObjectProperty = require("../elements/labels/implementations/OwlObjectProperty.js");
-var DatatypeProperty = require("../elements/labels/implementations/OwlDatatypeProperty.js");
-var RdfsSubClassOf = require("../elements/labels/implementations/RdfsSubClassOf.js");
+var BaseProperty = require("../elements/properties/BaseProperty");
+var BaseNode = require("../elements/nodes/BaseNode");
+var DatatypeNode = require("../elements/nodes/DatatypeNode");
+var ObjectProperty = require("../elements/properties/implementations/OwlObjectProperty");
+var DatatypeProperty = require("../elements/properties/implementations/OwlDatatypeProperty");
+var RdfsSubClassOf = require("../elements/properties/implementations/RdfsSubClassOf");
 
 module.exports = (function () {
 	var tools = {};
 
 	tools.isLabel = function (element) {
-		return element instanceof BaseLabel;
+		return element instanceof BaseProperty;
 	};
 
 	tools.isNode = function (element) {

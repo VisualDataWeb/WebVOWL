@@ -30,7 +30,7 @@ module.exports = (function () {
 	function groupPropertiesToLinks(properties) {
 		var links = [],
 			property,
-			addedProperties = require("../util/set.js")();
+			addedProperties = require("../util/set")();
 
 		for (var i = 0, l = properties.length; i < l; i++) {
 			property = properties[i];

@@ -1,5 +1,5 @@
-var BaseNode = require("./BaseNode.js");
-var drawTools = require("./drawTools.js")();
+var BaseNode = require("./BaseNode");
+var drawTools = require("./drawTools")();
 
 module.exports = (function () {
 
@@ -163,7 +163,7 @@ module.exports = (function () {
 		 * Common actions that should be invoked after drawing a node.
 		 */
 		this.postDrawActions = function () {
-			var textBlock = require("../../util/textElement.js")(that.nodeElement());
+			var textBlock = require("../../util/textElement")(that.nodeElement());
 			textBlock.addText(that.labelForCurrentLanguage());
 			if (!graph.options().compactNotation()) {
 				textBlock.addSubText(that.indicationString());

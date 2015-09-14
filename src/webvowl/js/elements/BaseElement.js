@@ -33,7 +33,7 @@ module.exports = (function () {
 			frozen = false,
 			pinned = false,
 		// Other
-			languageTools = require("../util/languageTools.js")();
+			languageTools = require("../util/languageTools")();
 
 
 		// Properties

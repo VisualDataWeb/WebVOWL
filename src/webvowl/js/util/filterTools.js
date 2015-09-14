@@ -1,4 +1,4 @@
-var elementTools = require("./elementTools.js")();
+var elementTools = require("./elementTools")();
 
 module.exports = (function () {
 
@@ -12,7 +12,7 @@ module.exports = (function () {
 	 * @returns {{nodes: Array, properties: Array}} the filtered nodes and properties
 	 */
 	tools.filterNodesAndTidy = function (nodes, properties, shouldKeepNode) {
-		var removedNodes = require("./set.js")(),
+		var removedNodes = require("./set")(),
 			cleanedNodes = [],
 			cleanedProperties = [];
 

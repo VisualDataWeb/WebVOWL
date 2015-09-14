@@ -1,4 +1,4 @@
-var BaseElement = require("../BaseElement.js");
+var BaseElement = require("../BaseElement");
 
 module.exports = (function () {
 

@@ -1,4 +1,4 @@
-var RoundNode = require("../elements/nodes/RoundNode.js");
+var RoundNode = require("../elements/nodes/RoundNode");
 
 /**
  * Contains a collection of mathematical functions with some additional data

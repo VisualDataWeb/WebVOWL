@@ -1,6 +1,6 @@
 var OwlClass = require("../../../src/webvowl/js/elements/nodes/implementations/OwlClass");
-var RdfsSubClassOf = require("../../../src/webvowl/js/elements/labels/implementations/RdfsSubClassOf");
-var ObjectProperty = require("../../../src/webvowl/js/elements/labels/implementations/OwlObjectProperty");
+var RdfsSubClassOf = require("../../../src/webvowl/js/elements/properties/implementations/RdfsSubClassOf");
+var ObjectProperty = require("../../../src/webvowl/js/elements/properties/implementations/OwlObjectProperty");
 
 describe("Collapsing of subclassOf properties", function () {
 	var collapser;

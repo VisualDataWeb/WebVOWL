@@ -1,4 +1,4 @@
-var DatatypeNode = require("../DatatypeNode.js");
+var DatatypeNode = require("../DatatypeNode");
 
 module.exports = (function () {
 

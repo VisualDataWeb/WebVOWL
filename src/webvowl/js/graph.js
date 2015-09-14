@@ -1,6 +1,6 @@
-var math = require("./util/math.js")();
-var linkCreator = require("./parsing/linkCreator.js")();
-var elementTools = require("./util/elementTools.js")();
+var math = require("./util/math")();
+var linkCreator = require("./parsing/linkCreator")();
+var elementTools = require("./util/elementTools")();
 
 
 module.exports = function (graphContainerSelector) {
@@ -15,8 +15,8 @@ module.exports = function (graphContainerSelector) {
 				return d.y;
 			})
 			.interpolate("cardinal"),
-		options = require("./options.js")(),
-		parser = require("./parser.js")(graph),
+		options = require("./options")(),
+		parser = require("./parser")(graph),
 		language = "default",
 	// Container for visual elements
 		graphContainer,
