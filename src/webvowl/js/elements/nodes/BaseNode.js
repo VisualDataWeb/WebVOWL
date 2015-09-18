@@ -1,4 +1,5 @@
 var BaseElement = require("../BaseElement");
+var forceLayoutNodeFunctions = require("../forceLayoutNodeFunctions")();
 
 module.exports = (function () {
 
@@ -116,21 +117,12 @@ module.exports = (function () {
 			that.mouseEntered(false);
 		}
 
+
+		forceLayoutNodeFunctions.addTo(this);
 	};
 
 	base.prototype = Object.create(BaseElement.prototype);
 	base.prototype.constructor = base;
-
-	// Define d3 properties
-	Object.defineProperties(base, {
-		"index": {writable: true},
-		"x": {writable: true},
-		"y": {writable: true},
-		"px": {writable: true},
-		"py": {writable: true},
-		"fixed": {writable: true},
-		"weight": {writable: true}
-	});
 
 
 	return base;

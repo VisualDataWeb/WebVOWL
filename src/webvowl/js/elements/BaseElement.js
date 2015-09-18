@@ -6,8 +6,6 @@ module.exports = (function () {
 	var DEFAULT_LABEL = "DEFAULT_LABEL";
 
 	var base = function (graph) {
-		var that = this;
-
 		// Basic attributes
 		var equivalents = [],
 			id,
@@ -28,10 +26,6 @@ module.exports = (function () {
 			mouseEntered = false,
 			styleClass,
 			visible = true,
-		// Fixed Location attributes
-			locked = false,
-			frozen = false,
-			pinned = false,
 		// Other
 			languageTools = require("../util/languageTools")();
 
@@ -166,36 +160,6 @@ module.exports = (function () {
 		this.labelForCurrentLanguage = function () {
 			return languageTools.textInLanguage(this.label(), graph.language());
 		};
-
-
-		this.locked = function (p) {
-			if (!arguments.length) return locked;
-			locked = p;
-			applyFixedLocationAttributes();
-			return this;
-		};
-
-		this.frozen = function (p) {
-			if (!arguments.length) return frozen;
-			frozen = p;
-			applyFixedLocationAttributes();
-			return this;
-		};
-
-		this.pinned = function (p) {
-			if (!arguments.length) return pinned;
-			pinned = p;
-			applyFixedLocationAttributes();
-			return this;
-		};
-
-		function applyFixedLocationAttributes() {
-			if (that.locked() || that.frozen() || that.pinned()) {
-				that.fixed = true;
-			} else {
-				that.fixed = false;
-			}
-		}
 	};
 
 	base.prototype.constructor = base;

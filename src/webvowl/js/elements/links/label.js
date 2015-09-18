@@ -1,3 +1,6 @@
+var forceLayoutNodeFunctions = require("../forceLayoutNodeFunctions")();
+
+
 /**
  * A label represents the element(s) which further describe a link.
  * It encapsulates the property and its inverse property.
@@ -25,17 +28,7 @@ module.exports = function (_property) {
 		return property;
 	};
 
-	// Define d3 properties
-	Object.defineProperties(label, {
-		"index": {writable: true},
-		"x": {writable: true},
-		"y": {writable: true},
-		"px": {writable: true},
-		"py": {writable: true},
-		"fixed": {writable: true},
-		"weight": {writable: true}
-	});
-
+	forceLayoutNodeFunctions.addTo(label);
 
 	return label;
 };
