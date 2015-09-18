@@ -1,5 +1,3 @@
-var RoundNode = require("../elements/nodes/RoundNode");
-
 /**
  * Contains a collection of mathematical functions with some additional data
  * used for WebVOWL.
