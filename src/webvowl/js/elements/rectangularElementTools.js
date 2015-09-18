@@ -1,9 +1,9 @@
 var tools = {};
-module.exports = function() {
+module.exports = function () {
 	return tools;
 };
 
-tools.distanceToBorder = function(rect, dx, dy) {
+tools.distanceToBorder = function (rect, dx, dy) {
 	var width = rect.width(),
 		height = rect.height();
 

@@ -54,7 +54,7 @@ module.exports = (function () {
 			labelAngle = calculateAngle(labelRadian);
 
 		var startAngle = labelAngle - loopAngle / 2,
-			endAngle = labelAngle + loopAngle/ 2;
+			endAngle = labelAngle + loopAngle / 2;
 
 		var arcFrom = calculateRadian(startAngle),
 			arcTo = calculateRadian(endAngle),

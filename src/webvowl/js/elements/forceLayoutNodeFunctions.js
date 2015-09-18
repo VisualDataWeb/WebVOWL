@@ -8,7 +8,7 @@
  * @type {{}}
  */
 var nodeFunctions = {};
-module.exports = function() {
+module.exports = function () {
 	return nodeFunctions;
 };
 

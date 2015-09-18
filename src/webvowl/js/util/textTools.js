@@ -1,5 +1,3 @@
-"use strict";
-
 var ADDITIONAL_TEXT_SPACE = 4;
 
 var tools = {};

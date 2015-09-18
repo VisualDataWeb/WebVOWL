@@ -65,7 +65,7 @@ module.exports = (function () {
 			}
 		};
 
-		this.distanceToBorder = function() {
+		this.distanceToBorder = function () {
 			return that.radius();
 		};
 

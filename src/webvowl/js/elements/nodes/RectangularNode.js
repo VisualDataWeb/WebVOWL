@@ -32,7 +32,7 @@ module.exports = (function () {
 			return width;
 		};
 
-		this.distanceToBorder = function(dx, dy) {
+		this.distanceToBorder = function (dx, dy) {
 			return rectangularElementTools.distanceToBorder(that, dx, dy);
 		};
 
