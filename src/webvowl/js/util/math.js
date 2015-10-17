@@ -25,13 +25,14 @@ module.exports = (function () {
 	 */
 	math.calculateNormalVector = function (source, target, length) {
 		var dx = target.x - source.x,
-			dy = target.y - source.y,
+			dy = target.y - source.y;
 
-			nx = -dy,
-			ny = dx,
+		var nx = -dy,
+			ny = dx;
 
-			vlength = Math.sqrt(nx * nx + ny * ny),
-			ratio = length / vlength;
+		var vlength = Math.sqrt(nx * nx + ny * ny);
+
+		var ratio = vlength !== 0 ? length / vlength : 0;
 
 		return {"x": nx * ratio, "y": ny * ratio};
 	};
@@ -103,6 +104,10 @@ module.exports = (function () {
 		var dx = target.x - source.x,
 			dy = target.y - source.y,
 			length = Math.sqrt(dx * dx + dy * dy);
+
+		if (length === 0) {
+			return {x: source.x, y: source.y};
+		}
 
 		var innerDistance = target.distanceToBorder(dx, dy);
 
