@@ -377,7 +377,10 @@ module.exports = (function () {
 	base.prototype.width = function () {
 		return labelWidth;
 	};
-	base.prototype.actualRadius = base.prototype.width;
+
+	base.prototype.actualRadius = function() {
+		return base.prototype.width() / 2;
+	};
 
 	base.prototype.textWidth = base.prototype.width;
 
