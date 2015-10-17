@@ -28,6 +28,7 @@ Instead of the last step of the simple setup, install the npm package `grunt-cli
 * `grunt package` builds the development version
 * `grunt webserver` starts a local live-updating webserver with the current development version
 * `grunt test` starts the test runner
+* `grunt zip` builds the project and puts it into a zip file
 
 
 Additional information
