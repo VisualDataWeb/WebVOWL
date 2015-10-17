@@ -1,5 +1,5 @@
-var elementTools = require("../util/elementTools.js")();
-var filterTools = require("../util/filterTools.js")();
+var elementTools = require("../util/elementTools")();
+var filterTools = require("../util/filterTools")();
 
 module.exports = function () {
 

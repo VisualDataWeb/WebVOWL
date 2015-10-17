@@ -1,4 +1,4 @@
-var RoundNode = require("./RoundNode.js");
+var RoundNode = require("./RoundNode");
 
 module.exports = (function () {
 

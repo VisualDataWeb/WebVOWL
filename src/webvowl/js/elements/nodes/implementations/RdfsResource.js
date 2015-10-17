@@ -1,11 +1,11 @@
-var RoundNode = require("../RoundNode.js");
+var RoundNode = require("../RoundNode");
 
 module.exports = (function () {
 
 	var o = function (graph) {
 		RoundNode.apply(this, arguments);
 
-		var superDrawFunction = this.drawNode;
+		var superDrawFunction = this.draw;
 
 		this.attributes(["rdf"])
 			.label("Resource")
@@ -13,7 +13,7 @@ module.exports = (function () {
 			.styleClass("rdfsresource")
 			.type("rdfs:Resource");
 
-		this.drawNode = function (element) {
+		this.draw = function (element) {
 			superDrawFunction(element, ["rdf", "special"]);
 		};
 	};

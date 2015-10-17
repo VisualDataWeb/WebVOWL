@@ -1,18 +1,18 @@
-var RoundNode = require("../RoundNode.js");
+var RoundNode = require("../RoundNode");
 
 module.exports = (function () {
 
 	var o = function (graph) {
 		RoundNode.apply(this, arguments);
 
-		var superDrawFunction = this.drawNode;
+		var superDrawFunction = this.draw;
 
 		this.label("Thing")
 			.type("owl:Thing")
 			.iri("http://www.w3.org/2002/07/owl#Thing")
 			.radius(30);
 
-		this.drawNode = function (element) {
+		this.draw = function (element) {
 			superDrawFunction(element, ["white", "special"]);
 		};
 	};

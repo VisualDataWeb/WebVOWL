@@ -220,8 +220,8 @@ module.exports = function (graph) {
 			return;
 		}
 
-		if (elementTools.isLabel(selectedElement)) {
-			displayLabelInformation(selectedElement);
+		if (elementTools.isProperty(selectedElement)) {
+			displayPropertyInformation(selectedElement);
 		} else if (elementTools.isNode(selectedElement)) {
 			displayNodeInformation(selectedElement);
 		}
@@ -237,7 +237,7 @@ module.exports = function (graph) {
 		d3.select("#noSelectionInformation").classed("hidden", !showAdvice);
 	}
 
-	function displayLabelInformation(property) {
+	function displayPropertyInformation(property) {
 		showPropertyInformations();
 
 		setIriLabel(d3.select("#propname"), property.labelForCurrentLanguage(), property.iri());

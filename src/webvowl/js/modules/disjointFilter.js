@@ -1,4 +1,4 @@
-var OwlDisjointWith = require("../elements/labels/implementations/OwlDisjointWith.js");
+var OwlDisjointWith = require("../elements/properties/implementations/OwlDisjointWith");
 
 module.exports = function () {
 

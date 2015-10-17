@@ -1,5 +1,6 @@
-var BaseNode = require("./BaseNode.js");
-var drawTools = require("./drawTools.js")();
+var BaseNode = require("./BaseNode");
+var drawTools = require("./drawTools")();
+var rectangularElementTools = require("../rectangularElementTools")();
 
 module.exports = (function () {
 
@@ -31,6 +32,10 @@ module.exports = (function () {
 			return width;
 		};
 
+		this.distanceToBorder = function (dx, dy) {
+			return rectangularElementTools.distanceToBorder(that, dx, dy);
+		};
+
 		this.setHoverHighlighting = function (enable) {
 			that.nodeElement().selectAll("rect").classed("hovered", enable);
 		};
@@ -49,7 +54,7 @@ module.exports = (function () {
 		 * @param parentElement the element to which this node will be appended
 		 * @param [additionalCssClasses] additional css classes
 		 */
-		this.drawNode = function (parentElement, additionalCssClasses) {
+		this.draw = function (parentElement, additionalCssClasses) {
 			var textBlock,
 				cssClasses = that.collectCssClasses();
 
@@ -60,7 +65,7 @@ module.exports = (function () {
 			}
 			drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses, that.labelForCurrentLanguage());
 
-			textBlock = require("../../util/textElement.js")(parentElement);
+			textBlock = require("../../util/textElement")(parentElement);
 			textBlock.addText(that.labelForCurrentLanguage());
 
 			that.addMouseListeners();

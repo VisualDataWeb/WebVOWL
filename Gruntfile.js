@@ -25,6 +25,21 @@ module.exports = function (grunt) {
 		clean: {
 			deploy: deployPath
 		},
+		compress: {
+			deploy: {
+				options: {
+					archive: function() {
+						var branchInfo = grunt.config("gitinfo.local.branch.current");
+						return "webvowl-" + branchInfo.name + "-" + branchInfo.shortSHA + ".zip";
+					},
+					level: 9,
+					pretty: true
+				},
+				files: [
+					{expand: true, cwd: "deploy/", src: ["**"], dest: "webvowl/"}
+				]
+			}
+		},
 		connect: {
 			devserver: {
 				options: {
@@ -152,6 +167,7 @@ module.exports = function (grunt) {
 	grunt.registerTask("post-js", ["replace"]);
 	grunt.registerTask("package", ["pre-js", "webpack:build-dev", "post-js", "htmlbuild:dev"]);
 	grunt.registerTask("release", ["pre-js", "webpack:build", "post-js", "htmlbuild:release"]);
+	grunt.registerTask("zip", ["gitinfo", "release", "compress"]);
 	grunt.registerTask("webserver", ["package", "connect:devserver", "watch"]);
 	grunt.registerTask("test", ["karma:dev"]);
 	grunt.registerTask("test-ci", ["karma:continuous"]);

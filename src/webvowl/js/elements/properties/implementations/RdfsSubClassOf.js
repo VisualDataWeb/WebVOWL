@@ -1,15 +1,15 @@
-var BaseLabel = require("../BaseLabel.js");
+var BaseProperty = require("../BaseProperty");
 
 module.exports = (function () {
 
 	var o = function (graph) {
-		BaseLabel.apply(this, arguments);
+		BaseProperty.apply(this, arguments);
 
 		var that = this,
-			superDrawFunction = that.drawProperty,
+			superDrawFunction = that.draw,
 			label = "Subclass of";
 
-		this.drawProperty = function (labelGroup) {
+		this.draw = function (labelGroup) {
 			that.labelVisible(!graph.options().compactNotation());
 			return superDrawFunction(labelGroup);
 		};
@@ -25,7 +25,7 @@ module.exports = (function () {
 			.styleClass("subclass")
 			.type("rdfs:subClassOf");
 	};
-	o.prototype = Object.create(BaseLabel.prototype);
+	o.prototype = Object.create(BaseProperty.prototype);
 	o.prototype.constructor = o;
 
 	return o;

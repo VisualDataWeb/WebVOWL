@@ -1,6 +1,6 @@
 var OwlClass = require("../../../src/webvowl/js/elements/nodes/implementations/OwlClass");
 var RdfsDatatype = require("../../../src/webvowl/js/elements/nodes/implementations/RdfsDatatype");
-var DatatypeProperty = require("../../../src/webvowl/js/elements/labels/implementations/OwlDatatypeProperty");
+var DatatypeProperty = require("../../../src/webvowl/js/elements/properties/implementations/OwlDatatypeProperty");
 
 describe("Collapsing of datatypes", function () {
 	var filter;

@@ -92,13 +92,6 @@ rect.focused, circle.focused {
  Additional elements for the WebVOWL demo (NOT part of spec)
 -----------------------------------------------------------------*/
 
-#width-test {
-    position: absolute;
-    float: left;
-    white-space: nowrap;
-    visibility: hidden;
-}
-
 marker path {
     /* Safari and Chrome workaround for inheriting the style of its link.
        Use any value that is larger than the length of the marker path. */

@@ -1,4 +1,4 @@
-var elementTools = require("../util/elementTools.js")();
+var elementTools = require("../util/elementTools")();
 
 module.exports = function () {
 	var collapsing = {},

@@ -1,4 +1,4 @@
 require("../css/toolstyle.css");
-require("./browserWarning.js");
+require("./browserWarning");
 
-module.exports = require("./app.js");
+module.exports = require("./app");

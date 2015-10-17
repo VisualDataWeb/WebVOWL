@@ -1,14 +1,14 @@
-var BaseLabel = require("../BaseLabel.js");
+var BaseProperty = require("../BaseProperty");
 
 module.exports = (function () {
 
 	var o = function (graph) {
-		BaseLabel.apply(this, arguments);
+		BaseProperty.apply(this, arguments);
 
 		this.styleClass("equivalentproperty")
 			.type("owl:equivalentProperty");
 	};
-	o.prototype = Object.create(BaseLabel.prototype);
+	o.prototype = Object.create(BaseProperty.prototype);
 	o.prototype.constructor = o;
 
 	return o;

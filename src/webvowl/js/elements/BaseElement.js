@@ -12,6 +12,7 @@ module.exports = (function () {
 			label,
 			type,
 			iri,
+			links,
 		// Additional attributes
 			annotations,
 			attributes = [],
@@ -26,7 +27,7 @@ module.exports = (function () {
 			styleClass,
 			visible = true,
 		// Other
-			languageTools = require("../util/languageTools.js")();
+			languageTools = require("../util/languageTools")();
 
 
 		// Properties
@@ -96,6 +97,12 @@ module.exports = (function () {
 			return this;
 		};
 
+		this.links = function (p) {
+			if (!arguments.length) return links;
+			links = p;
+			return this;
+		};
+
 		this.mouseEntered = function (p) {
 			if (!arguments.length) return mouseEntered;
 			mouseEntered = p;
@@ -129,6 +136,13 @@ module.exports = (function () {
 
 		this.commentForCurrentLanguage = function () {
 			return languageTools.textInLanguage(this.comment(), graph.language());
+		};
+
+		/**
+		 * @returns {string} the css class of this node..
+		 */
+		this.cssClassOfNode = function () {
+			return "node" + this.id();
 		};
 
 		this.descriptionForCurrentLanguage = function () {

@@ -30,28 +30,25 @@ module.exports = (function () {
 	function groupPropertiesToLinks(properties) {
 		var links = [],
 			property,
-			addedProperties = require("../util/set.js")();
+			addedProperties = require("../util/set")();
 
 		for (var i = 0, l = properties.length; i < l; i++) {
 			property = properties[i];
 
 			if (!addedProperties.has(property)) {
-				var link = require("../elements/link.js")();
-				link.property(property);
-				link.domain(property.domain());
-				link.range(property.range());
+				var link = require("../elements/links/link")(property.domain(), property.range(), property);
 
 				property.link(link);
-				addedProperties.add(property);
-
-				var inverse = property.inverse();
-				if (inverse) {
-					link.inverse(inverse);
-					inverse.link(link);
-					addedProperties.add(inverse);
+				if (property.inverse()) {
+					property.inverse().link(link);
 				}
 
 				links.push(link);
+
+				addedProperties.add(property);
+				if (property.inverse()) {
+					addedProperties.add(property.inverse());
+				}
 			}
 		}
 
@@ -63,7 +60,7 @@ module.exports = (function () {
 			layers,
 			i, l;
 
-		if (typeof link.layerCount() === "undefined") {
+		if (typeof link.layers() === "undefined") {
 			layers = [];
 
 			// Search for other links that are another layer
@@ -80,7 +77,6 @@ module.exports = (function () {
 				layer = layers[i];
 
 				layer.layerIndex(i);
-				layer.layerCount(l);
 				layer.layers(layers);
 			}
 		}
@@ -91,7 +87,7 @@ module.exports = (function () {
 			loops,
 			i, l;
 
-		if (typeof link.loopCount() === "undefined") {
+		if (typeof link.loops() === "undefined") {
 			loops = [];
 
 			// Search for other links that are also loops of the same node
@@ -107,7 +103,6 @@ module.exports = (function () {
 				loop = loops[i];
 
 				loop.loopIndex(i);
-				loop.loopCount(l);
 				loop.loops(loops);
 			}
 		}

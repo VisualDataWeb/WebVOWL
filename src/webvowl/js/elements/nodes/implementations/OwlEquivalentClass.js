@@ -1,5 +1,5 @@
-var RoundNode = require("../RoundNode.js");
-var drawTools = require("../drawTools.js")();
+var RoundNode = require("../RoundNode");
+var drawTools = require("../drawTools")();
 
 module.exports = (function () {
 
@@ -19,7 +19,7 @@ module.exports = (function () {
 		};
 
 
-		this.drawNode = function (parentElement) {
+		this.draw = function (parentElement) {
 			var cssClasses = that.collectCssClasses();
 
 			that.nodeElement(parentElement);

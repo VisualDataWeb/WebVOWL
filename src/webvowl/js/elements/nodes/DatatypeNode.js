@@ -1,4 +1,4 @@
-var RectangularNode = require("./RectangularNode.js");
+var RectangularNode = require("./RectangularNode");
 
 module.exports = (function () {
 

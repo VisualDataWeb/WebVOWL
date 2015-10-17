@@ -1,10 +1,10 @@
-var OwlThing = require("./elements/nodes/implementations/OwlThing.js");
-var RdfsLiteral = require("./elements/nodes/implementations/RdfsLiteral.js");
-var OwlDisjointWith = require("./elements/labels/implementations/OwlDisjointWith.js");
-var attributeParser = require("./parsing/attributeParser.js")();
-var elementTools = require("./util/elementTools.js")();
-var nodeMap = require("./elements/nodes/nodeMap.js")();
-var labelMap = require("./elements/labels/labelMap.js")();
+var OwlThing = require("./elements/nodes/implementations/OwlThing");
+var RdfsLiteral = require("./elements/nodes/implementations/RdfsLiteral");
+var OwlDisjointWith = require("./elements/properties/implementations/OwlDisjointWith");
+var attributeParser = require("./parsing/attributeParser")();
+var elementTools = require("./util/elementTools")();
+var nodePrototypeMap = require("./elements/nodes/nodeMap")();
+var propertyPrototypeMap = require("./elements/properties/propertyMap")();
 
 /**
  * Encapsulates the parsing and preparation logic of the input data.
@@ -72,7 +72,7 @@ module.exports = function (graph) {
 	 */
 	function combineClasses(baseObjects, attributes) {
 		var combinations = [];
-		var prototypeMap = createLowerCasePrototypeMap(nodeMap);
+		var prototypeMap = createLowerCasePrototypeMap(nodePrototypeMap);
 
 		if (baseObjects) {
 			baseObjects.forEach(function (element) {
@@ -137,7 +137,7 @@ module.exports = function (graph) {
 
 	function combineProperties(baseObjects, attributes) {
 		var combinations = [];
-		var prototypeMap = createLowerCasePrototypeMap(labelMap);
+		var prototypeMap = createLowerCasePrototypeMap(propertyPrototypeMap);
 
 		if (baseObjects) {
 			baseObjects.forEach(function (element) {
@@ -522,23 +522,21 @@ module.exports = function (graph) {
 	 * @param properties unprocessed properties
 	 */
 	function addSetOperatorProperties(classes, properties) {
-		var i, // index
-			l; // array length
-
-		function addProperties(domainId, setIds, operatorType) {
-			if (typeof setIds !== "undefined") {
-				for (i = 0, l = setIds.length; i < l; ++i) {
-					var rangeId = setIds[i],
-						property = {};
-
-					property.id = "GENERATED-" + operatorType + "-" + domainId + "-" + rangeId + "-" + i;
-					property.type = "setOperatorProperty";
-					property.domain = domainId;
-					property.range = rangeId;
-
-					properties.push(property);
-				}
+		function addProperties(domainId, rangeIds, operatorType) {
+			if (!rangeIds) {
+				return;
 			}
+
+			rangeIds.forEach(function (rangeId, index) {
+				var property = {
+					id: "GENERATED-" + operatorType + "-" + domainId + "-" + rangeId + "-" + index,
+					type: "setOperatorProperty",
+					domain: domainId,
+					range: rangeId
+				};
+
+				properties.push(property);
+			});
 		}
 
 		classes.forEach(function (clss) {

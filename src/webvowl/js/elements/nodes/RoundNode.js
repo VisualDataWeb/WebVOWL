@@ -1,5 +1,5 @@
-var BaseNode = require("./BaseNode.js");
-var drawTools = require("./drawTools.js")();
+var BaseNode = require("./BaseNode");
+var drawTools = require("./drawTools")();
 
 module.exports = (function () {
 
@@ -63,6 +63,10 @@ module.exports = (function () {
 
 				return that.radius() + additionalRadius;
 			}
+		};
+
+		this.distanceToBorder = function () {
+			return that.radius();
 		};
 
 		/**
@@ -142,7 +146,7 @@ module.exports = (function () {
 		 * @param parentElement the element to which this node will be appended
 		 * @param [additionalCssClasses] additional css classes
 		 */
-		this.drawNode = function (parentElement, additionalCssClasses) {
+		this.draw = function (parentElement, additionalCssClasses) {
 			var cssClasses = that.collectCssClasses();
 
 			that.nodeElement(parentElement);
@@ -159,7 +163,7 @@ module.exports = (function () {
 		 * Common actions that should be invoked after drawing a node.
 		 */
 		this.postDrawActions = function () {
-			var textBlock = require("../../util/textElement.js")(that.nodeElement());
+			var textBlock = require("../../util/textElement")(that.nodeElement());
 			textBlock.addText(that.labelForCurrentLanguage());
 			if (!graph.options().compactNotation()) {
 				textBlock.addSubText(that.indicationString());

@@ -1,4 +1,5 @@
-var BaseElement = require("../BaseElement.js");
+var BaseElement = require("../BaseElement");
+var rectangularElementTools = require("../rectangularElementTools")();
 
 module.exports = (function () {
 
@@ -140,6 +141,10 @@ module.exports = (function () {
 
 
 		// Functions
+		this.distanceToBorder = function (dx, dy) {
+			return rectangularElementTools.distanceToBorder(that, dx, dy);
+		};
+
 		this.isSpecialLink = function () {
 			return linkType === "special";
 		};
@@ -155,7 +160,7 @@ module.exports = (function () {
 
 
 		// Reused functions TODO refactor
-		this.drawProperty = function (labelGroup) {
+		this.draw = function (labelGroup) {
 			function attachLabel(property) {
 				// Draw the label and its background
 				var label = labelGroup.append("g")
@@ -165,8 +170,8 @@ module.exports = (function () {
 				property.addRect(label);
 
 				// Attach the text and perhaps special elements
-				var textBox = require("../../util/textElement.js")(label);
-				if (property instanceof require("./implementations/OwlDisjointWith.js")) {
+				var textBox = require("../../util/textElement")(label);
+				if (property instanceof require("./implementations/OwlDisjointWith")) {
 					property.addDisjointLabel(labelGroup, textBox);
 					return label;
 				} else {
@@ -187,7 +192,7 @@ module.exports = (function () {
 
 			// Draw an inverse label and reposition both labels if necessary
 			if (that.inverse()) {
-				var yTransformation = (that.labelHeight() / 2) + 1 /* additional space */;
+				var yTransformation = (that.height() / 2) + 1 /* additional space */;
 				that.inverse()
 					.labelElement(attachLabel(that.inverse()));
 
@@ -205,10 +210,10 @@ module.exports = (function () {
 			var rect = groupTag.append("rect")
 				.classed(that.styleClass(), true)
 				.classed("property", true)
-				.attr("x", -that.labelWidth() / 2)
-				.attr("y", -that.labelHeight() / 2)
-				.attr("width", that.labelWidth())
-				.attr("height", that.labelHeight())
+				.attr("x", -that.width() / 2)
+				.attr("y", -that.height() / 2)
+				.attr("width", that.width())
+				.attr("height", that.height())
 				.on("mouseover", function () {
 					onMouseOver();
 				})
@@ -365,15 +370,19 @@ module.exports = (function () {
 	base.prototype = Object.create(BaseElement.prototype);
 	base.prototype.constructor = base;
 
-	base.prototype.labelHeight = function () {
+	base.prototype.height = function () {
 		return labelHeight;
 	};
 
-	base.prototype.labelWidth = function () {
+	base.prototype.width = function () {
 		return labelWidth;
 	};
 
-	base.prototype.textWidth = base.prototype.labelWidth;
+	base.prototype.actualRadius = function() {
+		return base.prototype.width() / 2;
+	};
+
+	base.prototype.textWidth = base.prototype.width;
 
 
 	return base;

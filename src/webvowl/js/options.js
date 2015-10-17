@@ -5,12 +5,13 @@ module.exports = function () {
 	var options = {},
 		data,
 		graphContainerSelector,
-		defaultLinkDistance = 160,
+		defaultLinkDistance = 200,
 		classDistance = defaultLinkDistance,
 		datatypeDistance = defaultLinkDistance,
-		charge = -1000,
+		loopDistance = 100,
+		charge = -300,
 		gravity = 0.025,
-		linkStrength = 0.7,
+		linkStrength = 1,
 		height = 600,
 		width = 800,
 		selectionModules = [],
@@ -83,6 +84,12 @@ module.exports = function () {
 	options.linkStrength = function (p) {
 		if (!arguments.length) return linkStrength;
 		linkStrength = +p;
+		return options;
+	};
+
+	options.loopDistance = function (p) {
+		if (!arguments.length) return loopDistance;
+		loopDistance = p;
 		return options;
 	};
 

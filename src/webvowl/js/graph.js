@@ -1,6 +1,6 @@
-var math = require("./util/math.js")();
-var linkCreator = require("./parsing/linkCreator.js")();
-var elementTools = require("./util/elementTools.js")();
+var math = require("./util/math")();
+var linkCreator = require("./parsing/linkCreator")();
+var elementTools = require("./util/elementTools")();
 
 
 module.exports = function (graphContainerSelector) {
@@ -15,8 +15,8 @@ module.exports = function (graphContainerSelector) {
 				return d.y;
 			})
 			.interpolate("cardinal"),
-		options = require("./options.js")(),
-		parser = require("./parser.js")(graph),
+		options = require("./options")(),
+		parser = require("./parser")(graph),
 		language = "default",
 	// Container for visual elements
 		graphContainer,
@@ -32,10 +32,10 @@ module.exports = function (graphContainerSelector) {
 		cardinalityElements,
 	// Internal data
 		nodes,
+		links,
 		properties,
 		unfilteredNodes,
 		unfilteredProperties,
-		links,
 	// Graph behaviour
 		force,
 		dragBehaviour,
@@ -50,39 +50,40 @@ module.exports = function (graphContainerSelector) {
 			return "translate(" + node.x + "," + node.y + ")";
 		});
 
+		// Set label group positions
+		labelGroupElements.attr("transform", function (link) {
+			var position;
+
+			// force centered positions on single-layered links
+			if (link.layers().length === 1 && !link.loops()) {
+				position = math.calculateCenter(link.domain(), link.range());
+				link.label().x = position.x;
+				link.label().y = position.y;
+			} else {
+				position = link.label();
+			}
+
+			return "translate(" + position.x + "," + position.y + ")";
+		});
+
 		// Set link paths and calculate additional informations
 		linkPathElements.attr("d", function (l) {
-			if (l.domain() === l.range()) {
+			if (l.isLoop()) {
 				return math.calculateLoopPath(l);
 			}
 
-			// Calculate these every time to get nicer curved paths
-			var pathStart = math.calculateIntersection(l.range(), l.domain(), 1),
-				pathEnd = math.calculateIntersection(l.domain(), l.range(), 1),
-				linkDistance = getVisibleLinkDistance(l),
-				curvePoint = math.calculateCurvePoint(pathStart, pathEnd, l,
-					linkDistance / options.defaultLinkDistance());
+			var curvePoint = l.label();
+			var pathStart = math.calculateIntersection(curvePoint, l.domain(), 1);
+			var pathEnd = math.calculateIntersection(curvePoint, l.range(), 1);
 
-			l.curvePoint(curvePoint);
-
-			return curveFunction([math.calculateIntersection(l.curvePoint(), l.domain(), 1),
-				curvePoint, math.calculateIntersection(l.curvePoint(), l.range(), 1)]);
+			return curveFunction([pathStart, curvePoint, pathEnd]);
 		});
-
-		// Set label group positions
-		labelGroupElements.attr("transform", function (link) {
-			var posX = link.curvePoint().x,
-				posY = link.curvePoint().y;
-
-			return "translate(" + posX + "," + posY + ")";
-		});
-
 
 		// Set cardinality positions
-		cardinalityElements.attr("transform", function (p) {
-			var curve = p.link().curvePoint(),
-				pos = math.calculateIntersection(curve, p.range(), CARDINALITY_HDISTANCE),
-				normalV = math.calculateNormalVector(curve, p.domain(), CARDINALITY_VDISTANCE);
+		cardinalityElements.attr("transform", function (property) {
+			var label = property.link().label(),
+				pos = math.calculateIntersection(label, property.range(), CARDINALITY_HDISTANCE),
+				normalV = math.calculateNormalVector(label, property.domain(), CARDINALITY_VDISTANCE);
 
 			return "translate(" + (pos.x + normalV.x) + "," + (pos.y + normalV.y) + ")";
 		});
@@ -176,23 +177,19 @@ module.exports = function (graphContainerSelector) {
 	 * Stops the influence of the force directed layout on all nodes. They are still manually movable.
 	 */
 	graph.freeze = function () {
-		if (nodes) {
-			nodes.forEach(function (n) {
-				n.frozen(true);
-			});
-		}
+		force.nodes().forEach(function (n) {
+			n.frozen(true);
+		});
 	};
 
 	/**
 	 * Allows the influence of the force directed layout on all nodes.
 	 */
 	graph.unfreeze = function () {
-		if (nodes) {
-			nodes.forEach(function (n) {
-				n.frozen(false);
-			});
-			force.resume();
-		}
+		force.nodes().forEach(function (n) {
+			n.frozen(false);
+		});
+		force.resume();
 	};
 
 	/**
@@ -204,16 +201,23 @@ module.exports = function (graphContainerSelector) {
 	};
 
 	/**
-	 * Calculate the complete link distance. The visual link distance does
-	 * not contain e.g. radii of round nodes.
-	 * @param link the link
+	 * Calculate the link distance of a single link part.
+	 * The visible link distance does not contain e.g. radii of round nodes.
+	 * @param linkPart the link
 	 * @returns {*}
 	 */
-	function calculateLinkDistance(link) {
-		var distance = getVisibleLinkDistance(link);
-		distance += link.domain().actualRadius();
-		distance += link.range().actualRadius();
-		return distance;
+	function calculateLinkPartDistance(linkPart) {
+		var link = linkPart.link();
+
+		if (link.isLoop()) {
+			return options.loopDistance();
+		}
+
+		var completeLinkDistance = getVisibleLinkDistance(link);
+		completeLinkDistance += link.domain().actualRadius();
+		completeLinkDistance += link.range().actualRadius();
+		// divide by 2 to receive the length of a single link part
+		return completeLinkDistance / 2;
 	}
 
 	function getVisibleLinkDistance(link) {
@@ -272,10 +276,9 @@ module.exports = function (graphContainerSelector) {
 			})
 			.call(dragBehaviour);
 
-		nodeElements.each(function (d) {
-			d.drawNode(d3.select(this));
+		nodeElements.each(function (node) {
+			node.draw(d3.select(this));
 		});
-
 
 		// Draw label groups (property + inverse)
 		labelGroupElements = labelContainer.selectAll(".labelGroup")
@@ -284,7 +287,7 @@ module.exports = function (graphContainerSelector) {
 			.classed("labelGroup", true);
 
 		labelGroupElements.each(function (link) {
-			var success = link.property().drawProperty(d3.select(this));
+			var success = link.label().draw(d3.select(this));
 			// Remove empty groups without a label.
 			if (!success) {
 				d3.select(this).remove();
@@ -326,7 +329,7 @@ module.exports = function (graphContainerSelector) {
 			.classed("link", true);
 
 		linkGroups.each(function (link) {
-			link.drawLink(d3.select(this), markerContainer);
+			link.draw(d3.select(this), markerContainer);
 		});
 
 		// Select the path for direct access to receive a better performance
@@ -384,8 +387,7 @@ module.exports = function (graphContainerSelector) {
 
 		storeLinksOnNodes(nodes, links);
 
-		force.nodes(nodes)
-			.links(links);
+		setForceLayoutData(nodes, links);
 	}
 
 	function storeLinksOnNodes(nodes, links) {
@@ -406,6 +408,21 @@ module.exports = function (graphContainerSelector) {
 		}
 	}
 
+	function setForceLayoutData(nodes, links) {
+		var d3Links = [];
+		links.forEach(function (link) {
+			d3Links = d3Links.concat(link.linkParts());
+		});
+
+		var d3Nodes = [].concat(nodes);
+		links.forEach(function (link) {
+			d3Nodes.push(link.label());
+		});
+
+		force.nodes(d3Nodes)
+			.links(d3Links);
+	}
+
 
 	/**
 	 * Applies all options that don't change the graph data.
@@ -418,7 +435,7 @@ module.exports = function (graphContainerSelector) {
 
 		force.charge(options.charge())
 			.size([options.width(), options.height()])
-			.linkDistance(calculateLinkDistance)
+			.linkDistance(calculateLinkPartDistance)
 			.gravity(options.gravity())
 			.linkStrength(options.linkStrength()); // Flexibility of links
 	}

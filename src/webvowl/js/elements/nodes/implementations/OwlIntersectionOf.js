@@ -1,4 +1,4 @@
-var SetOperatorNode = require("../SetOperatorNode.js");
+var SetOperatorNode = require("../SetOperatorNode");
 
 module.exports = (function () {
 
@@ -10,7 +10,7 @@ module.exports = (function () {
 		this.styleClass("intersectionof")
 			.type("owl:intersectionOf");
 
-		this.drawNode = function (element) {
+		this.draw = function (element) {
 			that.nodeElement(element);
 
 			element.append("circle")
@@ -37,9 +37,9 @@ module.exports = (function () {
 			symbol.append("path")
 				.attr("class", "nofill")
 				.attr("d", "m 9,5 c 0,-2 0,-4 0,-6 0,0 0,0 0,0 0,0 0,-1.8 -1,-2.3 -0.7,-0.6 -1.7,-0.8 -2.9," +
-					"-0.8 -1.2,0 -2,0 -3,0.8 -0.7,0.5 -1,1.4 -1,2.3 0,2 0,4 0,6");
+						   "-0.8 -1.2,0 -2,0 -3,0.8 -0.7,0.5 -1,1.4 -1,2.3 0,2 0,4 0,6");
 
-			symbol.attr("transform", "translate(-" +  (that.radius() - 15) / 5 + ",-" + (that.radius() - 15) / 100 + ")");
+			symbol.attr("transform", "translate(-" + (that.radius() - 15) / 5 + ",-" + (that.radius() - 15) / 100 + ")");
 
 			that.postDrawActions();
 		};
