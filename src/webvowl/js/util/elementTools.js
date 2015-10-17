@@ -4,12 +4,13 @@ var DatatypeNode = require("../elements/nodes/DatatypeNode");
 var ObjectProperty = require("../elements/properties/implementations/OwlObjectProperty");
 var DatatypeProperty = require("../elements/properties/implementations/OwlDatatypeProperty");
 var RdfsSubClassOf = require("../elements/properties/implementations/RdfsSubClassOf");
+var label = require("../elements/links/label");
 
 module.exports = (function () {
 	var tools = {};
 
 	tools.isLabel = function (element) {
-		return element instanceof BaseProperty;
+		return element instanceof label;
 	};
 
 	tools.isNode = function (element) {
@@ -18,6 +19,10 @@ module.exports = (function () {
 
 	tools.isDatatype = function (node) {
 		return node instanceof DatatypeNode;
+	};
+
+	tools.isProperty = function(element) {
+		return element instanceof BaseProperty;
 	};
 
 	tools.isObjectProperty = function (element) {
