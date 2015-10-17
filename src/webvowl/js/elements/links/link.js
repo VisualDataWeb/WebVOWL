@@ -54,6 +54,10 @@ module.exports = function (_domain, _range, _property) {
 		return label.inverse();
 	};
 
+	link.isLoop = function() {
+		return domain === range;
+	};
+
 	link.label = function () {
 		return label;
 	};

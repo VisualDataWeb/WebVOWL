@@ -68,7 +68,7 @@ module.exports = function (graphContainerSelector) {
 
 		// Set link paths and calculate additional informations
 		linkPathElements.attr("d", function (l) {
-			if (l.domain() === l.range()) {
+			if (l.isLoop()) {
 				return math.calculateLoopPath(l);
 			}
 
@@ -201,23 +201,30 @@ module.exports = function (graphContainerSelector) {
 	};
 
 	/**
-	 * Calculate the complete link distance. The visual link distance does
-	 * not contain e.g. radii of round nodes.
-	 * @param link the link
+	 * Calculate the link distance of a single link part.
+	 * The visible link distance does not contain e.g. radii of round nodes.
+	 * @param linkPart the link
 	 * @returns {*}
 	 */
-	function calculateLinkDistance(link) {
-		var distance = getVisibleLinkDistance(link);
-		distance += link.domain().actualRadius();
-		distance += link.range().actualRadius();
-		return distance;
+	function calculateLinkPartDistance(linkPart) {
+		var link = linkPart.link();
+
+		if (link.isLoop()) {
+			return options.loopDistance();
+		}
+
+		var completeLinkDistance = getVisibleLinkDistance(link);
+		completeLinkDistance += link.domain().actualRadius();
+		completeLinkDistance += link.range().actualRadius();
+		// divide by 2 to receive the length of a single link part
+		return completeLinkDistance / 2;
 	}
 
 	function getVisibleLinkDistance(link) {
 		if (elementTools.isDatatype(link.domain()) || elementTools.isDatatype(link.range())) {
-			return options.datatypeDistance() / 2;
+			return options.datatypeDistance();
 		} else {
-			return options.classDistance() / 2;
+			return options.classDistance();
 		}
 	}
 
@@ -402,9 +409,10 @@ module.exports = function (graphContainerSelector) {
 	}
 
 	function setForceLayoutData(nodes, links) {
-		var d3Links = links.reduce(function (array, link) {
-			return array.concat(link.linkParts());
-		}, []);
+		var d3Links = [];
+		links.forEach(function (link) {
+			d3Links = d3Links.concat(link.linkParts());
+		});
 
 		var d3Nodes = [].concat(nodes);
 		links.forEach(function (link) {
@@ -427,7 +435,7 @@ module.exports = function (graphContainerSelector) {
 
 		force.charge(options.charge())
 			.size([options.width(), options.height()])
-			.linkDistance(calculateLinkDistance)
+			.linkDistance(calculateLinkPartDistance)
 			.gravity(options.gravity())
 			.linkStrength(options.linkStrength()); // Flexibility of links
 	}
