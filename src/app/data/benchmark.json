@@ -260,6 +260,10 @@
 		{
 			"id": "equivalentPropertyTest",
 			"type": "owl:Class"
+		},
+		{
+			"id": "AnonymousClass",
+			"type": "owl:Class"
 		}
 	],
 	"classAttribute": [
@@ -277,6 +281,11 @@
 		{
 			"id": "equivalentPropertyTest",
 			"label": "VISIBLE OR NOT?"
+		},
+		{
+			"id": "AnonymousClass",
+			"label": "Anonymous Class",
+			"attributes": ["anonymous"]
 		}
 	],
 	"datatype": [
@@ -568,6 +577,12 @@
 			"label": "card3",
 			"minCardinality": "77",
 			"cardinality": "Not used"
+		},
+		{
+			"id": "anonymousClassProperty",
+			"domain": "NodeTest",
+			"range": "AnonymousClass",
+			"type": "owl:ObjectProperty"
 		}
 	],
 	"propertyAttribute": [

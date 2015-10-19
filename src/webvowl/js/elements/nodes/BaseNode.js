@@ -74,9 +74,7 @@ module.exports = (function () {
 				cssClasses.push(that.styleClass());
 			}
 
-			if (typeof that.visualAttribute() === "string") {
-				cssClasses.push(that.visualAttribute());
-			}
+			cssClasses = cssClasses.concat(that.visualAttributes());
 
 			return cssClasses;
 		};

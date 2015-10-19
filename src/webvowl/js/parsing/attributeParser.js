@@ -10,11 +10,17 @@ module.exports = (function () {
 		DATATYPE = "datatype",
 		OBJECT = "object",
 		RDF = "rdf",
+		ANONYMOUS = "anonymous",
 	// Representations
 		FUNCTIONAL = "functional",
 		INVERSE_FUNCTIONAL = "inverse functional",
 		TRANSITIVE = "transitive",
-		SYMMETRIC = "symmetric";
+		SYMMETRIC = "symmetric",
+	// Attribute groups
+	    VISUAL_ATTRIBUTE_GROUPS = [
+		    [DEPRECATED, EXTERNAL, DATATYPE, OBJECT, RDF],
+		    [ANONYMOUS]
+	    ];
 
 	/**
 	 * Parses and sets the attributes of a class.
@@ -30,13 +36,18 @@ module.exports = (function () {
 	};
 
 	function parseVisualAttributes(element) {
-		var orderedAttributes = [DEPRECATED, EXTERNAL, DATATYPE, OBJECT, RDF],
-			i, l, attribute;
+		VISUAL_ATTRIBUTE_GROUPS.forEach(function (attributeGroup) {
+			setVisualAttributeOfGroup(element, attributeGroup);
+		});
+	}
 
-		for (i = 0, l = orderedAttributes.length; i < l; i++) {
-			attribute = orderedAttributes[i];
+	function setVisualAttributeOfGroup(element, group) {
+		var i, l, attribute;
+
+		for (i = 0, l = group.length; i < l; i++) {
+			attribute = group[i];
 			if (element.attributes().indexOf(attribute) >= 0) {
-				element.visualAttribute(attribute);
+				element.visualAttributes().push(attribute);
 
 				// Just a single attribute is possible
 				break;

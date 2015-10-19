@@ -225,8 +225,8 @@ module.exports = (function () {
 			rect.append("title")
 				.text(that.labelForCurrentLanguage());
 
-			if (that.visualAttribute()) {
-				rect.classed(that.visualAttribute(), true);
+			if (that.visualAttributes()) {
+				rect.classed(that.visualAttributes(), true);
 			}
 		};
 		this.addDisjointLabel = function (groupTag, textTag) {

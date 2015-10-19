@@ -16,7 +16,7 @@ module.exports = (function () {
 		// Additional attributes
 			annotations,
 			attributes = [],
-			visualAttribute,
+			visualAttributes = [],
 			comment,
 			description,
 			equivalentBase,
@@ -127,9 +127,9 @@ module.exports = (function () {
 			return this;
 		};
 
-		this.visualAttribute = function (p) {
-			if (!arguments.length) return visualAttribute;
-			visualAttribute = p;
+		this.visualAttributes = function (p) {
+			if (!arguments.length) return visualAttributes;
+			visualAttributes = p;
 			return this;
 		};
 
