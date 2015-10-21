@@ -9,7 +9,8 @@ module.exports = (function () {
 
 		var that = this,
 			height = 20,
-			width = 60;
+			width = 60,
+			smallestRadius = height / 2;
 
 
 		// Properties
@@ -29,7 +30,7 @@ module.exports = (function () {
 		// Functions
 		// for compatibility reasons // TODO resolve
 		this.actualRadius = function () {
-			return width;
+			return smallestRadius;
 		};
 
 		this.distanceToBorder = function (dx, dy) {

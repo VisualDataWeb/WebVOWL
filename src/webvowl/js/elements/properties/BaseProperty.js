@@ -5,7 +5,8 @@ module.exports = (function () {
 
 	// Static variables
 	var labelHeight = 28,
-		labelWidth = 80;
+		labelWidth = 80,
+		smallestRadius = labelHeight / 2;
 
 
 	// Constructor, private variables and privileged methods
@@ -379,7 +380,7 @@ module.exports = (function () {
 	};
 
 	base.prototype.actualRadius = function() {
-		return base.prototype.width() / 2;
+		return smallestRadius;
 	};
 
 	base.prototype.textWidth = base.prototype.width;
