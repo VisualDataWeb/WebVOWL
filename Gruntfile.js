@@ -23,7 +23,8 @@ module.exports = function (grunt) {
 			}
 		},
 		clean: {
-			deploy: deployPath
+			deploy: deployPath,
+			zip: "webvowl-*.zip"
 		},
 		compress: {
 			deploy: {
