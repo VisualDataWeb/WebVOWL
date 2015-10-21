@@ -31,7 +31,8 @@ module.exports = function (graphContainerSelector) {
 		linkPathElements,
 		cardinalityElements,
 	// Internal data
-		nodes,
+		classNodes,
+		labelNodes,
 		links,
 		properties,
 		unfilteredNodes,
@@ -51,16 +52,17 @@ module.exports = function (graphContainerSelector) {
 		});
 
 		// Set label group positions
-		labelGroupElements.attr("transform", function (link) {
+		labelGroupElements.attr("transform", function (label) {
 			var position;
 
 			// force centered positions on single-layered links
+			var link = label.link();
 			if (link.layers().length === 1 && !link.loops()) {
 				position = math.calculateCenter(link.domain(), link.range());
-				link.label().x = position.x;
-				link.label().y = position.y;
+				label.x = position.x;
+				label.y = position.y;
 			} else {
-				position = link.label();
+				position = label;
 			}
 
 			return "translate(" + position.x + "," + position.y + ")";
@@ -268,7 +270,7 @@ module.exports = function (graphContainerSelector) {
 
 		// Draw nodes
 		nodeElements = nodeContainer.selectAll(".node")
-			.data(nodes).enter()
+			.data(classNodes).enter()
 			.append("g")
 			.classed("node", true)
 			.attr("id", function (d) {
@@ -282,12 +284,13 @@ module.exports = function (graphContainerSelector) {
 
 		// Draw label groups (property + inverse)
 		labelGroupElements = labelContainer.selectAll(".labelGroup")
-			.data(links).enter()
+			.data(labelNodes).enter()
 			.append("g")
-			.classed("labelGroup", true);
+			.classed("labelGroup", true)
+			.call(dragBehaviour);
 
-		labelGroupElements.each(function (link) {
-			var success = link.label().draw(d3.select(this));
+		labelGroupElements.each(function (label) {
+			var success = label.draw(d3.select(this));
 			// Remove empty groups without a label.
 			if (!success) {
 				d3.select(this).remove();
@@ -295,13 +298,13 @@ module.exports = function (graphContainerSelector) {
 		});
 
 		// Place subclass label groups on the bottom of all labels
-		labelGroupElements.each(function (link) {
+		labelGroupElements.each(function (label) {
 			// the label might be hidden e.g. in compact notation
 			if (!this.parentNode) {
 				return;
 			}
 
-			if (elementTools.isRdfsSubClassOf(link.property())) {
+			if (elementTools.isRdfsSubClassOf(label.property())) {
 				var parentNode = this.parentNode;
 				parentNode.insertBefore(this, parentNode.firstChild);
 			}
@@ -381,13 +384,16 @@ module.exports = function (graphContainerSelector) {
 			preprocessedProperties = module.filteredProperties();
 		});
 
-		nodes = preprocessedNodes;
+		classNodes = preprocessedNodes;
 		properties = preprocessedProperties;
 		links = linkCreator.createLinks(properties);
+		labelNodes = links.map(function(link) {
+			return link.label();
+		});
 
-		storeLinksOnNodes(nodes, links);
+		storeLinksOnNodes(classNodes, links);
 
-		setForceLayoutData(nodes, links);
+		setForceLayoutData(classNodes, labelNodes, links);
 	}
 
 	function storeLinksOnNodes(nodes, links) {
@@ -408,16 +414,13 @@ module.exports = function (graphContainerSelector) {
 		}
 	}
 
-	function setForceLayoutData(nodes, links) {
+	function setForceLayoutData(classNodes, labelNodes, links) {
 		var d3Links = [];
 		links.forEach(function (link) {
 			d3Links = d3Links.concat(link.linkParts());
 		});
 
-		var d3Nodes = [].concat(nodes);
-		links.forEach(function (link) {
-			d3Nodes.push(link.label());
-		});
+		var d3Nodes = [].concat(classNodes).concat(labelNodes);
 
 		force.nodes(d3Nodes)
 			.links(d3Links);

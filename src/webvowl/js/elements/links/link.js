@@ -14,7 +14,7 @@ module.exports = function (_domain, _range, _property) {
 		layerIndex,
 		loops,
 		loopIndex,
-		label = require("./label")(_property),
+		label = require("./label")(_property, link),
 		range = _range;
 
 	var backPart = require("./linkPart")(domain, label, link),
