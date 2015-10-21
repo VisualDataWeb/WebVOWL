@@ -9,8 +9,7 @@ module.exports = function (graph) {
 	var gravityMenu = {},
 		sliders = [],
 		options = graph.graphOptions(),
-		defaultCharge = options.charge(),
-		defaultLinkDistance = options.defaultLinkDistance();
+		defaultCharge = options.charge();
 
 
 	/**
@@ -22,6 +21,8 @@ module.exports = function (graph) {
 	};
 
 	function addDistanceSlider(selector, identifier, label, distanceFunction) {
+		var defaultLinkDistance = distanceFunction();
+
 		var sliderContainer,
 			sliderValueLabel;
 
@@ -54,13 +55,13 @@ module.exports = function (graph) {
 		slider.on("input", function () {
 			var distance = slider.property("value");
 			distanceFunction(distance);
-			adjustCharge();
+			adjustCharge(defaultLinkDistance);
 			sliderValueLabel.text(distance);
 			graph.updateStyle();
 		});
 	}
 
-	function adjustCharge() {
+	function adjustCharge(defaultLinkDistance) {
 		var greaterDistance = Math.max(options.classDistance(), options.datatypeDistance()),
 			ratio = greaterDistance / defaultLinkDistance,
 			newCharge = defaultCharge * ratio;

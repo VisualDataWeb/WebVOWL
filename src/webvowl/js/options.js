@@ -5,9 +5,8 @@ module.exports = function () {
 	var options = {},
 		data,
 		graphContainerSelector,
-		defaultLinkDistance = 200,
-		classDistance = defaultLinkDistance,
-		datatypeDistance = defaultLinkDistance,
+		classDistance = 200,
+		datatypeDistance = 120,
 		loopDistance = 100,
 		charge = -300,
 		gravity = 0.025,
@@ -21,12 +20,7 @@ module.exports = function () {
 		compactNotation = false,
 		scaleNodesByIndividuals = false;
 
-	/* Read-only properties */
-	options.defaultLinkDistance = function () {
-		return defaultLinkDistance;
-	};
 
-	/* Properties with read-write access */
 	options.charge = function (p) {
 		if (!arguments.length) return charge;
 		charge = +p;
