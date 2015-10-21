@@ -58,7 +58,9 @@ module.exports = function (graphContainerSelector) {
 			// force centered positions on single-layered links
 			var link = label.link();
 			if (link.layers().length === 1 && !link.loops()) {
-				position = math.calculateCenter(link.domain(), link.range());
+				var linkDomainIntersection = math.calculateIntersection(link.range(), link.domain(), 0);
+				var linkRangeIntersection = math.calculateIntersection(link.domain(), link.range(), 0);
+				position = math.calculateCenter(linkDomainIntersection, linkRangeIntersection);
 				label.x = position.x;
 				label.y = position.y;
 			} else {
