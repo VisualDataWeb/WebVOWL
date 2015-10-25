@@ -3,7 +3,7 @@ var forceLayoutNodeFunctions = require("../forceLayoutNodeFunctions")();
 
 module.exports = (function () {
 
-	var base = function (graph) {
+	var Base = function (graph) {
 		BaseElement.apply(this, arguments);
 
 		var that = this,
@@ -121,9 +121,9 @@ module.exports = (function () {
 		forceLayoutNodeFunctions.addTo(this);
 	};
 
-	base.prototype = Object.create(BaseElement.prototype);
-	base.prototype.constructor = base;
+	Base.prototype = Object.create(BaseElement.prototype);
+	Base.prototype.constructor = Base;
 
 
-	return base;
+	return Base;
 }());

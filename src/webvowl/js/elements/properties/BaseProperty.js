@@ -10,7 +10,7 @@ module.exports = (function () {
 
 
 	// Constructor, private variables and privileged methods
-	var base = function (graph) {
+	var Base = function (graph) {
 		BaseElement.apply(this, arguments);
 
 		var that = this,
@@ -368,23 +368,23 @@ module.exports = (function () {
 
 	};
 
-	base.prototype = Object.create(BaseElement.prototype);
-	base.prototype.constructor = base;
+	Base.prototype = Object.create(BaseElement.prototype);
+	Base.prototype.constructor = Base;
 
-	base.prototype.height = function () {
+	Base.prototype.height = function () {
 		return labelHeight;
 	};
 
-	base.prototype.width = function () {
+	Base.prototype.width = function () {
 		return labelWidth;
 	};
 
-	base.prototype.actualRadius = function() {
+	Base.prototype.actualRadius = function() {
 		return smallestRadius;
 	};
 
-	base.prototype.textWidth = base.prototype.width;
+	Base.prototype.textWidth = Base.prototype.width;
 
 
-	return base;
+	return Base;
 }());

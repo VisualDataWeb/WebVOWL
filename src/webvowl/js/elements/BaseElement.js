@@ -5,7 +5,7 @@ module.exports = (function () {
 
 	var DEFAULT_LABEL = "DEFAULT_LABEL";
 
-	var base = function (graph) {
+	var Base = function (graph) {
 		// Basic attributes
 		var equivalents = [],
 			id,
@@ -162,8 +162,12 @@ module.exports = (function () {
 		};
 	};
 
-	base.prototype.constructor = base;
+	Base.prototype.constructor = Base;
+
+	Base.prototype.equals = function(other) {
+		return other instanceof Base && this.id() === other.id();
+	};
 
 
-	return base;
+	return Base;
 }());
