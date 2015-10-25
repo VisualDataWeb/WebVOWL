@@ -389,10 +389,9 @@ module.exports = function (graphContainerSelector) {
 		classNodes = preprocessedNodes;
 		properties = preprocessedProperties;
 		links = linkCreator.createLinks(properties);
-		labelNodes = links.map(function(link) {
+		labelNodes = links.map(function (link) {
 			return link.label();
 		});
-
 		storeLinksOnNodes(classNodes, links);
 
 		setForceLayoutData(classNodes, labelNodes, links);
@@ -423,9 +422,27 @@ module.exports = function (graphContainerSelector) {
 		});
 
 		var d3Nodes = [].concat(classNodes).concat(labelNodes);
+		setPositionOfOldLabelsOnNewLabels(force.nodes(), labelNodes);
 
 		force.nodes(d3Nodes)
 			.links(d3Links);
+	}
+
+	/**
+	 * The label nodes are positioned randomly, because they are created from scratch if the data changes and lose
+	 * their position information. With this hack the position of old labels is copied to the new labels.
+	 */
+	function setPositionOfOldLabelsOnNewLabels(oldLabelNodes, labelNodes) {
+		labelNodes.forEach(function (labelNode) {
+			for (var i = 0; i < oldLabelNodes.length; i++) {
+				var oldNode = oldLabelNodes[i];
+				if (oldNode.equals(labelNode)) {
+					labelNode.x = oldNode.x;
+					labelNode.y = oldNode.y;
+					break;
+				}
+			}
+		});
 	}
 
 
