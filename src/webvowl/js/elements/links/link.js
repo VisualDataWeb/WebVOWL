@@ -1,3 +1,5 @@
+var Label = require('./Label');
+
 /**
  * A link connects at least two VOWL nodes.
  * The properties connecting the VOWL nodes are stored separately into the label.
@@ -7,14 +9,13 @@
  * @returns {{}}
  */
 module.exports = function (_domain, _range, _property) {
-
 	var link = {},
 		domain = _domain,
 		layers,
 		layerIndex,
 		loops,
 		loopIndex,
-		label = require("./label")(_property, link),
+		label = new Label(_property, link),
 		range = _range;
 
 	var backPart = require("./linkPart")(domain, label, link),

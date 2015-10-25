@@ -5,32 +5,28 @@ var forceLayoutNodeFunctions = require("../forceLayoutNodeFunctions")();
  * A label represents the element(s) which further describe a link.
  * It encapsulates the property and its inverse property.
  * @param property the property; the inverse is inferred
- * @returns {{}}
+ * @param link the link this label belongs to
  */
 module.exports = function (property, link) {
+	forceLayoutNodeFunctions.addTo(this);
 
-	var label = {};
-	label.actualRadius = function () {
+	this.actualRadius = function () {
 		return property.actualRadius();
 	};
 
-	label.draw = function (container) {
+	this.draw = function (container) {
 		return property.draw(container);
 	};
 
-	label.inverse = function () {
-		return property ? property.inverse() : undefined;
+	this.inverse = function () {
+		return property.inverse();
 	};
 
-	label.link = function () {
+	this.link = function () {
 		return link;
 	};
 
-	label.property = function () {
+	this.property = function () {
 		return property;
 	};
-
-	forceLayoutNodeFunctions.addTo(label);
-
-	return label;
 };
