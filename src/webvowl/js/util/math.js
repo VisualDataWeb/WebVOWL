@@ -46,8 +46,9 @@ module.exports = (function () {
 		var node = link.domain(),
 			label = link.label();
 
-		var loopShiftAngle = 360 / link.loops().length,
-			loopAngle = Math.max(40, loopShiftAngle * 0.8);
+		var fairShareLoopAngle = 360 / link.loops().length,
+			fairShareLoopAngleWithMargin = fairShareLoopAngle * 0.8,
+			loopAngle = Math.min(60, fairShareLoopAngleWithMargin);
 
 		var dx = label.x - node.x,
 			dy = label.y - node.y,
