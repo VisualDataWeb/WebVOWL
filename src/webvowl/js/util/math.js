@@ -50,8 +50,8 @@ module.exports = (function () {
 			fairShareLoopAngleWithMargin = fairShareLoopAngle * 0.8,
 			loopAngle = Math.min(60, fairShareLoopAngleWithMargin);
 
-		var dx = label.x - node.x,
-			dy = label.y - node.y,
+		var dx = node.x - label.x,
+			dy = node.y - label.y,
 			labelRadian = Math.atan2(dy, dx),
 			labelAngle = calculateAngle(labelRadian);
 
