@@ -16,7 +16,8 @@ module.exports = (function () {
 		this.setHoverHighlighting = function (enable) {
 			superHoverHighlightingFunction(enable);
 
-			d3.selectAll(".special." + that.cssClassOfNode()).classed("hovered", enable);
+			// Highlight connected links when hovering the set operator
+			d3.selectAll(".link ." + that.cssClassOfNode()).classed("hovered", enable);
 		};
 
 		this.postDrawActions = function () {

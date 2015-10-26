@@ -16,7 +16,7 @@ module.exports = (function () {
 			element.append("circle")
 				.attr("class", that.type())
 				.classed("class", true)
-				.classed("special", true)
+				.classed("dashed", true)
 				.attr("r", that.actualRadius());
 
 			var symbol = element.append("g").classed("embedded", true);

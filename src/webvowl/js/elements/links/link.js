@@ -125,14 +125,14 @@ module.exports = function (_domain, _range, _property) {
 			.classed(range.cssClassOfNode(), true)
 			.classed(property.linkType(), true)
 			.attr("marker-end", function (l) {
-				if (!l.label().property().isSpecialLink()) {
+				if (l.label().property().linkHasMarker()) {
 					return "url(#" + l.label().property().markerId() + ")";
 				}
 				return "";
 			})
 			.attr("marker-start", function (l) {
 				var inverse = l.label().inverse();
-				if (inverse && !inverse.isSpecialLink()) {
+				if (inverse && inverse.linkHasMarker()) {
 					return "url(#" + inverse.markerId() + ")";
 				}
 				return "";

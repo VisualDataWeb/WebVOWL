@@ -13,7 +13,7 @@ module.exports = (function () {
 			.radius(30);
 
 		this.draw = function (element) {
-			superDrawFunction(element, ["white", "special"]);
+			superDrawFunction(element, ["white", "dashed"]);
 		};
 	};
 	o.prototype = Object.create(RoundNode.prototype);

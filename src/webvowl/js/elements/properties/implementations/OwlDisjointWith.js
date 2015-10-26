@@ -12,8 +12,8 @@ module.exports = (function () {
 			return this;
 		};
 
-		this.markerType("special")
-			.linkType("special")
+		this.markerType("dashed")
+			.linkType("dashed")
 			.styleClass("disjointwith")
 			.type("owl:disjointWith");
 	};

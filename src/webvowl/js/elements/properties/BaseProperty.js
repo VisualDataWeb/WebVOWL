@@ -146,8 +146,8 @@ module.exports = (function () {
 			return rectangularElementTools.distanceToBorder(that, dx, dy);
 		};
 
-		this.isSpecialLink = function () {
-			return linkType === "special";
+		this.linkHasMarker = function () {
+			return linkType !== "dashed";
 		};
 
 		this.markerId = function () {
