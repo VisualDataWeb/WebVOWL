@@ -24,7 +24,8 @@ module.exports = function (grunt) {
 		},
 		clean: {
 			deploy: deployPath,
-			zip: "webvowl-*.zip"
+			zip: "webvowl-*.zip",
+			testOntology: deployPath + "data/benchmark.json"
 		},
 		compress: {
 			deploy: {
@@ -164,10 +165,10 @@ module.exports = function (grunt) {
 
 
 	grunt.registerTask("default", ["release"]);
-	grunt.registerTask("pre-js", ["clean", "copy"]);
+	grunt.registerTask("pre-js", ["clean:deploy", "clean:zip", "copy"]);
 	grunt.registerTask("post-js", ["replace"]);
 	grunt.registerTask("package", ["pre-js", "webpack:build-dev", "post-js", "htmlbuild:dev"]);
-	grunt.registerTask("release", ["pre-js", "webpack:build", "post-js", "htmlbuild:release"]);
+	grunt.registerTask("release", ["pre-js", "webpack:build", "post-js", "htmlbuild:release", "clean:testOntology"]);
 	grunt.registerTask("zip", ["gitinfo", "release", "compress"]);
 	grunt.registerTask("webserver", ["package", "connect:devserver", "watch"]);
 	grunt.registerTask("test", ["karma:dev"]);
