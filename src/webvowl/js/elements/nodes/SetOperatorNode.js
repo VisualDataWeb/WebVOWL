@@ -25,7 +25,7 @@ module.exports = (function () {
 
 			that.textBlock().clear();
 			that.textBlock().addInstanceCount(that.individuals().length);
-			that.textBlock().setTranslation(0, that.radius() - 15);
+			that.textBlock().setTranslation(0, 10);
 		};
 	};
 	o.prototype = Object.create(RoundNode.prototype);
