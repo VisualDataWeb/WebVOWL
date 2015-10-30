@@ -66,7 +66,7 @@ module.exports = (function () {
 		};
 
 		this.distanceToBorder = function () {
-			return that.radius();
+			return that.actualRadius();
 		};
 
 		/**

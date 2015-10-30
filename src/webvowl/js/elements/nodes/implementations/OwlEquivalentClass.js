@@ -15,7 +15,7 @@ module.exports = (function () {
 			.type("owl:equivalentClass");
 
 		this.actualRadius = function () {
-			return superActualRadiusFunction() - CIRCLE_SIZE_DIFFERENCE;
+			return superActualRadiusFunction() + CIRCLE_SIZE_DIFFERENCE;
 		};
 
 
@@ -24,8 +24,9 @@ module.exports = (function () {
 
 			that.nodeElement(parentElement);
 
-			drawTools.appendCircularClass(parentElement, that.actualRadius() + CIRCLE_SIZE_DIFFERENCE, ["white", "embedded"]);
-			drawTools.appendCircularClass(parentElement, that.actualRadius(), cssClasses, that.labelForCurrentLanguage());
+			// draw the outer circle at first and afterwards the inner circle
+			drawTools.appendCircularClass(parentElement, that.actualRadius(), ["white", "embedded"]);
+			drawTools.appendCircularClass(parentElement, that.actualRadius() - CIRCLE_SIZE_DIFFERENCE, cssClasses, that.labelForCurrentLanguage());
 
 			that.postDrawActions();
 			appendEquivalentClasses(that.textBlock(), that.equivalents());
