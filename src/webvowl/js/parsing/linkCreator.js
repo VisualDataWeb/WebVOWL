@@ -1,4 +1,6 @@
 var PlainLink = require('../elements/links/PlainLink');
+var ArrowLink = require('../elements/links/ArrowLink');
+var SetOperatorNode = require('../elements/nodes/SetOperatorNode');
 
 /**
  * Stores the passed properties in links.
@@ -38,7 +40,7 @@ module.exports = (function () {
 			property = properties[i];
 
 			if (!addedProperties.has(property)) {
-				var link = new PlainLink(property.domain(), property.range(), property);
+				var link = createLink(property);
 
 				property.link(link);
 				if (property.inverse()) {
@@ -110,6 +112,15 @@ module.exports = (function () {
 		}
 	}
 
+	function createLink(property) {
+		var domain = property.domain();
+		var range = property.range();
+
+		if (domain instanceof SetOperatorNode || range instanceof SetOperatorNode) {
+			return new PlainLink(domain, range, property);
+		}
+		return new ArrowLink(domain, range, property);
+	}
 
 	return function () {
 		// Return a function to keep module interfaces consistent

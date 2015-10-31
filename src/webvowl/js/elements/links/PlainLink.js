@@ -65,7 +65,7 @@ function PlainLink(domain, range, property) {
 }
 
 
-PlainLink.prototype.draw = function (linkGroup, markerContainer) {
+PlainLink.prototype.draw = function (linkGroup) {
 	var property = this.label().property();
 	var inverse = this.label().inverse();
 
@@ -74,58 +74,11 @@ PlainLink.prototype.draw = function (linkGroup, markerContainer) {
 		inverse.linkGroup(linkGroup);
 	}
 
-	// Marker for this property
-	property.markerElement(markerContainer.append("marker")
-		.datum(property)
-		.attr("id", property.markerId())
-		.attr("viewBox", "0 -8 14 16")
-		.attr("refX", 12)
-		.attr("refY", 0)
-		.attr("markerWidth", 12)  // ArrowSize
-		.attr("markerHeight", 12)
-		.attr("markerUnits", "userSpaceOnUse")
-		.attr("orient", "auto")  // Orientation of Arrow
-		.attr("class", property.markerType() + "Marker"));
-	property.markerElement()
-		.append("path")
-		.attr("d", "M0,-8L12,0L0,8Z");
-
-	// Marker for the inverse property
-	if (inverse) {
-		inverse.markerElement(markerContainer.append("marker")
-			.datum(inverse)
-			.attr("id", inverse.markerId())
-			.attr("viewBox", "0 -8 14 16")
-			.attr("refX", 0)
-			.attr("refY", 0)
-			.attr("markerWidth", 12)  // ArrowSize
-			.attr("markerHeight", 12)
-			.attr("markerUnits", "userSpaceOnUse")
-			.attr("orient", "auto")  // Orientation of Arrow
-			.attr("class", inverse.markerType() + "Marker"));
-		inverse.markerElement().append("path")
-			.attr("d", "M12,-8L0,0L12,8Z");
-	}
-
-	// Draw the link
 	linkGroup.append("path")
 		.classed("link-path", true)
 		.classed(this.domain().cssClassOfNode(), true)
 		.classed(this.range().cssClassOfNode(), true)
-		.classed(property.linkType(), true)
-		.attr("marker-end", function (l) {
-			if (l.label().property().linkHasMarker()) {
-				return "url(#" + l.label().property().markerId() + ")";
-			}
-			return "";
-		})
-		.attr("marker-start", function (l) {
-			var inverse = l.label().inverse();
-			if (inverse && inverse.linkHasMarker()) {
-				return "url(#" + inverse.markerId() + ")";
-			}
-			return "";
-		});
+		.classed(property.linkType(), true);
 };
 
 PlainLink.prototype.inverse = function () {
