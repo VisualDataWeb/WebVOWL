@@ -283,7 +283,7 @@ module.exports = (function () {
 
 				cardText.text(cardString);
 			} else if (that.maxCardinality() !== undefined) {
-				cardText.text("*.." + that.maxCardinality())
+				cardText.text("*.." + that.maxCardinality());
 			} else if (that.cardinality() !== undefined) {
 				cardText.text(that.cardinality());
 			}
