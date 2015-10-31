@@ -5,19 +5,14 @@ module.exports = (function () {
 	var o = function (graph) {
 		SetOperatorNode.apply(this, arguments);
 
-		var that = this;
+		var that = this,
+			superDrawFunction = that.draw;
 
 		this.styleClass("complementof")
 			.type("owl:complementOf");
 
 		this.draw = function (element) {
-			that.nodeElement(element);
-
-			element.append("circle")
-				.attr("class", that.type())
-				.classed("class", true)
-				.classed("dashed", true)
-				.attr("r", that.actualRadius());
+			superDrawFunction(element);
 
 			var symbol = element.append("g").classed("embedded", true);
 
@@ -30,7 +25,8 @@ module.exports = (function () {
 				.attr("d", "m -7,-1.5 12,0 0,6")
 				.attr("transform", "scale(.5)");
 
-			symbol.attr("transform", "translate(-" + (that.radius() - 15) / 100 + ",-" + (that.radius() - 15) / 100 + ")");
+			symbol.attr("transform",
+				"translate(-" + (that.radius() - 15) / 100 + ",-" + (that.radius() - 15) / 100 + ")");
 
 			that.postDrawActions();
 		};

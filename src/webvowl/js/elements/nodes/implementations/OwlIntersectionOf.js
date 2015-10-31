@@ -6,19 +6,14 @@ module.exports = (function () {
 		SetOperatorNode.apply(this, arguments);
 
 		var that = this,
+			superDrawFunction = that.draw,
 			INTERSECTION_BACKGROUND_PATH = createIntersectionPath();
 
 		this.styleClass("intersectionof")
 			.type("owl:intersectionOf");
 
 		this.draw = function (element) {
-			that.nodeElement(element);
-
-			element.append("circle")
-				.attr("class", that.type())
-				.classed("class", true)
-				.classed("dashed", true)
-				.attr("r", that.actualRadius());
+			superDrawFunction(element);
 
 			var symbol = element.append("g").classed("embedded", true);
 

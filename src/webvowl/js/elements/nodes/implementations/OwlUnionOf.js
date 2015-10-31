@@ -5,19 +5,14 @@ module.exports = (function () {
 	var o = function (graph) {
 		SetOperatorNode.apply(this, arguments);
 
-		var that = this;
+		var that = this,
+			superDrawFunction = that.draw;
 
 		this.styleClass("unionof")
 			.type("owl:unionOf");
 
 		this.draw = function (element) {
-			that.nodeElement(element);
-
-			element.append("circle")
-				.attr("class", that.type())
-				.classed("class", true)
-				.classed("dashed", true)
-				.attr("r", that.actualRadius());
+			superDrawFunction(element);
 
 			var symbol = element.append("g").classed("embedded", true);
 

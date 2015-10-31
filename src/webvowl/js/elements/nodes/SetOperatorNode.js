@@ -8,8 +8,8 @@ module.exports = (function () {
 		RoundNode.apply(this, arguments);
 
 		var that = this,
-			superHoverHighlightingFunction = this.setHoverHighlighting,
-			superPostDrawActions = this.postDrawActions;
+			superHoverHighlightingFunction = that.setHoverHighlighting,
+			superPostDrawActions = that.postDrawActions;
 
 		this.radius(radius);
 
@@ -18,6 +18,16 @@ module.exports = (function () {
 
 			// Highlight connected links when hovering the set operator
 			d3.selectAll(".link ." + that.cssClassOfNode()).classed("hovered", enable);
+		};
+
+		this.draw = function (element) {
+			that.nodeElement(element);
+
+			element.append("circle")
+				.attr("class", that.type())
+				.classed("class", true)
+				.classed("dashed", true)
+				.attr("r", that.actualRadius());
 		};
 
 		this.postDrawActions = function () {
