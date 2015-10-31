@@ -290,20 +290,11 @@ module.exports = (function () {
 
 			return that.cardinalityElement();
 		};
-		function onMouseOver() {
-			if (that.mouseEntered()) {
-				return;
+
+		that.setHighlighting = function (enable) {
+			if (that.labelElement()) {
+				that.labelElement().select("rect").classed("hovered", enable);
 			}
-			that.mouseEntered(true);
-
-			setHighlighting(true);
-
-			that.foreground();
-			foregroundSubAndSuperProperties();
-		}
-
-		function setHighlighting(enable) {
-			that.labelElement().select("rect").classed("hovered", enable);
 			that.linkGroup().selectAll("path, text").classed("hovered", enable);
 			that.markerElement().select("path").classed("hovered", enable);
 			if (that.cardinalityElement()) {
@@ -315,7 +306,7 @@ module.exports = (function () {
 				property.labelElement().select("rect")
 					.classed("indirectHighlighting", enable);
 			});
-		}
+		};
 
 		/**
 		 * Combines the sub- and superproperties into a single array, because
@@ -361,10 +352,20 @@ module.exports = (function () {
 			});
 		}
 
+		function onMouseOver() {
+			if (that.mouseEntered()) {
+				return;
+			}
+			that.mouseEntered(true);
+			that.setHighlighting(true);
+
+			that.foreground();
+			foregroundSubAndSuperProperties();
+		}
+
 		function onMouseOut() {
 			that.mouseEntered(false);
-
-			setHighlighting(false);
+			that.setHighlighting(false);
 		}
 
 	};
@@ -380,7 +381,7 @@ module.exports = (function () {
 		return labelWidth;
 	};
 
-	Base.prototype.actualRadius = function() {
+	Base.prototype.actualRadius = function () {
 		return smallestRadius;
 	};
 

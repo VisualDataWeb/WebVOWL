@@ -12,7 +12,6 @@ module.exports = (function () {
 			label,
 			type,
 			iri,
-			links,
 		// Additional attributes
 			annotations,
 			attributes = [],
@@ -94,12 +93,6 @@ module.exports = (function () {
 		this.label = function (p) {
 			if (!arguments.length) return label;
 			label = p || DEFAULT_LABEL;
-			return this;
-		};
-
-		this.links = function (p) {
-			if (!arguments.length) return links;
-			links = p;
 			return this;
 		};
 
