@@ -278,11 +278,12 @@ module.exports = (function () {
 				.attr("dy", "0.5ex");
 
 			if (that.minCardinality() !== undefined) {
-				var cardString = that.minCardinality().toString();
-				cardString = cardString.concat(" .. ");
-				cardString = cardString.concat(that.maxCardinality() !== undefined ? that.maxCardinality() : "*");
+				var cardString = that.minCardinality() + "..";
+				cardString += that.maxCardinality() !== undefined ? that.maxCardinality() : "*";
 
 				cardText.text(cardString);
+			} else if (that.maxCardinality() !== undefined) {
+				cardText.text("*.." + that.maxCardinality())
 			} else if (that.cardinality() !== undefined) {
 				cardText.text(that.cardinality());
 			}
