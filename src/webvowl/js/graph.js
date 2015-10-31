@@ -217,11 +217,11 @@ module.exports = function (graphContainerSelector) {
 			return options.loopDistance();
 		}
 
-		var completeLinkDistance = getVisibleLinkDistance(link);
-		completeLinkDistance += link.domain().actualRadius();
-		completeLinkDistance += link.range().actualRadius();
-		// divide by 2 to receive the length of a single link part
-		return completeLinkDistance / 2;
+		// divide by 2 to receive the length for a single link part
+		var linkPartDistance = getVisibleLinkDistance(link) / 2;
+		linkPartDistance += linkPart.domain().actualRadius();
+		linkPartDistance += linkPart.range().actualRadius();
+		return linkPartDistance;
 	}
 
 	function getVisibleLinkDistance(link) {
