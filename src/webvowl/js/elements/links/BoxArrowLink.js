@@ -1,17 +1,17 @@
 var PlainLink = require('./PlainLink');
 
 
-module.exports = ArrowLink;
+module.exports = BoxArrowLink;
 
-function ArrowLink(domain, range, property) {
+function BoxArrowLink(domain, range, property) {
 	PlainLink.apply(this, arguments);
 }
 
-ArrowLink.prototype = Object.create(PlainLink.prototype);
-ArrowLink.prototype.constructor = ArrowLink;
+BoxArrowLink.prototype = Object.create(PlainLink.prototype);
+BoxArrowLink.prototype.constructor = BoxArrowLink;
 
 
-ArrowLink.prototype.draw = function (linkGroup, markerContainer) {
+BoxArrowLink.prototype.draw = function (linkGroup, markerContainer) {
 	var property = this.label().property();
 	var inverse = this.label().inverse();
 
@@ -29,17 +29,19 @@ ArrowLink.prototype.draw = function (linkGroup, markerContainer) {
 	}
 };
 
+
 function createPropertyMarker(markerContainer, property) {
 	var marker = appendBasicMarker(markerContainer, property);
-	marker.attr("refX", 12);
-	marker.append("path").attr("d", "M0,-8L12,0L0,8Z");
+	marker.attr("refX", 8);
+	marker.append("path").attr("d", "M0,-8L8,0L0,8L-8,0L0,-8L8,0");
 
 	property.markerElement(marker);
 }
 
 function createInverseMarker(markerContainer, inverse) {
 	var inverseMarker = appendBasicMarker(markerContainer, inverse);
-	inverseMarker.append("path").attr("d", "M12,-8L0,0L12,8Z");
+	inverseMarker.attr("refX", -8);
+	inverseMarker.append("path").attr("d", "M0,-8L8,0L0,8L-8,0L0,-8L8,0");
 
 	inverse.markerElement(inverseMarker);
 }
@@ -48,9 +50,9 @@ function appendBasicMarker(markerContainer, property) {
 	return markerContainer.append("marker")
 		.datum(property)
 		.attr("id", property.markerId())
-		.attr("viewBox", "0 -8 14 16")
-		.attr("markerWidth", 12)
-		.attr("markerHeight", 12)
+		.attr("viewBox", "-10 -10 20 20")
+		.attr("markerWidth", 20)
+		.attr("markerHeight", 20)
 		.attr("markerUnits", "userSpaceOnUse")
 		.attr("orient", "auto")
 		.attr("class", property.markerType() + "-marker");

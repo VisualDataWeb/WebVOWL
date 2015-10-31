@@ -54,10 +54,11 @@ path, .nofill {
 .class, path, line, .fineline {
 	stroke: #000;
 }
-.white, .subclass, .dottedMarker path, .subclassproperty, .external + text {
+.white, .subclass, .border-marker path, .subclassproperty, .external + text {
     fill: #fff;
 }
-.class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .normalMarker path.hovered, .cardinality.focused, .normalMarker path.focused, circle.pin {
+.class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .cardinality.focused, circle.pin,
+.filled-marker path.hovered, .filled-marker path.focused {
     fill: #f00;
     cursor: pointer;
 }
@@ -95,5 +96,5 @@ rect.focused, circle.focused {
 marker path {
     /* Safari and Chrome workaround for inheriting the style of its link.
        Use any value that is larger than the length of the marker path. */
-    stroke-dasharray: 50;
+    stroke-dasharray: 100;
 }

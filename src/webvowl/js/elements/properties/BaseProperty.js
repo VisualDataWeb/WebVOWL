@@ -26,7 +26,7 @@ module.exports = (function () {
 			superproperties,
 		// Style attributes
 			linkType = "normal",
-			markerType = "normal",
+			markerType = "filled",
 			labelVisible = true,
 		// Element containers
 			cardinalityElement,
