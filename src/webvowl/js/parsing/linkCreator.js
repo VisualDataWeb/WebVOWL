@@ -1,3 +1,5 @@
+var PlainLink = require('../elements/links/PlainLink');
+
 /**
  * Stores the passed properties in links.
  * @returns {Function}
@@ -36,7 +38,7 @@ module.exports = (function () {
 			property = properties[i];
 
 			if (!addedProperties.has(property)) {
-				var link = require("../elements/links/link")(property.domain(), property.range(), property);
+				var link = new PlainLink(property.domain(), property.range(), property);
 
 				property.link(link);
 				if (property.inverse()) {
