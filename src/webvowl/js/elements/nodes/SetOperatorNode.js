@@ -1,4 +1,5 @@
 var RoundNode = require("./RoundNode");
+var BoxArrowLink = require("../links/BoxArrowLink");
 
 module.exports = (function () {
 
@@ -18,7 +19,9 @@ module.exports = (function () {
 
 			// Highlight connected links when hovering the set operator
 			that.links().forEach(function(link) {
-				link.property().setHighlighting(enable);
+				if (link instanceof BoxArrowLink) {
+					link.property().setHighlighting(enable);
+				}
 			});
 		};
 
