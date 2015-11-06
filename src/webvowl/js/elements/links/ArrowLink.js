@@ -1,4 +1,4 @@
-var PlainLink = require('./PlainLink');
+var PlainLink = require("./PlainLink");
 
 
 module.exports = ArrowLink;

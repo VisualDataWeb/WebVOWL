@@ -1,4 +1,4 @@
-var Label = require('./Label');
+var Label = require("./Label");
 
 
 module.exports = PlainLink;

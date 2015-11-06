@@ -1,8 +1,8 @@
-var ArrowLink = require('../elements/links/ArrowLink');
-var BoxArrowLink = require('../elements/links/BoxArrowLink');
-var PlainLink = require('../elements/links/PlainLink');
-var OwlDisjointWith = require('../elements/properties/implementations/OwlDisjointWith');
-var SetOperatorProperty = require('../elements/properties/implementations/SetOperatorProperty');
+var ArrowLink = require("../elements/links/ArrowLink");
+var BoxArrowLink = require("../elements/links/BoxArrowLink");
+var PlainLink = require("../elements/links/PlainLink");
+var OwlDisjointWith = require("../elements/properties/implementations/OwlDisjointWith");
+var SetOperatorProperty = require("../elements/properties/implementations/SetOperatorProperty");
 
 /**
  * Stores the passed properties in links.

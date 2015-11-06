@@ -2,7 +2,7 @@
 
 module.exports = function (grunt) {
 
-	require('load-grunt-tasks')(grunt);
+	require("load-grunt-tasks")(grunt);
 	var webpack = require("webpack");
 	var webpackConfig = require("./webpack.config.js");
 
