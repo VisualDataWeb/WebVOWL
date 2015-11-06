@@ -1,8 +1,8 @@
 var ArrowLink = require('../elements/links/ArrowLink');
 var BoxArrowLink = require('../elements/links/BoxArrowLink');
 var PlainLink = require('../elements/links/PlainLink');
-var SetOperatorNode = require('../elements/nodes/SetOperatorNode');
 var OwlDisjointWith = require('../elements/properties/implementations/OwlDisjointWith');
+var SetOperatorProperty = require('../elements/properties/implementations/SetOperatorProperty');
 
 /**
  * Stores the passed properties in links.
@@ -120,7 +120,7 @@ module.exports = (function () {
 
 		if (property instanceof OwlDisjointWith) {
 			return new PlainLink(domain, range, property);
-		} else if (domain instanceof SetOperatorNode) {
+		} else if (property instanceof SetOperatorProperty) {
 			return new BoxArrowLink(domain, range, property);
 		}
 		return new ArrowLink(domain, range, property);
