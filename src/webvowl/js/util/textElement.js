@@ -13,12 +13,10 @@ module.exports = function (element) {
 			.classed("text", true)
 			.attr("text-anchor", "middle");
 
-	/** Due to browser incompatibilities this has to be hardcoded. This is because Firefox has no
-	 * "offsetHeight" attribute like Chrome to retrieve the absolute pixel height. */
-	var STYLES = {
-		default: {height: 14, cssClass: "text"},
-		subtext: {height: 10, cssClass: "subtext"},
-		instanceCount: {height: 14, cssClass: "instance-count"}
+	var TEXT_CSS_CLASS = {
+		default: "text",
+		subtext: "subtext",
+		instanceCount: "instance-count"
 	};
 
 
@@ -38,7 +36,7 @@ module.exports = function (element) {
 	 */
 	textElement.addSubText = function (text) {
 		if (text) {
-			addTextline(text, STYLES.subtext, "(", ")");
+			addTextline(text, TEXT_CSS_CLASS.subtext, "(", ")");
 		}
 	};
 
@@ -48,7 +46,7 @@ module.exports = function (element) {
 	 */
 	textElement.addEquivalents = function (text) {
 		if (text) {
-			addTextline(text, STYLES.subtext, "[", "]");
+			addTextline(text, TEXT_CSS_CLASS.subtext, "[", "]");
 		}
 	};
 
@@ -58,16 +56,15 @@ module.exports = function (element) {
 	 */
 	textElement.addInstanceCount = function (instanceCount) {
 		if (instanceCount) {
-			addTextline(instanceCount.toString(), STYLES.instanceCount);
+			addTextline(instanceCount.toString(), TEXT_CSS_CLASS.instanceCount);
 		}
 	};
 
-	textElement.addEmptyLine = function (height) {
-		if (height > 0) {
+	textElement.addEmptyLine = function (pixelHeight) {
+		if (pixelHeight > 0) {
 			textBlock.append("tspan")
-				.datum({height: height})
 				.classed("empty", true)
-				.attr("dy", height + "px")
+				.attr("dy", pixelHeight + "px")
 				.text(" ");
 			repositionTextBlock();
 		}
@@ -82,23 +79,28 @@ module.exports = function (element) {
 	};
 
 	function addTextline(text, style, prefix, postfix) {
-		style = style || STYLES.default;
-		var truncatedText = textTools.truncate(text, element.datum().textWidth(), style.cssClass);
+		style = style || TEXT_CSS_CLASS.default;
+		var truncatedText = textTools.truncate(text, element.datum().textWidth(), style);
 
-		textBlock.append("tspan")
-			.datum(style)
-			.classed(STYLES.default.cssClass, true)
-			.classed(style.cssClass, true)
+		var tspan = textBlock.append("tspan")
+			.classed(TEXT_CSS_CLASS.default, true)
+			.classed(style, true)
 			.text(applyPreAndPostFix(truncatedText, prefix, postfix))
-			.attr("x", 0)
-			.attr("dy", function () {
-				var heightInPixels = getPixelHeightOfTextLine(d3.select(this)),
-					siblingCount = getLineCount() - 1,
-					lineDistance = siblingCount > 0 ? LINE_DISTANCE : 0;
-				return heightInPixels + lineDistance + "px";
-			});
+			.attr("x", 0);
+		repositionTextLine(tspan);
 
 		repositionTextBlock();
+	}
+
+	function repositionTextLine(tspan) {
+		var fontSizeProperty = window.getComputedStyle(tspan.node()).getPropertyValue("font-size");
+		var fontSize = parseFloat(fontSizeProperty);
+
+		tspan.attr("dy", function () {
+			var siblingCount = getLineCount() - 1,
+				lineDistance = siblingCount > 0 ? LINE_DISTANCE : 0;
+			return fontSize + lineDistance + "px";
+		});
 	}
 
 	/**
@@ -112,16 +114,12 @@ module.exports = function (element) {
 			return;
 		}
 
-		var textBlockHeight = getTextBlockHeight(textBlock);
-		textBlock.attr("y", -textBlockHeight * 0.6 + "px");
-	}
-
-	function getPixelHeightOfTextLine(textElement) {
-		return textElement.datum().height;
+		var textBlockHeight = textBlock.node().getBBox().height;
+		textBlock.attr("y", -textBlockHeight * 0.5 + "px");
 	}
 
 	function getLineCount() {
-		return textBlock.property("childElementCount") - textBlock.selectAll(".instance-count").size();
+		return textBlock.property("childElementCount");
 	}
 
 	function applyPreAndPostFix(text, prefix, postfix) {
@@ -134,23 +132,6 @@ module.exports = function (element) {
 		return text;
 	}
 
-	function getTextBlockHeight(textBlock) {
-		/* Hardcoded due to the same reasons like in the getPixelHeightOfTextLine function. */
-
-		var children = textBlock.selectAll("*"),
-			childCount = children.size();
-		if (childCount === 0) {
-			return 0;
-		}
-
-		// Values retrieved by testing
-		var pixelHeight = childCount * LINE_DISTANCE;
-		children.each(function () {
-			pixelHeight += getPixelHeightOfTextLine(d3.select(this));
-		});
-
-		return pixelHeight;
-	}
 
 	return textElement;
 };
