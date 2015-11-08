@@ -23,10 +23,12 @@ module.exports = function (element) {
 	/**
 	 * Adds a new line of text to the element.
 	 * @param text
+	 * @param prefix
+	 * @param suffix
 	 */
-	textElement.addText = function (text) {
+	textElement.addText = function (text, prefix, suffix) {
 		if (text) {
-			addTextline(text);
+			addTextline(text, TEXT_CSS_CLASS.default, prefix, suffix);
 		}
 	};
 
@@ -46,7 +48,7 @@ module.exports = function (element) {
 	 */
 	textElement.addEquivalents = function (text) {
 		if (text) {
-			addTextline(text, TEXT_CSS_CLASS.subtext, "[", "]");
+			addTextline(text, TEXT_CSS_CLASS.default);
 		}
 	};
 
@@ -79,7 +81,6 @@ module.exports = function (element) {
 	};
 
 	function addTextline(text, style, prefix, postfix) {
-		style = style || TEXT_CSS_CLASS.default;
 		var truncatedText = textTools.truncate(text, element.datum().textWidth(), style);
 
 		var tspan = textBlock.append("tspan")

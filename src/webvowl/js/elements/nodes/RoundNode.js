@@ -163,13 +163,7 @@ module.exports = (function () {
 		 * Common actions that should be invoked after drawing a node.
 		 */
 		this.postDrawActions = function () {
-			var textBlock = require("../../util/textElement")(that.nodeElement());
-			textBlock.addText(that.labelForCurrentLanguage());
-			if (!graph.options().compactNotation()) {
-				textBlock.addSubText(that.indicationString());
-			}
-			textBlock.addInstanceCount(that.individuals().length);
-			that.textBlock(textBlock);
+			that.textBlock(createTextBlock());
 
 			that.addMouseListeners();
 			if (that.pinned()) {
@@ -179,6 +173,34 @@ module.exports = (function () {
 				that.drawCollapsingButton();
 			}
 		};
+
+		function createTextBlock() {
+			var textBlock = require("../../util/textElement")(that.nodeElement());
+
+			var equivalentsString = createEquivalentsString(that.equivalents());
+			var suffixForFollowingEquivalents = equivalentsString ? "," : "";
+
+			textBlock.addText(that.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
+			textBlock.addEquivalents(equivalentsString);
+			if (!graph.options().compactNotation()) {
+				textBlock.addSubText(that.indicationString());
+			}
+			textBlock.addInstanceCount(that.individuals().length);
+
+			return textBlock;
+		}
+
+		function createEquivalentsString(equivalentClasses) {
+			if (typeof equivalentClasses === "undefined") {
+				return;
+			}
+
+			var equivalentNames = equivalentClasses.map(function (node) {
+				return node.labelForCurrentLanguage();
+			});
+
+			return equivalentNames.join(", ");
+		}
 	};
 	o.prototype = Object.create(BaseNode.prototype);
 	o.prototype.constructor = o;

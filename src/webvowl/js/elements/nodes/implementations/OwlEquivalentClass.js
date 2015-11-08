@@ -29,24 +29,7 @@ module.exports = (function () {
 			drawTools.appendCircularClass(parentElement, that.actualRadius() - CIRCLE_SIZE_DIFFERENCE, cssClasses, that.labelForCurrentLanguage());
 
 			that.postDrawActions();
-			appendEquivalentClasses(that.textBlock(), that.equivalents());
 		};
-
-		function appendEquivalentClasses(textBlock, equivalentClasses) {
-			if (typeof equivalentClasses === "undefined") {
-				return;
-			}
-
-			var equivalentNames,
-				equivalentNamesString;
-
-			equivalentNames = equivalentClasses.map(function (node) {
-				return node.labelForCurrentLanguage();
-			});
-			equivalentNamesString = equivalentNames.join(", ");
-
-			textBlock.addEquivalents(equivalentNamesString);
-		}
 
 		/**
 		 * Sets the hover highlighting of this node.
