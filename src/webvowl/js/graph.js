@@ -455,7 +455,13 @@ module.exports = function (graphContainerSelector) {
 			zoom.event(graphContainer);
 		}
 
-		force.charge(options.charge())
+		force.charge(function (element) {
+				var charge = options.charge();
+				if (elementTools.isLabel(element)) {
+					charge *= 0.8;
+				}
+				return charge;
+			})
 			.size([options.width(), options.height()])
 			.linkDistance(calculateLinkPartDistance)
 			.gravity(options.gravity())
