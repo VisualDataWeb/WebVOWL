@@ -23,27 +23,27 @@ BoxArrowLink.prototype.draw = function (linkGroup, markerContainer) {
 	PlainLink.prototype.draw.apply(this, arguments);
 
 	// attach the markers to the link
-	linkGroup.attr("marker-end", "url(#" + property.markerId() + ")");
+	linkGroup.attr("marker-start", "url(#" + property.markerId() + ")");
 	if (inverse) {
-		linkGroup.attr("marker-start", "url(#" + inverse.markerId() + ")");
+		linkGroup.attr("marker-end", "url(#" + inverse.markerId() + ")");
 	}
 };
 
 
-function createPropertyMarker(markerContainer, property) {
-	var marker = appendBasicMarker(markerContainer, property);
-	marker.attr("refX", 8);
-	marker.append("path").attr("d", "M0,-8L8,0L0,8L-8,0L0,-8L8,0");
-
-	property.markerElement(marker);
-}
-
-function createInverseMarker(markerContainer, inverse) {
+function createPropertyMarker(markerContainer, inverse) {
 	var inverseMarker = appendBasicMarker(markerContainer, inverse);
 	inverseMarker.attr("refX", -8);
 	inverseMarker.append("path").attr("d", "M0,-8L8,0L0,8L-8,0L0,-8L8,0");
 
 	inverse.markerElement(inverseMarker);
+}
+
+function createInverseMarker(markerContainer, property) {
+	var marker = appendBasicMarker(markerContainer, property);
+	marker.attr("refX", 8);
+	marker.append("path").attr("d", "M0,-8L8,0L0,8L-8,0L0,-8L8,0");
+
+	property.markerElement(marker);
 }
 
 function appendBasicMarker(markerContainer, property) {
