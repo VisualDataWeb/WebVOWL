@@ -15,17 +15,18 @@ module.exports = function () {
 		resetMenu = require("./menu/resetMenu")(graph),
 		sidebar = require("./sidebar")(graph),
 	// Graph modules
-		statistics = webvowl.modules.statistics(),
-		focuser = webvowl.modules.focuser(),
-		selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
-		datatypeFilter = webvowl.modules.datatypeFilter(),
-		subclassFilter = webvowl.modules.subclassFilter(),
-		disjointFilter = webvowl.modules.disjointFilter(),
-		nodeDegreeFilter = webvowl.modules.nodeDegreeFilter(filterMenu),
-		setOperatorFilter = webvowl.modules.setOperatorFilter(),
-		nodeScalingSwitch = webvowl.modules.nodeScalingSwitch(graph),
+		colorExternalsSwitch = webvowl.modules.colorExternalsSwitch(graph),
 		compactNotationSwitch = webvowl.modules.compactNotationSwitch(graph),
-		pickAndPin = webvowl.modules.pickAndPin();
+		datatypeFilter = webvowl.modules.datatypeFilter(),
+		disjointFilter = webvowl.modules.disjointFilter(),
+		focuser = webvowl.modules.focuser(),
+		nodeDegreeFilter = webvowl.modules.nodeDegreeFilter(filterMenu),
+		nodeScalingSwitch = webvowl.modules.nodeScalingSwitch(graph),
+		pickAndPin = webvowl.modules.pickAndPin(),
+		selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
+		statistics = webvowl.modules.statistics(),
+		subclassFilter = webvowl.modules.subclassFilter(),
+		setOperatorFilter = webvowl.modules.setOperatorFilter();
 
 	app.initialize = function () {
 		options.graphContainerSelector(GRAPH_SELECTOR);
@@ -40,13 +41,14 @@ module.exports = function () {
 		options.filterModules().push(nodeScalingSwitch);
 		options.filterModules().push(nodeDegreeFilter);
 		options.filterModules().push(compactNotationSwitch);
+		options.filterModules().push(colorExternalsSwitch);
 
 		d3.select(window).on("resize", adjustSize);
 
 		exportMenu.setup();
 		gravityMenu.setup();
 		filterMenu.setup(datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
-		modeMenu.setup(pickAndPin, nodeScalingSwitch, compactNotationSwitch);
+		modeMenu.setup(pickAndPin, nodeScalingSwitch, compactNotationSwitch, colorExternalsSwitch);
 		pauseMenu.setup();
 		sidebar.setup();
 		ontologyMenu.setup(loadOntologyFromText);

@@ -17,11 +17,18 @@ module.exports = (function () {
 			links,
 		// Additional attributes
 			maxIndividualCount,
+			backgroundColor,
 		// Element containers
 			nodeElement;
 
 
 		// Properties
+		this.backgroundColor = function (p) {
+			if (!arguments.length) return backgroundColor;
+			backgroundColor = p;
+			return this;
+		};
+
 		this.complement = function (p) {
 			if (!arguments.length) return complement;
 			complement = p;
