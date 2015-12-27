@@ -1,4 +1,5 @@
 var BaseNode = require("./BaseNode");
+var CenteringTextElement = require("../../util/CenteringTextElement");
 var drawTools = require("./drawTools")();
 
 module.exports = (function () {
@@ -175,7 +176,7 @@ module.exports = (function () {
 		};
 
 		function createTextBlock() {
-			var textBlock = require("../../util/textElement")(that.nodeElement());
+			var textBlock = new CenteringTextElement(that.nodeElement());
 
 			var equivalentsString = createEquivalentsString(that.equivalents());
 			var suffixForFollowingEquivalents = equivalentsString ? "," : "";

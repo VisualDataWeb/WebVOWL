@@ -1,4 +1,5 @@
 var BaseElement = require("../BaseElement");
+var CenteringTextElement = require("../../util/CenteringTextElement");
 var rectangularElementTools = require("../rectangularElementTools")();
 
 module.exports = (function () {
@@ -171,7 +172,7 @@ module.exports = (function () {
 				property.addRect(label);
 
 				// Attach the text and perhaps special elements
-				var textBox = require("../../util/textElement")(label);
+				var textBox = new CenteringTextElement(label);
 				if (property instanceof require("./implementations/OwlDisjointWith")) {
 					property.addDisjointLabel(labelGroup, textBox);
 					return label;
@@ -247,7 +248,7 @@ module.exports = (function () {
 			if (!graph.options().compactNotation()) {
 				textTag.addSubText("disjoint");
 			}
-			textTag.setTranslation(0, 20);
+			textTag.translation(0, 20);
 		};
 		this.addEquivalentsToLabel = function (textBox) {
 			if (that.equivalents()) {

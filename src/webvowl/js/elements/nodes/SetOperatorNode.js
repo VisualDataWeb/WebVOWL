@@ -40,7 +40,7 @@ module.exports = (function () {
 
 			that.textBlock().clear();
 			that.textBlock().addInstanceCount(that.individuals().length);
-			that.textBlock().setTranslation(0, 10);
+			that.textBlock().translation(0, 10);
 		};
 	};
 	o.prototype = Object.create(RoundNode.prototype);
