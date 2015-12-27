@@ -22,8 +22,8 @@ AbstractTextElement.prototype.translation = function (x, y) {
 	return this;
 };
 
-AbstractTextElement.prototype.clear = function () {
-	this._textBlock().selectAll("*").remove();
+AbstractTextElement.prototype.remove = function () {
+	this._textBlock().remove();
 	return this;
 };
 

@@ -1,5 +1,7 @@
-var RoundNode = require("./RoundNode");
+var AbsoluteTextElement = require("../../util/AbsoluteTextElement");
 var BoxArrowLink = require("../links/BoxArrowLink");
+var RoundNode = require("./RoundNode");
+
 
 module.exports = (function () {
 
@@ -18,7 +20,7 @@ module.exports = (function () {
 			superHoverHighlightingFunction(enable);
 
 			// Highlight connected links when hovering the set operator
-			that.links().forEach(function(link) {
+			that.links().forEach(function (link) {
 				if (link instanceof BoxArrowLink) {
 					link.property().setHighlighting(enable);
 				}
@@ -37,10 +39,21 @@ module.exports = (function () {
 
 		this.postDrawActions = function () {
 			superPostDrawActions();
+			that.textBlock().remove();
 
-			that.textBlock().clear();
-			that.textBlock().addInstanceCount(that.individuals().length);
-			that.textBlock().translation(0, 10);
+			var textElement = new AbsoluteTextElement(that.nodeElement());
+
+			var equivalentsString = that.equivalentsString();
+			var offsetForFollowingEquivalents = equivalentsString ? -30 : -17;
+			var suffixForFollowingEquivalents = equivalentsString ? "," : "";
+			textElement.addText(that.labelForCurrentLanguage(), offsetForFollowingEquivalents, "",
+				suffixForFollowingEquivalents);
+
+			textElement.addEquivalents(equivalentsString, -17);
+
+			textElement.addInstanceCount(that.individuals().length, 17);
+
+			that.textBlock(textElement);
 		};
 	};
 	o.prototype = Object.create(RoundNode.prototype);

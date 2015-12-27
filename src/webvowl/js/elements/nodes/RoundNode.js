@@ -178,7 +178,7 @@ module.exports = (function () {
 		function createTextBlock() {
 			var textBlock = new CenteringTextElement(that.nodeElement());
 
-			var equivalentsString = createEquivalentsString(that.equivalents());
+			var equivalentsString = that.equivalentsString();
 			var suffixForFollowingEquivalents = equivalentsString ? "," : "";
 
 			textBlock.addText(that.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
@@ -191,7 +191,8 @@ module.exports = (function () {
 			return textBlock;
 		}
 
-		function createEquivalentsString(equivalentClasses) {
+		this.equivalentsString = function () {
+			var equivalentClasses = that.equivalents();
 			if (typeof equivalentClasses === "undefined") {
 				return;
 			}
@@ -201,7 +202,7 @@ module.exports = (function () {
 			});
 
 			return equivalentNames.join(", ");
-		}
+		};
 	};
 	o.prototype = Object.create(BaseNode.prototype);
 	o.prototype.constructor = o;
