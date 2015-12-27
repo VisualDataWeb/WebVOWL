@@ -1,6 +1,6 @@
 var css = require("css"),
 	fs = require("fs"),
-	filePath = "../../src/css/vowl.css";
+	filePath = "../../src/webvowl/css/vowl.css";
 
 fs.readFile(filePath, {encoding: "utf8"}, function (err, data) {
 	if (err) {
