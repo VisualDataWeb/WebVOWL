@@ -5,16 +5,12 @@ var RoundNode = require("./RoundNode");
 
 module.exports = (function () {
 
-	var radius = 40;
-
 	var o = function (graph) {
 		RoundNode.apply(this, arguments);
 
 		var that = this,
 			superHoverHighlightingFunction = that.setHoverHighlighting,
 			superPostDrawActions = that.postDrawActions;
-
-		this.radius(radius);
 
 		this.setHoverHighlighting = function (enable) {
 			superHoverHighlightingFunction(enable);
