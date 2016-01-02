@@ -48,7 +48,7 @@ module.exports = (function () {
 		this.textWidth = function (yOffset) {
 			var availableWidth = this.actualRadius() * 2;
 
-			// if the text is not placed in the center of the circle, it can't have the full with
+			// if the text is not placed in the center of the circle, it can't have the full width
 			if (yOffset) {
 				var relativeOffset = Math.abs(yOffset) / this.actualRadius();
 				var isOffsetInsideOfNode = relativeOffset <= 1;
