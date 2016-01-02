@@ -33,7 +33,6 @@ module.exports = (function () {
 			element.append("circle")
 				.attr("class", that.collectCssClasses().join(" "))
 				.classed("class", true)
-				.classed("dashed", true)
 				.attr("r", that.actualRadius());
 		};
 
