@@ -3,8 +3,6 @@
  */
 module.exports = (function () {
 
-	var DEFAULT_LABEL = "DEFAULT_LABEL";
-
 	var Base = function (graph) {
 		// Basic attributes
 		var equivalents = [],
@@ -92,7 +90,7 @@ module.exports = (function () {
 
 		this.label = function (p) {
 			if (!arguments.length) return label;
-			label = p || DEFAULT_LABEL;
+			label = p;
 			return this;
 		};
 
