@@ -45,8 +45,22 @@ module.exports = (function () {
 			that.nodeElement().selectAll("circle").classed("hovered", enable);
 		};
 
-		this.textWidth = function () {
-			return this.actualRadius() * 2;
+		this.textWidth = function (yOffset) {
+			var availableWidth = this.actualRadius() * 2;
+
+			// if the text is not placed in the center of the circle, it can't have the full with
+			if (yOffset) {
+				var relativeOffset = Math.abs(yOffset) / this.actualRadius();
+				var isOffsetInsideOfNode = relativeOffset <= 1;
+
+				if (isOffsetInsideOfNode) {
+					availableWidth = Math.cos(relativeOffset) * availableWidth;
+				} else {
+					availableWidth = 0;
+				}
+			}
+
+			return availableWidth;
 		};
 
 		this.toggleFocus = function () {

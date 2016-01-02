@@ -35,7 +35,7 @@ AbsoluteTextElement.prototype.addInstanceCount = function (instanceCount, yShift
 
 
 AbsoluteTextElement.prototype.addTextline = function (text, style, yShift, prefix, postfix) {
-	var truncatedText = textTools.truncate(text, this._textBlock().datum().textWidth(), style);
+	var truncatedText = textTools.truncate(text, this._textBlock().datum().textWidth(yShift), style);
 
 	var tspan = this._textBlock().append("tspan")
 		.classed(this.CSS_CLASSES.default, true)
