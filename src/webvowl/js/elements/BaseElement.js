@@ -3,8 +3,6 @@
  */
 module.exports = (function () {
 
-	var DEFAULT_LABEL = "DEFAULT_LABEL";
-
 	var Base = function (graph) {
 		// Basic attributes
 		var equivalents = [],
@@ -12,11 +10,10 @@ module.exports = (function () {
 			label,
 			type,
 			iri,
-			links,
 		// Additional attributes
 			annotations,
 			attributes = [],
-			visualAttribute,
+			visualAttributes = [],
 			comment,
 			description,
 			equivalentBase,
@@ -93,13 +90,7 @@ module.exports = (function () {
 
 		this.label = function (p) {
 			if (!arguments.length) return label;
-			label = p || DEFAULT_LABEL;
-			return this;
-		};
-
-		this.links = function (p) {
-			if (!arguments.length) return links;
-			links = p;
+			label = p;
 			return this;
 		};
 
@@ -127,9 +118,9 @@ module.exports = (function () {
 			return this;
 		};
 
-		this.visualAttribute = function (p) {
-			if (!arguments.length) return visualAttribute;
-			visualAttribute = p;
+		this.visualAttributes = function (p) {
+			if (!arguments.length) return visualAttributes;
+			visualAttributes = p;
 			return this;
 		};
 

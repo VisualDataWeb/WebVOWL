@@ -1,4 +1,5 @@
 var BaseNode = require("./BaseNode");
+var CenteringTextElement = require("../../util/CenteringTextElement");
 var drawTools = require("./drawTools")();
 var rectangularElementTools = require("../rectangularElementTools")();
 
@@ -66,7 +67,7 @@ module.exports = (function () {
 			}
 			drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses, that.labelForCurrentLanguage());
 
-			textBlock = require("../../util/textElement")(parentElement);
+			textBlock = new CenteringTextElement(parentElement);
 			textBlock.addText(that.labelForCurrentLanguage());
 
 			that.addMouseListeners();

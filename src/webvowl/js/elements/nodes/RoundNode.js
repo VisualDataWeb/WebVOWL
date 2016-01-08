@@ -1,4 +1,5 @@
 var BaseNode = require("./BaseNode");
+var CenteringTextElement = require("../../util/CenteringTextElement");
 var drawTools = require("./drawTools")();
 
 module.exports = (function () {
@@ -44,8 +45,22 @@ module.exports = (function () {
 			that.nodeElement().selectAll("circle").classed("hovered", enable);
 		};
 
-		this.textWidth = function () {
-			return this.actualRadius() * 2;
+		this.textWidth = function (yOffset) {
+			var availableWidth = this.actualRadius() * 2;
+
+			// if the text is not placed in the center of the circle, it can't have the full width
+			if (yOffset) {
+				var relativeOffset = Math.abs(yOffset) / this.actualRadius();
+				var isOffsetInsideOfNode = relativeOffset <= 1;
+
+				if (isOffsetInsideOfNode) {
+					availableWidth = Math.cos(relativeOffset) * availableWidth;
+				} else {
+					availableWidth = 0;
+				}
+			}
+
+			return availableWidth;
 		};
 
 		this.toggleFocus = function () {
@@ -163,13 +178,7 @@ module.exports = (function () {
 		 * Common actions that should be invoked after drawing a node.
 		 */
 		this.postDrawActions = function () {
-			var textBlock = require("../../util/textElement")(that.nodeElement());
-			textBlock.addText(that.labelForCurrentLanguage());
-			if (!graph.options().compactNotation()) {
-				textBlock.addSubText(that.indicationString());
-			}
-			textBlock.addInstanceCount(that.individuals().length);
-			that.textBlock(textBlock);
+			that.textBlock(createTextBlock());
 
 			that.addMouseListeners();
 			if (that.pinned()) {
@@ -178,6 +187,35 @@ module.exports = (function () {
 			if (that.collapsible()) {
 				that.drawCollapsingButton();
 			}
+		};
+
+		function createTextBlock() {
+			var textBlock = new CenteringTextElement(that.nodeElement());
+
+			var equivalentsString = that.equivalentsString();
+			var suffixForFollowingEquivalents = equivalentsString ? "," : "";
+
+			textBlock.addText(that.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
+			textBlock.addEquivalents(equivalentsString);
+			if (!graph.options().compactNotation()) {
+				textBlock.addSubText(that.indicationString());
+			}
+			textBlock.addInstanceCount(that.individuals().length);
+
+			return textBlock;
+		}
+
+		this.equivalentsString = function () {
+			var equivalentClasses = that.equivalents();
+			if (typeof equivalentClasses === "undefined") {
+				return;
+			}
+
+			var equivalentNames = equivalentClasses.map(function (node) {
+				return node.labelForCurrentLanguage();
+			});
+
+			return equivalentNames.join(", ");
 		};
 	};
 	o.prototype = Object.create(BaseNode.prototype);

@@ -14,7 +14,7 @@ module.exports = (function () {
 			.type("rdfs:Resource");
 
 		this.draw = function (element) {
-			superDrawFunction(element, ["rdf", "special"]);
+			superDrawFunction(element, ["rdf", "dashed"]);
 		};
 	};
 	o.prototype = Object.create(RoundNode.prototype);

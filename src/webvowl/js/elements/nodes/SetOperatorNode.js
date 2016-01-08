@@ -1,30 +1,54 @@
+var AbsoluteTextElement = require("../../util/AbsoluteTextElement");
+var BoxArrowLink = require("../links/BoxArrowLink");
 var RoundNode = require("./RoundNode");
 
-module.exports = (function () {
 
-	var radius = 40;
+module.exports = (function () {
 
 	var o = function (graph) {
 		RoundNode.apply(this, arguments);
 
 		var that = this,
-			superHoverHighlightingFunction = this.setHoverHighlighting,
-			superPostDrawActions = this.postDrawActions;
-
-		this.radius(radius);
+			superHoverHighlightingFunction = that.setHoverHighlighting,
+			superPostDrawActions = that.postDrawActions;
 
 		this.setHoverHighlighting = function (enable) {
 			superHoverHighlightingFunction(enable);
 
-			d3.selectAll(".special." + that.cssClassOfNode()).classed("hovered", enable);
+			// Highlight connected links when hovering the set operator
+			that.links().forEach(function (link) {
+				if (link instanceof BoxArrowLink) {
+					link.property().setHighlighting(enable);
+				}
+			});
+		};
+
+		this.draw = function (element) {
+			that.nodeElement(element);
+
+			element.append("circle")
+				.attr("class", that.collectCssClasses().join(" "))
+				.classed("class", true)
+				.attr("r", that.actualRadius());
 		};
 
 		this.postDrawActions = function () {
 			superPostDrawActions();
+			that.textBlock().remove();
 
-			that.textBlock().clear();
-			that.textBlock().addInstanceCount(that.individuals().length);
-			that.textBlock().setTranslation(0, that.radius() - 15);
+			var textElement = new AbsoluteTextElement(that.nodeElement());
+
+			var equivalentsString = that.equivalentsString();
+			var offsetForFollowingEquivalents = equivalentsString ? -30 : -17;
+			var suffixForFollowingEquivalents = equivalentsString ? "," : "";
+			textElement.addText(that.labelForCurrentLanguage(), offsetForFollowingEquivalents, "",
+				suffixForFollowingEquivalents);
+
+			textElement.addEquivalents(equivalentsString, -17);
+
+			textElement.addInstanceCount(that.individuals().length, 17);
+
+			that.textBlock(textElement);
 		};
 	};
 	o.prototype = Object.create(RoundNode.prototype);

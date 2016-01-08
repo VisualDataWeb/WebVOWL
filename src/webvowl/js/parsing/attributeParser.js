@@ -5,16 +5,28 @@
 module.exports = (function () {
 	var attributeParser = {},
 	// Style
+		ANONYMOUS = "anonymous",
+		DATATYPE = "datatype",
 		DEPRECATED = "deprecated",
 		EXTERNAL = "external",
-		DATATYPE = "datatype",
 		OBJECT = "object",
 		RDF = "rdf",
 	// Representations
+		ASYMMETRIC = "asymmetric",
 		FUNCTIONAL = "functional",
 		INVERSE_FUNCTIONAL = "inverse functional",
+		IRREFLEXIVE = "irreflexive",
+		REFLEXIVE = "reflexive",
+		SYMMETRIC = "symmetric",
 		TRANSITIVE = "transitive",
-		SYMMETRIC = "symmetric";
+	// Attribute groups
+		VISUAL_ATTRIBUTE_GROUPS = [
+			[DEPRECATED, EXTERNAL, DATATYPE, OBJECT, RDF],
+			[ANONYMOUS]
+		],
+		CLASS_INDICATIONS = [DEPRECATED, EXTERNAL],
+		PROPERTY_INDICATIONS = [ASYMMETRIC, FUNCTIONAL, INVERSE_FUNCTIONAL, IRREFLEXIVE, REFLEXIVE, SYMMETRIC,
+		                        TRANSITIVE];
 
 	/**
 	 * Parses and sets the attributes of a class.
@@ -30,13 +42,18 @@ module.exports = (function () {
 	};
 
 	function parseVisualAttributes(element) {
-		var orderedAttributes = [DEPRECATED, EXTERNAL, DATATYPE, OBJECT, RDF],
-			i, l, attribute;
+		VISUAL_ATTRIBUTE_GROUPS.forEach(function (attributeGroup) {
+			setVisualAttributeOfGroup(element, attributeGroup);
+		});
+	}
 
-		for (i = 0, l = orderedAttributes.length; i < l; i++) {
-			attribute = orderedAttributes[i];
+	function setVisualAttributeOfGroup(element, group) {
+		var i, l, attribute;
+
+		for (i = 0, l = group.length; i < l; i++) {
+			attribute = group[i];
 			if (element.attributes().indexOf(attribute) >= 0) {
-				element.visualAttribute(attribute);
+				element.visualAttributes().push(attribute);
 
 				// Just a single attribute is possible
 				break;
@@ -45,11 +62,10 @@ module.exports = (function () {
 	}
 
 	function parseClassIndications(clazz) {
-		var indications = [DEPRECATED, EXTERNAL],
-			i, l, indication;
+		var i, l, indication;
 
-		for (i = 0, l = indications.length; i < l; i++) {
-			indication = indications[i];
+		for (i = 0, l = CLASS_INDICATIONS.length; i < l; i++) {
+			indication = CLASS_INDICATIONS[i];
 
 			if (clazz.attributes().indexOf(indication) >= 0) {
 				clazz.indications().push(indication);
@@ -71,11 +87,10 @@ module.exports = (function () {
 	};
 
 	function parsePropertyIndications(property) {
-		var indications = [FUNCTIONAL, INVERSE_FUNCTIONAL, SYMMETRIC, TRANSITIVE],
-			i, l, indication;
+		var i, l, indication;
 
-		for (i = 0, l = indications.length; i < l; i++) {
-			indication = indications[i];
+		for (i = 0, l = PROPERTY_INDICATIONS.length; i < l; i++) {
+			indication = PROPERTY_INDICATIONS[i];
 
 			if (property.attributes().indexOf(indication) >= 0) {
 				property.indications().push(indication);

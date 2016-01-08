@@ -15,7 +15,7 @@ module.exports = (function () {
 			.iri("http://www.w3.org/2000/01/rdf-schema#Literal");
 
 		this.draw = function (element) {
-			superDrawFunction(element, ["special"]);
+			superDrawFunction(element, ["dashed"]);
 		};
 
 		this.label = function (p) {

@@ -1,4 +1,5 @@
 var BaseElement = require("../BaseElement");
+var CenteringTextElement = require("../../util/CenteringTextElement");
 var rectangularElementTools = require("../rectangularElementTools")();
 
 module.exports = (function () {
@@ -26,7 +27,7 @@ module.exports = (function () {
 			superproperties,
 		// Style attributes
 			linkType = "normal",
-			markerType = "normal",
+			markerType = "filled",
 			labelVisible = true,
 		// Element containers
 			cardinalityElement,
@@ -146,8 +147,8 @@ module.exports = (function () {
 			return rectangularElementTools.distanceToBorder(that, dx, dy);
 		};
 
-		this.isSpecialLink = function () {
-			return linkType === "special";
+		this.linkHasMarker = function () {
+			return linkType !== "dashed";
 		};
 
 		this.markerId = function () {
@@ -171,7 +172,7 @@ module.exports = (function () {
 				property.addRect(label);
 
 				// Attach the text and perhaps special elements
-				var textBox = require("../../util/textElement")(label);
+				var textBox = new CenteringTextElement(label);
 				if (property instanceof require("./implementations/OwlDisjointWith")) {
 					property.addDisjointLabel(labelGroup, textBox);
 					return label;
@@ -225,8 +226,8 @@ module.exports = (function () {
 			rect.append("title")
 				.text(that.labelForCurrentLanguage());
 
-			if (that.visualAttribute()) {
-				rect.classed(that.visualAttribute(), true);
+			if (that.visualAttributes()) {
+				rect.classed(that.visualAttributes(), true);
 			}
 		};
 		this.addDisjointLabel = function (groupTag, textTag) {
@@ -247,7 +248,7 @@ module.exports = (function () {
 			if (!graph.options().compactNotation()) {
 				textTag.addSubText("disjoint");
 			}
-			textTag.setTranslation(0, 20);
+			textTag.translation(0, 20);
 		};
 		this.addEquivalentsToLabel = function (textBox) {
 			if (that.equivalents()) {
@@ -290,20 +291,11 @@ module.exports = (function () {
 
 			return that.cardinalityElement();
 		};
-		function onMouseOver() {
-			if (that.mouseEntered()) {
-				return;
+
+		that.setHighlighting = function (enable) {
+			if (that.labelElement()) {
+				that.labelElement().select("rect").classed("hovered", enable);
 			}
-			that.mouseEntered(true);
-
-			setHighlighting(true);
-
-			that.foreground();
-			foregroundSubAndSuperProperties();
-		}
-
-		function setHighlighting(enable) {
-			that.labelElement().select("rect").classed("hovered", enable);
 			that.linkGroup().selectAll("path, text").classed("hovered", enable);
 			that.markerElement().select("path").classed("hovered", enable);
 			if (that.cardinalityElement()) {
@@ -315,7 +307,7 @@ module.exports = (function () {
 				property.labelElement().select("rect")
 					.classed("indirectHighlighting", enable);
 			});
-		}
+		};
 
 		/**
 		 * Combines the sub- and superproperties into a single array, because
@@ -361,10 +353,20 @@ module.exports = (function () {
 			});
 		}
 
+		function onMouseOver() {
+			if (that.mouseEntered()) {
+				return;
+			}
+			that.mouseEntered(true);
+			that.setHighlighting(true);
+
+			that.foreground();
+			foregroundSubAndSuperProperties();
+		}
+
 		function onMouseOut() {
 			that.mouseEntered(false);
-
-			setHighlighting(false);
+			that.setHighlighting(false);
 		}
 
 	};
@@ -380,7 +382,7 @@ module.exports = (function () {
 		return labelWidth;
 	};
 
-	Base.prototype.actualRadius = function() {
+	Base.prototype.actualRadius = function () {
 		return smallestRadius;
 	};
 
