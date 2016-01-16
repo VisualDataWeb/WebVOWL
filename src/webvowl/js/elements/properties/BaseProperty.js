@@ -374,7 +374,7 @@ module.exports = (function () {
 
 		this.drawPin = function () {
 			that.pinned(true);
-			pinGroupElement = drawTools.drawPin(that.labelElement(), 20, -20, this.removePin);
+			pinGroupElement = drawTools.drawPin(that.labelElement(), 20, -25, this.removePin);
 		};
 
 		/**
