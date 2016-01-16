@@ -18,6 +18,7 @@ module.exports = function (graphContainerSelector) {
 		options = require("./options")(),
 		parser = require("./parser")(graph),
 		language = "default",
+		paused = false,
 	// Container for visual elements
 		graphContainer,
 		nodeContainer,
@@ -177,23 +178,11 @@ module.exports = function (graphContainerSelector) {
 		redrawContent();
 	};
 
-	/**
-	 * Stops the influence of the force directed layout on all nodes. They are still manually movable.
-	 */
-	graph.freeze = function () {
-		force.nodes().forEach(function (n) {
-			n.frozen(true);
-		});
-	};
-
-	/**
-	 * Allows the influence of the force directed layout on all nodes.
-	 */
-	graph.unfreeze = function () {
-		force.nodes().forEach(function (n) {
-			n.frozen(false);
-		});
-		force.resume();
+	graph.paused = function (p) {
+		if (!arguments.length) return paused;
+		paused = p;
+		graph.updateStyle();
+		return graph;
 	};
 
 	/**
@@ -466,6 +455,10 @@ module.exports = function (graphContainerSelector) {
 			.linkDistance(calculateLinkPartDistance)
 			.gravity(options.gravity())
 			.linkStrength(options.linkStrength()); // Flexibility of links
+
+		force.nodes().forEach(function (n) {
+			n.frozen(paused);
+		});
 	}
 
 	/**
