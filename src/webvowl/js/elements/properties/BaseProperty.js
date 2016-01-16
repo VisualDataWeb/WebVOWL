@@ -1,6 +1,7 @@
 var BaseElement = require("../BaseElement");
 var CenteringTextElement = require("../../util/CenteringTextElement");
 var drawTools = require("../drawTools")();
+var forceLayoutNodeFunctions = require("../forceLayoutNodeFunctions")();
 var rectangularElementTools = require("../rectangularElementTools")();
 
 module.exports = (function () {
@@ -386,6 +387,9 @@ module.exports = (function () {
 			}
 			graph.updateStyle();
 		};
+
+
+		forceLayoutNodeFunctions.addTo(this);
 	};
 
 	Base.prototype = Object.create(BaseElement.prototype);
