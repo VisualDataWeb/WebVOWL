@@ -61,6 +61,31 @@ module.exports = (function () {
 		return rectangle;
 	};
 
+	tools.drawPin = function(container, dx, dy, onClick) {
+		var pinGroupElement = container
+			.append("g")
+			.classed("hidden-in-export", true)
+			.attr("transform", "translate(" + dx + "," + dy + ")");
+
+		pinGroupElement.append("circle")
+			.classed("class pin feature", true)
+			.attr("r", 12)
+			.on("click", function () {
+				if (onClick) {
+					onClick();
+				}
+				d3.event.stopPropagation();
+			});
+
+		pinGroupElement.append("line")
+			.attr("x1", 0)
+			.attr("x2", 0)
+			.attr("y1", 12)
+			.attr("y2", 16);
+
+		return pinGroupElement;
+	};
+
 
 	return function () {
 		// Encapsulate into function to maintain default.module.path()

@@ -1,6 +1,6 @@
 var BaseNode = require("./BaseNode");
 var CenteringTextElement = require("../../util/CenteringTextElement");
-var drawTools = require("./drawTools")();
+var drawTools = require("../drawTools")();
 
 module.exports = (function () {
 
@@ -90,28 +90,10 @@ module.exports = (function () {
 		this.drawPin = function () {
 			that.pinned(true);
 
-			pinGroupElement = that.nodeElement()
-				.append("g")
-				.classed("hidden-in-export", true)
-				.attr("transform", function () {
-					var dx = (2 / 5) * that.actualRadius(),
-						dy = (-7 / 10) * that.actualRadius();
-					return "translate(" + dx + "," + dy + ")";
-				});
+			var dx = (2 / 5) * that.actualRadius(),
+				dy = (-7 / 10) * that.actualRadius();
 
-			pinGroupElement.append("circle")
-				.classed("class pin feature", true)
-				.attr("r", 12)
-				.on("click", function () {
-					that.removePin();
-					d3.event.stopPropagation();
-				});
-
-			pinGroupElement.append("line")
-				.attr("x1", 0)
-				.attr("x2", 0)
-				.attr("y1", 12)
-				.attr("y2", 16);
+			pinGroupElement = drawTools.drawPin(that.nodeElement(), dx, dy, this.removePin);
 		};
 
 		/**
