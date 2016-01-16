@@ -1,5 +1,3 @@
-var colorbrewer = require("colorbrewer");
-
 module.exports = function () {
 
 	var DEFAULT_STATE = false;
@@ -11,8 +9,6 @@ module.exports = function () {
 		filteredNodes,
 		filteredProperties;
 
-	var MINIMAL_AVAILABLE_COLOR_COUNT = 3;
-
 
 	filter.filter = function (untouchedNodes, untouchedProperties) {
 		nodes = untouchedNodes;
@@ -21,9 +17,7 @@ module.exports = function () {
 		if (enabled) {
 			setColorsForExternals(nodes);
 		} else {
-			nodes.forEach(function (node) {
-				node.backgroundColor(null);
-			});
+			resetBackgroundColors();
 		}
 
 		filteredNodes = nodes;
@@ -34,11 +28,13 @@ module.exports = function () {
 		var iriMap = mapExternalsToBaseUri(nodes);
 		var entries = iriMap.entries();
 
-		// TODO handle domain count above the provided values of colorbrewer
-		var requiredColorCount = Math.max(entries.length, MINIMAL_AVAILABLE_COLOR_COUNT);
-		var colorScale = d3.scale.ordinal()
-			.domain(iriMap.keys())
-			.range(colorbrewer.RdBu[requiredColorCount]);
+		var colorScale = d3.scale.category10()
+			.domain(iriMap.keys());
+
+		if (entries.length > colorScale.range().length) {
+			resetBackgroundColors();
+			return;
+		}
 
 		for (var i = 0; i < entries.length; i++) {
 			var baseIri = entries[i].key;
@@ -64,8 +60,14 @@ module.exports = function () {
 	}
 
 	function setBackgroundColorForNodes(nodes, backgroundColor) {
-		nodes.forEach(function(node) {
+		nodes.forEach(function (node) {
 			node.backgroundColor(backgroundColor);
+		});
+	}
+
+	function resetBackgroundColors() {
+		nodes.forEach(function (node) {
+			node.backgroundColor(null);
 		});
 	}
 
