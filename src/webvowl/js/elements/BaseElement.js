@@ -13,10 +13,11 @@ module.exports = (function () {
 		// Additional attributes
 			annotations,
 			attributes = [],
-			visualAttributes = [],
+			backgroundColor,
 			comment,
 			description,
 			equivalentBase,
+			visualAttributes = [],
 		// Style attributes
 			focused = false,
 			indications = [],
@@ -37,6 +38,12 @@ module.exports = (function () {
 		this.annotations = function (p) {
 			if (!arguments.length) return annotations;
 			annotations = p;
+			return this;
+		};
+
+		this.backgroundColor = function (p) {
+			if (!arguments.length) return backgroundColor;
+			backgroundColor = p;
 			return this;
 		};
 
