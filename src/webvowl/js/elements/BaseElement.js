@@ -10,6 +10,7 @@ module.exports = (function () {
 			label,
 			type,
 			iri,
+			baseIri,
 		// Additional attributes
 			annotations,
 			attributes = [],
@@ -44,6 +45,12 @@ module.exports = (function () {
 		this.backgroundColor = function (p) {
 			if (!arguments.length) return backgroundColor;
 			backgroundColor = p;
+			return this;
+		};
+
+		this.baseIri = function (p) {
+			if (!arguments.length) return baseIri;
+			baseIri = p;
 			return this;
 		};
 
@@ -162,7 +169,7 @@ module.exports = (function () {
 
 	Base.prototype.constructor = Base;
 
-	Base.prototype.equals = function(other) {
+	Base.prototype.equals = function (other) {
 		return other instanceof Base && this.id() === other.id();
 	};
 

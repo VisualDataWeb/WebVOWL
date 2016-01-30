@@ -56,7 +56,7 @@ module.exports = function () {
 		var map = d3.map();
 
 		elements.forEach(function (element) {
-			var baseIri = "" + Math.floor(10 * Math.random()); //TODO extract baseIri with OWL2VOWL
+			var baseIri = element.baseIri();
 
 			if (!map.has(baseIri)) {
 				map.set(baseIri, []);
