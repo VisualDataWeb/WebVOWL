@@ -65,7 +65,7 @@ module.exports = (function () {
 			if (additionalCssClasses instanceof Array) {
 				cssClasses = cssClasses.concat(additionalCssClasses);
 			}
-			drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses, that.labelForCurrentLanguage());
+			drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
 
 			textBlock = new CenteringTextElement(parentElement);
 			textBlock.addText(that.labelForCurrentLanguage());

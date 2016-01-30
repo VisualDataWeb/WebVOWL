@@ -232,6 +232,9 @@ module.exports = (function () {
 			if (that.visualAttributes()) {
 				rect.classed(that.visualAttributes(), true);
 			}
+			if (that.backgroundColor()) {
+				rect.style("fill", that.backgroundColor());
+			}
 		};
 		this.addDisjointLabel = function (groupTag, textTag) {
 			groupTag.append("circle")

@@ -26,7 +26,7 @@ module.exports = (function () {
 
 			// draw the outer circle at first and afterwards the inner circle
 			drawTools.appendCircularClass(parentElement, that.actualRadius(), ["white", "embedded"]);
-			drawTools.appendCircularClass(parentElement, that.actualRadius() - CIRCLE_SIZE_DIFFERENCE, cssClasses, that.labelForCurrentLanguage());
+			drawTools.appendCircularClass(parentElement, that.actualRadius() - CIRCLE_SIZE_DIFFERENCE, cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
 
 			that.postDrawActions();
 		};
