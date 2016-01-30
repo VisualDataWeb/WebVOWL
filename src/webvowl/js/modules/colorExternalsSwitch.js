@@ -14,18 +14,26 @@ module.exports = function () {
 		nodes = untouchedNodes;
 		properties = untouchedProperties;
 
+		var externalElements = filterExternalElements(nodes.concat(properties));
+
 		if (enabled) {
-			setColorsForExternals(nodes);
+			setColorsForExternals(externalElements);
 		} else {
-			resetBackgroundColors();
+			resetBackgroundColors(externalElements);
 		}
 
 		filteredNodes = nodes;
 		filteredProperties = properties;
 	};
 
-	function setColorsForExternals(nodes) {
-		var iriMap = mapExternalsToBaseUri(nodes);
+	function filterExternalElements(nodes) {
+		return nodes.filter(function (node) {
+			return node.visualAttributes().indexOf("external") >= 0;
+		});
+	}
+
+	function setColorsForExternals(elements) {
+		var iriMap = mapExternalsToBaseUri(elements);
 		var entries = iriMap.entries();
 
 		var colorScale = d3.scale.category10()
@@ -38,36 +46,36 @@ module.exports = function () {
 
 		for (var i = 0; i < entries.length; i++) {
 			var baseIri = entries[i].key;
-			var groupedNodes = entries[i].value;
+			var groupedElements = entries[i].value;
 
-			setBackgroundColorForNodes(groupedNodes, colorScale(baseIri));
+			setBackgroundColorForNodes(groupedElements, colorScale(baseIri));
 		}
 	}
 
-	function mapExternalsToBaseUri(nodes) {
+	function mapExternalsToBaseUri(elements) {
 		var map = d3.map();
 
-		nodes.forEach(function (node) {
+		elements.forEach(function (element) {
 			var baseIri = "" + Math.floor(10 * Math.random()); //TODO extract baseIri with OWL2VOWL
 
 			if (!map.has(baseIri)) {
 				map.set(baseIri, []);
 			}
-			map.get(baseIri).push(node);
+			map.get(baseIri).push(element);
 		});
 
 		return map;
 	}
 
-	function setBackgroundColorForNodes(nodes, backgroundColor) {
-		nodes.forEach(function (node) {
-			node.backgroundColor(backgroundColor);
+	function setBackgroundColorForNodes(elements, backgroundColor) {
+		elements.forEach(function (element) {
+			element.backgroundColor(backgroundColor);
 		});
 	}
 
-	function resetBackgroundColors() {
-		nodes.forEach(function (node) {
-			node.backgroundColor(null);
+	function resetBackgroundColors(elements) {
+		elements.forEach(function (element) {
+			element.backgroundColor(null);
 		});
 	}
 
