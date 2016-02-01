@@ -62,11 +62,15 @@ module.exports = function (graph, datatypeFilter, subclassFilter, disjointFilter
 	function addNodeDegreeFilter(selector) {
 		nodeDegreeFilter.setMaxDegreeSetter(function (maxDegree) {
 			degreeSlider.attr("max", maxDegree);
-			degreeSlider.property("value", Math.min(maxDegree, degreeSlider.property("value")));
+			setSliderValue(degreeSlider, Math.min(maxDegree, degreeSlider.property("value")));
 		});
 
-		nodeDegreeFilter.setDegreeQueryFunction(function () {
-			return degreeSlider.property("value");
+		nodeDegreeFilter.setDegreeGetter(function () {
+			return +degreeSlider.property("value");
+		});
+
+		nodeDegreeFilter.setDegreeSetter(function (value) {
+			setSliderValue(degreeSlider, value);
 		});
 
 		var sliderContainer,
@@ -102,6 +106,10 @@ module.exports = function (graph, datatypeFilter, subclassFilter, disjointFilter
 		});
 	}
 
+	function setSliderValue(slider, value) {
+		slider.property("value", value).on("input")();
+	}
+
 	/**
 	 * Resets the filters (and also filtered elements) to their default.
 	 */
@@ -118,9 +126,8 @@ module.exports = function (graph, datatypeFilter, subclassFilter, disjointFilter
 			}
 		});
 
-		degreeSlider.property("value", 0);
+		setSliderValue(degreeSlider, 0);
 		degreeSlider.on("change")();
-		degreeSlider.on("input")();
 	};
 
 

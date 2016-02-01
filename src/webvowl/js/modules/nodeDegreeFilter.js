@@ -10,8 +10,38 @@ module.exports = function () {
 		filteredNodes,
 		filteredProperties,
 		maxDegreeSetter,
-		degreeQueryFunction;
+		degreeGetter,
+		degreeSetter;
 
+	var NODE_COUNT_LIMIT_FOR_AUTO_ENABLING = 50;
+
+
+	filter.initialize = function (nodes, properties) {
+		var maxLinkCount = findMaxLinkCount(nodes);
+		if (maxDegreeSetter instanceof Function) {
+			maxDegreeSetter(maxLinkCount);
+		}
+
+		var defaultDegree = findDefaultDegree(nodes, properties, maxLinkCount);
+
+		if (degreeSetter instanceof Function) {
+			degreeSetter(defaultDegree);
+		} else {
+			console.error("No degree setter function set.");
+		}
+	};
+
+	function findDefaultDegree(nodes, properties, maxDegree) {
+		for (var degree = 0; degree < maxDegree; degree++) {
+			var filteredData = filterByNodeDegree(nodes, properties, degree);
+
+			if (filteredData.nodes.length <= NODE_COUNT_LIMIT_FOR_AUTO_ENABLING) {
+				return degree;
+			}
+		}
+
+		return 0;
+	}
 
 	/**
 	 * If enabled, all nodes are filter by their node degree.
@@ -22,11 +52,9 @@ module.exports = function () {
 		nodes = untouchedNodes;
 		properties = untouchedProperties;
 
-		setMaxLinkCount();
-
 		if (this.enabled()) {
-			if (degreeQueryFunction instanceof Function) {
-				filterByNodeDegree(degreeQueryFunction());
+			if (degreeGetter instanceof Function) {
+				filterByNodeDegreeAndApply(degreeGetter());
 			} else {
 				console.error("No degree query function set.");
 			}
@@ -36,17 +64,14 @@ module.exports = function () {
 		filteredProperties = properties;
 	};
 
-	function setMaxLinkCount() {
+	function findMaxLinkCount(nodes) {
 		var maxLinkCount = 0;
 		for (var i = 0, l = nodes.length; i < l; i++) {
 			var linksWithoutDatatypes = filterOutDatatypes(nodes[i].links());
 
 			maxLinkCount = Math.max(maxLinkCount, linksWithoutDatatypes.length);
 		}
-
-		if (maxDegreeSetter instanceof Function) {
-			maxDegreeSetter(maxLinkCount);
-		}
+		return maxLinkCount;
 	}
 
 	function filterOutDatatypes(links) {
@@ -55,11 +80,15 @@ module.exports = function () {
 		});
 	}
 
-	function filterByNodeDegree(minDegree) {
-		var filteredData = filterTools.filterNodesAndTidy(nodes, properties, hasRequiredDegree(minDegree));
+	function filterByNodeDegreeAndApply(minDegree) {
+		var filteredData = filterByNodeDegree(nodes, properties, minDegree);
 
 		nodes = filteredData.nodes;
 		properties = filteredData.properties;
+	}
+
+	function filterByNodeDegree(nodes, properties, minDegree) {
+		return filterTools.filterNodesAndTidy(nodes, properties, hasRequiredDegree(minDegree));
 	}
 
 	function hasRequiredDegree(minDegree) {
@@ -68,12 +97,16 @@ module.exports = function () {
 		};
 	}
 
-	filter.setMaxDegreeSetter = function (maxNodeDegreeSetter) {
-		maxDegreeSetter = maxNodeDegreeSetter;
+	filter.setMaxDegreeSetter = function (_maxDegreeSetter) {
+		maxDegreeSetter = _maxDegreeSetter;
 	};
 
-	filter.setDegreeQueryFunction = function (nodeDegreeQueryFunction) {
-		degreeQueryFunction = nodeDegreeQueryFunction;
+	filter.setDegreeGetter = function (_degreeGetter) {
+		degreeGetter = _degreeGetter;
+	};
+
+	filter.setDegreeSetter = function (_degreeSetter) {
+		degreeSetter = _degreeSetter;
 	};
 
 	filter.enabled = function (p) {
