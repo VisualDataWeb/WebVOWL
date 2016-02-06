@@ -359,9 +359,10 @@ module.exports = function (graphContainerSelector) {
 			properties: parser.properties()
 		};
 
-		// Initialize filters
+		// Initialize filters with data to replicate consecutive filtering
+		var initializationData = _.clone(unfilteredData);
 		options.filterModules().forEach(function (module) {
-			filterFunction(module, unfilteredData, true);
+			initializationData = filterFunction(module, initializationData, true);
 		});
 	}
 
@@ -395,13 +396,12 @@ module.exports = function (graphContainerSelector) {
 			if (module.initialize) {
 				module.initialize(data.nodes, data.properties);
 			}
-		} else {
-			module.filter(data.nodes, data.properties);
-			return {
-				nodes: module.filteredNodes(),
-				properties: module.filteredProperties()
-			};
 		}
+		module.filter(data.nodes, data.properties);
+		return {
+			nodes: module.filteredNodes(),
+			properties: module.filteredProperties()
+		};
 	}
 
 	function storeLinksOnNodes(nodes, links) {
