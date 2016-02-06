@@ -8,6 +8,7 @@ module.exports = function (graph) {
 
 	var filterMenu = {},
 		checkboxData = [],
+		menuElement = d3.select("#filterOption a"),
 		degreeSlider;
 
 
@@ -20,6 +21,8 @@ module.exports = function (graph) {
 	 * @param nodeDegreeFilter filters nodes by their degree
 	 */
 	filterMenu.setup = function (datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
+		menuElement.on("mouseover", function () {filterMenu.highlight(false);});
+
 		addFilterItem(datatypeFilter, "datatype", "Datatype prop.", "#datatypeFilteringOption");
 		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
 		addFilterItem(disjointFilter, "disjoint", "Disjointness info", "#disjointFilteringOption");
@@ -128,6 +131,13 @@ module.exports = function (graph) {
 
 		setSliderValue(degreeSlider, 0);
 		degreeSlider.on("change")();
+	};
+
+	filterMenu.highlight = function (enable) {
+		if (!arguments.length) {
+			enable = true;
+		}
+		menuElement.classed("highlighted", enable);
 	};
 
 

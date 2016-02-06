@@ -1,7 +1,7 @@
 var elementTools = require("../util/elementTools")();
 var filterTools = require("../util/filterTools")();
 
-module.exports = function () {
+module.exports = function (menu) {
 
 	var filter = {},
 		nodes,
@@ -26,6 +26,7 @@ module.exports = function () {
 
 		if (degreeSetter instanceof Function) {
 			degreeSetter(defaultDegree);
+			menu.highlight(defaultDegree > 0);
 		} else {
 			console.error("No degree setter function set.");
 		}
