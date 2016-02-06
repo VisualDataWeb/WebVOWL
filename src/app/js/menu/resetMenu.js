@@ -2,20 +2,22 @@
  * Contains the logic for the reset button.
  *
  * @param graph the associated webvowl graph
- * @param resettableModules modules that can be resetted
  * @returns {{}}
  */
-module.exports = function (graph, resettableModules) {
+module.exports = function (graph) {
 
 	var resetMenu = {},
 		options = graph.graphOptions(),
+		resettableModules,
 		untouchedOptions = webvowl.options();
 
 
 	/**
 	 * Adds the reset button to the website.
+	 * @param _resettableModules modules that can be resetted
 	 */
-	resetMenu.setup = function () {
+	resetMenu.setup = function (_resettableModules) {
+		resettableModules = _resettableModules;
 		d3.select("#reset-button").on("click", resetGraph);
 	};
 

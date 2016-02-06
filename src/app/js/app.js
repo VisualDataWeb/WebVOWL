@@ -4,17 +4,16 @@ module.exports = function () {
 		graph = webvowl.graph(),
 		options = graph.graphOptions(),
 		languageTools = webvowl.util.languageTools(),
-		graphSelector = "#graph",
+		GRAPH_SELECTOR = "#graph",
 	// Modules for the webvowl app
-		ontologyMenu,
-		exportMenu,
-		gravityMenu,
-		filterMenu,
-		modeMenu,
-		resetMenu,
-		pauseMenu,
+		exportMenu = require("./menu/exportMenu")(graph),
+		filterMenu = require("./menu/filterMenu")(graph),
+		gravityMenu = require("./menu/gravityMenu")(graph),
+		modeMenu = require("./menu/modeMenu")(graph),
+		ontologyMenu = require("./menu/ontologyMenu")(graph),
+		pauseMenu = require("./menu/pauseMenu")(graph),
+		resetMenu = require("./menu/resetMenu")(graph),
 		sidebar = require("./sidebar")(graph),
-		setupableMenues,
 	// Graph modules
 		statistics = webvowl.modules.statistics(),
 		focuser = webvowl.modules.focuser(),
@@ -29,7 +28,7 @@ module.exports = function () {
 		pickAndPin = webvowl.modules.pickAndPin();
 
 	app.initialize = function () {
-		options.graphContainerSelector(graphSelector);
+		options.graphContainerSelector(GRAPH_SELECTOR);
 		options.selectionModules().push(focuser);
 		options.selectionModules().push(selectionDetailDisplayer);
 		options.selectionModules().push(pickAndPin);
@@ -42,22 +41,16 @@ module.exports = function () {
 		options.filterModules().push(nodeDegreeFilter);
 		options.filterModules().push(compactNotationSwitch);
 
-		exportMenu = require("./menu/exportMenu")(options.graphContainerSelector());
-		gravityMenu = require("./menu/gravityMenu")(graph);
-		filterMenu = require("./menu/filterMenu")(graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
-		modeMenu = require("./menu/modeMenu")(graph, pickAndPin, nodeScalingSwitch, compactNotationSwitch);
-		pauseMenu = require("./menu/pauseMenu")(graph);
-		resetMenu = require("./menu/resetMenu")(graph, [gravityMenu, filterMenu, modeMenu,
-			focuser, selectionDetailDisplayer, pauseMenu]);
-		ontologyMenu = require("./menu/ontologyMenu")(loadOntologyFromText);
-
 		d3.select(window).on("resize", adjustSize);
 
-		// setup all bottom bar modules
-		setupableMenues = [exportMenu, gravityMenu, filterMenu, modeMenu, resetMenu, pauseMenu, sidebar, ontologyMenu];
-		setupableMenues.forEach(function (menu) {
-			menu.setup();
-		});
+		exportMenu.setup();
+		gravityMenu.setup();
+		filterMenu.setup(datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
+		modeMenu.setup(pickAndPin, nodeScalingSwitch, compactNotationSwitch);
+		pauseMenu.setup();
+		sidebar.setup();
+		ontologyMenu.setup(loadOntologyFromText);
+		resetMenu.setup([gravityMenu, filterMenu, modeMenu, focuser, selectionDetailDisplayer, pauseMenu]);
 
 		graph.start();
 		adjustSize();
@@ -93,7 +86,7 @@ module.exports = function () {
 	}
 
 	function adjustSize() {
-		var graphContainer = d3.select(graphSelector),
+		var graphContainer = d3.select(GRAPH_SELECTOR),
 			svg = graphContainer.select("svg"),
 			height = window.innerHeight - 40,
 			width = window.innerWidth - (window.innerWidth * 0.22);

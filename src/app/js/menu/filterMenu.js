@@ -2,14 +2,9 @@
  * Contains the logic for connecting the filters with the website.
  *
  * @param graph required for calling a refresh after a filter change
- * @param datatypeFilter filter for all datatypes
- * @param subclassFilter filter for all subclasses
- * @param disjointFilter filter for all disjoint with properties
- * @param setOperatorFilter filter for all set operators with properties
- * @param nodeDegreeFilter filters nodes by their degree
  * @returns {{}}
  */
-module.exports = function (graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
+module.exports = function (graph) {
 
 	var filterMenu = {},
 		checkboxData = [],
@@ -18,14 +13,19 @@ module.exports = function (graph, datatypeFilter, subclassFilter, disjointFilter
 
 	/**
 	 * Connects the website with graph filters.
+	 * @param datatypeFilter filter for all datatypes
+	 * @param subclassFilter filter for all subclasses
+	 * @param disjointFilter filter for all disjoint with properties
+	 * @param setOperatorFilter filter for all set operators with properties
+	 * @param nodeDegreeFilter filters nodes by their degree
 	 */
-	filterMenu.setup = function () {
+	filterMenu.setup = function (datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
 		addFilterItem(datatypeFilter, "datatype", "Datatype prop.", "#datatypeFilteringOption");
 		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
 		addFilterItem(disjointFilter, "disjoint", "Disjointness info", "#disjointFilteringOption");
 		addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");
 
-		addNodeDegreeFilter("#nodeDegreeFilteringOption");
+		addNodeDegreeFilter(nodeDegreeFilter, "#nodeDegreeFilteringOption");
 	};
 
 
@@ -59,7 +59,7 @@ module.exports = function (graph, datatypeFilter, subclassFilter, disjointFilter
 			.text(pluralNameOfFilteredItems);
 	}
 
-	function addNodeDegreeFilter(selector) {
+	function addNodeDegreeFilter(nodeDegreeFilter, selector) {
 		nodeDegreeFilter.setMaxDegreeSetter(function (maxDegree) {
 			degreeSlider.attr("max", maxDegree);
 			setSliderValue(degreeSlider, Math.min(maxDegree, degreeSlider.property("value")));
