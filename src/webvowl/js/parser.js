@@ -198,15 +198,9 @@ module.exports = function (graph) {
 		});
 	}
 
-	/**
-	 * Really dirty implementation of the range merging of equivalent Ids,
-	 * but this will be moved to the converter.
-	 * @param properties
-	 * @param nodes
-	 */
 	function mergeRangesOfEquivalentProperties(properties, nodes) {
 		// pass clones of arrays into the merger to keep the current functionality of this module
-		var newNodes = equivalentPropertyMerger.merge(properties.slice(), nodes.slice(), propertyMap, graph);
+		var newNodes = equivalentPropertyMerger.merge(properties.slice(), nodes.slice(), propertyMap, classMap, graph);
 
 		// replace all the existing nodes and map the nodes again
 		nodes.length = 0;

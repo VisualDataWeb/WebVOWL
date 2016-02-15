@@ -8,26 +8,32 @@ module.exports = function () {
 };
 
 var PREFIX = "GENERATED-MERGED_RANGE-";
+var OBJECT_PROPERTY_DEFAULT_RANGE_TYPE = "owl:Thing";
 
 
-equivalentPropertyMerger.merge = function (properties, nodes, propertyMap, graph) {
+equivalentPropertyMerger.merge = function (properties, nodes, propertyMap, nodeMap, graph) {
 	var totalNodeIdsToHide = d3.set();
+	var processedPropertyIds = d3.set();
 	var mergeNodes = [];
 
 	for (var i = 0; i < properties.length; i++) {
 		var property = properties[i];
 		var equivalents = property.equivalents().map(createIdToPropertyMapper(propertyMap));
 
-		if (equivalents.length === 0 || isPropertyProcessed(property)) {
+		if (equivalents.length === 0 || processedPropertyIds.has(property.id())) {
 			continue;
 		}
 
-		var mergeRange = createMergeNode(property, equivalents, graph);
-		mergeNodes.push(mergeRange);
-
 		var propertyWithEquivalents = equivalents.concat(property);
-		var nodeIdsToHide = replaceRangesAndCollectNodesToHide(propertyWithEquivalents, mergeRange, properties);
 
+		var mergeNode = findMergeNode(propertyWithEquivalents, nodeMap);
+		if (!mergeNode) {
+			mergeNode = createDefaultMergeNode(property, graph);
+			mergeNodes.push(mergeNode);
+		}
+
+		var nodeIdsToHide = replaceRangesAndCollectNodesToHide(propertyWithEquivalents, mergeNode, properties,
+			processedPropertyIds);
 		for (var j = 0; j < nodeIdsToHide; j++) {
 			totalNodeIdsToHide.add(nodeIdsToHide[j]);
 		}
@@ -43,36 +49,65 @@ function createIdToPropertyMapper(propertyMap) {
 	};
 }
 
-function isPropertyProcessed(property) {
-	return property.range().indexOf(PREFIX) === 0;
+function findMergeNode(propertyWithEquivalents, nodeMap) {
+	var typeMap = mapPropertiesRangesToType(propertyWithEquivalents, nodeMap);
+	var typeSet = d3.set(typeMap.keys());
+
+	// default type is the fallback value and should be ignored for the type determination
+	typeSet.remove(OBJECT_PROPERTY_DEFAULT_RANGE_TYPE);
+
+	// exactly one type to chose from -> take the node of this type as range
+	if (typeSet.size() === 1) {
+		var type = typeSet.values()[0];
+		var ranges = typeMap.get(type);
+
+		if (ranges.length === 1) {
+			return ranges[0];
+		}
+	}
 }
 
-function createMergeNode(property, graph, equivalents) {
+function mapPropertiesRangesToType(properties, nodeMap) {
+	var typeMap = d3.map();
+
+	properties.forEach(function (property) {
+		var range = nodeMap[property.range()];
+		var type = range.type();
+
+		if (!typeMap.has(type)) {
+			typeMap.set(type, []);
+		}
+
+		typeMap.get(type).push(range);
+	});
+
+	return typeMap;
+}
+
+function createDefaultMergeNode(property, graph) {
 	var range;
 
 	if (elementTools.isDatatypeProperty(property)) {
 		range = new RdfsLiteral(graph);
 	} else {
-		range = findObjectPropertyMergeRange(property, equivalents, new OwlThing(graph));
+		range = new OwlThing(graph);
 	}
 	range.id(PREFIX + property.id());
 
 	return range;
 }
 
-function findObjectPropertyMergeRange(property, equivalents, defaultRange) {
-	return defaultRange;
-}
-
-function replaceRangesAndCollectNodesToHide(propertyWithEquivalents, mergedRange, properties) {
+function replaceRangesAndCollectNodesToHide(propertyWithEquivalents, mergeNode, properties, processedPropertyIds) {
 	var nodesToHide = [];
 
 	propertyWithEquivalents.forEach(function (property) {
 		var oldRangeId = property.range();
-		property.range(mergedRange.id());
+		property.range(mergeNode.id());
 		if (!isDomainOrRangeOfOtherProperty(oldRangeId, properties)) {
 			nodesToHide.push(oldRangeId);
 		}
+
+		processedPropertyIds.add(property.id());
 	});
 
 	return nodesToHide;
@@ -96,7 +131,6 @@ function filterVisibleNodes(nodes, nodeIdsToHide) {
 		if (!nodeIdsToHide.has(node.id())) {
 			filteredNodes.push(node);
 		}
-
 	});
 
 	return filteredNodes;
