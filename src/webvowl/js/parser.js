@@ -1,8 +1,6 @@
-var OwlThing = require("./elements/nodes/implementations/OwlThing");
-var RdfsLiteral = require("./elements/nodes/implementations/RdfsLiteral");
 var OwlDisjointWith = require("./elements/properties/implementations/OwlDisjointWith");
 var attributeParser = require("./parsing/attributeParser")();
-var elementTools = require("./util/elementTools")();
+var equivalentPropertyMerger = require("./parsing/equivalentPropertyMerger")();
 var nodePrototypeMap = require("./elements/nodes/nodeMap")();
 var propertyPrototypeMap = require("./elements/properties/propertyMap")();
 
@@ -200,86 +198,14 @@ module.exports = function (graph) {
 		});
 	}
 
-	/**
-	 * Really dirty implementation of the range merging of equivalent Ids,
-	 * but this will be moved to the converter.
-	 * @param properties
-	 * @param nodes
-	 */
 	function mergeRangesOfEquivalentProperties(properties, nodes) {
-		var backedUpNodes = nodes.slice(),
-			hiddenNodeIds = d3.set(),
-			i, l, j, k,
-			prefix = "GENERATED-MERGED_RANGE-";
+		// pass clones of arrays into the merger to keep the current functionality of this module
+		var newNodes = equivalentPropertyMerger.merge(properties.slice(), nodes.slice(), propertyMap, classMap, graph);
 
-		// clear the original array
+		// replace all the existing nodes and map the nodes again
 		nodes.length = 0;
-
-		for (i = 0, l = properties.length; i < l; i++) {
-			var property = properties[i],
-				equivalents = property.equivalents();
-
-			if (equivalents.length === 0) {
-				continue;
-			}
-
-			// quickfix, because all equivalent properties have the equivalent attribute
-			if (property.range().indexOf(prefix) === 0) {
-				continue;
-			}
-
-			var mergedRange;
-			if (elementTools.isDatatypeProperty(property)) {
-				mergedRange = new RdfsLiteral(graph);
-			} else {
-				mergedRange = new OwlThing(graph);
-			}
-			mergedRange.id(prefix + property.id());
-			nodes.push(mergedRange);
-
-			var hiddenNodeId = property.range();
-			property.range(mergedRange.id());
-
-			for (j = 0, k = equivalents.length; j < k; j++) {
-				var equivalentId = equivalents[j],
-					equivProperty = propertyMap[equivalentId];
-
-				var oldRange = equivProperty.range();
-				equivProperty.range(mergedRange.id());
-				if (!isDomainOrRangeOfOtherProperty(oldRange, properties)) {
-					hiddenNodeIds.add(oldRange);
-				}
-			}
-
-			// only merge if this property was the only connected one
-			if (!isDomainOrRangeOfOtherProperty(hiddenNodeId, properties)) {
-				hiddenNodeIds.add(hiddenNodeId);
-			}
-		}
-
-		for (i = 0, l = backedUpNodes.length; i < l; i++) {
-			var node = backedUpNodes[i];
-
-			if (!hiddenNodeIds.has(node.id())) {
-				nodes.push(node);
-			}
-		}
-
-		// Create a map again
+		Array.prototype.push.apply(nodes, newNodes);
 		classMap = mapElements(nodes);
-	}
-
-	function isDomainOrRangeOfOtherProperty(nodeId, properties) {
-		var i, l;
-
-		for (i = 0, l = properties.length; i < l; i++) {
-			var property = properties[i];
-			if (property.domain() === nodeId || property.range() === nodeId) {
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	/**
