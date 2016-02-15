@@ -7,40 +7,27 @@ module.exports = function () {
 	return equivalentPropertyMerger;
 };
 
+var PREFIX = "GENERATED-MERGED_RANGE-";
+
 equivalentPropertyMerger.merge = function (properties, nodes, propertyMap, graph) {
-	var hiddenNodeIds = d3.set(),
-		i, l, j, k,
-		PREFIX = "GENERATED-MERGED_RANGE-";
+	var hiddenNodeIds = d3.set();
+	var mergeNodes = [];
 
-	// clear the original array
-	var newNodes = [];
-
-	for (i = 0, l = properties.length; i < l; i++) {
+	for (var i = 0; i < properties.length; i++) {
 		var property = properties[i],
 			equivalents = property.equivalents();
 
-		if (equivalents.length === 0) {
+		if (equivalents.length === 0 || isProcessedProperty(property)) {
 			continue;
 		}
 
-		// quickfix, we need to ignore already merged equivalent properties
-		if (property.range().indexOf(PREFIX) === 0) {
-			continue;
-		}
+		var mergedRange = createMergeNode(property, graph);
+		mergeNodes.push(mergedRange);
 
-		var mergedRange;
-		if (elementTools.isDatatypeProperty(property)) {
-			mergedRange = new RdfsLiteral(graph);
-		} else {
-			mergedRange = new OwlThing(graph);
-		}
-		mergedRange.id(PREFIX + property.id());
-		newNodes.push(mergedRange);
-
-		var hiddenNodeId = property.range();
+		var hiddenNondeId = property.range();
 		property.range(mergedRange.id());
 
-		for (j = 0, k = equivalents.length; j < k; j++) {
+		for (var j = 0; j < equivalents.length; j++) {
 			var equivalentId = equivalents[j],
 				equivProperty = propertyMap[equivalentId];
 
@@ -57,16 +44,25 @@ equivalentPropertyMerger.merge = function (properties, nodes, propertyMap, graph
 		}
 	}
 
-	for (i = 0, l = nodes.length; i < l; i++) {
-		var node = nodes[i];
-
-		if (!hiddenNodeIds.has(node.id())) {
-			newNodes.push(node);
-		}
-	}
-
-	return newNodes;
+	return filterVisibleNodes(nodes.concat(mergeNodes), hiddenNodeIds);
 };
+
+function isProcessedProperty(property) {
+	return property.range().indexOf(PREFIX) === 0;
+}
+
+function createMergeNode(property, graph) {
+	var range;
+
+	if (elementTools.isDatatypeProperty(property)) {
+		range = new RdfsLiteral(graph);
+	} else {
+		range = new OwlThing(graph);
+	}
+	range.id(PREFIX + property.id());
+
+	return range;
+}
 
 function isDomainOrRangeOfOtherProperty(nodeId, properties) {
 	var i, l;
@@ -79,4 +75,17 @@ function isDomainOrRangeOfOtherProperty(nodeId, properties) {
 	}
 
 	return false;
+}
+
+function filterVisibleNodes(nodes, hiddenNodeIds) {
+	var filteredNodes = [];
+
+	nodes.forEach(function (node) {
+		if (!hiddenNodeIds.has(node.id())) {
+			filteredNodes.push(node);
+		}
+
+	});
+
+	return filteredNodes;
 }
