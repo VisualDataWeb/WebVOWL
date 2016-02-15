@@ -24,7 +24,7 @@ equivalentPropertyMerger.merge = function (properties, nodes, propertyMap, graph
 		var mergedRange = createMergeNode(property, graph);
 		mergeNodes.push(mergedRange);
 
-		var hiddenNondeId = property.range();
+		var hiddenNodeId = property.range();
 		property.range(mergedRange.id());
 
 		for (var j = 0; j < equivalents.length; j++) {
