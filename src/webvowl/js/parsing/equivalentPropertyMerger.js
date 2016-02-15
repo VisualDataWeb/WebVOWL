@@ -9,6 +9,7 @@ module.exports = function () {
 
 var PREFIX = "GENERATED-MERGED_RANGE-";
 var OBJECT_PROPERTY_DEFAULT_RANGE_TYPE = "owl:Thing";
+var DATA_PROPERTY_DEFAULT_RANGE_TYPE = "rdfs:Literal";
 
 
 equivalentPropertyMerger.merge = function (properties, nodes, propertyMap, nodeMap, graph) {
@@ -53,8 +54,9 @@ function findMergeNode(propertyWithEquivalents, nodeMap) {
 	var typeMap = mapPropertiesRangesToType(propertyWithEquivalents, nodeMap);
 	var typeSet = d3.set(typeMap.keys());
 
-	// default type is the fallback value and should be ignored for the type determination
+	// default types are the fallback values and should be ignored for the type determination
 	typeSet.remove(OBJECT_PROPERTY_DEFAULT_RANGE_TYPE);
+	typeSet.remove(DATA_PROPERTY_DEFAULT_RANGE_TYPE);
 
 	// exactly one type to chose from -> take the node of this type as range
 	if (typeSet.size() === 1) {
