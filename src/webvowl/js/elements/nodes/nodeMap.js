@@ -3,6 +3,7 @@ nodes.push(require("./implementations/ExternalClass"));
 nodes.push(require("./implementations/OwlClass"));
 nodes.push(require("./implementations/OwlComplementOf"));
 nodes.push(require("./implementations/OwlDeprecatedClass"));
+nodes.push(require("./implementations/OwlDisjointUnionOf"));
 nodes.push(require("./implementations/OwlEquivalentClass"));
 nodes.push(require("./implementations/OwlIntersectionOf"));
 nodes.push(require("./implementations/OwlNothing"));

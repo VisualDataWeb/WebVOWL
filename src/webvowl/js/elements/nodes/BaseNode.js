@@ -9,6 +9,7 @@ module.exports = (function () {
 		var that = this,
 		// Basic attributes
 			complement,
+			disjointUnion,
 			disjointWith,
 			individuals = [],
 			intersection,
@@ -24,6 +25,12 @@ module.exports = (function () {
 		this.complement = function (p) {
 			if (!arguments.length) return complement;
 			complement = p;
+			return this;
+		};
+
+		this.disjointUnion = function (p) {
+			if (!arguments.length) return disjointUnion;
+			disjointUnion = p;
 			return this;
 		};
 
