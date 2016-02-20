@@ -1,6 +1,3 @@
-var forceLayoutNodeFunctions = require("../forceLayoutNodeFunctions")();
-
-
 module.exports = Label;
 
 /**
