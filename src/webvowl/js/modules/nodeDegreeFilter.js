@@ -26,7 +26,7 @@ module.exports = function (menu) {
 
 		if (degreeSetter instanceof Function) {
 			degreeSetter(defaultDegree);
-			menu.highlight(defaultDegree > 0);
+			menu.highlightForDegreeSlider(defaultDegree > 0);
 		} else {
 			console.error("No degree setter function set.");
 		}

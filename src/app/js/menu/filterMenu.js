@@ -9,6 +9,7 @@ module.exports = function (graph) {
 	var filterMenu = {},
 		checkboxData = [],
 		menuElement = d3.select("#filterOption a"),
+		nodeDegreeContainer = d3.select("#nodeDegreeFilteringOption"),
 		degreeSlider;
 
 
@@ -21,14 +22,14 @@ module.exports = function (graph) {
 	 * @param nodeDegreeFilter filters nodes by their degree
 	 */
 	filterMenu.setup = function (datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
-		menuElement.on("mouseover", function () {filterMenu.highlight(false);});
+		menuElement.on("mouseleave", function () {filterMenu.highlightForDegreeSlider(false);});
 
 		addFilterItem(datatypeFilter, "datatype", "Datatype prop.", "#datatypeFilteringOption");
 		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
 		addFilterItem(disjointFilter, "disjoint", "Disjointness info", "#disjointFilteringOption");
 		addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");
 
-		addNodeDegreeFilter(nodeDegreeFilter, "#nodeDegreeFilteringOption");
+		addNodeDegreeFilter(nodeDegreeFilter, nodeDegreeContainer);
 	};
 
 
@@ -62,7 +63,7 @@ module.exports = function (graph) {
 			.text(pluralNameOfFilteredItems);
 	}
 
-	function addNodeDegreeFilter(nodeDegreeFilter, selector) {
+	function addNodeDegreeFilter(nodeDegreeFilter, container) {
 		nodeDegreeFilter.setMaxDegreeSetter(function (maxDegree) {
 			degreeSlider.attr("max", maxDegree);
 			setSliderValue(degreeSlider, Math.min(maxDegree, degreeSlider.property("value")));
@@ -79,8 +80,7 @@ module.exports = function (graph) {
 		var sliderContainer,
 			sliderValueLabel;
 
-		sliderContainer = d3.select(selector)
-			.append("div")
+		sliderContainer = container.append("div")
 			.classed("distanceSliderContainer", true);
 
 		degreeSlider = sliderContainer.append("input")
@@ -133,11 +133,12 @@ module.exports = function (graph) {
 		degreeSlider.on("change")();
 	};
 
-	filterMenu.highlight = function (enable) {
+	filterMenu.highlightForDegreeSlider = function (enable) {
 		if (!arguments.length) {
 			enable = true;
 		}
 		menuElement.classed("highlighted", enable);
+		nodeDegreeContainer.classed("highlighted", enable);
 	};
 
 
