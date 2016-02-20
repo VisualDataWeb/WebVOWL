@@ -98,6 +98,7 @@ module.exports = function (graph) {
 					node.annotations(element.annotations)
 						.comment(element.comment)
 						.complement(element.complement)
+						.disjointUnion(element.disjointUnion)
 						.description(element.description)
 						.equivalents(element.equivalent)
 						.id(element.id)
@@ -469,6 +470,7 @@ module.exports = function (graph) {
 			addProperties(clss.id(), clss.complement(), "COMPLEMENT");
 			addProperties(clss.id(), clss.intersection(), "INTERSECTION");
 			addProperties(clss.id(), clss.union(), "UNION");
+			addProperties(clss.id(), clss.disjointUnion(), "DISJOINTUNION");
 		});
 	}
 
