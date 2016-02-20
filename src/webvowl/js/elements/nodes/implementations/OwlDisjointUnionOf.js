@@ -34,7 +34,7 @@ module.exports = (function () {
 				.text("1")
 				.attr("transform", "scale(.7)translate(3,5)");
 
-			symbol.attr("transform", "translate(-" + (that.radius() - 15) / 5 + ",-" + (that.radius() - 15) / 100 + ")");
+			symbol.attr("transform", "translate(-" + (that.radius() - 15) / 7 + ",-" + (that.radius() - 15) / 100 + ")");
 
 			that.postDrawActions();
 		};

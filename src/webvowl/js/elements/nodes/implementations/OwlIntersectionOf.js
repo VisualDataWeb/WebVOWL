@@ -38,7 +38,7 @@ module.exports = (function () {
 				.attr("transform", "scale(.5)translate(5,0)");
 
 			symbol.attr("transform",
-				"translate(-" + (that.radius() - 15) / 5 + ",-" + (that.radius() - 15) / 100 + ")");
+				"translate(-" + (that.radius() - 15) / 7 + ",-" + (that.radius() - 15) / 100 + ")");
 
 			that.postDrawActions();
 		};
