@@ -26,7 +26,7 @@ module.exports = function (graph) {
 
 		addFilterItem(datatypeFilter, "datatype", "Datatype prop.", "#datatypeFilteringOption");
 		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
-		addFilterItem(disjointFilter, "disjoint", "Disjointness info", "#disjointFilteringOption");
+		addFilterItem(disjointFilter, "disjoint", "Class disjoint.", "#disjointFilteringOption");
 		addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");
 
 		addNodeDegreeFilter(nodeDegreeFilter, nodeDegreeContainer);

@@ -17,9 +17,9 @@ module.exports = function (graph) {
 	 * @param compactNotation mode for toggling the compact node
 	 */
 	modeMenu.setup = function (pickAndPin, nodeScaling, compactNotation, colorExternals) {
-		addModeItem(pickAndPin, "pickandpin", "Pick & Pin", "#pickAndPinOption", false);
-		addModeItem(nodeScaling, "nodescaling", "Node Scaling", "#nodeScalingOption", true);
-		addModeItem(compactNotation, "compactnotation", "Compact Notation", "#compactNotationOption", true);
+		addModeItem(pickAndPin, "pickandpin", "Pick & pin", "#pickAndPinOption", false);
+		addModeItem(nodeScaling, "nodescaling", "Node scaling", "#nodeScalingOption", true);
+		addModeItem(compactNotation, "compactnotation", "Compact notation", "#compactNotationOption", true);
 		addModeItem(colorExternals, "colorexternals", "Color externals", "#colorExternalsOption", true);
 	};
 

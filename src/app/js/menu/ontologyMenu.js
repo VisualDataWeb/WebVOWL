@@ -171,7 +171,7 @@ module.exports = function () {
 		input.on("change", function () {
 			var selectedFiles = input.property("files");
 			if (selectedFiles.length <= 0) {
-				inputLabel.text("Please select a file");
+				inputLabel.text("Select ontology file");
 				uploadButton.property("disabled", true);
 			} else {
 				inputLabel.text(selectedFiles[0].name);
