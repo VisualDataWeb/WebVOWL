@@ -96,6 +96,7 @@ module.exports = function (graph) {
 
 					var node = new Prototype(graph);
 					node.annotations(element.annotations)
+						.baseIri(element.baseIri)
 						.comment(element.comment)
 						.complement(element.complement)
 						.disjointUnion(element.disjointUnion)
@@ -161,6 +162,7 @@ module.exports = function (graph) {
 					// Create the matching object and set the properties
 					var property = new Prototype(graph);
 					property.annotations(element.annotations)
+						.baseIri(element.baseIri)
 						.cardinality(element.cardinality)
 						.comment(element.comment)
 						.domain(element.domain)

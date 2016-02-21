@@ -10,13 +10,15 @@ module.exports = (function () {
 			label,
 			type,
 			iri,
+			baseIri,
 		// Additional attributes
 			annotations,
 			attributes = [],
-			visualAttributes = [],
+			backgroundColor,
 			comment,
 			description,
 			equivalentBase,
+			visualAttributes = [],
 		// Style attributes
 			focused = false,
 			indications = [],
@@ -37,6 +39,18 @@ module.exports = (function () {
 		this.annotations = function (p) {
 			if (!arguments.length) return annotations;
 			annotations = p;
+			return this;
+		};
+
+		this.backgroundColor = function (p) {
+			if (!arguments.length) return backgroundColor;
+			backgroundColor = p;
+			return this;
+		};
+
+		this.baseIri = function (p) {
+			if (!arguments.length) return baseIri;
+			baseIri = p;
 			return this;
 		};
 
@@ -155,7 +169,7 @@ module.exports = (function () {
 
 	Base.prototype.constructor = Base;
 
-	Base.prototype.equals = function(other) {
+	Base.prototype.equals = function (other) {
 		return other instanceof Base && this.id() === other.id();
 	};
 

@@ -1,7 +1,4 @@
 module.exports = function () {
-	/**
-	 * @constructor
-	 */
 	var options = {},
 		data,
 		graphContainerSelector,

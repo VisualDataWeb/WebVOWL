@@ -9,17 +9,19 @@ module.exports = (function () {
 	 * Append a circular class node with the passed attributes.
 	 * @param parent the parent element to which the circle will be appended
 	 * @param radius
-	 * @param cssClasses an array of additional css classes
+	 * @param [cssClasses] an array of additional css classes
 	 * @param [tooltip]
+	 * @param [backgroundColor]
 	 * @returns {*}
 	 */
-	tools.appendCircularClass = function (parent, radius, cssClasses, tooltip) {
+	tools.appendCircularClass = function (parent, radius, cssClasses, tooltip, backgroundColor) {
 		var circle = parent.append("circle")
 			.classed("class", true)
 			.attr("r", radius);
 
 		addCssClasses(circle, cssClasses);
 		addToolTip(circle, tooltip);
+		addBackgroundColor(circle, backgroundColor);
 
 		return circle;
 	};
@@ -38,16 +40,23 @@ module.exports = (function () {
 		}
 	}
 
+	function addBackgroundColor(element, backgroundColor) {
+		if (backgroundColor) {
+			element.style("fill", backgroundColor);
+		}
+	}
+
 	/**
 	 * Appends a rectangular class node with the passed attributes.
 	 * @param parent the parent element to which the rectangle will be appended
 	 * @param width
 	 * @param height
-	 * @param cssClasses an array of additional css classes
+	 * @param [cssClasses] an array of additional css classes
 	 * @param [tooltip]
+	 * @param [backgroundColor]
 	 * @returns {*}
 	 */
-	tools.appendRectangularClass = function (parent, width, height, cssClasses, tooltip) {
+	tools.appendRectangularClass = function (parent, width, height, cssClasses, tooltip, backgroundColor) {
 		var rectangle = parent.append("rect")
 			.classed("class", true)
 			.attr("x", -width / 2)
@@ -57,6 +66,7 @@ module.exports = (function () {
 
 		addCssClasses(rectangle, cssClasses);
 		addToolTip(rectangle, tooltip);
+		addBackgroundColor(rectangle, backgroundColor);
 
 		return rectangle;
 	};
