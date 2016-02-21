@@ -1,3 +1,4 @@
+var _ = require("lodash/core");
 var math = require("./util/math")();
 var linkCreator = require("./parsing/linkCreator")();
 var elementTools = require("./util/elementTools")();
@@ -36,8 +37,7 @@ module.exports = function (graphContainerSelector) {
 		labelNodes,
 		links,
 		properties,
-		unfilteredNodes,
-		unfilteredProperties,
+		unfilteredData,
 	// Graph behaviour
 		force,
 		dragBehaviour,
@@ -354,29 +354,31 @@ module.exports = function (graphContainerSelector) {
 	function loadGraphData() {
 		parser.parse(options.data());
 
-		unfilteredNodes = parser.nodes();
-		unfilteredProperties = parser.properties();
+		unfilteredData = {
+			nodes: parser.nodes(),
+			properties: parser.properties()
+		};
+
+		// Initialize filters with data to replicate consecutive filtering
+		var initializationData = _.clone(unfilteredData);
+		options.filterModules().forEach(function (module) {
+			initializationData = filterFunction(module, initializationData, true);
+		});
 	}
 
 	/**
 	 * Applies the data of the graph options object and parses it. The graph is not redrawn.
 	 */
 	function refreshGraphData() {
-		var preprocessedNodes = unfilteredNodes,
-			preprocessedProperties = unfilteredProperties;
+		var preprocessedData = _.clone(unfilteredData);
 
 		// Filter the data
 		options.filterModules().forEach(function (module) {
-			links = linkCreator.createLinks(preprocessedProperties);
-			storeLinksOnNodes(preprocessedNodes, links);
-
-			module.filter(preprocessedNodes, preprocessedProperties);
-			preprocessedNodes = module.filteredNodes();
-			preprocessedProperties = module.filteredProperties();
+			preprocessedData = filterFunction(module, preprocessedData);
 		});
 
-		classNodes = preprocessedNodes;
-		properties = preprocessedProperties;
+		classNodes = preprocessedData.nodes;
+		properties = preprocessedData.properties;
 		links = linkCreator.createLinks(properties);
 		labelNodes = links.map(function (link) {
 			return link.label();
@@ -384,6 +386,22 @@ module.exports = function (graphContainerSelector) {
 		storeLinksOnNodes(classNodes, links);
 
 		setForceLayoutData(classNodes, labelNodes, links);
+	}
+
+	function filterFunction(module, data, initializing) {
+		links = linkCreator.createLinks(data.properties);
+		storeLinksOnNodes(data.nodes, links);
+
+		if (initializing) {
+			if (module.initialize) {
+				module.initialize(data.nodes, data.properties);
+			}
+		}
+		module.filter(data.nodes, data.properties);
+		return {
+			nodes: module.filteredNodes(),
+			properties: module.filteredProperties()
+		};
 	}
 
 	function storeLinksOnNodes(nodes, links) {

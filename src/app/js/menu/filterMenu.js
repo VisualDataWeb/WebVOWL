@@ -2,30 +2,34 @@
  * Contains the logic for connecting the filters with the website.
  *
  * @param graph required for calling a refresh after a filter change
- * @param datatypeFilter filter for all datatypes
- * @param subclassFilter filter for all subclasses
- * @param disjointFilter filter for all disjoint with properties
- * @param setOperatorFilter filter for all set operators with properties
- * @param nodeDegreeFilter filters nodes by their degree
  * @returns {{}}
  */
-module.exports = function (graph, datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
+module.exports = function (graph) {
 
 	var filterMenu = {},
 		checkboxData = [],
+		menuElement = d3.select("#filterOption a"),
+		nodeDegreeContainer = d3.select("#nodeDegreeFilteringOption"),
 		degreeSlider;
 
 
 	/**
 	 * Connects the website with graph filters.
+	 * @param datatypeFilter filter for all datatypes
+	 * @param subclassFilter filter for all subclasses
+	 * @param disjointFilter filter for all disjoint with properties
+	 * @param setOperatorFilter filter for all set operators with properties
+	 * @param nodeDegreeFilter filters nodes by their degree
 	 */
-	filterMenu.setup = function () {
+	filterMenu.setup = function (datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
+		menuElement.on("mouseleave", function () {filterMenu.highlightForDegreeSlider(false);});
+
 		addFilterItem(datatypeFilter, "datatype", "Datatype prop.", "#datatypeFilteringOption");
 		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
 		addFilterItem(disjointFilter, "disjoint", "Disjointness info", "#disjointFilteringOption");
 		addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");
 
-		addNodeDegreeFilter("#nodeDegreeFilteringOption");
+		addNodeDegreeFilter(nodeDegreeFilter, nodeDegreeContainer);
 	};
 
 
@@ -59,21 +63,24 @@ module.exports = function (graph, datatypeFilter, subclassFilter, disjointFilter
 			.text(pluralNameOfFilteredItems);
 	}
 
-	function addNodeDegreeFilter(selector) {
+	function addNodeDegreeFilter(nodeDegreeFilter, container) {
 		nodeDegreeFilter.setMaxDegreeSetter(function (maxDegree) {
 			degreeSlider.attr("max", maxDegree);
-			degreeSlider.property("value", Math.min(maxDegree, degreeSlider.property("value")));
+			setSliderValue(degreeSlider, Math.min(maxDegree, degreeSlider.property("value")));
 		});
 
-		nodeDegreeFilter.setDegreeQueryFunction(function () {
-			return degreeSlider.property("value");
+		nodeDegreeFilter.setDegreeGetter(function () {
+			return +degreeSlider.property("value");
+		});
+
+		nodeDegreeFilter.setDegreeSetter(function (value) {
+			setSliderValue(degreeSlider, value);
 		});
 
 		var sliderContainer,
 			sliderValueLabel;
 
-		sliderContainer = d3.select(selector)
-			.append("div")
+		sliderContainer = container.append("div")
 			.classed("distanceSliderContainer", true);
 
 		degreeSlider = sliderContainer.append("input")
@@ -102,6 +109,10 @@ module.exports = function (graph, datatypeFilter, subclassFilter, disjointFilter
 		});
 	}
 
+	function setSliderValue(slider, value) {
+		slider.property("value", value).on("input")();
+	}
+
 	/**
 	 * Resets the filters (and also filtered elements) to their default.
 	 */
@@ -118,9 +129,16 @@ module.exports = function (graph, datatypeFilter, subclassFilter, disjointFilter
 			}
 		});
 
-		degreeSlider.property("value", 0);
+		setSliderValue(degreeSlider, 0);
 		degreeSlider.on("change")();
-		degreeSlider.on("input")();
+	};
+
+	filterMenu.highlightForDegreeSlider = function (enable) {
+		if (!arguments.length) {
+			enable = true;
+		}
+		menuElement.classed("highlighted", enable);
+		nodeDegreeContainer.classed("highlighted", enable);
 	};
 
 

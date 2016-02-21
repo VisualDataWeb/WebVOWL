@@ -21,8 +21,14 @@ a:hover {
 #optionsArea a {
 	color: #2980b9;
 }
+#optionsArea a.highlighted {
+	background-color: #d90;
+}
+.toolTipMenu li.highlighted {
+	background-color: #feb;
+}
 #browserCheck {
-	/* checking for IE where WebVOWl is not working */
+	/* checking for IE where WebVOWL is not working */
 	background-color: #f00;
 	padding: 5px 0;
 	position: absolute;

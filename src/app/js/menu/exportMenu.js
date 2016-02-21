@@ -1,16 +1,15 @@
 /**
  * Contains the logic for the export button.
- *
- * @param graphSelector the associated graph svg selector
  * @returns {{}}
  */
-module.exports = function (graphSelector) {
+module.exports = function (graph) {
 
 	var exportMenu = {},
 		exportSvgButton,
 		exportFilename,
 		exportJsonButton,
-		exportableJsonText;
+		exportableJsonText,
+		graphSelector = graph.options().graphContainerSelector();
 
 
 	/**

@@ -3,17 +3,19 @@
  *
  * @returns {{}}
  */
-module.exports = function (loadOntologyFromText) {
+module.exports = function () {
 
 	var ontologyMenu = {},
-		defaultJsonName = "foaf", // This file is loaded by default
-	// Selections for the app
+		DEFAULT_JSON_NAME = "foaf", // This file is loaded by default
 		loadingError = d3.select("#loading-error"),
 		loadingProgress = d3.select("#loading-progress"),
 		ontologyMenuTimeout,
-		cachedConversions = {};
+		cachedConversions = {},
+		loadOntologyFromText;
 
-	ontologyMenu.setup = function () {
+	ontologyMenu.setup = function (_loadOntologyFromText) {
+		loadOntologyFromText = _loadOntologyFromText;
+
 		setupConverterButtons();
 		setupUploadButton();
 
@@ -72,7 +74,7 @@ module.exports = function (loadOntologyFromText) {
 		var hashParameter = location.hash.slice(1);
 
 		if (!hashParameter) {
-			hashParameter = defaultJsonName;
+			hashParameter = DEFAULT_JSON_NAME;
 		}
 
 		var ontologyOptions = d3.selectAll(".select li").classed("selected-ontology", false);
