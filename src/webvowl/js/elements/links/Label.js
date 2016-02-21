@@ -1,6 +1,3 @@
-var forceLayoutNodeFunctions = require("../forceLayoutNodeFunctions")();
-
-
 module.exports = Label;
 
 /**
@@ -10,8 +7,6 @@ module.exports = Label;
  * @param link the link this label belongs to
  */
 function Label(property, link) {
-	forceLayoutNodeFunctions.addTo(this);
-
 	this.link = function () {
 		return link;
 	};
@@ -19,6 +14,21 @@ function Label(property, link) {
 	this.property = function () {
 		return property;
 	};
+
+	// "Forward" the fixed value set on the property to avoid having to access this container
+	Object.defineProperty(this, "fixed", {
+		get: function () {
+			var inverseFixed = property.inverse() ? property.inverse().fixed : false;
+			return property.fixed || inverseFixed;
+		},
+		set: function (v) {
+			property.fixed = v;
+			if (property.inverse()) property.inverse().fixed = v;
+		}
+	});
+	this.frozen = property.frozen;
+	this.locked = property.locked;
+	this.pinned = property.pinned;
 }
 
 Label.prototype.actualRadius = function () {

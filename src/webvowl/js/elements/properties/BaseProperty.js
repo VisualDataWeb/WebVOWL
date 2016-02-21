@@ -1,5 +1,7 @@
 var BaseElement = require("../BaseElement");
 var CenteringTextElement = require("../../util/CenteringTextElement");
+var drawTools = require("../drawTools")();
+var forceLayoutNodeFunctions = require("../forceLayoutNodeFunctions")();
 var rectangularElementTools = require("../rectangularElementTools")();
 
 module.exports = (function () {
@@ -35,6 +37,7 @@ module.exports = (function () {
 			linkGroup,
 			markerElement,
 		// Other
+			pinGroupElement,
 			redundantProperties = [];
 
 
@@ -369,6 +372,24 @@ module.exports = (function () {
 			that.setHighlighting(false);
 		}
 
+		this.drawPin = function () {
+			that.pinned(true);
+			pinGroupElement = drawTools.drawPin(that.labelElement(), 20, -25, this.removePin);
+		};
+
+		/**
+		 * Removes the pin and refreshs the graph to update the force layout.
+		 */
+		this.removePin = function () {
+			that.pinned(false);
+			if (pinGroupElement) {
+				pinGroupElement.remove();
+			}
+			graph.updateStyle();
+		};
+
+
+		forceLayoutNodeFunctions.addTo(this);
 	};
 
 	Base.prototype = Object.create(BaseElement.prototype);

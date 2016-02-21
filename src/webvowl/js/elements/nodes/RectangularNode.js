@@ -1,6 +1,6 @@
 var BaseNode = require("./BaseNode");
 var CenteringTextElement = require("../../util/CenteringTextElement");
-var drawTools = require("./drawTools")();
+var drawTools = require("../drawTools")();
 var rectangularElementTools = require("../rectangularElementTools")();
 
 module.exports = (function () {

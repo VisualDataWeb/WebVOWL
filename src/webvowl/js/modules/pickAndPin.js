@@ -5,14 +5,18 @@ module.exports = function () {
 		enabled = false,
 		pinnedNodes = [];
 
-	pap.handle = function (selectedElement) {
+	pap.handle = function (selection) {
 		if (!enabled) {
 			return;
 		}
 
-		if (!elementTools.isDatatype(selectedElement) && !selectedElement.pinned()) {
-			selectedElement.drawPin();
-			pinnedNodes.push(selectedElement);
+		if (elementTools.isProperty(selection) && selection.inverse() && selection.inverse().pinned()) {
+			return;
+		}
+
+		if (!elementTools.isDatatype(selection) && !selection.pinned()) {
+			selection.drawPin();
+			pinnedNodes.push(selection);
 		}
 	};
 
