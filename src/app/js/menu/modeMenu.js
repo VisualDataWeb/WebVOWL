@@ -20,7 +20,7 @@ module.exports = function (graph) {
 		addModeItem(pickAndPin, "pickandpin", "Pick & Pin", "#pickAndPinOption", false);
 		addModeItem(nodeScaling, "nodescaling", "Node Scaling", "#nodeScalingOption", true);
 		addModeItem(compactNotation, "compactnotation", "Compact Notation", "#compactNotationOption", true);
-		addModeItem(colorExternals, "colorexternals", "Distinct externals", "#colorExternalsOption", true);
+		addModeItem(colorExternals, "colorexternals", "Color externals", "#colorExternalsOption", true);
 	};
 
 	function addModeItem(module, identifier, modeName, selector, updateGraphOnClick) {
