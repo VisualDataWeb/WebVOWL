@@ -87,7 +87,7 @@ module.exports = function () {
 			loadOntologyFromFile(filename);
 		} else if (hashParameter.substr(0, iriKey.length) === iriKey) {
 			var iri = decodeURIComponent(hashParameter.slice(iriKey.length));
-			loadOntologyFromUri("converter.php?iri=" + encodeURIComponent(iri), iri);
+			loadOntologyFromUri("convert?iri=" + encodeURIComponent(iri), iri);
 
 			d3.select("#converter-option").classed("selected-ontology", true);
 		} else {
@@ -240,7 +240,7 @@ module.exports = function () {
 		formData.append("ontology", selectedFile);
 
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST", "converter.php", true);
+		xhr.open("POST", "convert", true);
 
 		xhr.onload = function () {
 			uploadButton.property("disabled", false);
