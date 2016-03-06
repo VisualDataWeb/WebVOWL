@@ -14,7 +14,7 @@ module.exports = function () {
 			return;
 		}
 
-		if (!elementTools.isDatatype(selection) && !selection.pinned()) {
+		if (!selection.pinned()) {
 			selection.drawPin();
 			pinnedNodes.push(selection);
 		}
