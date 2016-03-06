@@ -1,3 +1,4 @@
+var _ = require("lodash/array");
 var elementTools = require("../util/elementTools")();
 
 module.exports = function () {
@@ -10,8 +11,12 @@ module.exports = function () {
 			return;
 		}
 
-		if (elementTools.isProperty(selection) && selection.inverse() && selection.inverse().pinned()) {
-			return;
+		if (elementTools.isProperty(selection)) {
+			if (selection.inverse() && selection.inverse().pinned()) {
+				return;
+			} else if (hasNoParallelProperties(selection)) {
+				return;
+			}
 		}
 
 		if (!selection.pinned()) {
@@ -19,6 +24,10 @@ module.exports = function () {
 			pinnedElements.push(selection);
 		}
 	};
+
+	function hasNoParallelProperties(property) {
+		return _.intersection(property.domain().links(), property.range().links()).length === 1;
+	}
 
 	pap.enabled = function (p) {
 		if (!arguments.length) return enabled;
