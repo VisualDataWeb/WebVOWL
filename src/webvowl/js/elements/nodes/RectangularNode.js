@@ -72,6 +72,10 @@ module.exports = (function () {
 			textBlock.addText(that.labelForCurrentLanguage());
 
 			that.addMouseListeners();
+
+			if (that.pinned()) {
+				that.drawPin();
+			}
 		};
 
 		this.drawPin = function () {

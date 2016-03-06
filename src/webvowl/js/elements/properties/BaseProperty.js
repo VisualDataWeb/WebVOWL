@@ -208,6 +208,12 @@ module.exports = (function () {
 					.attr("transform", "translate(" + 0 + "," + yTransformation + ")");
 			}
 
+			if (that.pinned()) {
+				that.drawPin();
+			} else if (that.inverse() && that.inverse().pinned()) {
+				that.inverse().drawPin();
+			}
+
 			return that.labelElement();
 		};
 
