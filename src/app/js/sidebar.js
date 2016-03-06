@@ -295,8 +295,15 @@ module.exports = function (graph) {
 	}
 
 	function setIriLabel(element, name, iri) {
-		element.selectAll("*").remove();
-		appendIriLabel(element, name, iri);
+		var parent = d3.select(element.node().parentNode);
+
+		if (name) {
+			element.selectAll("*").remove();
+			appendIriLabel(element, name, iri);
+			parent.classed("hidden", false);
+		} else {
+			parent.classed("hidden", true);
+		}
 	}
 
 	function appendIriLabel(element, name, iri) {
