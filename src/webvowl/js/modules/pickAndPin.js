@@ -3,7 +3,7 @@ var elementTools = require("../util/elementTools")();
 module.exports = function () {
 	var pap = {},
 		enabled = false,
-		pinnedNodes = [];
+		pinnedElements = [];
 
 	pap.handle = function (selection) {
 		if (!enabled) {
@@ -16,7 +16,7 @@ module.exports = function () {
 
 		if (!selection.pinned()) {
 			selection.drawPin();
-			pinnedNodes.push(selection);
+			pinnedElements.push(selection);
 		}
 	};
 
@@ -27,12 +27,11 @@ module.exports = function () {
 	};
 
 	pap.reset = function () {
-		var i = 0, l = pinnedNodes.length;
-		for (; i < l; i++) {
-			pinnedNodes[i].removePin();
-		}
+		pinnedElements.forEach(function(element) {
+			element.removePin();
+		});
 		// Clear the array of stored nodes
-		pinnedNodes.length = 0;
+		pinnedElements.length = 0;
 	};
 
 	return pap;
