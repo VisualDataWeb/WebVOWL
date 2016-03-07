@@ -4,7 +4,7 @@ module.exports = function () {
 
 	var DEFAULT_STATE = false;
 	var COLOR_MODES = [
-		{type: "same", range: [d3.rgb("#36C")]},
+		{type: "same", range: [d3.rgb("#36C"), d3.rgb("#36C")]},
 		{type: "gradient", range: [d3.rgb("#36C"), d3.rgb("#EE2867")]} // taken from Linked Data VOWL
 	];
 
