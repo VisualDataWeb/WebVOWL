@@ -8,8 +8,11 @@ var _ = require("lodash/core");
  */
 module.exports = function (graph) {
 
+	var COLOR_MODES = [{text: "Color gradient", type: "gradient"}, {text: "Same color", type: "same", default: true}];
+
 	var modeMenu = {},
-		checkboxes = [];
+		checkboxes = [],
+		colorModeDropdown;
 
 
 	/**
@@ -21,7 +24,7 @@ module.exports = function (graph) {
 		addModeItem(compactNotation, "compactnotation", "Compact notation", "#compactNotationOption", true);
 
 		var container = addModeItem(colorExternals, "colorexternals", "Color externals", "#colorExternalsOption", true);
-		addExternalModeSelection(container, colorExternals);
+		colorModeDropdown = addExternalModeSelection(container, colorExternals);
 	};
 
 	function addModeItem(module, identifier, modeName, selector, updateGraphOnClick) {
@@ -59,21 +62,23 @@ module.exports = function (graph) {
 	}
 
 	function addExternalModeSelection(container, colorExternalsMode) {
-		var MODES = [{text: "Same color", type: "same"}, {text: "Color gradient", type: "gradient"}];
-
 		var dropdown = container.append("select");
-		MODES.forEach(function (mode) {
-			dropdown.append("option").text(mode.text);
-		});
+		dropdown.selectAll("option").data(COLOR_MODES).enter()
+			.append("option")
+			.attr("selected", function (d) {return d.default ? "selected" : null;})
+			.property("value", function (d) {return d.type;})
+			.text(function (d) {return d.text;});
 
 		dropdown.on("change", function () {
-			var selectedMode = _.find(MODES, {text: dropdown.property("value")});
+			var selectedMode = _.find(COLOR_MODES, {type: dropdown.property("value")});
 			colorExternalsMode.colorModeType(selectedMode.type);
 
 			if (colorExternalsMode.enabled()) {
 				graph.update();
 			}
 		});
+
+		return dropdown;
 	}
 
 	/**
@@ -93,6 +98,8 @@ module.exports = function (graph) {
 			// Reset the module that is connected with the checkbox
 			checkbox.datum().module.reset();
 		});
+
+		colorModeDropdown.property("value", _.find(COLOR_MODES, {default: true}).type);
 	};
 
 
