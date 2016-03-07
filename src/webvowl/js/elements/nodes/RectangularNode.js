@@ -11,6 +11,7 @@ module.exports = (function () {
 		var that = this,
 			height = 20,
 			width = 60,
+			pinGroupElement,
 			smallestRadius = height / 2;
 
 
@@ -71,6 +72,27 @@ module.exports = (function () {
 			textBlock.addText(that.labelForCurrentLanguage());
 
 			that.addMouseListeners();
+
+			if (that.pinned()) {
+				that.drawPin();
+			}
+		};
+
+		this.drawPin = function () {
+			that.pinned(true);
+
+			var dx = 0.25 * width,
+				dy = -1.1 * height;
+
+			pinGroupElement = drawTools.drawPin(that.nodeElement(), dx, dy, this.removePin);
+		};
+
+		this.removePin = function () {
+			that.pinned(false);
+			if (pinGroupElement) {
+				pinGroupElement.remove();
+			}
+			graph.updateStyle();
 		};
 	};
 	o.prototype = Object.create(BaseNode.prototype);

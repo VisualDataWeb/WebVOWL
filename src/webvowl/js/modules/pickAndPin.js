@@ -1,24 +1,41 @@
+var _ = require("lodash/array");
 var elementTools = require("../util/elementTools")();
 
 module.exports = function () {
 	var pap = {},
 		enabled = false,
-		pinnedNodes = [];
+		pinnedElements = [];
 
 	pap.handle = function (selection) {
 		if (!enabled) {
 			return;
 		}
 
-		if (elementTools.isProperty(selection) && selection.inverse() && selection.inverse().pinned()) {
+		if (wasNotDragged()) {
 			return;
 		}
 
-		if (!elementTools.isDatatype(selection) && !selection.pinned()) {
+		if (elementTools.isProperty(selection)) {
+			if (selection.inverse() && selection.inverse().pinned()) {
+				return;
+			} else if (hasNoParallelProperties(selection)) {
+				return;
+			}
+		}
+
+		if (!selection.pinned()) {
 			selection.drawPin();
-			pinnedNodes.push(selection);
+			pinnedElements.push(selection);
 		}
 	};
+
+	function wasNotDragged() {
+		return !d3.event.defaultPrevented;
+	}
+
+	function hasNoParallelProperties(property) {
+		return _.intersection(property.domain().links(), property.range().links()).length === 1;
+	}
 
 	pap.enabled = function (p) {
 		if (!arguments.length) return enabled;
@@ -27,12 +44,11 @@ module.exports = function () {
 	};
 
 	pap.reset = function () {
-		var i = 0, l = pinnedNodes.length;
-		for (; i < l; i++) {
-			pinnedNodes[i].removePin();
-		}
+		pinnedElements.forEach(function (element) {
+			element.removePin();
+		});
 		// Clear the array of stored nodes
-		pinnedNodes.length = 0;
+		pinnedElements.length = 0;
 	};
 
 	return pap;
