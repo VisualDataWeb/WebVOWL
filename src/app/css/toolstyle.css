@@ -188,11 +188,17 @@ ul#optionsMenu > li:hover .aboutMenu {
 	color: #2980b9;
 	display: block;
 }
+.toolTipMenu select {
+	float: right;
+}
 .aboutMenu, .export {
 	min-width: 150px;
 }
-.gravity, .filter, .module {
+.gravity, .filter {
 	min-width: 180px;
+}
+.module {
+	min-width: 240px;
 }
 .toggleOption {
 	padding: 8px 5px;

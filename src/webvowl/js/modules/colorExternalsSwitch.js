@@ -1,14 +1,20 @@
+var _ = require("lodash/core");
+
 module.exports = function () {
 
 	var DEFAULT_STATE = false;
-	var COLOR_RANGE = [d3.rgb("#3366CC"), d3.rgb("#EE2867")]; // taken from Linked Data VOWL
+	var COLOR_MODES = [
+		{type: "same", range: [d3.rgb("#36C")]},
+		{type: "gradient", range: [d3.rgb("#36C"), d3.rgb("#EE2867")]} // taken from Linked Data VOWL
+	];
 
 	var filter = {},
 		nodes,
 		properties,
 		enabled = DEFAULT_STATE,
 		filteredNodes,
-		filteredProperties;
+		filteredProperties,
+		colorModeType = "same";
 
 
 	filter.filter = function (untouchedNodes, untouchedProperties) {
@@ -29,7 +35,7 @@ module.exports = function () {
 
 	function filterExternalElements(nodes) {
 		return nodes.filter(function (node) {
-			return node.visualAttributes().indexOf("external") >= 0;
+			return node.indications().indexOf("external") >= 0;
 		});
 	}
 
@@ -39,7 +45,7 @@ module.exports = function () {
 
 		var colorScale = d3.scale.linear()
 			.domain([0, entries.length - 1])
-			.range(COLOR_RANGE)
+			.range(_.find(COLOR_MODES, {type: colorModeType}).range)
 			.interpolate(d3.interpolateHsl);
 
 		for (var i = 0; i < entries.length; i++) {
@@ -75,6 +81,11 @@ module.exports = function () {
 		});
 	}
 
+	filter.colorModeType = function (p) {
+		if (!arguments.length) return colorModeType;
+		colorModeType = p;
+		return filter;
+	};
 
 	filter.enabled = function (p) {
 		if (!arguments.length) return enabled;
