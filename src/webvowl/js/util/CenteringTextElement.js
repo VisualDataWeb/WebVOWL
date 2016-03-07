@@ -2,7 +2,7 @@ var textTools = require("./textTools")();
 var AbstractTextElement = require("./AbstractTextElement");
 
 module.exports = CenteringTextElement;
-function CenteringTextElement(container) {
+function CenteringTextElement(container, backgroundColor) {
 	AbstractTextElement.apply(this, arguments);
 }
 

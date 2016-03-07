@@ -67,7 +67,7 @@ module.exports = (function () {
 			}
 			drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
 
-			textBlock = new CenteringTextElement(parentElement);
+			textBlock = new CenteringTextElement(parentElement, that.backgroundColor());
 			textBlock.addText(that.labelForCurrentLanguage());
 
 			that.addMouseListeners();

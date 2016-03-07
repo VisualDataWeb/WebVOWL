@@ -2,7 +2,7 @@ var textTools = require("./textTools")();
 var AbstractTextElement = require("./AbstractTextElement");
 
 module.exports = AbsoluteTextElement;
-function AbsoluteTextElement(container) {
+function AbsoluteTextElement(container, backgroundColor) {
 	AbstractTextElement.apply(this, arguments);
 }
 

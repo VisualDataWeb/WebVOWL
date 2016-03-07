@@ -36,7 +36,7 @@ module.exports = (function () {
 			superPostDrawActions();
 			that.textBlock().remove();
 
-			var textElement = new AbsoluteTextElement(that.nodeElement());
+			var textElement = new AbsoluteTextElement(that.nodeElement(), that.backgroundColor());
 
 			var equivalentsString = that.equivalentsString();
 			var offsetForFollowingEquivalents = equivalentsString ? -30 : -17;
