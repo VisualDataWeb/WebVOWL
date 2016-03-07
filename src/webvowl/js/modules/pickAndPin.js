@@ -11,6 +11,10 @@ module.exports = function () {
 			return;
 		}
 
+		if (wasNotDragged()) {
+			return;
+		}
+
 		if (elementTools.isProperty(selection)) {
 			if (selection.inverse() && selection.inverse().pinned()) {
 				return;
@@ -25,6 +29,10 @@ module.exports = function () {
 		}
 	};
 
+	function wasNotDragged() {
+		return !d3.event.defaultPrevented;
+	}
+
 	function hasNoParallelProperties(property) {
 		return _.intersection(property.domain().links(), property.range().links()).length === 1;
 	}
@@ -36,7 +44,7 @@ module.exports = function () {
 	};
 
 	pap.reset = function () {
-		pinnedElements.forEach(function(element) {
+		pinnedElements.forEach(function (element) {
 			element.removePin();
 		});
 		// Clear the array of stored nodes
