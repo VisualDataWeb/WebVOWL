@@ -21,7 +21,7 @@ module.exports = (function () {
 		TRANSITIVE = "transitive",
 	// Attribute groups
 		VISUAL_ATTRIBUTE_GROUPS = [
-			[DEPRECATED, EXTERNAL, DATATYPE, OBJECT, RDF],
+			[DEPRECATED, DATATYPE, OBJECT, RDF],
 			[ANONYMOUS]
 		],
 		CLASS_INDICATIONS = [DEPRECATED, EXTERNAL],
