@@ -1,13 +1,20 @@
+var _ = require("lodash/core");
+
 module.exports = function () {
 
 	var DEFAULT_STATE = false;
+	var COLOR_MODES = [
+		{type: "same", range: [d3.rgb("#36C"), d3.rgb("#36C")]},
+		{type: "gradient", range: [d3.rgb("#36C"), d3.rgb("#EE2867")]} // taken from Linked Data VOWL
+	];
 
 	var filter = {},
 		nodes,
 		properties,
 		enabled = DEFAULT_STATE,
 		filteredNodes,
-		filteredProperties;
+		filteredProperties,
+		colorModeType = "same";
 
 
 	filter.filter = function (untouchedNodes, untouchedProperties) {
@@ -26,9 +33,9 @@ module.exports = function () {
 		filteredProperties = properties;
 	};
 
-	function filterExternalElements(nodes) {
-		return nodes.filter(function (node) {
-			return node.visualAttributes().indexOf("external") >= 0;
+	function filterExternalElements(elements) {
+		return elements.filter(function (element) {
+			return element.attributes().indexOf("external") >= 0;
 		});
 	}
 
@@ -36,19 +43,14 @@ module.exports = function () {
 		var iriMap = mapExternalsToBaseUri(elements);
 		var entries = iriMap.entries();
 
-		var colorScale = d3.scale.category10()
-			.domain(iriMap.keys());
-
-		if (entries.length > colorScale.range().length) {
-			resetBackgroundColors();
-			return;
-		}
+		var colorScale = d3.scale.linear()
+			.domain([0, entries.length - 1])
+			.range(_.find(COLOR_MODES, {type: colorModeType}).range)
+			.interpolate(d3.interpolateHsl);
 
 		for (var i = 0; i < entries.length; i++) {
-			var baseIri = entries[i].key;
 			var groupedElements = entries[i].value;
-
-			setBackgroundColorForNodes(groupedElements, colorScale(baseIri));
+			setBackgroundColorForElements(groupedElements, colorScale(i));
 		}
 	}
 
@@ -67,7 +69,7 @@ module.exports = function () {
 		return map;
 	}
 
-	function setBackgroundColorForNodes(elements, backgroundColor) {
+	function setBackgroundColorForElements(elements, backgroundColor) {
 		elements.forEach(function (element) {
 			element.backgroundColor(backgroundColor);
 		});
@@ -79,6 +81,11 @@ module.exports = function () {
 		});
 	}
 
+	filter.colorModeType = function (p) {
+		if (!arguments.length) return colorModeType;
+		colorModeType = p;
+		return filter;
+	};
 
 	filter.enabled = function (p) {
 		if (!arguments.length) return enabled;

@@ -172,7 +172,7 @@ module.exports = (function () {
 		};
 
 		function createTextBlock() {
-			var textBlock = new CenteringTextElement(that.nodeElement());
+			var textBlock = new CenteringTextElement(that.nodeElement(), that.backgroundColor());
 
 			var equivalentsString = that.equivalentsString();
 			var suffixForFollowingEquivalents = equivalentsString ? "," : "";

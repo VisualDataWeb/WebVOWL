@@ -1,3 +1,5 @@
+var _ = require("lodash/core");
+
 /**
  * Contains the logic for connecting the modes with the website.
  *
@@ -6,21 +8,24 @@
  */
 module.exports = function (graph) {
 
+	var SAME_COLOR_MODE = {text: "Same color", type: "same", default: true};
+	var GRADIENT_COLOR_MODE = {text: "Color gradient", type: "gradient"};
+
 	var modeMenu = {},
-		checkboxes = [];
+		checkboxes = [],
+		colorModeSwitch;
 
 
 	/**
 	 * Connects the website with the available graph modes.
-	 * @param pickAndPin mode for picking and pinning of nodes
-	 * @param nodeScaling mode for toggling node scaling
-	 * @param compactNotation mode for toggling the compact node
 	 */
 	modeMenu.setup = function (pickAndPin, nodeScaling, compactNotation, colorExternals) {
 		addModeItem(pickAndPin, "pickandpin", "Pick & pin", "#pickAndPinOption", false);
 		addModeItem(nodeScaling, "nodescaling", "Node scaling", "#nodeScalingOption", true);
 		addModeItem(compactNotation, "compactnotation", "Compact notation", "#compactNotationOption", true);
-		addModeItem(colorExternals, "colorexternals", "Color externals", "#colorExternalsOption", true);
+
+		var container = addModeItem(colorExternals, "colorexternals", "Color externals", "#colorExternalsOption", true);
+		colorModeSwitch = addExternalModeSelection(container, colorExternals);
 	};
 
 	function addModeItem(module, identifier, modeName, selector, updateGraphOnClick) {
@@ -53,6 +58,41 @@ module.exports = function (graph) {
 		moduleOptionContainer.append("label")
 			.attr("for", identifier + "ModuleCheckbox")
 			.text(modeName);
+
+		return moduleOptionContainer;
+	}
+
+	function addExternalModeSelection(container, colorExternalsMode) {
+		var button = container.append("button").datum({active: false}).classed("color-mode-switch", true);
+		applyColorModeSwitchState(button, colorExternalsMode);
+
+		button.on("click", function () {
+			var data = button.datum();
+			data.active = !data.active;
+			applyColorModeSwitchState(button, colorExternalsMode);
+
+			if (colorExternalsMode.enabled()) {
+				graph.update();
+			}
+		});
+
+		return button;
+	}
+
+	function applyColorModeSwitchState(element, colorExternalsMode) {
+		var isActive = element.datum().active;
+		var activeColorMode = getColorModeByState(isActive);
+
+		element.classed("active", isActive)
+			.text(activeColorMode.text);
+
+		if (colorExternalsMode) {
+			colorExternalsMode.colorModeType(activeColorMode.type);
+		}
+	}
+
+	function getColorModeByState(isActive) {
+		return isActive ? GRADIENT_COLOR_MODE : SAME_COLOR_MODE;
 	}
 
 	/**
@@ -72,6 +112,10 @@ module.exports = function (graph) {
 			// Reset the module that is connected with the checkbox
 			checkbox.datum().module.reset();
 		});
+
+		// set the switch to active and simulate disabling
+		colorModeSwitch.datum().active = true;
+		colorModeSwitch.on("click")();
 	};
 
 

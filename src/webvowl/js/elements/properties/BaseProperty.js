@@ -175,7 +175,7 @@ module.exports = (function () {
 				property.addRect(label);
 
 				// Attach the text and perhaps special elements
-				var textBox = new CenteringTextElement(label);
+				var textBox = new CenteringTextElement(label, that.backgroundColor());
 				if (property instanceof require("./implementations/OwlDisjointWith")) {
 					property.addDisjointLabel(labelGroup, textBox);
 					return label;
