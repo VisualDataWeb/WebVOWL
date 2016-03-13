@@ -8,11 +8,12 @@ var _ = require("lodash/core");
  */
 module.exports = function (graph) {
 
-	var COLOR_MODES = [{text: "Color gradient", type: "gradient"}, {text: "Same color", type: "same", default: true}];
+	var SAME_COLOR_MODE = {text: "Same color", type: "same", default: true};
+	var GRADIENT_COLOR_MODE = {text: "Color gradient", type: "gradient"};
 
 	var modeMenu = {},
 		checkboxes = [],
-		colorModeDropdown;
+		colorModeSwitch;
 
 
 	/**
@@ -24,7 +25,7 @@ module.exports = function (graph) {
 		addModeItem(compactNotation, "compactnotation", "Compact notation", "#compactNotationOption", true);
 
 		var container = addModeItem(colorExternals, "colorexternals", "Color externals", "#colorExternalsOption", true);
-		colorModeDropdown = addExternalModeSelection(container, colorExternals);
+		colorModeSwitch = addExternalModeSelection(container, colorExternals);
 	};
 
 	function addModeItem(module, identifier, modeName, selector, updateGraphOnClick) {
@@ -62,23 +63,36 @@ module.exports = function (graph) {
 	}
 
 	function addExternalModeSelection(container, colorExternalsMode) {
-		var dropdown = container.append("select");
-		dropdown.selectAll("option").data(COLOR_MODES).enter()
-			.append("option")
-			.attr("selected", function (d) {return d.default ? "selected" : null;})
-			.property("value", function (d) {return d.type;})
-			.text(function (d) {return d.text;});
+		var button = container.append("button").datum({active: false}).classed("color-mode-switch", true);
+		applyColorModeSwitchState(button, colorExternalsMode);
 
-		dropdown.on("change", function () {
-			var selectedMode = _.find(COLOR_MODES, {type: dropdown.property("value")});
-			colorExternalsMode.colorModeType(selectedMode.type);
+		button.on("click", function () {
+			var data = button.datum();
+			data.active = !data.active;
+			applyColorModeSwitchState(button, colorExternalsMode);
 
 			if (colorExternalsMode.enabled()) {
 				graph.update();
 			}
 		});
 
-		return dropdown;
+		return button;
+	}
+
+	function applyColorModeSwitchState(element, colorExternalsMode) {
+		var isActive = element.datum().active;
+		var activeColorMode = getColorModeByState(isActive);
+
+		element.classed("active", isActive)
+			.text(activeColorMode.text);
+
+		if (colorExternalsMode) {
+			colorExternalsMode.colorModeType(activeColorMode.type);
+		}
+	}
+
+	function getColorModeByState(isActive) {
+		return isActive ? GRADIENT_COLOR_MODE : SAME_COLOR_MODE;
 	}
 
 	/**
@@ -99,7 +113,9 @@ module.exports = function (graph) {
 			checkbox.datum().module.reset();
 		});
 
-		colorModeDropdown.property("value", _.find(COLOR_MODES, {default: true}).type);
+		// set the switch to active and simulate disabling
+		colorModeSwitch.datum().active = true;
+		colorModeSwitch.on("click")();
 	};
 
 
