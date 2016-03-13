@@ -33,9 +33,9 @@ module.exports = function () {
 		filteredProperties = properties;
 	};
 
-	function filterExternalElements(nodes) {
-		return nodes.filter(function (node) {
-			return node.indications().indexOf("external") >= 0;
+	function filterExternalElements(elements) {
+		return elements.filter(function (element) {
+			return element.attributes().indexOf("external") >= 0;
 		});
 	}
 
@@ -50,7 +50,7 @@ module.exports = function () {
 
 		for (var i = 0; i < entries.length; i++) {
 			var groupedElements = entries[i].value;
-			setBackgroundColorForNodes(groupedElements, colorScale(i));
+			setBackgroundColorForElements(groupedElements, colorScale(i));
 		}
 	}
 
@@ -69,7 +69,7 @@ module.exports = function () {
 		return map;
 	}
 
-	function setBackgroundColorForNodes(elements, backgroundColor) {
+	function setBackgroundColorForElements(elements, backgroundColor) {
 		elements.forEach(function (element) {
 			element.backgroundColor(backgroundColor);
 		});
