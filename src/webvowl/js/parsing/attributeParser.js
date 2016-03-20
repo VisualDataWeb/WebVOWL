@@ -16,6 +16,7 @@ module.exports = (function () {
 		FUNCTIONAL = "functional",
 		INVERSE_FUNCTIONAL = "inverse functional",
 		IRREFLEXIVE = "irreflexive",
+		KEY = "key",
 		REFLEXIVE = "reflexive",
 		SYMMETRIC = "symmetric",
 		TRANSITIVE = "transitive",
@@ -25,7 +26,7 @@ module.exports = (function () {
 			[ANONYMOUS]
 		],
 		CLASS_INDICATIONS = [DEPRECATED, EXTERNAL],
-		PROPERTY_INDICATIONS = [ASYMMETRIC, FUNCTIONAL, INVERSE_FUNCTIONAL, IRREFLEXIVE, REFLEXIVE, SYMMETRIC,
+		PROPERTY_INDICATIONS = [ASYMMETRIC, FUNCTIONAL, INVERSE_FUNCTIONAL, IRREFLEXIVE, KEY, REFLEXIVE, SYMMETRIC,
 		                        TRANSITIVE];
 
 	/**

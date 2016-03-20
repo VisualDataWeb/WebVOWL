@@ -549,6 +549,9 @@
 			"id": "InverseFunctionalProperty"
 		},
 		{
+			"id": "KeyProperty"
+		},
+		{
 			"id": "TransitiveProperty"
 		},
 		{
@@ -1047,6 +1050,14 @@
 			"domain": "IndicationTest1",
 			"range": "IndicationTest2",
 			"label": "InverseFunctional"
+		},
+		{
+			"id": "KeyProperty",
+			"type": "owl:ObjectProperty",
+			"domain": "IndicationTest1",
+			"range": "IndicationTest2",
+			"label": "hasKey",
+			"attributes": ["key"]
 		},
 		{
 			"id": "TransitiveProperty",
