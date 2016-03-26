@@ -30,12 +30,13 @@ module.exports = function (graph) {
 		var classes = combineClasses(ontologyData.class, ontologyData.classAttribute),
 			datatypes = combineClasses(ontologyData.datatype, ontologyData.datatypeAttribute),
 			combinedClassesAndDatatypes = classes.concat(datatypes),
+			unparsedProperties = ontologyData.property || [],
 			combinedProperties;
 
 		// Inject properties for unions, intersections, ...
-		addSetOperatorProperties(combinedClassesAndDatatypes, ontologyData.property);
+		addSetOperatorProperties(combinedClassesAndDatatypes, unparsedProperties);
 
-		combinedProperties = combineProperties(ontologyData.property, ontologyData.propertyAttribute);
+		combinedProperties = combineProperties(unparsedProperties, ontologyData.propertyAttribute);
 
 		classMap = mapElements(combinedClassesAndDatatypes);
 		propertyMap = mapElements(combinedProperties);
