@@ -8,7 +8,7 @@ var _ = require("lodash/core");
  */
 module.exports = function (graph) {
 
-	var SAME_COLOR_MODE = {text: "Same color", type: "same", default: true};
+	var SAME_COLOR_MODE = {text: "Same color", type: "same"};
 	var GRADIENT_COLOR_MODE = {text: "Color gradient", type: "gradient"};
 
 	var modeMenu = {},
