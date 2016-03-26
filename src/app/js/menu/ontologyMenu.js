@@ -1,3 +1,5 @@
+var unescape = require("lodash/unescape");
+
 /**
  * Contains the logic for the ontology listing and conversion.
  *
@@ -320,7 +322,7 @@ module.exports = function () {
 		var descriptionMissing = !description;
 		var descriptionVisible = d3.select("#error-description-button").classed("hidden", descriptionMissing).datum().open;
 		d3.select("#error-description-container").classed("hidden", descriptionMissing || !descriptionVisible);
-		d3.select("#error-description").text(description || "");
+		d3.select("#error-description").text(unescape(description));
 	}
 
 	function hideLoadingInformations() {
