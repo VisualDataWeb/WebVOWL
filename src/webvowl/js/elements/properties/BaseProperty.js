@@ -167,26 +167,14 @@ module.exports = (function () {
 		// Reused functions TODO refactor
 		this.draw = function (labelGroup) {
 			function attachLabel(property) {
-				// Draw the label and its background
-				var label = labelGroup.append("g")
+				var labelContainer = labelGroup.append("g")
 					.datum(property)
 					.classed("label", true)
 					.attr("id", property.id());
-				property.addRect(label);
 
-				// Attach the text and perhaps special elements
-				var textBox = new CenteringTextElement(label, that.backgroundColor());
-				if (property instanceof require("./implementations/OwlDisjointWith")) {
-					property.addDisjointLabel(labelGroup, textBox);
-					return label;
-				} else {
-					textBox.addText(property.labelForCurrentLanguage());
-				}
+				property.drawLabel(labelContainer);
 
-				textBox.addSubText(property.indicationString());
-				property.addEquivalentsToLabel(textBox);
-
-				return label;
+				return labelContainer;
 			}
 
 			if (!that.labelVisible()) {
@@ -217,8 +205,8 @@ module.exports = (function () {
 			return that.labelElement();
 		};
 
-		this.addRect = function (groupTag) {
-			var rect = groupTag.append("rect")
+		this.addRect = function (labelContainer) {
+			var rect = labelContainer.append("rect")
 				.classed(that.styleClass(), true)
 				.classed("property", true)
 				.attr("x", -that.width() / 2)
@@ -242,26 +230,15 @@ module.exports = (function () {
 				rect.style("fill", that.backgroundColor());
 			}
 		};
-		this.addDisjointLabel = function (groupTag, textTag) {
-			groupTag.append("circle")
-				.classed("symbol", true)
-				.classed("fineline", true)
-				.classed("embedded", true)
-				.attr("cx", -12.5)
-				.attr("r", 10);
+		this.drawLabel = function (labelContainer) {
+			this.addRect(labelContainer);
 
-			groupTag.append("circle")
-				.classed("symbol", true)
-				.classed("fineline", true)
-				.classed("embedded", true)
-				.attr("cx", 12.5)
-				.attr("r", 10);
-
-			if (!graph.options().compactNotation()) {
-				textTag.addSubText("disjoint");
-			}
-			textTag.translation(0, 20);
+			var textElement = new CenteringTextElement(labelContainer, this.backgroundColor());
+			textElement.addText(this.labelForCurrentLanguage());
+			textElement.addSubText(this.indicationString());
+			this.addEquivalentsToLabel(textElement);
 		};
+
 		this.addEquivalentsToLabel = function (textBox) {
 			if (that.equivalents()) {
 				var equivalentLabels,
@@ -277,8 +254,8 @@ module.exports = (function () {
 		};
 		this.drawCardinality = function (cardinalityGroup) {
 			if (that.minCardinality() === undefined &&
-				that.maxCardinality() === undefined &&
-				that.cardinality() === undefined) {
+			    that.maxCardinality() === undefined &&
+			    that.cardinality() === undefined) {
 				return undefined;
 			}
 
