@@ -212,6 +212,16 @@
 			"label": "SubClassOfProperty"
 		},
 		{
+			"id": "SomeValuesFromPropertyTest",
+			"type": "owl:Class",
+			"label": "SomeValuesFromProperty"
+		},
+		{
+			"id": "AllValuesFromPropertyTest",
+			"type": "owl:Class",
+			"label": "AllValuesFromProperty"
+		},
+		{
 			"id": "HoverTest1",
 			"type": "owl:Class",
 			"label": "HoverTest1"
@@ -481,6 +491,12 @@
 		},
 		{
 			"id": "testSubClassOfProperty"
+		},
+		{
+			"id": "testSomeValuesFromProperty"
+		},
+		{
+			"id": "testAllValuesFromProperty"
 		},
 		{
 			"id": "hoverMeProperty",
@@ -905,6 +921,20 @@
 			"range": "PropertyTest",
 			"type": "rdfs:SubClassOf",
 			"label": "SubClassOf"
+		},
+		{
+			"id": "testSomeValuesFromProperty",
+			"domain": "PropertyTest",
+			"range": "SomeValuesFromPropertyTest",
+			"type": "owl:someValuesFrom",
+			"label": "someValuesFrom"
+		},
+		{
+			"id": "testAllValuesFromProperty",
+			"domain": "PropertyTest",
+			"range": "AllValuesFromPropertyTest",
+			"type": "owl:allValuesFrom",
+			"label": "allValuesFrom"
 		},
 		{
 			"id": "hoverMeProperty",

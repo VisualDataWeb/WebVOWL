@@ -24,7 +24,7 @@
 }
 
 /*------- Colors ------*/
-.class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty {
+.class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .allvaluesfromproperty, .somevaluesfromproperty {
     fill: #acf;
 }
 .label .datatype, .datatypeproperty {
@@ -66,6 +66,10 @@ marker path {
 }
 .indirect-highlighting, .feature:hover {
     fill: #f90;
+}
+.values-from {
+    fill: #69c;
+    stroke: #69c;
 }
 
 /*------- Strokes ------*/
