@@ -252,7 +252,7 @@ module.exports = (function () {
 				textBox.addEquivalents(equivalentString);
 			}
 		};
-		this.drawCardinality = function (cardinalityGroup) {
+		this.drawCardinality = function (container) {
 			var cardinalityText;
 
 			if (that.cardinality()) {
@@ -265,8 +265,8 @@ module.exports = (function () {
 				return false;
 			}
 
-			that.cardinalityElement(cardinalityGroup);
-			cardinalityGroup.append("text")
+			that.cardinalityElement(container);
+			container.append("text")
 				.classed("cardinality", true)
 				.attr("text-anchor", "middle")
 				.attr("dy", "0.5ex")
