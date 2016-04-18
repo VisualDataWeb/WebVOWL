@@ -253,32 +253,26 @@ module.exports = (function () {
 			}
 		};
 		this.drawCardinality = function (cardinalityGroup) {
-			if (that.minCardinality() === undefined &&
-			    that.maxCardinality() === undefined &&
-			    that.cardinality() === undefined) {
-				return undefined;
+			var cardinalityText;
+
+			if (that.cardinality()) {
+				cardinalityText = that.cardinality();
+			} else if (that.minCardinality() || that.maxCardinality()) {
+				var minBoundary = that.minCardinality() || "*";
+				var maxBoundary = that.maxCardinality() || "*";
+				cardinalityText = minBoundary + ".." + maxBoundary;
+			} else {
+				return false;
 			}
 
-			// Drawing cardinality groups
-			that.cardinalityElement(cardinalityGroup.classed("cardinality", true));
-
-			var cardText = cardinalityGroup.append("text")
+			that.cardinalityElement(cardinalityGroup);
+			cardinalityGroup.append("text")
 				.classed("cardinality", true)
 				.attr("text-anchor", "middle")
-				.attr("dy", "0.5ex");
+				.attr("dy", "0.5ex")
+				.text(cardinalityText);
 
-			if (that.minCardinality() !== undefined) {
-				var cardString = that.minCardinality() + "..";
-				cardString += that.maxCardinality() !== undefined ? that.maxCardinality() : "*";
-
-				cardText.text(cardString);
-			} else if (that.maxCardinality() !== undefined) {
-				cardText.text("*.." + that.maxCardinality());
-			} else if (that.cardinality() !== undefined) {
-				cardText.text(that.cardinality());
-			}
-
-			return that.cardinalityElement();
+			return true; // drawing successful
 		};
 
 		that.setHighlighting = function (enable) {

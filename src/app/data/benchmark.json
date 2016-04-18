@@ -602,8 +602,12 @@
 		{
 			"id": "cardinalityLink3",
 			"label": "card3",
-			"minCardinality": "77",
-			"cardinality": "Not used"
+			"minCardinality": "77"
+		},
+		{
+			"id": "cardinalityLink4",
+			"label": "card4",
+			"maxCardinality": "13"
 		},
 		{
 			"id": "anonymousClassProperty",
@@ -1146,6 +1150,13 @@
 			"id": "cardinalityLink3",
 			"domain": "cardinalityTest1",
 			"range": "cardinalityTest3",
+			"type": "owl:ObjectProperty"
+		},
+		{
+			"id": "cardinalityLink4",
+			"domain": "cardinalityTest3",
+			"range": "cardinalityTest1",
+			"inverse": "cardinalityLink3",
 			"type": "owl:ObjectProperty"
 		}
 	]
