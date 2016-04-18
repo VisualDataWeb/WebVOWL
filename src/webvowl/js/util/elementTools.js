@@ -6,38 +6,36 @@ var DatatypeProperty = require("../elements/properties/implementations/OwlDataty
 var RdfsSubClassOf = require("../elements/properties/implementations/RdfsSubClassOf");
 var Label = require("../elements/links/Label");
 
-module.exports = (function () {
-	var tools = {};
 
-	tools.isLabel = function (element) {
-		return element instanceof Label;
-	};
+var tools = {};
+module.exports = function () {
+	return tools;
+};
 
-	tools.isNode = function (element) {
-		return element instanceof BaseNode;
-	};
+tools.isLabel = function (element) {
+	return element instanceof Label;
+};
 
-	tools.isDatatype = function (node) {
-		return node instanceof DatatypeNode;
-	};
+tools.isNode = function (element) {
+	return element instanceof BaseNode;
+};
 
-	tools.isProperty = function(element) {
-		return element instanceof BaseProperty;
-	};
+tools.isDatatype = function (node) {
+	return node instanceof DatatypeNode;
+};
 
-	tools.isObjectProperty = function (element) {
-		return element instanceof ObjectProperty;
-	};
+tools.isProperty = function (element) {
+	return element instanceof BaseProperty;
+};
 
-	tools.isDatatypeProperty = function (element) {
-		return element instanceof DatatypeProperty;
-	};
+tools.isObjectProperty = function (element) {
+	return element instanceof ObjectProperty;
+};
 
-	tools.isRdfsSubClassOf = function (property) {
-		return property instanceof RdfsSubClassOf;
-	};
+tools.isDatatypeProperty = function (element) {
+	return element instanceof DatatypeProperty;
+};
 
-	return function () {
-		return tools;
-	};
-})();
+tools.isRdfsSubClassOf = function (property) {
+	return property instanceof RdfsSubClassOf;
+};
