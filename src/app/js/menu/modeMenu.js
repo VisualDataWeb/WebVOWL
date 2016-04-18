@@ -1,5 +1,3 @@
-var _ = require("lodash/core");
-
 /**
  * Contains the logic for connecting the modes with the website.
  *
