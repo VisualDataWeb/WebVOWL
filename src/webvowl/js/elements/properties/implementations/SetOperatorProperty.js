@@ -5,9 +5,9 @@ module.exports = (function () {
 	var o = function (graph) {
 		BaseProperty.apply(this, arguments);
 
-		this.markerType("border")
-			.labelVisible(false)
+		this.labelVisible(false)
 			.linkType("dashed")
+			.markerType("white")
 			.styleClass("setoperatorproperty")
 			.type("setOperatorProperty");
 	};

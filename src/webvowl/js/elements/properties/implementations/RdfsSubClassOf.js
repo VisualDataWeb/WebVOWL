@@ -21,7 +21,7 @@ module.exports = (function () {
 		};
 
 		this.linkType("dotted")
-			.markerType("border")
+			.markerType("white")
 			.styleClass("subclass")
 			.type("rdfs:subClassOf");
 	};

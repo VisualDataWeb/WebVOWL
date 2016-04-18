@@ -294,7 +294,7 @@ module.exports = (function () {
 			var subAndSuperProperties = getSubAndSuperProperties();
 			subAndSuperProperties.forEach(function (property) {
 				property.labelElement().select("rect")
-					.classed("indirectHighlighting", enable);
+					.classed("indirect-highlighting", enable);
 			});
 		};
 
