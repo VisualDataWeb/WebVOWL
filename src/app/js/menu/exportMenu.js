@@ -8,8 +8,7 @@ module.exports = function (graph) {
 		exportSvgButton,
 		exportFilename,
 		exportJsonButton,
-		exportableJsonText,
-		graphSelector = graph.options().graphContainerSelector();
+		exportableJsonText;
 
 
 	/**
@@ -32,7 +31,7 @@ module.exports = function (graph) {
 
 	function exportSvg() {
 		// Get the d3js SVG element
-		var graphSvg = d3.select(graphSelector).select("svg"),
+		var graphSvg = d3.select(graph.options().graphContainerSelector()).select("svg"),
 			graphSvgCode,
 			escapedGraphSvgCode,
 			dataURI;
