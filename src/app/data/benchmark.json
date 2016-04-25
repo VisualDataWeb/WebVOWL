@@ -212,6 +212,16 @@
 			"label": "SubClassOfProperty"
 		},
 		{
+			"id": "SomeValuesFromPropertyTest",
+			"type": "owl:Class",
+			"label": "SomeValuesFromProperty"
+		},
+		{
+			"id": "AllValuesFromPropertyTest",
+			"type": "owl:Class",
+			"label": "AllValuesFromProperty"
+		},
+		{
 			"id": "HoverTest1",
 			"type": "owl:Class",
 			"label": "HoverTest1"
@@ -483,6 +493,12 @@
 			"id": "testSubClassOfProperty"
 		},
 		{
+			"id": "testSomeValuesFromProperty"
+		},
+		{
+			"id": "testAllValuesFromProperty"
+		},
+		{
 			"id": "hoverMeProperty",
 			"subproperty": [
 				"highlightedProperty"
@@ -586,8 +602,12 @@
 		{
 			"id": "cardinalityLink3",
 			"label": "card3",
-			"minCardinality": "77",
-			"cardinality": "Not used"
+			"minCardinality": "77"
+		},
+		{
+			"id": "cardinalityLink4",
+			"label": "card4",
+			"maxCardinality": "13"
 		},
 		{
 			"id": "anonymousClassProperty",
@@ -907,6 +927,20 @@
 			"label": "SubClassOf"
 		},
 		{
+			"id": "testSomeValuesFromProperty",
+			"domain": "PropertyTest",
+			"range": "SomeValuesFromPropertyTest",
+			"type": "owl:someValuesFrom",
+			"label": "someValuesFrom"
+		},
+		{
+			"id": "testAllValuesFromProperty",
+			"domain": "PropertyTest",
+			"range": "AllValuesFromPropertyTest",
+			"type": "owl:allValuesFrom",
+			"label": "allValuesFrom"
+		},
+		{
 			"id": "hoverMeProperty",
 			"domain": "HoverTest1",
 			"range": "HoverTest2",
@@ -1116,6 +1150,13 @@
 			"id": "cardinalityLink3",
 			"domain": "cardinalityTest1",
 			"range": "cardinalityTest3",
+			"type": "owl:ObjectProperty"
+		},
+		{
+			"id": "cardinalityLink4",
+			"domain": "cardinalityTest3",
+			"range": "cardinalityTest1",
+			"inverse": "cardinalityLink3",
 			"type": "owl:ObjectProperty"
 		}
 	]

@@ -32,14 +32,18 @@ ArrowLink.prototype.draw = function (linkGroup, markerContainer) {
 function createPropertyMarker(markerContainer, property) {
 	var marker = appendBasicMarker(markerContainer, property);
 	marker.attr("refX", 12);
-	marker.append("path").attr("d", "M0,-8L12,0L0,8Z");
+	marker.append("path")
+		.attr("d", "M0,-8L12,0L0,8Z")
+		.classed(property.markerType(), true);
 
 	property.markerElement(marker);
 }
 
 function createInverseMarker(markerContainer, inverse) {
 	var inverseMarker = appendBasicMarker(markerContainer, inverse);
-	inverseMarker.append("path").attr("d", "M12,-8L0,0L12,8Z");
+	inverseMarker.append("path")
+		.attr("d", "M12,-8L0,0L12,8Z")
+		.classed(inverse.markerType(), true);
 
 	inverse.markerElement(inverseMarker);
 }
@@ -52,6 +56,5 @@ function appendBasicMarker(markerContainer, property) {
 		.attr("markerWidth", 12)
 		.attr("markerHeight", 12)
 		.attr("markerUnits", "userSpaceOnUse")
-		.attr("orient", "auto")
-		.attr("class", property.markerType() + "-marker");
+		.attr("orient", "auto");
 }

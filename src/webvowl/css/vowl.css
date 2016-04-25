@@ -24,7 +24,7 @@
 }
 
 /*------- Colors ------*/
-.class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty {
+.class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .allvaluesfromproperty, .somevaluesfromproperty {
     fill: #acf;
 }
 .label .datatype, .datatypeproperty {
@@ -45,28 +45,30 @@
 path, .nofill {
 	fill: none;
 }
-.symbol {
+.symbol, .values-from.filled {
 	fill: #69c;
 }
-.arrowhead, marker path {
+marker path {
 	fill: #000;
 }
 .class, path, line, .fineline {
 	stroke: #000;
 }
-.white, .subclass, .border-marker path, .subclassproperty, .external + text {
+.white, .subclass, .subclassproperty, .external + text {
     fill: #fff;
 }
-.class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .cardinality.focused, circle.pin,
-.filled-marker path.hovered, .filled-marker path.focused {
+.class.hovered, .property.hovered, .cardinality.hovered, .cardinality.focused, circle.pin, .filled.hovered, .filled.focused {
     fill: #f00;
     cursor: pointer;
 }
 .focused, path.hovered {
 	stroke: #f00;
 }
-.label .indirectHighlighting, .feature:hover {
+.indirect-highlighting, .feature:hover {
     fill: #f90;
+}
+.values-from {
+    stroke: #69c;
 }
 
 /*------- Strokes ------*/

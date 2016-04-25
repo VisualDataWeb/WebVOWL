@@ -252,33 +252,31 @@ module.exports = (function () {
 				textBox.addEquivalents(equivalentString);
 			}
 		};
-		this.drawCardinality = function (cardinalityGroup) {
-			if (that.minCardinality() === undefined &&
-			    that.maxCardinality() === undefined &&
-			    that.cardinality() === undefined) {
-				return undefined;
+
+		this.drawCardinality = function (container) {
+			var cardinalityText = this.generateCardinalityText();
+
+			if (cardinalityText) {
+				that.cardinalityElement(container);
+				container.append("text")
+					.classed("cardinality", true)
+					.attr("text-anchor", "middle")
+					.attr("dy", "0.5ex")
+					.text(cardinalityText);
+				return true; // drawing successful
+			} else {
+				return false;
 			}
+		};
 
-			// Drawing cardinality groups
-			that.cardinalityElement(cardinalityGroup.classed("cardinality", true));
-
-			var cardText = cardinalityGroup.append("text")
-				.classed("cardinality", true)
-				.attr("text-anchor", "middle")
-				.attr("dy", "0.5ex");
-
-			if (that.minCardinality() !== undefined) {
-				var cardString = that.minCardinality() + "..";
-				cardString += that.maxCardinality() !== undefined ? that.maxCardinality() : "*";
-
-				cardText.text(cardString);
-			} else if (that.maxCardinality() !== undefined) {
-				cardText.text("*.." + that.maxCardinality());
-			} else if (that.cardinality() !== undefined) {
-				cardText.text(that.cardinality());
+		this.generateCardinalityText = function () {
+			if (that.cardinality()) {
+				return that.cardinality();
+			} else if (that.minCardinality() || that.maxCardinality()) {
+				var minBoundary = that.minCardinality() || "*";
+				var maxBoundary = that.maxCardinality() || "*";
+				return minBoundary + ".." + maxBoundary;
 			}
-
-			return that.cardinalityElement();
 		};
 
 		that.setHighlighting = function (enable) {
@@ -294,7 +292,7 @@ module.exports = (function () {
 			var subAndSuperProperties = getSubAndSuperProperties();
 			subAndSuperProperties.forEach(function (property) {
 				property.labelElement().select("rect")
-					.classed("indirectHighlighting", enable);
+					.classed("indirect-highlighting", enable);
 			});
 		};
 

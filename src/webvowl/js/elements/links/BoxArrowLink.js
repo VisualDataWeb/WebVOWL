@@ -33,7 +33,9 @@ BoxArrowLink.prototype.draw = function (linkGroup, markerContainer) {
 function createPropertyMarker(markerContainer, inverse) {
 	var inverseMarker = appendBasicMarker(markerContainer, inverse);
 	inverseMarker.attr("refX", -8);
-	inverseMarker.append("path").attr("d", "M0,-8L8,0L0,8L-8,0L0,-8L8,0");
+	inverseMarker.append("path")
+		.attr("d", "M0,-8L8,0L0,8L-8,0L0,-8L8,0")
+		.classed(inverse.markerType(), true);
 
 	inverse.markerElement(inverseMarker);
 }
@@ -41,7 +43,9 @@ function createPropertyMarker(markerContainer, inverse) {
 function createInverseMarker(markerContainer, property) {
 	var marker = appendBasicMarker(markerContainer, property);
 	marker.attr("refX", 8);
-	marker.append("path").attr("d", "M0,-8L8,0L0,8L-8,0L0,-8L8,0");
+	marker.append("path")
+		.attr("d", "M0,-8L8,0L0,8L-8,0L0,-8L8,0")
+		.classed(property.markerType(), true);
 
 	property.markerElement(marker);
 }
@@ -54,6 +58,5 @@ function appendBasicMarker(markerContainer, property) {
 		.attr("markerWidth", 20)
 		.attr("markerHeight", 20)
 		.attr("markerUnits", "userSpaceOnUse")
-		.attr("orient", "auto")
-		.attr("class", property.markerType() + "-marker");
+		.attr("orient", "auto");
 }
