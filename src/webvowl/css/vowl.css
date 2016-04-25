@@ -45,9 +45,6 @@
 path, .nofill {
 	fill: none;
 }
-.symbol, .values-from.filled {
-	fill: #69c;
-}
 marker path {
 	fill: #000;
 }
@@ -69,6 +66,9 @@ marker path {
 }
 .values-from {
     stroke: #69c;
+}
+.symbol, .values-from.filled {
+    fill: #69c;
 }
 
 /*------- Strokes ------*/

@@ -24,7 +24,7 @@ function createInlineStyleRemoveCommand(cssText) {
 		}
 	});
 
-	return "d3.selectAll(\"".concat(selectors.join(", "), "\").attr(\"style\", null);");
+	return "d3.selectAll(\"".concat(selectors.join(", "), "\")");
 }
 
 function convertCssToD3Rules(cssText) {
@@ -78,14 +78,16 @@ function d3RuleBuilder() {
 	};
 
 	builder.build = function () {
-		var result = "d3";
+		var result = "setStyleSensitively(\"" + selector + "\", [";
 
-		result = result.concat(".selectAll(\"", selector, "\")");
 		for (var i = 0, l = rules.length; i < l; i++) {
+			if (i > 0) {
+				result = result.concat(", ");
+			}
 			var rule = rules[i];
-			result = result.concat(".style(\"", rule.name, "\", \"", rule.value, "\")");
+			result = result.concat("{name:\"", rule.name, "\", value:\"", rule.value, "\"}");
 		}
-		result = result.concat(";");
+		result = result.concat("]);");
 
 		return result;
 	};
