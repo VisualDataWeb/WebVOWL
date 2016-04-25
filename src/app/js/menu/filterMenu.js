@@ -25,10 +25,10 @@ module.exports = function (graph) {
 	filterMenu.setup = function (datatypeFilter, objectPropertyFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
 		menuElement.on("mouseleave", function () {filterMenu.highlightForDegreeSlider(false);});
 
-		addFilterItem(datatypeFilter, "datatype", "Datatype prop.", "#datatypeFilteringOption");
-		addFilterItem(objectPropertyFilter, "objectProperty", "Object prop.", "#objectPropertyFilteringOption");
-		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
-		addFilterItem(disjointFilter, "disjoint", "Class disjoint.", "#disjointFilteringOption");
+		addFilterItem(datatypeFilter, "datatype", "Datatype properties", "#datatypeFilteringOption");
+		addFilterItem(objectPropertyFilter, "objectProperty", "Object properties", "#objectPropertyFilteringOption");
+		addFilterItem(subclassFilter, "subclass", "Solitary subclasses", "#subclassFilteringOption");
+		addFilterItem(disjointFilter, "disjoint", "Class disjointness", "#disjointFilteringOption");
 		addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");
 
 		addNodeDegreeFilter(nodeDegreeFilter, nodeDegreeContainer);
