@@ -16,15 +16,17 @@ module.exports = function (graph) {
 	/**
 	 * Connects the website with graph filters.
 	 * @param datatypeFilter filter for all datatypes
+	 * @param objectPropertyFilter filter for all object properties
 	 * @param subclassFilter filter for all subclasses
 	 * @param disjointFilter filter for all disjoint with properties
 	 * @param setOperatorFilter filter for all set operators with properties
 	 * @param nodeDegreeFilter filters nodes by their degree
 	 */
-	filterMenu.setup = function (datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
+	filterMenu.setup = function (datatypeFilter, objectPropertyFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
 		menuElement.on("mouseleave", function () {filterMenu.highlightForDegreeSlider(false);});
 
 		addFilterItem(datatypeFilter, "datatype", "Datatype prop.", "#datatypeFilteringOption");
+		addFilterItem(objectPropertyFilter, "objectProperty", "Object prop.", "#objectPropertyFilteringOption");
 		addFilterItem(subclassFilter, "subclass", "Solitary subclass.", "#subclassFilteringOption");
 		addFilterItem(disjointFilter, "disjoint", "Class disjoint.", "#disjointFilteringOption");
 		addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");

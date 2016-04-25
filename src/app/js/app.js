@@ -22,6 +22,7 @@ module.exports = function () {
 		focuser = webvowl.modules.focuser(),
 		nodeDegreeFilter = webvowl.modules.nodeDegreeFilter(filterMenu),
 		nodeScalingSwitch = webvowl.modules.nodeScalingSwitch(graph),
+		objectPropertyFilter = webvowl.modules.objectPropertyFilter(),
 		pickAndPin = webvowl.modules.pickAndPin(),
 		selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
 		statistics = webvowl.modules.statistics(),
@@ -35,6 +36,7 @@ module.exports = function () {
 		options.selectionModules().push(pickAndPin);
 		options.filterModules().push(statistics);
 		options.filterModules().push(datatypeFilter);
+		options.filterModules().push(objectPropertyFilter);
 		options.filterModules().push(subclassFilter);
 		options.filterModules().push(disjointFilter);
 		options.filterModules().push(setOperatorFilter);
@@ -47,7 +49,7 @@ module.exports = function () {
 
 		exportMenu.setup();
 		gravityMenu.setup();
-		filterMenu.setup(datatypeFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
+		filterMenu.setup(datatypeFilter, objectPropertyFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter);
 		modeMenu.setup(pickAndPin, nodeScalingSwitch, compactNotationSwitch, colorExternalsSwitch);
 		pauseMenu.setup();
 		sidebar.setup();

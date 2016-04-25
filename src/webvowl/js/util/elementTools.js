@@ -1,6 +1,7 @@
 var BaseProperty = require("../elements/properties/BaseProperty");
 var BaseNode = require("../elements/nodes/BaseNode");
 var DatatypeNode = require("../elements/nodes/DatatypeNode");
+var Thing = require("../elements/nodes/implementations/OwlThing");
 var ObjectProperty = require("../elements/properties/implementations/OwlObjectProperty");
 var DatatypeProperty = require("../elements/properties/implementations/OwlDatatypeProperty");
 var RdfsSubClassOf = require("../elements/properties/implementations/RdfsSubClassOf");
@@ -21,7 +22,11 @@ module.exports = (function () {
 		return node instanceof DatatypeNode;
 	};
 
-	tools.isProperty = function(element) {
+	tools.isThing = function (node) {
+		return node instanceof Thing;
+	};
+
+	tools.isProperty = function (element) {
 		return element instanceof BaseProperty;
 	};
 
