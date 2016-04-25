@@ -134,7 +134,7 @@
     "type" : "owl:equivalentClass"
   }, {
     "id" : "36",
-    "type" : "owl:unionOf"
+    "type" : "owl:disjointUnionOf"
   }, {
     "id" : "37",
     "type" : "owl:Class"
@@ -263,7 +263,7 @@
     "type" : "owl:Class"
   }, {
     "id" : "106",
-    "type" : "owl:unionOf"
+    "type" : "owl:disjointUnionOf"
   } ],
   "classAttribute" : [ {
     "iri" : "http://ontovibe.visualdataweb.org#ComplementClass",
@@ -376,17 +376,17 @@
     "label" : {
       "IRI-based" : "EquivalentDeprecatedClassInLargeGroup"
     },
-    "attributes" : [ "equivalent", "deprecated" ],
+    "attributes" : [ "deprecated", "equivalent" ],
     "id" : "35"
   }, {
     "iri" : "http://ontovibe.visualdataweb.org#DisjointUnionClass",
     "baseIri" : "http://ontovibe.visualdataweb.org",
     "instances" : 0,
+    "disjointUnion" : [ "24", "6" ],
     "label" : {
       "IRI-based" : "DisjointUnionClass"
     },
-    "union" : [ "24", "6" ],
-    "attributes" : [ "union" ],
+    "attributes" : [ "disjointUnion" ],
     "id" : "36"
   }, {
     "iri" : "http://ontovibe.visualdataweb.org#AnonymousClassAnchor",
@@ -641,7 +641,7 @@
       "IRI-based" : "DeprecatedImportedClass"
     },
     "subClasses" : [ "14" ],
-    "attributes" : [ "deprecated", "external" ],
+    "attributes" : [ "external", "deprecated" ],
     "id" : "15"
   }, {
     "iri" : "http://ontovibe.visualdataweb.org#DivisibleByFiveEnumeration",
@@ -775,13 +775,13 @@
     "id" : "79"
   }, {
     "instances" : 0,
-    "attributes" : [ "complement", "anonymous" ],
+    "attributes" : [ "anonymous", "complement" ],
     "id" : "70",
     "complement" : [ "42" ]
   }, {
     "instances" : 0,
     "union" : [ "6", "42" ],
-    "attributes" : [ "union", "anonymous" ],
+    "attributes" : [ "anonymous", "union" ],
     "id" : "91"
   }, {
     "iri" : "http://ontovibe.visualdataweb.org#UnionDatatype",
@@ -818,7 +818,7 @@
     "label" : {
       "IRI-based" : "EquivalentImportedClassInLargeGroup"
     },
-    "attributes" : [ "equivalent", "external" ],
+    "attributes" : [ "external", "equivalent" ],
     "id" : "89"
   }, {
     "iri" : "http://ontovibe.visualdataweb.org#Subclass",
@@ -842,7 +842,7 @@
     "label" : {
       "IRI-based" : "EquivalentDeprecatedClass"
     },
-    "attributes" : [ "equivalent", "deprecated" ],
+    "attributes" : [ "deprecated", "equivalent" ],
     "id" : "61"
   }, {
     "iri" : "http://ontovibe.visualdataweb.org#Class1",
@@ -863,11 +863,11 @@
     "iri" : "http://ontovibe.visualdataweb.org#LargeDisjointUnionClass",
     "baseIri" : "http://ontovibe.visualdataweb.org",
     "instances" : 0,
+    "disjointUnion" : [ "15", "65", "5" ],
     "label" : {
       "IRI-based" : "LargeDisjointUnionClass"
     },
-    "union" : [ "15", "65", "5" ],
-    "attributes" : [ "union" ],
+    "attributes" : [ "disjointUnion" ],
     "id" : "106"
   } ],
   "property" : [ {
@@ -1223,7 +1223,7 @@
       "IRI-based" : "deprecatedImportedObjectProperty"
     },
     "domain" : "4",
-    "attributes" : [ "deprecated", "external" ],
+    "attributes" : [ "external", "deprecated" ],
     "id" : "67"
   }, {
     "iri" : "http://ontovibe.visualdataweb.org#standardTypeDatatypeProperty",
@@ -1362,7 +1362,7 @@
       "IRI-based" : "deprecatedImportedDatatypeProperty"
     },
     "domain" : "29",
-    "attributes" : [ "deprecated", "external" ],
+    "attributes" : [ "external", "deprecated" ],
     "id" : "87"
   }, {
     "iri" : "http://ontovibe.visualdataweb.org#anonymousUnionClassProperty",

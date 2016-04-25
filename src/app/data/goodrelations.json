@@ -1651,7 +1651,7 @@
     "comment" : {
       "en" : "DEPRECATED - This class is superseded by gr:SomeItems. Replace all occurrences of gr:ProductOrServicesSomeInstancesPlaceholder by gr:SomeItems, if possible."
     },
-    "attributes" : [ "equivalent", "deprecated" ],
+    "attributes" : [ "deprecated", "equivalent" ],
     "id" : "93",
     "superClasses" : [ "25" ]
   }, {
@@ -1811,7 +1811,7 @@
     "comment" : {
       "en" : "DEPRECATED - This class is superseded by gr:Individual. Replace all occurrences of gr:ActualProductOrServiceInstance by gr:Individual, if possible."
     },
-    "attributes" : [ "equivalent", "deprecated" ],
+    "attributes" : [ "deprecated", "equivalent" ],
     "id" : "94",
     "superClasses" : [ "25" ]
   }, {
@@ -1908,7 +1908,7 @@
     "comment" : {
       "en" : "DEPRECATED - This class is superseded by gr:Location. Replace all occurrences of gr:LocationOfSalesOrServiceProvisioning by gr:Location, if possible."
     },
-    "attributes" : [ "equivalent", "deprecated" ],
+    "attributes" : [ "deprecated", "equivalent" ],
     "id" : "333"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#Individual",
@@ -3838,7 +3838,7 @@
     "comment" : {
       "en" : "This ordering relation for qualitative values indicates that the subject is equal to the object."
     },
-    "attributes" : [ "transitive", "symmetric" ],
+    "attributes" : [ "symmetric", "transitive" ],
     "id" : "101"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#hasInventoryLevel",
