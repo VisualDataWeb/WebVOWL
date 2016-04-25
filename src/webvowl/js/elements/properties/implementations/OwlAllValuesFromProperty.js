@@ -4,24 +4,23 @@ module.exports = (function () {
 
 	var o = function (graph) {
 		BaseProperty.apply(this, arguments);
-		
-		var superDrawCardinality = this.drawCardinality;
+
+		var superGenerateCardinalityText = this.generateCardinalityText;
 
 		this.linkType("values-from")
 			.markerType("filled values-from")
 			.styleClass("allvaluesfromproperty")
 			.type("owl:allValuesFrom");
-		
-		this.drawCardinality = function (container) {
-			superDrawCardinality(container);
 
-			var symbol = container.append("g");
-			symbol.append("path")
-				.attr("d", "M-8,-10L0,10L8,-10M6,-4L-6,-4")
-				.attr("transform", "scale(.5)")
-				.classed("values-from", true);
+		this.generateCardinalityText = function () {
+			var cardinalityText = "∀";
 
-			return true;
+			var superCardinalityText = superGenerateCardinalityText();
+			if (superCardinalityText) {
+				cardinalityText += ", " + superCardinalityText;
+			}
+
+			return cardinalityText;
 		};
 	};
 	o.prototype = Object.create(BaseProperty.prototype);

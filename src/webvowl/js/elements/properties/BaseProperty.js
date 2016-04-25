@@ -252,27 +252,31 @@ module.exports = (function () {
 				textBox.addEquivalents(equivalentString);
 			}
 		};
-		this.drawCardinality = function (container) {
-			var cardinalityText;
 
-			if (that.cardinality()) {
-				cardinalityText = that.cardinality();
-			} else if (that.minCardinality() || that.maxCardinality()) {
-				var minBoundary = that.minCardinality() || "*";
-				var maxBoundary = that.maxCardinality() || "*";
-				cardinalityText = minBoundary + ".." + maxBoundary;
+		this.drawCardinality = function (container) {
+			var cardinalityText = this.generateCardinalityText();
+
+			if (cardinalityText) {
+				that.cardinalityElement(container);
+				container.append("text")
+					.classed("cardinality", true)
+					.attr("text-anchor", "middle")
+					.attr("dy", "0.5ex")
+					.text(cardinalityText);
+				return true; // drawing successful
 			} else {
 				return false;
 			}
+		};
 
-			that.cardinalityElement(container);
-			container.append("text")
-				.classed("cardinality", true)
-				.attr("text-anchor", "middle")
-				.attr("dy", "0.5ex")
-				.text(cardinalityText);
-
-			return true; // drawing successful
+		this.generateCardinalityText = function () {
+			if (that.cardinality()) {
+				return that.cardinality();
+			} else if (that.minCardinality() || that.maxCardinality()) {
+				var minBoundary = that.minCardinality() || "*";
+				var maxBoundary = that.maxCardinality() || "*";
+				return minBoundary + ".." + maxBoundary;
+			}
 		};
 
 		that.setHighlighting = function (enable) {
