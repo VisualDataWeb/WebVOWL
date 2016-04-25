@@ -1,5 +1,3 @@
-var _ = require("lodash/core");
-
 /**
  * Contains the logic for the export button.
  * @returns {{}}
