@@ -19,6 +19,7 @@ module.exports = function (grunt) {
 				commitMessage: "Bump version to %VERSION%",
 				commitFiles: ["package.json"],
 				createTag: false,
+				prereleaseName: "RC",
 				push: false
 			}
 		},
