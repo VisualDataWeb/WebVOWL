@@ -163,7 +163,8 @@ module.exports = (function () {
 		};
 
 		this.labelForCurrentLanguage = function () {
-			return languageTools.textInLanguage(this.label(), graph.language());
+			var preferredLanguage = graph && graph.language ? graph.language() : null;
+			return languageTools.textInLanguage(this.label(), preferredLanguage);
 		};
 	};
 
@@ -171,6 +172,10 @@ module.exports = (function () {
 
 	Base.prototype.equals = function (other) {
 		return other instanceof Base && this.id() === other.id();
+	};
+
+	Base.prototype.toString = function () {
+		return this.labelForCurrentLanguage() + " (" + this.type() + ")";
 	};
 
 
