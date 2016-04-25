@@ -87,20 +87,21 @@ module.exports = function (graph) {
 		d3.selectAll(".external + text .instance-count").style("fill", "#aaa");
 		d3.selectAll(".cardinality").style("font-size", "10px");
 		d3.selectAll(".text, .embedded").style("pointer-events", "none");
-		d3.selectAll(".class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty").style("fill", "#acf");
+		d3.selectAll(".class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .allvaluesfromproperty, .somevaluesfromproperty").style("fill", "#acf");
 		d3.selectAll(".label .datatype, .datatypeproperty").style("fill", "#9c6");
 		d3.selectAll(".rdf, .rdfproperty").style("fill", "#c9c");
 		d3.selectAll(".literal, .node .datatype").style("fill", "#fc3");
 		d3.selectAll(".deprecated, .deprecatedproperty").style("fill", "#ccc");
 		d3.selectAll(".external, .externalproperty").style("fill", "#36c");
 		d3.selectAll("path, .nofill").style("fill", "none");
-		d3.selectAll(".symbol").style("fill", "#69c");
-		d3.selectAll(".arrowhead, marker path").style("fill", "#000");
+		d3.selectAll(".symbol, .values-from.filled").style("fill", "#69c");
+		d3.selectAll("marker path").style("fill", "#000");
 		d3.selectAll(".class, path, line, .fineline").style("stroke", "#000");
-		d3.selectAll(".white, .subclass, .border-marker path, .subclassproperty, .external + text").style("fill", "#fff");
-		d3.selectAll(".class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .cardinality.focused, circle.pin, .filled-marker path.hovered, .filled-marker path.focused").style("fill", "#f00").style("cursor", "pointer");
+		d3.selectAll(".white, .subclass, .subclassproperty, .external + text").style("fill", "#fff");
+		d3.selectAll(".class.hovered, .property.hovered, .cardinality.hovered, .cardinality.focused, circle.pin, .filled.hovered, .filled.focused").style("fill", "#f00").style("cursor", "pointer");
 		d3.selectAll(".focused, path.hovered").style("stroke", "#f00");
-		d3.selectAll(".label .indirectHighlighting, .feature:hover").style("fill", "#f90");
+		d3.selectAll(".indirect-highlighting, .feature:hover").style("fill", "#f90");
+		d3.selectAll(".values-from").style("stroke", "#69c");
 		d3.selectAll(".class, path, line").style("stroke-width", "2");
 		d3.selectAll(".fineline").style("stroke-width", "1");
 		d3.selectAll(".dashed, .anonymous").style("stroke-dasharray", "8");
@@ -118,7 +119,7 @@ module.exports = function (graph) {
 	}
 
 	function removeVowlInlineStyles() {
-		d3.selectAll(".text, .subtext, .text.instance-count, .external + text .instance-count, .cardinality, .text, .embedded, .class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .label .datatype, .datatypeproperty, .rdf, .rdfproperty, .literal, .node .datatype, .deprecated, .deprecatedproperty, .external, .externalproperty, path, .nofill, .symbol, .arrowhead, marker path, .class, path, line, .fineline, .white, .subclass, .border-marker path, .subclassproperty, .external + text, .class.hovered, .property.hovered, path.arrowhead.hovered, .cardinality.hovered, .cardinality.focused, circle.pin, .filled-marker path.hovered, .filled-marker path.focused, .focused, path.hovered, .label .indirectHighlighting, .feature:hover, .class, path, line, .fineline, .dashed, .anonymous, .dotted, rect.focused, circle.focused, .nostroke, marker path").attr("style", null);
+		d3.selectAll(".text, .subtext, .text.instance-count, .external + text .instance-count, .cardinality, .text, .embedded, .class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .allvaluesfromproperty, .somevaluesfromproperty, .label .datatype, .datatypeproperty, .rdf, .rdfproperty, .literal, .node .datatype, .deprecated, .deprecatedproperty, .external, .externalproperty, path, .nofill, .symbol, .values-from.filled, marker path, .class, path, line, .fineline, .white, .subclass, .subclassproperty, .external + text, .class.hovered, .property.hovered, .cardinality.hovered, .cardinality.focused, circle.pin, .filled.hovered, .filled.focused, .focused, path.hovered, .indirect-highlighting, .feature:hover, .values-from, .class, path, line, .fineline, .dashed, .anonymous, .dotted, rect.focused, circle.focused, .nostroke, marker path").attr("style", null);
 	}
 
 	function showNonExportableElements() {
