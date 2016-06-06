@@ -94,7 +94,7 @@ module.exports = function () {
 			d3.select("#converter-option").classed("selected-ontology", true);
 		} else {
 			// id of an existing ontology as parameter
-			loadOntologyFromUri(require("../../data/" + hashParameter + ".json"), hashParameter);
+			loadOntologyFromUri("data/" + hashParameter + ".json", hashParameter);
 
 			ontologyOptions.each(function () {
 				var ontologyOption = d3.select(this);
