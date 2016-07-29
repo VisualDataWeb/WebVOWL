@@ -1,7 +1,7 @@
 var AbsoluteTextElement = require("../../util/AbsoluteTextElement");
 var BoxArrowLink = require("../links/BoxArrowLink");
 var RoundNode = require("./RoundNode");
-
+var drawTools = require("../drawTools")();
 
 module.exports = (function () {
 
@@ -26,10 +26,9 @@ module.exports = (function () {
 		this.draw = function (element) {
 			that.nodeElement(element);
 
-			element.append("circle")
-				.attr("class", that.collectCssClasses().join(" "))
-				.classed("class", true)
-				.attr("r", that.actualRadius());
+			drawTools.appendCircularClass(element, that.actualRadius(),
+			                              that.collectCssClasses().join(" "),
+			                              that.labelForCurrentLanguage(), that.backgroundColor());
 		};
 
 		this.postDrawActions = function () {
