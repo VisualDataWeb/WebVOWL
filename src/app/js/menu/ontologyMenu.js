@@ -316,7 +316,7 @@ module.exports = function () {
 			errorInfo.text(information);
 		} else {
 			errorInfo.html("Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
-			"href=\"http://mowl-power.cs.man.ac.uk:8080/validator/\">OWL Validator</a>.");
+			"href=\"http://visualdataweb.de/validator/\">OWL Validator</a>.");
 		}
 
 		var descriptionMissing = !description;
