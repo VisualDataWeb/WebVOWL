@@ -14,6 +14,7 @@ module.exports = function (graph) {
 		nodes,
 		properties,
 		classMap,
+		positions=[],
 		propertyMap;
 
 	/**
@@ -26,13 +27,15 @@ module.exports = function (graph) {
 			properties = [];
 			return;
 		}
-
+		
+		
 		var classes = combineClasses(ontologyData.class, ontologyData.classAttribute),
 			datatypes = combineClasses(ontologyData.datatype, ontologyData.datatypeAttribute),
 			combinedClassesAndDatatypes = classes.concat(datatypes),
 			unparsedProperties = ontologyData.property || [],
 			combinedProperties;
 
+		
 		// Inject properties for unions, intersections, ...
 		addSetOperatorProperties(combinedClassesAndDatatypes, unparsedProperties);
 
@@ -49,6 +52,20 @@ module.exports = function (graph) {
 
 		nodes = createNodeStructure(combinedClassesAndDatatypes, classMap);
 		properties = createPropertyStructure(combinedProperties, classMap, propertyMap);
+		console.log("number of Nodes:"+nodes.length)
+		console.log("number of Properties:"+properties.length)
+		
+// test output vars;
+		/*
+		console.log("Classes"+classes);
+		console.log("datatypes"+datatypes);
+		console.log("combinedClassesAndDatatypes"+combinedClassesAndDatatypes);
+		console.log("unparsedProperties"+unparsedProperties);
+		console.log("combinedProperties"+combinedProperties);
+		console.log("properties"+properties);
+		*/
+		
+		
 	};
 
 	/**
@@ -56,6 +73,32 @@ module.exports = function (graph) {
 	 */
 	parser.nodes = function () {
 		return nodes;
+	};
+
+	/**
+	 * @returns an array of node positions that are imported from the text file
+	 * positions stores a position that is defined by id and x and y position
+	 */
+	parser.importedNodePositions = function () {
+		
+		for (var i=0; i<nodes.length;i++){
+			var node=nodes[i];
+			if (node.x && node.y){
+				var apos={id:node.id,px:node.x,py:node.y};
+				positions.push(apos);
+			}
+		}
+		return positions;
+	};
+	parser.importedPropertyPositions = function () {
+		for (var i=0; i<properties.length;i++){
+			var property=properties[i];
+			if (property.x && property.y){
+				var apos={id:property.id,x:property.x,y:property.y};
+				positions.push(apos);
+			}
+		}
+		return positions;
 	};
 
 	/**
@@ -109,7 +152,10 @@ module.exports = function (graph) {
 						// .type(element.type) Ignore, because we predefined it
 						.union(element.union)
 						.iri(element.iri);
-
+					if (element.pos){
+						node.x=element.pos[0];
+						node.y=element.pos[1];
+					}
 					// Create node objects for all individuals
 					if (element.individuals) {
 						element.individuals.forEach(function (individual) {
@@ -179,6 +225,12 @@ module.exports = function (graph) {
 						.superproperties(element.superproperty)
 						// .type(element.type) Ignore, because we predefined it
 						.iri(element.iri);
+
+					// adding property position 
+					if (element.pos){
+                        property.x=element.pos[0];
+                        property.y=element.pos[1];
+					}
 
 					if (element.attributes) {
 						var deduplicatedAttributes = d3.set(element.attributes.concat(property.attributes()));
@@ -501,7 +553,7 @@ module.exports = function (graph) {
 				eqObject.equivalents().push(element);
 				eqObject.equivalentBase(element);
 				eqIds[i] = eqObject;
-
+				
 				// Hide other equivalent nodes
 				eqObject.visible(false);
 			} else {

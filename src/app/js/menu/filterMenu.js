@@ -32,6 +32,7 @@ module.exports = function (graph) {
 		addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");
 
 		addNodeDegreeFilter(nodeDegreeFilter, nodeDegreeContainer);
+
 	};
 
 
@@ -130,7 +131,7 @@ module.exports = function (graph) {
 				checkbox.on("click")();
 			}
 		});
-
+ 
 		setSliderValue(degreeSlider, 0);
 		degreeSlider.on("change")();
 	};
@@ -143,6 +144,6 @@ module.exports = function (graph) {
 		nodeDegreeContainer.classed("highlighted", enable);
 	};
 
-
+	
 	return filterMenu;
 };

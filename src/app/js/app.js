@@ -83,7 +83,8 @@ module.exports = function () {
 		exportMenu.setJsonText(jsonText);
 
 		options.data(data);
-		graph.reload();
+		console.log("calling initFunc from app.js");
+		graph.initFunc();
 		sidebar.updateOntologyInformation(data, statistics);
 
 		exportMenu.setFilename(filename);

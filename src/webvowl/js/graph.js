@@ -41,37 +41,63 @@ module.exports = function (graphContainerSelector) {
 	// Graph behaviour
 		force,
 		dragBehaviour,
-		zoom;
+		zoom,
+	// some helper
+		positionContainer;
 
 	/**
 	 * Recalculates the positions of nodes, links, ... and updates them.
 	 */
 	function recalculatePositions() {
 		// Set node positions
+        // console.log("Tick positions ----------------------------------");
+        // var fNodes=force.nodes();
+        // labelNodes.forEach(function (labelNode) {
+         //    for (var i = 0; i < fNodes.length; i++) {
+         //        var oldNode = fNodes[i];
+         //        if (oldNode.equals(labelNode)) {
+        //
+         //            var lNodeId=labelNode.property().id();
+         //            var lNodeX=labelNode.x;
+         //            var lNodeY=labelNode.y;
+        //
+        //
+         //            var fNodeId=oldNode.property().id();
+         //            var fNodeX=oldNode.x;
+         //            var fNodeY=oldNode.y;
+         //            console.log("lNode: ["+lNodeId+"] ["+lNodeX+"] ["+lNodeY+"]"
+         //                + "\t\tfNode: ["+fNodeId+"] ["+fNodeX+"] ["+fNodeY+"]"
+         //                //+ "velocity(): ["+oldNode.vx()+"] ["+oldNode.vy()+"]"
+         //                + "velocity: ["+oldNode.vx+"] ["+oldNode.vy+"]"
+         //            // + "velocity(n): ["+oldNode.vx(oldNode)+"] ["+oldNode.vy(oldNode)+"]"
+         //            );
+         //            //console.log("lNode: ["+lNodeId+"] ["+lNodeX+"] ["+lNodeY+"]"+"\t\tfNode: ["+fNodeId+"]"+"["+fNodeX+"]"+"["+fNodeY+"]");
+         //            break;
+         //        }
+         //    }
+        // });
+
 		nodeElements.attr("transform", function (node) {
 			return "translate(" + node.x + "," + node.y + ")";
 		});
 
 		// Set label group positions
 		labelGroupElements.attr("transform", function (label) {
-			var position;
+			 var position;
 
-			// force centered positions on single-layered links
-			var link = label.link();
-			if (link.layers().length === 1 && !link.loops()) {
-				var linkDomainIntersection = math.calculateIntersection(link.range(), link.domain(), 0);
-				var linkRangeIntersection = math.calculateIntersection(link.domain(), link.range(), 0);
-				position = math.calculateCenter(linkDomainIntersection, linkRangeIntersection);
-				label.x = position.x;
-				label.y = position.y;
-			} else {
-				position = label;
-			}
-
-			return "translate(" + position.x + "," + position.y + ")";
+			//force centered positions on single-layered links
+			 var link = label.link();
+			 if (link.layers().length === 1 && !link.loops()) {
+			 	var linkDomainIntersection = math.calculateIntersection(link.range(), link.domain(), 0);
+			 	var linkRangeIntersection = math.calculateIntersection(link.domain(), link.range(), 0);
+			 	position = math.calculateCenter(linkDomainIntersection, linkRangeIntersection);
+			 	label.x = position.x;
+			 	label.y = position.y;
+			 }
+			return "translate(" + label.x + "," + label.y + ")";
 		});
 
-		// Set link paths and calculate additional informations
+		// Set link paths and calculate additional information
 		linkPathElements.attr("d", function (l) {
 			if (l.isLoop()) {
 				return math.calculateLoopPath(l);
@@ -84,14 +110,6 @@ module.exports = function (graphContainerSelector) {
 			return curveFunction([pathStart, curvePoint, pathEnd]);
 		});
 
-		// Set cardinality positions
-		cardinalityElements.attr("transform", function (property) {
-			var label = property.link().label(),
-				pos = math.calculateIntersection(label, property.range(), CARDINALITY_HDISTANCE),
-				normalV = math.calculateNormalVector(label, property.domain(), CARDINALITY_VDISTANCE);
-
-			return "translate(" + (pos.x + normalV.x) + "," + (pos.y + normalV.y) + ")";
-		});
 	}
 
 	/**
@@ -144,7 +162,24 @@ module.exports = function (graphContainerSelector) {
 	graph.graphOptions = function () {
 		return options;
 	};
+	// temporary modifications done by vitalis 
+	//------------------------------------------------------------------------------
+	/**
+	 * Returns the visible nodes 
+	 */
+	graph.graphNodeElements=function(){
+		return nodeElements
+	};
+	/**
+	 * Returns the visible Label Nodes 
+	 */
+	graph.graphLabelElements=function(){
+		return labelNodes
+	};
 
+	
+	//------------------------------------------------------------------------------
+	
 	/**
 	 * Loads all settings, removes the old graph (if it exists) and draws a new one.
 	 */
@@ -168,6 +203,283 @@ module.exports = function (graphContainerSelector) {
 		this.update();
 	};
 
+	graph.initFunc=function(){
+		console.log("Call of initFunc")
+        this.reload();
+        force.stop();
+
+        // setting the visualizations;
+         redrawContent();
+         recalculatePositions();
+
+
+        var fNodes=force.nodes();
+        // for (var i=0;i<fNodes.length;i++){
+        //     var n=fNodes[i];
+        //     if (n.id){
+        //         console.log("Init ClassNode forceNode "+n.id()+" position "+n.x+" "+n.y);
+        //     }
+        //     if (n.property){
+        //         console.log("Init Label forceNode "+n.property().id()+" position "+n.x+" "+n.y);
+        //     }
+        //
+        // }
+
+        var labelPositions=parser.importedPropertyPositions();
+
+        /*
+        *
+        * this can be optimized using for loop over the labelNodes
+        * and setting the label.x = label.property().x << since we added x to property when we read it
+        * todo : test if this is the case
+        * */
+
+
+        // Set label group positions
+         if (labelPositions.length>0) {
+             console.log("Found label positions in file (size): "+labelPositions.length);
+             console.log("labelGroupElements size: "+labelNodes.length);
+
+             for (var i=0;i<labelNodes.length;i++){
+                 var label=labelNodes[i];
+                 var lId=label.property().id();
+
+                 for (var j=0;j<labelPositions.length;j++){
+                     var lposId=labelPositions[j].id();
+                     if (lId==lposId){
+                         console.log("found corresponding position : "+lposId);
+
+                         console.log("  ---  > old  Position: " +label.x+" "+label.y);
+                        // console.log("prop Position: " +label.property().x+" "+label.property().y);
+                         label.x=labelPositions[j].x;
+                         label.y=labelPositions[j].y;
+                         label.px=labelPositions[j].x;
+                         label.py=labelPositions[j].y;
+                         console.log("  ---  > new  Position: " +label.x+" "+label.y +
+                             "  <should>: " +label.property().x+" "+label.property().y );
+                         break;
+                     }
+
+
+                 }
+
+
+             }
+
+
+         }
+             // labelGroupElements.attr("transform", function (label) {
+             //     var position;
+             //     var lId = label.property().id();
+             //
+             //     // force centered positions on single-layered links
+             //     for (var i = 0; i < labelPositions.length; i++) {
+             //         lpos = labelPositions[i];
+             //         var lpId = lpos.id();
+             //         if (lId == lpId) {
+		 			//force centered positions on single-layered links
+			// 			var link = label.link();
+			// 			if (link.layers().length === 1 && !link.loops()) {
+			// 				var doNothing=1;
+			// 			} else {
+			// 				label.x = lpos.x;
+			// 				label.y = lpos.y;
+			// 				position = label;
+			// 				break;
+			// 			}
+        //
+        //             }
+        //         }
+        //         return "translate(" + position.x + "," + position.y + ")";
+        //     });
+        // }
+
+
+
+        //
+        // // Set label group positions
+        // if (labelPositions.length>0) {
+        //     // TOD [das geht besser]
+        //     console.log("Found Label Positions");
+        //     for (var i=0;i<fNodes.length;i++){
+        //         var n=fNodes[i];
+        //         if (n.property){
+        //             var nid=n.property().id();
+        //             for (var j=0;j<labelPositions.length;j++) {
+        //                 var lpos = labelPositions[j];
+        //                 c1=nid;
+        //                 c2=lpos.id();
+        //                 if (c1 == c2) {
+        //                     console.log("Setting new position Node: "+c1+" From " +n.x+" "+n.y+ "->"+lpos.x+" "+lpos.y);
+        //                  //   n.x = lpos.x;
+        //                  //   n.y = lpos.y;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+
+
+
+
+        //
+        // console.log("----------------------------------");
+        // var fNodes=force.nodes();
+        // for (var i=0;i<fNodes.length;i++){
+        //     var n=fNodes[i];
+        //     if (n.id){
+        //         console.log("Out ClassNode forceNode "+n.id()+" position "+n.x+" "+n.y);
+        //     }
+        //     if (n.property){
+        //         console.log("Out Label forceNode "+n.property().id()+" position "+n.x+" "+n.y);
+        //     }
+        //
+        // }
+
+
+
+        // loadGraphData();
+        // positionContainer=parser.importedNodePositions();
+        // refreshGraphData();
+        // refreshGraphStyle();
+        // force.start();
+        // force.stop();
+        // recalculatePositions();
+        // this.update();
+        // force.stop();
+
+		// get force nodes;
+
+
+        recalculatePositions();
+        force.start();
+       //
+       //  var fNodes=force.nodes();
+       //  labelNodes.forEach(function (labelNode) {
+       //      for (var i = 0; i < fNodes.length; i++) {
+       //          var oldNode = fNodes[i];
+       //          if (oldNode.equals(labelNode)) {
+       //
+       //              var lNodeId=labelNode.property().id();
+       //              var lNodeX=labelNode.x;
+       //              var lNodeY=labelNode.y;
+       //
+       //
+       //              var fNodeId=oldNode.property().id();
+       //              var fNodeX=oldNode.x;
+       //              var fNodeY=oldNode.y;
+       //
+       //              console.log("lNode: ["+lNodeId+"] ["+lNodeX+"] ["+lNodeY+"]"
+       //                     + "\t\tfNode: ["+fNodeId+"] ["+fNodeX+"] ["+fNodeY+"]"
+       //                     //+ "velocity(): ["+oldNode.vx()+"] ["+oldNode.vy()+"]"
+       //                     + "velocity: ["+oldNode.px+"] ["+oldNode.py+"]"
+       //                    // + "velocity(n): ["+oldNode.vx(oldNode)+"] ["+oldNode.vy(oldNode)+"]"
+       //              );
+       //
+       //              break;
+       //          }
+       //      }
+       //  });
+       // force.start();
+   //
+   //      var fNodes=force.nodes();
+   //      labelNodes.forEach(function (labelNode) {
+   //          for (var i = 0; i < fNodes.length; i++) {
+   //              var oldNode = fNodes[i];
+   //              if (oldNode.equals(labelNode)) {
+   //
+   //                var lNodeId=labelNode.property().id();
+   //                var lNodeX=labelNode.x;
+   //                var lNodeY=labelNode.y;
+   //
+   //
+   //                var fNodeId=oldNode.property().id();
+   //                var fNodeX=oldNode.x;
+   //                var fNodeY=oldNode.y;
+   //
+   //                console.log("lNode: ["+lNodeId+"] ["+lNodeX+"] ["+lNodeY+"]"+"\t\tfNode: ["+fNodeId+"]"+"["+fNodeX+"]"+"["+fNodeY+"]");
+   //                break;
+   //              }
+   //          }
+   //      });
+
+        // for (var i=0;i<fNodes.length;i++){
+        //     var n=fNodes[i];
+        //     if (n.id){
+        //
+        //         console.log("Out ClassNode forceNode "+n.id()+" position "+n.x+" "+n.y);
+        //     }
+        //     if (n.property){
+        //         console.log("Out Label forceNode "+n.property().id()+" position "+n.x+" "+n.y
+        //         +"prop:" + n.property.x +" "+n.property.y);
+        //     }
+        //
+        // }
+
+     //   force.start();
+     //    console.log("Start ----------------------------------");
+     //    var fNodes=force.nodes();
+     //    for (var i=0;i<fNodes.length;i++){
+     //        var n=fNodes[i];
+     //        if (n.id){
+     //            console.log("Out ClassNode forceNode "+n.id()+" position "+n.x+" "+n.y);
+     //        }
+     //        if (n.property){
+     //            console.log("Out Label forceNode "+n.property().id()+" position "+n.x+" "+n.y
+     //                +"prop:" + n.property.x +" "+n.property.y);
+     //        }
+     //
+     //    }
+     //
+     //    force.tick();
+     //    console.log("Tick ----------------------------------");
+     //    var fNodes=force.nodes();
+     //    for (var i=0;i<fNodes.length;i++){
+     //        var n=fNodes[i];
+     //        if (n.id){
+     //            console.log("Out ClassNode forceNode "+n.id()+" position "+n.x+" "+n.y);
+     //        }
+     //        if (n.property){
+     //            console.log("Out Label forceNode "+n.property().id()+" position "+n.x+" "+n.y
+     //                +"prop:" + n.property.x +" "+n.property.y);
+     //        }
+     //
+     //    }
+     //
+     //    force.stop();
+
+    }
+	
+	graph.initNodePositions=function(){
+		if (positionContainer.length==0) return;
+		console.log("Calling Position initialization Function")
+		console.log("positionContainer has Elements: "+positionContainer.length)
+		
+		
+		nodesWithPos=force.nodes();
+		for (var i=0;i<nodesWithPos.length;i++){
+			n=nodesWithPos[i];
+			if (n.id){
+				//console.log("Inspecting Node: "+n.id());
+				for (var j=0;j<positionContainer.length;j++){
+					p=positionContainer[j];
+					c1=n.id();
+					c2=p.id();
+					if (c1==c2){
+						// 	set the position of the node
+//						console.log("setting position of node "+n.id()
+//								+" with posId"+p.id()+" from"+n.x+" "+n.y+" to "+p.px+" "+p.py);
+						n.x=p.px;
+						n.y=p.py;
+						n.vx=0;
+						n.vy=0;
+						break;
+					}
+				}
+			}
+		}
+	};
+	
 	/**
 	 * Updates the graphs displayed data and style.
 	 */
@@ -256,6 +568,7 @@ module.exports = function (graphContainerSelector) {
 		labelContainer = graphContainer.append("g").classed("labelContainer", true);
 		nodeContainer = graphContainer.append("g").classed("nodeContainer", true);
 
+
 		// Add an extra container for all markers
 		markerContainer = linkContainer.append("defs");
 
@@ -269,6 +582,7 @@ module.exports = function (graphContainerSelector) {
 			})
 			.call(dragBehaviour);
 
+		
 		nodeElements.each(function (node) {
 			node.draw(d3.select(this));
 		});
@@ -353,12 +667,11 @@ module.exports = function (graphContainerSelector) {
 
 	function loadGraphData() {
 		parser.parse(options.data());
-
+		
 		unfilteredData = {
 			nodes: parser.nodes(),
 			properties: parser.properties()
 		};
-
 		// Initialize filters with data to replicate consecutive filtering
 		var initializationData = _.clone(unfilteredData);
 		options.filterModules().forEach(function (module) {
@@ -384,7 +697,6 @@ module.exports = function (graphContainerSelector) {
 			return link.label();
 		});
 		storeLinksOnNodes(classNodes, links);
-
 		setForceLayoutData(classNodes, labelNodes, links);
 	}
 
@@ -430,9 +742,11 @@ module.exports = function (graphContainerSelector) {
 
 		var d3Nodes = [].concat(classNodes).concat(labelNodes);
 		setPositionOfOldLabelsOnNewLabels(force.nodes(), labelNodes);
-
+		
 		force.nodes(d3Nodes)
 			.links(d3Links);
+
+		
 	}
 
 	/**
@@ -440,7 +754,7 @@ module.exports = function (graphContainerSelector) {
 	 * their position information. With this hack the position of old labels is copied to the new labels.
 	 */
 	function setPositionOfOldLabelsOnNewLabels(oldLabelNodes, labelNodes) {
-		labelNodes.forEach(function (labelNode) {
+        labelNodes.forEach(function (labelNode) {
 			for (var i = 0; i < oldLabelNodes.length; i++) {
 				var oldNode = oldLabelNodes[i];
 				if (oldNode.equals(labelNode)) {

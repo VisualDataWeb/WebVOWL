@@ -8,6 +8,7 @@ module.exports = function (graph) {
 		exportSvgButton,
 		exportFilename,
 		exportJsonButton,
+		exportJsonButton2,
 		exportableJsonText;
 
 
@@ -19,6 +20,8 @@ module.exports = function (graph) {
 			.on("click", exportSvg);
 		exportJsonButton = d3.select("#exportJson")
 			.on("click", exportJson);
+		exportJsonButton2 = d3.select("#exportJson2")
+		.on("click", exportJson2);
 	};
 
 	exportMenu.setFilename = function (filename) {
@@ -27,6 +30,9 @@ module.exports = function (graph) {
 
 	exportMenu.setJsonText = function (jsonText) {
 		exportableJsonText = jsonText;
+	};
+	exportMenu.setJsonText2 = function (jsonText2) {
+		exportableJsonText2 = jsonText2;
 	};
 
 	function exportSvg() {
@@ -174,6 +180,65 @@ module.exports = function (graph) {
 
 		var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(exportableJsonText);
 		exportJsonButton.attr("href", dataURI)
+			.attr("download", exportFilename + ".json");
+	}
+	function exportJson2() {
+		if (!exportableJsonText) {
+			alert("No graph data available.");
+			// Stop the redirection to the path of the href attribute
+			d3.event.preventDefault();
+			return;
+		}
+		// get vieport width and height;
+		// we will use this later for relative positionions of the nodes;
+		var opt=graph.graphOptions();
+		var width=opt.width();
+		var height=opt.height();
+		console.log("Viewport Size: ["+width +" x "+height+"]");
+		var nodeElements = graph.graphNodeElements();
+		var propElements = graph.graphLabelElements();
+		
+		var jsObj=JSON.parse(exportableJsonText);
+		jsObj._comment="Created with WebVowlExporter(Vitalis Testing things)";
+		var classAtri=jsObj.classAttribute;
+		nodeElements.each(function (node) {
+			// not so clever but lets try this;
+			// 	idea : add position to the class attribute if visible
+			var nodeId=node.id();
+			for (var i=0;i<classAtri.length;i++){
+				var jObj=classAtri[i];
+				if (jObj.id===nodeId){
+					// store relative positions	
+					jObj.pos=[node.x, node.y];
+					break; // if we found it this id will never be found again ... 
+				}
+			}				
+		});
+		var propAtri=jsObj.propertyAttribute;
+		for (var j=0;j<propElements.length;j++){
+			// not so clever but lets try this;
+			// 	idea : add position to the class attribute if visible
+			var correspondingProp=propElements[j].property();
+			console.log("Found additional property "+correspondingProp.id() +"positions"+" "+propElements[j].x+" "+propElements[j].y );
+			for (var i=0;i<propAtri.length;i++){
+				jObj=propAtri[i];
+				if (jObj.id===correspondingProp.id()){
+					// store relative positions
+					xval=propElements[j].x;
+					yval=propElements[j].y;
+					console.log("setting positions");
+					jObj.pos=[xval,yval];
+					break; // if we found it this id will never be found again ... 
+				}
+			}
+		}
+	
+		console.log("Donexs");
+//		// make a string again;
+		var exportText=JSON.stringify(jsObj,null,'  ');
+		// write the data
+		var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(exportText);
+		exportJsonButton2.attr("href", dataURI)
 			.attr("download", exportFilename + ".json");
 	}
 
