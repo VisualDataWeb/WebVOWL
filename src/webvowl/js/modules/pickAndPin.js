@@ -6,6 +6,9 @@ module.exports = function () {
 		enabled = false,
 		pinnedElements = [];
 
+	pap.getPinnedElements=function(){
+		return pinnedElements;
+	}
 	pap.handle = function (selection) {
 		if (!enabled) {
 			return;

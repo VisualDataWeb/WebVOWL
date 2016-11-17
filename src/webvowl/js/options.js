@@ -15,8 +15,46 @@ module.exports = function () {
 		minMagnification = 0.1,
 		maxMagnification = 4,
 		compactNotation = false,
+		// menus
+		gravityMenu,
+		filterMenu,
+		modeMenu,
+		pausedMenu,
+		pickAndPinModule,
 		scaleNodesByIndividuals = false;
 
+
+	options.pausedMenu = function (m){
+		if (!arguments.length) return pausedMenu;
+		pausedMenu=m;
+		return options;
+
+	};
+
+	options.pickAndPinModule=function (m){
+		if (!arguments.length) return pickAndPinModule;
+		pickAndPinModule=m;
+		return options;
+	}
+
+	options.gravityMenu = function (m){
+		if (!arguments.length) return gravityMenu;
+		gravityMenu=m;
+		return options;
+
+	};
+
+	options.filterMenu = function (m){
+		if (!arguments.length) return filterMenu;
+		filterMenu=m;
+		return options;
+	};
+
+	options.modeMenu = function (m){
+		if (!arguments.length) return modeMenu;
+		modeMenu=m;
+		return options;
+	};
 
 	options.charge = function (p) {
 		if (!arguments.length) return charge;

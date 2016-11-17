@@ -13,6 +13,19 @@ module.exports = function (graph) {
 		checkboxes = [],
 		colorModeSwitch;
 
+	modeMenu.colorModeState=function (s){
+		if (!arguments.length) return colorModeSwitch.datum().active;
+		colorModeSwitch.datum().active = s;
+		return modeMenu;
+	}
+
+	modeMenu.getCheckBoxContainer=function(){
+		return checkboxes;
+	}
+
+	modeMenu.colorModeSwitch=function(){
+		return colorModeSwitch;
+	}
 
 	/**
 	 * Connects the website with the available graph modes.
@@ -116,6 +129,31 @@ module.exports = function (graph) {
 		colorModeSwitch.on("click")();
 	};
 
+	// setting manually the values of the filter
+	// no update of the gui settings, these are updated in updateSettings
+	modeMenu.setCheckBoxValue = function (id, checked) {
+		for (var i=0;i<checkboxes.length;i++){
+			var cbdId=checkboxes[i].attr("id");
+			if (cbdId == id ){
+			 	checkboxes[i].property("checked", checked);
+				break;
+			}
+		}
+	};
 
+	modeMenu.setColorSwitchState= function (state) {
+		// todo [] this works but find a better way
+		// need the !state because we simulate later a click
+		//console.log("Color switch want to set to "+!state)
+		modeMenu.colorModeState(!state);
+	};
+
+	modeMenu.updateSettings=function(){
+		checkboxes.forEach(function (checkbox) {
+			checkbox.on("click")(checkbox.datum());
+		});
+		// this simulates onclick and inverts the state
+		colorModeSwitch.on("click")();
+	};
 	return modeMenu;
 };

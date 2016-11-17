@@ -189,53 +189,175 @@ module.exports = function (graph) {
 			d3.event.preventDefault();
 			return;
 		}
-		// get vieport width and height;
-		// we will use this later for relative positionions of the nodes;
-		var opt=graph.graphOptions();
-		var width=opt.width();
-		var height=opt.height();
-		console.log("Viewport Size: ["+width +" x "+height+"]");
+
+		// todo : refactor getter functions ?!
 		var nodeElements = graph.graphNodeElements();
 		var propElements = graph.graphLabelElements();
-		
-		var jsObj=JSON.parse(exportableJsonText);
-		jsObj._comment="Created with WebVowlExporter(Vitalis Testing things)";
-		var classAtri=jsObj.classAttribute;
+
+
+
+		var jsonObj=JSON.parse(exportableJsonText);
+		var comment=jsonObj._comment;
+        jsonObj._comment=comment+" [ Additional Information added by WebVOWL Exporter Version:"+"@@WEBVOWL_VERSION"+ "]";
+
+		var classAttribute=jsonObj.classAttribute;
+        // todo: [] check if there is a faster way
 		nodeElements.each(function (node) {
-			// not so clever but lets try this;
-			// 	idea : add position to the class attribute if visible
-			var nodeId=node.id();
-			for (var i=0;i<classAtri.length;i++){
-				var jObj=classAtri[i];
-				if (jObj.id===nodeId){
+            var nodeId = node.id();
+			for (var i=0;i<classAttribute.length;i++){
+                var jObj = classAttribute[i];
+				if (jObj.id === nodeId){
 					// store relative positions	
-					jObj.pos=[node.x, node.y];
-					break; // if we found it this id will never be found again ... 
+					jObj.pos = [ node.x, node.y ];
+					break;
 				}
 			}				
 		});
-		var propAtri=jsObj.propertyAttribute;
+
+		var propAttribute = jsonObj.propertyAttribute;
+        // todo: [] check if there is a faster way
 		for (var j=0;j<propElements.length;j++){
-			// not so clever but lets try this;
-			// 	idea : add position to the class attribute if visible
 			var correspondingProp=propElements[j].property();
-			console.log("Found additional property "+correspondingProp.id() +"positions"+" "+propElements[j].x+" "+propElements[j].y );
-			for (var i=0;i<propAtri.length;i++){
-				jObj=propAtri[i];
-				if (jObj.id===correspondingProp.id()){
-					// store relative positions
-					xval=propElements[j].x;
-					yval=propElements[j].y;
-					console.log("setting positions");
-					jObj.pos=[xval,yval];
-					break; // if we found it this id will never be found again ... 
+			for (var i=0;i<propAttribute.length;i++){
+				var jObj = propAttribute[i];
+				if (jObj.id === correspondingProp.id()){
+					jObj.pos = [ propElements[j].x, propElements[j].y ];
+					break;
 				}
 			}
 		}
-	
-		console.log("Donexs");
-//		// make a string again;
-		var exportText=JSON.stringify(jsObj,null,'  ');
+
+		/**  Adding pinned flag to nodes and properties  **/
+		var pinnedElements=graph.options().pickAndPinModule().getPinnedElements();
+		console.log("Number of Pinned Elements",pinnedElements.length);
+
+		for (var i=0;i<pinnedElements.length;i++){
+			var pE=pinnedElements[i];
+			if (pE.domain){ /** property branch **/
+				// pinned element is a property, find its id
+				console.log("Pinned Element is Property")
+				var elementId=pE.id();
+				 console.log("elementId " +elementId);
+
+				// find this now in the propertyAttributes;
+				for (var j=0;j<propAttribute.length;j++){
+					var jObj = propAttribute[j];
+					if (jObj.id === elementId){
+						 console.log("found corresponding entry in property Attributes");
+						 console.log(jObj.id+" <-> "+elementId);
+						jObj.pinned = true;
+						break;
+					}
+				}
+				console.log("Done property Element");
+			}else{/** class branch **/
+			    // pinned element is a class, find its id
+                console.log("Pinned Element is Class")
+				var elementId=pE.id();
+				 console.log("elementId " +elementId);
+				// find this now in the propertyAttributes;
+				for (var j=0;j<classAttribute.length;j++){
+					var jObj = classAttribute[j];
+					if (jObj.id === elementId){
+						// console.log("found corresponding entry in class Attributes");
+						// console.log(jObj.id+" <-> "+elementId);
+						jObj.pinned = true;
+						break;
+					}
+				}
+				 console.log("Done Class Element");
+			}
+			// console.log("Iteration :" +i+"/"+pinnedElements.length);
+		}
+
+
+
+
+		// todo: [] find the ordering in the jsnon file.
+        // todo: [x] store options settings
+
+
+		//create the variable for settings
+        jsonObj.settings={};
+
+        // Global Settings
+        var zoom=graph.scaleFactor();
+        var paused=graph.paused();
+		var translation=graph.translation();
+        jsonObj.settings.global={};
+        jsonObj.settings.global.zoom=zoom;
+		jsonObj.settings.global.translation=translation;
+		jsonObj.settings.global.paused=paused;
+
+
+
+        // Gravity Settings
+        var classDistance=graph.options().classDistance();
+        var datatypeDistance=graph.options().datatypeDistance();
+        jsonObj.settings.gravity={};
+        jsonObj.settings.gravity.classDistance=classDistance;
+        jsonObj.settings.gravity.datatypeDistance=datatypeDistance;
+
+
+        // Filter Settings
+        var fMenu = graph.options().filterMenu();
+        var container=fMenu.getCheckBoxContainer();
+        var cbCont=[];
+        for (var q=0;q<container.length;q++){
+            var cb_text   = container[q].checkbox.attr("id");
+            var isEnabled = container[q].checkbox.property("checked");
+            var aBox={};
+            aBox.id=cb_text;
+            aBox.checked=isEnabled;
+            cbCont.push(aBox);
+        }
+        var degreeSliderVal=fMenu.getDegreeSliderValue();
+        jsonObj.settings.filter={};
+        jsonObj.settings.filter.checkBox=cbCont;
+        jsonObj.settings.filter.degreeSliderValue=degreeSliderVal;
+
+
+        // Modes Settings
+        var mMenu=graph.options().modeMenu();
+        var cb_container=mMenu.getCheckBoxContainer();
+
+        var cb_modes=[];
+        for (var q=0;q<cb_container.length;q++){
+            var cb_text   = cb_container[q].attr("id");
+            var isEnabled = cb_container[q].property("checked");
+            var aBox={};
+            aBox.id=cb_text;
+            aBox.checked=isEnabled;
+            cb_modes.push(aBox);
+        }
+        var colorSwitchState=mMenu.colorModeState();
+        jsonObj.settings.modes={};
+        jsonObj.settings.modes.checkBox=cb_modes;
+        jsonObj.settings.modes.colorSwitchState=colorSwitchState;
+
+		var exportObj={};
+
+        // todo: [ ] find better way for ordering the objects
+        // //get list of property names;
+        //  for (var name in jsonObj ){
+        //      console.log("Contains Name:"+ name);
+        //  }
+
+        // hack for ordering of objects, so settings is after metrics
+        exportObj._comment          = jsonObj._comment;
+        exportObj.header            = jsonObj.header;
+        exportObj.namespace         = jsonObj.namespace;
+        exportObj.metrics           = jsonObj.metrics;
+        exportObj.settings          = jsonObj.settings;
+        exportObj.class             = jsonObj.class;
+        exportObj.classAttribute    = jsonObj.classAttribute;
+        exportObj.property          = jsonObj.property;
+        exportObj.propertyAttribute = jsonObj.propertyAttribute;
+
+
+
+        // // make a string again;
+		var exportText=JSON.stringify(exportObj,null,'  ');
 		// write the data
 		var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(exportText);
 		exportJsonButton2.attr("href", dataURI)

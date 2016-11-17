@@ -26,6 +26,12 @@ module.exports = function (graph) {
 		updatePauseButton();
 	};
 
+	pauseMenu.setPauseValue=function (value){
+		pauseButton.datum().paused = value;
+		graph.paused(value);
+		updatePauseButton();
+	}
+
 	function updatePauseButton() {
 		updatePauseButtonClass();
 		updatePauseButtonText();

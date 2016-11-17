@@ -4,6 +4,7 @@ var equivalentPropertyMerger = require("./parsing/equivalentPropertyMerger")();
 var nodePrototypeMap = require("./elements/nodes/nodeMap")();
 var propertyPrototypeMap = require("./elements/properties/propertyMap")();
 
+
 /**
  * Encapsulates the parsing and preparation logic of the input data.
  * @param graph the graph object that will be passed to the elements
@@ -14,8 +15,108 @@ module.exports = function (graph) {
 		nodes,
 		properties,
 		classMap,
-		positions=[],
+		settingsData,
 		propertyMap;
+
+
+	/**
+	 * Parses the webvowl settings
+     * @param settings stored in the json file
+	 */
+	parser.parseSettings= function() {
+		if (!settingsData) return;
+
+
+        /** global settings **********************************************************/
+		if (settingsData.global) {
+			if (settingsData.global.zoom) {
+				var zoomFactor = settingsData.global.zoom;
+				graph.setZoom(zoomFactor);
+			}
+
+			if (settingsData.global.translation) {
+				var translation= settingsData.global.translation;
+				graph.setTranslation(translation);
+			}
+
+			if (settingsData.global.paused){
+				var paused = settingsData.global.paused;
+				graph.options().pausedMenu().setPauseValue(paused);
+			}
+		}
+	    /** Gravity Settings  **********************************************************/
+	    if (settingsData.gravity){
+			if (settingsData.gravity.classDistance){
+				var classDistance = settingsData.gravity.classDistance;
+				graph.options().classDistance(classDistance);
+			}
+			if (settingsData.gravity.datatypeDistance){
+				var datatypeDistance = settingsData.gravity.datatypeDistance;
+				graph.options().datatypeDistance(datatypeDistance);
+			}
+			graph.options().gravityMenu().reset(); // reads the options values and sets the gui values
+		}
+
+
+        /** Filter Settings **********************************************************/
+		if (settingsData.filter) {
+			// checkbox settings
+			if (settingsData.filter.checkBox){
+				var checkBoxes = settingsData.filter.checkBox;
+				for (var i = 0; i < checkBoxes.length; i++) {
+					var id=checkBoxes[i].id;
+					var checked=checkBoxes[i].checked;
+					graph.options().filterMenu().setCheckBoxValue(id, checked);
+				}
+			}
+			// node degree filter settings
+			if (settingsData.filter.degreeSliderValue){
+				var degreeSliderValue=settingsData.filter.degreeSliderValue;
+				graph.options().filterMenu().setDegreeSliderValue(degreeSliderValue);
+			}
+			graph.options().filterMenu().updateSettings();
+		}
+
+		if (settingsData.filter) {
+			// checkbox settings
+			if (settingsData.filter.checkBox){
+				var checkBoxes = settingsData.filter.checkBox;
+				for (var i = 0; i < checkBoxes.length; i++) {
+					var id=checkBoxes[i].id;
+					var checked=checkBoxes[i].checked;
+					graph.options().filterMenu().setCheckBoxValue(id, checked);
+				}
+			}
+			// node degree filter settings
+			if (settingsData.filter.degreeSliderValue){
+				var degreeSliderValue=settingsData.filter.degreeSliderValue;
+				graph.options().filterMenu().setDegreeSliderValue(degreeSliderValue);
+			}
+			graph.options().filterMenu().updateSettings();
+		}
+
+		/** Modes Setting **********************************************************/
+		if (settingsData.modes) {
+			// checkbox settings
+			if (settingsData.modes.checkBox){
+				var checkBoxes = settingsData.modes.checkBox;
+				for (var i = 0; i < checkBoxes.length; i++) {
+					var id=checkBoxes[i].id;
+					var checked=checkBoxes[i].checked;
+					graph.options().modeMenu().setCheckBoxValue(id, checked);
+				}
+			}
+			// color switch settings
+			var state =settingsData.modes.colorSwitchState;
+			// state could be undefined
+			if (state==true || state == false) {
+				graph.options().modeMenu().setColorSwitchState(state);
+			}
+			graph.options().modeMenu().updateSettings();
+		}
+        graph.updateStyle(); // updates graph representation(setting charges and distances)
+    };
+
 
 	/**
 	 * Parses the ontology data and preprocesses it (e.g. connecting inverse properties and so on).
@@ -27,8 +128,10 @@ module.exports = function (graph) {
 			properties = [];
 			return;
 		}
-		
-		
+
+		if (ontologyData.settings)
+			settingsData=ontologyData.settings;
+
 		var classes = combineClasses(ontologyData.class, ontologyData.classAttribute),
 			datatypes = combineClasses(ontologyData.datatype, ontologyData.datatypeAttribute),
 			combinedClassesAndDatatypes = classes.concat(datatypes),
@@ -52,20 +155,6 @@ module.exports = function (graph) {
 
 		nodes = createNodeStructure(combinedClassesAndDatatypes, classMap);
 		properties = createPropertyStructure(combinedProperties, classMap, propertyMap);
-		console.log("number of Nodes:"+nodes.length)
-		console.log("number of Properties:"+properties.length)
-		
-// test output vars;
-		/*
-		console.log("Classes"+classes);
-		console.log("datatypes"+datatypes);
-		console.log("combinedClassesAndDatatypes"+combinedClassesAndDatatypes);
-		console.log("unparsedProperties"+unparsedProperties);
-		console.log("combinedProperties"+combinedProperties);
-		console.log("properties"+properties);
-		*/
-		
-		
 	};
 
 	/**
@@ -74,33 +163,6 @@ module.exports = function (graph) {
 	parser.nodes = function () {
 		return nodes;
 	};
-
-	/**
-	 * @returns an array of node positions that are imported from the text file
-	 * positions stores a position that is defined by id and x and y position
-	 */
-	parser.importedNodePositions = function () {
-		
-		for (var i=0; i<nodes.length;i++){
-			var node=nodes[i];
-			if (node.x && node.y){
-				var apos={id:node.id,px:node.x,py:node.y};
-				positions.push(apos);
-			}
-		}
-		return positions;
-	};
-	parser.importedPropertyPositions = function () {
-		for (var i=0; i<properties.length;i++){
-			var property=properties[i];
-			if (property.x && property.y){
-				var apos={id:property.id,x:property.x,y:property.y};
-				positions.push(apos);
-			}
-		}
-		return positions;
-	};
-
 	/**
 	 * @returns {Array} the preprocessed properties
 	 */

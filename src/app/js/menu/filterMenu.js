@@ -22,6 +22,13 @@ module.exports = function (graph) {
 	 * @param setOperatorFilter filter for all set operators with properties
 	 * @param nodeDegreeFilter filters nodes by their degree
 	 */
+	filterMenu.getCheckBoxContainer=function(){
+		return checkboxData;
+	}
+    filterMenu.getDegreeSliderValue=function (){
+      var val=degreeSlider.property("value");
+      return val;
+    }
 	filterMenu.setup = function (datatypeFilter, objectPropertyFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
 		menuElement.on("mouseleave", function () {filterMenu.highlightForDegreeSlider(false);});
 
@@ -144,6 +151,38 @@ module.exports = function (graph) {
 		nodeDegreeContainer.classed("highlighted", enable);
 	};
 
-	
+
+	// setting manually the values of the filter
+	// no update of the gui settings, these are updated in updateSettings
+	filterMenu.setCheckBoxValue = function (id, checked) {
+		for (var i=0;i<checkboxData.length;i++){
+			var cbdId=checkboxData[i].checkbox.attr("id");
+			if (cbdId === id ){
+				checkboxData[i].checkbox.property("checked", checked);
+				break;
+			}
+		}
+	};
+
+	filterMenu.setDegreeSliderValue=function (val){
+		setSliderValue(degreeSlider,val);
+        degreeSlider.property("value", val)
+	};
+
+	filterMenu.updateSettings=function(){
+		checkboxData.forEach(function (checkboxData) {
+			var checkbox = checkboxData.checkbox;
+			checkbox.on("click")();
+		});
+		// highlight the filter if different from default setting== 0 ;
+
+		degreeSlider.on("input")();
+		degreeSlider.on("change")();var sliderValue=degreeSlider.property("value");
+		if (sliderValue>0){
+			filterMenu.highlightForDegreeSlider(true);
+		}
+
+
+	};
 	return filterMenu;
 };

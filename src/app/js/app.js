@@ -56,6 +56,13 @@ module.exports = function () {
 		ontologyMenu.setup(loadOntologyFromText);
 		resetMenu.setup([gravityMenu, filterMenu, modeMenu, focuser, selectionDetailDisplayer, pauseMenu]);
 
+		// give the options the pointer to the some menus for import and export
+		options.filterMenu(filterMenu);
+		options.modeMenu(modeMenu);
+		options.gravityMenu(gravityMenu);
+		options.pausedMenu(pauseMenu);
+		options.pickAndPinModule(pickAndPin);
+
 		graph.start();
 		adjustSize();
 	};
@@ -83,10 +90,8 @@ module.exports = function () {
 		exportMenu.setJsonText(jsonText);
 
 		options.data(data);
-		console.log("calling initFunc from app.js");
 		graph.initFunc();
 		sidebar.updateOntologyInformation(data, statistics);
-
 		exportMenu.setFilename(filename);
 	}
 
