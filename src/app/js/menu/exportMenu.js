@@ -201,6 +201,14 @@ module.exports = function (graph) {
         jsonObj._comment=comment+" [ Additional Information added by WebVOWL Exporter Version:"+"@@WEBVOWL_VERSION"+ "]";
 
 		var classAttribute=jsonObj.classAttribute;
+		// clear the attributes of the old one
+		for (var i=0;i<classAttribute.length;i++) {
+			var jObj = classAttribute[i];
+			delete jObj.pos;
+			delete jObj.pinned;
+		}
+
+
         // todo: [] check if there is a faster way
 		nodeElements.each(function (node) {
             var nodeId = node.id();
@@ -209,12 +217,19 @@ module.exports = function (graph) {
 				if (jObj.id === nodeId){
 					// store relative positions	
 					jObj.pos = [ node.x, node.y ];
+					if (node.pinned())
+						jObj.pinned = true;
 					break;
 				}
 			}				
 		});
 
 		var propAttribute = jsonObj.propertyAttribute;
+		for (var i=0;i<propAttribute.length;i++) {
+			var jObj = propAttribute[i];
+			delete jObj.pos;
+			delete jObj.pinned;
+		}
         // todo: [] check if there is a faster way
 		for (var j=0;j<propElements.length;j++){
 			var correspondingProp=propElements[j].property();
@@ -222,60 +237,12 @@ module.exports = function (graph) {
 				var jObj = propAttribute[i];
 				if (jObj.id === correspondingProp.id()){
 					jObj.pos = [ propElements[j].x, propElements[j].y ];
+					if (propElements[j].pinned())
+						jObj.pinned = true;
 					break;
 				}
 			}
 		}
-
-		/**  Adding pinned flag to nodes and properties  **/
-		var pinnedElements=graph.options().pickAndPinModule().getPinnedElements();
-		console.log("Number of Pinned Elements",pinnedElements.length);
-
-		for (var i=0;i<pinnedElements.length;i++){
-			var pE=pinnedElements[i];
-			if (pE.domain){ /** property branch **/
-				// pinned element is a property, find its id
-				console.log("Pinned Element is Property")
-				var elementId=pE.id();
-				 console.log("elementId " +elementId);
-
-				// find this now in the propertyAttributes;
-				for (var j=0;j<propAttribute.length;j++){
-					var jObj = propAttribute[j];
-					if (jObj.id === elementId){
-						 console.log("found corresponding entry in property Attributes");
-						 console.log(jObj.id+" <-> "+elementId);
-						jObj.pinned = true;
-						break;
-					}
-				}
-				console.log("Done property Element");
-			}else{/** class branch **/
-			    // pinned element is a class, find its id
-                console.log("Pinned Element is Class")
-				var elementId=pE.id();
-				 console.log("elementId " +elementId);
-				// find this now in the propertyAttributes;
-				for (var j=0;j<classAttribute.length;j++){
-					var jObj = classAttribute[j];
-					if (jObj.id === elementId){
-						// console.log("found corresponding entry in class Attributes");
-						// console.log(jObj.id+" <-> "+elementId);
-						jObj.pinned = true;
-						break;
-					}
-				}
-				 console.log("Done Class Element");
-			}
-			// console.log("Iteration :" +i+"/"+pinnedElements.length);
-		}
-
-
-
-
-		// todo: [] find the ordering in the jsnon file.
-        // todo: [x] store options settings
-
 
 		//create the variable for settings
         jsonObj.settings={};
@@ -288,7 +255,6 @@ module.exports = function (graph) {
         jsonObj.settings.global.zoom=zoom;
 		jsonObj.settings.global.translation=translation;
 		jsonObj.settings.global.paused=paused;
-
 
 
         // Gravity Settings
@@ -336,13 +302,7 @@ module.exports = function (graph) {
         jsonObj.settings.modes.colorSwitchState=colorSwitchState;
 
 		var exportObj={};
-
         // todo: [ ] find better way for ordering the objects
-        // //get list of property names;
-        //  for (var name in jsonObj ){
-        //      console.log("Contains Name:"+ name);
-        //  }
-
         // hack for ordering of objects, so settings is after metrics
         exportObj._comment          = jsonObj._comment;
         exportObj.header            = jsonObj.header;
@@ -356,7 +316,7 @@ module.exports = function (graph) {
 
 
 
-        // // make a string again;
+        // make a string again;
 		var exportText=JSON.stringify(exportObj,null,'  ');
 		// write the data
 		var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(exportText);

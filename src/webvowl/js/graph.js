@@ -43,6 +43,8 @@ module.exports = function (graphContainerSelector) {
 		dragBehaviour,
         zoomFactor,
 		graphTranslation,
+		graphUpdateRequired=false,
+		debupdate=1,
 		zoom;
 	/**
 	 * Recalculates the positions of nodes, links, ... and updates them.
@@ -169,21 +171,21 @@ module.exports = function (graphContainerSelector) {
 	};
 
 	graph.initFunc=function(){
-        this.reload();
-        force.stop();
+		force.stop();
+		loadGraphData();
+		refreshGraphData();
+		// todo: [] check if there is a faster way
         for (var i=0;i<labelNodes.length;i++) {
-            var label=labelNodes[i];
+			var label = labelNodes[i];
             if (label.property().x && label.property().y){
-                // set the read position to the label;
-                label.x=label.property().x;
+         		label.x=label.property().x;
                 label.y=label.property().y;
-
-                // also set the prev position of the label
-                label.px=label.x;
-                label.py=label.y;
+        		// also set the prev position of the label
+        		label.px=label.x;
+        		label.py=label.y;
             }
         }
-        force.start();
+		graph.update()
     }
 	
 
@@ -195,6 +197,9 @@ module.exports = function (graphContainerSelector) {
 		refreshGraphStyle();
 		force.start();
 		redrawContent();
+		console.log("updateCalled " +debupdate);
+		debupdate++;
+
 	};
 
 	graph.paused = function (p) {
@@ -391,14 +396,16 @@ module.exports = function (graphContainerSelector) {
 			nodes: parser.nodes(),
 			properties: parser.properties()
 		};
-		// Initialize filters with data to replicate consecutive filtering
+
 		var initializationData = _.clone(unfilteredData);
 		options.filterModules().forEach(function (module) {
 			initializationData = filterFunction(module, initializationData, true);
 		});
 
-		// the settings need to be parsed after the initialization of the modules.
-        parser.parseSettings();
+		 parser.parseSettings();
+		 graphUpdateRequired=parser.settingsImported();
+
+
 	}
 
 	/**
@@ -482,6 +489,8 @@ module.exports = function (graphContainerSelector) {
 				if (oldNode.equals(labelNode)) {
 					labelNode.x = oldNode.x;
 					labelNode.y = oldNode.y;
+					labelNode.px = oldNode.px;
+					labelNode.py = oldNode.py;
 					break;
 				}
 			}

@@ -17,15 +17,15 @@ module.exports = function (graph) {
 		if (!arguments.length) return colorModeSwitch.datum().active;
 		colorModeSwitch.datum().active = s;
 		return modeMenu;
-	}
+	};
 
 	modeMenu.getCheckBoxContainer=function(){
 		return checkboxes;
-	}
+	};
 
 	modeMenu.colorModeSwitch=function(){
 		return colorModeSwitch;
-	}
+	};
 
 	/**
 	 * Connects the website with the available graph modes.
@@ -60,8 +60,15 @@ module.exports = function (graph) {
 		moduleCheckbox.on("click", function (d) {
 			var isEnabled = moduleCheckbox.property("checked");
 			d.module.enabled(isEnabled);
-
 			if (updateGraphOnClick) {
+				graph.update();
+			}
+		});
+
+		moduleCheckbox.on("click", function (d,silent) {
+			var isEnabled = moduleCheckbox.property("checked");
+			d.module.enabled(isEnabled);
+			if (updateGraphOnClick && !silent) {
 				graph.update();
 			}
 		});
@@ -83,6 +90,16 @@ module.exports = function (graph) {
 			applyColorModeSwitchState(button, colorExternalsMode);
 
 			if (colorExternalsMode.enabled()) {
+				graph.update();
+			}
+		});
+
+		button.on("click", function (silent) {
+			var data = button.datum();
+			data.active = !data.active;
+			applyColorModeSwitchState(button, colorExternalsMode);
+
+			if (!silent) {
 				graph.update();
 			}
 		});
@@ -144,16 +161,16 @@ module.exports = function (graph) {
 	modeMenu.setColorSwitchState= function (state) {
 		// todo [] this works but find a better way
 		// need the !state because we simulate later a click
-		//console.log("Color switch want to set to "+!state)
 		modeMenu.colorModeState(!state);
 	};
 
 	modeMenu.updateSettings=function(){
+		var silent=true;
 		checkboxes.forEach(function (checkbox) {
-			checkbox.on("click")(checkbox.datum());
+			checkbox.on("click")(checkbox.datum(),silent);
 		});
 		// this simulates onclick and inverts the state
-		colorModeSwitch.on("click")();
+		colorModeSwitch.on("click")(silent);
 	};
 	return modeMenu;
 };

@@ -16,6 +16,7 @@ module.exports = function (graph) {
 		properties,
 		classMap,
 		settingsData,
+		settingsImported=false,
 		propertyMap;
 
 
@@ -23,8 +24,15 @@ module.exports = function (graph) {
 	 * Parses the webvowl settings
      * @param settings stored in the json file
 	 */
+	parser.settingsImported=function (){
+		return settingsImported;
+	}
 	parser.parseSettings= function() {
+		settingsImported=false;
 		if (!settingsData) return;
+
+		console.log("parsing settings")
+		settingsImported=true;
 
 
         /** global settings **********************************************************/
@@ -77,24 +85,6 @@ module.exports = function (graph) {
 			graph.options().filterMenu().updateSettings();
 		}
 
-		if (settingsData.filter) {
-			// checkbox settings
-			if (settingsData.filter.checkBox){
-				var checkBoxes = settingsData.filter.checkBox;
-				for (var i = 0; i < checkBoxes.length; i++) {
-					var id=checkBoxes[i].id;
-					var checked=checkBoxes[i].checked;
-					graph.options().filterMenu().setCheckBoxValue(id, checked);
-				}
-			}
-			// node degree filter settings
-			if (settingsData.filter.degreeSliderValue){
-				var degreeSliderValue=settingsData.filter.degreeSliderValue;
-				graph.options().filterMenu().setDegreeSliderValue(degreeSliderValue);
-			}
-			graph.options().filterMenu().updateSettings();
-		}
-
 		/** Modes Setting **********************************************************/
 		if (settingsData.modes) {
 			// checkbox settings
@@ -129,8 +119,8 @@ module.exports = function (graph) {
 			return;
 		}
 
-		if (ontologyData.settings)
-			settingsData=ontologyData.settings;
+		if (ontologyData.settings) settingsData=ontologyData.settings;
+		else settingsData=undefined;
 
 		var classes = combineClasses(ontologyData.class, ontologyData.classAttribute),
 			datatypes = combineClasses(ontologyData.datatype, ontologyData.datatypeAttribute),
@@ -217,6 +207,15 @@ module.exports = function (graph) {
 					if (element.pos){
 						node.x=element.pos[0];
 						node.y=element.pos[1];
+						node.px=node.x;
+						node.py=node.y;
+					}
+					//class element pin
+					var elementPinned=element.pinned
+					if (elementPinned==true){
+						node.pinned(true);
+						//console.log("pinned node "+node.id());
+						graph.options().pickAndPinModule().addPinnedElement(node);
 					}
 					// Create node objects for all individuals
 					if (element.individuals) {
@@ -292,7 +291,15 @@ module.exports = function (graph) {
 					if (element.pos){
                         property.x=element.pos[0];
                         property.y=element.pos[1];
+						property.px=element.pos[0];
+						property.py=element.pos[1];
 					}
+					var elementPinned=element.pinned
+					if (elementPinned==true){
+						property.pinned(true);
+					 	graph.options().pickAndPinModule().addPinnedElement(property);
+					}
+
 
 					if (element.attributes) {
 						var deduplicatedAttributes = d3.set(element.attributes.concat(property.attributes()));

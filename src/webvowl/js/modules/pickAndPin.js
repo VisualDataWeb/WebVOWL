@@ -9,6 +9,14 @@ module.exports = function () {
 	pap.getPinnedElements=function(){
 		return pinnedElements;
 	}
+	pap.addPinnedElement=function(element){
+		// check if element is already in list
+		var indexInArray=pinnedElements.indexOf(element);
+		if (indexInArray==-1) {
+			pinnedElements.push(element);
+		}
+	}
+	
 	pap.handle = function (selection) {
 		if (!enabled) {
 			return;
@@ -28,7 +36,7 @@ module.exports = function () {
 
 		if (!selection.pinned()) {
 			selection.drawPin();
-			pinnedElements.push(selection);
+			pap.addPinnedElement(selection);
 		}
 	};
 
@@ -47,10 +55,12 @@ module.exports = function () {
 	};
 
 	pap.reset = function () {
+		console.log("calling reset Function");
 		pinnedElements.forEach(function (element) {
 			element.removePin();
 		});
 		// Clear the array of stored nodes
+
 		pinnedElements.length = 0;
 	};
 

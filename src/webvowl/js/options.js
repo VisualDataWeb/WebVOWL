@@ -21,8 +21,14 @@ module.exports = function () {
 		modeMenu,
 		pausedMenu,
 		pickAndPinModule,
+		resetMenu,
 		scaleNodesByIndividuals = false;
 
+	options.resetMenu=function (m){
+		if (!arguments.length) return resetMenu;
+		resetMenu=m;
+		return options;
+	};
 
 	options.pausedMenu = function (m){
 		if (!arguments.length) return pausedMenu;

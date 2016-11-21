@@ -62,6 +62,8 @@ module.exports = function () {
 		options.gravityMenu(gravityMenu);
 		options.pausedMenu(pauseMenu);
 		options.pickAndPinModule(pickAndPin);
+		options.resetMenu(resetMenu);
+
 
 		graph.start();
 		adjustSize();
@@ -88,7 +90,6 @@ module.exports = function () {
 		}
 
 		exportMenu.setJsonText(jsonText);
-
 		options.data(data);
 		graph.initFunc();
 		sidebar.updateOntologyInformation(data, statistics);

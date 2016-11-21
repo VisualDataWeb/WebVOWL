@@ -67,6 +67,22 @@ module.exports = function (graph) {
 			filter.enabled(isEnabled);
 			graph.update();
 		});
+		/** creating a silent update function
+		 *  enables the filter without invoking a graph update
+		 *  used for setting the webvowl settings without invoking unnecessary updates
+		 * **/
+
+
+		filterCheckbox.on("click", function (silent) {
+			// There might be no parameters passed because of a manual
+			// invocation when resetting the filters
+
+			var isEnabled = filterCheckbox.property("checked");
+			filter.enabled(isEnabled);
+
+			if (!silent)
+				graph.update();
+		});
 
 		filterContainer.append("label")
 			.attr("for", identifier + "FilterCheckbox")
@@ -110,7 +126,13 @@ module.exports = function (graph) {
 			.text(0);
 
 		degreeSlider.on("change", function () {
+			console.log("degreeSlider changed "+degreeSlider.property("value"));
 			graph.update();
+		});
+		degreeSlider.on("change", function (silent) {
+			if (!silent) {
+				graph.update();
+			}
 		});
 
 		degreeSlider.on("input", function () {
@@ -165,23 +187,22 @@ module.exports = function (graph) {
 	};
 
 	filterMenu.setDegreeSliderValue=function (val){
-		setSliderValue(degreeSlider,val);
         degreeSlider.property("value", val)
 	};
 
 	filterMenu.updateSettings=function(){
-		checkboxData.forEach(function (checkboxData) {
-			var checkbox = checkboxData.checkbox;
-			checkbox.on("click")();
-		});
-		// highlight the filter if different from default setting== 0 ;
-
-		degreeSlider.on("input")();
-		degreeSlider.on("change")();var sliderValue=degreeSlider.property("value");
+		var silent=true;
+		var sliderValue=degreeSlider.property("value");
 		if (sliderValue>0){
 			filterMenu.highlightForDegreeSlider(true);
 		}
+		checkboxData.forEach(function (checkboxData) {
+			var checkbox = checkboxData.checkbox;
 
+			checkbox.on("click")(silent);
+		});
+		degreeSlider.on("input")();
+		degreeSlider.on("change")(silent);
 
 	};
 	return filterMenu;
