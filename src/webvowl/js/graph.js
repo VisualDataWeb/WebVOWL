@@ -79,6 +79,16 @@ module.exports = function (graphContainerSelector) {
 
 			return curveFunction([pathStart, curvePoint, pathEnd]);
 		});
+
+		// Set cardinality positions
+		cardinalityElements.attr("transform", function (property) {
+			var label = property.link().label(),
+				pos = math.calculateIntersection(label, property.range(), CARDINALITY_HDISTANCE),
+				normalV = math.calculateNormalVector(label, property.domain(), CARDINALITY_VDISTANCE);
+
+			return "translate(" + (pos.x + normalV.x) + "," + (pos.y + normalV.y) + ")";
+		});
+
 	}
 
 	/**
