@@ -29,6 +29,10 @@ module.exports = function (graph) {
 	pauseMenu.setPauseValue=function (value){
 		pauseButton.datum().paused = value;
 		graph.paused(value);
+		if (value)
+			// todo [] fix rehighlighting
+			pauseButton.classed("highlighted", value);
+
 		updatePauseButton();
 	}
 
