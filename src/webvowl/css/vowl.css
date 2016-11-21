@@ -56,11 +56,11 @@ marker path {
     fill: #fff;
 }
 .class.hovered, .property.hovered, .cardinality.hovered, .cardinality.focused, circle.pin, .filled.hovered, .filled.focused, .values-from.filled.hovered {
-    fill: #f00;
+    fill: #f00 !important;
     cursor: pointer;
 }
 .focused, path.hovered {
-	stroke: #f00;
+	stroke: #f00 !important;
 }
 .indirect-highlighting, .feature:hover {
     fill: #f90;

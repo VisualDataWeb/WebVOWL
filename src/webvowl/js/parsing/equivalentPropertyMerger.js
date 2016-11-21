@@ -35,7 +35,7 @@ equivalentPropertyMerger.merge = function (properties, nodes, propertyMap, nodeM
 
 		var nodeIdsToHide = replaceRangesAndCollectNodesToHide(propertyWithEquivalents, mergeNode, properties,
 			processedPropertyIds);
-		for (var j = 0; j < nodeIdsToHide; j++) {
+		for (var j = 0; j < nodeIdsToHide.length; j++) {
 			totalNodeIdsToHide.add(nodeIdsToHide[j]);
 		}
 	}
