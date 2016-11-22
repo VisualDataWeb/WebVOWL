@@ -15,12 +15,17 @@ module.exports = (function () {
 		this.setHoverHighlighting = function (enable) {
 			superHoverHighlightingFunction(enable);
 
-			// Highlight connected links when hovering the set operator
-			that.links().forEach(function (link) {
-				if (link instanceof BoxArrowLink) {
+			// Highlight links pointing to included nodes when hovering the set operator
+			that.links()
+				.filter(function (link) {
+					return link instanceof BoxArrowLink;
+				})
+				.filter(function (link) {
+					return link.domain().equals(that);
+				})
+				.forEach(function (link) {
 					link.property().setHighlighting(enable);
-				}
-			});
+				});
 		};
 
 		this.draw = function (element) {
