@@ -12,10 +12,6 @@ module.exports = function (graph) {
 		untouchedOptions = webvowl.options();
 
 
-	resetMenu.resetManually=function(){
-		console.log("resetting manually the default settings");
-		resetGraph();
-	}
 	/**
 	 * Adds the reset button to the website.
 	 * @param _resettableModules modules that can be resetted

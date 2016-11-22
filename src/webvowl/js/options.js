@@ -24,41 +24,41 @@ module.exports = function () {
 		resetMenu,
 		scaleNodesByIndividuals = false;
 
-	options.resetMenu=function (m){
+	options.resetMenu = function (m) {
 		if (!arguments.length) return resetMenu;
-		resetMenu=m;
+		resetMenu = m;
 		return options;
 	};
 
-	options.pausedMenu = function (m){
+	options.pausedMenu = function (m) {
 		if (!arguments.length) return pausedMenu;
-		pausedMenu=m;
+		pausedMenu = m;
 		return options;
 
 	};
 
-	options.pickAndPinModule=function (m){
+	options.pickAndPinModule = function (m) {
 		if (!arguments.length) return pickAndPinModule;
-		pickAndPinModule=m;
+		pickAndPinModule = m;
 		return options;
 	}
 
-	options.gravityMenu = function (m){
+	options.gravityMenu = function (m) {
 		if (!arguments.length) return gravityMenu;
-		gravityMenu=m;
+		gravityMenu = m;
 		return options;
 
 	};
 
-	options.filterMenu = function (m){
+	options.filterMenu = function (m) {
 		if (!arguments.length) return filterMenu;
-		filterMenu=m;
+		filterMenu = m;
 		return options;
 	};
 
-	options.modeMenu = function (m){
+	options.modeMenu = function (m) {
 		if (!arguments.length) return modeMenu;
-		modeMenu=m;
+		modeMenu = m;
 		return options;
 	};
 

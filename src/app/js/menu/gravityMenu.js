@@ -83,8 +83,5 @@ module.exports = function (graph) {
 	};
 
 
-
-
-
 	return gravityMenu;
 };

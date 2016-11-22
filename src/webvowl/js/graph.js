@@ -38,34 +38,36 @@ module.exports = function (graphContainerSelector) {
 		links,
 		properties,
 		unfilteredData,
-	// Graph behaviour
+		// Graph behaviour
 		force,
 		dragBehaviour,
-        zoomFactor,
+		zoomFactor,
 		graphTranslation,
-		graphUpdateRequired=false,
-		debupdate=1,
+		graphUpdateRequired = false,
 		zoom;
+
 	/**
 	 * Recalculates the positions of nodes, links, ... and updates them.
 	 */
 	function recalculatePositions() {
+		// Set node positions
 		nodeElements.attr("transform", function (node) {
 			return "translate(" + node.x + "," + node.y + ")";
 		});
 
 		// Set label group positions
 		labelGroupElements.attr("transform", function (label) {
-			 var position;
-			//force centered positions on single-layered links
-			 var link = label.link();
-			 if (link.layers().length === 1 && !link.loops()) {
-			 	var linkDomainIntersection = math.calculateIntersection(link.range(), link.domain(), 0);
-			 	var linkRangeIntersection = math.calculateIntersection(link.domain(), link.range(), 0);
-			 	position = math.calculateCenter(linkDomainIntersection, linkRangeIntersection);
-			 	label.x = position.x;
-			 	label.y = position.y;
-			 }
+			var position;
+
+			// force centered positions on single-layered links
+			var link = label.link();
+			if (link.layers().length === 1 && !link.loops()) {
+				var linkDomainIntersection = math.calculateIntersection(link.range(), link.domain(), 0);
+				var linkRangeIntersection = math.calculateIntersection(link.domain(), link.range(), 0);
+				position = math.calculateCenter(linkDomainIntersection, linkRangeIntersection);
+				label.x = position.x;
+				label.y = position.y;
+			}
 			return "translate(" + label.x + "," + label.y + ")";
 		});
 		// Set link paths and calculate additional information
@@ -96,10 +98,10 @@ module.exports = function (graphContainerSelector) {
 	 */
 	function zoomed() {
 		graphContainer.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-        // store zoom factor for export
-        zoomFactor=d3.event.scale;
-		graphTranslation=d3.event.translate;
-    }
+		// store zoom factor for export
+		zoomFactor = d3.event.scale;
+		graphTranslation = d3.event.translate;
+	}
 
 	/**
 	 * Initializes the graph.
@@ -144,19 +146,19 @@ module.exports = function (graphContainerSelector) {
 		return options;
 	};
 
-	graph.scaleFactor=function(){
+	graph.scaleFactor = function () {
 		return zoomFactor;
 	};
-	graph.translation=function (){
-		return  graphTranslation;
+	graph.translation = function () {
+		return graphTranslation;
 	};
 
 	/** Returns the visible nodes */
-	graph.graphNodeElements=function(){
+	graph.graphNodeElements = function () {
 		return nodeElements
 	};
 	/** Returns the visible Label Nodes */
-	graph.graphLabelElements=function(){
+	graph.graphLabelElements = function () {
 		return labelNodes
 	};
 
@@ -169,7 +171,7 @@ module.exports = function (graphContainerSelector) {
 		graph.update();
 	};
 
-	/**	Updates only the style of the graph. */
+	/**    Updates only the style of the graph. */
 	graph.updateStyle = function () {
 		refreshGraphStyle();
 		force.start();
@@ -180,24 +182,23 @@ module.exports = function (graphContainerSelector) {
 		this.update();
 	};
 
-	graph.initFunc=function(){
+	graph.load = function () {
 		force.stop();
 		loadGraphData();
 		refreshGraphData();
-		// todo: [] check if there is a faster way
-        for (var i=0;i<labelNodes.length;i++) {
+		for (var i = 0; i < labelNodes.length; i++) {
 			var label = labelNodes[i];
-            if (label.property().x && label.property().y){
-         		label.x=label.property().x;
-                label.y=label.property().y;
-        		// also set the prev position of the label
-        		label.px=label.x;
-        		label.py=label.y;
-            }
-        }
+			if (label.property().x && label.property().y) {
+				label.x = label.property().x;
+				label.y = label.property().y;
+				// also set the prev position of the label
+				label.px = label.x;
+				label.py = label.y;
+			}
+		}
 		graph.update()
-    }
-	
+	}
+
 
 	/**
 	 * Updates the graphs displayed data and style.
@@ -207,9 +208,6 @@ module.exports = function (graphContainerSelector) {
 		refreshGraphStyle();
 		force.start();
 		redrawContent();
-		console.log("updateCalled " +debupdate);
-		debupdate++;
-
 	};
 
 	graph.paused = function (p) {
@@ -224,12 +222,12 @@ module.exports = function (graphContainerSelector) {
 	 */
 
 	/** setting the zoom factor **/
-	graph.setZoom= function (value){
+	graph.setZoom = function (value) {
 		zoom.scale(value);
 	};
 
 	/** setting the translation factor **/
-	graph.setTranslation=function (translation){
+	graph.setTranslation = function (translation) {
 		zoom.translate([translation[0], translation[1]]);
 	};
 
@@ -302,7 +300,6 @@ module.exports = function (graphContainerSelector) {
 		labelContainer = graphContainer.append("g").classed("labelContainer", true);
 		nodeContainer = graphContainer.append("g").classed("nodeContainer", true);
 
-
 		// Add an extra container for all markers
 		markerContainer = linkContainer.append("defs");
 
@@ -316,7 +313,6 @@ module.exports = function (graphContainerSelector) {
 			})
 			.call(dragBehaviour);
 
-		
 		nodeElements.each(function (node) {
 			node.draw(d3.select(this));
 		});
@@ -381,7 +377,7 @@ module.exports = function (graphContainerSelector) {
 	}
 
 	/**
-	 * Applies click listeneres to nodes and properties.
+	 * Applies click listeners to nodes and properties.
 	 */
 	function addClickEvents() {
 		function executeModules(selectedElement) {
@@ -407,14 +403,14 @@ module.exports = function (graphContainerSelector) {
 			properties: parser.properties()
 		};
 
+		// Initialize filters with data to replicate consecutive filtering
 		var initializationData = _.clone(unfilteredData);
 		options.filterModules().forEach(function (module) {
 			initializationData = filterFunction(module, initializationData, true);
 		});
 
-		 parser.parseSettings();
-		 graphUpdateRequired=parser.settingsImported();
-
+		parser.parseSettings();
+		graphUpdateRequired = parser.settingsImported();
 
 	}
 
@@ -481,11 +477,9 @@ module.exports = function (graphContainerSelector) {
 
 		var d3Nodes = [].concat(classNodes).concat(labelNodes);
 		setPositionOfOldLabelsOnNewLabels(force.nodes(), labelNodes);
-		
+
 		force.nodes(d3Nodes)
 			.links(d3Links);
-
-		
 	}
 
 	/**
@@ -493,7 +487,7 @@ module.exports = function (graphContainerSelector) {
 	 * their position information. With this hack the position of old labels is copied to the new labels.
 	 */
 	function setPositionOfOldLabelsOnNewLabels(oldLabelNodes, labelNodes) {
-        labelNodes.forEach(function (labelNode) {
+		labelNodes.forEach(function (labelNode) {
 			for (var i = 0; i < oldLabelNodes.length; i++) {
 				var oldNode = oldLabelNodes[i];
 				if (oldNode.equals(labelNode)) {
@@ -512,19 +506,18 @@ module.exports = function (graphContainerSelector) {
 	 * Applies all options that don't change the graph data.
 	 */
 	function refreshGraphStyle() {
-
 		zoom = zoom.scaleExtent([options.minMagnification(), options.maxMagnification()]);
 		if (graphContainer) {
 			zoom.event(graphContainer);
 		}
 
 		force.charge(function (element) {
-				var charge = options.charge();
-				if (elementTools.isLabel(element)) {
-					charge *= 0.8;
-				}
-				return charge;
-			})
+			var charge = options.charge();
+			if (elementTools.isLabel(element)) {
+				charge *= 0.8;
+			}
+			return charge;
+		})
 			.size([options.width(), options.height()])
 			.linkDistance(calculateLinkPartDistance)
 			.gravity(options.gravity())

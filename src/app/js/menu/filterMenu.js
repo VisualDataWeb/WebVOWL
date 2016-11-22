@@ -13,6 +13,15 @@ module.exports = function (graph) {
 		degreeSlider;
 
 
+	/** some getter function  **/
+	filterMenu.getCheckBoxContainer = function () {
+		return checkboxData;
+	};
+
+	filterMenu.getDegreeSliderValue = function () {
+		var val = degreeSlider.property("value");
+		return val;
+	};
 	/**
 	 * Connects the website with graph filters.
 	 * @param datatypeFilter filter for all datatypes
@@ -22,15 +31,10 @@ module.exports = function (graph) {
 	 * @param setOperatorFilter filter for all set operators with properties
 	 * @param nodeDegreeFilter filters nodes by their degree
 	 */
-	filterMenu.getCheckBoxContainer=function(){
-		return checkboxData;
-	}
-    filterMenu.getDegreeSliderValue=function (){
-      var val=degreeSlider.property("value");
-      return val;
-    }
 	filterMenu.setup = function (datatypeFilter, objectPropertyFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
-		menuElement.on("mouseleave", function () {filterMenu.highlightForDegreeSlider(false);});
+		menuElement.on("mouseleave", function () {
+			filterMenu.highlightForDegreeSlider(false);
+		});
 
 		addFilterItem(datatypeFilter, "datatype", "Datatype properties", "#datatypeFilteringOption");
 		addFilterItem(objectPropertyFilter, "objectProperty", "Object properties", "#objectPropertyFilteringOption");
@@ -39,7 +43,6 @@ module.exports = function (graph) {
 		addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");
 
 		addNodeDegreeFilter(nodeDegreeFilter, nodeDegreeContainer);
-
 	};
 
 
@@ -60,28 +63,15 @@ module.exports = function (graph) {
 		// Store for easier resetting
 		checkboxData.push({checkbox: filterCheckbox, defaultState: filter.enabled()});
 
-		filterCheckbox.on("click", function () {
-			// There might be no parameters passed because of a manual
-			// invocation when resetting the filters
-			var isEnabled = filterCheckbox.property("checked");
-			filter.enabled(isEnabled);
-			graph.update();
-		});
-		/** creating a silent update function
-		 *  enables the filter without invoking a graph update
-		 *  used for setting the webvowl settings without invoking unnecessary updates
-		 * **/
-
-
 		filterCheckbox.on("click", function (silent) {
 			// There might be no parameters passed because of a manual
 			// invocation when resetting the filters
-
 			var isEnabled = filterCheckbox.property("checked");
 			filter.enabled(isEnabled);
-
-			if (!silent)
+			if (silent != true) {
+				// updating graph when silent is false or the parameter is not given.
 				graph.update();
+			}
 		});
 
 		filterContainer.append("label")
@@ -125,12 +115,8 @@ module.exports = function (graph) {
 			.attr("for", "nodeDegreeDistanceSlider")
 			.text(0);
 
-		degreeSlider.on("change", function () {
-			console.log("degreeSlider changed "+degreeSlider.property("value"));
-			graph.update();
-		});
 		degreeSlider.on("change", function (silent) {
-			if (!silent) {
+			if (silent!=true) {
 				graph.update();
 			}
 		});
@@ -160,7 +146,7 @@ module.exports = function (graph) {
 				checkbox.on("click")();
 			}
 		});
- 
+
 		setSliderValue(degreeSlider, 0);
 		degreeSlider.on("change")();
 	};
@@ -174,36 +160,39 @@ module.exports = function (graph) {
 	};
 
 
+	/** importer functions **/
 	// setting manually the values of the filter
 	// no update of the gui settings, these are updated in updateSettings
 	filterMenu.setCheckBoxValue = function (id, checked) {
-		for (var i=0;i<checkboxData.length;i++){
-			var cbdId=checkboxData[i].checkbox.attr("id");
-			if (cbdId === id ){
+		for (var i = 0; i < checkboxData.length; i++) {
+			var cbdId = checkboxData[i].checkbox.attr("id");
+			if (cbdId === id) {
 				checkboxData[i].checkbox.property("checked", checked);
 				break;
 			}
 		}
 	};
-
-	filterMenu.setDegreeSliderValue=function (val){
-        degreeSlider.property("value", val)
+	// set the value of the slider
+	filterMenu.setDegreeSliderValue = function (val) {
+		degreeSlider.property("value", val)
 	};
-
-	filterMenu.updateSettings=function(){
-		var silent=true;
-		var sliderValue=degreeSlider.property("value");
-		if (sliderValue>0){
+	// update the gui without invoking graph update (calling silent onclick function)
+	filterMenu.updateSettings = function () {
+		var silent = true;
+		var sliderValue = degreeSlider.property("value");
+		if (sliderValue > 0) {
 			filterMenu.highlightForDegreeSlider(true);
 		}
+
 		checkboxData.forEach(function (checkboxData) {
 			var checkbox = checkboxData.checkbox;
-
 			checkbox.on("click")(silent);
 		});
+
 		degreeSlider.on("input")();
 		degreeSlider.on("change")(silent);
 
 	};
+
 	return filterMenu;
 };

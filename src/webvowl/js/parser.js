@@ -4,7 +4,6 @@ var equivalentPropertyMerger = require("./parsing/equivalentPropertyMerger")();
 var nodePrototypeMap = require("./elements/nodes/nodeMap")();
 var propertyPrototypeMap = require("./elements/properties/propertyMap")();
 
-
 /**
  * Encapsulates the parsing and preparation logic of the input data.
  * @param graph the graph object that will be passed to the elements
@@ -16,26 +15,21 @@ module.exports = function (graph) {
 		properties,
 		classMap,
 		settingsData,
-		settingsImported=false,
+		settingsImported = false,
 		propertyMap;
 
-
-	/**
-	 * Parses the webvowl settings
-     * @param settings stored in the json file
-	 */
-	parser.settingsImported=function (){
+	parser.settingsImported = function () {
 		return settingsImported;
-	}
-	parser.parseSettings= function() {
-		settingsImported=false;
-		if (!settingsData) return;
+	};
 
-		console.log("parsing settings")
-		settingsImported=true;
+	parser.parseSettings = function () {
+		settingsImported = true;
 
-
-        /** global settings **********************************************************/
+		if (!settingsData) {
+			settingsImported = false;
+			return;
+		}
+		/** global settings **********************************************************/
 		if (settingsData.global) {
 			if (settingsData.global.zoom) {
 				var zoomFactor = settingsData.global.zoom;
@@ -43,22 +37,22 @@ module.exports = function (graph) {
 			}
 
 			if (settingsData.global.translation) {
-				var translation= settingsData.global.translation;
+				var translation = settingsData.global.translation;
 				graph.setTranslation(translation);
 			}
 
-			if (settingsData.global.paused){
+			if (settingsData.global.paused) {
 				var paused = settingsData.global.paused;
 				graph.options().pausedMenu().setPauseValue(paused);
 			}
 		}
-	    /** Gravity Settings  **********************************************************/
-	    if (settingsData.gravity){
-			if (settingsData.gravity.classDistance){
+		/** Gravity Settings  **********************************************************/
+		if (settingsData.gravity) {
+			if (settingsData.gravity.classDistance) {
 				var classDistance = settingsData.gravity.classDistance;
 				graph.options().classDistance(classDistance);
 			}
-			if (settingsData.gravity.datatypeDistance){
+			if (settingsData.gravity.datatypeDistance) {
 				var datatypeDistance = settingsData.gravity.datatypeDistance;
 				graph.options().datatypeDistance(datatypeDistance);
 			}
@@ -66,20 +60,25 @@ module.exports = function (graph) {
 		}
 
 
-        /** Filter Settings **********************************************************/
+		// shared variable declaration
+
+		var i;
+		var id;
+		var checked;
+		/** Filter Settings **********************************************************/
 		if (settingsData.filter) {
 			// checkbox settings
-			if (settingsData.filter.checkBox){
-				var checkBoxes = settingsData.filter.checkBox;
-				for (var i = 0; i < checkBoxes.length; i++) {
-					var id=checkBoxes[i].id;
-					var checked=checkBoxes[i].checked;
+			if (settingsData.filter.checkBox) {
+				var filter_cb = settingsData.filter.checkBox;
+				for (i = 0; i < filter_cb.length; i++) {
+					id = filter_cb[i].id;
+					checked = filter_cb[i].checked;
 					graph.options().filterMenu().setCheckBoxValue(id, checked);
 				}
 			}
 			// node degree filter settings
-			if (settingsData.filter.degreeSliderValue){
-				var degreeSliderValue=settingsData.filter.degreeSliderValue;
+			if (settingsData.filter.degreeSliderValue) {
+				var degreeSliderValue = settingsData.filter.degreeSliderValue;
 				graph.options().filterMenu().setDegreeSliderValue(degreeSliderValue);
 			}
 			graph.options().filterMenu().updateSettings();
@@ -88,24 +87,24 @@ module.exports = function (graph) {
 		/** Modes Setting **********************************************************/
 		if (settingsData.modes) {
 			// checkbox settings
-			if (settingsData.modes.checkBox){
-				var checkBoxes = settingsData.modes.checkBox;
-				for (var i = 0; i < checkBoxes.length; i++) {
-					var id=checkBoxes[i].id;
-					var checked=checkBoxes[i].checked;
+			if (settingsData.modes.checkBox) {
+				var modes_cb = settingsData.modes.checkBox;
+				for (i = 0; i < modes_cb.length; i++) {
+					id = modes_cb[i].id;
+					checked = modes_cb[i].checked;
 					graph.options().modeMenu().setCheckBoxValue(id, checked);
 				}
 			}
 			// color switch settings
-			var state =settingsData.modes.colorSwitchState;
+			var state = settingsData.modes.colorSwitchState;
 			// state could be undefined
-			if (state==true || state == false) {
+			if (state == true || state == false) {
 				graph.options().modeMenu().setColorSwitchState(state);
 			}
 			graph.options().modeMenu().updateSettings();
 		}
-        graph.updateStyle(); // updates graph representation(setting charges and distances)
-    };
+		graph.updateStyle(); // updates graph representation(setting charges and distances)
+	};
 
 
 	/**
@@ -119,8 +118,8 @@ module.exports = function (graph) {
 			return;
 		}
 
-		if (ontologyData.settings) settingsData=ontologyData.settings;
-		else settingsData=undefined;
+		if (ontologyData.settings) settingsData = ontologyData.settings;
+		else settingsData = undefined;
 
 		var classes = combineClasses(ontologyData.class, ontologyData.classAttribute),
 			datatypes = combineClasses(ontologyData.datatype, ontologyData.datatypeAttribute),
@@ -128,7 +127,6 @@ module.exports = function (graph) {
 			unparsedProperties = ontologyData.property || [],
 			combinedProperties;
 
-		
 		// Inject properties for unions, intersections, ...
 		addSetOperatorProperties(combinedClassesAndDatatypes, unparsedProperties);
 
@@ -153,6 +151,7 @@ module.exports = function (graph) {
 	parser.nodes = function () {
 		return nodes;
 	};
+
 	/**
 	 * @returns {Array} the preprocessed properties
 	 */
@@ -204,15 +203,15 @@ module.exports = function (graph) {
 						// .type(element.type) Ignore, because we predefined it
 						.union(element.union)
 						.iri(element.iri);
-					if (element.pos){
-						node.x=element.pos[0];
-						node.y=element.pos[1];
-						node.px=node.x;
-						node.py=node.y;
+					if (element.pos) {
+						node.x = element.pos[0];
+						node.y = element.pos[1];
+						node.px = node.x;
+						node.py = node.y;
 					}
 					//class element pin
-					var elementPinned=element.pinned
-					if (elementPinned==true){
+					var elementPinned = element.pinned
+					if (elementPinned == true) {
 						node.pinned(true);
 						//console.log("pinned node "+node.id());
 						graph.options().pickAndPinModule().addPinnedElement(node);
@@ -287,17 +286,17 @@ module.exports = function (graph) {
 						// .type(element.type) Ignore, because we predefined it
 						.iri(element.iri);
 
-					// adding property position 
-					if (element.pos){
-                        property.x=element.pos[0];
-                        property.y=element.pos[1];
-						property.px=element.pos[0];
-						property.py=element.pos[1];
+					// adding property position
+					if (element.pos) {
+						property.x = element.pos[0];
+						property.y = element.pos[1];
+						property.px = element.pos[0];
+						property.py = element.pos[1];
 					}
-					var elementPinned=element.pinned
-					if (elementPinned==true){
+					var elementPinned = element.pinned;
+					if (elementPinned == true) {
 						property.pinned(true);
-					 	graph.options().pickAndPinModule().addPinnedElement(property);
+						graph.options().pickAndPinModule().addPinnedElement(property);
 					}
 
 
@@ -622,7 +621,7 @@ module.exports = function (graph) {
 				eqObject.equivalents().push(element);
 				eqObject.equivalentBase(element);
 				eqIds[i] = eqObject;
-				
+
 				// Hide other equivalent nodes
 				eqObject.visible(false);
 			} else {

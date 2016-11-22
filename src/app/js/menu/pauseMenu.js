@@ -20,19 +20,17 @@ module.exports = function (graph) {
 				graph.paused(!d.paused);
 				d.paused = !d.paused;
 				updatePauseButton();
+				pauseButton.classed("highlighted", d.paused);
 			});
-
 		// Set these properties the first time manually
 		updatePauseButton();
 	};
 
-	pauseMenu.setPauseValue=function (value){
+	pauseMenu.setPauseValue = function (value) {
 		pauseButton.datum().paused = value;
 		graph.paused(value);
 		if (value)
-			// todo [] fix rehighlighting
 			pauseButton.classed("highlighted", value);
-
 		updatePauseButton();
 	}
 

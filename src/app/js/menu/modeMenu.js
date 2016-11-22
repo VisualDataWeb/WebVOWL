@@ -13,17 +13,19 @@ module.exports = function (graph) {
 		checkboxes = [],
 		colorModeSwitch;
 
-	modeMenu.colorModeState=function (s){
+	// getter and setter for the state of color modes
+	modeMenu.colorModeState = function (s) {
 		if (!arguments.length) return colorModeSwitch.datum().active;
 		colorModeSwitch.datum().active = s;
 		return modeMenu;
 	};
 
-	modeMenu.getCheckBoxContainer=function(){
+	// getter for checkboxes
+	modeMenu.getCheckBoxContainer = function () {
 		return checkboxes;
 	};
-
-	modeMenu.colorModeSwitch=function(){
+	// getter for the color switch [needed? ]
+	modeMenu.colorModeSwitch = function () {
 		return colorModeSwitch;
 	};
 
@@ -57,18 +59,10 @@ module.exports = function (graph) {
 		// Store for easier resetting all modes
 		checkboxes.push(moduleCheckbox);
 
-		moduleCheckbox.on("click", function (d) {
+		moduleCheckbox.on("click", function (d, silent) {
 			var isEnabled = moduleCheckbox.property("checked");
 			d.module.enabled(isEnabled);
-			if (updateGraphOnClick) {
-				graph.update();
-			}
-		});
-
-		moduleCheckbox.on("click", function (d,silent) {
-			var isEnabled = moduleCheckbox.property("checked");
-			d.module.enabled(isEnabled);
-			if (updateGraphOnClick && !silent) {
+			if (updateGraphOnClick && silent != true) {
 				graph.update();
 			}
 		});
@@ -84,22 +78,11 @@ module.exports = function (graph) {
 		var button = container.append("button").datum({active: false}).classed("color-mode-switch", true);
 		applyColorModeSwitchState(button, colorExternalsMode);
 
-		button.on("click", function () {
-			var data = button.datum();
-			data.active = !data.active;
-			applyColorModeSwitchState(button, colorExternalsMode);
-
-			if (colorExternalsMode.enabled()) {
-				graph.update();
-			}
-		});
-
 		button.on("click", function (silent) {
 			var data = button.datum();
 			data.active = !data.active;
 			applyColorModeSwitchState(button, colorExternalsMode);
-
-			if (!silent) {
+			if (colorExternalsMode.enabled() && silent != true) {
 				graph.update();
 			}
 		});
@@ -146,30 +129,30 @@ module.exports = function (graph) {
 		colorModeSwitch.on("click")();
 	};
 
+	/** importer functions **/
 	// setting manually the values of the filter
 	// no update of the gui settings, these are updated in updateSettings
 	modeMenu.setCheckBoxValue = function (id, checked) {
-		for (var i=0;i<checkboxes.length;i++){
-			var cbdId=checkboxes[i].attr("id");
-			if (cbdId == id ){
-			 	checkboxes[i].property("checked", checked);
+		for (var i = 0; i < checkboxes.length; i++) {
+			var cbdId = checkboxes[i].attr("id");
+			if (cbdId == id) {
+				checkboxes[i].property("checked", checked);
 				break;
 			}
 		}
 	};
 
-	modeMenu.setColorSwitchState= function (state) {
-		// todo [] this works but find a better way
+	modeMenu.setColorSwitchState = function (state) {
 		// need the !state because we simulate later a click
 		modeMenu.colorModeState(!state);
 	};
 
-	modeMenu.updateSettings=function(){
-		var silent=true;
+	modeMenu.updateSettings = function () {
+		var silent = true;
 		checkboxes.forEach(function (checkbox) {
-			checkbox.on("click")(checkbox.datum(),silent);
+			checkbox.on("click")(checkbox.datum(), silent);
 		});
-		// this simulates onclick and inverts the state
+		// this simulates onclick and inverts its state
 		colorModeSwitch.on("click")(silent);
 	};
 	return modeMenu;

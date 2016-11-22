@@ -90,9 +90,11 @@ module.exports = function () {
 		}
 
 		exportMenu.setJsonText(jsonText);
+
 		options.data(data);
-		graph.initFunc();
+		graph.load();
 		sidebar.updateOntologyInformation(data, statistics);
+
 		exportMenu.setFilename(filename);
 	}
 
