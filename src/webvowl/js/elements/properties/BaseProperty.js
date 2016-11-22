@@ -233,24 +233,26 @@ module.exports = (function () {
 		this.drawLabel = function (labelContainer) {
 			this.addRect(labelContainer);
 
+			var equivalentsString = that.equivalentsString();
+			var suffixForFollowingEquivalents = equivalentsString ? "," : "";
+
 			var textElement = new CenteringTextElement(labelContainer, this.backgroundColor());
-			textElement.addText(this.labelForCurrentLanguage());
+			textElement.addText(this.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
+			textElement.addEquivalents(equivalentsString);
 			textElement.addSubText(this.indicationString());
-			this.addEquivalentsToLabel(textElement);
 		};
 
-		this.addEquivalentsToLabel = function (textBox) {
-			if (that.equivalents()) {
-				var equivalentLabels,
-					equivalentString;
-
-				equivalentLabels = that.equivalents().map(function (property) {
-					return property.labelForCurrentLanguage();
-				});
-				equivalentString = equivalentLabels.join(", ");
-
-				textBox.addEquivalents(equivalentString);
+		this.equivalentsString = function () {
+			var equivalentProperties = that.equivalents();
+			if (!equivalentProperties) {
+				return;
 			}
+
+			return equivalentProperties
+				.map(function (property) {
+					return property.labelForCurrentLanguage();
+				})
+				.join(", ");
 		};
 
 		this.drawCardinality = function (container) {

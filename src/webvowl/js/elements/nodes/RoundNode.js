@@ -189,15 +189,15 @@ module.exports = (function () {
 
 		this.equivalentsString = function () {
 			var equivalentClasses = that.equivalents();
-			if (typeof equivalentClasses === "undefined") {
+			if (!equivalentClasses) {
 				return;
 			}
 
-			var equivalentNames = equivalentClasses.map(function (node) {
-				return node.labelForCurrentLanguage();
-			});
-
-			return equivalentNames.join(", ");
+			return equivalentClasses
+				.map(function (node) {
+					return node.labelForCurrentLanguage();
+				})
+				.join(", ");
 		};
 	};
 	o.prototype = Object.create(BaseNode.prototype);
