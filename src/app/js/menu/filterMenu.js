@@ -43,6 +43,7 @@ module.exports = function (graph) {
 		addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");
 
 		addNodeDegreeFilter(nodeDegreeFilter, nodeDegreeContainer);
+
 	};
 
 
@@ -123,19 +124,22 @@ module.exports = function (graph) {
 			}
 		});
 
-		degreeSlider.onwheel = function(e) {handleWheelEvent(e)};
 
 		degreeSlider.on("input", function () {
 			var degree = degreeSlider.property("value");
 			sliderValueLabel.text(degree);
 		});
-		degreeSlider.on("wheel", handleWheelEvent);
+
+
+		// // adding wheel events
+		// console.log(typeof degreeSlider);
+		// degreeSlider.wheel=function(e){
+		// 	console.log(e)
+		// };
+		// //degreeSlider.on("wheel",degreeSlider.wheel);
 	}
 
-	function handleWheelEvent(e) {
-		console.log("Hello Wheel "+e)
-	}
-
+	
 	function setSliderValue(slider, value) {
 		slider.property("value", value).on("input")();
 	}
