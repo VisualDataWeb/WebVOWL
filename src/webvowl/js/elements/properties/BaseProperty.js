@@ -286,11 +286,12 @@ module.exports = (function () {
 				that.labelElement().select("rect").classed("hovered", enable);
 			}
 			that.linkGroup().selectAll("path, text").classed("hovered", enable);
-			that.markerElement().select("path").classed("hovered", enable);
-			if (that.cardinalityElement()) {
-				that.cardinalityElement().classed("hovered", enable);
+			if (that.markerElement()) {
+				that.markerElement().select("path").classed("hovered", enable);
+				if (that.cardinalityElement()) {
+					that.cardinalityElement().classed("hovered", enable);
+				}
 			}
-
 			var subAndSuperProperties = getSubAndSuperProperties();
 			subAndSuperProperties.forEach(function (property) {
 				property.labelElement().select("rect")
@@ -320,10 +321,14 @@ module.exports = (function () {
 		 * Foregrounds the property, its inverse and the link.
 		 */
 		this.foreground = function () {
+			// check for additional objects that we can highlight
+			if (that.labelElement().node().parentNode==null){
+			 	return;
+			}
 			var selectedLabelGroup = that.labelElement().node().parentNode,
-				labelContainer = selectedLabelGroup.parentNode,
-				selectedLinkGroup = that.linkGroup().node(),
-				linkContainer = that.linkGroup().node().parentNode;
+			labelContainer = selectedLabelGroup.parentNode,
+			selectedLinkGroup = that.linkGroup().node(),
+			linkContainer = that.linkGroup().node().parentNode;
 
 			// Append hovered element as last child to the container list.
 			labelContainer.appendChild(selectedLabelGroup);
@@ -338,6 +343,7 @@ module.exports = (function () {
 			var subAndSuperProperties = getSubAndSuperProperties();
 
 			subAndSuperProperties.forEach(function (property) {
+
 				property.foreground();
 			});
 		}
