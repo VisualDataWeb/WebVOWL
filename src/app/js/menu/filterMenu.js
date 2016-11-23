@@ -115,16 +115,25 @@ module.exports = function (graph) {
 			.attr("for", "nodeDegreeDistanceSlider")
 			.text(0);
 
+
+
 		degreeSlider.on("change", function (silent) {
 			if (silent!=true) {
 				graph.update();
 			}
 		});
 
+		degreeSlider.onwheel = function(e) {handleWheelEvent(e)};
+
 		degreeSlider.on("input", function () {
 			var degree = degreeSlider.property("value");
 			sliderValueLabel.text(degree);
 		});
+		degreeSlider.on("wheel", handleWheelEvent);
+	}
+
+	function handleWheelEvent(e) {
+		console.log("Hello Wheel "+e)
 	}
 
 	function setSliderValue(slider, value) {
