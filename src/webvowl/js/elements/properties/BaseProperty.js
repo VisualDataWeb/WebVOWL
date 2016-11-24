@@ -294,8 +294,12 @@ module.exports = (function () {
 			}
 			var subAndSuperProperties = getSubAndSuperProperties();
 			subAndSuperProperties.forEach(function (property) {
-				property.labelElement().select("rect")
-					.classed("indirect-highlighting", enable);
+
+				if (property.labelElement()) {
+					property.labelElement().select("rect")
+						.classed("indirect-highlighting", enable);
+				}
+
 			});
 		};
 
@@ -322,6 +326,8 @@ module.exports = (function () {
 		 */
 		this.foreground = function () {
 			// check for additional objects that we can highlight
+			if (!that.labelElement())
+				return;
 			if (that.labelElement().node().parentNode==null){
 			 	return;
 			}
@@ -343,8 +349,8 @@ module.exports = (function () {
 			var subAndSuperProperties = getSubAndSuperProperties();
 
 			subAndSuperProperties.forEach(function (property) {
-
 				property.foreground();
+
 			});
 		}
 

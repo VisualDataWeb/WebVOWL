@@ -29,10 +29,9 @@ module.exports = function (graph) {
 	pauseMenu.setPauseValue = function (value) {
 		pauseButton.datum().paused = value;
 		graph.paused(value);
-		if (value)
-			pauseButton.classed("highlighted", value);
+		pauseButton.classed("highlighted", value);
 		updatePauseButton();
-	}
+	};
 
 	function updatePauseButton() {
 		updatePauseButtonClass();
@@ -54,10 +53,8 @@ module.exports = function (graph) {
 	}
 
 	pauseMenu.reset = function () {
-		// Simulate resuming
-		pauseButton.datum().paused = false;
-		graph.paused(false);
-		updatePauseButton();
+		// resuming
+		pauseMenu.setPauseValue(false);
 	};
 
 

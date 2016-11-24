@@ -181,10 +181,10 @@ module.exports = function (graph) {
 
 		/** modify comment **/
 		var comment = jsonObj._comment;
-		var additionalString = " [ Additional Information added by WebVOWL Exporter Version:" + "@@WEBVOWL_VERSION" + "]"
+		var additionalString = " [Additional Information added by WebVOWL Exporter Version: " + "@@WEBVOWL_VERSION" + "]";
 		// adding new string to comment only if it does not exist
 		if (!comment.includes(additionalString)) {
-			jsonObj._comment = comment + " [ Additional Information added by WebVOWL Exporter Version:" + "@@WEBVOWL_VERSION" + "]";
+			jsonObj._comment = comment + " [Additional Information added by WebVOWL Exporter Version: " + "@@WEBVOWL_VERSION" + "]";
 		}
 
 		var classAttribute = jsonObj.classAttribute;
