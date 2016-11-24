@@ -210,7 +210,7 @@ module.exports = function (graph) {
 						node.py = node.y;
 					}
 					//class element pin
-					var elementPinned = element.pinned
+					var elementPinned = element.pinned;
 					if (elementPinned == true) {
 						node.pinned(true);
 						//console.log("pinned node "+node.id());

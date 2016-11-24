@@ -197,7 +197,7 @@ module.exports = function (graphContainerSelector) {
 			}
 		}
 		graph.update()
-	}
+	};
 
 
 	/**

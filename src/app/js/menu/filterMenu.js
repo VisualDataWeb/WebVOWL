@@ -19,8 +19,7 @@ module.exports = function (graph) {
 	};
 
 	filterMenu.getDegreeSliderValue = function () {
-		var val = degreeSlider.property("value");
-		return val;
+		return degreeSlider.property("value");
 	};
 	/**
 	 * Connects the website with graph filters.

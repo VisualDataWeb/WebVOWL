@@ -41,7 +41,7 @@ module.exports = function () {
 		if (!arguments.length) return pickAndPinModule;
 		pickAndPinModule = m;
 		return options;
-	}
+	};
 
 	options.gravityMenu = function (m) {
 		if (!arguments.length) return gravityMenu;
