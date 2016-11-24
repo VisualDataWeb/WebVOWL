@@ -68,7 +68,7 @@ module.exports = function (graph) {
 			// invocation when resetting the filters
 			var isEnabled = filterCheckbox.property("checked");
 			filter.enabled(isEnabled);
-			if (silent != true) {
+			if (silent !== true) {
 				// updating graph when silent is false or the parameter is not given.
 				graph.update();
 			}
@@ -118,7 +118,7 @@ module.exports = function (graph) {
 
 
 		degreeSlider.on("change", function (silent) {
-			if (silent!=true) {
+			if (silent !== true) {
 				graph.update();
 			}
 		});

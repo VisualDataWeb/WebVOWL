@@ -98,7 +98,7 @@ module.exports = function (graph) {
 			// color switch settings
 			var state = settingsData.modes.colorSwitchState;
 			// state could be undefined
-			if (state == true || state == false) {
+			if (state === true || state === false) {
 				graph.options().modeMenu().setColorSwitchState(state);
 			}
 			graph.options().modeMenu().updateSettings();
@@ -211,7 +211,7 @@ module.exports = function (graph) {
 					}
 					//class element pin
 					var elementPinned = element.pinned;
-					if (elementPinned == true) {
+					if (elementPinned === true) {
 						node.pinned(true);
 						//console.log("pinned node "+node.id());
 						graph.options().pickAndPinModule().addPinnedElement(node);
@@ -294,7 +294,7 @@ module.exports = function (graph) {
 						property.py = element.pos[1];
 					}
 					var elementPinned = element.pinned;
-					if (elementPinned == true) {
+					if (elementPinned === true) {
 						property.pinned(true);
 						graph.options().pickAndPinModule().addPinnedElement(property);
 					}

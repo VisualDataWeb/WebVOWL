@@ -62,7 +62,7 @@ module.exports = function (graph) {
 		moduleCheckbox.on("click", function (d, silent) {
 			var isEnabled = moduleCheckbox.property("checked");
 			d.module.enabled(isEnabled);
-			if (updateGraphOnClick && silent != true) {
+			if (updateGraphOnClick && silent !== true) {
 				graph.update();
 			}
 		});
@@ -82,7 +82,7 @@ module.exports = function (graph) {
 			var data = button.datum();
 			data.active = !data.active;
 			applyColorModeSwitchState(button, colorExternalsMode);
-			if (colorExternalsMode.enabled() && silent != true) {
+			if (colorExternalsMode.enabled() && silent !== true) {
 				graph.update();
 			}
 		});
