@@ -149,12 +149,12 @@ module.exports = function (graph) {
 
 				var inlineStyles = element.node().style;
 				for (var styleName in inlineStyles) {
-					if (inlineStyles.hasOwnProperty(styleName)) {
+				//	if (inlineStyles.hasOwnProperty(styleName)) {
 						if (shouldntChangeInlineCss(element, styleName)) {
 							continue;
 						}
 						element.style(styleName, null);
-					}
+				//	}
 				}
 			});
 	}
