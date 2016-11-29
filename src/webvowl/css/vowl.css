@@ -54,10 +54,15 @@ marker path {
 .white, .subclass, .subclassproperty, .external + text {
     fill: #fff;
 }
-.class.hovered, .property.hovered, .cardinality.hovered, .cardinality.focused, circle.pin, .filled.hovered, .filled.focused, .values-from.filled.hovered {
+.class.hovered, .property.hovered, .cardinality.hovered, .cardinality.focused, .filled.hovered, .filled.focused, .values-from.filled.hovered {
     fill: #f00 !important;
     cursor: pointer;
 }
+.feature{
+    fill: #f00;
+    cursor: pointer;
+}
+
 .focused, path.hovered {
 	stroke: #f00 !important;
 }
