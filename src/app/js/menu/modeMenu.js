@@ -6,8 +6,8 @@
  */
 module.exports = function (graph) {
 
-	var SAME_COLOR_MODE = {text: "Same color", type: "same"};
-	var GRADIENT_COLOR_MODE = {text: "Color gradient", type: "gradient"};
+	var SAME_COLOR_MODE = {text: "Multicolor", type: "same"};
+	var GRADIENT_COLOR_MODE = {text: "Multicolor", type: "gradient"};
 
 	var modeMenu = {},
 		checkboxes = [],
