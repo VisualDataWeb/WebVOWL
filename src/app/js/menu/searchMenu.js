@@ -349,29 +349,19 @@ module.exports = function (graph) {
 			var testEntry;
 			testEntry= document.createElement('li');
 			testEntry.setAttribute('elementID', newResultsIds[i]);
-			// testEntry.onclick= magic();
-			 testEntry.onclick= function () {
+			testEntry.setAttribute('class', "dbEntry");
+			testEntry.addEventListener("click",function (e) {
+				var target=e.target;
 
 				var id = this.getAttribute("elementId");
-				var correspondingIds = mergedIdList[id];
+				console.log("Travis okay with that?"+id);
 
-				// autoComplete the text for the user
-				var autoComStr = entryNames[id];
-				searchLineEdit.node().value = autoComStr;
-
-				graph.resetSearchHighlight();
-				graph.highLightNodes(correspondingIds);
-
-				if (autoComStr !== inputText) {
-					handleAutoCompletion();
-				}
-				searchMenu.hideSearchEntries();
-			};
-			testEntry.setAttribute('class', "dbEntry");
+			})
 			var createAText = document.createTextNode(newResults[i]);
 			testEntry.appendChild(createAText);
 			dropDownContainer.node().appendChild(testEntry);
 		}
+
 		searchMenu.showSearchEntries();
 	}
 
