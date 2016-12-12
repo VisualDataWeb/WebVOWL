@@ -343,6 +343,8 @@ module.exports = function (graph) {
 		}
 
 
+
+		/*jshint loopfunc:true */
 		//******************************************
 		for (i = 0; i < numEntries; i++) {
 			//add results to the dropdown menu
@@ -350,20 +352,27 @@ module.exports = function (graph) {
 			testEntry= document.createElement('li');
 			testEntry.setAttribute('elementID', newResultsIds[i]);
 			testEntry.setAttribute('class', "dbEntry");
-			testEntry.addEventListener("click",function (e) {
-				var target=e.target;
-
+			testEntry.onclick= function () {
 				var id = this.getAttribute("elementId");
-				console.log("Travis okay with that?"+id);
+				var correspondingIds = mergedIdList[id];
 
-			})
+				// autoComplete the text for the user
+				var autoComStr = entryNames[id];
+				searchLineEdit.node().value = autoComStr;
+
+				graph.resetSearchHighlight();
+				graph.highLightNodes(correspondingIds);
+
+				if (autoComStr !== inputText) {
+					handleAutoCompletion();
+				}
+				searchMenu.hideSearchEntries();
+			};
 			var createAText = document.createTextNode(newResults[i]);
 			testEntry.appendChild(createAText);
 			dropDownContainer.node().appendChild(testEntry);
 		}
-
 		searchMenu.showSearchEntries();
 	}
-
 	return searchMenu;
 };
