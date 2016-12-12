@@ -182,6 +182,7 @@ module.exports = function (graph) {
 		var htmlCollection;
 		var numEntries;
 		inputText = searchLineEdit.node().value;
+
 		var results = [];
 		var resultID = [];
 		var i;
@@ -246,22 +247,7 @@ module.exports = function (graph) {
 			//add results to the dropdown menu
 			var testEntry = document.createElement('li');
 			testEntry.setAttribute('elementID', newResultsIds[i]);
-			testEntry.onclick= function () {
-				var id = this.getAttribute("elementId");
-				var correspondingIds = mergedIdList[id];
-
-				// autoComplete the text for the user
-				var autoComStr = entryNames[id];
-				searchLineEdit.node().value = autoComStr;
-
-				graph.resetSearchHighlight();
-				graph.highLightNodes(correspondingIds);
-
-				if (autoComStr !== inputText) {
-					handleAutoCompletion();
-				}
-				searchMenu.hideSearchEntries();
-			};
+			testEntry.onclick= handleClick (newResultsIds[i]);
 			testEntry.setAttribute('class', "dbEntry");
 			var createAText = document.createTextNode(newResults[i]);
 			testEntry.appendChild(createAText);
@@ -283,7 +269,8 @@ module.exports = function (graph) {
 		var i;
 		var htmlCollection = dropDownContainer.node().children;
 		var numEntries = htmlCollection.length;
-		var inputText = searchLineEdit.node().value;
+		inputText = searchLineEdit.node().value;
+
 		if (inputText.length === 0) {
 			for (i = 0; i < numEntries; i++)
 				htmlCollection[0].remove();
@@ -344,7 +331,7 @@ module.exports = function (graph) {
 
 
 
-		/*jshint loopfunc:true */
+
 		//******************************************
 		for (i = 0; i < numEntries; i++) {
 			//add results to the dropdown menu
@@ -352,27 +339,33 @@ module.exports = function (graph) {
 			testEntry= document.createElement('li');
 			testEntry.setAttribute('elementID', newResultsIds[i]);
 			testEntry.setAttribute('class', "dbEntry");
-			testEntry.onclick= function () {
-				var id = this.getAttribute("elementId");
-				var correspondingIds = mergedIdList[id];
-
-				// autoComplete the text for the user
-				var autoComStr = entryNames[id];
-				searchLineEdit.node().value = autoComStr;
-
-				graph.resetSearchHighlight();
-				graph.highLightNodes(correspondingIds);
-
-				if (autoComStr !== inputText) {
-					handleAutoCompletion();
-				}
-				searchMenu.hideSearchEntries();
-			};
+			testEntry.onclick= handleClick (newResultsIds[i]);
 			var createAText = document.createTextNode(newResults[i]);
 			testEntry.appendChild(createAText);
 			dropDownContainer.node().appendChild(testEntry);
 		}
 		searchMenu.showSearchEntries();
 	}
+
+
+	function handleClick(elementId){
+		return function(){
+			var id = elementId;
+			var correspondingIds = mergedIdList[id];
+
+			// autoComplete the text for the user
+			var autoComStr = entryNames[id];
+			searchLineEdit.node().value = autoComStr;
+
+			graph.resetSearchHighlight();
+			graph.highLightNodes(correspondingIds);
+
+			if (autoComStr !== inputText) {
+				handleAutoCompletion();
+			}
+			searchMenu.hideSearchEntries();
+		}
+	}
+
 	return searchMenu;
 };
