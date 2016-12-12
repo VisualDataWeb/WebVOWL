@@ -18,6 +18,12 @@ module.exports = function (graph) {
 			.on("click", exportSvg);
 		exportJsonButton = d3.select("#exportJson")
 			.on("click", exportJson);
+
+		var menuEntry= d3.select("#export");
+		menuEntry.on("mouseover",function(){
+			var searchMenu=graph.options().searchMenu();
+			searchMenu.hideSearchEntries();
+		});
 	};
 
 	exportMenu.setFilename = function (filename) {

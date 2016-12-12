@@ -13,6 +13,7 @@ module.exports = function () {
 		ontologyMenu = require("./menu/ontologyMenu")(graph),
 		pauseMenu = require("./menu/pauseMenu")(graph),
 		resetMenu = require("./menu/resetMenu")(graph),
+		searchMenu = require("./menu/searchMenu")(graph),
 		sidebar = require("./sidebar")(graph),
 	// Graph modules
 		colorExternalsSwitch = webvowl.modules.colorExternalsSwitch(graph),
@@ -55,6 +56,7 @@ module.exports = function () {
 		sidebar.setup();
 		ontologyMenu.setup(loadOntologyFromText);
 		resetMenu.setup([gravityMenu, filterMenu, modeMenu, focuser, selectionDetailDisplayer, pauseMenu]);
+		searchMenu.setup();
 
 		// give the options the pointer to the some menus for import and export
 		options.filterMenu(filterMenu);
@@ -63,7 +65,7 @@ module.exports = function () {
 		options.pausedMenu(pauseMenu);
 		options.pickAndPinModule(pickAndPin);
 		options.resetMenu(resetMenu);
-
+		options.searchMenu(searchMenu);
 
 		graph.start();
 		adjustSize();

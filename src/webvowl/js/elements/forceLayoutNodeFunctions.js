@@ -20,6 +20,7 @@ nodeFunctions.addTo = function (node) {
 function addFixedLocationFunctions(node) {
 	var locked = false,
 		frozen = false,
+		halo   = false,
 		pinned = false;
 
 	node.locked = function (p) {
@@ -36,6 +37,15 @@ function addFixedLocationFunctions(node) {
 			return frozen;
 		}
 		frozen = p;
+		applyFixedLocationAttributes();
+		return node;
+	};
+
+	node.halo= function (p){
+		if (!arguments.length) {
+			return halo;
+		}
+		halo = p;
 		applyFixedLocationAttributes();
 		return node;
 	};

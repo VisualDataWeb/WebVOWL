@@ -38,8 +38,13 @@ module.exports = (function () {
 			markerElement,
 		// Other
 			pinGroupElement,
+			haloGroupElement,
 			redundantProperties = [];
 
+
+		this.getHalos=function(){
+			return haloGroupElement;
+		};
 
 		// Properties
 		this.cardinality = function (p) {
@@ -202,6 +207,9 @@ module.exports = (function () {
 				that.inverse().drawPin();
 			}
 
+			if (that.halo())
+				that.drawHalo();
+
 			return that.labelElement();
 		};
 
@@ -360,9 +368,22 @@ module.exports = (function () {
 			}
 			that.mouseEntered(true);
 			that.setHighlighting(true);
-
+			var haloGroup=that.getHalos();
+			if (haloGroup){
+				var test=haloGroup.selectAll(".searchResultA");
+				test.classed("searchResultA", false);
+				test.classed("searchResultB", true);
+			}
 			that.foreground();
 			foregroundSubAndSuperProperties();
+			if (that.inverse()){
+				var haloGroup=that.inverse().getHalos();
+				if (haloGroup){
+					var test=haloGroup.selectAll(".searchResultA");
+					test.classed("searchResultA", false);
+					test.classed("searchResultB", true);
+				}
+			}
 		}
 
 		function onMouseOut() {
@@ -384,6 +405,20 @@ module.exports = (function () {
 				pinGroupElement.remove();
 			}
 			graph.updateStyle();
+		};
+
+		this.removeHalo=function(){
+			that.halo(false);
+			if (haloGroupElement) {
+				haloGroupElement.remove();
+				haloGroupElement=null;
+			}
+		};
+
+		this.drawHalo= function(){
+			that.halo(true);
+			var offset=15;
+			haloGroupElement = drawTools.drawRectHalo(that, that.width(), that.height(), offset);
 		};
 
 

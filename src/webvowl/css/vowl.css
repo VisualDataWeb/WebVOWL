@@ -62,12 +62,55 @@ marker path {
     fill: #f00;
     cursor: pointer;
 }
+@keyframes pulseAnimation {
+    0% {
+        -webkit-transform: scale(1.5);
+        stroke-width: 3.33;
+    }
+    50%{ stroke-width: 4;}
+    100% {
+        -webkit-transform: scale(1.0);
+        stroke-width: 5;
+    }
+}
+.searchResultA {
+    fill: none;
+    stroke-width: 5;
+    stroke: #f00;
+    -webkit-animation-name: pulseAnimation;
+    -moz-animation-name: pulseAnimation;
+    -o-animation-name: pulseAnimation;
+    animation-name: pulseAnimation;
+
+    -webkit-animation-duration: 0.8s;
+    -moz-animation-duration: 0.8s;
+    -o-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+
+    -webkit-transform: translateZ(0);
+    -webkit-animation-iteration-count: 3;
+    -moz-animation-iteration-count: 3;
+    -o-animation-iteration-count: 3;
+    animation-iteration-count: 3;
+
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+/* a class for not animated search results (hovered over node)*/
+.searchResultB {
+    fill: none;
+    stroke-width: 5;
+    stroke: #f00;
+}
 
 .focused, path.hovered {
 	stroke: #f00 !important;
 }
 .indirect-highlighting, .feature:hover {
     fill: #f90;
+    cursor: pointer;
 }
 .values-from {
     stroke: #69c;

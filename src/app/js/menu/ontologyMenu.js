@@ -5,7 +5,7 @@ var unescape = require("lodash/unescape");
  *
  * @returns {{}}
  */
-module.exports = function () {
+module.exports = function (graph) {
 
 	var ontologyMenu = {},
 		DEFAULT_JSON_NAME = "foaf", // This file is loaded by default
@@ -17,6 +17,12 @@ module.exports = function () {
 
 	ontologyMenu.setup = function (_loadOntologyFromText) {
 		loadOntologyFromText = _loadOntologyFromText;
+
+		var menuEntry= d3.select("#select");
+		menuEntry.on("mouseover",function(){
+			var searchMenu=graph.options().searchMenu();
+			searchMenu.hideSearchEntries();
+		});
 
 		setupConverterButtons();
 		setupUploadButton();

@@ -16,6 +16,11 @@ module.exports = function (graph) {
 	 * Adds the gravity sliders to the website.
 	 */
 	gravityMenu.setup = function () {
+		var menuEntry= d3.select("#gravityOption");
+		menuEntry.on("mouseover",function(){
+			var searchMenu=graph.options().searchMenu();
+			searchMenu.hideSearchEntries();
+		});
 		addDistanceSlider("#classSliderOption", "class", "Class distance", options.classDistance);
 		addDistanceSlider("#datatypeSliderOption", "datatype", "Datatype distance", options.datatypeDistance);
 	};
@@ -58,6 +63,21 @@ module.exports = function (graph) {
 			adjustCharge(defaultLinkDistance);
 			sliderValueLabel.text(distance);
 			graph.updateStyle();
+		});
+
+		// add wheel event to the slider
+		slider.on("wheel",function(){
+			var wheelEvent=d3.event;
+			var offset;
+			if (wheelEvent.deltaY<0) offset=10;
+			if (wheelEvent.deltaY>0) offset=-10;
+			var oldVal=parseInt(slider.property("value"));
+			var newSliderValue=oldVal+offset;
+			if (newSliderValue!==oldVal){
+				slider.property("value",newSliderValue);
+				distanceFunction(newSliderValue);
+				slider.on("input")(); // << set text and update the graphStyles
+			}
 		});
 	}
 

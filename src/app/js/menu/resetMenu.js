@@ -19,6 +19,11 @@ module.exports = function (graph) {
 	resetMenu.setup = function (_resettableModules) {
 		resettableModules = _resettableModules;
 		d3.select("#reset-button").on("click", resetGraph);
+		var menuEntry= d3.select("#resetOption");
+		menuEntry.on("mouseover",function(){
+			var searchMenu=graph.options().searchMenu();
+			searchMenu.hideSearchEntries();
+		});
 	};
 
 	function resetGraph() {

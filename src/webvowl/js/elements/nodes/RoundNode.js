@@ -12,8 +12,12 @@ module.exports = (function () {
 			radius = 50,
 			collapsingGroupElement,
 			pinGroupElement,
+			haloGroupElement = null,
 			textBlock;
 
+		this.getHalos = function () {
+			return haloGroupElement;
+		};
 
 		// Properties
 		this.collapsible = function (p) {
@@ -82,6 +86,20 @@ module.exports = (function () {
 
 		this.distanceToBorder = function () {
 			return that.actualRadius();
+		};
+		
+		this.removeHalo = function () {
+			if (that.halo()) {
+				that.halo(false);
+				if (haloGroupElement) {
+					haloGroupElement.remove();
+				}
+			}
+		};
+
+		this.drawHalo = function () {
+			that.halo(true);
+			haloGroupElement = drawTools.drawHalo(that.nodeElement(), that.actualRadius(), this.removeHalo);
 		};
 
 		/**
@@ -165,6 +183,9 @@ module.exports = (function () {
 			that.addMouseListeners();
 			if (that.pinned()) {
 				that.drawPin();
+			}
+			if (that.halo()) {
+				that.drawHalo();
 			}
 			if (that.collapsible()) {
 				that.drawCollapsingButton();

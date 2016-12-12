@@ -44,6 +44,8 @@ module.exports = function (graphContainerSelector) {
 		zoomFactor,
 		graphTranslation,
 		graphUpdateRequired = false,
+		pulseNodeIds,
+		nodeMap = [],
 		zoom;
 
 	/**
@@ -206,6 +208,30 @@ module.exports = function (graphContainerSelector) {
 	graph.update = function () {
 		refreshGraphData();
 		refreshGraphStyle();
+		// update node map
+		nodeMap = [];
+		for (var j = 0; j < force.nodes().length; j++) {
+			var node = force.nodes()[j];
+			if (node.id) {
+				// console.log("The NodeId "+node.id()+" ForceId "+j);
+				nodeMap[node.id()] = j;
+				// check for equivalents
+				var eqs=node.equivalents();
+				if (eqs.length>0){
+					for (var e=0;e<eqs.length;e++){
+						var eqObject=eqs[e];
+						nodeMap[eqObject.id()]=j;
+					}
+				}
+			}
+			if (node.property) {
+				nodeMap[node.property().id()] = j;
+				var inverse=node.inverse();
+				if (inverse){
+					nodeMap[inverse.id()]=j;
+				}
+			}
+		}
 		force.start();
 		redrawContent();
 	};
@@ -280,6 +306,60 @@ module.exports = function (graphContainerSelector) {
 			.call(zoom)
 			.append("g");
 	}
+
+	/** search functionality **/
+	graph.getUpdateDictionary=function(){
+		var dictLabels=parser.getDictionary();
+		return dictLabels;
+	};
+
+	graph.resetSearchHighlight=function(){
+		pulseNodeIds=[];
+		for (var j =0;j<force.nodes().length;j++) {
+			var node = force.nodes()[j];
+			if (node.removeHalo)
+				node.removeHalo();
+			// removeing halo from properties
+			if(node.property){
+				node.property().removeHalo();
+			}
+		}
+	};
+	graph.highLightNodes=function(nodeIdArray) {
+		if (nodeIdArray.length === 0) {
+			return;
+			// nothing to highlight
+		}
+		pulseNodeIds = [];
+
+
+		// identify the force id to highlight
+		for (var i = 0; i < nodeIdArray.length; i++) {
+			var selectedId = nodeIdArray[i];
+			var forceId = nodeMap[selectedId];
+
+			if (forceId!=undefined) {
+				var le_node = force.nodes()[forceId];
+				if (le_node.id) {
+					if (pulseNodeIds.indexOf(forceId)==-1){
+						pulseNodeIds.push(forceId);
+						le_node.drawHalo();
+					}
+				}
+				if (le_node.property) {
+					if (pulseNodeIds.indexOf(forceId)==-1) {
+						pulseNodeIds.push(forceId);
+						le_node.property().foreground();
+						le_node.property().drawHalo();
+					}
+				}
+			}
+			else{
+				// check if they have an equivalent or an inverse!
+				console.log("Could not Find Id in Graph (maybe filtered out) id = "+selectedId);
+			}
+		}
+	};
 
 	/**
 	 * Redraws all elements like nodes, links, ...
@@ -411,7 +491,7 @@ module.exports = function (graphContainerSelector) {
 
 		parser.parseSettings();
 		graphUpdateRequired = parser.settingsImported();
-
+		graph.options().searchMenu().requestDictionaryUpdate();
 	}
 
 	/**
@@ -550,6 +630,8 @@ module.exports = function (graphContainerSelector) {
 			language = newLanguage || "default";
 			redrawContent();
 			recalculatePositions();
+			graph.options().searchMenu().requestDictionaryUpdate();
+			graph.resetSearchHighlight();
 		}
 		return graph;
 	};

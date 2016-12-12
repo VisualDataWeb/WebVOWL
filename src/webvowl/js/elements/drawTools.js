@@ -96,6 +96,46 @@ module.exports = (function () {
 		return pinGroupElement;
 	};
 
+	tools.drawRectHalo = function (node, width, height, offset) {
+		var container;
+		if (node.nodeElement)
+			container=node.nodeElement();
+		else
+		  container=node.labelElement();
+		var haloGroupElement = container
+			.append("g")
+			.classed("hidden-in-export", true);
+
+		if (node.inverse && node.inverse()){
+			var addHeight=node.inverse().height();
+			haloGroupElement.append("rect")
+				.classed("searchResultA", true)
+				.attr("x", (-width - offset) / 2)
+				.attr("y", (-offset - height) / 2)
+				.attr("width", width + offset)
+				.attr("height", height+ addHeight + offset);
+		}
+		else {
+			haloGroupElement.append("rect")
+				.classed("searchResultA", true)
+				.attr("x", (-width - offset) / 2)
+				.attr("y", (-offset - height) / 2)
+				.attr("width", width + offset)
+				.attr("height", height + offset);
+		}
+		return haloGroupElement;
+
+	};
+	tools.drawHalo = function (container, radius) {
+		var haloGroupElement = container
+			.append("g")
+			.classed("hidden-in-export", true);
+
+		haloGroupElement.append("circle",":first-child")
+			.classed("searchResultA", true)
+			.attr("r", radius + 15);
+		return haloGroupElement;
+	};
 
 	return function () {
 		// Encapsulate into function to maintain default.module.path()

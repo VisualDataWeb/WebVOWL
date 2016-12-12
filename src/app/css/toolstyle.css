@@ -2,6 +2,81 @@
 /*----------------------------------------------
         WebVOWL page
 ----------------------------------------------*/
+/** adding searching Styles **/
+.dbEntry {
+	background-color: #ffffff;
+	color: #2980b9;
+	padding: 10px;
+	font-size: 14px;
+	border: none;
+	cursor: pointer;
+}
+.dbEntrySelected {
+	background-color: #bdc3c7;
+	color: #2980b9;
+	padding: 10px;
+	font-size: 14px;
+	border: none;
+	cursor: pointer;
+}
+.dbEntry:hover, .dbEntry:focus {
+	background-color: #bdc3c7;
+}
+.searchMenuEntry{
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	box-sizing: border-box;
+	background-color: #ffffff;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-bottom: none;
+	border-radius: 4px 4px 0 0;
+	bottom: 40px;
+	display: none;
+	font-size: 14px;
+	list-style: none;
+	min-width: 300px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	z-index: 99;
+}
+.searchMenuEntry li.highlighted {
+	background-color: #feb;
+}
+.searchMenuEntry > li:first-of-type {
+	border: none;
+}
+.searchMenuEntry > li {
+	border-top: solid 0px #bdc3c7;
+}
+.searchMenuEntry li {
+	display: block;
+}
+.searchMenuEntry select {
+	float: right;
+}
+
+ul#optionsMenu > li:hover .searchMenuEntry {
+	display: block;
+}
+
+.searchInputText{
+	background-color: #ffffff;
+	color: black;
+	border: black;
+	text-decoration: none;
+	max-width: 250px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 20px;
+	margin: 10px 0;
+}
+.searchMenu{
+	box-sizing: border-box;
+	background-color: rgb(24, 32, 42);
+	height: 40px;
+}
+
 img, iframe {
 	border: none;
 }
@@ -215,6 +290,9 @@ ul#optionsMenu > li:hover .aboutMenu {
 	box-sizing: border-box;
 	margin: 0;
 	-webkit-appearance: none !important;
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	appearance: none !important;
 	background: none repeat scroll 0 0 grey;
 	border-radius: 3px;
 	height: 12px;
@@ -246,6 +324,11 @@ ul#optionsMenu > li:hover .aboutMenu {
 	margin: 0;
 	padding: 0 5px 0 0;
 }
+#searchMenuId:before{
+    font-size: 1.4em; /* todo : test this */
+    content: "\2315";
+    /*content: "\2315"  or  "\1F50D"*/;
+}
 #select > a::before {
 	content: "\2263";
 }
@@ -257,6 +340,11 @@ a#reset-button::before {
 }
 a#pause-button.paused::before {
 	content: "\25B6";
+}
+/*highlight used for mobile devices */
+a#pause-button.paused:hover{
+    background-color: #d90;
+    color:#fff;
 }
 a#pause-button:not(.paused)::before {
 	content: "II";

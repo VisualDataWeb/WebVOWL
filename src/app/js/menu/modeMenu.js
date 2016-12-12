@@ -33,6 +33,11 @@ module.exports = function (graph) {
 	 * Connects the website with the available graph modes.
 	 */
 	modeMenu.setup = function (pickAndPin, nodeScaling, compactNotation, colorExternals) {
+		var menuEntry= d3.select("#moduleOption");
+		menuEntry.on("mouseover",function(){
+			var searchMenu=graph.options().searchMenu();
+			searchMenu.hideSearchEntries();
+		});
 		addModeItem(pickAndPin, "pickandpin", "Pick & pin", "#pickAndPinOption", false);
 		addModeItem(nodeScaling, "nodescaling", "Node scaling", "#nodeScalingOption", true);
 		addModeItem(compactNotation, "compactnotation", "Compact notation", "#compactNotationOption", true);

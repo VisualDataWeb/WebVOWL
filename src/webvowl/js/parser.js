@@ -16,7 +16,12 @@ module.exports = function (graph) {
 		classMap,
 		settingsData,
 		settingsImported = false,
+		dictionary=[],
 		propertyMap;
+
+	parser.getDictionary=function(){
+		return dictionary;
+	};
 
 	parser.settingsImported = function () {
 		return settingsImported;
@@ -115,9 +120,10 @@ module.exports = function (graph) {
 		if (!ontologyData) {
 			nodes = [];
 			properties = [];
+			dictionary = [];
 			return;
 		}
-
+		dictionary = [];
 		if (ontologyData.settings) settingsData = ontologyData.settings;
 		else settingsData = undefined;
 
@@ -231,7 +237,7 @@ module.exports = function (graph) {
 						var deduplicatedAttributes = d3.set(element.attributes.concat(node.attributes()));
 						node.attributes(deduplicatedAttributes.values());
 					}
-
+					dictionary.push(node);
 					combinations.push(node);
 				} else {
 					console.error("Unknown element type: " + element.type);
@@ -304,7 +310,7 @@ module.exports = function (graph) {
 						var deduplicatedAttributes = d3.set(element.attributes.concat(property.attributes()));
 						property.attributes(deduplicatedAttributes.values());
 					}
-
+					dictionary.push(property);
 					combinations.push(property);
 				} else {
 					console.error("Unknown element type: " + element.type);
@@ -429,6 +435,7 @@ module.exports = function (graph) {
 					inverse = propertyMap[inversePropertyId];
 					if (!inverse) {
 						console.warn("No inverse property was found for id: " + inversePropertyId);
+						property.inverse(undefined);
 					}
 				}
 

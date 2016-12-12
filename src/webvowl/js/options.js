@@ -22,7 +22,15 @@ module.exports = function () {
 		pausedMenu,
 		pickAndPinModule,
 		resetMenu,
+		searchMenu,
 		scaleNodesByIndividuals = false;
+
+	options.searchMenu = function (m) {
+		if (!arguments.length) return searchMenu;
+		searchMenu = m;
+		return options;
+	};
+
 
 	options.resetMenu = function (m) {
 		if (!arguments.length) return resetMenu;

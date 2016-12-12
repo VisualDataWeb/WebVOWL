@@ -38,6 +38,7 @@ module.exports = function () {
 	};
 
 	function wasNotDragged() {
+		return false; // todo: test
 		return !d3.event.defaultPrevented;
 	}
 

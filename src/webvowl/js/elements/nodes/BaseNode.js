@@ -115,17 +115,22 @@ module.exports = (function () {
 			var selectedNode = that.nodeElement().node(),
 				nodeContainer = selectedNode.parentNode;
 
+			var haloGroup=that.getHalos();
+			// console.log("message from hovered baseNode"+haloGroup);
+			if (haloGroup) {
+				// console.log("should remove pulse");
+				var test = haloGroup.selectAll(".searchResultA");
+				test.classed("searchResultA", false);
+				test.classed("searchResultB", true);
+			}
 			// Append hovered element as last child to the container list.
 			nodeContainer.appendChild(selectedNode);
-
 			that.setHoverHighlighting(true);
-
 			that.mouseEntered(true);
 		}
 
 		function onMouseOut() {
 			that.setHoverHighlighting(false);
-
 			that.mouseEntered(false);
 		}
 

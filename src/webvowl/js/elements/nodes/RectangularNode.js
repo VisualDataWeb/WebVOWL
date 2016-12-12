@@ -12,6 +12,7 @@ module.exports = (function () {
 			height = 20,
 			width = 60,
 			pinGroupElement,
+			haloGroupElement,
 			smallestRadius = height / 2;
 
 
@@ -28,6 +29,9 @@ module.exports = (function () {
 			return this;
 		};
 
+		this.getHalos = function () {
+			return haloGroupElement;
+		};
 
 		// Functions
 		// for compatibility reasons // TODO resolve
@@ -41,6 +45,14 @@ module.exports = (function () {
 
 		this.setHoverHighlighting = function (enable) {
 			that.nodeElement().selectAll("rect").classed("hovered", enable);
+
+			var haloGroup=that.getHalos();
+			if (haloGroup){
+				var test=haloGroup.selectAll(".searchResultA");
+				test.classed("searchResultA", false);
+				test.classed("searchResultB", true);
+			}
+
 		};
 
 		this.textWidth = function () {
@@ -93,6 +105,22 @@ module.exports = (function () {
 				pinGroupElement.remove();
 			}
 			graph.updateStyle();
+		};
+
+		this.removeHalo = function () {
+			that.halo(false);
+			if (haloGroupElement) {
+				haloGroupElement.remove();
+				haloGroupElement=null;
+			}
+		};
+
+		this.drawHalo = function () {
+			that.halo(true);
+
+			var offset = 15;
+			haloGroupElement = drawTools.drawRectHalo(that, this.width(), this.height(), offset);
+
 		};
 	};
 	o.prototype = Object.create(BaseNode.prototype);

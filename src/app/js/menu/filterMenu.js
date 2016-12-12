@@ -10,6 +10,7 @@ module.exports = function (graph) {
 		checkboxData = [],
 		menuElement = d3.select("#filterOption a"),
 		nodeDegreeContainer = d3.select("#nodeDegreeFilteringOption"),
+		graphDegreeLevel,
 		degreeSlider;
 
 
@@ -31,6 +32,11 @@ module.exports = function (graph) {
 	 * @param nodeDegreeFilter filters nodes by their degree
 	 */
 	filterMenu.setup = function (datatypeFilter, objectPropertyFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
+		var menuEntry= d3.select("#filterOption");
+		menuEntry.on("mouseover",function(){
+			var searchMenu=graph.options().searchMenu();
+			searchMenu.hideSearchEntries();
+		});
 		menuElement.on("mouseleave", function () {
 			filterMenu.highlightForDegreeSlider(false);
 		});
@@ -120,6 +126,7 @@ module.exports = function (graph) {
 		degreeSlider.on("change", function (silent) {
 			if (silent !== true) {
 				graph.update();
+				graphDegreeLevel=degreeSlider.property("value");
 			}
 		});
 
@@ -130,14 +137,32 @@ module.exports = function (graph) {
 		});
 
 
-		// // adding wheel events
-		// console.log(typeof degreeSlider);
-		// degreeSlider.wheel=function(e){
-		// 	console.log(e)
-		// };
-		// //degreeSlider.on("wheel",degreeSlider.wheel);
+		// adding wheel events
+		degreeSlider.on("wheel",handleWheelEvent);
+		degreeSlider.on("focusout",function(){
+			if (degreeSlider.property("value")!==graphDegreeLevel) {
+				graph.update();
+			}
+		});
 	}
 
+	function handleWheelEvent(){
+		var wheelEvent=d3.event;
+
+		var offset;
+		if (wheelEvent.deltaY<0) offset=1;
+		if (wheelEvent.deltaY>0) offset=-1;
+
+		var oldVal=parseInt(degreeSlider.property("value"));
+		var newSliderValue=oldVal+offset;
+		if (oldVal!==newSliderValue) {
+			// only update when they are different [reducing redundant updates]
+			// set the new value and emit an update signal
+			degreeSlider.property("value", newSliderValue);
+			degreeSlider.on("input")();// <<-- sets the text value
+			graph.update();
+		}
+	}
 	
 	function setSliderValue(slider, value) {
 		slider.property("value", value).on("input")();
@@ -194,6 +219,8 @@ module.exports = function (graph) {
 		var sliderValue = degreeSlider.property("value");
 		if (sliderValue > 0) {
 			filterMenu.highlightForDegreeSlider(true);
+		} else{
+			filterMenu.highlightForDegreeSlider(false);
 		}
 
 		checkboxData.forEach(function (checkboxData) {
