@@ -39,7 +39,7 @@ module.exports = function () {
 
 	function wasNotDragged() {
 		return false; // todo: test
-		return !d3.event.defaultPrevented;
+	//	return !d3.event.defaultPrevented;
 	}
 
 	function hasNoParallelProperties(property) {

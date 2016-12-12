@@ -15,6 +15,7 @@ module.exports = function (graph) {
 		maxEntries = 6,
 		dictionaryUpdateRequired = true,
 		labelDictionary,
+		inputText,
 		viewStatusOfSearchEntries = false;
 
 	searchMenu.requestDictionaryUpdate = function () {
@@ -180,11 +181,11 @@ module.exports = function (graph) {
 		/**  pre condition: autoCompletion has already a valid text**/
 		var htmlCollection;
 		var numEntries;
-		var text = searchLineEdit.node().value;
+		inputText = searchLineEdit.node().value;
 		var results = [];
 		var resultID = [];
 		var i;
-		var lc_text = text.toLowerCase();
+		var lc_text = inputText.toLowerCase();
 		var token;
 
 		for (i = 0; i < dictionary.length; i++) {
@@ -245,7 +246,7 @@ module.exports = function (graph) {
 			//add results to the dropdown menu
 			var testEntry = document.createElement('li');
 			testEntry.setAttribute('elementID', newResultsIds[i]);
-			testEntry.onclick = function () {
+			testEntry.onclick= function () {
 				var id = this.getAttribute("elementId");
 				var correspondingIds = mergedIdList[id];
 
@@ -256,7 +257,7 @@ module.exports = function (graph) {
 				graph.resetSearchHighlight();
 				graph.highLightNodes(correspondingIds);
 
-				if (autoComStr !== text) {
+				if (autoComStr !== inputText) {
 					handleAutoCompletion();
 				}
 				searchMenu.hideSearchEntries();
@@ -268,20 +269,22 @@ module.exports = function (graph) {
 		}
 	}
 
+
+
 	function userInput() {
 		if (dictionaryUpdateRequired) {
 			updateSearchDictionary();
 		}
 		graph.resetSearchHighlight();
-		if (dictionary.length == 0) {
+		if (dictionary.length === 0) {
 			console.log("dictionary is empty");
 			return;
 		}
 		var i;
 		var htmlCollection = dropDownContainer.node().children;
 		var numEntries = htmlCollection.length;
-		var text = searchLineEdit.node().value;
-		if (text.length == 0) {
+		var inputText = searchLineEdit.node().value;
+		if (inputText.length === 0) {
 			for (i = 0; i < numEntries; i++)
 				htmlCollection[0].remove();
 			return;
@@ -290,7 +293,7 @@ module.exports = function (graph) {
 		var results = [];
 		var resultID = [];
 
-		var lc_text = text.toLowerCase();
+		var lc_text = inputText.toLowerCase();
 		var token;
 
 		for (i = 0; i < dictionary.length; i++) {
@@ -339,13 +342,16 @@ module.exports = function (graph) {
 			copyRes[bestElement] = "";
 		}
 
-		// add the results to the entry menu
+
 		//******************************************
 		for (i = 0; i < numEntries; i++) {
 			//add results to the dropdown menu
-			var testEntry = document.createElement('li');
+			var testEntry;
+			testEntry= document.createElement('li');
 			testEntry.setAttribute('elementID', newResultsIds[i]);
-			testEntry.onclick = function () {
+			// testEntry.onclick= magic();
+			 testEntry.onclick= function () {
+
 				var id = this.getAttribute("elementId");
 				var correspondingIds = mergedIdList[id];
 
@@ -356,12 +362,11 @@ module.exports = function (graph) {
 				graph.resetSearchHighlight();
 				graph.highLightNodes(correspondingIds);
 
-				if (autoComStr != text) {
+				if (autoComStr !== inputText) {
 					handleAutoCompletion();
 				}
 				searchMenu.hideSearchEntries();
 			};
-
 			testEntry.setAttribute('class', "dbEntry");
 			var createAText = document.createTextNode(newResults[i]);
 			testEntry.appendChild(createAText);
