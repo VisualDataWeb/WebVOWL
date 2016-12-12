@@ -364,7 +364,7 @@ module.exports = function (graph) {
 				handleAutoCompletion();
 			}
 			searchMenu.hideSearchEntries();
-		}
+		};
 	}
 
 	return searchMenu;
