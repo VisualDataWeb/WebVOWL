@@ -336,7 +336,7 @@ module.exports = (function () {
 			// check for additional objects that we can highlight
 			if (!that.labelElement())
 				return;
-			if (that.labelElement().node().parentNode==null){
+			if (that.labelElement().node().parentNode===null){
 			 	return;
 			}
 			var selectedLabelGroup = that.labelElement().node().parentNode,
@@ -369,17 +369,18 @@ module.exports = (function () {
 			that.mouseEntered(true);
 			that.setHighlighting(true);
 			var haloGroup=that.getHalos();
+			var test;
 			if (haloGroup){
-				var test=haloGroup.selectAll(".searchResultA");
+				test=haloGroup.selectAll(".searchResultA");
 				test.classed("searchResultA", false);
 				test.classed("searchResultB", true);
 			}
 			that.foreground();
 			foregroundSubAndSuperProperties();
 			if (that.inverse()){
-				var haloGroup=that.inverse().getHalos();
+				haloGroup=that.inverse().getHalos();
 				if (haloGroup){
-					var test=haloGroup.selectAll(".searchResultA");
+					test=haloGroup.selectAll(".searchResultA");
 					test.classed("searchResultA", false);
 					test.classed("searchResultB", true);
 				}

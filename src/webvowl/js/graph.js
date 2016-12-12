@@ -157,11 +157,11 @@ module.exports = function (graphContainerSelector) {
 
 	/** Returns the visible nodes */
 	graph.graphNodeElements = function () {
-		return nodeElements
+		return nodeElements;
 	};
 	/** Returns the visible Label Nodes */
 	graph.graphLabelElements = function () {
-		return labelNodes
+		return labelNodes;
 	};
 
 
@@ -198,7 +198,7 @@ module.exports = function (graphContainerSelector) {
 				label.py = label.y;
 			}
 		}
-		graph.update()
+		graph.update();
 	};
 
 
@@ -338,16 +338,16 @@ module.exports = function (graphContainerSelector) {
 			var selectedId = nodeIdArray[i];
 			var forceId = nodeMap[selectedId];
 
-			if (forceId!=undefined) {
+			if (forceId!==undefined) {
 				var le_node = force.nodes()[forceId];
 				if (le_node.id) {
-					if (pulseNodeIds.indexOf(forceId)==-1){
+					if (pulseNodeIds.indexOf(forceId)===-1){
 						pulseNodeIds.push(forceId);
 						le_node.drawHalo();
 					}
 				}
 				if (le_node.property) {
-					if (pulseNodeIds.indexOf(forceId)==-1) {
+					if (pulseNodeIds.indexOf(forceId)===-1) {
 						pulseNodeIds.push(forceId);
 						le_node.property().foreground();
 						le_node.property().drawHalo();

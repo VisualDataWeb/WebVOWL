@@ -155,12 +155,11 @@ module.exports = function (graph) {
 
 				var inlineStyles = element.node().style;
 				for (var styleName in inlineStyles) {
-				//	if (inlineStyles.hasOwnProperty(styleName)) {
-						if (shouldntChangeInlineCss(element, styleName)) {
-							continue;
-						}
+					if (shouldntChangeInlineCss(element, styleName)) {
+						continue;
+					} else{
 						element.style(styleName, null);
-				//	}
+					}
 				}
 			});
 	}
@@ -201,9 +200,9 @@ module.exports = function (graph) {
 			delete classObj.pos;
 			delete classObj.pinned;
 		}
-
+		var propertyObj;
 		for (i = 0; i < propAttribute.length; i++) {
-			var propertyObj = propAttribute[i];
+			propertyObj = propAttribute[i];
 			delete propertyObj.pos;
 			delete propertyObj.pinned;
 		}

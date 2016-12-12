@@ -140,7 +140,7 @@ module.exports = function (graph) {
 	modeMenu.setCheckBoxValue = function (id, checked) {
 		for (var i = 0; i < checkboxes.length; i++) {
 			var cbdId = checkboxes[i].attr("id");
-			if (cbdId == id) {
+			if (cbdId === id) {
 				checkboxes[i].property("checked", checked);
 				break;
 			}

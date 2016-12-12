@@ -211,7 +211,7 @@ module.exports = function (graph) {
 	};
 	// set the value of the slider
 	filterMenu.setDegreeSliderValue = function (val) {
-		degreeSlider.property("value", val)
+		degreeSlider.property("value", val);
 	};
 	// update the gui without invoking graph update (calling silent onclick function)
 	filterMenu.updateSettings = function () {

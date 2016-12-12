@@ -9,7 +9,7 @@ module.exports = function () {
 	pap.addPinnedElement = function (element) {
 		// check if element is already in list
 		var indexInArray = pinnedElements.indexOf(element);
-		if (indexInArray == -1) {
+		if (indexInArray === -1) {
 			pinnedElements.push(element);
 		}
 	};

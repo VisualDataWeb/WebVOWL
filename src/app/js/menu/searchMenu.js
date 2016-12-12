@@ -46,8 +46,12 @@ module.exports = function (graph) {
 		}
 		mergedStringsList = [];
 		mergedIdList = [];
+		var indexInStringList=-1;
+		var currentString;
+		var currentObjectId;
+
 		for (i = 0; i < stringList.length; i++) {
-			if (i == 0) {
+			if (i === 0) {
 				// just add the elements
 				mergedStringsList.push(stringList[i]);
 				mergedIdList.push([]);
@@ -55,9 +59,9 @@ module.exports = function (graph) {
 				continue;
 			}
 			else {
-				var currentString = stringList[i];
-				var currentObjectId = idList[i];
-				var indexInStringList = mergedStringsList.indexOf(currentString);
+				currentString = stringList[i];
+				currentObjectId = idList[i];
+				indexInStringList = mergedStringsList.indexOf(currentString);
 			}
 			if (indexInStringList === -1) {
 				mergedStringsList.push(stringList[i]);
@@ -139,18 +143,18 @@ module.exports = function (graph) {
 				selectedEntry = i;
 			}
 		}
-		if (d3.event.keyCode == 13) {
+		if (d3.event.keyCode === 13) {
 			if (selectedEntry >= 0 && selectedEntry < numEntries) {
 				// simulate onClick event
 				htmlCollection[selectedEntry].onclick();
 				searchMenu.hideSearchEntries();
 			}
 		}
-		if (d3.event.keyCode == 38) {
+		if (d3.event.keyCode === 38) {
 			move = -1;
 			searchMenu.showSearchEntries();
 		}
-		if (d3.event.keyCode == 40) {
+		if (d3.event.keyCode === 40) {
 			move = +1;
 			searchMenu.showSearchEntries();
 		}
@@ -252,7 +256,7 @@ module.exports = function (graph) {
 				graph.resetSearchHighlight();
 				graph.highLightNodes(correspondingIds);
 
-				if (autoComStr != text) {
+				if (autoComStr !== text) {
 					handleAutoCompletion();
 				}
 				searchMenu.hideSearchEntries();
@@ -273,6 +277,7 @@ module.exports = function (graph) {
 			console.log("dictionary is empty");
 			return;
 		}
+		var i;
 		var htmlCollection = dropDownContainer.node().children;
 		var numEntries = htmlCollection.length;
 		var text = searchLineEdit.node().value;
@@ -284,7 +289,7 @@ module.exports = function (graph) {
 		// search in list
 		var results = [];
 		var resultID = [];
-		var i;
+
 		var lc_text = text.toLowerCase();
 		var token;
 
