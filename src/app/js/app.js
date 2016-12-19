@@ -1,7 +1,7 @@
 module.exports = function () {
 
 	var app = {},
-		updateTimer=undefined,
+		updateTimer,
 		graph = webvowl.graph(),
 		options = graph.graphOptions(),
 		languageTools = webvowl.util.languageTools(),

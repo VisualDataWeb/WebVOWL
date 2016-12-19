@@ -33,7 +33,7 @@ module.exports = function () {
 		navigationMenu = m;
 		return options;
 
-	}
+	};
 	options.ontologyMenu = function (m){
 		if (!arguments.length) return ontologyMenu;
 		ontologyMenu = m;
