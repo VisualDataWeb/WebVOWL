@@ -88,6 +88,9 @@ module.exports = (function () {
 			if (that.pinned()) {
 				that.drawPin();
 			}
+			if (that.halo()) {
+				that.drawHalo();
+			}
 		};
 
 		this.drawPin = function () {

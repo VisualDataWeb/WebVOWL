@@ -8,8 +8,6 @@ module.exports = function (graph) {
 	var navigationMenu = {},
 		allMenuEntries = [],
 		visibleEntries = [],
-		shiftHistory = [],
-		shift,
 		objectContainer = d3.select("#optionsMenu"),
 		buttonLeft = d3.select("#LeftButton"),
 		buttonRight = d3.select("#RightButton");
@@ -21,14 +19,11 @@ module.exports = function (graph) {
 			allMenuEntries.push(objects[i]);
 		}
 		setupButtons();
-
 		for (i = 0; i < allMenuEntries.length - 2; i++) {
 			allMenuEntries[i].style.display = "block";
 			visibleEntries[i] = 1;
 		}
-
 	};
-
 
 	function setupButtons() {
 		buttonLeft.on("mouseover", function () {
@@ -45,7 +40,6 @@ module.exports = function (graph) {
 			var currentTopValue;
 			var objTopValue;
 			if (visibleEntries[0] === 1) {
-				shiftHistory = [];
 				return;
 			} else {
 				var elementToShow = visibleEntries.indexOf(1) - 1;
@@ -108,6 +102,7 @@ module.exports = function (graph) {
 						allMenuEntries[lastIndex].style.display = "none";
 					}
 				}
+				// todo: check why we need 3 times this;
 				checkArrowRequirement();
 				bothVisible=checkBothArrows();
 				if (!bothVisible){
@@ -130,14 +125,11 @@ module.exports = function (graph) {
 				}
 				checkArrowRequirement();
 			}
-
-
-			 setArrowHighlighting();
-			 console.log("Visibility: " + visibleEntries);
+   		    setArrowHighlighting();
 		});
 		buttonRight.on("click", function () {
-			// // set the first 0 to zero;
-			// // check if last element is 1;
+			// set the first 0 to zero;
+			// check if last element is 1;
 			if (visibleEntries[visibleEntries.length - 1] === 1) {
 				return;
 			} else {
@@ -207,7 +199,6 @@ module.exports = function (graph) {
 		var anchorLeft=visibleEntries.indexOf(1);
 		var anchorRight=visibleEntries.lastIndexOf(1);
 		// try to add more entries;
-		//1] starting from anchor right;
 		for (i = anchorLeft+1; i < allMenuEntries.length - 2; i++) {
 			// enable the value;
 			allMenuEntries[i].style.display="block";
@@ -228,7 +219,6 @@ module.exports = function (graph) {
 		var lastIndex;
 		if (!bothVisible && anchorLeft===0){
 			// disable the last entry;
-
 			lastIndex=visibleEntries.lastIndexOf(1);
 			if (lastIndex!==-1) {
 				visibleEntries[lastIndex] = 0;
@@ -286,6 +276,7 @@ module.exports = function (graph) {
 			allMenuEntries[rightArrowId].style.display = "block";
 		}
 	}
+
 	function checkBothArrows(){
 		if (visibleEntries.indexOf(0) === -1) {
 			return true; // no need to show them

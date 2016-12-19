@@ -234,6 +234,30 @@ module.exports = function (graphContainerSelector) {
 		}
 		force.start();
 		redrawContent();
+
+		//reset pulse;
+		var haloElement;
+		var halo;
+		for (j = 0; j < force.nodes().length; j++) {
+			node = force.nodes()[j];
+			if (node.id) {
+				haloElement=node.getHalos();
+				if (haloElement) {
+					halo = haloElement.selectAll(".searchResultA");
+					halo.classed("searchResultA", false);
+					halo.classed("searchResultB", true);
+				}
+			}
+
+			if (node.property){
+				haloElement=node.property().getHalos();
+				if (haloElement) {
+					halo = haloElement.selectAll(".searchResultA");
+					halo.classed("searchResultA", false);
+					halo.classed("searchResultB", true);
+				}
+			}
+		}
 	};
 
 	graph.paused = function (p) {

@@ -50,7 +50,18 @@ module.exports = (function () {
 
 			textElement.addEquivalents(equivalentsString, -17);
 
-			textElement.addInstanceCount(that.individuals().length, 17);
+
+			if (!graph.options().compactNotation()) {
+
+				if (that.indicationString().length>0) {
+					textElement.addSubText(that.indicationString(), 17);
+					textElement.addInstanceCount(that.individuals().length, 30);
+				}else{
+					textElement.addInstanceCount(that.individuals().length, 17);
+				}
+			}else {
+				textElement.addInstanceCount(that.individuals().length, 17);
+			}
 
 			that.textBlock(textElement);
 		};
