@@ -2,6 +2,19 @@
 /*----------------------------------------------
         WebVOWL page
 ----------------------------------------------*/
+
+
+#myProgress {
+	position: relative;
+	width: 95%;
+	height: 10px;
+	background-color: #ddd;
+	padding: 0px;
+}
+
+
+
+
 /** adding searching Styles **/
 .dbEntry {
 	background-color: #ffffff;
@@ -324,6 +337,19 @@ ul#optionsMenu > li:hover .aboutMenu {
 	margin: 0;
 	padding: 0 5px 0 0;
 }
+
+#LeftButton:before{
+	font-size: 2em;
+	content: "\2190";
+}
+
+#RightButton:before{
+	font-size: 2em;
+	content: "\2192";
+}
+
+
+
 #searchMenuId:before{
     font-size: 1.4em; /* todo : test this */
     content: "\2315";

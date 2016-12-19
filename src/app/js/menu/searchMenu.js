@@ -125,6 +125,13 @@ module.exports = function (graph) {
 		viewStatusOfSearchEntries = true;
 	};
 
+	function ValidURL(str) {
+		var urlregex = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;
+		return urlregex.test(str);
+
+	}
+
+
 	function userNavigation() {
 		if (dictionaryUpdateRequired) {
 			updateSearchDictionary();
@@ -132,8 +139,7 @@ module.exports = function (graph) {
 
 		var htmlCollection = dropDownContainer.node().children;
 		var numEntries = htmlCollection.length;
-		if (numEntries === 0)
-			return;
+
 
 		var move = 0;
 		var i;
@@ -149,6 +155,21 @@ module.exports = function (graph) {
 				// simulate onClick event
 				htmlCollection[selectedEntry].onclick();
 				searchMenu.hideSearchEntries();
+			}
+			else{
+				var iri=inputText.replace(" ","%20");
+				var valid=ValidURL(iri);
+				console.log("Iri httpName : "+iri);
+				// validate url:
+				if (valid){
+					var ontM=graph.options().ontologyMenu();
+					ontM.setIriText(iri);
+				}
+				else{
+					console.log(iri+" is not a valid URL!");
+				}
+
+
 			}
 		}
 		if (d3.event.keyCode === 38) {
@@ -255,8 +276,6 @@ module.exports = function (graph) {
 		}
 	}
 
-
-
 	function userInput() {
 		if (dictionaryUpdateRequired) {
 			updateSearchDictionary();
@@ -329,9 +348,7 @@ module.exports = function (graph) {
 			copyRes[bestElement] = "";
 		}
 
-
-
-
+		// add the results to the entry menu
 		//******************************************
 		for (i = 0; i < numEntries; i++) {
 			//add results to the dropdown menu
@@ -346,7 +363,6 @@ module.exports = function (graph) {
 		}
 		searchMenu.showSearchEntries();
 	}
-
 
 	function handleClick(elementId){
 		return function(){

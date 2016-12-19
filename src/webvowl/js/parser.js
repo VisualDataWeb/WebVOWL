@@ -135,18 +135,14 @@ module.exports = function (graph) {
 
 		// Inject properties for unions, intersections, ...
 		addSetOperatorProperties(combinedClassesAndDatatypes, unparsedProperties);
-
 		combinedProperties = combineProperties(unparsedProperties, ontologyData.propertyAttribute);
-
 		classMap = mapElements(combinedClassesAndDatatypes);
 		propertyMap = mapElements(combinedProperties);
-
 		mergeRangesOfEquivalentProperties(combinedProperties, combinedClassesAndDatatypes);
 
 		// Process the graph data
 		convertTypesToIris(combinedClassesAndDatatypes, ontologyData.namespace);
 		convertTypesToIris(combinedProperties, ontologyData.namespace);
-
 		nodes = createNodeStructure(combinedClassesAndDatatypes, classMap);
 		properties = createPropertyStructure(combinedProperties, classMap, propertyMap);
 	};
@@ -219,7 +215,6 @@ module.exports = function (graph) {
 					var elementPinned = element.pinned;
 					if (elementPinned === true) {
 						node.pinned(true);
-						//console.log("pinned node "+node.id());
 						graph.options().pickAndPinModule().addPinnedElement(node);
 					}
 					// Create node objects for all individuals
@@ -411,7 +406,6 @@ module.exports = function (graph) {
 	 */
 	function createPropertyStructure(rawProperties, classMap, propertyMap) {
 		var properties = [];
-
 		// Set default values
 		rawProperties.forEach(function (property) {
 			property.visible(true);
@@ -471,7 +465,6 @@ module.exports = function (graph) {
 					inverse.range(domainObject);
 				}
 			}
-
 			// Reference sub- and superproperties
 			referenceSubOrSuperProperties(property.subproperties());
 			referenceSubOrSuperProperties(property.superproperties());
@@ -484,23 +477,25 @@ module.exports = function (graph) {
 
 			attributeParser.parsePropertyAttributes(property);
 		});
-
 		// Add additional information to the properties
 		rawProperties.forEach(function (property) {
-
 			// Properties of merged classes should point to/from the visible equivalent class
 			var propertyWasRerouted = false;
 			if (wasNodeMerged(property.domain())) {
 				property.domain(property.domain().equivalentBase());
 				propertyWasRerouted = true;
 			}
+			if (property.range()===undefined){
+				console.warn("No range was found for id:"+property.id());
+				return;
+			}
 			if (wasNodeMerged(property.range())) {
 				property.range(property.range().equivalentBase());
 				propertyWasRerouted = true;
 			}
-
 			// But there should not be two equal properties between the same domain and range
 			var equalProperty = getOtherEqualProperty(rawProperties, property);
+
 			if (propertyWasRerouted && equalProperty) {
 				property.visible(false);
 

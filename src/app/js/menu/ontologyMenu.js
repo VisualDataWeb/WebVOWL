@@ -13,6 +13,7 @@ module.exports = function (graph) {
 		loadingProgress = d3.select("#loading-progress"),
 		ontologyMenuTimeout,
 		cachedConversions = {},
+		progressBar= document.getElementById("myBar"),
 		loadOntologyFromText;
 
 	ontologyMenu.setup = function (_loadOntologyFromText) {
@@ -77,6 +78,16 @@ module.exports = function (graph) {
 		d3.selectAll("#optionsMenu > li > a").attr("href", location.hash || "#");
 	}
 
+	ontologyMenu.setIriText=function(text){
+		var iriConverterInput = d3.select("#iri-converter-input");
+		iriConverterInput.node().value=text;
+		console.log("setting iri");
+		var iriConverterButton = d3.select("#iri-converter-button");
+		iriConverterButton.attr("disabled", false);
+		d3.select("#iri-converter-form").on("submit")();
+		
+		console.log("called click");
+	};
 	function parseUrlAndLoadOntology() {
 		// slice the "#" character
 		var hashParameter = location.hash.slice(1);
@@ -207,8 +218,10 @@ module.exports = function (graph) {
 	function loadOntologyFromFile(filename) {
 		var cachedOntology = cachedConversions[filename];
 		if (cachedOntology) {
+			displayLoadingIndicators();
 			loadOntologyFromText(cachedOntology, filename);
 			setLoadingStatus(true);
+			hideLoadingInformations();
 			return;
 		}
 
@@ -223,6 +236,8 @@ module.exports = function (graph) {
 		}
 
 		if (filename.match(/\.json$/)) {
+			displayLoadingIndicators();
+			console.log("laoding json");
 			loadFromJson(selectedFile, filename);
 		} else {
 			loadFromOntology(selectedFile, filename);
@@ -233,8 +248,10 @@ module.exports = function (graph) {
 		var reader = new FileReader();
 		reader.readAsText(file);
 		reader.onload = function () {
+			displayLoadingIndicators();
 			loadOntologyFromTextAndTrimFilename(reader.result, filename);
 			setLoadingStatus(true);
+			hideLoadingInformations();
 		};
 	}
 
@@ -242,6 +259,7 @@ module.exports = function (graph) {
 		var uploadButton = d3.select("#file-converter-button");
 
 		displayLoadingIndicators();
+		progressBar.style.width = 50 + '%';
 		uploadButton.property("disabled", true);
 
 		var formData = new FormData();

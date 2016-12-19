@@ -12,7 +12,7 @@ module.exports = function () {
 		width = 800,
 		selectionModules = [],
 		filterModules = [],
-		minMagnification = 0.1,
+		minMagnification = 0.01,
 		maxMagnification = 4,
 		compactNotation = false,
 		// menus
@@ -23,7 +23,22 @@ module.exports = function () {
 		pickAndPinModule,
 		resetMenu,
 		searchMenu,
+		ontologyMenu,
+		navigationMenu,
 		scaleNodesByIndividuals = false;
+
+
+	options.navigationMenu= function (m){
+		if (!arguments.length) return navigationMenu;
+		navigationMenu = m;
+		return options;
+
+	}
+	options.ontologyMenu = function (m){
+		if (!arguments.length) return ontologyMenu;
+		ontologyMenu = m;
+		return options;
+	};
 
 	options.searchMenu = function (m) {
 		if (!arguments.length) return searchMenu;

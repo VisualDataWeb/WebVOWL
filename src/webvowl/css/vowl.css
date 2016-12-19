@@ -62,6 +62,40 @@ marker path {
     fill: #f00;
     cursor: pointer;
 }
+
+@-webkit-keyframes pulseAnimation {
+    0% {
+        -webkit-transform: scale(1.5);
+        stroke-width: 3.33;
+    }
+    50%{ stroke-width: 4;}
+    100% {
+        -webkit-transform: scale(1.0);
+        stroke-width: 5;
+    }
+}
+@-moz-keyframes pulseAnimation {
+    0% {
+        -webkit-transform: scale(1.5);
+        stroke-width: 3.33;
+    }
+    50%{ stroke-width: 4;}
+    100% {
+        -webkit-transform: scale(1.0);
+        stroke-width: 5;
+    }
+}
+@-o-keyframes pulseAnimation {
+    0% {
+        -webkit-transform: scale(1.5);
+        stroke-width: 3.33;
+    }
+    50%{ stroke-width: 4;}
+    100% {
+        -webkit-transform: scale(1.0);
+        stroke-width: 5;
+    }
+}
 @keyframes pulseAnimation {
     0% {
         -webkit-transform: scale(1.5);
