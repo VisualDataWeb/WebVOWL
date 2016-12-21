@@ -210,7 +210,7 @@ module.exports = function (graphContainerSelector) {
 		refreshGraphStyle();
 		// update node map
 		nodeMap = [];
-		var node
+		var node;
 		for (var j = 0; j < force.nodes().length; j++) {
 			node = force.nodes()[j];
 			if (node.id) {
