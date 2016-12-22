@@ -155,10 +155,16 @@ module.exports = function (graph) {
 
 				var inlineStyles = element.node().style;
 				for (var styleName in inlineStyles) {
-					if (shouldntChangeInlineCss(element, styleName)) {
-						continue;
-					} else{
+					if (inlineStyles.hasOwnProperty(styleName)) {
+						if (shouldntChangeInlineCss(element, styleName)) {
+							continue;
+						}
 						element.style(styleName, null);
+					}
+				}
+				if (element.datum && element.datum().type){
+					if (element.datum().type()==="rdfs:subClassOf") {
+						element.style("fill", null);
 					}
 				}
 			});
