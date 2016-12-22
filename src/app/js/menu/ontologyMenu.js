@@ -259,15 +259,13 @@ module.exports = function (graph) {
 		var uploadButton = d3.select("#file-converter-button");
 
 		displayLoadingIndicators();
-		progressBar.style.width = 50 + '%';
 		uploadButton.property("disabled", true);
 
 		var formData = new FormData();
 		formData.append("ontology", selectedFile);
-
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST", "convert", true);
 
+		xhr.open("POST", "convert", true);
 		xhr.onload = function () {
 			uploadButton.property("disabled", false);
 

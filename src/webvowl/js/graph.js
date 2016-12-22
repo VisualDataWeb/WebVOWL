@@ -389,7 +389,7 @@ module.exports = function (graphContainerSelector) {
 			else{
 				// check if they have an equivalent or an inverse!
 				console.log("Could not Find Id in Graph (maybe filtered out) id = "+selectedId);
-				missedIds.push(selectedId)
+				missedIds.push(selectedId);
 			}
 		}
 
