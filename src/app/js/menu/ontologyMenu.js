@@ -13,7 +13,7 @@ module.exports = function (graph) {
 		loadingProgress = d3.select("#loading-progress"),
 		ontologyMenuTimeout,
 		cachedConversions = {},
-		progressBar= document.getElementById("myBar"),
+		// progressBar= document.getElementById("myBar"),
 		loadOntologyFromText;
 
 	ontologyMenu.setup = function (_loadOntologyFromText) {
@@ -237,7 +237,7 @@ module.exports = function (graph) {
 
 		if (filename.match(/\.json$/)) {
 			displayLoadingIndicators();
-			console.log("laoding json");
+			//console.log("laoding json");
 			loadFromJson(selectedFile, filename);
 		} else {
 			loadFromOntology(selectedFile, filename);

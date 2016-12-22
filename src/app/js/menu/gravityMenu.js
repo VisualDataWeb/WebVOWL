@@ -57,6 +57,10 @@ module.exports = function (graph) {
 		// Store slider for easier resetting
 		sliders.push(slider);
 
+		slider.on("focusout",function(){
+			graph.updateStyle();
+		});
+
 		slider.on("input", function () {
 			var distance = slider.property("value");
 			distanceFunction(distance);

@@ -183,6 +183,10 @@ module.exports = function (graph) {
 		// we neglect the last 2 value because it is the arrow object
 		var i;
 		var firstOne = visibleEntries.indexOf(1);
+		if (firstOne===-1){
+			fillFromBeginning();
+			firstOne = visibleEntries.indexOf(1);
+		}
 		var currentTopValue = allMenuEntries[firstOne].getBoundingClientRect().top;
 		var objTopValue;
 		for (i = 0; i < allMenuEntries.length - 2; i++) {
@@ -198,6 +202,12 @@ module.exports = function (graph) {
 		// get anchors;
 		var anchorLeft=visibleEntries.indexOf(1);
 		var anchorRight=visibleEntries.lastIndexOf(1);
+
+		if (anchorLeft===-1 && anchorRight===-1){
+			fillFromBeginning();
+			anchorLeft=visibleEntries.indexOf(1);
+			anchorRight=visibleEntries.lastIndexOf(1);
+		}
 		// try to add more entries;
 		for (i = anchorLeft+1; i < allMenuEntries.length - 2; i++) {
 			// enable the value;
@@ -229,25 +239,27 @@ module.exports = function (graph) {
 		if (anchorLeft!==0 || anchorRight!==visibleEntries.length){
 			 //try to add elements to menu
 			anchorRight=visibleEntries.lastIndexOf(1);
-			// hide everything from anchorRight
-			for (i=anchorRight-1;i>=0;i--){
-				visibleEntries[i]=0;
-				allMenuEntries[i].style.display="none";
-			}
-			for (i=anchorRight-1;i>=0;i--){
-				visibleEntries[i]=0;
-				allMenuEntries[i].style.display="block";
 
-				currentTopValue = allMenuEntries[anchorRight].getBoundingClientRect().top;
-				objTopValue= allMenuEntries[i].getBoundingClientRect().top;
-				if (currentTopValue===objTopValue){
-					visibleEntries[i]=1;
-				}else{
-					allMenuEntries[i].style.display="none";
+			if (anchorRight>=1){
+				// hide everything from anchorRight
+				for (i=anchorRight-1;i>=0;i--){
 					visibleEntries[i]=0;
-					break;
+					allMenuEntries[i].style.display="none";
 				}
+				for (i=anchorRight-1;i>=0;i--) {
+					visibleEntries[i] = 0;
+					allMenuEntries[i].style.display = "block";
 
+					currentTopValue = allMenuEntries[anchorRight].getBoundingClientRect().top;
+					objTopValue = allMenuEntries[i].getBoundingClientRect().top;
+					if (currentTopValue === objTopValue) {
+						visibleEntries[i] = 1;
+					} else {
+						allMenuEntries[i].style.display = "none";
+						visibleEntries[i] = 0;
+						break;
+					}
+				}
 			}
 			// repair if needed;
 			checkArrowRequirement();
@@ -261,9 +273,18 @@ module.exports = function (graph) {
 				}
 			}
 		}
+		// sanity check
+		if (visibleEntries.indexOf(1)===-1){
+			fillFromBeginning();
+		}
+
 		setArrowHighlighting();
 	};
 
+	function fillFromBeginning() {
+		visibleEntries[0]=1;
+		allMenuEntries[0].style.display="block";
+	}
 
 	function checkArrowRequirement(){
 		// hides if not needed
@@ -284,6 +305,11 @@ module.exports = function (graph) {
 		var leftArrowId = allMenuEntries.length - 2;
 		var rightArrowId = allMenuEntries.length - 1;
 		var firstElement=visibleEntries.indexOf(1);
+		if (firstElement===-1){
+			fillFromBeginning(); // panic: no elements are visible
+			firstElement=visibleEntries.indexOf(1);
+		}
+
 		var currentTopValue = allMenuEntries[firstElement].getBoundingClientRect().top;
 		var leftTopValue= allMenuEntries[leftArrowId].getBoundingClientRect().top;
 		var rightTopValue= allMenuEntries[rightArrowId].getBoundingClientRect().top;

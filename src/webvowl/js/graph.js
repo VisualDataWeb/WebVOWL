@@ -339,15 +339,23 @@ module.exports = function (graphContainerSelector) {
 	};
 
 	graph.resetSearchHighlight=function(){
+		// get all nodes (handle also already filtered nodes )
 		pulseNodeIds=[];
-		for (var j =0;j<force.nodes().length;j++) {
-			var node = force.nodes()[j];
+
+
+		// clear from stored nodes
+		var nodes=unfilteredData.nodes;
+		var props=unfilteredData.properties;
+		var j;
+		for (j=0;j<nodes.length;j++){
+			var node=nodes[j];
 			if (node.removeHalo)
 				node.removeHalo();
-			// removeing halo from properties
-			if(node.property){
-				node.property().removeHalo();
-			}
+		}
+		for (j=0;j<props.length;j++){
+			var prop=props[j];
+			if (prop.removeHalo)
+				prop.removeHalo();
 		}
 	};
 	graph.highLightNodes=function(nodeIdArray) {
@@ -356,8 +364,7 @@ module.exports = function (graphContainerSelector) {
 			// nothing to highlight
 		}
 		pulseNodeIds = [];
-
-
+		var missedIds=[];
 		// identify the force id to highlight
 		for (var i = 0; i < nodeIdArray.length; i++) {
 			var selectedId = nodeIdArray[i];
@@ -382,6 +389,27 @@ module.exports = function (graphContainerSelector) {
 			else{
 				// check if they have an equivalent or an inverse!
 				console.log("Could not Find Id in Graph (maybe filtered out) id = "+selectedId);
+				missedIds.push(selectedId)
+			}
+		}
+
+		// store the highlight on the missed nodes;
+		var s_nodes=unfilteredData.nodes;
+		var s_props=unfilteredData.properties;
+		for (i=0;i<missedIds.length;i++){
+			var missedId=missedIds[i];
+			// search for this in the nodes;
+			for (var n=0; n<s_nodes.length; n++){
+				var nodeId=s_nodes[n].id();
+				if (nodeId===missedId){
+					s_nodes[n].drawHalo();
+				}
+			}
+			for (var p=0; p < s_props.length; p++){
+				var propId=s_props[p].id();
+				if (propId===missedId){
+					s_props[p].drawHalo();
+				}
 			}
 		}
 	};
