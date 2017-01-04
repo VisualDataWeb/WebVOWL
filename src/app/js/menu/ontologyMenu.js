@@ -100,14 +100,17 @@ module.exports = function (graph) {
 
 		// IRI parameter
 		var iriKey = "iri=";
+		var urlKey = "url=";
 		var fileKey = "file=";
 		if (hashParameter.substr(0, fileKey.length) === fileKey) {
 			var filename = decodeURIComponent(hashParameter.slice(fileKey.length));
 			loadOntologyFromFile(filename);
+		} else if (hashParameter.substr(0, urlKey.length) === urlKey) {
+			var url = decodeURIComponent(hashParameter.slice(urlKey.length));
+			loadOntologyFromUri(url, url);
 		} else if (hashParameter.substr(0, iriKey.length) === iriKey) {
 			var iri = decodeURIComponent(hashParameter.slice(iriKey.length));
 			loadOntologyFromUri("convert?iri=" + encodeURIComponent(iri), iri);
-
 			d3.select("#converter-option").classed("selected-ontology", true);
 		} else {
 			// id of an existing ontology as parameter
