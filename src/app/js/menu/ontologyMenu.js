@@ -12,8 +12,8 @@ module.exports = function (graph) {
 		loadingError = d3.select("#loading-error"),
 		loadingProgress = d3.select("#loading-progress"),
 		ontologyMenuTimeout,
+		emptyGraph=false,
 		cachedConversions = {},
-		// progressBar= document.getElementById("myBar"),
 		loadOntologyFromText;
 
 	ontologyMenu.setup = function (_loadOntologyFromText) {
@@ -81,13 +81,12 @@ module.exports = function (graph) {
 	ontologyMenu.setIriText=function(text){
 		var iriConverterInput = d3.select("#iri-converter-input");
 		iriConverterInput.node().value=text;
-		console.log("setting iri");
+
 		var iriConverterButton = d3.select("#iri-converter-button");
 		iriConverterButton.attr("disabled", false);
 		d3.select("#iri-converter-form").on("submit")();
-		
-		console.log("called click");
 	};
+
 	function parseUrlAndLoadOntology() {
 		// slice the "#" character
 		var hashParameter = location.hash.slice(1);
@@ -97,21 +96,25 @@ module.exports = function (graph) {
 		}
 
 		var ontologyOptions = d3.selectAll(".select li").classed("selected-ontology", false);
-
+		emptyGraph=false;
 		// IRI parameter
 		var iriKey = "iri=";
 		var urlKey = "url=";
 		var fileKey = "file=";
+
 		if (hashParameter.substr(0, fileKey.length) === fileKey) {
 			var filename = decodeURIComponent(hashParameter.slice(fileKey.length));
 			loadOntologyFromFile(filename);
+
 		} else if (hashParameter.substr(0, urlKey.length) === urlKey) {
 			var url = decodeURIComponent(hashParameter.slice(urlKey.length));
-			loadOntologyFromUri(url, url);
+			loadOntologyFromURL("read?json=" + encodeURIComponent(url), url);
+
 		} else if (hashParameter.substr(0, iriKey.length) === iriKey) {
 			var iri = decodeURIComponent(hashParameter.slice(iriKey.length));
 			loadOntologyFromUri("convert?iri=" + encodeURIComponent(iri), iri);
 			d3.select("#converter-option").classed("selected-ontology", true);
+
 		} else {
 			// id of an existing ontology as parameter
 			loadOntologyFromUri("data/" + hashParameter + ".json", hashParameter);
@@ -128,11 +131,18 @@ module.exports = function (graph) {
 		}
 	}
 
-	function loadOntologyFromUri(relativePath, requestedUri) {
+	function loadOntologyFromURL(relativePath,requestedURL){
 		var cachedOntology = cachedConversions[relativePath];
-		var trimmedRequestedUri = requestedUri.replace(/\/$/g, "");
+		var trimmedRequestedUri = requestedURL.replace(/\/$/g, "");
 		var filename = trimmedRequestedUri.slice(trimmedRequestedUri.lastIndexOf("/") + 1);
 
+		// check if requested url is a json;
+		var isJSON=requestedURL.toLowerCase().endsWith(".json");
+		if (!isJSON){
+			ontologyMenu.notValidJsonURL();
+			graph.clearGraphData();
+			return;
+		}
 
 		if (cachedOntology) {
 			loadOntologyFromText(cachedOntology, undefined, filename);
@@ -143,6 +153,14 @@ module.exports = function (graph) {
 				var loadingSuccessful = !error;
 				var errorInfo;
 
+				// check if error occurred or responseText is empty
+				if ((error!==null && error.status === 500) || (request && request.responseText.length===0)) {
+					hideLoadingInformations();
+					ontologyMenu.notValidJsonURL();
+					cachedConversions[relativePath]=undefined;
+					return;
+				}
+
 				var jsonText;
 				if (loadingSuccessful) {
 					jsonText = request.responseText;
@@ -150,16 +168,108 @@ module.exports = function (graph) {
 				} else {
 					if (error.status === 404) {
 						errorInfo = "Connection to the OWL2VOWL interface could not be established.";
+						graph.clearGraphData();
 					}
 				}
 
 				loadOntologyFromText(jsonText, undefined, filename);
-
 				setLoadingStatus(loadingSuccessful, error ? error.response : undefined, errorInfo);
+
+				if (emptyGraph===true){
+					ontologyMenu.emptyGraphError();
+					graph.clearGraphData();
+				}
+
 				hideLoadingInformations();
 			});
 		}
 	}
+
+	function loadOntologyFromUri(relativePath, requestedUri) {
+		var cachedOntology = cachedConversions[relativePath];
+		var trimmedRequestedUri = requestedUri.replace(/\/$/g, "");
+		var filename = trimmedRequestedUri.slice(trimmedRequestedUri.lastIndexOf("/") + 1);
+
+		if (cachedOntology) {
+			loadOntologyFromText(cachedOntology, undefined, filename);
+			setLoadingStatus(true);
+		} else {
+			displayLoadingIndicators();
+			d3.xhr(relativePath, "application/json", function (error, request) {
+				var loadingSuccessful = !error;
+				var errorInfo;
+
+				if (error!==null && error.status === 500) {
+					hideLoadingInformations();
+				 	ontologyMenu.emptyGraphError();
+				 	return;
+				 }
+
+				var jsonText;
+				if (loadingSuccessful) {
+					jsonText = request.responseText;
+					cachedConversions[relativePath] = jsonText;
+				} else {
+					if (error.status === 404) {
+						errorInfo = "Connection to the OWL2VOWL interface could not be established.";
+						graph.clearGraphData();
+					}
+				}
+
+				loadOntologyFromText(jsonText, undefined, filename);
+				setLoadingStatus(loadingSuccessful, error ? error.response : undefined, errorInfo);
+
+				if (emptyGraph===true){
+					ontologyMenu.emptyGraphError();
+					graph.clearGraphData();
+				}
+				hideLoadingInformations();
+			});
+		}
+	}
+
+	ontologyMenu.emptyGraphError=function(){
+
+		emptyGraph=true;
+		loadingError.classed("hidden", false);
+		var errorInfo = d3.select("#error-info");
+		errorInfo.text("There is nothing to visualize.");
+		var description="There is no OWL input under the given IRI. Please try to load the OWL file directly.";
+		var descriptionMissing = !description;
+		var descriptionVisible = d3.select("#error-description-button").classed("hidden", descriptionMissing).datum().open;
+		d3.select("#error-description-container").classed("hidden", descriptionMissing || !descriptionVisible);
+		d3.select("#error-description").text((description));
+
+	};
+
+	ontologyMenu.notValidJsonURL=function(){
+
+		emptyGraph=true;
+		loadingError.classed("hidden", false);
+		var errorInfo = d3.select("#error-info");
+		errorInfo.text("Invalid JSON URL");
+		var description="There is no JSON input under the given URL. Please try to load the JSON file directly.";
+		var descriptionMissing = !description;
+		var descriptionVisible = d3.select("#error-description-button").classed("hidden", descriptionMissing).datum().open;
+		d3.select("#error-description-container").classed("hidden", descriptionMissing || !descriptionVisible);
+		d3.select("#error-description").text((description));
+		graph.clearGraphData();
+	};
+
+	ontologyMenu.notValidJsonFile=function(){
+
+		emptyGraph=true;
+		loadingError.classed("hidden", false);
+		var errorInfo = d3.select("#error-info");
+		errorInfo.text("Invalid JSON file");
+		var description="The uploaded file is not a valid JSON file.";
+		var descriptionMissing = !description;
+		var descriptionVisible = d3.select("#error-description-button").classed("hidden", descriptionMissing).datum().open;
+		d3.select("#error-description-container").classed("hidden", descriptionMissing || !descriptionVisible);
+		d3.select("#error-description").text((description));
+		graph.clearGraphData();
+
+	};
 
 	function setupConverterButtons() {
 		var iriConverterButton = d3.select("#iri-converter-button");
@@ -175,9 +285,21 @@ module.exports = function (graph) {
 		});
 
 		d3.select("#iri-converter-form").on("submit", function () {
-			location.hash = "iri=" + iriConverterInput.property("value");
-			iriConverterInput.property("value", "");
-			iriConverterInput.on("input")();
+			var inputName=iriConverterInput.property("value");
+
+			// check if iri is actually an url for a json file (ends with .json)
+			// create lowercase filenames;
+			var lc_iri=inputName.toLowerCase();
+			if (lc_iri.endsWith(".json")) {
+			 	console.log("file is an URL for a json ");
+				location.hash = "url=" + iriConverterInput.property("value");
+				iriConverterInput.property("value", "");
+				iriConverterInput.on("input")();
+			} else {
+				location.hash = "iri=" + iriConverterInput.property("value");
+				iriConverterInput.property("value", "");
+				iriConverterInput.on("input")();
+			}
 
 			// abort the form submission because we set the hash parameter manually to prevent the ? attached in chrome
 			d3.event.preventDefault();
@@ -224,6 +346,9 @@ module.exports = function (graph) {
 			displayLoadingIndicators();
 			loadOntologyFromText(cachedOntology, filename);
 			setLoadingStatus(true);
+			if (emptyGraph===true){
+				ontologyMenu.emptyGraphError();
+			}
 			hideLoadingInformations();
 			return;
 		}
@@ -233,6 +358,7 @@ module.exports = function (graph) {
 		if (!selectedFile || (filename && (filename !== selectedFile.name))) {
 			loadOntologyFromText(undefined, undefined);
 			setLoadingStatus(false, undefined, "No cached version of \"" + filename + "\" was found. Please reupload the file.");
+			graph.clearGraphData();
 			return;
 		} else {
 			filename = selectedFile.name;
@@ -240,10 +366,9 @@ module.exports = function (graph) {
 
 		if (filename.match(/\.json$/)) {
 			displayLoadingIndicators();
-			//console.log("laoding json");
 			loadFromJson(selectedFile, filename);
 		} else {
-			loadFromOntology(selectedFile, filename);
+			loadFromOntology(selectedFile, filename,true);
 		}
 	}
 
@@ -254,11 +379,14 @@ module.exports = function (graph) {
 			displayLoadingIndicators();
 			loadOntologyFromTextAndTrimFilename(reader.result, filename);
 			setLoadingStatus(true);
+			if (emptyGraph===true){
+				ontologyMenu.emptyGraphError();
+			}
 			hideLoadingInformations();
 		};
 	}
 
-	function loadFromOntology(selectedFile, filename) {
+	function loadFromOntology(selectedFile, filename, fromFile) {
 		var uploadButton = d3.select("#file-converter-button");
 
 		displayLoadingIndicators();
@@ -278,10 +406,17 @@ module.exports = function (graph) {
 			} else {
 				loadOntologyFromText(undefined, undefined);
 				setLoadingStatus(false, xhr.responseText);
+				hideLoadingInformations();
+				graph.clearGraphData();
+
 			}
 			hideLoadingInformations();
+			if (emptyGraph===true && fromFile===true){
+				console.log("Failed to convert the file");
+				cachedConversions[filename]=undefined;
+				ontologyMenu.notValidJsonFile();
+			}
 		};
-
 		xhr.send(formData);
 	}
 

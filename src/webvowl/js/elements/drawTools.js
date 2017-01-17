@@ -102,6 +102,12 @@ module.exports = (function () {
 			container=node.nodeElement();
 		else
 		  container=node.labelElement();
+
+		if (!container){
+			console.log("no container found");
+			return;
+		}
+
 		var haloGroupElement = container
 			.append("g")
 			.classed("hidden-in-export", true);
@@ -127,6 +133,12 @@ module.exports = (function () {
 
 	};
 	tools.drawHalo = function (container, radius) {
+		if (container===undefined){
+			return null;
+			// there is no element to add the halo to;
+			// this means the node was not rendered previously
+		}
+
 		var haloGroupElement = container
 			.append("g")
 			.classed("hidden-in-export", true);

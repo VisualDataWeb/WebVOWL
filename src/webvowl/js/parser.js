@@ -23,6 +23,10 @@ module.exports = function (graph) {
 		return dictionary;
 	};
 
+	parser.setDictionary=function(d){
+		dictionary=d;
+	};
+
 	parser.settingsImported = function () {
 		return settingsImported;
 	};
@@ -232,7 +236,6 @@ module.exports = function (graph) {
 						var deduplicatedAttributes = d3.set(element.attributes.concat(node.attributes()));
 						node.attributes(deduplicatedAttributes.values());
 					}
-					dictionary.push(node);
 					combinations.push(node);
 				} else {
 					console.error("Unknown element type: " + element.type);
@@ -305,7 +308,6 @@ module.exports = function (graph) {
 						var deduplicatedAttributes = d3.set(element.attributes.concat(property.attributes()));
 						property.attributes(deduplicatedAttributes.values());
 					}
-					dictionary.push(property);
 					combinations.push(property);
 				} else {
 					console.error("Unknown element type: " + element.type);
@@ -481,6 +483,12 @@ module.exports = function (graph) {
 		rawProperties.forEach(function (property) {
 			// Properties of merged classes should point to/from the visible equivalent class
 			var propertyWasRerouted = false;
+
+			if (property.domain() == undefined) {
+				console.warn("No Domain was found for id:" + property.id());
+				return;
+			}
+
 			if (wasNodeMerged(property.domain())) {
 				property.domain(property.domain().equivalentBase());
 				propertyWasRerouted = true;
@@ -512,7 +520,6 @@ module.exports = function (graph) {
 				properties.push(property);
 			}
 		});
-
 		return properties;
 	}
 

@@ -107,6 +107,12 @@ module.exports = (function () {
 				.on("mouseout", onMouseOut);
 		};
 
+		this.foreground = function(){
+			var selectedNode = that.nodeElement().node(),
+				nodeContainer = selectedNode.parentNode;
+		    	nodeContainer.appendChild(selectedNode);
+		};
+
 		function onMouseOver() {
 			if (that.mouseEntered()) {
 				return;

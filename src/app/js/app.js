@@ -38,6 +38,7 @@ module.exports = function () {
 		options.selectionModules().push(focuser);
 		options.selectionModules().push(selectionDetailDisplayer);
 		options.selectionModules().push(pickAndPin);
+		options.filterModules().push(emptyLiteralFilter);
 		options.filterModules().push(statistics);
 		options.filterModules().push(datatypeFilter);
 		options.filterModules().push(objectPropertyFilter);
@@ -48,7 +49,7 @@ module.exports = function () {
 		options.filterModules().push(nodeDegreeFilter);
 		options.filterModules().push(compactNotationSwitch);
 		options.filterModules().push(colorExternalsSwitch);
-		options.filterModules().push(emptyLiteralFilter);
+
 
 		d3.select(window).on("resize", adjustSize);
 
@@ -64,6 +65,7 @@ module.exports = function () {
 		navigationMenu.setup();
 
 		// give the options the pointer to the some menus for import and export
+		options.literalFilter(emptyLiteralFilter);
 		options.filterMenu(filterMenu);
 		options.modeMenu(modeMenu);
 		options.gravityMenu(gravityMenu);
@@ -73,12 +75,18 @@ module.exports = function () {
 		options.searchMenu(searchMenu);
 		options.ontologyMenu(ontologyMenu);
 		options.navigationMenu(navigationMenu);
+		options.sidebar(sidebar);
 		graph.start();
 		adjustSize();
 	};
 
 	function loadOntologyFromText(jsonText, filename, alternativeFilename) {
 		pauseMenu.reset();
+
+		if (jsonText===undefined && filename===undefined){
+			console.log("Nothing to load");
+			return;
+		}
 
 		var data;
 		if (jsonText) {
@@ -95,11 +103,20 @@ module.exports = function () {
 				}
 			}
 		}
-		
+
+		//@WORKAROUND
+		// check if data has classes and properties;
+		var classCount				  = parseInt(data.metrics.classCount);
+		var objectPropertyCount		  = parseInt(data.metrics.objectPropertyCount);
+		var datatypePropertyCount	  = parseInt(data.metrics.datatypePropertyCount);
+
+		if (classCount === 0 && objectPropertyCount===0 && datatypePropertyCount===0 ){
+			// generate message for the user;
+			ontologyMenu.emptyGraphError();
+		}
+
 		exportMenu.setJsonText(jsonText);
-		
 		options.data(data);
-		
 		graph.load();
 		
 		sidebar.updateOntologyInformation(data, statistics);

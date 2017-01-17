@@ -45,6 +45,7 @@ module.exports = function (graphContainerSelector) {
 		graphTranslation,
 		graphUpdateRequired = false,
 		pulseNodeIds,
+		nodeArrayForPulse = [],
 		nodeMap = [],
 		zoom;
 
@@ -207,42 +208,41 @@ module.exports = function (graphContainerSelector) {
 	 */
 	graph.update = function () {
 		refreshGraphData();
-		refreshGraphStyle();
+
 		// update node map
 		nodeMap = [];
 		var node;
 		for (var j = 0; j < force.nodes().length; j++) {
 			node = force.nodes()[j];
 			if (node.id) {
-				// console.log("The NodeId "+node.id()+" ForceId "+j);
 				nodeMap[node.id()] = j;
 				// check for equivalents
-				var eqs=node.equivalents();
-				if (eqs.length>0){
-					for (var e=0;e<eqs.length;e++){
-						var eqObject=eqs[e];
-						nodeMap[eqObject.id()]=j;
+				var eqs = node.equivalents();
+				if (eqs.length > 0) {
+					for (var e = 0; e < eqs.length; e++) {
+						var eqObject = eqs[e];
+						nodeMap[eqObject.id()] = j;
 					}
 				}
 			}
 			if (node.property) {
 				nodeMap[node.property().id()] = j;
-				var inverse=node.inverse();
-				if (inverse){
-					nodeMap[inverse.id()]=j;
+				var inverse = node.inverse();
+				if (inverse) {
+					nodeMap[inverse.id()] = j;
 				}
 			}
 		}
 		force.start();
 		redrawContent();
-
-		//reset pulse;
+		graph.updatePulseIds(nodeArrayForPulse);
+		refreshGraphStyle();
 		var haloElement;
 		var halo;
 		for (j = 0; j < force.nodes().length; j++) {
 			node = force.nodes()[j];
 			if (node.id) {
-				haloElement=node.getHalos();
+				haloElement = node.getHalos();
 				if (haloElement) {
 					halo = haloElement.selectAll(".searchResultA");
 					halo.classed("searchResultA", false);
@@ -250,8 +250,8 @@ module.exports = function (graphContainerSelector) {
 				}
 			}
 
-			if (node.property){
-				haloElement=node.property().getHalos();
+			if (node.property) {
+				haloElement = node.property().getHalos();
 				if (haloElement) {
 					halo = haloElement.selectAll(".searchResultA");
 					halo.classed("searchResultA", false);
@@ -333,85 +333,125 @@ module.exports = function (graphContainerSelector) {
 	}
 
 	/** search functionality **/
-	graph.getUpdateDictionary=function(){
-		var dictLabels=parser.getDictionary();
-		return dictLabels;
+	graph.getUpdateDictionary = function () {
+		return parser.getDictionary();
 	};
 
-	graph.resetSearchHighlight=function(){
+	graph.resetSearchHighlight = function () {
 		// get all nodes (handle also already filtered nodes )
-		pulseNodeIds=[];
+		pulseNodeIds = [];
+		nodeArrayForPulse = [];
 
 
 		// clear from stored nodes
-		var nodes=unfilteredData.nodes;
-		var props=unfilteredData.properties;
+		var nodes = unfilteredData.nodes;
+		var props = unfilteredData.properties;
 		var j;
-		for (j=0;j<nodes.length;j++){
-			var node=nodes[j];
+		for (j = 0; j < nodes.length; j++) {
+			var node = nodes[j];
 			if (node.removeHalo)
 				node.removeHalo();
 		}
-		for (j=0;j<props.length;j++){
-			var prop=props[j];
+		for (j = 0; j < props.length; j++) {
+			var prop = props[j];
 			if (prop.removeHalo)
 				prop.removeHalo();
 		}
 	};
-	graph.highLightNodes=function(nodeIdArray) {
+
+	graph.updatePulseIds = function (nodeIdArray) {
+
+		pulseNodeIds = [];
+		if (nodeIdArray.length === 0) {
+			return;
+		}
+
+		for (var i = 0; i < nodeIdArray.length; i++) {
+			var selectedId = nodeIdArray[i];
+			var forceId = nodeMap[selectedId];
+			if (forceId !== undefined) {
+				var le_node = force.nodes()[forceId];
+				if (le_node.id) {
+					if (pulseNodeIds.indexOf(forceId) === -1) {
+						pulseNodeIds.push(forceId);
+					}
+				}
+				if (le_node.property) {
+					if (pulseNodeIds.indexOf(forceId) === -1) {
+						pulseNodeIds.push(forceId);
+					}
+				}
+			}
+		}
+	};
+
+	graph.highLightNodes = function (nodeIdArray) {
 		if (nodeIdArray.length === 0) {
 			return;
 			// nothing to highlight
 		}
 		pulseNodeIds = [];
-		var missedIds=[];
+		nodeArrayForPulse = nodeIdArray;
+		var missedIds = [];
 		// identify the force id to highlight
 		for (var i = 0; i < nodeIdArray.length; i++) {
 			var selectedId = nodeIdArray[i];
 			var forceId = nodeMap[selectedId];
 
-			if (forceId!==undefined) {
+			if (forceId !== undefined) {
 				var le_node = force.nodes()[forceId];
 				if (le_node.id) {
-					if (pulseNodeIds.indexOf(forceId)===-1){
+					if (pulseNodeIds.indexOf(forceId) === -1) {
 						pulseNodeIds.push(forceId);
+						le_node.foreground();
 						le_node.drawHalo();
 					}
 				}
 				if (le_node.property) {
-					if (pulseNodeIds.indexOf(forceId)===-1) {
+					if (pulseNodeIds.indexOf(forceId) === -1) {
 						pulseNodeIds.push(forceId);
 						le_node.property().foreground();
 						le_node.property().drawHalo();
 					}
 				}
 			}
-			else{
+			else {
 				// check if they have an equivalent or an inverse!
-				console.log("Could not Find Id in Graph (maybe filtered out) id = "+selectedId);
+				console.log("Could not Find Id in Graph (maybe filtered out) id = " + selectedId);
 				missedIds.push(selectedId);
 			}
 		}
 
 		// store the highlight on the missed nodes;
-		var s_nodes=unfilteredData.nodes;
-		var s_props=unfilteredData.properties;
-		for (i=0;i<missedIds.length;i++){
-			var missedId=missedIds[i];
+		var s_nodes = unfilteredData.nodes;
+		var s_props = unfilteredData.properties;
+		for (i = 0; i < missedIds.length; i++) {
+			var missedId = missedIds[i];
 			// search for this in the nodes;
-			for (var n=0; n<s_nodes.length; n++){
-				var nodeId=s_nodes[n].id();
-				if (nodeId===missedId){
+			for (var n = 0; n < s_nodes.length; n++) {
+				var nodeId = s_nodes[n].id();
+				if (nodeId === missedId) {
 					s_nodes[n].drawHalo();
 				}
 			}
-			for (var p=0; p < s_props.length; p++){
-				var propId=s_props[p].id();
-				if (propId===missedId){
+			for (var p = 0; p < s_props.length; p++) {
+				var propId = s_props[p].id();
+				if (propId === missedId) {
 					s_props[p].drawHalo();
 				}
 			}
 		}
+	};
+
+	/**
+	 * removes data when data could not be loaded
+	 */
+	graph.clearGraphData=function(){
+		var sidebar=graph.options().sidebar();
+		if (sidebar)
+			sidebar.clearOntologyInformation();
+		if (graphContainer)
+			redrawGraph();
 	};
 
 	/**
@@ -528,6 +568,52 @@ module.exports = function (graphContainerSelector) {
 		});
 	}
 
+	function generateDictionary(data){
+		var i;
+		var originalDictionary = [];
+		var nodes = data.nodes;
+		for (i = 0; i < nodes.length; i++) {
+			// check if node has a label
+			if (nodes[i].labelForCurrentLanguage()!==undefined)
+				originalDictionary.push(nodes[i]);
+		}
+		var props= data.properties;
+		for (i = 0; i < props.length; i++) {
+			if (props[i].labelForCurrentLanguage()!==undefined)
+				originalDictionary.push(props[i]);
+		}
+		parser.setDictionary(originalDictionary);
+
+		var literFilter = graph.options().literalFilter();
+		var idsToRemove = literFilter.removedNodes();
+		var originalDict = parser.getDictionary();
+		var newDict = [];
+
+		// go through the dictionary and remove the ids;
+		for (i = 0; i < originalDict.length; i++) {
+			var dictElement = originalDict[i];
+			var dictElementId;
+			if (dictElement.property)
+				dictElementId = dictElement.property().id();
+			else
+				dictElementId = dictElement.id();
+			// compare against the removed ids;
+			var addToDictionary = true;
+			for (var j = 0; j < idsToRemove.length; j++) {
+				var currentId = idsToRemove[j];
+				if (currentId === dictElementId) {
+					addToDictionary = false;
+				}
+			}
+			if (addToDictionary === true) {
+				newDict.push(dictElement);
+			}
+		}
+		// tell the parser that the dictionary is updated
+		parser.setDictionary(newDict);
+
+	}
+
 	function loadGraphData() {
 		parser.parse(options.data());
 
@@ -541,6 +627,9 @@ module.exports = function (graphContainerSelector) {
 		options.filterModules().forEach(function (module) {
 			initializationData = filterFunction(module, initializationData, true);
 		});
+
+		// generate dictionary here ;
+		generateDictionary(unfilteredData);
 
 		parser.parseSettings();
 		graphUpdateRequired = parser.settingsImported();
@@ -597,7 +686,6 @@ module.exports = function (graphContainerSelector) {
 					connectedLinks.push(link);
 				}
 			}
-
 			node.links(connectedLinks);
 		}
 	}

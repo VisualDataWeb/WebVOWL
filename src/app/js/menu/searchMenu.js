@@ -157,9 +157,9 @@ module.exports = function (graph) {
 				searchMenu.hideSearchEntries();
 			}
 			else{
+				inputText = searchLineEdit.node().value;
 				var iri=inputText.replace(" ","%20");
 				var valid=ValidURL(iri);
-				console.log("Iri httpName : "+iri);
 				// validate url:
 				if (valid){
 					var ontM=graph.options().ontologyMenu();
@@ -168,8 +168,6 @@ module.exports = function (graph) {
 				else{
 					console.log(iri+" is not a valid URL!");
 				}
-
-
 			}
 		}
 		if (d3.event.keyCode === 38) {
@@ -183,6 +181,7 @@ module.exports = function (graph) {
 
 		var newSelection = selectedEntry + move;
 		if (newSelection !== selectedEntry) {
+
 			if (newSelection < 0 && selectedEntry <= 0) {
 				htmlCollection[0].setAttribute('class', "dbEntrySelected");
 			}
@@ -211,6 +210,12 @@ module.exports = function (graph) {
 		var token;
 
 		for (i = 0; i < dictionary.length; i++) {
+			var tokenElement = dictionary[i];
+			if (tokenElement === undefined){
+				//@WORKAROUND : nodes with undefined labels are skipped
+				//@FIX: these nodes are now not added to the dictionary
+				continue;
+			}
 			token = dictionary[i].toLowerCase();
 			if (token.indexOf(lc_text) > -1) {
 				results.push(dictionary[i]);
@@ -239,8 +244,8 @@ module.exports = function (graph) {
 
 		for (i = 0; i < numEntries; i++) {
 			// search for the best entry
-			var indexElement = 100000;
-			var lengthElement = 10000;
+			var indexElement  = 1000000;
+			var lengthElement = 1000000;
 			var bestElement = -1;
 			for (var j = 0; j < copyRes.length; j++) {
 				token = copyRes[j].toLowerCase();
@@ -251,7 +256,6 @@ module.exports = function (graph) {
 					indexElement = tIe;
 					lengthElement = tLe;
 				}
-
 			}
 			newResults.push(copyRes[bestElement]);
 			newResultsIds.push(resultID[bestElement]);
@@ -277,10 +281,12 @@ module.exports = function (graph) {
 	}
 
 	function userInput() {
+
 		if (dictionaryUpdateRequired) {
 			updateSearchDictionary();
 		}
 		graph.resetSearchHighlight();
+
 		if (dictionary.length === 0) {
 			console.log("dictionary is empty");
 			return;
@@ -303,6 +309,12 @@ module.exports = function (graph) {
 		var token;
 
 		for (i = 0; i < dictionary.length; i++) {
+			var tokenElement = dictionary[i];
+			if (tokenElement === undefined){
+				//@WORKAROUND : nodes with undefined labels are skipped
+				//@FIX: these nodes are now not added to the dictionary
+				continue;
+			}
 			token = dictionary[i].toLowerCase();
 			if (token.indexOf(lc_text) > -1) {
 				results.push(dictionary[i]);
@@ -330,8 +342,8 @@ module.exports = function (graph) {
 
 		for (i = 0; i < numEntries; i++) {
 			// search for the best entry
-			var indexElement = 100000;
-			var lengthElement = 10000;
+			var indexElement  = 100000000;
+			var lengthElement = 100000000;
 			var bestElement = -1;
 			for (var j = 0; j < copyRes.length; j++) {
 				token = copyRes[j].toLowerCase();
@@ -382,6 +394,16 @@ module.exports = function (graph) {
 			searchMenu.hideSearchEntries();
 		};
 	}
+
+	searchMenu.clearText=function(){
+		searchLineEdit.node().value="";
+		var htmlCollection = dropDownContainer.node().children;
+		var numEntries = htmlCollection.length;
+		for (var i = 0; i < numEntries; i++){
+			htmlCollection[0].remove();
+			return;
+		}
+	};
 
 	return searchMenu;
 };

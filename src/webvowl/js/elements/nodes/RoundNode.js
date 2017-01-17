@@ -70,6 +70,8 @@ module.exports = (function () {
 		this.toggleFocus = function () {
 			that.focused(!that.focused());
 			that.nodeElement().select("circle").classed("focused", that.focused());
+			graph.resetSearchHighlight();
+			graph.options().searchMenu().clearText();
 
 		};
 

@@ -15,6 +15,8 @@ module.exports = function () {
 		minMagnification = 0.01,
 		maxMagnification = 4,
 		compactNotation = false,
+		// some filters
+		literalFilter,
 		// menus
 		gravityMenu,
 		filterMenu,
@@ -24,9 +26,17 @@ module.exports = function () {
 		resetMenu,
 		searchMenu,
 		ontologyMenu,
+		sidebar,
 		navigationMenu,
 		scaleNodesByIndividuals = false;
 
+
+	options.sidebar= function(s){
+		if (!arguments.length) return sidebar;
+		sidebar = s;
+		return options;
+
+	}
 
 	options.navigationMenu= function (m){
 		if (!arguments.length) return navigationMenu;
@@ -178,6 +188,12 @@ module.exports = function () {
 	options.width = function (p) {
 		if (!arguments.length) return width;
 		width = +p;
+		return options;
+	};
+
+	options.literalFilter=function (p) {
+		if (!arguments.length) return literalFilter;
+		literalFilter=p;
 		return options;
 	};
 

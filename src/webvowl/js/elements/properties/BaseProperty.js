@@ -166,6 +166,8 @@ module.exports = (function () {
 		this.toggleFocus = function () {
 			that.focused(!that.focused());
 			labelElement.select("rect").classed("focused", that.focused());
+			graph.resetSearchHighlight();
+			graph.options().searchMenu().clearText();
 		};
 
 
@@ -258,6 +260,9 @@ module.exports = (function () {
 
 			return equivalentProperties
 				.map(function (property) {
+					if (property===undefined || typeof(property)==="string"){ // @WORKAROUND
+						return "ERROR";
+					}
 					return property.labelForCurrentLanguage();
 				})
 				.join(", ");
@@ -290,7 +295,7 @@ module.exports = (function () {
 		};
 
 		that.setHighlighting = function (enable) {
-			if (that.labelElement()) {
+			if (that.labelElement && that.labelElement()) {
 				that.labelElement().select("rect").classed("hovered", enable);
 			}
 			that.linkGroup().selectAll("path, text").classed("hovered", enable);
@@ -303,7 +308,7 @@ module.exports = (function () {
 			var subAndSuperProperties = getSubAndSuperProperties();
 			subAndSuperProperties.forEach(function (property) {
 
-				if (property.labelElement()) {
+				if (property.labelElement && property.labelElement()) {
 					property.labelElement().select("rect")
 						.classed("indirect-highlighting", enable);
 				}
@@ -357,7 +362,8 @@ module.exports = (function () {
 			var subAndSuperProperties = getSubAndSuperProperties();
 
 			subAndSuperProperties.forEach(function (property) {
-				property.foreground();
+				if (property.foreground)
+					property.foreground();
 
 			});
 		}

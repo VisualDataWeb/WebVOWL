@@ -54,6 +54,38 @@ module.exports = function (graph) {
 		});
 	}
 
+	sidebar.clearOntologyInformation= function(){
+
+		d3.select("#title").text("No title available");
+		d3.select("#about").attr("href", "#").attr("target", "_blank").text("not given");
+		d3.select("#version").text("--");
+		d3.select("#authors").text("--");
+		d3.select("#description").text("No description available.");
+		var container = d3.select("#ontology-metadata");
+		container.selectAll("*").remove();
+		d3.select("#classCount")
+			.text("0");
+		d3.select("#objectPropertyCount")
+			.text("0");
+		d3.select("#datatypePropertyCount")
+			.text("0");
+		d3.select("#individualCount")
+			.text("0");
+		d3.select("#nodeCount")
+			.text("0");
+		d3.select("#edgeCount")
+			.text("0");
+
+		// clear selectedNode info
+		var isTriggerActive = d3.select("#selection-details-trigger").classed("accordion-trigger-active");
+		if (isTriggerActive){
+			// close accordion
+			d3.select("#selection-details-trigger").node().click();
+		}
+		showSelectionAdvice();
+
+	};
+
 	/**
 	 * Updates the information of the passed ontology.
 	 * @param data the graph data
