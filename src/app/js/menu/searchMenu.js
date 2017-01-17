@@ -18,6 +18,10 @@ module.exports = function (graph) {
 		inputText,
 		viewStatusOfSearchEntries = false;
 
+	String.prototype.beginsWith = function (string) {
+		return(this.indexOf(string) === 0);
+	};
+
 	searchMenu.requestDictionaryUpdate = function () {
 		dictionaryUpdateRequired = true;
 		// clear possible pre searched entries
@@ -158,7 +162,18 @@ module.exports = function (graph) {
 			}
 			else if (numEntries===0){
 				inputText = searchLineEdit.node().value;
-				var iri=inputText.replace(" ","%20");
+				// check if input text ends or begins with with space
+				// remove first spaces
+				var clearedText=inputText.replace(/%20/g," ");
+				while (clearedText.beginsWith(" ")){
+					clearedText=clearedText.substr(1,clearedText.length);
+				}
+				// remove ending spaces
+				while (clearedText.endsWith(" ")){
+					clearedText=clearedText.substr(0,clearedText.length-1);
+				}
+				var iri=clearedText.replace(/ /g,"%20");
+
 				var valid=ValidURL(iri);
 				// validate url:
 				if (valid){
