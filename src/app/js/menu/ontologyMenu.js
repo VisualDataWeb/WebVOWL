@@ -239,6 +239,7 @@ module.exports = function (graph) {
 		var descriptionVisible = d3.select("#error-description-button").classed("hidden", descriptionMissing).datum().open;
 		d3.select("#error-description-container").classed("hidden", descriptionMissing || !descriptionVisible);
 		d3.select("#error-description").text((description));
+		graph.clearGraphData();
 
 	};
 
