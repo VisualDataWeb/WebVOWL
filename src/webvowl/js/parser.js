@@ -484,7 +484,7 @@ module.exports = function (graph) {
 			// Properties of merged classes should point to/from the visible equivalent class
 			var propertyWasRerouted = false;
 
-			if (property.domain() == undefined) {
+			if (property.domain() === undefined) {
 				console.warn("No Domain was found for id:" + property.id());
 				return;
 			}

@@ -36,7 +36,7 @@ module.exports = function () {
 		sidebar = s;
 		return options;
 
-	}
+	};
 
 	options.navigationMenu= function (m){
 		if (!arguments.length) return navigationMenu;
