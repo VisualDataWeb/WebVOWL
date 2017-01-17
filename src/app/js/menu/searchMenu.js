@@ -156,7 +156,7 @@ module.exports = function (graph) {
 				htmlCollection[selectedEntry].onclick();
 				searchMenu.hideSearchEntries();
 			}
-			else{
+			else if (numEntries===0){
 				inputText = searchLineEdit.node().value;
 				var iri=inputText.replace(" ","%20");
 				var valid=ValidURL(iri);
@@ -401,7 +401,6 @@ module.exports = function (graph) {
 		var numEntries = htmlCollection.length;
 		for (var i = 0; i < numEntries; i++){
 			htmlCollection[0].remove();
-			return;
 		}
 	};
 
