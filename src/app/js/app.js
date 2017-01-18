@@ -90,7 +90,21 @@ module.exports = function () {
 
 		var data;
 		if (jsonText) {
-			data = JSON.parse(jsonText);
+			// validate JSON FILE
+			var validJSON;
+			try {
+				data =JSON.parse(jsonText);
+				validJSON=true;
+			} catch (e){
+				validJSON=false;
+			}
+			if (validJSON===false){
+				// the server output is not a valid json file
+				console.log("Retrieved data is not valid! (JSON.parse Error)");
+				ontologyMenu.emptyGraphError();
+				return;
+			}
+
 			if (!filename) {
 				// First look if an ontology title exists, otherwise take the alternative filename
 				var ontologyNames = data.header ? data.header.title : undefined;

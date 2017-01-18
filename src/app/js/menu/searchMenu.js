@@ -179,6 +179,7 @@ module.exports = function (graph) {
 				if (valid){
 					var ontM=graph.options().ontologyMenu();
 					ontM.setIriText(iri);
+					searchLineEdit.node().value="";
 				}
 				else{
 					console.log(iri+" is not a valid URL!");

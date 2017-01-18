@@ -13,8 +13,14 @@ module.exports = function (graph) {
 		loadingProgress = d3.select("#loading-progress"),
 		ontologyMenuTimeout,
 		emptyGraph=false,
+		fileToLoad,
 		cachedConversions = {},
 		loadOntologyFromText;
+
+
+	String.prototype.beginsWith = function (string) {
+		return(this.indexOf(string) === 0);
+	};
 
 	ontologyMenu.setup = function (_loadOntologyFromText) {
 		loadOntologyFromText = _loadOntologyFromText;
@@ -132,6 +138,7 @@ module.exports = function (graph) {
 	}
 
 	function loadOntologyFromURL(relativePath,requestedURL){
+		fileToLoad=requestedURL;
 		var cachedOntology = cachedConversions[relativePath];
 		var trimmedRequestedUri = requestedURL.replace(/\/$/g, "");
 		var filename = trimmedRequestedUri.slice(trimmedRequestedUri.lastIndexOf("/") + 1);
@@ -153,6 +160,7 @@ module.exports = function (graph) {
 				var loadingSuccessful = !error;
 				var errorInfo;
 
+
 				// check if error occurred or responseText is empty
 				if ((error!==null && error.status === 500) || (request && request.responseText.length===0)) {
 					hideLoadingInformations();
@@ -160,7 +168,6 @@ module.exports = function (graph) {
 					cachedConversions[relativePath]=undefined;
 					return;
 				}
-
 				var jsonText;
 				if (loadingSuccessful) {
 					jsonText = request.responseText;
@@ -176,7 +183,7 @@ module.exports = function (graph) {
 				setLoadingStatus(loadingSuccessful, error ? error.response : undefined, errorInfo);
 
 				if (emptyGraph===true){
-					ontologyMenu.emptyGraphError();
+					ontologyMenu.notValidJsonFile();
 					graph.clearGraphData();
 				}
 
@@ -186,6 +193,7 @@ module.exports = function (graph) {
 	}
 
 	function loadOntologyFromUri(relativePath, requestedUri) {
+		fileToLoad=requestedUri;
 		var cachedOntology = cachedConversions[relativePath];
 		var trimmedRequestedUri = requestedUri.replace(/\/$/g, "");
 		var filename = trimmedRequestedUri.slice(trimmedRequestedUri.lastIndexOf("/") + 1);
@@ -198,12 +206,13 @@ module.exports = function (graph) {
 			d3.xhr(relativePath, "application/json", function (error, request) {
 				var loadingSuccessful = !error;
 				var errorInfo;
-
 				if (error!==null && error.status === 500) {
 					hideLoadingInformations();
 				 	ontologyMenu.emptyGraphError();
 				 	return;
 				 }
+
+
 
 				var jsonText;
 				if (loadingSuccessful) {
@@ -234,7 +243,7 @@ module.exports = function (graph) {
 		loadingError.classed("hidden", false);
 		var errorInfo = d3.select("#error-info");
 		errorInfo.text("There is nothing to visualize.");
-		var description="There is no OWL input under the given IRI. Please try to load the OWL file directly.";
+		var description="There is no OWL input under the given IRI("+fileToLoad+"). Please try to load the OWL file directly.";
 		var descriptionMissing = !description;
 		var descriptionVisible = d3.select("#error-description-button").classed("hidden", descriptionMissing).datum().open;
 		d3.select("#error-description-container").classed("hidden", descriptionMissing || !descriptionVisible);
@@ -249,7 +258,7 @@ module.exports = function (graph) {
 		loadingError.classed("hidden", false);
 		var errorInfo = d3.select("#error-info");
 		errorInfo.text("Invalid JSON URL");
-		var description="There is no JSON input under the given URL. Please try to load the JSON file directly.";
+		var description="There is no JSON input under the given URL("+fileToLoad+"). Please try to load the JSON file directly.";
 		var descriptionMissing = !description;
 		var descriptionVisible = d3.select("#error-description-button").classed("hidden", descriptionMissing).datum().open;
 		d3.select("#error-description-container").classed("hidden", descriptionMissing || !descriptionVisible);
@@ -263,7 +272,7 @@ module.exports = function (graph) {
 		loadingError.classed("hidden", false);
 		var errorInfo = d3.select("#error-info");
 		errorInfo.text("Invalid JSON file");
-		var description="The uploaded file is not a valid JSON file.";
+		var description="The uploaded file is not a valid JSON file. ("+fileToLoad+")";
 		var descriptionMissing = !description;
 		var descriptionVisible = d3.select("#error-description-button").classed("hidden", descriptionMissing).datum().open;
 		d3.select("#error-description-container").classed("hidden", descriptionMissing || !descriptionVisible);
@@ -288,16 +297,26 @@ module.exports = function (graph) {
 		d3.select("#iri-converter-form").on("submit", function () {
 			var inputName=iriConverterInput.property("value");
 
+			// remove first spaces
+			var clearedName=inputName.replace(/%20/g," ");
+			while (clearedName.beginsWith(" ")){
+				clearedName=clearedName.substr(1,clearedName.length);
+			}
+			// remove ending spaces
+			while (clearedName.endsWith(" ")){
+				clearedName=clearedName.substr(0,clearedName.length-1);
+			}
 			// check if iri is actually an url for a json file (ends with .json)
 			// create lowercase filenames;
+			inputName=clearedName;
 			var lc_iri=inputName.toLowerCase();
 			if (lc_iri.endsWith(".json")) {
 			 	console.log("file is an URL for a json ");
-				location.hash = "url=" + iriConverterInput.property("value");
+				location.hash = "url=" + inputName;
 				iriConverterInput.property("value", "");
 				iriConverterInput.on("input")();
 			} else {
-				location.hash = "iri=" + iriConverterInput.property("value");
+				location.hash = "iri=" + inputName;
 				iriConverterInput.property("value", "");
 				iriConverterInput.on("input")();
 			}
