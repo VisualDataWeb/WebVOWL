@@ -222,17 +222,17 @@ module.exports = function (graph) {
 					if (error.status === 404) {
 						// check if this is file related and not owl2vowl converter connection error
 						// IRI parameter
-						// var iriKey = "iri=";
-						// var urlKey = "url=";
-						// var fileKey = "file=";
-						//
-						// var hashParameter = location.hash.slice(1);
-						// if (hashParameter.substr(0, fileKey.length) !== fileKey &&
-						// 	hashParameter.substr(0, urlKey.length) !== urlKey &&
-						// 	hashParameter.substr(0, iriKey.length) !== iriKey) {
-						// 	// this is a file related error
-						// 	ontologyMenu.emptyGraphError();
-						// }
+						var iriKey = "iri=";
+						var urlKey = "url=";
+						var fileKey = "file=";
+
+						var hashParameter = location.hash.slice(1);
+						if (hashParameter.substr(0, fileKey.length) !== fileKey &&
+							hashParameter.substr(0, urlKey.length) !== urlKey &&
+							hashParameter.substr(0, iriKey.length) !== iriKey) {
+							// this is a file related error
+							ontologyMenu.emptyGraphError();
+						}
 						errorInfo = "Connection to the OWL2VOWL interface could not be established.";
 						graph.clearGraphData();
 					}
