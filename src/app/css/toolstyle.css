@@ -766,3 +766,45 @@ a#pause-button:not(.paused)::before {
 	background-color: #32CD32;
 	box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(0, 0, 0, 0.1);
 }
+
+
+/* adding button pulse animation*/
+
+@-webkit-keyframes buttonAnimation {
+	0%  { background-color: unset; }
+	100% { background-color: #d90; }
+}
+@-moz-keyframes buttonAnimation  {
+	0%  { background-color: unset; }
+	100% { background-color: #d90; }
+}
+@-o-keyframes buttonAnimation  {
+	0%  { background-color: unset; }
+	100% { background-color: #d90; }
+}
+@keyframes buttonAnimation  {
+	0%  { background-color: unset; }
+	100% { background-color: #d90; }
+}
+
+.buttonPulse {
+	-webkit-animation-name: buttonAnimation;
+	-moz-animation-name: buttonAnimation;
+	-o-animation-name: buttonAnimation;
+	animation-name: buttonAnimation;
+
+	-webkit-animation-duration: 0.5s;
+	-moz-animation-duration: 0.5s;
+	-o-animation-duration: 0.5s;
+	animation-duration: 0.5s;
+
+	-webkit-animation-iteration-count: 3;
+	-moz-animation-iteration-count: 3;
+	-o-animation-iteration-count: 3;
+	animation-iteration-count: 3;
+
+	-webkit-animation-timing-function: linear;
+	-moz-animation-timing-function: linear;
+	-o-animation-timing-function: linear;
+	animation-timing-function: linear;
+}

@@ -188,12 +188,24 @@ module.exports = function (graph) {
 		degreeSlider.on("change")();
 	};
 
+
 	filterMenu.highlightForDegreeSlider = function (enable) {
 		if (!arguments.length) {
 			enable = true;
 		}
 		menuElement.classed("highlighted", enable);
 		nodeDegreeContainer.classed("highlighted", enable);
+
+		// pulse button handling
+		if (menuElement.classed("buttonPulse")===true && enable===true){
+			menuElement.classed("buttonPulse", false);
+			var timer= setTimeout(function() {
+				menuElement.classed("buttonPulse", enable);
+				clearTimeout(timer);
+			}, 100);
+		}else {
+			menuElement.classed("buttonPulse", enable);
+		}
 	};
 
 
