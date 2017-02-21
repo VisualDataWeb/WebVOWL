@@ -47,12 +47,191 @@ module.exports = function (graphContainerSelector) {
 		pulseNodeIds,
 		nodeArrayForPulse = [],
 		nodeMap = [],
+        locationId = 0,
+		pulseNodeIds=[],
 		zoom;
 
 	/**
 	 * Recalculates the positions of nodes, links, ... and updates them.
 	 */
-	function recalculatePositions() {
+
+    function updateHaloRadius() {
+        if (pulseNodeIds && pulseNodeIds.length > 0) {
+            var forceNodes = force.nodes();
+            for (var i = 0; i < pulseNodeIds.length; i++) {
+                //	console.log("checking Pulse Node Id"+pulseNodeIds[i]);
+                var node = forceNodes[pulseNodeIds[i]];
+                if (node)
+                    computeDistanceToCenter(node);
+            }
+        }
+    }
+    function getScreenCoords(x, y, translate, scale) {
+        var xn = translate[0] + x * scale;
+        var yn = translate[1] + y * scale;
+        return {x: xn, y: yn};
+    }
+
+    function computeDistanceToCenter(node) {
+        var container = node;
+
+        var w = graph.options().width();
+        var h = graph.options().height();
+        var posXY = getScreenCoords(node.x, node.y, graphTranslation, zoomFactor);
+
+
+        var x = posXY.x;
+        var y = posXY.y;
+        var nodeIsRect = false;
+        var halo;
+        var roundHalo;
+        var borderPoint_x = 0;
+        var borderPoint_y = 0;
+        var defaultRadius;
+        var offset = 15;
+        var radius;
+
+        if (node.id) {
+            if (!node.getHalos()) return; // something went wrong before
+            halo = node.getHalos().select("rect");
+            if (halo.node() === null) {
+                // this is a round node
+                nodeIsRect = false;
+                roundHalo = node.getHalos().select("circle");
+                defaultRadius = node.actualRadius();
+                roundHalo.attr("r", defaultRadius + offset);
+                halo = roundHalo;
+            } else { // this is a rect node
+                nodeIsRect = true;
+                rectHalo = node.getHalos().select("rect");
+                rectHalo.classed("hidden", true);
+                roundHalo = node.getHalos().select("circle");
+                if (roundHalo.node() === null) {
+                    radius = Math.max(node.width(), node.height());
+                    roundHalo = node.getHalos().append("circle")
+                        .classed("searchResultB", true)
+                        .classed("searchResultA", false)
+                        .attr("r", radius + offset);
+
+                }
+                halo = roundHalo;
+            }
+        }
+        if (node.property) {
+            if (!node.property().getHalos()) return; // something went wrong before
+            var rectHalo = node.property().getHalos().select("rect");
+            rectHalo.classed("hidden", true);
+
+            roundHalo = node.property().getHalos().select("circle");
+            if (roundHalo.node() === null) {
+                radius = Math.max(node.property().width(), node.property().height());
+                roundHalo = node.property().getHalos().append("circle")
+                    .classed("searchResultB", true)
+                    .classed("searchResultA", false)
+                    .attr("r", radius + 15);
+
+            }
+            halo = roundHalo; // swap the halo to be round
+            nodeIsRect = true;
+            container = node.property();
+        }
+
+        if (x < 0 || x > w || y < 0 || y > h) {
+            // node outside viewport;
+            // check for quadrant and get the correct boarder point (intersection with viewport)
+            if (x < 0 && y < 0) {
+                borderPoint_x = 0;
+                borderPoint_y = 0;
+            } else if (x > 0 && x < w && y < 0) {
+                borderPoint_x = x;
+                borderPoint_y = 0;
+            } else if (x > w && y < 0) {
+                borderPoint_x = w;
+                borderPoint_y = 0;
+            } else if (x > w && y > 0 && y < h) {
+                borderPoint_x = w;
+                borderPoint_y = y;
+            } else if (x > w && y > h) {
+                borderPoint_x = w;
+                borderPoint_y = h;
+            } else if (x > 0 && x < w && y > h) {
+                borderPoint_x = x;
+                borderPoint_y = h;
+            } else if (x < 0 && y > h) {
+                borderPoint_x = 0;
+                borderPoint_y = h;
+            } else if (x < 0 && y > 0 && y < h) {
+                borderPoint_x = 0;
+                borderPoint_y = y;
+            }
+            // kill all pulses of nodes that are outside the viewport
+            container.getHalos().select("rect").classed("searchResultA", false);
+            container.getHalos().select("circle").classed("searchResultA", false);
+            container.getHalos().select("rect").classed("searchResultB", true);
+            container.getHalos().select("circle").classed("searchResultB", true);
+            halo.classed("hidden", false);
+            // compute in pixel coordinates length of difference vector
+            var borderRadius_x = borderPoint_x - x;
+            var borderRadius_y = borderPoint_y - y;
+
+            var len = borderRadius_x * borderRadius_x + borderRadius_y * borderRadius_y;
+            len = Math.sqrt(len);
+
+            var normedX = borderRadius_x / len;
+            var normedY = borderRadius_y / len;
+
+            len = len + 20; // add 20 px;
+
+            // re-normalized vector
+            var newVectorX = normedX * len + x;
+            var newVectorY = normedY * len + y;
+            // compute world coordinates of this point
+            var wX = (newVectorX - graphTranslation[0]) / zoomFactor;
+            var wY = (newVectorY - graphTranslation[1]) / zoomFactor;
+
+            // compute distance in world coordinates
+            var dx = wX - node.x;
+            var dy = wY - node.y;
+            var newRadius = Math.sqrt(dx * dx + dy * dy);
+            halo = container.getHalos().select("circle");
+            // sanity checks and setting new halo radius
+            if (!nodeIsRect) {
+                //	console.log("No Width Needed");
+                defaultRadius = node.actualRadius() + offset;
+                if (newRadius < defaultRadius) {
+                    newRadius = defaultRadius;
+                }
+                halo.attr("r", newRadius);
+            } else {
+				/*defaultRadius=Math.max(container.width(),container.height());
+				 if (newRadius<defaultRadius)
+				 newRadius=defaultRadius;*/
+                halo.attr("r", newRadius);
+            }
+
+
+        } else { // node is in viewport , render original;
+
+            // reset the halo to original radius
+            defaultRadius = node.actualRadius() + 15;
+            if (!nodeIsRect) {
+                halo.attr("r", defaultRadius);
+            } else { // this is rectangular node render as such
+                halo = container.getHalos().select("rect");
+                halo.classed("hidden", false);
+                //halo.classed("searchResultB", true);
+                //halo.classed("searchResultA", false);
+                var aCircHalo = container.getHalos().select("circle");
+                aCircHalo.classed("hidden", true);
+
+                container.getHalos().select("rect").classed("hidden", false);
+                container.getHalos().select("circle").classed("hidden", true);
+            }
+        }
+
+    }
+
+    function recalculatePositions() {
 		// Set node positions
 		nodeElements.attr("transform", function (node) {
 			return "translate(" + node.x + "," + node.y + ")";
@@ -94,6 +273,7 @@ module.exports = function (graphContainerSelector) {
 			return "translate(" + (pos.x + normalV.x) + "," + (pos.y + normalV.y) + ")";
 		});
 
+        updateHaloRadius();
 	}
 
 	/**
@@ -104,6 +284,7 @@ module.exports = function (graphContainerSelector) {
 		// store zoom factor for export
 		zoomFactor = d3.event.scale;
 		graphTranslation = d3.event.translate;
+        updateHaloRadius();
 	}
 
 	/**
@@ -127,6 +308,7 @@ module.exports = function (graphContainerSelector) {
 				d.px = d3.event.x;
 				d.py = d3.event.y;
 				force.resume();
+                updateHaloRadius();
 			})
 			.on("dragend", function (d) {
 				d.locked(false);
@@ -383,7 +565,57 @@ module.exports = function (graphContainerSelector) {
 				}
 			}
 		}
+	    locationId = 0;
+        if (pulseNodeIds.length > 0)
+            d3.select("#locateSearchResult").classed("highlighted", true);
+        else
+            d3.select("#locateSearchResult").classed("highlighted", false);
+
 	};
+
+    graph.locateSearchResult = function () {
+
+        if (pulseNodeIds && pulseNodeIds.length > 0) {
+            // move the center of the viewport to this location
+
+            var node = force.nodes()[pulseNodeIds[locationId]];
+            console.log("--------------------------\nCurrent Location Id" + locationId);
+            locationId++;
+            locationId = locationId % pulseNodeIds.length;
+            var posXY = getScreenCoords(node.x, node.y, graphTranslation, zoomFactor);
+            var x = posXY.x;
+            var y = posXY.y;
+            var w = graph.options().width();
+            var h = graph.options().height();
+            var nx = x - 0.5 * w;
+            var ny = y - 0.5 * h;
+
+            var wX = -(nx - graphTranslation[0]);
+            var wY = -(ny - graphTranslation[1]);
+
+
+            graphTranslation[0] = wX;
+            graphTranslation[1] = wY;
+
+
+            /** animate the transition **/
+            graphContainer.transition()
+                .tween("attr.translate", function () {
+                    return function (t) {
+                        var tr = d3.transform(graphContainer.attr("transform"));
+                        x = tr.translate[0];
+                        y = tr.translate[1];
+                        graphTranslation[0] = x;
+                        graphTranslation[1] = y;
+                        updateHaloRadius();
+                    };
+                })
+                .attr("transform", "translate(" + graphTranslation + ")scale(" + zoomFactor + ")")
+                .duration(500);
+            updateHaloRadius();
+            zoom.translate([graphTranslation[0], graphTranslation[1]]);
+        }
+    };
 
 	graph.highLightNodes = function (nodeIdArray) {
 		if (nodeIdArray.length === 0) {
@@ -441,6 +673,9 @@ module.exports = function (graphContainerSelector) {
 				}
 			}
 		}
+        d3.select("#locateSearchResult").classed("highlighted", true);
+        locationId = 0;
+		updateHaloRadius();
 	};
 
 	/**

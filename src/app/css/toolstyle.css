@@ -4,6 +4,18 @@
 ----------------------------------------------*/
 
 
+#locateSearchResult:focus{
+	ouline: none;
+}
+a#locateSearchResult.highlighted:hover{
+	background-color: #d90;
+	color: red;
+}
+a#locateSearchResult{
+	outline: none;
+}
+
+
 #myProgress {
 	position: relative;
 	width: 93.5%;
