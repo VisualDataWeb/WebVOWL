@@ -44,11 +44,10 @@ module.exports = function (graphContainerSelector) {
 		zoomFactor,
 		graphTranslation,
 		graphUpdateRequired = false,
-		pulseNodeIds,
+		pulseNodeIds=[],
 		nodeArrayForPulse = [],
 		nodeMap = [],
         locationId = 0,
-		pulseNodeIds=[],
 		zoom;
 
 	/**
@@ -85,6 +84,7 @@ module.exports = function (graphContainerSelector) {
         var nodeIsRect = false;
         var halo;
         var roundHalo;
+        var rectHalo;
         var borderPoint_x = 0;
         var borderPoint_y = 0;
         var defaultRadius;
@@ -119,7 +119,7 @@ module.exports = function (graphContainerSelector) {
         }
         if (node.property) {
             if (!node.property().getHalos()) return; // something went wrong before
-            var rectHalo = node.property().getHalos().select("rect");
+            rectHalo = node.property().getHalos().select("rect");
             rectHalo.classed("hidden", true);
 
             roundHalo = node.property().getHalos().select("circle");
