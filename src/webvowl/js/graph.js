@@ -42,6 +42,7 @@ module.exports = function (graphContainerSelector) {
 		force,
 		dragBehaviour,
 		zoomFactor,
+		transformAnimation=false,
 		graphTranslation,
 		graphUpdateRequired = false,
 		pulseNodeIds=[],
@@ -107,12 +108,11 @@ module.exports = function (graphContainerSelector) {
                 rectHalo.classed("hidden", true);
                 roundHalo = node.getHalos().select("circle");
                 if (roundHalo.node() === null) {
-                    radius = Math.max(node.width(), node.height());
+                    radius = node.width();
                     roundHalo = node.getHalos().append("circle")
                         .classed("searchResultB", true)
                         .classed("searchResultA", false)
                         .attr("r", radius + offset);
-
                 }
                 halo = roundHalo;
             }
@@ -124,7 +124,8 @@ module.exports = function (graphContainerSelector) {
 
             roundHalo = node.property().getHalos().select("circle");
             if (roundHalo.node() === null) {
-                radius = Math.max(node.property().width(), node.property().height());
+                radius = node.property().width();
+
                 roundHalo = node.property().getHalos().append("circle")
                     .classed("searchResultB", true)
                     .classed("searchResultA", false)
@@ -203,9 +204,14 @@ module.exports = function (graphContainerSelector) {
                 }
                 halo.attr("r", newRadius);
             } else {
-				/*defaultRadius=Math.max(container.width(),container.height());
-				 if (newRadius<defaultRadius)
-				 newRadius=defaultRadius;*/
+            	if (node.property().inverse()){
+                    defaultRadius=0.5*container.width()+14;
+                    container.getHalos().select("circle").attr("cx",0)
+                    									 .attr("cy",14);
+				}else{
+					defaultRadius=0.5*container.width();
+            	}
+                if (newRadius<defaultRadius) newRadius=defaultRadius;
                 halo.attr("r", newRadius);
             }
 
@@ -276,20 +282,52 @@ module.exports = function (graphContainerSelector) {
         updateHaloRadius();
 	}
 
-	/**
-	 * Adjusts the containers current scale and position.
-	 */
+	/** Adjusts the containers current scale and position. */
 	function zoomed() {
-		graphContainer.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-		// store zoom factor for export
-		zoomFactor = d3.event.scale;
-		graphTranslation = d3.event.translate;
-        updateHaloRadius();
+
+
+        var zoomEventByMWheel=false;
+        if (d3.event.sourceEvent) {
+            if (d3.event.sourceEvent.deltaY)
+                zoomEventByMWheel=true;
+        }
+
+         if (zoomEventByMWheel===false){
+             if (transformAnimation===true){
+                 // console.log("still animating");
+                 return;
+             }
+            zoomFactor = d3.event.scale;
+            graphTranslation = d3.event.translate;
+            graphContainer.attr("transform", "translate(" + graphTranslation + ")scale(" + zoomFactor + ")");
+            updateHaloRadius();
+            return;
+		}
+		/** animate the transition **/
+        var x,y;
+        zoomFactor = d3.event.scale;
+        graphTranslation = d3.event.translate;
+        graphContainer.transition()
+            .tween("attr.translate", function () {
+                return function (t) {
+                	transformAnimation=true;
+                    var tr = d3.transform(graphContainer.attr("transform"));
+                    x = tr.translate[0];
+                    y = tr.translate[1];
+                    graphTranslation[0] = x;
+                    graphTranslation[1] = y;
+                    zoomFactor=tr.scale[0];
+                    updateHaloRadius();
+                };
+            })
+			.each("end", function(){transformAnimation=false;})
+            .attr("transform", "translate(" + graphTranslation + ")scale(" + zoomFactor + ")")
+            .ease('linear')
+			.duration(250);
+
 	}
 
-	/**
-	 * Initializes the graph.
-	 */
+	/** Initializes the graph. */
 	function initializeGraph() {
 		options.graphContainerSelector(graphContainerSelector);
 
@@ -317,9 +355,10 @@ module.exports = function (graphContainerSelector) {
 		// Apply the zooming factor.
 		zoom = d3.behavior.zoom()
 			.duration(150)
-			.scaleExtent([options.minMagnification(), options.maxMagnification()])
+	    	.scaleExtent([options.minMagnification(), options.maxMagnification()])
 			.on("zoom", zoomed);
 	}
+
 
 	initializeGraph();
 
@@ -566,10 +605,15 @@ module.exports = function (graphContainerSelector) {
 			}
 		}
 	    locationId = 0;
-        if (pulseNodeIds.length > 0)
+        if (pulseNodeIds.length > 0) {
             d3.select("#locateSearchResult").classed("highlighted", true);
-        else
+            d3.select("#locateSearchResult").node().title="Locate search term";
+
+        }
+        else {
             d3.select("#locateSearchResult").classed("highlighted", false);
+            d3.select("#locateSearchResult").node().title="Nothing to locate, enter search term.";
+        }
 
 	};
 
@@ -596,6 +640,7 @@ module.exports = function (graphContainerSelector) {
 
             graphTranslation[0] = wX;
             graphTranslation[1] = wY;
+
 
 
             /** animate the transition **/

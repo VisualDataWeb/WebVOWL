@@ -320,10 +320,12 @@ module.exports = function (graph) {
 		var htmlCollection = dropDownContainer.node().children;
 		var numEntries = htmlCollection.length;
 		inputText = searchLineEdit.node().value;
-
+		d3.select("#locateSearchResult").classed("highlighted", false);
+        d3.select("#locateSearchResult").node().title="Nothing to locate, enter search term.";
 		if (inputText.length === 0) {
 			for (i = 0; i < numEntries; i++)
 				htmlCollection[0].remove();
+
 			return;
 		}
 		// search in list
@@ -402,6 +404,7 @@ module.exports = function (graph) {
 	}
 
 	function handleClick(elementId){
+
 		return function(){
 			var id = elementId;
 			var correspondingIds = mergedIdList[id];
@@ -412,7 +415,7 @@ module.exports = function (graph) {
 
 			graph.resetSearchHighlight();
 			graph.highLightNodes(correspondingIds);
-
+            d3.select("#locateSearchResult").node().title="Locate search term";
 			if (autoComStr !== inputText) {
 				handleAutoCompletion();
 			}
@@ -423,6 +426,7 @@ module.exports = function (graph) {
 	searchMenu.clearText=function(){
 		searchLineEdit.node().value="";
         d3.select("#locateSearchResult").classed("highlighted", false);
+        d3.select("#locateSearchResult").node().title="Nothing to locate, enter search term.";
 		var htmlCollection = dropDownContainer.node().children;
 		var numEntries = htmlCollection.length;
 		for (var i = 0; i < numEntries; i++){
