@@ -11,6 +11,7 @@ var ZipPlugin = require('zip-webpack-plugin');
 var Bump = require("bump-webpack-plugin");
 
 var outputPath = "deploy/";
+var isDevelopment = process.env.NODE_ENV === "development";
 
 var config = {
   cache: true,
@@ -26,7 +27,7 @@ var config = {
     libraryTarget: "assign",
     library: "[name]"
   },
-  devtool: process.env.NODE_ENV === "development" ? "eval" : "source-map",
+  devtool: isDevelopment ? "eval" : "source-map",
   module: {
     rules: [{
         test: /\.js$/, // include .js files
@@ -53,7 +54,7 @@ var config = {
           use: [{
               loader: "css-loader",
               options: {
-                minimize: true,
+                minimize: !isDevelopment,
                 importLoaders: 1
               }
             },
@@ -71,7 +72,7 @@ var config = {
       replacement: require("./package.json").version
     }),
     new ExtractTextPlugin({
-      disable: process.env.NODE_ENV === "development",
+      disable: isDevelopment,
       filename: "css/[name].[chunkhash].css",
       allChunks: true
     }),
@@ -108,7 +109,7 @@ var config = {
 };
 
 // use it for "release", "zip" & "production"
-if (process.env.NODE_ENV !== "development") {
+if (!isDevelopment) {
   config.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
       sourcemap: true,
@@ -147,7 +148,7 @@ if (process.env.NODE_ENV === "release") {
       pathPrefix: outputPath,
     })
   );
-} else if (process.env.NODE_ENV === "development") {
+} else if (isDevelopment) {
   config.plugins.push(
     new DashboardPlugin(),
     new webpack.HotModuleReplacementPlugin()
