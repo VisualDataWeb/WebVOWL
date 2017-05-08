@@ -28,6 +28,8 @@ You can execute a few more advanced commands in the terminal:
 * `npm run test` starts the test runner
 * `npm run zip` builds the project and puts it into a zip file
 
+After install the npm package `grunt-cli` globally with `npm install grunt-cli -g` you can use `grunt-bump`.
+* `grunt bump` increases version of the package and creates commit with the changes
 
 Additional information
 ----------------------
