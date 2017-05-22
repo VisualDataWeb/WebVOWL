@@ -8,7 +8,6 @@ var DashboardPlugin = require("webpack-dashboard/plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var ZipPlugin = require('zip-webpack-plugin');
-var Bump = require("bump-webpack-plugin");
 
 var outputPath = "deploy/";
 var isDevelopment = process.env.NODE_ENV === "development";
