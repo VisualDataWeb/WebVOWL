@@ -8,6 +8,7 @@ var DashboardPlugin = require("webpack-dashboard/plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var ZipPlugin = require('zip-webpack-plugin');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var outputPath = "deploy/";
 var isDevelopment = process.env.NODE_ENV === "development";
@@ -100,7 +101,8 @@ var config = {
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html"
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ],
   externals: {
     d3: "d3",
