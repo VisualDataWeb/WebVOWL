@@ -18,9 +18,11 @@ module.exports = function (config) {
 			require("karma-webpack")
 		],
 		webpack: {
-			resolve: {
-				extensions: ["", ".js"]
-			}
+			// karma watches the test entry points
+			// (you don't need to specify the entry option)
+			// webpack watches dependencies
+
+			// webpack configuration
 		},
 		webpackMiddleware: {
 			noInfo: true

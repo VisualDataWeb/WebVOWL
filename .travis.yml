@@ -4,7 +4,6 @@ node_js:
   - "5"
   - "6"
   - "node"
-before_install: npm install -g grunt-cli
 script:
   - "npm test"
-  - "grunt jshint"
+  - "npm run jshint"
