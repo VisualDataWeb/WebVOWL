@@ -677,7 +677,6 @@ module.exports = function (graphContainerSelector) {
         var sP=[cp.x,cp.y,graph.options().height()/zoomFactor];
 
         var zoomLevel=Math.max(defaultZoom+0.5*defaultZoom,defaultTargetZoom);
-        var zoomLevel=Math.max(defaultZoom+0.5*defaultZoom,defaultTargetZoom);
         var eP=[target.x,target.y,graph.options().height()/zoomLevel];
 		var pos_intp=d3.interpolateZoom(sP,eP);
 

@@ -106,7 +106,7 @@ module.exports = function (graph) {
 				var allSame=true;
 				// using simple for-loop since id list should be small
 				for (var x=0;x<correspondingIdList.length;x++){
-					if (correspondingIdList[x]!=firstVal){
+					if (correspondingIdList[x]!==firstVal){
 						allSame=false;
 					}
 				}

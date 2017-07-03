@@ -157,9 +157,6 @@ module.exports = (function () {
 			.attr("r", radius + 15);
         haloGroupElement.attr("animationRunning",true);
 
-		console.log("added halo element with animation" +haloGroupElement.attr("animationRunning"));
-
-
 
         haloGroupElement.node().addEventListener("webkitAnimationEnd", function(){
             var test=haloGroupElement.selectAll(".searchResultA");

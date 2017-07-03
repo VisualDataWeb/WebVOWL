@@ -70,7 +70,7 @@ module.exports = function () {
 			d3.select("#logo").classed("hidden", true);
         } else {
 			d3.select("#logo").classed("hidden", false);
-			if (agentVersion==12) {
+			if (agentVersion===12) {
                 d3.select("#browserCheck").classed("hidden", false);
                 d3.select("#killWarning").classed("hidden", false);
             } else {
@@ -184,7 +184,7 @@ module.exports = function () {
 		navigationMenu.updateVisibilityStatus();
 		// update also the padding options of loading and the logo positions;
 		var warningDiv=d3.select("#browserCheck");
-		if (warningDiv.classed("hidden")==false ) {
+		if (warningDiv.classed("hidden")===false ) {
             var offset=10+warningDiv.node().getBoundingClientRect().height;
             d3.select("#logo").style("padding", offset+"px 10px");
         }else {
