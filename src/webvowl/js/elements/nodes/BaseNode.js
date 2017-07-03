@@ -113,8 +113,10 @@ module.exports = (function () {
                 var haloGr=that.getHalos();
                 var haloEls= haloGr.selectAll(".searchResultA");
                 animRuns=haloGr.attr("animationRunning");
-                // parse this to a boolean value
-                animRuns= (animRuns  == 'true');
+                if (typeof animRuns !== "boolean") {
+                    // parse this to a boolean value
+                    animRuns = (animRuns === 'true');
+                }
                 if (animRuns===false) {
                     haloEls.classed("searchResultA", false);
                     haloEls.classed("searchResultB", true);
