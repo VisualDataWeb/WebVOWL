@@ -112,24 +112,29 @@ module.exports = (function () {
 			.append("g")
 			.classed("hidden-in-export", true);
 
-		if (node.inverse && node.inverse()){
-			var addHeight=node.inverse().height();
-			haloGroupElement.append("rect")
-				.classed("searchResultA", true)
-				.attr("x", (-width - offset) / 2)
-				.attr("y", (-offset - height) / 2)
-				.attr("width", width + offset)
-				.attr("height", height+ addHeight + offset);
-		}
-		else {
-			haloGroupElement.append("rect")
+		haloGroupElement.append("rect")
 				.classed("searchResultA", true)
 				.attr("x", (-width - offset) / 2)
 				.attr("y", (-offset - height) / 2)
 				.attr("width", width + offset)
 				.attr("height", height + offset);
-		}
-		return haloGroupElement;
+		haloGroupElement.attr("animationRunning",true);
+
+        haloGroupElement.node().addEventListener("webkitAnimationEnd", function(){
+            var test=haloGroupElement.selectAll(".searchResultA");
+            test.classed("searchResultA", false)
+                .classed("searchResultB", true);
+            haloGroupElement.attr("animationRunning",false);
+        });
+        haloGroupElement.node().addEventListener("animationend", function(){
+            var test=haloGroupElement.selectAll(".searchResultA");
+            test.classed("searchResultA", false)
+                .classed("searchResultB", true);
+            haloGroupElement.attr("animationRunning",false);
+        });
+
+
+        return haloGroupElement;
 
 	};
 	tools.drawHalo = function (container, radius) {
@@ -143,9 +148,34 @@ module.exports = (function () {
 			.append("g")
 			.classed("hidden-in-export", true);
 
+
+		/* From Modernizr */
+
+
 		haloGroupElement.append("circle",":first-child")
 			.classed("searchResultA", true)
 			.attr("r", radius + 15);
+        haloGroupElement.attr("animationRunning",true);
+
+		console.log("added halo element with animation" +haloGroupElement.attr("animationRunning"));
+
+
+
+        haloGroupElement.node().addEventListener("webkitAnimationEnd", function(){
+            var test=haloGroupElement.selectAll(".searchResultA");
+            test.classed("searchResultA", false)
+				.classed("searchResultB", true)
+				.attr("animationRunning",false);
+            haloGroupElement.attr("animationRunning",false);
+        });
+        haloGroupElement.node().addEventListener("animationend", function(){
+            var test=haloGroupElement.selectAll(".searchResultA");
+            test.classed("searchResultA", false)
+                .classed("searchResultB", true)
+                .attr("animationRunning",false);
+            haloGroupElement.attr("animationRunning",false);
+        });
+
 		return haloGroupElement;
 	};
 

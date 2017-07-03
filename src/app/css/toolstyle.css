@@ -5,7 +5,7 @@
 
 
 #locateSearchResult:focus{
-	ouline: none;
+	outline: none;
 }
 a#locateSearchResult.highlighted:hover{
 	background-color: #d90;
@@ -205,9 +205,10 @@ ul#optionsMenu {
 	padding: 0;
 	width: 78%;
 }
+
 #logo {
 	position: fixed;
-	padding: 10px;
+	/*padding: 10px;*/
 	pointer-events: none;
 }
 #logo h2 {
@@ -478,7 +479,7 @@ a#pause-button:not(.paused)::before {
 	content: "II";
 }
 #export > a::before {
-	content: "\21A9";
+	content: "\21E4";
 }
 #filterOption > a::before {
 	content: "\25BD";
@@ -690,6 +691,13 @@ a#pause-button:not(.paused)::before {
 	height: 20px;
 	width: 74%;
 }
+
+#killWarning{
+	cursor: pointer;
+	color: #ffffff;
+	font-weight : bold;
+}
+
 #loading-info {
 	box-sizing: border-box;
 	position: absolute;

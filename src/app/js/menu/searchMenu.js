@@ -47,8 +47,17 @@ module.exports = function (graph) {
 			var lEntry = labelDictionary[i].labelForCurrentLanguage();
 			idList.push(labelDictionary[i].id());
 			stringList.push(lEntry);
-
+			// add all equivalents to the search space;
+			if (labelDictionary[i].equivalents && labelDictionary[i].equivalents().length>0){
+				var eqs=labelDictionary[i].equivalentsString();
+				var eqsLabels=eqs.split(", ");
+				for (var e=0;e<eqsLabels.length;e++){
+                    idList.push(labelDictionary[i].id());
+                    stringList.push(eqsLabels[e]);
+				}
+			}
 		}
+
 		mergedStringsList = [];
 		mergedIdList = [];
 		var indexInStringList=-1;
@@ -88,8 +97,24 @@ module.exports = function (graph) {
 			}
 			idListResult = idListResult.substring(0, idListResult.length - 2);
 			idListResult = idListResult + " ]";
-			if (correspondingIdList.length > 1)
-				dictionary.push(aString + " (" + correspondingIdList.length + ")");
+
+			var firstVal=correspondingIdList[0];
+
+			if (correspondingIdList.length > 1 ){
+				// we have several ids for a search entry;
+				// we check if they are allSame meaning that we are searching for an equivalent property;
+				var allSame=true;
+				// using simple for-loop since id list should be small
+				for (var x=0;x<correspondingIdList.length;x++){
+					if (correspondingIdList[x]!=firstVal){
+						allSame=false;
+					}
+				}
+				if (allSame===true)
+                    dictionary.push(aString);
+				else
+                dictionary.push(aString + " (" + correspondingIdList.length + ")");
+            }
 			else
 				dictionary.push(aString);
 			entryNames.push(aString);
@@ -221,7 +246,7 @@ module.exports = function (graph) {
 			}
 		}
 	}
-
+	searchMenu.getSearchString=function (){return searchLineEdit.node().value;};
 	function handleAutoCompletion() {
 		/**  pre condition: autoCompletion has already a valid text**/
 		var htmlCollection;

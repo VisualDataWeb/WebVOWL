@@ -56,7 +56,7 @@ module.exports = (function () {
 		};
 
 		this.textWidth = function () {
-			return this.width();
+            return that.width();
 		};
 
 		this.toggleFocus = function () {
@@ -80,7 +80,7 @@ module.exports = (function () {
 			if (additionalCssClasses instanceof Array) {
 				cssClasses = cssClasses.concat(additionalCssClasses);
 			}
-			drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
+            drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
 
 			textBlock = new CenteringTextElement(parentElement, that.backgroundColor());
 			textBlock.addText(that.labelForCurrentLanguage());
@@ -123,8 +123,15 @@ module.exports = (function () {
 		this.drawHalo = function () {
 			that.halo(true);
 
-			var offset = 15;
+			var offset = 0;
 			haloGroupElement = drawTools.drawRectHalo(that, this.width(), this.height(), offset);
+
+
+            if (that.pinned()){
+                var selectedNode = pinGroupElement.node();
+                var nodeContainer = selectedNode.parentNode;
+                nodeContainer .appendChild(selectedNode);
+            }
 
 		};
 	};

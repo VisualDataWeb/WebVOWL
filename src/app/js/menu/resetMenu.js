@@ -27,6 +27,8 @@ module.exports = function (graph) {
 	};
 
 	function resetGraph() {
+		graph.resetSearchHighlight();
+		graph.options().searchMenu().clearText();
 		options.classDistance(untouchedOptions.classDistance());
 		options.datatypeDistance(untouchedOptions.datatypeDistance());
 		options.charge(untouchedOptions.charge());

@@ -107,10 +107,31 @@ module.exports = (function () {
 				.on("mouseout", onMouseOut);
 		};
 
+		this.animationProcess=function(){
+            var animRuns=false;
+            if (that.getHalos()) {
+                var haloGr=that.getHalos();
+                var haloEls= haloGr.selectAll(".searchResultA");
+                animRuns=haloGr.attr("animationRunning");
+                // parse this to a boolean value
+                animRuns= (animRuns  == 'true');
+                if (animRuns===false) {
+                    haloEls.classed("searchResultA", false);
+                    haloEls.classed("searchResultB", true);
+                }
+            }
+            return animRuns;
+        };
+
 		this.foreground = function(){
 			var selectedNode = that.nodeElement().node(),
 				nodeContainer = selectedNode.parentNode;
-		    	nodeContainer.appendChild(selectedNode);
+				// check if the halo is present and an animation is running
+            if (that.animationProcess()===false) {
+                // Append hovered element as last child to the container list.
+                nodeContainer.appendChild(selectedNode);
+            }
+
 		};
 
 		function onMouseOver() {
@@ -121,16 +142,10 @@ module.exports = (function () {
 			var selectedNode = that.nodeElement().node(),
 				nodeContainer = selectedNode.parentNode;
 
-			var haloGroup=that.getHalos();
-			// console.log("message from hovered baseNode"+haloGroup);
-			if (haloGroup) {
-				// console.log("should remove pulse");
-				var test = haloGroup.selectAll(".searchResultA");
-				test.classed("searchResultA", false);
-				test.classed("searchResultB", true);
-			}
 			// Append hovered element as last child to the container list.
-			nodeContainer.appendChild(selectedNode);
+            if (that.animationProcess()===false) {
+                nodeContainer.appendChild(selectedNode);
+            }
 			that.setHoverHighlighting(true);
 			that.mouseEntered(true);
 		}

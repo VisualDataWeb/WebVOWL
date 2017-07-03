@@ -14,29 +14,42 @@
 	<title>WebVOWL</title>
 </head>
 <body>
+
 <main>
+
 	<section id="canvasArea">
-		<div id="logo">
+			<div id="browserCheck" class="hidden">
+				WebVOWL does not work properly in Internet Explorer and Microsoft Edge.
+				Please use another browser, such as
+				<a href="http://www.mozilla.org/firefox/">Mozilla Firefox</a>
+				or
+				<a href="https://www.google.com/chrome/">Google Chrome</a>,
+				to run WebVOWL.
+				<label id="killWarning">Hide warning</label>
+			</div>
+			<div id="logo">
 			<!-- build:process -->
 			<h2>WebVOWL <br/><span><%= version %></span></h2>
 			<!-- /build -->
-		</div>
-		<div id="loading-info">
-			<div id="loading-error" class="hidden">
-				<div id="error-info"></div>
-				<div id="error-description-button" class="hidden">Show error details</div>
-				<div id="error-description-container" class="hidden">
-					<pre id="error-description"></pre>
+			</div>
+			<div id="loading-info">
+				<div id="loading-error" class="hidden">
+					<div id="error-info"></div>
+					<div id="error-description-button" class="hidden">Show error details</div>
+					<div id="error-description-container" class="hidden">
+						<pre id="error-description"></pre>
+					</div>
+				</div>
+				<div id="loading-progress" class="hidden">
+					<span>Loading ontology... </span>
+					<div class="spin">&#8635;</div><br>
+					<div id="myProgress">
+						<div id="myBar"></div>
+					</div>
 				</div>
 			</div>
-			<div id="loading-progress" class="hidden">
-				<span>Loading ontology... </span>
-				<div class="spin">&#8635;</div><br>
-				<div id="myProgress">
-					<div id="myBar"></div>
-				</div>
-			</div>
-		</div>
+
+
 		<div id="graph"></div>
 	</section>
 	<aside id="detailsArea">
@@ -117,6 +130,9 @@
 			<li id="resetOption"><a id="reset-button" href="#" type="reset">Reset</a></li>
 			<li id="moduleOption"><a href="#">Modes</a>
 				<ul class="toolTipMenu module">
+					<!--<li class="toggleOption" id="helicopterZoom"></li>-->
+					<!--<li class="toggleOption" id="grassHopperZoom"></li>-->
+					<li class="toggleOption" id="dynamicLabelWidth"></li>
 					<li class="toggleOption" id="pickAndPinOption"></li>
 					<li class="toggleOption" id="nodeScalingOption"></li>
 					<li class="toggleOption" id="compactNotationOption"></li>

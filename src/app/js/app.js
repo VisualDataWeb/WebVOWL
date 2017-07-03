@@ -30,7 +30,6 @@ module.exports = function () {
 		selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
 		statistics = webvowl.modules.statistics(),
 		subclassFilter = webvowl.modules.subclassFilter(),
-		progress=document.getElementById("myProgress"),
 		setOperatorFilter = webvowl.modules.setOperatorFilter();
 
 	app.initialize = function () {
@@ -59,25 +58,54 @@ module.exports = function () {
 		modeMenu.setup(pickAndPin, nodeScalingSwitch, compactNotationSwitch, colorExternalsSwitch);
 		pauseMenu.setup();
 		sidebar.setup();
-		ontologyMenu.setup(loadOntologyFromText);
-		resetMenu.setup([gravityMenu, filterMenu, modeMenu, focuser, selectionDetailDisplayer, pauseMenu]);
-		searchMenu.setup();
-		navigationMenu.setup();
 
-		// give the options the pointer to the some menus for import and export
-		options.literalFilter(emptyLiteralFilter);
-		options.filterMenu(filterMenu);
-		options.modeMenu(modeMenu);
-		options.gravityMenu(gravityMenu);
-		options.pausedMenu(pauseMenu);
-		options.pickAndPinModule(pickAndPin);
-		options.resetMenu(resetMenu);
-		options.searchMenu(searchMenu);
-		options.ontologyMenu(ontologyMenu);
-		options.navigationMenu(navigationMenu);
-		options.sidebar(sidebar);
-		graph.start();
-		adjustSize();
+
+        var agentVersion=getInternetExplorerVersion();
+        console.log("agent Version "+agentVersion);
+       	if (agentVersion> 0 && agentVersion<= 11) {
+        	console.log("this agent is not supported");
+			d3.select("#browserCheck").classed("hidden", false);
+			d3.select("#killWarning" ).classed("hidden", true);
+			d3.select("#optionsArea" ).classed("hidden", true);
+			d3.select("#logo").classed("hidden", true);
+        } else {
+			d3.select("#logo").classed("hidden", false);
+			if (agentVersion==12) {
+                d3.select("#browserCheck").classed("hidden", false);
+                d3.select("#killWarning").classed("hidden", false);
+            } else {
+                d3.select("#browserCheck").classed("hidden", true);
+			}
+            ontologyMenu.setup(loadOntologyFromText);
+            resetMenu.setup([gravityMenu, filterMenu, modeMenu, focuser, selectionDetailDisplayer, pauseMenu]);
+			searchMenu.setup();
+			navigationMenu.setup();
+
+			// give the options the pointer to the some menus for import and export
+			options.literalFilter(emptyLiteralFilter);
+			options.filterMenu(filterMenu);
+			options.modeMenu(modeMenu);
+			options.gravityMenu(gravityMenu);
+			options.pausedMenu(pauseMenu);
+			options.pickAndPinModule(pickAndPin);
+			options.resetMenu(resetMenu);
+			options.searchMenu(searchMenu);
+			options.ontologyMenu(ontologyMenu);
+			options.navigationMenu(navigationMenu);
+			options.sidebar(sidebar);
+			graph.start();
+			adjustSize();
+
+			// set initial values for the window zoom level and sizes;
+			var defZoom;
+			// experiment
+			var w = graph.options().width();
+			var h = graph.options().height();
+			defZoom = Math.min(w, h) / 1000;
+
+			// initialize the values;
+			graph.setDefaultZoom(defZoom);
+        }
 	};
 
 	function loadOntologyFromText(jsonText, filename, alternativeFilename) {
@@ -150,7 +178,53 @@ module.exports = function () {
 		options.width(width)
 			.height(height);
 		graph.updateStyle();
+
+
+
 		navigationMenu.updateVisibilityStatus();
+		// update also the padding options of loading and the logo positions;
+		var warningDiv=d3.select("#browserCheck");
+		if (warningDiv.classed("hidden")==false ) {
+            var offset=10+warningDiv.node().getBoundingClientRect().height;
+            d3.select("#logo").style("padding", offset+"px 10px");
+        }else {
+			// remove the dynamic padding from the logo element;
+            d3.select("#logo").style("padding", "10px");
+        }
 	}
+
+	function getInternetExplorerVersion(){
+        var ua,
+            re,
+            rv = -1;
+
+        // check for edge
+        var isEdge=/(?:\b(MS)?IE\s+|\bTrident\/7\.0;.*\s+rv:|\bEdge\/)(\d+)/.test(navigator.userAgent);
+        if (isEdge){
+            rv  = parseInt("12");
+            return rv;
+        }
+
+        var isIE11 = /Trident.*rv[ :]*11\./.test(navigator.userAgent);
+        if (isIE11){
+            rv  = parseInt("11");
+            return rv;
+        }
+        if (navigator.appName === "Microsoft Internet Explorer") {
+            ua = navigator.userAgent;
+            re = new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})");
+            if (re.exec(ua) !== null) {
+                rv = parseFloat(RegExp.$1);
+            }
+        } else if (navigator.appName === "Netscape") {
+            ua = navigator.userAgent;
+            re = new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})");
+            if (re.exec(ua) !== null) {
+                rv = parseFloat(RegExp.$1);
+            }
+        }
+        return rv;
+	}
+
 	return app;
 };

@@ -15,6 +15,7 @@ module.exports = function () {
 		minMagnification = 0.01,
 		maxMagnification = 4,
 		compactNotation = false,
+		dynamicLabelWidth=true,
 		// some filters
 		literalFilter,
 		// menus
@@ -30,7 +31,13 @@ module.exports = function () {
 		navigationMenu,
 		scaleNodesByIndividuals = false;
 
-
+    options.dynamicLabelWidth=function(val){
+        if (!arguments.length)
+        	return dynamicLabelWidth;
+        else{
+            dynamicLabelWidth=val;
+		}
+	};
 	options.sidebar= function(s){
 		if (!arguments.length) return sidebar;
 		sidebar = s;
@@ -44,6 +51,7 @@ module.exports = function () {
 		return options;
 
 	};
+
 	options.ontologyMenu = function (m){
 		if (!arguments.length) return ontologyMenu;
 		ontologyMenu = m;
@@ -56,7 +64,6 @@ module.exports = function () {
 		return options;
 	};
 
-
 	options.resetMenu = function (m) {
 		if (!arguments.length) return resetMenu;
 		resetMenu = m;
@@ -67,7 +74,6 @@ module.exports = function () {
 		if (!arguments.length) return pausedMenu;
 		pausedMenu = m;
 		return options;
-
 	};
 
 	options.pickAndPinModule = function (m) {
@@ -80,7 +86,6 @@ module.exports = function () {
 		if (!arguments.length) return gravityMenu;
 		gravityMenu = m;
 		return options;
-
 	};
 
 	options.filterMenu = function (m) {

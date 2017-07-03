@@ -33,20 +33,31 @@ function getInternetExplorerVersion() {
 }
 
 function showBrowserWarningIfRequired() {
-
 	var version = getInternetExplorerVersion();
-	if (version > 0 && version <= 12) {
-		document.write("<div id=\"browserCheck\">WebVOWL does not work properly in Internet Explorer and Microsoft Edge. Please use another browser, such as <a href=\"http://www.mozilla.org/firefox/\">Mozilla Firefox</a> or <a href=\"https://www.google.com/chrome/\">Google Chrome</a>, to run WebVOWL.</div>");
-		// hiding any additional menus and features
-		var canvasArea = document.getElementById("canvasArea"),
-			detailsArea = document.getElementById("detailsArea"),
-			optionsArea = document.getElementById("optionsArea");
-		canvasArea.className = "hidden";
-		detailsArea.className = "hidden";
-		optionsArea.className = "hidden";
+	console.log("Browser Version ="+version);
+    if (version > 0 && version <= 11) {
+        d3.select("#browserCheck").classed("hidden", false);
+        d3.select("#killWarning" ).classed("hidden", true);
+        d3.select("#optionsArea" ).classed("hidden", true);
+        d3.select("#logo").classed("hidden", true);
+    }
+	if (version == 12 ) {
+        d3.select("#logo").classed("hidden", false);
+        d3.select("#browserCheck").classed("hidden",false);
+        // connect the button;
+		var pb_kill=d3.select("#killWarning");
+		pb_kill.on("click",function(){
+			console.log("hide the warning please");
+            d3.select("#browserCheck").classed("hidden",true);
+            d3.select("#logo").style("padding", "10px");
+		});
 	}
-}
+	else{
+        d3.select("#logo").classed("hidden", false);
+        d3.select("#browserCheck").classed("hidden",true);
+	}
 
+}
 
 module.exports = showBrowserWarningIfRequired;
 showBrowserWarningIfRequired();

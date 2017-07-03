@@ -38,13 +38,35 @@ module.exports = function (graph) {
 			var searchMenu=graph.options().searchMenu();
 			searchMenu.hideSearchEntries();
 		});
+        addCheckBox("labelWidth","Dynamic label width","#dynamicLabelWidth",graph.options().dynamicLabelWidth,1);
 		addModeItem(pickAndPin, "pickandpin", "Pick & pin", "#pickAndPinOption", false);
 		addModeItem(nodeScaling, "nodescaling", "Node scaling", "#nodeScalingOption", true);
 		addModeItem(compactNotation, "compactnotation", "Compact notation", "#compactNotationOption", true);
-
 		var container = addModeItem(colorExternals, "colorexternals", "Color externals", "#colorExternalsOption", true);
 		colorModeSwitch = addExternalModeSelection(container, colorExternals);
 	};
+    function addCheckBox(identifier, modeName, selector,onChangeFunc,updateLvl) {
+        var moduleOptionContainer = d3.select(selector)
+            .append("div")
+            .classed("checkboxContainer", true);
+
+        var moduleCheckbox = moduleOptionContainer.append("input")
+            .classed("moduleCheckbox", true)
+            .attr("id", identifier + "ModuleCheckbox")
+            .attr("type", "checkbox")
+            .property("checked", onChangeFunc());
+
+        moduleCheckbox.on("click", function (d) {
+            var isEnabled = moduleCheckbox.property("checked");
+            onChangeFunc(isEnabled);
+            if (updateLvl>0){
+                graph.update(); // maybe to much of an update
+            }
+        });
+        moduleOptionContainer.append("label")
+            .attr("for", identifier + "ModuleCheckbox")
+            .text(modeName);
+    }
 
 	function addModeItem(module, identifier, modeName, selector, updateGraphOnClick) {
 		var moduleOptionContainer,

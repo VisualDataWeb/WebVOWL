@@ -14,15 +14,16 @@ module.exports = function () {
 		}
 	};
 
-	pap.handle = function (selection) {
+	pap.handle = function (selection, forced) {
 		if (!enabled) {
 			return;
 		}
 
-		if (wasNotDragged()) {
-			return;
-		}
-
+		if (!forced) {
+            if (wasNotDragged()) {
+                return;
+            }
+        }
 		if (elementTools.isProperty(selection)) {
 			if (selection.inverse() && selection.inverse().pinned()) {
 				return;
@@ -38,8 +39,7 @@ module.exports = function () {
 	};
 
 	function wasNotDragged() {
-		return false; // todo: test
-	//	return !d3.event.defaultPrevented;
+		return !d3.event.defaultPrevented;
 	}
 
 	function hasNoParallelProperties(property) {

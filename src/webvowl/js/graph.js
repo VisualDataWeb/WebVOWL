@@ -49,20 +49,41 @@ module.exports = function (graphContainerSelector) {
 		nodeArrayForPulse = [],
 		nodeMap = [],
         locationId = 0,
+		defaultZoom=1.0,
+		defaultTargetZoom=0.8,
 		zoom;
 
-	/**
-	 * Recalculates the positions of nodes, links, ... and updates them.
-	 */
+
+	graph.setDefaultZoom=function(val){
+		defaultZoom=val;
+		graph.reset();
+	};
+	graph.setTargetZoom=function(val){
+		defaultTargetZoom=val;
+	};
 
     function updateHaloRadius() {
         if (pulseNodeIds && pulseNodeIds.length > 0) {
             var forceNodes = force.nodes();
             for (var i = 0; i < pulseNodeIds.length; i++) {
-                //	console.log("checking Pulse Node Id"+pulseNodeIds[i]);
                 var node = forceNodes[pulseNodeIds[i]];
-                if (node)
+                if (node) {
+                	if (node.property) {
+                        // match search strings with property label
+                        if (node.property().inverse) {
+                            var searchString = graph.options().searchMenu().getSearchString().toLowerCase();
+                            var name = node.property().labelForCurrentLanguage().toLowerCase();
+                            if (name===searchString) computeDistanceToCenter(node);
+                            else {
+                                node.property().removeHalo();
+                            	if (!node.property().inverse().getHalos())
+                            		node.property().inverse().drawHalo();
+                            	computeDistanceToCenter(node, true);
+                            }
+                        }
+                    }
                     computeDistanceToCenter(node);
+                }
             }
         }
     }
@@ -72,14 +93,18 @@ module.exports = function (graphContainerSelector) {
         return {x: xn, y: yn};
     }
 
-    function computeDistanceToCenter(node) {
+    function computeDistanceToCenter(node, inverse) {
         var container = node;
-
         var w = graph.options().width();
         var h = graph.options().height();
         var posXY = getScreenCoords(node.x, node.y, graphTranslation, zoomFactor);
 
+        var highlightOfInv=false;
 
+        if (inverse && inverse===true){
+            highlightOfInv=true;
+            posXY = getScreenCoords(node.x, node.y+20, graphTranslation, zoomFactor);
+        }
         var x = posXY.x;
         var y = posXY.y;
         var nodeIsRect = false;
@@ -91,6 +116,25 @@ module.exports = function (graphContainerSelector) {
         var defaultRadius;
         var offset = 15;
         var radius;
+
+        if (node.property && highlightOfInv===true ) {
+            rectHalo = node.property().inverse().getHalos().select("rect");
+            rectHalo.classed("hidden", true);
+
+            roundHalo = node.property().inverse().getHalos().select("circle");
+            if (roundHalo.node() === null) {
+                radius = node.property().inverse().width()+15;
+
+                roundHalo = node.property().inverse().getHalos().append("circle")
+                    .classed("searchResultB", true)
+                    .classed("searchResultA", false)
+                    .attr("r", radius + 15);
+
+            }
+            halo = roundHalo; // swap the halo to be round
+            nodeIsRect = true;
+            container = node.property().inverse();
+        }
 
         if (node.id) {
             if (!node.getHalos()) return; // something went wrong before
@@ -117,7 +161,7 @@ module.exports = function (graphContainerSelector) {
                 halo = roundHalo;
             }
         }
-        if (node.property) {
+        if (node.property && !inverse) {
             if (!node.property().getHalos()) return; // something went wrong before
             rectHalo = node.property().getHalos().select("rect");
             rectHalo.classed("hidden", true);
@@ -193,31 +237,28 @@ module.exports = function (graphContainerSelector) {
             // compute distance in world coordinates
             var dx = wX - node.x;
             var dy = wY - node.y;
+            if ( highlightOfInv===true)
+                dy = wY - node.y-20;
+
+            if ( highlightOfInv===false && node.property && node.property().inverse())
+                dy = wY - node.y+20;
+
             var newRadius = Math.sqrt(dx * dx + dy * dy);
             halo = container.getHalos().select("circle");
             // sanity checks and setting new halo radius
             if (!nodeIsRect) {
-                //	console.log("No Width Needed");
                 defaultRadius = node.actualRadius() + offset;
                 if (newRadius < defaultRadius) {
                     newRadius = defaultRadius;
                 }
                 halo.attr("r", newRadius);
             } else {
-            	if (node.property().inverse()){
-                    defaultRadius=0.5*container.width()+14;
-                    container.getHalos().select("circle").attr("cx",0)
-                    									 .attr("cy",14);
-				}else{
-					defaultRadius=0.5*container.width();
-            	}
-                if (newRadius<defaultRadius) newRadius=defaultRadius;
+				defaultRadius = 0.5 * container.width();
+                if (newRadius<defaultRadius)
+                	newRadius=defaultRadius;
                 halo.attr("r", newRadius);
             }
-
-
         } else { // node is in viewport , render original;
-
             // reset the halo to original radius
             defaultRadius = node.actualRadius() + 15;
             if (!nodeIsRect) {
@@ -234,7 +275,6 @@ module.exports = function (graphContainerSelector) {
                 container.getHalos().select("circle").classed("hidden", true);
             }
         }
-
     }
 
     function recalculatePositions() {
@@ -284,8 +324,6 @@ module.exports = function (graphContainerSelector) {
 
 	/** Adjusts the containers current scale and position. */
 	function zoomed() {
-
-
         var zoomEventByMWheel=false;
         if (d3.event.sourceEvent) {
             if (d3.event.sourceEvent.deltaY)
@@ -294,7 +332,6 @@ module.exports = function (graphContainerSelector) {
 
          if (zoomEventByMWheel===false){
              if (transformAnimation===true){
-                 // console.log("still animating");
                  return;
              }
             zoomFactor = d3.event.scale;
@@ -304,7 +341,6 @@ module.exports = function (graphContainerSelector) {
             return;
 		}
 		/** animate the transition **/
-        var x,y;
         zoomFactor = d3.event.scale;
         graphTranslation = d3.event.translate;
         graphContainer.transition()
@@ -312,10 +348,8 @@ module.exports = function (graphContainerSelector) {
                 return function (t) {
                 	transformAnimation=true;
                     var tr = d3.transform(graphContainer.attr("transform"));
-                    x = tr.translate[0];
-                    y = tr.translate[1];
-                    graphTranslation[0] = x;
-                    graphTranslation[1] = y;
+                    graphTranslation[0] = tr.translate[0];
+                    graphTranslation[1] = tr.translate[1];
                     zoomFactor=tr.scale[0];
                     updateHaloRadius();
                 };
@@ -324,13 +358,12 @@ module.exports = function (graphContainerSelector) {
             .attr("transform", "translate(" + graphTranslation + ")scale(" + zoomFactor + ")")
             .ease('linear')
 			.duration(250);
-
-	}
+	}// end of zoomed function
 
 	/** Initializes the graph. */
 	function initializeGraph() {
 		options.graphContainerSelector(graphContainerSelector);
-
+		var moved=false;
 		force = d3.layout.force()
 			.on("tick", recalculatePositions);
 
@@ -341,15 +374,26 @@ module.exports = function (graphContainerSelector) {
 			.on("dragstart", function (d) {
 				d3.event.sourceEvent.stopPropagation(); // Prevent panning
 				d.locked(true);
+                moved=false;
 			})
 			.on("drag", function (d) {
 				d.px = d3.event.x;
 				d.py = d3.event.y;
 				force.resume();
                 updateHaloRadius();
+                moved=true;
 			})
 			.on("dragend", function (d) {
 				d.locked(false);
+                var pnp=graph.options().pickAndPinModule();
+                if (pnp.enabled()===true && moved===true){
+                	if (d.id){ // node
+                		pnp.handle(d,true);
+					}
+					if (d.property){
+                		pnp.handle(d.property(),true);
+					}
+				}
 			});
 
 		// Apply the zooming factor.
@@ -358,8 +402,6 @@ module.exports = function (graphContainerSelector) {
 	    	.scaleExtent([options.minMagnification(), options.maxMagnification()])
 			.on("zoom", zoomed);
 	}
-
-
 	initializeGraph();
 
 	/**
@@ -429,7 +471,6 @@ module.exports = function (graphContainerSelector) {
 	 */
 	graph.update = function () {
 		refreshGraphData();
-
 		// update node map
 		nodeMap = [];
 		var node;
@@ -450,7 +491,7 @@ module.exports = function (graphContainerSelector) {
 				nodeMap[node.property().id()] = j;
 				var inverse = node.inverse();
 				if (inverse) {
-					nodeMap[inverse.id()] = j;
+				  	nodeMap[inverse.id()] = j;
 				}
 			}
 		}
@@ -505,8 +546,14 @@ module.exports = function (graphContainerSelector) {
 
 	/** resetting the graph **/
 	graph.reset = function () {
-		zoom.translate([0, 0])
-			.scale(1);
+		// window size
+		var w=0.5*graph.options().width();
+        var h=0.5*graph.options().height();
+		// computing inital translation for the graph due tue the dynamic default zoom level
+        var tx=w-defaultZoom*w;
+        var ty=h-defaultZoom*h;
+		zoom.translate([tx, ty])
+			.scale(defaultZoom);
 	};
 
 	/**
@@ -562,8 +609,6 @@ module.exports = function (graphContainerSelector) {
 		// get all nodes (handle also already filtered nodes )
 		pulseNodeIds = [];
 		nodeArrayForPulse = [];
-
-
 		// clear from stored nodes
 		var nodes = unfilteredData.nodes;
 		var props = unfilteredData.properties;
@@ -581,12 +626,7 @@ module.exports = function (graphContainerSelector) {
 	};
 
 	graph.updatePulseIds = function (nodeIdArray) {
-
-		pulseNodeIds = [];
-		if (nodeIdArray.length === 0) {
-			return;
-		}
-
+        pulseNodeIds=[];
 		for (var i = 0; i < nodeIdArray.length; i++) {
 			var selectedId = nodeIdArray[i];
 			var forceId = nodeMap[selectedId];
@@ -608,7 +648,6 @@ module.exports = function (graphContainerSelector) {
         if (pulseNodeIds.length > 0) {
             d3.select("#locateSearchResult").classed("highlighted", true);
             d3.select("#locateSearchResult").node().title="Locate search term";
-
         }
         else {
             d3.select("#locateSearchResult").classed("highlighted", false);
@@ -617,59 +656,91 @@ module.exports = function (graphContainerSelector) {
 
 	};
 
+    function transform(p,cx,cy) {
+    	// one iteration step for the lacate target animation
+		zoomFactor=graph.options().height()/ p[2];
+        graphTranslation=[(cx - p[0] * zoomFactor),(cy - p[1] * zoomFactor)];
+        updateHaloRadius();
+        // update the values in case the user wants to break the animation
+        zoom.translate(graphTranslation);
+        zoom.scale(zoomFactor);
+        return "translate(" + graphTranslation[0] + "," +  graphTranslation[1] + ")scale(" + zoomFactor + ")";
+    }
+
+
+
+    function targetLocationZoom(target) {
+        // store the original information
+        var cx=0.5*graph.options().width();
+        var cy=0.5*graph.options().height();
+        var cp=getWorldPosFromScreen(cx,cy,graphTranslation,zoomFactor);
+        var sP=[cp.x,cp.y,graph.options().height()/zoomFactor];
+
+        var zoomLevel=Math.max(defaultZoom+0.5*defaultZoom,defaultTargetZoom);
+        var zoomLevel=Math.max(defaultZoom+0.5*defaultZoom,defaultTargetZoom);
+        var eP=[target.x,target.y,graph.options().height()/zoomLevel];
+		var pos_intp=d3.interpolateZoom(sP,eP);
+
+		var lenAnimation=pos_intp.duration;
+		if (lenAnimation>2500){
+			lenAnimation=2500;
+		}
+
+        graphContainer.attr("transform", transform(sP,cx,cy))
+        	.transition()
+            .duration(lenAnimation)
+            .attrTween("transform", function() { return function(t) {
+            	return transform(pos_intp(t),cx,cy); }; })
+            .each("end", function() {
+                graphContainer.attr("transform", "translate(" + graphTranslation + ")scale(" + zoomFactor + ")");
+                zoom.translate(graphTranslation);
+                zoom.scale(zoomFactor);
+                updateHaloRadius();
+            });
+    }
+
+    function getWorldPosFromScreen(x,y,translate,scale){
+        var temp=scale[0];
+        var xn,yn;
+        if (temp) {
+             xn = (x - translate[0]) / temp;
+             yn = (y - translate[1]) / temp;
+        }else{
+             xn = (x - translate[0]) / scale;
+             yn = (y - translate[1]) / scale;
+		}
+        return {x: xn, y: yn};
+    }
+
     graph.locateSearchResult = function () {
 
         if (pulseNodeIds && pulseNodeIds.length > 0) {
             // move the center of the viewport to this location
-
+			if (transformAnimation===true) return; // << prevents incrementing the location id if we are in an animation
             var node = force.nodes()[pulseNodeIds[locationId]];
-            console.log("--------------------------\nCurrent Location Id" + locationId);
             locationId++;
             locationId = locationId % pulseNodeIds.length;
-            var posXY = getScreenCoords(node.x, node.y, graphTranslation, zoomFactor);
-            var x = posXY.x;
-            var y = posXY.y;
-            var w = graph.options().width();
-            var h = graph.options().height();
-            var nx = x - 0.5 * w;
-            var ny = y - 0.5 * h;
+            // pull the node in front
+            if (node.id) {
+            	node.foreground();
+            }
+            if (node.property){
+            	node.property().foreground();
+			}
 
-            var wX = -(nx - graphTranslation[0]);
-            var wY = -(ny - graphTranslation[1]);
-
-
-            graphTranslation[0] = wX;
-            graphTranslation[1] = wY;
-
-
-
-            /** animate the transition **/
-            graphContainer.transition()
-                .tween("attr.translate", function () {
-                    return function (t) {
-                        var tr = d3.transform(graphContainer.attr("transform"));
-                        x = tr.translate[0];
-                        y = tr.translate[1];
-                        graphTranslation[0] = x;
-                        graphTranslation[1] = y;
-                        updateHaloRadius();
-                    };
-                })
-                .attr("transform", "translate(" + graphTranslation + ")scale(" + zoomFactor + ")")
-                .duration(500);
-            updateHaloRadius();
-            zoom.translate([graphTranslation[0], graphTranslation[1]]);
+			// locate it
+            targetLocationZoom(node);
         }
     };
 
 	graph.highLightNodes = function (nodeIdArray) {
 		if (nodeIdArray.length === 0) {
-			return;
-			// nothing to highlight
+			return; // nothing to highlight
 		}
 		pulseNodeIds = [];
 		nodeArrayForPulse = nodeIdArray;
 		var missedIds = [];
+
 		// identify the force id to highlight
 		for (var i = 0; i < nodeIdArray.length; i++) {
 			var selectedId = nodeIdArray[i];
@@ -693,8 +764,6 @@ module.exports = function (graphContainerSelector) {
 				}
 			}
 			else {
-				// check if they have an equivalent or an inverse!
-				console.log("Could not Find Id in Graph (maybe filtered out) id = " + selectedId);
 				missedIds.push(selectedId);
 			}
 		}
@@ -769,7 +838,6 @@ module.exports = function (graphContainerSelector) {
 		nodeElements.each(function (node) {
 			node.draw(d3.select(this));
 		});
-
 		// Draw label groups (property + inverse)
 		labelGroupElements = labelContainer.selectAll(".labelGroup")
 			.data(labelNodes).enter()
@@ -798,7 +866,7 @@ module.exports = function (graphContainerSelector) {
 			}
 		});
 
-		// Draw cardinalities
+		// Draw cardinality elements
 		cardinalityElements = cardinalityContainer.selectAll(".cardinality")
 			.data(properties).enter()
 			.append("g")
@@ -895,6 +963,14 @@ module.exports = function (graphContainerSelector) {
 	}
 
 	function loadGraphData() {
+		// reset the locate button and previously selected locations and other variables
+		nodeArrayForPulse=[];
+        pulseNodeIds = [];
+        locationId=0;
+		d3.select("#locateSearchResult").classed("highlighted", false);
+        d3.select("#locateSearchResult").node().title="Nothing to locate, enter search term.";
+
+
 		parser.parse(options.data());
 
 		unfilteredData = {
@@ -914,6 +990,8 @@ module.exports = function (graphContainerSelector) {
 		parser.parseSettings();
 		graphUpdateRequired = parser.settingsImported();
 		graph.options().searchMenu().requestDictionaryUpdate();
+		// resets the zoom and translation so we have an overview for the data;
+		graph.reset();
 	}
 
 	/**
