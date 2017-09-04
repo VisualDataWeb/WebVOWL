@@ -13,8 +13,9 @@ module.exports = (function () {
 			width = 60,
 			pinGroupElement,
 			haloGroupElement,
+            labelWidth = 80,
+            myWidth=80,
 			smallestRadius = height / 2;
-
 
 		// Properties
 		this.height = function (p) {
@@ -55,9 +56,52 @@ module.exports = (function () {
 
 		};
 
+        this.textWidth = function () {
+            //
+            if(graph.options().dynamicLabelWidth()===true) {
+                return that.getMyWidth();
+            }
+            return labelWidth;
+        };
+        this.width= function(){
+            if(graph.options().dynamicLabelWidth()===true){
+                return that.getMyWidth();
+            }
+            return labelWidth;
+        };
+
+        this.getMyWidth=function(){
+            // use a simple heuristic
+            var text = that.labelForCurrentLanguage();
+            myWidth =measureTextWidth(text,"text")+20;
+
+            // check for sub names;
+            var indicatorText=that.indicationString();
+            var indicatorWidth=measureTextWidth(indicatorText,"subtext")+20;
+            if (indicatorWidth>myWidth)
+                myWidth=indicatorWidth;
+
+            return myWidth;
+        };
+
 		this.textWidth = function () {
             return that.width();
 		};
+        function measureTextWidth(text, textStyle) {
+            // Set a default value
+            if (!textStyle) {
+                textStyle = "text";
+            }
+            var d = d3.select("body")
+                    .append("div")
+                    .attr("class", textStyle)
+                    .attr("id", "width-test") // tag this element to identify it
+                    .attr("style", "position:absolute; float:left; white-space:nowrap; visibility:hidden;")
+                    .text(text),
+                w = document.getElementById("width-test").offsetWidth;
+            d.remove();
+            return w;
+        }
 
 		this.toggleFocus = function () {
 			that.focused(!that.focused());
