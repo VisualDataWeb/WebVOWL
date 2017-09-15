@@ -15,5 +15,5 @@ In case of changed `owl`, `rdf` or `ttl` files it execute ([OWL2VOWL](https://gi
 The most simplest use might be:
 
 ```
-docker run --name some-webvowl -v /some/directory:/data -d webvowl
+docker run --name some-webvowl -v /some/directory:/data -p 8080:8080 -d webvowl
 ```

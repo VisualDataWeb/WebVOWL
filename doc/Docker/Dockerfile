@@ -12,11 +12,10 @@ RUN apk update \
     && rm -rf $CATALINA_HOME/webapps/examples/ \
     && curl -O http://downloads.visualdataweb.de/webvowl_${version}.war \
     && mv webvowl_${version}.war webvowl.war \
-    && ln -s /usr/local/lib/OWL2VOWL-*.jar /usr/local/lib/OWL2VOWL.jar \
-    && mkdir -p /usr/local/sbin
+    && ln -s /usr/local/lib/OWL2VOWL-*.jar /usr/local/lib/OWL2VOWL.jar 
 
 
-ADD sbin/ /usr/local/
+ADD sbin/ /usr/local/sbin
 
 VOLUME "/data"
 
