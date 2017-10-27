@@ -69,18 +69,19 @@ module.exports = function (graph) {
 		var setOptions=0;
         var optsString="opts=[";
 		// compare each key pair value
-		if (defOpts) {// for travis warning
-            for (var name in defOpts) {
-                // define key and value ;
-                var def_value = defOpts[name];
-                var cur_value = currOpts[name];
-                if (def_value !== cur_value) {
-                    optsString += name + "=" + cur_value + ";";
-                    setOptions++;
-                }
-            }
-        }
-        optsString+="]";
+
+		for (var name in defOpts) {
+			// define key and value ;
+			if (defOpts.hasOwnProperty(name)) {// for travis warning
+				var def_value = defOpts[name];
+				var cur_value = currOpts[name];
+				if (def_value !== cur_value) {
+					optsString += name + "=" + cur_value + ";";
+					setOptions++;
+				}
+			}
+		}
+		optsString+="]";
 		if (setOptions===0){ return "";}
 		return optsString;
 	}
