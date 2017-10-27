@@ -149,6 +149,69 @@ a:hover {
 #browserCheck a:hover {
 	text-decoration: underline;
 }
+
+/*----------------------------------------------
+  SideBar Animation Class;
+----------------------------------------------- */
+@-webkit-keyframes sbExpandAnimation {
+	0% {  width: 78%;}
+	100% {width: 100%;}
+}
+@-moz-keyframes sbExpandAnimation {
+	0% {  width: 78%;}
+	100% {width: 100%;}
+}
+@-o-keyframes sbExpandAnimation {
+	0% {  width: 78%;}
+	100% {width: 100%;}
+}
+@keyframes sbExpandAnimation {
+	0% {  width: 78%;}
+	100% {width: 100%;}
+}
+
+/*Collapse Animation*/
+@-webkit-keyframes sbCollapseAnimation {
+	0%   { width: 100%;}
+	100% { width: 78%;}
+}
+@-moz-keyframes sbCollapseAnimation  {
+	0%   { width: 100%;}
+	100% { width: 78%;}
+}
+@-o-keyframes sbCollapseAnimation  {
+	0%   { width: 100%;}
+	100% { width: 78%;}
+}
+@keyframes sbCollapseAnimation  {
+	0%   { width: 100%;}
+	100% { width: 78%;}
+}
+
+
+
+	/*-webkit-animation-name: sbExpandAnimation;*/
+	/*-moz-animation-name: sbExpandpulseAnimation;*/
+	/*-o-animation-name: sbExpandpulseAnimation;*/
+	/*animation-name: sbExpandpulseAnimation;*/
+
+	/*-webkit-animation-duration: 2.8s;*/
+	/*-moz-animation-duration: 2.8s;*/
+	/*-o-animation-duration: 2.8s;*/
+	/*animation-duration: 2.8s;*/
+
+	/*-webkit-transform: translateZ(0);*/
+	/*-webkit-animation-iteration-count: 1;*/
+	/*-moz-animation-iteration-count: 1;*/
+	/*-o-animation-iteration-count: 1;*/
+	/*animation-iteration-count: 1;*/
+
+	/*-webkit-animation-timing-function: linear;*/
+	/*-moz-animation-timing-function: linear;*/
+	/*-o-animation-timing-function: linear;*/
+	/*animation-timing-function: linear;*/
+/*//}*/
+
 /*----------------------------------------------
         LAYOUT
 ----------------------------------------------*/
@@ -468,7 +531,7 @@ a#reset-button::before {
 	content: "\21BB";
 }
 a#pause-button.paused::before {
-	content: "\25B6";
+	content: "►";
 }
 /*highlight used for mobile devices */
 a#pause-button.paused:hover{
@@ -582,6 +645,7 @@ a#pause-button:not(.paused)::before {
 	padding: 0 10px;
 	display: inline;
 }
+
 #selection-details .propDetails div span {
 	padding: 0;
 }
@@ -698,6 +762,35 @@ a#pause-button:not(.paused)::before {
 	font-weight : bold;
 }
 
+#copyBt{
+	box-sizing: border-box;
+	color: #000000;
+	float:right;
+	position:absolute;
+	right:2px;
+	padding-top: 2px;
+	padding-bottom: 3px;
+	border: 1px solid #000000;
+	background-color: #ecf0f1;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+
+#sidebarExpandButton{
+	box-sizing: border-box;
+	top: 10px;
+	color: #000000;
+	float:right;
+	position:absolute;
+	right:0px;
+	/*padding: 10px;*/
+	border: 1px solid #000000;
+	background-color: #ecf0f1;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
 #loading-info {
 	box-sizing: border-box;
 	position: absolute;
@@ -789,7 +882,9 @@ a#pause-button:not(.paused)::before {
 
 
 /* adding button pulse animation*/
-
+.filterMenuButtonHighlight{
+	background-color: #d90;
+}
 @-webkit-keyframes buttonAnimation {
 	0%  { background-color: unset; }
 	100% { background-color: #d90; }

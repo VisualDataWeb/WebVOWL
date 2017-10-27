@@ -29,7 +29,21 @@ module.exports = function () {
 		ontologyMenu,
 		sidebar,
 		navigationMenu,
+		rectangularRep=false,
 		scaleNodesByIndividuals = false;
+
+	options.rectangularRepresentation=function(val){
+		if (!arguments.length){
+			return rectangularRep;
+		}else{
+			var intVal=parseInt(val);
+			if ( intVal===0 ){
+				rectangularRep=false;
+			}else{
+				rectangularRep=true;
+			}
+		}
+	};
 
     options.dynamicLabelWidth=function(val){
         if (!arguments.length)

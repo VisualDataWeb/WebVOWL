@@ -1,5 +1,8 @@
 var unescape = require("lodash/unescape");
 
+// define a global dof variable
+
+
 /**
  * Contains the logic for the ontology listing and conversion.
  *
@@ -16,6 +19,7 @@ module.exports = function (graph) {
 		fileToLoad,
 		cachedConversions = {},
 		loadOntologyFromText;
+
 
 
 	String.prototype.beginsWith = function (string) {
@@ -93,14 +97,99 @@ module.exports = function (graph) {
 		d3.select("#iri-converter-form").on("submit")();
 	};
 
-	function parseUrlAndLoadOntology() {
-		// slice the "#" character
-		var hashParameter = location.hash.slice(1);
+	function parseOptions(optsArray){
+	// defining a default options object
+        var defObj={};
+        	defObj.sidebar=1;
+			defObj.doc=-1;
+			defObj.cd=200;
+			defObj.dd=120;
+			defObj.filter_datatypes="false";
+			defObj.filter_objectProperties="false";
+			defObj.filter_sco="false";
+			defObj.filter_disjoint="true";
+			defObj.filter_setOperator="false";
+			defObj.mode_dynamic="true";
+			defObj.mode_scaling="true";
+			defObj.mode_compact="false";
+			defObj.mode_colorExt="true";
+			defObj.mode_multiColor="false";
+			defObj.rect=0;
 
-		if (!hashParameter) {
-			hashParameter = DEFAULT_JSON_NAME;
+		if (optsArray===undefined){
+            graph.setOptionsFromURL(defObj);
+            return;
 		}
+		// else parse the given parameters;
+		for (var i=0;i<optsArray.length;i++){
+			// define key and value ;
+			var keyVal=optsArray[i].split('=');
+            defObj[keyVal[0]]=keyVal[1];
+		}
+		graph.setOptionsFromURL(defObj);
 
+	}
+
+	function parseUrlAndLoadOntology() {
+		// count number of hash parameters
+		var urlString=String(location);
+		console.log("-----------------------");
+
+		var numParameters=(urlString.match(/#/g) || []).length;
+		// create parameters array
+		var paramArray=[];
+		if (numParameters>0){
+            var tokens=urlString.split("#");
+
+            // skip the first token since it is the address of the server
+            for (var i=1;i<tokens.length;i++){
+            	if (tokens[i].length===0){
+            		// this token belongs actually to the last paramArray
+					paramArray[paramArray.length-1]=paramArray[paramArray.length-1]+"#";
+				}else{
+            		paramArray.push(tokens[i])
+            	}
+			}
+		}
+        // using paramaters aray now for identification
+        var hashParameter;
+        var paramlength;
+        var givenOptionsStr;
+        var optionsArray;
+		var optString="opts=[";
+        if (paramArray.length===0){
+            hashParameter = DEFAULT_JSON_NAME;
+            parseOptions();// loads default values
+		}
+        if (paramArray.length===1){
+        	// check if there is only the opts flag
+			if(paramArray[0].indexOf(optString)>=0){
+				// parse the parameters;
+				paramlength=paramArray[0].length;
+				givenOptionsStr=paramArray[0].substr(6,paramlength-6-1);
+				// remove the "opts=[" and "]"
+				optionsArray=givenOptionsStr.split(';');
+				parseOptions(optionsArray);
+
+                hashParameter = DEFAULT_JSON_NAME;
+			}else{
+                hashParameter=paramArray[0];
+                parseOptions();// loads default valuesparseOptions
+			}
+
+        }
+        if (paramArray.length===2){
+            if (paramArray[0].indexOf(optString)>=0){
+                paramlength=paramArray[0].length;
+                givenOptionsStr=paramArray[0].substr(6,paramlength-6-1);
+                // remove the "opts=[" and "]"
+                optionsArray=givenOptionsStr.split(';');
+                parseOptions(optionsArray);
+            }else{
+                parseOptions();// loads default values
+			}
+            hashParameter = paramArray[1];
+        }
 		var ontologyOptions = d3.selectAll(".select li").classed("selected-ontology", false);
 		emptyGraph=false;
 		// IRI parameter
@@ -206,7 +295,10 @@ module.exports = function (graph) {
 			d3.xhr(relativePath, "application/json", function (error, request) {
 				var loadingSuccessful = !error;
 				var errorInfo;
+                console.log("Requestion XHR FUNCTION");
 				if (error!==null && error.status === 500) {
+					console.log(error);
+                    console.log("HAS AN ERROR AND A STATUS");
 					hideLoadingInformations();
 				 	ontologyMenu.emptyGraphError();
 				 	return;
@@ -219,6 +311,7 @@ module.exports = function (graph) {
 					jsonText = request.responseText;
 					cachedConversions[relativePath] = jsonText;
 				} else {
+					console.log("Something went wrong --.--");
 					if (error.status === 404) {
 						// check if this is file related and not owl2vowl converter connection error
 						// IRI parameter

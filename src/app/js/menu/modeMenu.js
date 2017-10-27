@@ -13,6 +13,7 @@ module.exports = function (graph) {
 		checkboxes = [],
 		colorModeSwitch;
 
+	var dynamicLabelWidthCheckBox;
 	// getter and setter for the state of color modes
 	modeMenu.colorModeState = function (s) {
 		if (!arguments.length) return colorModeSwitch.datum().active;
@@ -20,6 +21,10 @@ module.exports = function (graph) {
 		return modeMenu;
 	};
 
+
+	modeMenu.setDynamicLabelWidth=function(val){
+        dynamicLabelWidthCheckBox.property("checked",val);
+	};
 	// getter for checkboxes
 	modeMenu.getCheckBoxContainer = function () {
 		return checkboxes;
@@ -66,6 +71,7 @@ module.exports = function (graph) {
         moduleOptionContainer.append("label")
             .attr("for", identifier + "ModuleCheckbox")
             .text(modeName);
+        dynamicLabelWidthCheckBox=moduleCheckbox;
     }
 
 	function addModeItem(module, identifier, modeName, selector, updateGraphOnClick) {
@@ -162,17 +168,39 @@ module.exports = function (graph) {
 	modeMenu.setCheckBoxValue = function (id, checked) {
 		for (var i = 0; i < checkboxes.length; i++) {
 			var cbdId = checkboxes[i].attr("id");
+
 			if (cbdId === id) {
 				checkboxes[i].property("checked", checked);
 				break;
 			}
 		}
 	};
+    modeMenu.getCheckBoxValue = function (id) {
+        for (var i = 0; i < checkboxes.length; i++) {
+            var cbdId = checkboxes[i].attr("id");
+            if (cbdId === id) {
+                return checkboxes[i].property("checked");
+            }
+        }
+    };
 
 	modeMenu.setColorSwitchState = function (state) {
 		// need the !state because we simulate later a click
 		modeMenu.colorModeState(!state);
 	};
+    modeMenu.setColorSwitchStateUsingURL = function (state) {
+        // need the !state because we simulate later a click
+        modeMenu.colorModeState(!state);
+        colorModeSwitch.on("click")(true);
+    };
+
+
+    modeMenu.updateSettingsUsingURL = function () {
+        var silent = true;
+        checkboxes.forEach(function (checkbox) {
+            checkbox.on("click")(checkbox.datum(), silent);
+        });
+    };
 
 	modeMenu.updateSettings = function () {
 		var silent = true;

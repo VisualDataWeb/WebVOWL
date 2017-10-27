@@ -25,8 +25,14 @@ module.exports = (function () {
 			that.nodeElement(parentElement);
 
 			// draw the outer circle at first and afterwards the inner circle
-			drawTools.appendCircularClass(parentElement, that.actualRadius(), ["white", "embedded"]);
-			drawTools.appendCircularClass(parentElement, that.actualRadius() - CIRCLE_SIZE_DIFFERENCE, cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
+            if (that.getRectangularRepresentation()===true) {
+                drawTools.appendRectangularClass(parentElement, 84,84, ["white", "embedded"] );
+                drawTools.appendRectangularClass(parentElement, 80 - CIRCLE_SIZE_DIFFERENCE,80-CIRCLE_SIZE_DIFFERENCE, cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
+            }else {
+                drawTools.appendCircularClass(parentElement, that.actualRadius(), ["white", "embedded"]);
+                drawTools.appendCircularClass(parentElement, that.actualRadius() - CIRCLE_SIZE_DIFFERENCE, cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
+
+            }
 
 			that.postDrawActions();
 		};

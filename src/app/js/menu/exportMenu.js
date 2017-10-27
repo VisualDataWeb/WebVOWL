@@ -8,9 +8,29 @@ module.exports = function (graph) {
 		exportSvgButton,
 		exportFilename,
 		exportJsonButton,
+		copyButton,
 		exportableJsonText;
 
-	/**
+    var defObj={};
+    defObj.sidebar="1";
+    defObj.doc=-1;
+    defObj.cd=200;
+    defObj.dd=120;
+    defObj.filter_datatypes="false";
+    defObj.filter_objectProperties="false";
+    defObj.filter_sco="false";
+    defObj.filter_disjoint="true";
+    defObj.filter_setOperator="false";
+    defObj.mode_dynamic="true";
+    defObj.mode_scaling="true";
+    defObj.mode_compact="false";
+    defObj.mode_colorExt="true";
+    defObj.mode_multiColor="false";
+    defObj.rect=0;
+
+
+
+    /**
 	 * Adds the export button to the website.
 	 */
 	exportMenu.setup = function () {
@@ -19,10 +39,15 @@ module.exports = function (graph) {
 		exportJsonButton = d3.select("#exportJson")
 			.on("click", exportJson);
 
-		var menuEntry= d3.select("#export");
+		copyButton=d3.select("#copyBt")
+            .on("click", copyUrl);
+
+
+        var menuEntry= d3.select("#export");
 		menuEntry.on("mouseover",function(){
 			var searchMenu=graph.options().searchMenu();
 			searchMenu.hideSearchEntries();
+			exportAsUrl();
 		});
 	};
 
@@ -34,6 +59,101 @@ module.exports = function (graph) {
 		exportableJsonText = jsonText;
 	};
 
+	function copyUrl(){
+        d3.select("#exportedUrl").node().focus();
+        d3.select("#exportedUrl").node().select();
+        document.execCommand("copy");
+	}
+
+	function prepareOptionString(defOpts,currOpts){
+		var setOptions=0;
+        var optsString="opts=[";
+		// compare each key pair value
+        for (var name in defOpts){
+            // define key and value ;
+            var def_value=defOpts[name];
+            var cur_value=currOpts[name];
+			if (def_value!==cur_value) {
+                optsString += name + "=" + cur_value + ";";
+				setOptions++;
+            }
+        }
+        optsString+="]";
+		if (setOptions===0){ return "";}
+		return optsString;
+	}
+
+	function exportAsUrl(){
+
+        var currObj={};
+        currObj.sidebar=graph.getSidebarVisibility();
+
+        // identify default value given by ontology;
+		var defOntValue=graph.options().filterMenu().getDefaultDegreeValue();
+		var currentValue=graph.options().filterMenu().getDegreeSliderValue();
+		if (parseInt(defOntValue)===parseInt(currentValue)) {
+			currObj.doc=-1;
+		}else{ currObj.doc=currentValue;}
+
+        currObj.cd=graph.options().classDistance();
+        currObj.dd=graph.options().datatypeDistance();
+        currObj.filter_datatypes=String(graph.options().filterMenu().getCheckBoxValue("datatypeFilterCheckbox"));
+        currObj.filter_sco=String(graph.options().filterMenu().getCheckBoxValue("subclassFilterCheckbox"));
+        currObj.filter_disjoint=String(graph.options().filterMenu().getCheckBoxValue("disjointFilterCheckbox"));
+        currObj.filter_setOperator=String(graph.options().filterMenu().getCheckBoxValue("setoperatorFilterCheckbox"));
+        currObj.filter_objectProperties=String(graph.options().filterMenu().getCheckBoxValue("objectPropertyFilterCheckbox"));
+        currObj.mode_dynamic=String(graph.options().dynamicLabelWidth());
+        currObj.mode_scaling=String(graph.options().modeMenu().getCheckBoxValue("nodescalingModuleCheckbox"));
+        currObj.mode_compact=String(graph.options().modeMenu().getCheckBoxValue("compactnotationModuleCheckbox"));
+        currObj.mode_colorExt=String(graph.options().modeMenu().getCheckBoxValue("colorexternalsModuleCheckbox"));
+        currObj.mode_multiColor=String(graph.options().modeMenu().colorModeState());
+        currObj.rect=0;
+
+
+        var optsString=prepareOptionString(defObj,currObj);
+        var urlString=String(location);
+        var htmlElement;
+        // when everything is default then there is nothing to write
+		if (optsString.length===0){
+            // building up parameter list;
+            htmlElement=d3.select("#exportedUrl").node();
+            htmlElement.value=urlString;
+            htmlElement.focus();
+            htmlElement.select();
+            htmlElement.title=urlString;
+            return;
+		}
+
+        // generate the options string;
+        var numParameters=(urlString.match(/#/g) || []).length;
+        var newUrlString;
+        if (numParameters===undefined || numParameters===0){
+            newUrlString=urlString+"#"+optsString;
+		}
+        if (numParameters>0) {
+            var tokens = urlString.split("#");
+            var i;
+            if (tokens[1].indexOf("opts=[")>=0){
+				tokens[1]=optsString;
+                newUrlString=tokens[0];
+			}else{
+                newUrlString=tokens[0]+"#";
+                newUrlString+=optsString;
+			}
+			// append parameters
+            for (i=1;i<tokens.length;i++){
+            	if (tokens[i].length>0) {
+                    newUrlString += "#" + tokens[i];
+                }
+            }
+        }
+        // building up parameter list;
+        htmlElement=d3.select("#exportedUrl").node();
+        htmlElement.value=newUrlString;
+        htmlElement.focus();
+        htmlElement.select();
+        htmlElement.title=newUrlString;
+	}
 	function exportSvg() {
 		// Get the d3js SVG element
 		var graphSvg = d3.select(graph.options().graphContainerSelector()).select("svg"),

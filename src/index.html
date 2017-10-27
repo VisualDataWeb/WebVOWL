@@ -27,7 +27,9 @@
 				to run WebVOWL.
 				<label id="killWarning">Hide warning</label>
 			</div>
+
 			<div id="logo">
+
 			<!-- build:process -->
 			<h2>WebVOWL <br/><span><%= version %></span></h2>
 			<!-- /build -->
@@ -40,19 +42,23 @@
 						<pre id="error-description"></pre>
 					</div>
 				</div>
+				<div><span id="sidebarExpandButton"> > </span></div>
+
 				<div id="loading-progress" class="hidden">
 					<span>Loading ontology... </span>
 					<div class="spin">&#8635;</div><br>
 					<div id="myProgress">
 						<div id="myBar"></div>
 					</div>
+
 				</div>
 			</div>
 
 
 		<div id="graph"></div>
 	</section>
-	<aside id="detailsArea">
+	<aside id="detailsArea" >
+
 		<section id="generalDetails">
 			<h1 id="title"></h1>
 			<span><a id="about" href=""></a></span>
@@ -159,6 +165,15 @@
 				<ul class="toolTipMenu export">
 					<li><a href="#" download id="exportJson">Export as JSON</a></li>
 					<li><a href="#" download id="exportSvg">Export as SVG</a></li>
+					<li class="option">
+						<div>
+						<form class="converter-form" id="url-copy-form">
+							<label for="exportedUrl">Export as URL:</label>
+							<input type="text" id="exportedUrl" placeholder="an URL">
+							<span  id="copyBt" title="Copy to Clipboard">Copy</span>
+						</form>
+						</div>
+					</li>
 				</ul>
 			</li>
 			<li id="select"><a href="#">Ontology</a>

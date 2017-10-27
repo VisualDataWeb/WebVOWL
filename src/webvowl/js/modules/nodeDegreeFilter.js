@@ -22,8 +22,8 @@ module.exports = function (menu) {
 			maxDegreeSetter(maxLinkCount);
 		}
 
-		var defaultDegree = findDefaultDegree(nodes, properties, maxLinkCount);
-
+        menu.setDefaultDegreeValue(findAutoDefaultDegree(nodes, properties, maxLinkCount));
+		var defaultDegree = findDefaultDegree(maxLinkCount);
 		if (degreeSetter instanceof Function) {
 			degreeSetter(defaultDegree);
 			menu.highlightForDegreeSlider(defaultDegree > 0);
@@ -32,16 +32,23 @@ module.exports = function (menu) {
 		}
 	};
 
-	function findDefaultDegree(nodes, properties, maxDegree) {
-		for (var degree = 0; degree < maxDegree; degree++) {
-			var filteredData = filterByNodeDegree(nodes, properties, degree);
+    function findAutoDefaultDegree(nodes, properties, maxDegree) {
+        for (var degree = 0; degree < maxDegree; degree++) {
+            var filteredData = filterByNodeDegree(nodes, properties, degree);
 
-			if (filteredData.nodes.length <= NODE_COUNT_LIMIT_FOR_AUTO_ENABLING) {
-				return degree;
-			}
+            if (filteredData.nodes.length <= NODE_COUNT_LIMIT_FOR_AUTO_ENABLING) {
+                return degree;
+            }
+        }
+        return 0;
+    }
+
+	function findDefaultDegree(maxDegree) {
+        var globalDegOfFilter=menu.getGraphObject().getGlobalDOF();
+        if (globalDegOfFilter>=0 && globalDegOfFilter < maxDegree){
+        	return globalDegOfFilter;
 		}
-
-		return 0;
+		return menu.getDefaultDegreeValue();
 	}
 
 	/**

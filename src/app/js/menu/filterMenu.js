@@ -11,9 +11,15 @@ module.exports = function (graph) {
 		menuElement = d3.select("#filterOption a"),
 		nodeDegreeContainer = d3.select("#nodeDegreeFilteringOption"),
 		graphDegreeLevel,
+		defaultDegreeValue=0,
 		degreeSlider;
 
+    filterMenu.setDefaultDegreeValue=function(val){defaultDegreeValue=val;};
+    filterMenu.getDefaultDegreeValue=function(){return defaultDegreeValue;};
 
+	filterMenu.getGraphObject=function(){
+		return graph;
+	};
 	/** some getter function  **/
 	filterMenu.getCheckBoxContainer = function () {
 		return checkboxData;
@@ -48,7 +54,7 @@ module.exports = function (graph) {
 		addFilterItem(setOperatorFilter, "setoperator", "Set operators", "#setOperatorFilteringOption");
 
 		addNodeDegreeFilter(nodeDegreeFilter, nodeDegreeContainer);
-
+        addAnimationFinishedListener();
 	};
 
 
@@ -188,6 +194,19 @@ module.exports = function (graph) {
 		degreeSlider.on("change")();
 	};
 
+	function addAnimationFinishedListener() {
+        menuElement.node().addEventListener("animationend", function () {
+           console.log("filter button animation ended");
+           menuElement.classed("buttonPulse", false);
+            menuElement.classed("filterMenuButtonHighlight", true);
+        });
+    }
+
+    filterMenu.killButtonAnimation=function(){
+        menuElement.classed("buttonPulse", false);
+        menuElement.classed("filterMenuButtonHighlight", false);
+	};
+
 
 	filterMenu.highlightForDegreeSlider = function (enable) {
 		if (!arguments.length) {
@@ -195,16 +214,17 @@ module.exports = function (graph) {
 		}
 		menuElement.classed("highlighted", enable);
 		nodeDegreeContainer.classed("highlighted", enable);
-
 		// pulse button handling
 		if (menuElement.classed("buttonPulse")===true && enable===true){
 			menuElement.classed("buttonPulse", false);
 			var timer= setTimeout(function() {
 				menuElement.classed("buttonPulse", enable);
 				clearTimeout(timer);
+				// after the time is done, remove the pulse but stay highlighted
 			}, 100);
 		}else {
 			menuElement.classed("buttonPulse", enable);
+            menuElement.classed("filterMenuButtonHighlight", enable);
 		}
 	};
 
@@ -221,14 +241,31 @@ module.exports = function (graph) {
 			}
 		}
 	};
+
+	filterMenu.getCheckBoxValue=function(id){
+        for (var i = 0; i < checkboxData.length; i++) {
+            var cbdId = checkboxData[i].checkbox.attr("id");
+            if (cbdId === id) {
+                return checkboxData[i].checkbox.property("checked");
+
+            }
+        }
+	};
 	// set the value of the slider
 	filterMenu.setDegreeSliderValue = function (val) {
 		degreeSlider.property("value", val);
 	};
+
+	filterMenu.getDegreeSliderValue = function(){
+		return degreeSlider.property("value");
+	};
+
 	// update the gui without invoking graph update (calling silent onclick function)
 	filterMenu.updateSettings = function () {
+
 		var silent = true;
 		var sliderValue = degreeSlider.property("value");
+		console.log("what is degrSlider Value;?"+sliderValue);
 		if (sliderValue > 0) {
 			filterMenu.highlightForDegreeSlider(true);
 		} else{

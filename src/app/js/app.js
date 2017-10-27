@@ -76,7 +76,7 @@ module.exports = function () {
             } else {
                 d3.select("#browserCheck").classed("hidden", true);
 			}
-            ontologyMenu.setup(loadOntologyFromText);
+
             resetMenu.setup([gravityMenu, filterMenu, modeMenu, focuser, selectionDetailDisplayer, pauseMenu]);
 			searchMenu.setup();
 			navigationMenu.setup();
@@ -93,18 +93,25 @@ module.exports = function () {
 			options.ontologyMenu(ontologyMenu);
 			options.navigationMenu(navigationMenu);
 			options.sidebar(sidebar);
+            ontologyMenu.setup(loadOntologyFromText);
+
 			graph.start();
 			adjustSize();
+			// graph.updateSideBarVis(true);
 
-			// set initial values for the window zoom level and sizes;
 			var defZoom;
-			// experiment
 			var w = graph.options().width();
 			var h = graph.options().height();
 			defZoom = Math.min(w, h) / 1000;
 
 			// initialize the values;
+            d3.select("#sidebarExpandButton").on("click",function(){
+                var settingValue=parseInt(graph.getSidebarVisibility());
+                if (settingValue===1) graph.showSidebar(0);
+                else  graph.showSidebar(1);
+            });
 			graph.setDefaultZoom(defZoom);
+			graph.initSideBarAnimation();
         }
 	};
 
@@ -170,6 +177,12 @@ module.exports = function () {
 			svg = graphContainer.select("svg"),
 			height = window.innerHeight - 40,
 			width = window.innerWidth - (window.innerWidth * 0.22);
+
+		if (graph.getSidebarVisibility()==="0"){
+            height = window.innerHeight - 40 ;
+            width = window.innerWidth;
+
+        }
 
 		graphContainer.style("height", height + "px");
 		svg.attr("width", width)

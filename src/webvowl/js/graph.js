@@ -51,8 +51,219 @@ module.exports = function (graphContainerSelector) {
         locationId = 0,
 		defaultZoom=1.0,
 		defaultTargetZoom=0.8,
+        global_dof=-1,
+        visibleSidebar=1,
 		zoom;
 
+
+    graph.updateSideBarVis=function(init){
+        var vis=graph.getSidebarVisibility();
+        graph.showSidebar(parseInt(vis),init);
+
+    };
+
+    //TODO: Set proper function names and put them on reasonable positions in the code..
+    graph.showSidebar=function(val,init){
+        // make val to bool
+        if (val===1) visibleSidebar=true;
+        if (val===0) visibleSidebar=false;
+        if (val===1) {
+            d3.select("#sidebarExpandButton").node().innerHTML=">";
+            if (init===true) {
+                // set the sidebar visibility
+                d3.select("#detailsArea").classed("hidden",!visibleSidebar);
+                d3.select("#canvasArea").style({
+                    'position': 'relative',
+                    'margin': '0',
+                    'padding': '0',
+                    'width': '78%'
+                });
+                d3.select("#optionsMenu").style({
+                    'box-sizing': 'border-box',
+                    'color': '#fff',
+                    'display': 'block',
+                    'height': '40px',
+                    'margin': '-2px 0 0',
+                    'padding': '0',
+                    'width': '78%'
+                });
+
+            } else { // this is when the user pressed collapse or expand sidebar
+                d3.select("#canvasArea").style({
+                    'position': 'relative',
+                    'margin': '0',
+                    'padding': '0',
+                    'width': '78%',
+                    '-webkit-animation-name': 'sbCollapseAnimation',
+                    '-webkit-animation-duration': '0.5s'
+                });
+                d3.select("#optionsMenu").style({
+                    'box-sizing': 'border-box',
+                    'color': '#fff',
+                    'display': 'block',
+                    'height': '40px',
+                    'margin': '-2px 0 0',
+                    'padding': '0',
+                    'width': '78%',
+                    '-webkit-animation-name': 'sbCollapseAnimation',
+                    '-webkit-animation-duration': '0.5s'
+
+                });
+            }
+            options.width(window.innerWidth - (window.innerWidth * 0.22));
+            graph.options().navigationMenu().updateVisibilityStatus();
+        }
+
+        if (val===0){
+            d3.select("#detailsArea").classed("hidden",true);
+
+            d3.select("#sidebarExpandButton").node().innerHTML="<";
+            // adjust the layout
+            if (init===true) {
+                d3.select("#canvasArea").style({
+                    'position': 'relative',
+                    'margin': '0',
+                    'padding': '0',
+                    'width': '100%'
+                });
+                d3.select("#optionsMenu").style({
+                    'box-sizing': 'border-box',
+                    'color': '#fff',
+                    'display': 'block',
+                    'height': '40px',
+                    'margin': '-2px 0 0',
+                    'padding': '0',
+                    'width': '100%'
+                });
+            }else {
+                d3.select("#canvasArea").style({
+                    'position': 'relative',
+                    'margin': '0',
+                    'padding': '0',
+                    'width': '100%',
+                    '-webkit-animation-name': 'sbExpandAnimation',
+                    '-webkit-animation-duration': '0.5s'
+
+                });
+                d3.select("#optionsMenu").style({
+                    'box-sizing': 'border-box',
+                    'color': '#fff',
+                    'display': 'block',
+                    'height': '40px',
+                    'margin': '-2px 0 0',
+                    'padding': '0',
+                    'width': '100%',
+                    '-webkit-animation-name': 'sbExpandAnimation',
+                    '-webkit-animation-duration': '0.5s'
+                });
+            }
+            options.width(window.innerWidth);
+            graph.options().navigationMenu().updateVisibilityStatus();
+        }
+        if (graphContainer) {
+             if (val===0){
+                var svgElement = d3.selectAll(".vowlGraph");
+                svgElement.attr("width", options.width());
+                svgElement.attr("height", options.height());
+                graphContainer.attr("transform", "translate(" + graphTranslation + ")scale(" + zoomFactor + ")");
+             }
+        }
+    };
+
+    graph.getSidebarVisibility=function(){
+        var isHidden=d3.select("#detailsArea").classed("hidden");
+        if (isHidden===false) return String(1);
+        if (isHidden===true) return String(0);
+    };
+
+	graph.setOptionsFromURL=function(opts){
+	    if (opts.sidebar!==undefined)
+            graph.showSidebar(parseInt(opts.sidebar),true);
+        if (opts.doc ){
+            options.filterMenu().setDegreeSliderValue(opts.doc);
+            graph.setGlobalDOF(opts.doc);
+        }
+
+		if (opts.cd ) options.classDistance(opts.cd); // class distance
+        if (opts.dd) options.datatypeDistance(opts.dd); // data distance
+		if (opts.cd || opts.dd) graph.options().gravityMenu().reset(); // reset the values so the slider is updated;
+
+		var settingFlag=false;
+
+		if (opts.filter_datatypes){
+			if (opts.filter_datatypes==="true") settingFlag=true;
+			graph.options().filterMenu().setCheckBoxValue("datatypeFilterCheckbox",settingFlag);
+		}
+        settingFlag=false;
+        if (opts.filter_objectProperties){
+            if (opts.filter_objectProperties==="true") settingFlag=true;
+            graph.options().filterMenu().setCheckBoxValue("objectPropertyFilterCheckbox",settingFlag);
+        }
+        settingFlag=false;
+        if (opts.filter_sco){
+            if (opts.filter_sco==="true") settingFlag=true;
+            graph.options().filterMenu().setCheckBoxValue("subclassFilterCheckbox",settingFlag);
+        }
+        settingFlag=false;
+        if (opts.filter_disjoint){
+            if (opts.filter_disjoint==="true") settingFlag=true;
+            graph.options().filterMenu().setCheckBoxValue("disjointFilterCheckbox",settingFlag);
+        }
+        settingFlag=false;
+        if (opts.filter_setOperator){
+            if (opts.filter_setOperator==="true") settingFlag=true;
+            graph.options().filterMenu().setCheckBoxValue("setoperatorFilterCheckbox",settingFlag);
+        }
+
+        graph.options().filterMenu().updateSettings();
+
+
+        // modesMenu
+        settingFlag=false;
+        if (opts.mode_dynamic) {
+            if (opts.mode_dynamic==="true") settingFlag=true;
+            graph.options().modeMenu().setDynamicLabelWidth(settingFlag);
+            graph.options().dynamicLabelWidth(settingFlag);
+        }
+		// settingFlag=false;
+        // THIS SHOULD NOT BE SET USING THE OPTIONS ON THE URL
+        // if (opts.mode_picnpin) {
+        //     graph.options().filterMenu().setCheckBoxValue("pickandpinModuleCheckbox", settingFlag);
+        // }
+
+        settingFlag=false;
+        if (opts.mode_scaling) {
+            if (opts.mode_scaling==="true") settingFlag=true;
+            graph.options().modeMenu().setCheckBoxValue("nodescalingModuleCheckbox", settingFlag);
+        }
+
+        settingFlag=false;
+        if (opts.mode_compact) {
+            if (opts.mode_compact==="true") settingFlag=true;
+            graph.options().modeMenu().setCheckBoxValue("compactnotationModuleCheckbox", settingFlag);
+        }
+
+        settingFlag=false;
+        if (opts.mode_colorExt) {
+            if (opts.mode_colorExt==="true") settingFlag=true;
+        	graph.options().modeMenu().setCheckBoxValue("colorexternalsModuleCheckbox",settingFlag);
+        }
+
+        settingFlag=false;
+        if (opts.mode_multiColor) {
+            if (opts.mode_multiColor==="true") settingFlag=true;
+            graph.options().modeMenu().setColorSwitchStateUsingURL(settingFlag);
+        }
+        graph.options().modeMenu().updateSettingsUsingURL();
+        graph.options().rectangularRepresentation(opts.rect);
+
+    };
+	graph.getGlobalDOF=function() {
+            return global_dof;
+        };
+    graph.setGlobalDOF=function(val) {
+        global_dof=val;
+    };
 
 	graph.setDefaultZoom=function(val){
 		defaultZoom=val;
@@ -362,6 +573,7 @@ module.exports = function (graphContainerSelector) {
 
 	/** Initializes the graph. */
 	function initializeGraph() {
+
 		options.graphContainerSelector(graphContainerSelector);
 		var moved=false;
 		force = d3.layout.force()
@@ -428,6 +640,20 @@ module.exports = function (graphContainerSelector) {
 		return labelNodes;
 	};
 
+    graph.initSideBarAnimation=function(){
+        d3.select("#canvasArea").node().addEventListener("animationend", function(){
+            d3.select("#detailsArea").classed("hidden",!visibleSidebar);
+            var svgElement = d3.selectAll(".vowlGraph");
+            svgElement.attr("width", options.width());
+            svgElement.attr("height", options.height());
+            recalculatePositions();
+            // setting the graph position properly to the graph container
+            graphContainer.attr("transform", "translate(" + graphTranslation + ")scale(" + zoomFactor + ")");
+            graph.options().navigationMenu().updateVisibilityStatus();
+            // kill the filter menu animation;
+            graph.options().filterMenu().killButtonAnimation();
+        });
+    };
 
 	/** Loads all settings, removes the old graph (if it exists) and draws a new one. */
 	graph.start = function () {
@@ -892,7 +1118,6 @@ module.exports = function (graphContainerSelector) {
 
 		// Select the path for direct access to receive a better performance
 		linkPathElements = linkGroups.selectAll("path");
-
 		addClickEvents();
 	}
 
@@ -905,6 +1130,7 @@ module.exports = function (graphContainerSelector) {
 				module.handle(selectedElement);
 			});
 		}
+
 
 		nodeElements.on("click", function (clickedNode) {
 			executeModules(clickedNode);
@@ -989,6 +1215,7 @@ module.exports = function (graphContainerSelector) {
 		parser.parseSettings();
 		graphUpdateRequired = parser.settingsImported();
 		graph.options().searchMenu().requestDictionaryUpdate();
+
 		// resets the zoom and translation so we have an overview for the data;
 		graph.reset();
 	}
@@ -1012,6 +1239,10 @@ module.exports = function (graphContainerSelector) {
 		});
 		storeLinksOnNodes(classNodes, links);
 		setForceLayoutData(classNodes, labelNodes, links);
+        for (var i=0;i<classNodes.length;i++){
+            if (classNodes[i].setRectangularRepresentation)
+            classNodes[i].setRectangularRepresentation(graph.options().rectangularRepresentation());
+        }
 	}
 
 	function filterFunction(module, data, initializing) {
