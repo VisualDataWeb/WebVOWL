@@ -147,7 +147,7 @@ module.exports = function (graph) {
             		// this token belongs actually to the last paramArray
 					paramArray[paramArray.length-1]=paramArray[paramArray.length-1]+"#";
 				}else{
-            		paramArray.push(tokens[i])
+            		paramArray.push(tokens[i]);
             	}
 			}
 		}
