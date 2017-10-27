@@ -1,5 +1,5 @@
 {
-  "_comment" : "Created with OWL2VOWL (version 0.2.2-SNAPSHOT), http://vowl.visualdataweb.org",
+  "_comment" : "Created with OWL2VOWL (version 0.3.3-SNAPSHOT), http://vowl.visualdataweb.org",
   "header" : {
     "languages" : [ "en", "undefined" ],
     "baseIris" : [ "http://purl.org/muto/core", "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2000/01/rdf-schema", "http://purl.org/dc/terms", "http://www.w3.org/2001/XMLSchema", "http://rdfs.org/sioc/ns", "http://www.w3.org/2004/02/skos/core" ],
@@ -34,22 +34,28 @@
         "value" : "Version 1.0 - Global changes (compared to earlier versions): Some properties have been renamed; cardinality constraints in class descriptions (owl:Restriction) have been replaced by global cardinality constraints (owl:FunctionalProperty).",
         "type" : "label"
       } ],
-      "issued" : [ {
-        "identifier" : "issued",
-        "language" : "undefined",
-        "value" : "2011-11-16",
-        "type" : "label"
-      } ],
       "title" : [ {
         "identifier" : "title",
         "language" : "undefined",
         "value" : "Modular Unified Tagging Ontology (MUTO)",
         "type" : "label"
       } ],
+      "issued" : [ {
+        "identifier" : "issued",
+        "language" : "undefined",
+        "value" : "2011-11-16",
+        "type" : "label"
+      } ],
       "seeAlso" : [ {
         "identifier" : "seeAlso",
         "language" : "undefined",
         "value" : "http://purl.org/muto/core#",
+        "type" : "label"
+      } ],
+      "homepage" : [ {
+        "identifier" : "homepage",
+        "language" : "undefined",
+        "value" : "http://purl.org/muto",
         "type" : "label"
       } ],
       "depiction" : [ {
@@ -62,23 +68,14 @@
         "language" : "undefined",
         "value" : "http://purl.org/muto/core/muto-compact.png",
         "type" : "label"
-      } ],
-      "homepage" : [ {
-        "identifier" : "homepage",
-        "language" : "undefined",
-        "value" : "http://purl.org/muto",
-        "type" : "label"
       } ]
     }
   },
   "namespace" : [ ],
   "metrics" : {
-    "classCount" : 10,
-    "datatypeCount" : 10,
-    "objectPropertyCount" : 20,
+    "classCount" : 7,
+    "objectPropertyCount" : 16,
     "datatypePropertyCount" : 6,
-    "propertyCount" : 26,
-    "nodeCount" : 20,
     "individualCount" : 0
   },
   "class" : [ {
@@ -97,10 +94,10 @@
     "id" : "2",
     "type" : "owl:Thing"
   }, {
-    "id" : "13",
+    "id" : "9",
     "type" : "owl:Thing"
   }, {
-    "id" : "14",
+    "id" : "10",
     "type" : "rdfs:Literal"
   }, {
     "id" : "18",
@@ -109,7 +106,7 @@
     "id" : "19",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "23",
+    "id" : "21",
     "type" : "owl:Class"
   }, {
     "id" : "24",
@@ -121,10 +118,10 @@
     "id" : "6",
     "type" : "owl:Class"
   }, {
-    "id" : "33",
+    "id" : "32",
     "type" : "owl:Class"
   }, {
-    "id" : "9",
+    "id" : "12",
     "type" : "owl:Class"
   }, {
     "id" : "1",
@@ -192,13 +189,13 @@
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
-    "id" : "13",
+    "id" : "9",
     "label" : {
       "undefined" : "Thing"
     }
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "14",
+    "id" : "10",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -236,7 +233,7 @@
     "comment" : {
       "en" : "A private tagging is a tagging that is only visible to its creator (unless the creator has not granted access to others via muto:grantAccess). Every tagging that is not an instance of muto:PrivateTagging is public by default."
     },
-    "id" : "23",
+    "id" : "21",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
@@ -289,7 +286,7 @@
     },
     "subClasses" : [ "1" ],
     "attributes" : [ "external" ],
-    "id" : "33"
+    "id" : "32"
   }, {
     "iri" : "http://rdfs.org/sioc/ns#UserAccount",
     "baseIri" : "http://rdfs.org/sioc/ns",
@@ -298,7 +295,7 @@
       "IRI-based" : "UserAccount"
     },
     "attributes" : [ "external" ],
-    "id" : "9"
+    "id" : "12"
   }, {
     "iri" : "http://purl.org/muto/core#Tagging",
     "baseIri" : "http://purl.org/muto/core",
@@ -315,22 +312,22 @@
       "IRI-based" : "Tagging",
       "en" : "Tagging"
     },
-    "subClasses" : [ "23" ],
+    "subClasses" : [ "21" ],
     "comment" : {
       "en" : "A tagging links a resource to a user account and one or more tags."
     },
     "id" : "1",
-    "superClasses" : [ "33" ]
+    "superClasses" : [ "32" ]
   } ],
   "property" : [ {
     "id" : "0",
     "type" : "owl:objectProperty"
   }, {
     "id" : "8",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "12",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "11",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "16",
     "type" : "owl:objectProperty"
@@ -338,7 +335,7 @@
     "id" : "20",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "21",
+    "id" : "22",
     "type" : "owl:objectProperty"
   }, {
     "id" : "26",
@@ -347,7 +344,7 @@
     "id" : "27",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "10",
+    "id" : "13",
     "type" : "owl:objectProperty"
   }, {
     "id" : "28",
@@ -359,22 +356,22 @@
     "id" : "29",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "11",
-    "type" : "owl:objectProperty"
-  }, {
     "id" : "31",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "22",
+    "id" : "14",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "23",
     "type" : "owl:objectProperty"
   }, {
     "id" : "34",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "3",
+    "id" : "33",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "32",
+    "id" : "3",
     "type" : "owl:objectProperty"
   }, {
     "id" : "30",
@@ -422,11 +419,21 @@
     "comment" : {
       "en" : "Every tagging is linked to exactly one resource. This can be any kind of resource (i.e. all subclasses of rdfs:Resource), including tags and taggings."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "0"
   }, {
+    "iri" : "http://purl.org/dc/terms/modified",
+    "baseIri" : "http://purl.org/dc/terms",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "modified"
+    },
+    "domain" : "9",
+    "attributes" : [ "datatype", "external" ],
+    "id" : "8"
+  }, {
     "iri" : "http://purl.org/muto/core#creatorOf",
-    "inverse" : "10",
+    "inverse" : "13",
     "baseIri" : "http://purl.org/muto/core",
     "range" : "1",
     "annotations" : {
@@ -441,23 +448,13 @@
       "IRI-based" : "creatorOf",
       "en" : "creator of"
     },
-    "superproperty" : [ "11" ],
-    "domain" : "9",
+    "superproperty" : [ "14" ],
+    "domain" : "12",
     "comment" : {
       "en" : "A user account can have a (theoretically unlimited) number of taggings. Use sioc:member_of to define groups for group tagging or link to foaf:Agent, foaf:Person, or foaf:Group via sioc:account_of."
     },
     "attributes" : [ "object" ],
-    "id" : "8"
-  }, {
-    "iri" : "http://purl.org/dc/terms/modified",
-    "baseIri" : "http://purl.org/dc/terms",
-    "range" : "14",
-    "label" : {
-      "IRI-based" : "modified"
-    },
-    "domain" : "13",
-    "attributes" : [ "datatype", "external" ],
-    "id" : "12"
+    "id" : "11"
   }, {
     "iri" : "http://purl.org/muto/core#hasAccess",
     "inverse" : "17",
@@ -494,7 +491,7 @@
     "id" : "20"
   }, {
     "iri" : "http://purl.org/muto/core#meaningOf",
-    "inverse" : "22",
+    "inverse" : "23",
     "baseIri" : "http://purl.org/muto/core",
     "range" : "4",
     "annotations" : {
@@ -514,17 +511,17 @@
       "en" : "The number of tags that can be linked to one and the same meaning is theoretically unlimited."
     },
     "attributes" : [ "object" ],
-    "id" : "21"
+    "id" : "22"
   }, {
     "iri" : "http://rdfs.org/sioc/ns#has_creator",
     "baseIri" : "http://rdfs.org/sioc/ns",
-    "range" : "13",
+    "range" : "9",
     "label" : {
       "IRI-based" : "has_creator"
     },
-    "domain" : "13",
-    "subproperty" : [ "10" ],
-    "attributes" : [ "object", "external" ],
+    "domain" : "9",
+    "subproperty" : [ "13" ],
+    "attributes" : [ "external", "object" ],
     "id" : "26"
   }, {
     "iri" : "http://purl.org/muto/core#tagOf",
@@ -547,12 +544,12 @@
     "comment" : {
       "en" : "Every tag is linked to exactly one tagging. This results from the fact that tags with same labels are NOT merged in the ontology."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "27"
   }, {
     "iri" : "http://purl.org/muto/core#hasCreator",
     "baseIri" : "http://purl.org/muto/core",
-    "range" : "9",
+    "range" : "12",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -570,8 +567,8 @@
     "comment" : {
       "en" : "Every tagging is linked to at most one user account. This property can be omitted for automatic taggings. In contrast to its superproperty sioc:has_creator, it is functional and with an explicit domain. Use sioc:member_of to define groups for group tagging or link to foaf:Agent, foaf:Person, or foaf:Group via sioc:account_of."
     },
-    "attributes" : [ "object", "functional" ],
-    "id" : "10"
+    "attributes" : [ "functional", "object" ],
+    "id" : "13"
   }, {
     "iri" : "http://purl.org/muto/core#hasTag",
     "baseIri" : "http://purl.org/muto/core",
@@ -649,19 +646,8 @@
     "comment" : {
       "en" : "This property indicates the tag that is preceding in the list of tags. It can be used to describe the order in which the tags have been entered by the user."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "29"
-  }, {
-    "iri" : "http://rdfs.org/sioc/ns#creator_of",
-    "baseIri" : "http://rdfs.org/sioc/ns",
-    "range" : "13",
-    "label" : {
-      "IRI-based" : "creator_of"
-    },
-    "domain" : "13",
-    "subproperty" : [ "8" ],
-    "attributes" : [ "object", "external" ],
-    "id" : "11"
   }, {
     "iri" : "http://purl.org/muto/core#tagLabel",
     "baseIri" : "http://purl.org/muto/core",
@@ -688,8 +674,19 @@
     "comment" : {
       "en" : "Every tag has exactly one label (usually the one given by the user) - otherwise it is not a tag. Additional labels can be defined in the resource that is linked via muto:tagMeaning."
     },
-    "attributes" : [ "datatype", "functional" ],
+    "attributes" : [ "functional", "datatype" ],
     "id" : "31"
+  }, {
+    "iri" : "http://rdfs.org/sioc/ns#creator_of",
+    "baseIri" : "http://rdfs.org/sioc/ns",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "creator_of"
+    },
+    "domain" : "9",
+    "subproperty" : [ "11" ],
+    "attributes" : [ "external", "object" ],
+    "id" : "14"
   }, {
     "iri" : "http://purl.org/muto/core#tagMeaning",
     "baseIri" : "http://purl.org/muto/core",
@@ -707,16 +704,16 @@
       "en" : "tag meaning"
     },
     "domain" : "4",
-    "subproperty" : [ "32" ],
+    "subproperty" : [ "33" ],
     "comment" : {
       "en" : "The meaning of a tag can be expressed by a link to a well-defined resource. This can be any resource that clarifies the meaning of the tag (e.g. some DBpedia resource)."
     },
     "attributes" : [ "object" ],
-    "id" : "22"
+    "id" : "23"
   }, {
     "iri" : "http://purl.org/muto/core#taggingModified",
     "baseIri" : "http://purl.org/muto/core",
-    "range" : "24",
+    "range" : "15",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -736,17 +733,6 @@
     "attributes" : [ "datatype" ],
     "id" : "34"
   }, {
-    "iri" : "http://rdfs.org/sioc/ns#about",
-    "baseIri" : "http://rdfs.org/sioc/ns",
-    "range" : "13",
-    "label" : {
-      "IRI-based" : "about"
-    },
-    "domain" : "13",
-    "subproperty" : [ "0" ],
-    "attributes" : [ "object", "external" ],
-    "id" : "3"
-  }, {
     "iri" : "http://purl.org/muto/core#autoMeaning",
     "baseIri" : "http://purl.org/muto/core",
     "range" : "18",
@@ -762,13 +748,24 @@
       "IRI-based" : "autoMeaning",
       "en" : "automatic tag meaning"
     },
-    "superproperty" : [ "22" ],
+    "superproperty" : [ "23" ],
     "domain" : "4",
     "comment" : {
       "en" : "This subproperty indicates that the meaning of a tag has been automatically defined (e.g. by a tagging system), i.e. it has not been defined by a human being. The default case is disambiguation by users via muto:tagMeaning."
     },
     "attributes" : [ "object" ],
-    "id" : "32"
+    "id" : "33"
+  }, {
+    "iri" : "http://rdfs.org/sioc/ns#about",
+    "baseIri" : "http://rdfs.org/sioc/ns",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "about"
+    },
+    "domain" : "9",
+    "subproperty" : [ "0" ],
+    "attributes" : [ "external", "object" ],
+    "id" : "3"
   }, {
     "iri" : "http://purl.org/muto/core#nextTag",
     "baseIri" : "http://purl.org/muto/core",
@@ -795,7 +792,7 @@
     "comment" : {
       "en" : "This property indicates the tag that follows next in the list of tags. It can be used to describe the order in which the tags have been entered by the user."
     },
-    "attributes" : [ "object", "functional" ],
+    "attributes" : [ "functional", "object" ],
     "id" : "30"
   }, {
     "iri" : "http://purl.org/muto/core#taggingCreated",
@@ -817,7 +814,7 @@
     "comment" : {
       "en" : "Every tagging has exactly one creation date and time. The datatype of this property is xsd:dateTime (in contrast to its superproperty dcterms:created which has range rdfs:Literal)."
     },
-    "attributes" : [ "datatype", "functional" ],
+    "attributes" : [ "functional", "datatype" ],
     "id" : "35"
   }, {
     "iri" : "http://purl.org/dc/terms/created",
@@ -826,7 +823,7 @@
     "label" : {
       "IRI-based" : "created"
     },
-    "domain" : "13",
+    "domain" : "9",
     "attributes" : [ "datatype", "external" ],
     "id" : "36"
   }, {
@@ -860,7 +857,7 @@
   }, {
     "iri" : "http://purl.org/muto/core#tagCreated",
     "baseIri" : "http://purl.org/muto/core",
-    "range" : "15",
+    "range" : "24",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -877,15 +874,15 @@
     "comment" : {
       "en" : "The creation date and time of a tag. This property can be omitted if muto:taggingCreated = muto:tagCreated (i.e. in the common case that a tag has been created along with a tagging, not in a later edit of the tagging). The datatype of this property is xsd:dateTime (in contrast to it superproperty dcterms:created which has range rdfs:Literal)."
     },
-    "attributes" : [ "datatype", "functional" ],
+    "attributes" : [ "functional", "datatype" ],
     "id" : "39"
   }, {
     "range" : "1",
-    "domain" : "23",
+    "domain" : "21",
     "attributes" : [ "anonymous", "object" ],
     "id" : "40"
   }, {
-    "range" : "33",
+    "range" : "32",
     "domain" : "1",
     "attributes" : [ "anonymous", "object" ],
     "id" : "41"
