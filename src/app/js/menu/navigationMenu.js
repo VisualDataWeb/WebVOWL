@@ -78,14 +78,10 @@ module.exports = function (graph) {
                 m_select[i]=undefined;
             }
             // create custom behavior for click, touch, and hover
-            d3.select("#"+c_select[i]).on("mouseover",
-                function(){ menuElementOnHovered(this);}  );
+            d3.select("#"+c_select[i]).on("mouseover",menuElementOnHovered);
+            d3.select("#"+c_select[i]).on("click",menuElementClicked);
+            d3.select("#"+c_select[i]).on("touchstart",menuElementTouched);
 
-            d3.select("#"+c_select[i]).on("click",
-                function(){ menuElementClicked(this); }  );
-
-            d3.select("#"+c_select[i]).on("touchstart",
-                function(){ menuElementTouched(); }  );
         }
 
         // connect to mouseWheel
@@ -132,21 +128,21 @@ module.exports = function (graph) {
         });
     }
 
-    function menuElementOnHovered( controlElement ){
+    function menuElementOnHovered(){
         navigationMenu.hideAllMenus();
         if  (touchedElement){ return; }
-        showSingleMenu( controlElement.id );
+        showSingleMenu( this.id );
     }
 
-    function menuElementClicked(controlElement) {
-        var m_element=m_select[c_select.indexOf(controlElement.id)];
+    function menuElementClicked() {
+        var m_element=m_select[c_select.indexOf(this.id)];
         if (m_element) {
             var menuElement = d3.select("#" + m_element);
             if (menuElement) {
                 if (menuElement.style("display") === "block") {
                     menuElement.style("display", "none");// hide it
                 }else {
-                    showSingleMenu(controlElement.id);
+                    showSingleMenu(this.id);
                 }
             }
         }
