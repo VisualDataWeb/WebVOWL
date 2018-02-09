@@ -3,6 +3,8 @@
  *
  * @returns {{}}
  */
+
+
 module.exports = function (graph) {
 
 	var DEFAULT_STATE = false;

@@ -2,7 +2,7 @@
 /*----------------------------------------------
         WebVOWL page
 ----------------------------------------------*/
-/*brrr, edge content no zooming brrr << not sure how this will effect the edge contnet */
+/*brrr, edge content no zooming brrr << not sure how this will effect the edge content */
 html{
 	-ms-content-zooming: none;
 }
@@ -193,13 +193,52 @@ main {
 	margin: 0;
 	line-height: 0.7;
 	text-align: center;
-	font-size: 3vmin;
+	font-size: 24px;
+
 }
 #logo h2 span {
 	color: #34495E;
-	font-size: 2vmin;
-
+	/*font-size: min(2vmin, 24px);*/
+	font-size: 16px;
 }
+
+
+
+@media screen and (max-device-height: 800px){
+	#logo h2 {
+		font-size: calc(8px + 1.0vmin);
+	}
+	#logo h2 span {
+		font-size: calc(3px + 1.0vmin);
+	}
+}
+@media screen and (max-height: 800px){
+	#logo h2 {
+		font-size: calc(8px + 1.0vmin);
+	}
+	#logo h2 span {
+		font-size: calc(3px + 1.0vmin);
+	}
+}
+
+
+@media screen and (max-device-width: 1200px){
+	#logo h2 {
+		font-size: calc(8px + 1.0vmin);
+	}
+	#logo h2 span {
+		font-size: calc(3px + 1.0vmin);
+	}
+}
+@media screen and (max-width: 1200px){
+	#logo h2 {
+		font-size: calc(8px + 1.0vmin);
+	}
+	#logo h2 span {
+		font-size: calc(3px + 1.0vmin);
+	}
+}
+
 .checkboxContainer input, .checkboxContainer label {
 	vertical-align: middle;
 }
@@ -703,7 +742,7 @@ main {
 /*Font-color Style for menu entries */
 #menuElementContainer >li > a {
 	color   : #fff;
-	padding: 12px 8px;
+	padding: 12px 12px;
 
 }
 #menuElementContainer >li > input {

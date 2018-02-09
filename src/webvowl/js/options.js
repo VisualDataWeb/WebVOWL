@@ -33,7 +33,7 @@ module.exports = function () {
 		graphObject,
         zoomSlider,
 		rectangularRep=false,
-		scaleNodesByIndividuals = false;
+		scaleNodesByIndividuals = true;
 
 
 
