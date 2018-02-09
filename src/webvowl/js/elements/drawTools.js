@@ -149,9 +149,6 @@ module.exports = (function () {
 			.classed("hidden-in-export", true);
 
 
-		/* From Modernizr */
-
-
 		haloGroupElement.append("circle",":first-child")
 			.classed("searchResultA", true)
 			.attr("r", radius + 15);

@@ -5,338 +5,222 @@
  * @returns {{}}
  */
 module.exports = function (graph) {
-	var navigationMenu = {},
-		allMenuEntries = [],
-		visibleEntries = [],
-		objectContainer = d3.select("#optionsMenu"),
-		buttonLeft = d3.select("#LeftButton"),
-		buttonRight = d3.select("#RightButton");
+	var navigationMenu  = {},
+        scrollContainer = d3.select("#menuElementContainer").node(),
+        menuContainer   = d3.select("#menuContainer").node(),
+        leftButton=d3.select("#scrollLeftButton"),
+        rightButton=d3.select("#scrollRightButton"),
+        scrolLeftValue,
+        scrollMax,
+        currentlyVisibleMenu=undefined,
+        currentlyHoveredEntry=undefined,
+        touchedElement=false,
+        t_scrollLeft,
+        t_scrollRight,
+        c_select=[],
+        m_select=[];
+
+
+    function clearAllTimers(){
+        cancelAnimationFrame(t_scrollLeft);
+        cancelAnimationFrame(t_scrollRight);
+    }
+
+    function timed_scrollRight(){
+        scrolLeftValue+=5;
+        scrollContainer.scrollLeft=scrolLeftValue;
+        navigationMenu.updateScrollButtonVisibility();
+        if (scrolLeftValue>=scrollMax){
+            clearAllTimers();
+            return;
+        }
+        t_scrollRight=requestAnimationFrame(timed_scrollRight);
+
+    }
+    function timed_scrollLeft(){
+        scrolLeftValue-=5;
+        scrollContainer.scrollLeft=scrolLeftValue;
+        navigationMenu.updateScrollButtonVisibility();
+        if (scrolLeftValue<=0){
+            clearAllTimers();
+            return;
+        }
+        t_scrollRight=requestAnimationFrame(timed_scrollLeft);
+    }
+    // collect all menu entries and stuff;
+    function setupControlsAndMenus(){
+        // HEURISTIC : to match the menus and their controllers we remove the first 2 letters and match
+        c_select=[];
+        m_select=[];
+
+        var c_temp=[];
+        var m_temp=[];
+        var i;
+        var controlElements=scrollContainer.children;
+        var numEntries = controlElements.length;
+
+        for ( i = 0; i < numEntries; i++) {
+            c_temp.push(controlElements[i].id.slice(2));
+        }
+
+        var menuElements=menuContainer.children;
+        numEntries = menuElements.length;
+        for ( i = 0; i < numEntries; i++) {
+            m_temp.push(menuElements[i].id.slice(2));
+        }
+
+        numEntries=controlElements.length;
+        for ( i = 0; i < numEntries; i++) {
+            c_select[i]="c_"+c_temp[i];
+            if (m_temp.indexOf(c_temp[i])>-1){
+                m_select[i]="m_"+c_temp[i];
+            } else{
+                m_select[i]=undefined;
+            }
+            // create custom behavior for click, touch, and hover
+            d3.select("#"+c_select[i]).on("mouseover",
+                function(){ menuElementOnHovered(this);}  );
+
+            d3.select("#"+c_select[i]).on("click",
+                function(){ menuElementClicked(this); }  );
+
+            d3.select("#"+c_select[i]).on("touchstart",
+                function(){ menuElementTouched(); }  );
+        }
+
+        // connect to mouseWheel
+        d3.select("#menuElementContainer").on("wheel",function() {
+            var wheelEvent = d3.event;
+            var offset;
+            if (wheelEvent.deltaY < 0) offset =  20;
+            if (wheelEvent.deltaY > 0) offset = -20;
+            scrollContainer.scrollLeft+=offset;
+            navigationMenu.hideAllMenus();
+            navigationMenu.updateScrollButtonVisibility();
+        });
+
+        // connect scrollIndicator Buttons;
+        d3.select("#scrollRightButton").on("mousedown",function(){
+            scrolLeftValue=scrollContainer.scrollLeft;
+            navigationMenu.hideAllMenus();
+            t_scrollRight=requestAnimationFrame(timed_scrollRight);
+
+        }).on("touchstart",function(){
+            scrolLeftValue=scrollContainer.scrollLeft;
+            navigationMenu.hideAllMenus();
+            t_scrollRight=requestAnimationFrame(timed_scrollRight);
+        }).on("mouseup",clearAllTimers)
+          .on("touchend",clearAllTimers)
+          .on("touchcancel",clearAllTimers);
+
+        d3.select("#scrollLeftButton").on("mousedown",function(){
+            scrolLeftValue=scrollContainer.scrollLeft;
+            navigationMenu.hideAllMenus();
+            t_scrollLeft=requestAnimationFrame(timed_scrollLeft);
+        }).on("touchstart",function(){
+            scrolLeftValue=scrollContainer.scrollLeft;
+            navigationMenu.hideAllMenus();
+            t_scrollLeft=requestAnimationFrame(timed_scrollLeft);
+        }).on("mouseup",clearAllTimers)
+          .on("touchend",clearAllTimers)
+          .on("touchcancel",clearAllTimers);
+
+        // connect the scroll functionality;
+        d3.select("#menuElementContainer").on("scroll",function(){
+            navigationMenu.updateScrollButtonVisibility();
+            navigationMenu.hideAllMenus();
+        });
+    }
+
+    function menuElementOnHovered( controlElement ){
+        navigationMenu.hideAllMenus();
+        if  (touchedElement){ return; }
+        showSingleMenu( controlElement.id );
+    }
+
+    function menuElementClicked(controlElement) {
+        var m_element=m_select[c_select.indexOf(controlElement.id)];
+        if (m_element) {
+            var menuElement = d3.select("#" + m_element);
+            if (menuElement) {
+                if (menuElement.style("display") === "block") {
+                    menuElement.style("display", "none");// hide it
+                }else {
+                    showSingleMenu(controlElement.id);
+                }
+            }
+        }
+    }
+
+    function menuElementTouched(){
+        // it sets a flag that we have touched it,
+        // since d3. propagates the event for touch as hover and then click, we block the hover event
+        touchedElement=true;
+    }
+
+    function showSingleMenu( controllerID ){
+        currentlyHoveredEntry=d3.select("#"+controllerID).node();
+        // get the corresponding menu element for this controller
+        var m_element=m_select[c_select.indexOf(controllerID)];
+        if (m_element){
+            // show it if we have a menu
+            currentlyVisibleMenu=d3.select("#"+m_element);
+            currentlyVisibleMenu.style("display","block");
+            if (m_element==="m_export")
+                graph.options().exportMenu().exportAsUrl();
+            updateMenuPosition();
+        }
+    }
+
+    function updateMenuPosition(){
+        if (currentlyHoveredEntry) {
+            var leftOffset = currentlyHoveredEntry.offsetLeft;
+            var scrollOffset = scrollContainer.scrollLeft;
+            var totalOffset = leftOffset - scrollOffset;
+            var finalOffset = Math.max(0, totalOffset);
+            var fullContainer_width = scrollContainer.getBoundingClientRect().width;
+            var elementWidth = currentlyVisibleMenu.node().getBoundingClientRect().width;
+            // make priority > first check if we are right
+            if (finalOffset + elementWidth > fullContainer_width) {
+                finalOffset = fullContainer_width - elementWidth;
+            }
+            // fix priority;
+            finalOffset = Math.max(0, finalOffset);
+            currentlyVisibleMenu.style("left", finalOffset + "px");
+
+            // // check if outside the viewport
+            // var menuWidth=currentlyHoveredEntry.getBoundingClientRect().width;
+            // var bt_width=36;
+            // if (totalOffset+menuWidth<bt_width || totalOffset+bt_width>fullContainer_width){
+            //     navigationMenu.hideAllMenus();
+            //     currentlyHoveredEntry=undefined;
+            // }
+        }
+    }
+
+    navigationMenu.hideAllMenus=function(){
+        d3.selectAll(".toolTipMenu").style("display","none"); // hiding all menus
+    };
+
+    navigationMenu.updateScrollButtonVisibility=function(){
+        scrollMax = scrollContainer.scrollWidth - scrollContainer.clientWidth -2;
+        if ( scrollContainer.scrollLeft === 0){
+               leftButton.classed("hidden",true);
+        }else{ leftButton.classed("hidden",false);}
+
+        if ( scrollContainer.scrollLeft > scrollMax){
+               rightButton.classed("hidden",true);
+        }else{ rightButton.classed("hidden",false); }
+
+    };
 
 	navigationMenu.setup = function () {
-		var objects = objectContainer.node().children;
-		var i;
-		for (i = 0; i < objects.length; i++) {
-			allMenuEntries.push(objects[i]);
-		}
-		setupButtons();
-		for (i = 0; i < allMenuEntries.length - 2; i++) {
-			allMenuEntries[i].style.display = "block";
-			visibleEntries[i] = 1;
-		}
-	};
+        setupControlsAndMenus();
+        // make sure that the menu elements follow their controller and also their restrictions
+        // some hovering behavior -- lets the menu disappear when hovered in graph or sidebar;
+        d3.select("#graph")         .on("mouseover",function(){ navigationMenu.hideAllMenus(); });
+        d3.select("#generalDetails").on("mouseover",function(){ navigationMenu.hideAllMenus(); });
+    };
 
-	function setupButtons() {
-		buttonLeft.on("mouseover", function () {
-			var searchMenu = graph.options().searchMenu();
-			searchMenu.hideSearchEntries();
-		});
-		buttonRight.on("mouseover", function () {
-			var searchMenu = graph.options().searchMenu();
-			searchMenu.hideSearchEntries();
-		});
-
-		buttonLeft.on("click", function () {
-			var i;
-			var currentTopValue;
-			var objTopValue;
-			if (visibleEntries[0] === 1) {
-				return;
-			} else {
-				var elementToShow = visibleEntries.indexOf(1) - 1;
-				var anchorLeft = visibleEntries.indexOf(1);
-				for (i = anchorLeft + 1; i < visibleEntries.length; i++) {
-					visibleEntries[i] = 0;
-					allMenuEntries[i].style.display = "none";
-				}
-				visibleEntries[elementToShow] = 1;
-				allMenuEntries[elementToShow].style.display = "block";
-				// try to fill from right now;
-				for (i = anchorLeft + 1; i < visibleEntries.length; i++) {
-					visibleEntries[i] = 0;
-					allMenuEntries[i].style.display = "block";
-					currentTopValue = allMenuEntries[elementToShow].getBoundingClientRect().top;
-					objTopValue = allMenuEntries[i].getBoundingClientRect().top;
-					if (currentTopValue === objTopValue) {
-						visibleEntries[i] = 1;
-					} else {
-						allMenuEntries[i].style.display = "none";
-						visibleEntries[i] = 0;
-						break;
-					}
-				}
-			 	// repair if needed;
-				checkArrowRequirement();
-
-				var bothVisible=checkBothArrows();
-				var lastIndex=visibleEntries.lastIndexOf(1);
-
-				if (!bothVisible){
-					// disable the last entry;
-					visibleEntries[lastIndex]=0;
-					allMenuEntries[lastIndex].style.display="none";
-				}
-
-				 	// try to fill from left ; now
-				var anchorRight=visibleEntries.lastIndexOf(1);
-				for (i=anchorRight-1;i>=0;i--){
-					visibleEntries[i]=0;
-					allMenuEntries[i].style.display="block";
-					currentTopValue = allMenuEntries[elementToShow].getBoundingClientRect().top;
-					objTopValue= allMenuEntries[i].getBoundingClientRect().top;
-					if (currentTopValue===objTopValue){
-						visibleEntries[i]=1;
-					}else{
-						allMenuEntries[i].style.display="none";
-						visibleEntries[i]=0;
-						break;
-					}
-				}
-				// repair if needed;
-				checkArrowRequirement();
-				bothVisible=checkBothArrows();
-				if (!bothVisible){
-					// disable the last entry;
-					lastIndex=visibleEntries.indexOf(1);
-					if (lastIndex!==-1) {
-						visibleEntries[lastIndex] = 0;
-						allMenuEntries[lastIndex].style.display = "none";
-					}
-				}
-				// todo: check why we need 3 times this;
-				checkArrowRequirement();
-				bothVisible=checkBothArrows();
-				if (!bothVisible){
-					// disable the last entry;
-					lastIndex=visibleEntries.indexOf(1);
-					if (lastIndex!==-1) {
-						visibleEntries[lastIndex] = 0;
-						allMenuEntries[lastIndex].style.display = "none";
-					}
-				}
-				checkArrowRequirement();
-				bothVisible=checkBothArrows();
-				if (!bothVisible){
-					// disable the last entry;
-					lastIndex=visibleEntries.indexOf(1);
-					if (lastIndex!==-1) {
-						visibleEntries[lastIndex] = 0;
-						allMenuEntries[lastIndex].style.display = "none";
-					}
-				}
-				checkArrowRequirement();
-			}
-   		    setArrowHighlighting();
-		});
-		buttonRight.on("click", function () {
-			// set the first 0 to zero;
-			// check if last element is 1;
-			if (visibleEntries[visibleEntries.length - 1] === 1) {
-				return;
-			} else {
-				var elementToShow=visibleEntries.lastIndexOf(1)+1;
-
-				var anchorRight=visibleEntries.lastIndexOf(1);
-				// hide everything from anchorRight
-				var i;
-				for (i=anchorRight-1;i>=0;i--){
-					visibleEntries[i]=0;
-					allMenuEntries[i].style.display="none";
-				}
-				visibleEntries[elementToShow]=1;
-				allMenuEntries[elementToShow].style.display="block";
-
-				for (i=anchorRight-1;i>=0;i--){
-					visibleEntries[i]=0;
-					allMenuEntries[i].style.display="block";
-
-					var currentTopValue = allMenuEntries[elementToShow].getBoundingClientRect().top;
-					var objTopValue= allMenuEntries[i].getBoundingClientRect().top;
-					if (currentTopValue===objTopValue){
-						visibleEntries[i]=1;
-					}else{
-						allMenuEntries[i].style.display="none";
-						visibleEntries[i]=0;
-						break;
-					}
-
-				}
-				// repair if needed;
-				checkArrowRequirement();
-				var bothVisible=checkBothArrows();
-				if (!bothVisible){
-					// disable the last entry;
-					var lastIndex=visibleEntries.indexOf(1);
-					if (lastIndex!==-1) {
-						visibleEntries[lastIndex] = 0;
-						allMenuEntries[lastIndex].style.display = "none";
-					}
-				}
-			}
-			setArrowHighlighting();
-		});
-	}
-
-
-	navigationMenu.updateVisibilityStatus = function () {
-		// assumptions:
-		// about is always first element, we take its top pos
-		// we neglect the last 2 value because it is the arrow object
-		var i;
-		var firstOne = visibleEntries.indexOf(1);
-		if (firstOne===-1){
-			fillFromBeginning();
-			firstOne = visibleEntries.indexOf(1);
-		}
-		var currentTopValue = allMenuEntries[firstOne].getBoundingClientRect().top;
-		var objTopValue;
-		for (i = 0; i < allMenuEntries.length - 2; i++) {
-			objTopValue = allMenuEntries[i].getBoundingClientRect().top;
-
-			if (objTopValue === currentTopValue) {
-				visibleEntries[i] = 1;
-			} else {
-				visibleEntries[i] = 0;
-				allMenuEntries[i].style.display = "none";
-			}
-		}
-		// get anchors;
-		var anchorLeft=visibleEntries.indexOf(1);
-		var anchorRight=visibleEntries.lastIndexOf(1);
-
-		if (anchorLeft===-1 && anchorRight===-1){
-			fillFromBeginning();
-			anchorLeft=visibleEntries.indexOf(1);
-			anchorRight=visibleEntries.lastIndexOf(1);
-		}
-		// try to add more entries;
-		for (i = anchorLeft+1; i < allMenuEntries.length - 2; i++) {
-			// enable the value;
-			allMenuEntries[i].style.display="block";
-			currentTopValue = allMenuEntries[anchorLeft].getBoundingClientRect().top;
-			objTopValue= allMenuEntries[i].getBoundingClientRect().top;
-
-			if (currentTopValue===objTopValue){
-				visibleEntries[i]=1;
-			}else{
-				allMenuEntries[i].style.display="none";
-				visibleEntries[i]=0;
-				break;
-			}
-		}
-		checkArrowRequirement();
-
-		var bothVisible=checkBothArrows();
-		var lastIndex;
-		if (!bothVisible && anchorLeft===0){
-			// disable the last entry;
-			lastIndex=visibleEntries.lastIndexOf(1);
-			if (lastIndex!==-1) {
-				visibleEntries[lastIndex] = 0;
-				allMenuEntries[lastIndex].style.display="none";
-			}
-		}
-
-		if (anchorLeft!==0 || anchorRight!==visibleEntries.length){
-			 //try to add elements to menu
-			anchorRight=visibleEntries.lastIndexOf(1);
-
-			if (anchorRight>=1){
-				// hide everything from anchorRight
-				for (i=anchorRight-1;i>=0;i--){
-					visibleEntries[i]=0;
-					allMenuEntries[i].style.display="none";
-				}
-				for (i=anchorRight-1;i>=0;i--) {
-					visibleEntries[i] = 0;
-					allMenuEntries[i].style.display = "block";
-
-					currentTopValue = allMenuEntries[anchorRight].getBoundingClientRect().top;
-					objTopValue = allMenuEntries[i].getBoundingClientRect().top;
-					if (currentTopValue === objTopValue) {
-						visibleEntries[i] = 1;
-					} else {
-						allMenuEntries[i].style.display = "none";
-						visibleEntries[i] = 0;
-						break;
-					}
-				}
-			}
-			// repair if needed;
-			checkArrowRequirement();
-			bothVisible=checkBothArrows();
-			if (!bothVisible){
-				// disable the last entry;
-				lastIndex=visibleEntries.indexOf(1);
-				if (lastIndex!==-1) {
-					visibleEntries[lastIndex] = 0;
-					allMenuEntries[lastIndex].style.display = "none";
-				}
-			}
-		}
-		// sanity check
-		if (visibleEntries.indexOf(1)===-1){
-			fillFromBeginning();
-		}
-
-		setArrowHighlighting();
-	};
-
-	function fillFromBeginning() {
-		visibleEntries[0]=1;
-		allMenuEntries[0].style.display="block";
-	}
-
-	function checkArrowRequirement(){
-		// hides if not needed
-		var leftArrowId = allMenuEntries.length - 2;
-		var rightArrowId = allMenuEntries.length - 1;
-		allMenuEntries[leftArrowId].style.display = "none";
-		allMenuEntries[rightArrowId].style.display = "none";
-		if (visibleEntries.indexOf(0) !== -1) {
-			allMenuEntries[leftArrowId].style.display = "block";
-			allMenuEntries[rightArrowId].style.display = "block";
-		}
-	}
-
-	function checkBothArrows(){
-		if (visibleEntries.indexOf(0) === -1) {
-			return true; // no need to show them
-		}
-		var leftArrowId = allMenuEntries.length - 2;
-		var rightArrowId = allMenuEntries.length - 1;
-		var firstElement=visibleEntries.indexOf(1);
-		if (firstElement===-1){
-			fillFromBeginning(); // panic: no elements are visible
-			firstElement=visibleEntries.indexOf(1);
-		}
-
-		var currentTopValue = allMenuEntries[firstElement].getBoundingClientRect().top;
-		var leftTopValue= allMenuEntries[leftArrowId].getBoundingClientRect().top;
-		var rightTopValue= allMenuEntries[rightArrowId].getBoundingClientRect().top;
-
-		allMenuEntries[leftArrowId].style.display = "block";
-		allMenuEntries[rightArrowId].style.display = "block";
-
-		var bothVisible=false;
-		if (currentTopValue===leftTopValue && currentTopValue === rightTopValue){
-			bothVisible=true;
-		}
-		return bothVisible;
-	}
-
-
-	function setArrowHighlighting() {
-		if (visibleEntries[visibleEntries.length - 1] !== 1) {
-			buttonRight.classed("highlighted", true);
-		} else {
-			buttonRight.classed("highlighted", false);
-		}
-		if (visibleEntries[0] !== 1) {
-			buttonLeft.classed("highlighted", true);
-		} else {
-			buttonLeft.classed("highlighted", false);
-		}
-	}
-
-	return navigationMenu;
+    return navigationMenu;
 };

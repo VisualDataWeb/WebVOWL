@@ -8,7 +8,8 @@ module.exports = function (graph) {
 
 	var filterMenu = {},
 		checkboxData = [],
-		menuElement = d3.select("#filterOption a"),
+		menuElement = d3.select("#m_filter"),
+        menuControl= d3.select("#c_filter a"),
 		nodeDegreeContainer = d3.select("#nodeDegreeFilteringOption"),
 		graphDegreeLevel,
 		defaultDegreeValue=0,
@@ -38,12 +39,12 @@ module.exports = function (graph) {
 	 * @param nodeDegreeFilter filters nodes by their degree
 	 */
 	filterMenu.setup = function (datatypeFilter, objectPropertyFilter, subclassFilter, disjointFilter, setOperatorFilter, nodeDegreeFilter) {
-		var menuEntry= d3.select("#filterOption");
-		menuEntry.on("mouseover",function(){
+		// TODO: is this here really necessarry? << new menu visualization style?
+        menuControl.on("mouseover",function(){
 			var searchMenu=graph.options().searchMenu();
 			searchMenu.hideSearchEntries();
 		});
-		menuElement.on("mouseleave", function () {
+        menuControl.on("mouseleave", function () {
 			filterMenu.highlightForDegreeSlider(false);
 		});
 
@@ -168,6 +169,7 @@ module.exports = function (graph) {
 			degreeSlider.on("input")();// <<-- sets the text value
 			graph.update();
 		}
+		d3.event.preventDefault();
 	}
 	
 	function setSliderValue(slider, value) {
@@ -195,16 +197,16 @@ module.exports = function (graph) {
 	};
 
 	function addAnimationFinishedListener() {
-        menuElement.node().addEventListener("animationend", function () {
-           console.log("filter button animation ended");
-           menuElement.classed("buttonPulse", false);
-            menuElement.classed("filterMenuButtonHighlight", true);
+        menuControl.node().addEventListener("animationend", function () {
+            menuControl.classed("buttonPulse", false);
+            menuControl.classed("filterMenuButtonHighlight", true);
+
         });
     }
 
     filterMenu.killButtonAnimation=function(){
-        menuElement.classed("buttonPulse", false);
-        menuElement.classed("filterMenuButtonHighlight", false);
+        menuControl.classed("buttonPulse", false);
+        menuControl.classed("filterMenuButtonHighlight", false);
 	};
 
 
@@ -212,19 +214,19 @@ module.exports = function (graph) {
 		if (!arguments.length) {
 			enable = true;
 		}
-		menuElement.classed("highlighted", enable);
+        menuControl.classed("highlighted", enable);
 		nodeDegreeContainer.classed("highlighted", enable);
 		// pulse button handling
-		if (menuElement.classed("buttonPulse")===true && enable===true){
-			menuElement.classed("buttonPulse", false);
+		if (menuControl.classed("buttonPulse")===true && enable===true){
+            menuControl.classed("buttonPulse", false);
 			var timer= setTimeout(function() {
-				menuElement.classed("buttonPulse", enable);
+                menuControl.classed("buttonPulse", enable);
 				clearTimeout(timer);
 				// after the time is done, remove the pulse but stay highlighted
 			}, 100);
 		}else {
-			menuElement.classed("buttonPulse", enable);
-            menuElement.classed("filterMenuButtonHighlight", enable);
+            menuControl.classed("buttonPulse", enable);
+            menuControl.classed("filterMenuButtonHighlight", enable);
 		}
 	};
 
@@ -265,7 +267,6 @@ module.exports = function (graph) {
 
 		var silent = true;
 		var sliderValue = degreeSlider.property("value");
-		console.log("what is degrSlider Value;?"+sliderValue);
 		if (sliderValue > 0) {
 			filterMenu.highlightForDegreeSlider(true);
 		} else{

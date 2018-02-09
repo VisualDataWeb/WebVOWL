@@ -11,22 +11,7 @@ module.exports = function (graph) {
 		copyButton,
 		exportableJsonText;
 
-    var defObj={};
-    defObj.sidebar="1";
-    defObj.doc=-1;
-    defObj.cd=200;
-    defObj.dd=120;
-    defObj.filter_datatypes="false";
-    defObj.filter_objectProperties="false";
-    defObj.filter_sco="false";
-    defObj.filter_disjoint="true";
-    defObj.filter_setOperator="false";
-    defObj.mode_dynamic="true";
-    defObj.mode_scaling="true";
-    defObj.mode_compact="false";
-    defObj.mode_colorExt="true";
-    defObj.mode_multiColor="false";
-    defObj.rect=0;
+
 
 
 
@@ -43,11 +28,11 @@ module.exports = function (graph) {
             .on("click", copyUrl);
 
 
-        var menuEntry= d3.select("#export");
+        var menuEntry= d3.select("#m_export");
 		menuEntry.on("mouseover",function(){
 			var searchMenu=graph.options().searchMenu();
 			searchMenu.hideSearchEntries();
-			exportAsUrl();
+            exportMenu.exportAsUrl();
 		});
 	};
 
@@ -63,12 +48,12 @@ module.exports = function (graph) {
         d3.select("#exportedUrl").node().focus();
         d3.select("#exportedUrl").node().select();
         document.execCommand("copy");
+        graph.options().navigationMenu().hideAllMenus();
 	}
 
 	function prepareOptionString(defOpts,currOpts){
 		var setOptions=0;
-        var optsString="opts=[";
-		// compare each key pair value
+        var optsString="opts=";
 
 		for (var name in defOpts) {
 			// define key and value ;
@@ -81,15 +66,15 @@ module.exports = function (graph) {
 				}
 			}
 		}
-		optsString+="]";
+		optsString+="";
 		if (setOptions===0){ return "";}
 		return optsString;
 	}
 
-	function exportAsUrl(){
+	 exportMenu.exportAsUrl=function(){
 
         var currObj={};
-        currObj.sidebar=graph.getSidebarVisibility();
+        currObj.sidebar=graph.options().sidebar().getSidebarVisibility();
 
         // identify default value given by ontology;
 		var defOntValue=graph.options().filterMenu().getDefaultDegreeValue();
@@ -112,7 +97,7 @@ module.exports = function (graph) {
         currObj.mode_multiColor=String(graph.options().modeMenu().colorModeState());
         currObj.rect=0;
 
-
+		var defObj=graph.options().defaultConfig();
         var optsString=prepareOptionString(defObj,currObj);
         var urlString=String(location);
         var htmlElement;
@@ -124,7 +109,7 @@ module.exports = function (graph) {
             htmlElement.focus();
             htmlElement.select();
             htmlElement.title=urlString;
-            return;
+            return ;
 		}
 
         // generate the options string;
@@ -136,7 +121,7 @@ module.exports = function (graph) {
         if (numParameters>0) {
             var tokens = urlString.split("#");
             var i;
-            if (tokens[1].indexOf("opts=[")>=0){
+            if (tokens[1].indexOf("opts=")>=0){
 				tokens[1]=optsString;
                 newUrlString=tokens[0];
 			}else{
@@ -156,8 +141,10 @@ module.exports = function (graph) {
         htmlElement.focus();
         htmlElement.select();
         htmlElement.title=newUrlString;
-	}
+	};
+
 	function exportSvg() {
+        graph.options().navigationMenu().hideAllMenus();
 		// Get the d3js SVG element
 		var graphSvg = d3.select(graph.options().graphContainerSelector()).select("svg"),
 			graphSvgCode,
@@ -298,6 +285,7 @@ module.exports = function (graph) {
 	}
 
 	function exportJson() {
+        graph.options().navigationMenu().hideAllMenus();
 		/**  check if there is data **/
 		if (!exportableJsonText) {
 			alert("No graph data available.");

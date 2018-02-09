@@ -9,7 +9,6 @@ module.exports = function (graph) {
 		dictionary = [],
 		entryNames = [],
 		searchLineEdit,
-		dropDownContainer,
 		mergedStringsList,
 		mergedIdList,
 		maxEntries = 6,
@@ -18,6 +17,12 @@ module.exports = function (graph) {
 		inputText,
 		viewStatusOfSearchEntries = false;
 
+
+		var c_locate=d3.select("#locateSearchResult");
+		var c_search=d3.select("#c_search");
+		var m_search=d3.select("#m_search"); // << dropdown container;
+
+
 	String.prototype.beginsWith = function (string) {
 		return(this.indexOf(string) === 0);
 	};
@@ -25,7 +30,7 @@ module.exports = function (graph) {
 	searchMenu.requestDictionaryUpdate = function () {
 		dictionaryUpdateRequired = true;
 		// clear possible pre searched entries
-		var htmlCollection = dropDownContainer.node().children;
+		var htmlCollection = m_search.node().children;
 		var numEntries = htmlCollection.length;
 
 		for (var i = 0; i < numEntries; i++)
@@ -125,17 +130,16 @@ module.exports = function (graph) {
 		// clear dictionary;
 		dictionary = [];
 		searchLineEdit = d3.select("#search-input-text");
-		dropDownContainer = d3.select("#searchEntryContainer");
 		searchLineEdit.on("input", userInput);
 		searchLineEdit.on("keydown", userNavigation);
 		searchLineEdit.on("click", toggleSearchEntryView);
 		searchLineEdit.on("mouseover", hoverSearchEntryView);
-        var locateButton= d3.select("#locateSearchResult");
-        locateButton.on("click",function(){
+
+        c_locate.on("click",function(){
             graph.locateSearchResult();
         });
 
-        locateButton.on("mouseover",function(){
+        c_locate.on("mouseover",function(){
             searchMenu.hideSearchEntries();
         });
 
@@ -154,12 +158,12 @@ module.exports = function (graph) {
 	}
 
 	searchMenu.hideSearchEntries = function () {
-		dropDownContainer.style("display", "none");
+        m_search.style("display", "none");
 		viewStatusOfSearchEntries = false;
 	};
 
 	searchMenu.showSearchEntries = function () {
-		dropDownContainer.style("display", "block");
+        m_search.style("display", "block");
 		viewStatusOfSearchEntries = true;
 	};
 
@@ -175,7 +179,7 @@ module.exports = function (graph) {
 			updateSearchDictionary();
 		}
 
-		var htmlCollection = dropDownContainer.node().children;
+		var htmlCollection = m_search.node().children;
 		var numEntries = htmlCollection.length;
 
 
@@ -274,7 +278,7 @@ module.exports = function (graph) {
 		}
 
 		// update the entries in the gui
-		htmlCollection = dropDownContainer.node().children;
+		htmlCollection = m_search.node().children;
 		numEntries = htmlCollection.length;
 		for (i = 0; i < numEntries; i++)
 			htmlCollection[0].remove();
@@ -326,7 +330,7 @@ module.exports = function (graph) {
 			testEntry.setAttribute('class', "dbEntry");
 			var createAText = document.createTextNode(newResults[i]);
 			testEntry.appendChild(createAText);
-			dropDownContainer.node().appendChild(testEntry);
+            m_search.node().appendChild(testEntry);
 		}
 	}
 
@@ -342,11 +346,11 @@ module.exports = function (graph) {
 			return;
 		}
 		var i;
-		var htmlCollection = dropDownContainer.node().children;
+		var htmlCollection = m_search.node().children;
 		var numEntries = htmlCollection.length;
 		inputText = searchLineEdit.node().value;
-		d3.select("#locateSearchResult").classed("highlighted", false);
-        d3.select("#locateSearchResult").node().title="Nothing to locate, enter search term.";
+		c_locate.classed("highlighted", false);
+        c_locate.node().title="Nothing to locate, enter search term.";
 		if (inputText.length === 0) {
 			for (i = 0; i < numEntries; i++)
 				htmlCollection[0].remove();
@@ -375,7 +379,7 @@ module.exports = function (graph) {
 		}
 
 		//clear the list;
-		htmlCollection = dropDownContainer.node().children;
+		htmlCollection = m_search.node().children;
 		numEntries = htmlCollection.length;
 		for (i = 0; i < numEntries; i++)
 			htmlCollection[0].remove();
@@ -423,7 +427,7 @@ module.exports = function (graph) {
 			testEntry.onclick= handleClick (newResultsIds[i]);
 			var createAText = document.createTextNode(newResults[i]);
 			testEntry.appendChild(createAText);
-			dropDownContainer.node().appendChild(testEntry);
+            m_search.node().appendChild(testEntry);
 		}
 		searchMenu.showSearchEntries();
 	}
@@ -440,7 +444,7 @@ module.exports = function (graph) {
 
 			graph.resetSearchHighlight();
 			graph.highLightNodes(correspondingIds);
-            d3.select("#locateSearchResult").node().title="Locate search term";
+            c_locate.node().title="Locate search term";
 			if (autoComStr !== inputText) {
 				handleAutoCompletion();
 			}
@@ -450,9 +454,9 @@ module.exports = function (graph) {
 
 	searchMenu.clearText=function(){
 		searchLineEdit.node().value="";
-        d3.select("#locateSearchResult").classed("highlighted", false);
-        d3.select("#locateSearchResult").node().title="Nothing to locate, enter search term.";
-		var htmlCollection = dropDownContainer.node().children;
+        c_locate.classed("highlighted", false);
+        c_locate.node().title="Nothing to locate, enter search term.";
+		var htmlCollection = m_search.node().children;
 		var numEntries = htmlCollection.length;
 		for (var i = 0; i < numEntries; i++){
 			htmlCollection[0].remove();

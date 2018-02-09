@@ -15,6 +15,7 @@ module.exports = (function () {
 			haloGroupElement,
             labelWidth = 80,
             myWidth=80,
+			defaultWidth=80,
 			smallestRadius = height / 2;
 
 		// Properties
@@ -56,17 +57,14 @@ module.exports = (function () {
 
 		};
 
+
+		// overwrite the labelWith;
+
+
         this.textWidth = function () {
-            //
-            if(graph.options().dynamicLabelWidth()===true) {
-                return that.getMyWidth();
-            }
             return labelWidth;
         };
         this.width= function(){
-            if(graph.options().dynamicLabelWidth()===true){
-                return that.getMyWidth();
-            }
             return labelWidth;
         };
 
@@ -124,6 +122,12 @@ module.exports = (function () {
 			if (additionalCssClasses instanceof Array) {
 				cssClasses = cssClasses.concat(additionalCssClasses);
 			}
+
+			// set the value for that.width()
+            // update labelWidth Value;
+            if (graph.options().dynamicLabelWidth()===true) labelWidth=that.getMyWidth();
+            else                							labelWidth=defaultWidth;
+
             drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
 
 			textBlock = new CenteringTextElement(parentElement, that.backgroundColor());

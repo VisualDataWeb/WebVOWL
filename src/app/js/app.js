@@ -6,37 +6,56 @@ module.exports = function () {
 		languageTools = webvowl.util.languageTools(),
 		GRAPH_SELECTOR = "#graph",
 	// Modules for the webvowl app
-		exportMenu = require("./menu/exportMenu")(graph),
-		filterMenu = require("./menu/filterMenu")(graph),
-		gravityMenu = require("./menu/gravityMenu")(graph),
-		modeMenu = require("./menu/modeMenu")(graph),
-		ontologyMenu = require("./menu/ontologyMenu")(graph),
-		pauseMenu = require("./menu/pauseMenu")(graph),
-		resetMenu = require("./menu/resetMenu")(graph),
-		searchMenu = require("./menu/searchMenu")(graph),
-		navigationMenu = require("./menu/navigationMenu")(graph),
-		sidebar = require("./sidebar")(graph),
+		exportMenu     = require("./menu/exportMenu")     (graph),
+		filterMenu     = require("./menu/filterMenu")     (graph),
+		gravityMenu    = require("./menu/gravityMenu")    (graph),
+		modeMenu       = require("./menu/modeMenu")       (graph),
+		ontologyMenu   = require("./menu/ontologyMenu")   (graph),
+		pauseMenu      = require("./menu/pauseMenu")      (graph),
+		resetMenu      = require("./menu/resetMenu")      (graph),
+		searchMenu     = require("./menu/searchMenu")     (graph),
+		navigationMenu = require("./menu/navigationMenu") (graph),
+        zoomSlider     = require("./menu/zoomSlider")     (graph),
+		sidebar        = require("./sidebar")             (graph),
+
 	// Graph modules
-		colorExternalsSwitch = webvowl.modules.colorExternalsSwitch(graph),
-		compactNotationSwitch = webvowl.modules.compactNotationSwitch(graph),
-		datatypeFilter = webvowl.modules.datatypeFilter(),
-		disjointFilter = webvowl.modules.disjointFilter(),
-		focuser = webvowl.modules.focuser(),
-		emptyLiteralFilter=webvowl.modules.emptyLiteralFilter(),
-		nodeDegreeFilter = webvowl.modules.nodeDegreeFilter(filterMenu),
-		nodeScalingSwitch = webvowl.modules.nodeScalingSwitch(graph),
-		objectPropertyFilter = webvowl.modules.objectPropertyFilter(),
-		pickAndPin = webvowl.modules.pickAndPin(),
+		colorExternalsSwitch 	 = webvowl.modules.colorExternalsSwitch(graph),
+		compactNotationSwitch 	 = webvowl.modules.compactNotationSwitch(graph),
+		datatypeFilter 			 = webvowl.modules.datatypeFilter(),
+		disjointFilter 			 = webvowl.modules.disjointFilter(),
+		focuser 				 = webvowl.modules.focuser(),
+		emptyLiteralFilter		 = webvowl.modules.emptyLiteralFilter(),
+		nodeDegreeFilter 		 = webvowl.modules.nodeDegreeFilter(filterMenu),
+		nodeScalingSwitch 		 = webvowl.modules.nodeScalingSwitch(graph),
+		objectPropertyFilter 	 = webvowl.modules.objectPropertyFilter(),
+		pickAndPin 				 = webvowl.modules.pickAndPin(),
 		selectionDetailDisplayer = webvowl.modules.selectionDetailsDisplayer(sidebar.updateSelectionInformation),
-		statistics = webvowl.modules.statistics(),
-		subclassFilter = webvowl.modules.subclassFilter(),
-		setOperatorFilter = webvowl.modules.setOperatorFilter();
+		statistics 				 = webvowl.modules.statistics(),
+		subclassFilter 			 = webvowl.modules.subclassFilter(),
+		setOperatorFilter 		 = webvowl.modules.setOperatorFilter();
 
 	app.initialize = function () {
-		options.graphContainerSelector(GRAPH_SELECTOR);
+
+
+        window.requestAnimationFrame = window.requestAnimationFrame
+            || window.mozRequestAnimationFrame
+            || window.webkitRequestAnimationFrame
+            || window.msRequestAnimationFrame
+            || function(f){return setTimeout(f, 1000/60)}; // simulate calling code 60
+
+
+        window.cancelAnimationFrame = window.cancelAnimationFrame
+            || window.mozCancelAnimationFrame
+            || function(requestID){clearTimeout(requestID)}; //fall back
+
+
+
+
+        options.graphContainerSelector(GRAPH_SELECTOR);
 		options.selectionModules().push(focuser);
-		options.selectionModules().push(selectionDetailDisplayer);
+		options.selectionModules().push(selectionDetailDisplayer );
 		options.selectionModules().push(pickAndPin);
+
 		options.filterModules().push(emptyLiteralFilter);
 		options.filterModules().push(statistics);
 		options.filterModules().push(datatypeFilter);
@@ -80,6 +99,7 @@ module.exports = function () {
             resetMenu.setup([gravityMenu, filterMenu, modeMenu, focuser, selectionDetailDisplayer, pauseMenu]);
 			searchMenu.setup();
 			navigationMenu.setup();
+			zoomSlider.setup();
 
 			// give the options the pointer to the some menus for import and export
 			options.literalFilter(emptyLiteralFilter);
@@ -93,6 +113,9 @@ module.exports = function () {
 			options.ontologyMenu(ontologyMenu);
 			options.navigationMenu(navigationMenu);
 			options.sidebar(sidebar);
+			options.exportMenu(exportMenu);
+			options.graphObject(graph);
+			options.zoomSlider(zoomSlider);
             ontologyMenu.setup(loadOntologyFromText);
 
 			graph.start();
@@ -104,19 +127,24 @@ module.exports = function () {
 			var h = graph.options().height();
 			defZoom = Math.min(w, h) / 1000;
 
-			// initialize the values;
-            d3.select("#sidebarExpandButton").on("click",function(){
-                var settingValue=parseInt(graph.getSidebarVisibility());
-                if (settingValue===1) graph.showSidebar(0);
-                else  graph.showSidebar(1);
-            });
+
 			graph.setDefaultZoom(defZoom);
-			graph.initSideBarAnimation();
+
+
+			// prevent backspace killer
+            var htmlBody=d3.select("body");
+            d3.select(document).on("keydown", function (e) {
+                if (d3.event.keyCode === 8 && d3.event.target===htmlBody.node() ) {
+                	// we could add here an alert
+                    d3.event.preventDefault();
+                }
+            });
         }
 	};
 
 	function loadOntologyFromText(jsonText, filename, alternativeFilename) {
 		pauseMenu.reset();
+		graph.options().navigationMenu().hideAllMenus();
 
 		if (jsonText===undefined && filename===undefined){
 			console.log("Nothing to load");
@@ -170,6 +198,8 @@ module.exports = function () {
 		
 		sidebar.updateOntologyInformation(data, statistics);
 		exportMenu.setFilename(filename);
+        graph.updateZoomSliderValueFromOutside();
+        adjustSize();
 	}
 
 	function adjustSize() {
@@ -178,7 +208,7 @@ module.exports = function () {
 			height = window.innerHeight - 40,
 			width = window.innerWidth - (window.innerWidth * 0.22);
 
-		if (graph.getSidebarVisibility()==="0"){
+		if (sidebar.getSidebarVisibility()==="0"){
             height = window.innerHeight - 40 ;
             width = window.innerWidth;
 
@@ -188,13 +218,12 @@ module.exports = function () {
 		svg.attr("width", width)
 			.attr("height", height);
 
-		options.width(width)
-			.height(height);
+		options.width ( width  )
+			   .height( height );
 		graph.updateStyle();
 
+        adjustSliderSize();
 
-
-		navigationMenu.updateVisibilityStatus();
 		// update also the padding options of loading and the logo positions;
 		var warningDiv=d3.select("#browserCheck");
 		if (warningDiv.classed("hidden")===false ) {
@@ -204,7 +233,68 @@ module.exports = function () {
 			// remove the dynamic padding from the logo element;
             d3.select("#logo").style("padding", "10px");
         }
+
+        // scrollbar tests;
+		var element =d3.select("#menuElementContainer").node();
+        var maxScrollLeft = element.scrollWidth - element.clientWidth;
+        var leftButton=d3.select("#scrollLeftButton");
+        var rightButton=d3.select("#scrollRightButton");
+        if (maxScrollLeft>0){
+        	// show both and then check how far is bar;
+         	rightButton.classed("hidden",false);
+            leftButton.classed("hidden",false);
+            navigationMenu.updateScrollButtonVisibility();
+         }else{
+        	// hide both;
+            rightButton.classed("hidden",true);
+            leftButton.classed("hidden",true);
+		}
+
 	}
+
+    function adjustSliderSize(){
+		// TODO: refactor and put this into the slider it self
+        var height = window.innerHeight - 40;
+        var fullHeight=height;
+        var zoomOutPos=height-30;
+        var sliderHeight=150;
+        if (fullHeight<150) {
+            // hide the slider button;
+            d3.select("#zoomSliderParagraph").classed("hidden", true);//var sliderPos=zoomOutPos-sliderHeight;
+            d3.select("#zoomOutButton").classed("hidden", true);//var sliderPos=zoomOutPos-sliderHeight;
+            d3.select("#zoomInButton").classed("hidden", true);//var sliderPos=zoomOutPos-sliderHeight;
+            d3.select("#centerGraphButton").classed("hidden", true);//var sliderPos=zoomOutPos-sliderHeight;
+            return;
+        }
+        d3.select("#zoomSliderParagraph").classed("hidden",false);//var sliderPos=zoomOutPos-sliderHeight;
+        d3.select("#zoomOutButton").classed("hidden",false);//var sliderPos=zoomOutPos-sliderHeight;
+        d3.select("#zoomInButton").classed("hidden",false);//var sliderPos=zoomOutPos-sliderHeight;
+        d3.select("#centerGraphButton").classed("hidden",false);//var sliderPos=zoomOutPos-sliderHeight;
+
+        var zoomInPos=zoomOutPos-20;
+        var centerPos=zoomInPos-20;
+        if (fullHeight<280){
+            // hide the slider button;
+            d3.select("#zoomSliderParagraph").classed("hidden",true);//var sliderPos=zoomOutPos-sliderHeight;
+            d3.select("#zoomOutButton").style("top",zoomOutPos+"px");
+            d3.select("#zoomInButton").style("top",zoomInPos+"px");
+            d3.select("#centerGraphButton").style("top",centerPos+"px");
+            // d3.select("#sliderRange").style("width",s_height+"px");
+            return;
+        }
+
+        var sliderPos=zoomOutPos-sliderHeight;
+        zoomInPos=sliderPos-20;
+        centerPos=zoomInPos-20;
+        d3.select("#zoomSliderParagraph").classed("hidden",false);
+        d3.select("#zoomOutButton").style("top",zoomOutPos+"px");
+        d3.select("#zoomInButton").style("top",zoomInPos+"px");
+        d3.select("#centerGraphButton").style("top",centerPos+"px");
+        d3.select("#zoomSliderParagraph").style("top",sliderPos+"px");
+
+
+
+    }
 
 	function getInternetExplorerVersion(){
         var ua,

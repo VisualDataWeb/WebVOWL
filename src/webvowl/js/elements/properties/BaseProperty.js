@@ -448,7 +448,7 @@ module.exports = (function () {
 		this.drawHalo= function(){
 			that.halo(true);
 			var offset=0;
-            if (that.labelElement()){
+            if (that.labelElement() && that.labelElement().node()){
                 var labelNode= that.labelElement().node();
                 var labelContainer = labelNode.parentNode;
                 // do this only if animation is not running
@@ -464,10 +464,11 @@ module.exports = (function () {
 
 
 			// check for all other things;
-
-            var haloNode= haloGroupElement.node();
-            var haloContainer = haloNode.parentNode;
-            haloContainer.appendChild(haloNode);
+           if (haloGroupElement) {
+               var haloNode = haloGroupElement.node();
+               var haloContainer = haloNode.parentNode;
+               haloContainer.appendChild(haloNode);
+           }
             var selectedNode;
             var nodeContainer;
             if (that.pinned()){

@@ -29,8 +29,49 @@ module.exports = function () {
 		ontologyMenu,
 		sidebar,
 		navigationMenu,
+		exportMenu,
+		graphObject,
+        zoomSlider,
 		rectangularRep=false,
 		scaleNodesByIndividuals = false;
+
+
+
+
+	options.zoomSlider=function(val){
+		if (!arguments.length) return zoomSlider;
+		zoomSlider=val;
+	};
+
+	options.graphObject=function(val){
+		if (!arguments.length) return graphObject;
+		graphObject=val;
+	};
+
+	options.defaultConfig=function(){
+        var defaultOptionsConfig={};
+        defaultOptionsConfig.sidebar="1";
+        defaultOptionsConfig.doc=-1;
+        defaultOptionsConfig.cd=200;
+        defaultOptionsConfig.dd=120;
+        defaultOptionsConfig.filter_datatypes="false";
+        defaultOptionsConfig.filter_objectProperties="false";
+        defaultOptionsConfig.filter_sco="false";
+        defaultOptionsConfig.filter_disjoint="true";
+        defaultOptionsConfig.filter_setOperator="false";
+        defaultOptionsConfig.mode_dynamic="true";
+        defaultOptionsConfig.mode_scaling="true";
+        defaultOptionsConfig.mode_compact="false";
+        defaultOptionsConfig.mode_colorExt="true";
+        defaultOptionsConfig.mode_multiColor="false";
+        defaultOptionsConfig.rect=0;
+		return defaultOptionsConfig;
+	};
+
+	options.exportMenu=function(val){
+        if (!arguments.length) return exportMenu;
+        exportMenu=val;
+	};
 
 	options.rectangularRepresentation=function(val){
 		if (!arguments.length){
@@ -215,6 +256,85 @@ module.exports = function () {
 		literalFilter=p;
 		return options;
 	};
+
+
+	// define url loadable options;
+    options.setOptionsFromURL=function(opts){
+        if (opts.sidebar!==undefined) sidebar.showSidebar(parseInt(opts.sidebar),true);
+        if (opts.doc ){
+            filterMenu.setDegreeSliderValue(opts.doc);
+            graphObject.setGlobalDOF(opts.doc);
+        }
+
+        if (opts.cd ) options.classDistance(opts.cd); // class distance
+        if (opts.dd ) options.datatypeDistance(opts.dd); // data distance
+        if (opts.cd || opts.dd) options.gravityMenu().reset(); // reset the values so the slider is updated;
+        var settingFlag=false;
+        if (opts.filter_datatypes){
+            if (opts.filter_datatypes==="true") settingFlag=true;
+            filterMenu.setCheckBoxValue("datatypeFilterCheckbox",settingFlag);
+        }
+        settingFlag=false;
+        if (opts.filter_objectProperties){
+            if (opts.filter_objectProperties==="true") settingFlag=true;
+            filterMenu.setCheckBoxValue("objectPropertyFilterCheckbox",settingFlag);
+        }
+        settingFlag=false;
+        if (opts.filter_sco){
+            if (opts.filter_sco==="true") settingFlag=true;
+            filterMenu.setCheckBoxValue("subclassFilterCheckbox",settingFlag);
+        }
+        settingFlag=false;
+        if (opts.filter_disjoint){
+            if (opts.filter_disjoint==="true") settingFlag=true;
+            filterMenu.setCheckBoxValue("disjointFilterCheckbox",settingFlag);
+        }
+        settingFlag=false;
+        if (opts.filter_setOperator){
+            if (opts.filter_setOperator==="true") settingFlag=true;
+            filterMenu.setCheckBoxValue("setoperatorFilterCheckbox",settingFlag);
+        }
+        filterMenu.updateSettings();
+
+        // modesMenu
+        settingFlag=false;
+        if (opts.mode_dynamic) {
+            if (opts.mode_dynamic==="true") settingFlag=true;
+            modeMenu.setDynamicLabelWidth(settingFlag);
+            dynamicLabelWidth=settingFlag;
+        }
+        // settingFlag=false;
+        // THIS SHOULD NOT BE SET USING THE OPTIONS ON THE URL
+        // if (opts.mode_picnpin) {
+        //     graph.options().filterMenu().setCheckBoxValue("pickandpinModuleCheckbox", settingFlag);
+        // }
+
+        settingFlag=false;
+        if (opts.mode_scaling) {
+            if (opts.mode_scaling==="true") settingFlag=true;
+            modeMenu.setCheckBoxValue("nodescalingModuleCheckbox", settingFlag);
+        }
+
+        settingFlag=false;
+        if (opts.mode_compact) {
+            if (opts.mode_compact==="true") settingFlag=true;
+            modeMenu.setCheckBoxValue("compactnotationModuleCheckbox", settingFlag);
+        }
+
+        settingFlag=false;
+        if (opts.mode_colorExt) {
+            if (opts.mode_colorExt==="true") settingFlag=true;
+            modeMenu.setCheckBoxValue("colorexternalsModuleCheckbox",settingFlag);
+        }
+
+        settingFlag=false;
+        if (opts.mode_multiColor) {
+            if (opts.mode_multiColor==="true") settingFlag=true;
+            modeMenu.setColorSwitchStateUsingURL(settingFlag);
+        }
+        modeMenu.updateSettingsUsingURL();
+        options.rectangularRepresentation(opts.rect);
+    };
 
 	return options;
 };

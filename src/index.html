@@ -6,7 +6,9 @@
 	<meta name="keywords" content="webvowl, vowl, visual notation, web ontology language, owl, rdf, ontology visualization, ontologies, semantic web"/>
 	<meta name="description" content="WebVOWL - Web-based Visualization of Ontologies"/>
 	<meta name="robots" content="noindex,nofollow"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+	<!--Maybe this solves the edge problem-->
+	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, ">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="stylesheet" type="text/css" href="css/webvowl.css"/>
 	<link rel="stylesheet" type="text/css" href="css/webvowl.app.css"/>
@@ -28,7 +30,7 @@
 				<label id="killWarning">Hide warning</label>
 			</div>
 
-			<div id="logo">
+			<div id="logo" class="noselect">
 
 			<!-- build:process -->
 			<h2>WebVOWL <br/><span><%= version %></span></h2>
@@ -42,23 +44,135 @@
 						<pre id="error-description"></pre>
 					</div>
 				</div>
-				<div><span id="sidebarExpandButton"> > </span></div>
+				<div class="noselect" ><span id="sidebarExpandButton"> > </span></div>
 
 				<div id="loading-progress" class="hidden">
 					<span>Loading ontology... </span>
 					<div class="spin">&#8635;</div><br>
-					<div id="myProgress">
-						<div id="myBar"></div>
-					</div>
-
 				</div>
 			</div>
 
-
 		<div id="graph"></div>
+		<div id="menuContainer" >
+			<!--Ontology Menu-->
+			<ul id="m_select" class="toolTipMenu noselect">
+				<li><a href="#foaf" id="foaf">Friend of a Friend (FOAF) vocabulary</a></li>
+				<li><a href="#muto" id="muto">Modular and Unified Tagging Ontology (MUTO)</a></li>
+				<li><a href="#personasonto" id="personasonto">Personas Ontology (PersonasOnto)</a></li>
+				<li><a href="#goodrelations" id="goodrelations">GoodRelations Vocabulary for E-Commerce</a></li>
+				<li><a href="#sioc" id="sioc">SIOC (Semantically-Interlinked Online Communities) Core Ontology</a></li>
+				<li><a href="#ontovibe" id="ontovibe">Ontology Visualization Benchmark (OntoViBe)</a></li>
+
+				<!-- build:remove release-->
+				<li><a href="#benchmark" id="benchmark">Benchmark Graph for VOWL</a></li>
+				<!-- /build -->
+				<li class="option" id="converter-option">
+					<form class="converter-form" id="iri-converter-form">
+						<label for="iri-converter-input">Custom Ontology:</label>
+						<input type="text" id="iri-converter-input" placeholder="Enter ontology IRI">
+						<button type="submit" id="iri-converter-button" disabled>Visualize</button>
+					</form>
+					<div class="converter-form">
+						<input class="hidden" type="file" id="file-converter-input" autocomplete="off">
+						<label class="truncate" id="file-converter-label" for="file-converter-input">Select ontology file</label>
+						<button type="submit" id="file-converter-button" disabled>
+							Upload
+						</button>
+					</div>
+				</li>
+			</ul>
+			<!--Export Menu-->
+			<ul id="m_export" class="toolTipMenu noselect">
+				<li><a href="#" download id="exportJson">Export as JSON</a></li>
+				<li><a href="#" download id="exportSvg">Export as SVG</a></li>
+				<li class="option">
+					<div>
+						<form class="converter-form" id="url-copy-form">
+							<label for="exportedUrl">Export as URL:</label>
+							<input type="text" id="exportedUrl" placeholder="#">
+							<span  id="copyBt" title="Copy to Clipboard">Copy</span>
+						</form>
+					</div>
+				</li>
+			</ul>
+			<!--Gravity Menu-->
+			<ul id="m_gravity" class="toolTipMenu noselect">
+				<li class="slideOption" id="classSliderOption"></li>
+				<li class="slideOption" id="datatypeSliderOption"></li>
+			</ul>
+			<!--Filter Menu-->
+			<ul id="m_filter" class="toolTipMenu noselect">
+				<li class="toggleOption" id="datatypeFilteringOption"></li>
+				<li class="toggleOption" id="objectPropertyFilteringOption"></li>
+				<li class="toggleOption" id="subclassFilteringOption"></li>
+				<li class="toggleOption" id="disjointFilteringOption"></li>
+				<li class="toggleOption" id="setOperatorFilteringOption"></li>
+				<li class="slideOption" id="nodeDegreeFilteringOption"></li>
+			</ul>
+			<!--Modes Menu -->
+			<ul id="m_modes" class="toolTipMenu noselect">
+				<li class="toggleOption" id="dynamicLabelWidth"></li>
+				<li class="toggleOption" id="pickAndPinOption"></li>
+				<li class="toggleOption" id="nodeScalingOption"></li>
+				<li class="toggleOption" id="compactNotationOption"></li>
+				<li class="toggleOption" id="colorExternalsOption"></li>
+			</ul>
+			<!--About Menu-->
+			<ul id="m_about" class="toolTipMenu">
+				<li><a href="license.txt" target="_blank">MIT License &copy; 2014-2018</a></li>
+				<li id="credits" class="option">WebVOWL Developers:<br/>
+					Vincent Link, Steffen Lohmann, Eduard Marbach, Stefan Negru, Vitalis Wiens
+				</li>
+				<!-- build:process -->
+				<li><a href="http://vowl.visualdataweb.org/webvowl.html#releases" target="_blank">Version: <%= version %><br/>(release history)</a></li>
+				<!-- /build -->
+				<li><a href="http://purl.org/vowl/" target="_blank">VOWL Specification &raquo;</a></li>
+			</ul>
+			<ul id="m_search" class="toolTipMenu">
+
+			</ul>
+
+
+		</div>
+
+		<div class="noselect" id="swipeBarContainer" >
+
+			<ul  id="menuElementContainer" >
+				<li id="c_search" class="inner-addon left-addon">
+					<i class="searchIcon" >
+						<svg viewBox="0 0 24 24" height="100%" width="100%" style="pointer-events: none; display: block;">
+							<g>
+								<path style="fill : #666; stroke-width:0;"  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></g></svg>
+					</i>
+					<input class="searchInputText" type="text" id="search-input-text" placeholder="Search">
+				</li>
+				<li id="c_locate" >
+					<a draggable="false" title="Nothing to locate, enter search term."
+						href="#" id="locateSearchResult">&#8982;
+					</a>
+				</li>
+				<li id="c_select"  ><a draggable="false" href="#">Ontology</a></li>
+				<li id="c_export"  ><a draggable="false" href="#">Export</a></li>
+				<li id="c_gravity" ><a draggable="false" href="#">Gravity</a></li>
+				<li id="c_filter"  ><a draggable="false" href="#">Filter</a></li>
+				<li id="c_modes"   ><a draggable="false" href="#">Modes</a></li>
+				<li id="c_reset"   ><a draggable="false" id="reset-button" href="#" type="reset">Reset</a></li>
+				<li id="c_pause"   ><a draggable="false" id="pause-button" href="#">Pause</a></li>
+				<li id="c_about"   ><a draggable="false" href="#">About</a></li>
+			</ul>
+
+		</div>
+		<div class="noselect" id="scrollRightButton">  </div>
+		<div class="noselect" id="scrollLeftButton">  </div>
+		<div id="zoomSlider">
+			<p class="noselect" id="centerGraphButton">&#8982;</p>
+			<p class="noselect" id="zoomInButton">+</p>
+			<p class="noselect" id="zoomSliderParagraph" > </p>
+			<p class="noselect" id="zoomOutButton">-</p>
+		</div>
+
 	</section>
 	<aside id="detailsArea" >
-
 		<section id="generalDetails">
 			<h1 id="title"></h1>
 			<span><a id="about" href=""></a></span>
@@ -67,13 +181,13 @@
 			<h5>
 				<label>Language: <select id="language" name="language" size="1"></select></label>
 			</h5>
-			<h3 class="accordion-trigger accordion-trigger-active">Description</h3>
+			<h3 class="accordion-trigger noselect accordion-trigger-active">Description</h3>
 			<div class="accordion-container scrollable">
 				<p id="description"></p>
 			</div>
-			<h3 class="accordion-trigger">Metadata</h3>
+			<h3 class="accordion-trigger noselect">Metadata</h3>
 			<div id="ontology-metadata" class="accordion-container"></div>
-			<h3 class="accordion-trigger">Statistics</h3>
+			<h3 class="accordion-trigger noselect">Statistics</h3>
 			<div class="accordion-container">
 				<p class="statisticDetails">Classes: <span id="classCount"></span></p>
 				<p class="statisticDetails">Object prop.: <span id="objectPropertyCount"></span></p>
@@ -84,7 +198,7 @@
 				<p class="statisticDetails">Nodes: <span id="nodeCount"></span></p>
 				<p class="statisticDetails">Edges: <span id="edgeCount"></span></p>
 			</div>
-			<h3 class="accordion-trigger" id="selection-details-trigger">Selection Details</h3>
+			<h3 class="accordion-trigger noselect" id="selection-details-trigger">Selection Details</h3>
 			<div class="accordion-container" id="selection-details">
 				<div id="classSelectionInformation" class="hidden">
 					<p class="propDetails">Name: <span id="name"></span></p>
@@ -118,101 +232,7 @@
 			</div>
 		</section>
 	</aside>
-	<nav id="optionsArea">
-		<ul id="optionsMenu">
-			<li id="aboutMenu"><a href="#">About</a>
-				<ul class="toolTipMenu aboutMenu">
-					<li><a href="license.txt" target="_blank">MIT License &copy; 2014-2017</a></li>
-					<li id="credits" class="option">WebVOWL Developers:<br/>
-						Vincent Link, Steffen Lohmann, Eduard Marbach, Stefan Negru, Vitalis Wiens
-					</li>
-					<!-- build:process -->
-					<li><a href="http://vowl.visualdataweb.org/webvowl.html#releases" target="_blank">Version: <%= version %><br/>(release history)</a></li>
-					<!-- /build -->
-					<li><a href="http://purl.org/vowl/" target="_blank">VOWL Specification &raquo;</a></li>
-				</ul>
-			</li>
-			<li id="pauseOption"><a id="pause-button" href="#">Pause</a></li>
-			<li id="resetOption"><a id="reset-button" href="#" type="reset">Reset</a></li>
-			<li id="moduleOption"><a href="#">Modes</a>
-				<ul class="toolTipMenu module">
-					<!--<li class="toggleOption" id="helicopterZoom"></li>-->
-					<!--<li class="toggleOption" id="grassHopperZoom"></li>-->
-					<li class="toggleOption" id="dynamicLabelWidth"></li>
-					<li class="toggleOption" id="pickAndPinOption"></li>
-					<li class="toggleOption" id="nodeScalingOption"></li>
-					<li class="toggleOption" id="compactNotationOption"></li>
-					<li class="toggleOption" id="colorExternalsOption"></li>
-				</ul>
-			</li>
-			<li id="filterOption"><a href="#">Filter</a>
-				<ul class="toolTipMenu filter">
-					<li class="toggleOption" id="datatypeFilteringOption"></li>
-					<li class="toggleOption" id="objectPropertyFilteringOption"></li>
-					<li class="toggleOption" id="subclassFilteringOption"></li>
-					<li class="toggleOption" id="disjointFilteringOption"></li>
-					<li class="toggleOption" id="setOperatorFilteringOption"></li>
-					<li class="slideOption" id="nodeDegreeFilteringOption"></li>
-				</ul>
-			</li>
-			<li id="gravityOption"><a href="#">Gravity</a>
-				<ul class="toolTipMenu gravity">
-					<li class="slideOption" id="classSliderOption"></li>
-					<li class="slideOption" id="datatypeSliderOption"></li>
-				</ul>
-			</li>
-			<li id="export"><a href="#">Export</a>
-				<ul class="toolTipMenu export">
-					<li><a href="#" download id="exportJson">Export as JSON</a></li>
-					<li><a href="#" download id="exportSvg">Export as SVG</a></li>
-					<li class="option">
-						<div>
-						<form class="converter-form" id="url-copy-form">
-							<label for="exportedUrl">Export as URL:</label>
-							<input type="text" id="exportedUrl" placeholder="an URL">
-							<span  id="copyBt" title="Copy to Clipboard">Copy</span>
-						</form>
-						</div>
-					</li>
-				</ul>
-			</li>
-			<li id="select"><a href="#">Ontology</a>
-				<ul class="toolTipMenu select">
-					<li><a href="#foaf" id="foaf">Friend of a Friend (FOAF) vocabulary</a></li>
-					<li><a href="#muto" id="muto">Modular and Unified Tagging Ontology (MUTO)</a></li>
-					<li><a href="#personasonto" id="personasonto">Personas Ontology (PersonasOnto)</a></li>
-					<li><a href="#goodrelations" id="goodrelations">GoodRelations Vocabulary for E-Commerce</a></li>
-					<li><a href="#sioc" id="sioc">SIOC (Semantically-Interlinked Online Communities) Core Ontology</a></li>
-					<li><a href="#ontovibe" id="ontovibe">Ontology Visualization Benchmark (OntoViBe)</a></li>
-					<!-- build:remove release-->
-					<li><a href="#benchmark" id="benchmark">Benchmark Graph for VOWL</a></li>
-					<!-- /build -->
-					<li class="option" id="converter-option">
-						<form class="converter-form" id="iri-converter-form">
-							<label for="iri-converter-input">Custom Ontology:</label>
-							<input type="text" id="iri-converter-input" placeholder="Enter ontology IRI">
-							<button type="submit" id="iri-converter-button" disabled>Visualize</button>
-						</form>
-						<div class="converter-form">
-							<input class="hidden" type="file" id="file-converter-input" autocomplete="off">
-							<label class="truncate" id="file-converter-label" for="file-converter-input">Select ontology file</label>
-							<button type="submit" id="file-converter-button" autocomplete="off" disabled>
-								Upload
-							</button>
-						</div>
-					</li>
-				</ul>
-			</li>
-			<li id="li_locationSearch"> <a title="Nothing to locate, enter search term." href="#" id="locateSearchResult">&#8853;</a></li>
-			<li class="searchMenu" id="searchMenuId">
-				<input class="searchInputText" type="text" id="search-input-text" placeholder="Search">
-				<ul class="searchMenuEntry" id="searchEntryContainer">
-				</ul>
-			</li>
-				<li id="li_right" style="float:left"><a href="#" id="RightButton"></a></li>
-				<li id="li_left" style="float:left"><a href="#" id="LeftButton"></a></li>
-		</ul>
-	</nav>
+
 </main>
 <script src="js/d3.min.js"></script>
 <script src="js/webvowl.js"></script>

@@ -2,38 +2,10 @@
 /*----------------------------------------------
         WebVOWL page
 ----------------------------------------------*/
-
-
-#locateSearchResult:focus{
-	outline: none;
+/*brrr, edge content no zooming brrr << not sure how this will effect the edge contnet */
+html{
+	-ms-content-zooming: none;
 }
-a#locateSearchResult.highlighted:hover{
-	background-color: #d90;
-	color: red;
-}
-a#locateSearchResult{
-	outline: none;
-}
-
-
-#myProgress {
-	position: relative;
-	width: 93.5%;
-	height: 10px;
-	background-color: #ddd;
-	padding: 0px;
-	display: none;
-}
-
-#myBar {
-	position: absolute;
-	width: 50%;
-	height: 50%;
-	background-color: red;
-	display:none;
-}
-
-
 
 /** adding searching Styles **/
 .dbEntry {
@@ -44,6 +16,7 @@ a#locateSearchResult{
 	border: none;
 	cursor: pointer;
 }
+
 .dbEntrySelected {
 	background-color: #bdc3c7;
 	color: #2980b9;
@@ -52,45 +25,28 @@ a#locateSearchResult{
 	border: none;
 	cursor: pointer;
 }
+
 .dbEntry:hover, .dbEntry:focus {
 	background-color: #bdc3c7;
 }
-.searchMenuEntry{
-	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-	box-sizing: border-box;
-	background-color: #ffffff;
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-bottom: none;
-	border-radius: 4px 4px 0 0;
-	bottom: 40px;
-	display: none;
-	font-size: 14px;
-	list-style: none;
-	min-width: 300px;
-	margin: 0;
-	padding: 0;
-	position: absolute;
-	z-index: 99;
-}
-.searchMenuEntry li.highlighted {
-	background-color: #feb;
-}
-.searchMenuEntry > li:first-of-type {
-	border: none;
-}
-.searchMenuEntry > li {
-	border-top: solid 0px #bdc3c7;
-}
-.searchMenuEntry li {
-	display: block;
-}
-.searchMenuEntry select {
-	float: right;
-}
 
-ul#optionsMenu > li:hover .searchMenuEntry {
-	display: block;
+.searchMenuEntry{
+	background-color: #ffffff;
+	bottom    : 0;
+	font-size : 14px;
+	min-width : 50px;
+	margin    : 0;
+	padding   : 0;
+	z-index   : 99;
+	border-radius      : 4px 4px 0 0;
+	border             : 1px solid rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow : 0 6px 12px rgba(0, 0, 0, 0.175);
+	box-shadow         : 0 6px 12px rgba(0, 0, 0, 0.175);
+	box-sizing    : border-box;
+	border-bottom : none;
+	display       : none;
+	position      : absolute;
+	list-style    : none;
 }
 
 .searchInputText{
@@ -98,16 +54,11 @@ ul#optionsMenu > li:hover .searchMenuEntry {
 	color: black;
 	border: black;
 	text-decoration: none;
-	max-width: 250px;
+	max-width: 150px;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	height: 20px;
-	margin: 10px 0;
-}
-.searchMenu{
-	box-sizing: border-box;
-	background-color: rgb(24, 32, 42);
-	height: 40px;
+	/*height: 20px;*/
+	margin: 0;
 }
 
 img, iframe {
@@ -188,30 +139,6 @@ a:hover {
 	100% { width: 78%;}
 }
 
-
-
-	/*-webkit-animation-name: sbExpandAnimation;*/
-	/*-moz-animation-name: sbExpandpulseAnimation;*/
-	/*-o-animation-name: sbExpandpulseAnimation;*/
-	/*animation-name: sbExpandpulseAnimation;*/
-
-	/*-webkit-animation-duration: 2.8s;*/
-	/*-moz-animation-duration: 2.8s;*/
-	/*-o-animation-duration: 2.8s;*/
-	/*animation-duration: 2.8s;*/
-
-	/*-webkit-transform: translateZ(0);*/
-	/*-webkit-animation-iteration-count: 1;*/
-	/*-moz-animation-iteration-count: 1;*/
-	/*-o-animation-iteration-count: 1;*/
-	/*animation-iteration-count: 1;*/
-
-	/*-webkit-animation-timing-function: linear;*/
-	/*-moz-animation-timing-function: linear;*/
-	/*-o-animation-timing-function: linear;*/
-	/*animation-timing-function: linear;*/
-/*//}*/
-
 /*----------------------------------------------
         LAYOUT
 ----------------------------------------------*/
@@ -254,127 +181,34 @@ main {
 	overflow: hidden;
 	padding: 0;
 }
-nav#optionsArea {
-	height: 40px;
-	margin: 0;
-	padding: 0;
-}
-ul#optionsMenu {
-	box-sizing: border-box;
-	color: #fff;
-	display: block;
-	height: 40px;
-	margin: -2px 0 0;
-	padding: 0;
-	width: 78%;
-}
 
 #logo {
 	position: fixed;
 	/*padding: 10px;*/
 	pointer-events: none;
+	/*border: solid 1px red;*/
 }
 #logo h2 {
 	color: #3498db;
 	margin: 0;
 	line-height: 0.7;
 	text-align: center;
+	font-size: 3vmin;
 }
 #logo h2 span {
 	color: #34495E;
-	font-size: 0.6em;
-}
-ul#optionsMenu > li {
-	box-sizing: border-box;
-	float: right;
-	font-size: 1.1em;
-	display: inline-block;
-	margin: 0 10px;
-	padding: 0;
-	position: relative;
-	vertical-align: middle;
-}
-ul#optionsMenu > li > a:hover {
-	box-sizing: border-box;
-	background: rgb(27, 37, 46);
-	color: #bdc3c7;
-}
-ul#optionsMenu > li > a {
-	box-sizing: border-box;
-	color: #fff;
-	display: block;
-	height: 40px;
-	margin: 0;
-	padding: 12px 5px 5px;
-}
-ul.toolTipMenu li a:only-child, .option {
-	display: block;
-	float: none;
-	padding: 8px 5px;
+	font-size: 2vmin;
+
 }
 .checkboxContainer input, .checkboxContainer label {
 	vertical-align: middle;
 }
-ul#optionsMenu li > ul.toolTipMenu li a:hover {
-	background: #e1e1e1;
-}
 .selected-ontology {
 	background-color: #eee;
-}
-ul#optionsMenu > li:hover .toolTipMenu {
-	display: block;
-}
-ul#optionsMenu > li:hover .aboutMenu {
-	left: -145px;
-	width: 210px;
 }
 #credits {
 	border-top: solid 1px #bdc3c7;
 	font-size: 0.9em;
-}
-.toolTipMenu {
-	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-	box-sizing: border-box;
-	background-color: #ffffff;
-	border: 1px solid rgba(0, 0, 0, 0.15);
-	border-bottom: none;
-	border-radius: 4px 4px 0 0;
-	bottom: 40px;
-	display: none;
-	font-size: 14px;
-	list-style: none;
-	min-width: 300px;
-	margin: 0;
-	padding: 0;
-	position: absolute;
-	z-index: 99;
-}
-.toolTipMenu > li:first-of-type {
-	border: none;
-}
-.toolTipMenu > li {
-	border-top: solid 1px #bdc3c7;
-}
-.toolTipMenu li {
-	color: #2980b9;
-	display: block;
-}
-.toolTipMenu select {
-	float: right;
-}
-.aboutMenu, .export {
-	min-width: 150px;
-}
-.gravity, .filter {
-	min-width: 180px;
-}
-.module {
-	min-width: 240px;
-}
-.toggleOption {
-	padding: 8px 5px;
-	min-width: 150px;
 }
 .slideOption {
 	position: relative;
@@ -391,7 +225,6 @@ ul#optionsMenu > li:hover .aboutMenu {
 	outline: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	background: none repeat scroll 0 0 grey;
 	border-radius: 3px;
 	height: 12px;
 	width: 100%;
@@ -399,170 +232,79 @@ ul#optionsMenu > li:hover .aboutMenu {
 	left: 0;
 	position: relative;
 	transition: all 0.5s ease;
+	background-color: #eee;
 }
 
-.slideOption input[type="range"]:focus {
+/*TRACK*/
+.slideOption input[type=range]::-webkit-slider-runnable-track {
+	-webkit-appearance: none;
+	background-color: #3071a9;
+	height: 3px;
+}
+
+.slideOption input[type=range]::-moz-range-track {
+	-webkit-appearance: none;
+	background-color: #3071a9;
+	height: 3px;
+}
+
+.slideOption input[type="range"]:hover{
 	outline: none;
 }
 
-
-.slideOption input[type=range]::-webkit-slider-runnable-track {
+/*THUMB*/
+.slideOption input[type="range"]::-webkit-slider-thumb{
 	-webkit-appearance: none;
-	background-color: #999999;
-	height: 2px;
-}
-.slideOption input[type="range"]::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	height: 15px;
-	width: 15px;
-	border-radius: 15px;
 	background-color: white;
-	border: solid 1px gray;
+	border-radius: 3px;
+	border: solid 1px black;
 	transition: all 0.5s ease;
-	margin-top: -6px;
+	height: 10px;
+	width: 30px;
+	outline: none;
+	margin-top:-3px;
 }
 .slideOption input[type="range"]::-moz-range-thumb{
 	-webkit-appearance: none;
 	background-color: white;
-	border-radius: 20px;
-
+	border-radius: 3px;
+	border: solid 1px black;
 	transition: all 0.5s ease;
 	height: 10px;
-	width: 10px;
+	width: 30px;
 	outline: none;
 }
 
-
-/*hovering over the thumb element*/
-.slideOption input[type="range"]:hover {
+.slideOption input[type="range"]::-moz-range-thumb:hover
+{
 	background-color: #d90;
 	outline: none;
 }
-
-.slideOption input[type="range"]::-webkit-slider-thumb:hover {
-	background-color: #69c;
-	border-radius: 15px;
-	height: 15px;
-	width: 15px;
-	outline: none;
-	margin-top: -6px;
-}
-.slideOption input[type="range"]::-moz-range-thumb:hover {
-	background-color: #69c;
-	color: #d90;
+.slideOption input[type="range"]::-webkit-slider-thumb:hover{
+	background-color: #d90;
+	/*color: #d90;*/
 	outline: none;
 }
 
-/*activate the thumb element */
-.slideOption input[type="range"]::-webkit-slider-thumb:active {
-	background-color: #69c;
-	color: #d90;
-	outline: none;
-	display: block;
-}
-.slideOption input[type="range"]::-moz-range-thumb:active {
-	background-color: #69c;
-	color: #d90;
-	outline: none;
-}
-.slideOption input[type="range"]:active {
-	outline: none;
-}
 
 /*focus : remove border*/
-.slideOption input[type="range"]::-webkit-slider-thumb:focus {
-	outline: none;
-	display: block;
-}
-.slideOption input[type="range"]::-moz-range-thumb:focus {
-	outline: none;
-}
-.slideOption input[type="range"]:focus {
-	outline: none;
-}
+.slideOption input[type="range"]:focus { outline: none;	}
+.slideOption input[type="range"]:active{ outline: none;	}
+.slideOption input[type="range"]::-moz-range-thumb:focus  { outline: none; }
+.slideOption input[type="range"]::-moz-range-thumb:active {	outline: none; }
+.slideOption input[type="range"]::-webkit-slider-thumb:focus { outline: none; }
+.slideOption input[type="range"]::-webkit-slider-thumb:active{ outline: none; }
 
-#optionsMenu > li > a::before {
-	font-size: 1em;
-	margin: 0;
-	padding: 0 5px 0 0;
-}
-
-#LeftButton:focus {
-	outline: none;
-}
-
-#RightButton:focus{
-	outline: none;
-}
-
-#LeftButton:before{
-	/*content: "\2190";*/
-	content: ">";
-}
-
-#RightButton:before{
-	/*content: "\2192";*/
-	content: "<";
-}
-
-a#LeftButton.highlighted:hover{
-	background-color: #d90;
-	color: white;
-}
-
-a#RightButton.highlighted:hover{
-	background-color: #d90;
-	color: white;
-}
-
-
-#searchMenuId:before{
-    font-size: 1.4em; /* todo : test this */
-    content: "\2315";
-    /*content: "\2315"  or  "\1F50D"*/;
-}
-#select > a::before {
-	content: "\2263";
-}
-#gravityOption > a::before {
-	content: "\2299";
-}
-a#reset-button::before {
-	content: "\21BB";
-}
-a#pause-button.paused::before {
-	content: "►";
-}
-/*highlight used for mobile devices */
-a#pause-button.paused:hover{
-    background-color: #d90;
-    color:#fff;
-}
-a#pause-button:not(.paused)::before {
-	content: "II";
-}
-#export > a::before {
-	content: "\21E4";
-}
-#filterOption > a::before {
-	content: "\25BD";
-}
-#moduleOption > a::before {
-	content: "\2606";
-}
-#aboutMenu > a::before {
-	content: "\00A9";
-}
 #detailsArea {
-	bottom: 0;
-	color: #bdc3c7;
-	height: 100%;
-	position: fixed;
-	right: 0;
-	top: 0;
-	width: 22%;
-	overflow-y: auto;
-	overflow-x: hidden;
+	top        : 0;
+	right      : 0;
+	bottom     : 0;
+	color      : #bdc3c7;
+	height     : 100%;
+	width      : 22%;
+	overflow-y : auto;
+	overflow-x : hidden;
+	position   : fixed;
 	border-left: 1px solid #34495E;
 }
 #detailsArea h1 {
@@ -653,51 +395,6 @@ a#pause-button:not(.paused)::before {
 .subclass {
 	fill: #ecf0f1;
 }
-@media screen and (max-device-width: 1080px) {
-	body {
-		font-size: 12px;
-	}
-	#logo h2 {
-		font-size: 1.2em;
-	}
-	#logo h2 span {
-		font-size: 0.5em;
-	}
-	ul#optionsMenu > li {
-		margin: 0 2px;
-	}
-}
-@media screen and (max-width: 1080px) {
-	body {
-		font-size: 12px;
-	}
-	#logo h2 {
-		font-size: 1.2em;
-	}
-	#logo h2 span {
-		font-size: 0.5em;
-	}
-	ul#optionsMenu > li {
-		margin: 0 2px;
-	}
-}
-@media print {
-	#detailsArea, #optionsArea {
-		display: none;
-	}
-	#canvasArea {
-		width: 100%;
-	}
-	@page {
-		margin: 1cm 0.5cm 1cm 0.5cm;
-		size: landscape;
-	}
-	body {
-		margin: 0;
-		padding: 0;
-		width: 100%;
-	}
-}
 .accordion-trigger {
 	background: #24323e;
 	cursor: pointer;
@@ -768,26 +465,20 @@ a#pause-button:not(.paused)::before {
 	float:right;
 	position:absolute;
 	right:2px;
-	padding-top: 2px;
-	padding-bottom: 3px;
+	padding: 2px 7px 3px 7px;
 	border: 1px solid #000000;
 	background-color: #ecf0f1;
-	box-sizing: border-box;
 	cursor: pointer;
 }
-
-
 #sidebarExpandButton{
 	box-sizing: border-box;
 	top: 10px;
 	color: #000000;
 	float:right;
 	position:absolute;
-	right:0px;
-	/*padding: 10px;*/
+	right:0;
 	border: 1px solid #000000;
 	background-color: #ecf0f1;
-	box-sizing: border-box;
 	cursor: pointer;
 }
 
@@ -922,4 +613,506 @@ a#pause-button:not(.paused)::before {
 	-moz-animation-timing-function: linear;
 	-o-animation-timing-function: linear;
 	animation-timing-function: linear;
+}
+
+
+/*swipe bar definition*/
+
+/*Overwriting individual menu widths*/
+#m_about{
+	max-width: 200px;
+	width:200px;
+	position: absolute;
+
+}
+#m_modes{
+	max-width: 230px;
+	width:230px;
+	position: absolute;
+}
+
+#m_filter{
+	max-width: 170px;
+	width: 170px;
+	position: absolute;
+}
+
+#m_gravity{
+	max-width: 180px;
+	width: 180px;
+	position: absolute;
+}
+#m_export{
+	max-width: 160px;
+	width: 160px;
+	position: absolute;
+
+}
+
+#exportedUrl{
+	width:100px;
+}
+#m_select{
+	max-width: 300px;
+	width: 300px;
+	position: absolute;
+}
+
+#m_search{
+	max-width:250px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/***************** REWRITING MENU ELEMENT CONTAINERS ***********************/
+/*Container which holds the swipeBar*/
+#swipeBarContainer{
+	position : fixed;
+	width    : 77.8%;
+	height   : 40px;
+	margin   : 0;
+	padding  : 0;
+	bottom   : 0;
+}
+
+/*Scroll-able container for the menu entries */
+#menuElementContainer{
+	margin          : 0;
+	padding         : 0;
+	overflow-x      : auto;
+	overflow-y      : hidden;
+	white-space     : nowrap;
+	text-align      : right;
+	list-style-type : none;
+}
+
+/*Style for the individual menu entries*/
+#menuElementContainer>  li {
+	display       : inline-block;
+	box-sizing    : border-box;
+	text-align    : left;
+	position      : relative;
+	height        : 40px;
+	font-size     : 14px;
+	color         : #ffffff;
+	padding       : 12px 0 0;
+	margin-left   : -4px;
+}
+
+/*Font-color Style for menu entries */
+#menuElementContainer >li > a {
+	color   : #fff;
+	padding: 12px 8px;
+
+}
+#menuElementContainer >li > input {
+	color   : #000;
+	/*padding : 0 0.3em 0 1.5em;*/
+	padding :0.1em .3em 0.1em 1.5em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 120px;
+}
+
+/*Hovered behavior for the menu entries*/
+#menuElementContainer > li > a:hover {
+	box-sizing : border-box;
+	background : #1B252E;
+	/*background : #d90;*/
+	color      : #bdc3c7;
+}
+
+
+/*ToolTip Menu Definition*/
+.toolTipMenu {
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	box-sizing: border-box;
+	background-color: #ffffff;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-bottom: none;
+	border-radius: 4px 4px 0 0;
+	bottom: 0;
+	display: none;
+	font-size: 14px;
+	list-style: none;
+	/*max-width: 300px;*/
+	margin: 0;
+	padding: 0;
+	white-space: normal;
+	position: absolute;
+	z-index: 99;
+}
+.toolTipMenu > li:first-of-type {
+	border: none;
+}
+.toolTipMenu a{
+	color: #2980b9;
+}
+.toolTipMenu > li {
+	border-top: solid 1px #bdc3c7;
+}
+.toolTipMenu li {
+	color: #2980b9;
+	display: block;
+}
+
+/*MenuElement hovering enables the toolTip of the corresponding menu*/
+#menuElementContainer > li:hover .toolTipMenu {
+	display: block;
+}
+#menuElementContainer li > ul.toolTipMenu li a:hover {
+	background: #e1e1e1;
+}
+
+/****************************************************************************/
+/*ScrollButton behavior*/
+#scrollLeftButton{
+	height           : 30px;
+	width            : 30px;
+	padding          : 5px 0 5px 10px;
+	color            : #fff;
+	cursor           : pointer;
+	position         : absolute;
+	margin-top       : -2px;
+	font-size        : 2em;
+	background-color : #24323e;
+	left             : 0;
+}
+#scrollLeftButton:focus {
+	outline: none;
+}
+#scrollLeftButton:before{
+	content: "<";
+}
+
+/*Right Scroll Button*/
+#scrollRightButton{
+	height           : 30px;
+	width            : 30px;
+	padding          : 5px 0 5px 10px;
+	color            : #fff;
+	cursor           : pointer;
+	position         : absolute;
+	margin-top       : -2px;
+	font-size        : 2em;
+	background-color : #24323e;
+	right            : 0;
+}
+#scrollRightButton:focus{
+	outline: none;
+}
+
+#scrollRightButton:hover {
+	color            : #d90;
+}
+#scrollLeftButton:hover {
+	color            : #d90;
+}
+
+#scrollRightButton:before{
+	content: ">";
+}
+#centerGraphButton,#zoomInButton,#zoomOutButton {
+	border: 1px solid #000000;
+	text-align: center;
+	margin:-1px 0 0 0;
+	font-size: 1.5em;
+	padding: 0;
+	height: 28px;
+}
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+#zoomOutButton{
+	line-height: 22px;
+}
+#centerGraphButton{
+	line-height: 25px;
+}
+#zoomInButton{
+	line-height: 25px;
+}
+#zoomSlider > p:hover {
+	background-color: #d90;
+}
+#zoomSliderParagraph{
+	color: #000000;
+	padding-top: 5px;
+	margin:-1px 0 0 0;
+	border: 1px solid #000000;
+	background-color: #ecf0f1;
+	/*width: 28px;*/
+	height: 150px;
+}
+p#zoomSliderParagraph:hover{
+	background-color: #ecf0f1;
+}
+/*todo put this in a proper position*/
+#zoomSlider{
+	width:28px;
+	margin-top : -2px;
+	padding: 0;
+	font-size: 1.5em;
+	cursor: pointer;
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	color: #000;
+	background-color: #ecf0f1;
+	box-sizing: border-box;
+}
+
+
+/****************************************************************************/
+/*Definition for the Icons before*/
+#menuElementContainer > li > a::before {
+	font-size: 1em;
+	margin: 0;
+	padding: 0 0.3em 0 0;
+}
+#menuElementContainer a.highlighted {
+	background-color: #d90;
+}
+/*#search-input-text.searchInputText {*/
+	/*!*padding: 0 0.2em;*!*/
+	/*color: black;*/
+/*}*/
+
+.inner-addon {
+	position: relative;
+}
+.searchIcon{
+	position: absolute;
+	/*padding: 0.15em 0;*/
+	width: 17px;
+	height:17px;
+
+	pointer-events: none;
+}
+
+
+
+/*#search-input-text::before {*/
+	/*!*padding: 0 0.2em;*!*/
+	/*!*color: black;*!*/
+	/*font-size: 1.4em; !* todo : test this *!*/
+	/*!*content: "\2315";*!*/
+	/*content: "⚲";*/
+	/*color: white;*/
+	/*padding: 0;*/
+	/*-webkit-transform: rotate(-45deg);*/
+	/*!*content: "\2315"  or  "\1F50D"*!;*/
+	/*display: inline-block;*/
+	/*position: relative;*/
+	/*top: 2px;*/
+	/*left:-5px;*/
+/*}*/
+
+li#c_search{
+	padding: 0 5px;
+	margin-left: 5px;
+	height:20px;
+}
+/*Menu icons before the links selection */
+#c_select  > a::before { content: "\2263"; }
+#c_export  > a::before { content: "\21E4"; }
+#c_gravity > a::before { content: "\2299"; }
+#c_filter  > a::before { content: "\25BD"; }
+#c_modes   > a::before { content: "\2606"; }
+#c_reset   > a::before { content: "\21BB"; }
+#c_about   > a::before { content: "\00A9"; }
+
+li#c_locate {
+	padding: 0;
+}
+#c_locate > a {
+	font-size: 2em;
+	padding: 0;
+}
+
+/*Pause Button has a different behavior*/
+a#pause-button.paused::before {
+	content: "►";
+}
+a#pause-button.paused:hover{
+	background-color: #d90;
+	color:#fff;
+}
+a#pause-button:not(.paused)::before {
+	content: "II";
+}
+.toolTipMenu li:hover {
+	background-color: #e1e1e1;
+}
+.toggleOption li:hover{
+	background-color: #e1e1e1;
+}
+.toggleOption {
+	padding: 8px 5px;
+}
+#converter-option:hover{
+	background-color: #ffffff;
+}
+.toolTipMenu li a:only-child, .option {
+	display: block;
+	float: none;
+	padding: 8px 5px;
+}
+.customLocate{
+	padding: 0;
+	background-color: #32CD32;
+}
+a#locateSearchResult{
+	padding-bottom: 0;
+	padding-top: 50px;
+	position:relative;
+	top:5px;
+}
+/*#sliderRange{*/
+	/*padding: 0;*/
+	/*margin: 7px 0 0 0;*/
+	/*width:100%;*/
+	/*height:5px;*/
+	/*-webkit-appearance: none;*/
+	/*outline: none;*/
+/*}*/
+
+#zoomSliderElement {
+	color: #000;
+	position: relative;
+	padding-top: 0;
+	width: 155px;
+	height: 24px;
+	background-color:transparent;
+	-webkit-transform-origin-x: 73px;
+	-webkit-transform-origin-y: 73px;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform-origin:   73px 73px;
+	transform: rotate(-90deg);
+	transform-origin: 73px 73px;
+	-webkit-appearance: none;
+	outline: none;
+	margin: 4px 0;
+}
+/* ------------------ Zoom Slider styles --------------------------*/
+#zoomSliderElement::-webkit-scrollbar{
+	height:0;
+}
+#zoomSliderElement:hover{
+	cursor: crosshair;
+}
+/*TRACK*/
+#zoomSliderElement::-webkit-slider-runnable-track{
+	width: 100%;
+	height: 5px;
+	cursor: pointer;
+	background: #3071a9;
+}
+
+#zoomSliderElement::-moz-range-track {
+	width: 100%;
+	height: 5px;
+	cursor: pointer;
+	background: #3071a9;
+}
+
+/*Thumb*/
+#zoomSliderElement::-webkit-slider-thumb{
+	-webkit-appearance: none;
+	border: 1px solid #000000;
+	height: 10px;
+	width: 30px;
+	margin-right:50px;
+	border-radius: 3px;
+	background: #fff;
+	cursor: pointer;
+	outline: none;
+	margin-top: -3px;
+}
+#zoomSliderElement::-ms-thumb {
+	-webkit-appearance: none;
+	border: 1px solid #000000;
+	height: 10px;
+	width: 30px;
+	margin-right:50px;
+	border-radius: 3px;
+	background: #fff;
+	cursor: pointer;
+	outline: none;
+	margin-top: -3px;
+}
+#zoomSliderElement::-ms-thumb:hover {
+	-webkit-appearance: none;
+	border: 1px solid #000000;
+	height: 10px;
+	width: 30px;
+	margin-right:50px;
+	border-radius: 3px;
+	background: #d90;
+	cursor: pointer;
+	outline: none;
+	margin-top: -3px;
+}
+
+#zoomSliderElement::-webkit-slider-thumb:hover {
+	-webkit-appearance: none;
+	border: 1px solid #000000;
+	height: 10px;
+	width: 30px;
+	margin-right:50px;
+	border-radius: 3px;
+	background: #d90;
+	cursor: pointer;
+	outline: none;
+	margin-top: -3px;
+}
+
+#zoomSliderElement::-moz-range-thumb {
+	border: 1px solid #000000;
+	height: 10px;
+	width: 30px;
+	border-radius: 3px;
+	/*background: #ffffff;*/
+	cursor: pointer;
+	outline: none;
+}
+
+#zoomSliderElement::-moz-range-thumb:hover {
+	border: 1px solid #000000;
+	height: 10px;
+	width: 30px;
+	border-radius: 3px;
+	background: #d90;
+	cursor: pointer;
+	outline: none;
+}
+
+#zoomSliderElement::-moz-focus-outer {
+	border: 0;
+}
+
+
+#locateSearchResult:focus{
+	outline: none;
+
+}
+a#locateSearchResult.highlighted:hover{
+	background-color: #d90;
+	color: red;
+}
+a#locateSearchResult{
+	outline: none;
+	padding-bottom: 0;
+	padding-top: 0;
+	position:relative;
+	top:5px;
 }

@@ -29,7 +29,7 @@ module.exports = function (graph) {
 	ontologyMenu.setup = function (_loadOntologyFromText) {
 		loadOntologyFromText = _loadOntologyFromText;
 
-		var menuEntry= d3.select("#select");
+		var menuEntry= d3.select("#m_select");
 		menuEntry.on("mouseover",function(){
 			var searchMenu=graph.options().searchMenu();
 			searchMenu.hideSearchEntries();
@@ -85,7 +85,7 @@ module.exports = function (graph) {
 	 * changes the url and this will load an other ontology.
 	 */
 	function updateNavigationHrefs() {
-		d3.selectAll("#optionsMenu > li > a").attr("href", location.hash || "#");
+		d3.selectAll("#menuElementContainer > li > a").attr("href", location.hash || "#");
 	}
 
 	ontologyMenu.setIriText=function(text){
@@ -98,42 +98,22 @@ module.exports = function (graph) {
 	};
 
 	function parseOptions(optsArray){
-	// defining a default options object
-        var defObj={};
-        	defObj.sidebar=1;
-			defObj.doc=-1;
-			defObj.cd=200;
-			defObj.dd=120;
-			defObj.filter_datatypes="false";
-			defObj.filter_objectProperties="false";
-			defObj.filter_sco="false";
-			defObj.filter_disjoint="true";
-			defObj.filter_setOperator="false";
-			defObj.mode_dynamic="true";
-			defObj.mode_scaling="true";
-			defObj.mode_compact="false";
-			defObj.mode_colorExt="true";
-			defObj.mode_multiColor="false";
-			defObj.rect=0;
-
+        var defObj=graph.options().defaultConfig();
 		if (optsArray===undefined){
-            graph.setOptionsFromURL(defObj);
+            // graph.options().setOptionsFromURL(defObj);
             return;
 		}
 		// else parse the given parameters;
 		for (var i=0;i<optsArray.length;i++){
-			// define key and value ;
 			var keyVal=optsArray[i].split('=');
             defObj[keyVal[0]]=keyVal[1];
 		}
-		graph.setOptionsFromURL(defObj);
-
+		graph.options().setOptionsFromURL(defObj);
 	}
 
 	function parseUrlAndLoadOntology() {
 		// count number of hash parameters
 		var urlString=String(location);
-		console.log("-----------------------");
 
 		var numParameters=(urlString.match(/#/g) || []).length;
 		// create parameters array
@@ -156,7 +136,7 @@ module.exports = function (graph) {
         var paramlength;
         var givenOptionsStr;
         var optionsArray;
-		var optString="opts=[";
+		var optString="opts=";
         if (paramArray.length===0){
             hashParameter = DEFAULT_JSON_NAME;
             parseOptions();// loads default values
@@ -166,8 +146,7 @@ module.exports = function (graph) {
 			if(paramArray[0].indexOf(optString)>=0){
 				// parse the parameters;
 				paramlength=paramArray[0].length;
-				givenOptionsStr=paramArray[0].substr(6,paramlength-6-1);
-				// remove the "opts=[" and "]"
+				givenOptionsStr=paramArray[0].substr(5,paramlength-6);
 				optionsArray=givenOptionsStr.split(';');
 				parseOptions(optionsArray);
 
@@ -181,8 +160,7 @@ module.exports = function (graph) {
         if (paramArray.length===2){
             if (paramArray[0].indexOf(optString)>=0){
                 paramlength=paramArray[0].length;
-                givenOptionsStr=paramArray[0].substr(6,paramlength-6-1);
-                // remove the "opts=[" and "]"
+                givenOptionsStr=paramArray[0].substr(5,paramlength-6);
                 optionsArray=givenOptionsStr.split(';');
                 parseOptions(optionsArray);
             }else{
@@ -295,7 +273,7 @@ module.exports = function (graph) {
 			d3.xhr(relativePath, "application/json", function (error, request) {
 				var loadingSuccessful = !error;
 				var errorInfo;
-                console.log("Requestion XHR FUNCTION");
+                // console.log("Requestion XHR FUNCTION");
 				if (error!==null && error.status === 500) {
 					console.log(error);
                     console.log("HAS AN ERROR AND A STATUS");

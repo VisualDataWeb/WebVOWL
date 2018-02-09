@@ -10,15 +10,17 @@ module.exports = function (graph) {
 		elementTools = webvowl.util.elementTools(),
 	// Required for reloading when the language changes
 		ontologyInfo,
-		lastSelectedElement;
+        visibleSidebar=1,
+		lastSelectedElement,
 
-
+	    detailArea     = d3.select("#detailsArea"),
+	    graphArea      = d3.select("#canvasArea"),
+	    menuArea       = d3.select("#swipeBarContainer"),
+	    collapseButton = d3.select("#sidebarExpandButton");
 	/**
 	 * Setup the menu bar.
 	 */
-	sidebar.setup = function () {
-		setupCollapsing();
-	};
+
 
 	function setupCollapsing() {
 		// adapted version of this example: http://www.normansblog.de/simple-jquery-accordion/
@@ -243,7 +245,6 @@ module.exports = function (graph) {
 			return;
 		}
 
-
 		var isTriggerActive = d3.select("#selection-details-trigger").classed("accordion-trigger-active");
 		if (selectedElement && !isTriggerActive) {
 			d3.select("#selection-details-trigger").node().click();
@@ -448,6 +449,98 @@ module.exports = function (graph) {
 		parentNode.classed("hidden", !hasValue);
 	}
 
+	/** Collapsible Sidebar functions; **/
+
+    sidebar.showSidebar=function(val,init){
+        // make val to bool
+        if (val===1) {
+            visibleSidebar=true;
+            collapseButton.node().innerHTML=">";
+            detailArea.classed("hidden",true);
+            if (init===true) {
+                detailArea.classed("hidden",!visibleSidebar);
+                graphArea.style("width","78%");
+                graphArea.style("-webkit-animation-name","none");
+                 menuArea.style("width","78%");
+                 menuArea.style("-webkit-animation-name","none");
+            } else {
+                graphArea.style("width","78%");
+                graphArea.style("-webkit-animation-name","sbCollapseAnimation");
+                graphArea.style("-webkit-animation-duration","0.5s");
+                 menuArea.style("width","78%");
+                 menuArea.style("-webkit-animation-name","sbCollapseAnimation");
+                 menuArea.style("-webkit-animation-duration","0.5s");
+            }
+            graph.options().width(window.innerWidth - (window.innerWidth * 0.22));
+            graph.options().navigationMenu().updateScrollButtonVisibility();
+        }
+        if (val===0){
+            visibleSidebar=false;
+            detailArea.classed("hidden",true);
+
+            collapseButton.node().innerHTML="<";
+            // adjust the layout
+            if (init===true) {
+                graphArea.style("width","100%");
+                graphArea.style("-webkit-animation-name","none");
+                 menuArea.style("width","100%");
+                 menuArea.style("-webkit-animation-name","none");
+            }else {
+                graphArea.style("width","100%");
+                graphArea.style("-webkit-animation-name","sbExpandAnimation");
+                graphArea.style("-webkit-animation-duration","0.5s");
+
+                 menuArea.style("width","100%");
+                 menuArea.style("-webkit-animation-name","sbExpandAnimation");
+                 menuArea.style("-webkit-animation-duration","0.5s");
+            }
+            graph.options().width(window.innerWidth);
+            graph.updateCanvasContainerSize();
+            graph.options().navigationMenu().updateScrollButtonVisibility();
+        }
+        // finalize steps
+        // graph.updateCanvasContainerSize();
+        // graph.options().navigationMenu().updateScrollButtonVisibility();
+    };
+
+    sidebar.isSidebarVisible=function(){return visibleSidebar;};
+
+    sidebar.updateSideBarVis=function(init){
+        var vis=sidebar.getSidebarVisibility();
+        sidebar.showSidebar(parseInt(vis),init);
+    };
+
+    sidebar.getSidebarVisibility=function(){
+        var isHidden=detailArea.classed("hidden");
+        if (isHidden===false) return String(1);
+        if (isHidden===true) return String(0);
+	};
+
+    sidebar.initSideBarAnimation=function(){
+        graphArea.node().addEventListener("animationend", function() {
+            detailArea.classed("hidden", !visibleSidebar);
+            // if (visibleSidebar === true){
+             //    graph.options().width(window.innerWidth - (window.innerWidth * 0.22));
+            // }
+            // else{
+             //    graph.options().width(window.innerWidth);
+			// }
+            graph.updateCanvasContainerSize();
+            graph.options().navigationMenu().updateScrollButtonVisibility();
+        });
+    };
+
+    sidebar.setup = function () {
+        setupCollapsing();
+        sidebar.initSideBarAnimation();
+
+        collapseButton.on("click",function(){
+            graph.options().navigationMenu().hideAllMenus();
+            var settingValue=parseInt(sidebar.getSidebarVisibility());
+            if (settingValue===1) sidebar.showSidebar(0);
+            else                  sidebar.showSidebar(1);
+        });
+    };
 
 	return sidebar;
 };

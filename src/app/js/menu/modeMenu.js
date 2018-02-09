@@ -38,7 +38,7 @@ module.exports = function (graph) {
 	 * Connects the website with the available graph modes.
 	 */
 	modeMenu.setup = function (pickAndPin, nodeScaling, compactNotation, colorExternals) {
-		var menuEntry= d3.select("#moduleOption");
+		var menuEntry= d3.select("#m_modes");
 		menuEntry.on("mouseover",function(){
 			var searchMenu=graph.options().searchMenu();
 			searchMenu.hideSearchEntries();
@@ -65,7 +65,8 @@ module.exports = function (graph) {
             var isEnabled = moduleCheckbox.property("checked");
             onChangeFunc(isEnabled);
             if (updateLvl>0){
-                graph.update(); // maybe to much of an update
+            	// graph.updateLabelWidthToDynamic(onChangeFunc);
+                graph.lazyRefresh(); // maybe to much of an update
             }
         });
         moduleOptionContainer.append("label")

@@ -26,7 +26,6 @@ module.exports = function (graph) {
 				d.paused = !d.paused;
 				updatePauseButton();
 				pauseButton.classed("highlighted", d.paused);
-				graph.options().navigationMenu().updateVisibilityStatus();
 			});
 		// Set these properties the first time manually
 		updatePauseButton();
