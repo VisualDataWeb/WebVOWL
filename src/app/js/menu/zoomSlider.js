@@ -74,7 +74,7 @@ module.exports = function (graph) {
             .attr("step", (maxMag - minMag) / 40)
             .attr("title","zoom factor")
             .on("input", function(){
-            zoomSlider.zooming()});
+            zoomSlider.zooming();});
 
         // fixing zoom out button long click thing;
         d3.select("#zoomOutButton").on("mousedown",function(){

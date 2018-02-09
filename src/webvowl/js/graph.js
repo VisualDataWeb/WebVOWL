@@ -1188,11 +1188,8 @@ module.exports = function (graphContainerSelector) {
         for (var i = 0; i < nodeIdArray.length; i++) {
             var selectedId = nodeIdArray[i];
             var forceId = nodeMap[selectedId];
-            console.log("SelectedId"+ selectedId +" vs "+forceId );
             if (forceId !== undefined) {
                 var le_node = force.nodes()[forceId];
-                console.log("FoceId!== undefined")
-
                 if (le_node.id) {
                     if (pulseNodeIds.indexOf(forceId) === -1) {
                         pulseNodeIds.push(forceId);
@@ -1201,10 +1198,6 @@ module.exports = function (graphContainerSelector) {
                     }
                 }
                 if (le_node.property) {
-                    console.log("Le Property:"+ le_node.property());
-                    console.log(le_node);
-                    console.log("***************")
-                    console.log(le_node.property());
                     if (pulseNodeIds.indexOf(forceId) === -1) {
                         pulseNodeIds.push(forceId);
                         le_node.property().foreground();
@@ -1213,7 +1206,6 @@ module.exports = function (graphContainerSelector) {
                 }
             }
             else {
-                console.log("adding missed ID?");
                 missedIds.push(selectedId);
             }
         }

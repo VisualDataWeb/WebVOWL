@@ -35,21 +35,8 @@ module.exports = function () {
 		setOperatorFilter 		 = webvowl.modules.setOperatorFilter();
 
 	app.initialize = function () {
-
-
-        window.requestAnimationFrame = window.requestAnimationFrame
-            || window.mozRequestAnimationFrame
-            || window.webkitRequestAnimationFrame
-            || window.msRequestAnimationFrame
-            || function(f){return setTimeout(f, 1000/60)}; // simulate calling code 60
-
-
-        window.cancelAnimationFrame = window.cancelAnimationFrame
-            || window.mozCancelAnimationFrame
-            || function(requestID){clearTimeout(requestID)}; //fall back
-
-
-
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function(f){return setTimeout(f, 1000/60);}; // simulate calling code 60
+        window.cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame || function(requestID){clearTimeout(requestID);}; //fall back
 
         options.graphContainerSelector(GRAPH_SELECTOR);
 		options.selectionModules().push(focuser);
