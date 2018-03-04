@@ -1315,5 +1315,24 @@ module.exports = function (graphContainerSelector) {
         });
     };
 
+    /** --------------------------------------------------------- **/
+    /** -- animation functions for the nodes --                   **/
+    /** --------------------------------------------------------- **/
+
+    graph.animateDynamicLabelWidth=function() {
+        console.log("CALLING ANIMATE DYNAMIC LABEL WIDTH!");
+        var wantedWidth = options.dynamicLabelWidth();
+        var i;
+        for (i = 0; i < classNodes.length; i++) {
+            var nodeElement = classNodes[i];
+            if (elementTools.isDatatype(nodeElement)) {
+                nodeElement.animateDynamicLabelWidth(wantedWidth);
+            }
+        }
+        for (i = 0; i < properties.length; i++) {
+            properties[i].animateDynamicLabelWidth(wantedWidth);
+        }
+    };
+
     return graph;
 };

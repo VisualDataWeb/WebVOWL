@@ -65,7 +65,8 @@ module.exports = function (graph) {
             var isEnabled = moduleCheckbox.property("checked");
             onChangeFunc(isEnabled);
             if (updateLvl>0){
-                graph.lazyRefresh(); // maybe to much of an update
+					graph.animateDynamicLabelWidth();
+                // graph.lazyRefresh();
             }
         });
         moduleOptionContainer.append("label")

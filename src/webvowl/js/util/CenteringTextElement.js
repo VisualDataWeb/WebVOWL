@@ -57,6 +57,12 @@ CenteringTextElement.prototype._repositionTextLine = function (tspan) {
 	tspan.attr("dy", fontSize + lineDistance + "px");
 };
 
+CenteringTextElement.prototype.getTextBox = function () {
+    return this._textBlock();
+};
+
+
+
 CenteringTextElement.prototype._repositionTextBlock = function () {
 	// Nothing to do if no child elements exist
 	var lineCount = this._lineCount();

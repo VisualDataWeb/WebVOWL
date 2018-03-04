@@ -9,6 +9,7 @@ module.exports = (function () {
 	// Static variables
 	var labelHeight = 28,
 		labelWidth = 80,
+
 		smallestRadius = labelHeight / 2;
 
 
@@ -40,8 +41,11 @@ module.exports = (function () {
 			pinGroupElement,
 			haloGroupElement,
 			myWidth=80,
+            defaultWidth=80,
+            shapeElement,
+            textElement,
 
-			redundantProperties = [];
+        redundantProperties = [];
 
 		this.getHalos=function(){
 			return haloGroupElement;
@@ -193,6 +197,8 @@ module.exports = (function () {
 			if (!that.labelVisible()) {
 				return undefined;
 			}
+            if (graph.options().dynamicLabelWidth()===true) labelWidth=that.getMyWidth();
+            else                							labelWidth=defaultWidth;
 
 			that.labelElement(attachLabel(that));
 
@@ -245,14 +251,15 @@ module.exports = (function () {
 			if (that.backgroundColor()) {
 				rect.style("fill", that.backgroundColor());
 			}
+			return rect;
 		};
 		this.drawLabel = function (labelContainer) {
-			this.addRect(labelContainer);
+			shapeElement=this.addRect(labelContainer);
 
 			var equivalentsString = that.equivalentsString();
 			var suffixForFollowingEquivalents = equivalentsString ? "," : "";
 
-			var textElement = new CenteringTextElement(labelContainer, this.backgroundColor());
+			textElement = new CenteringTextElement(labelContainer, this.backgroundColor());
 			textElement.addText(this.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
 			textElement.addEquivalents(equivalentsString);
 			textElement.addSubText(this.indicationString());
@@ -389,6 +396,9 @@ module.exports = (function () {
 
 		this.drawPin = function () {
 			that.pinned(true);
+            if (graph.options().dynamicLabelWidth()===true) labelWidth=that.getMyWidth();
+            else                							labelWidth=defaultWidth;
+
 			if (that.inverse()){
 				// check which element is rendered on top and add a pin to it
 				var tr_that=that.labelElement().attr("transform");
@@ -489,14 +499,13 @@ module.exports = (function () {
 			// use a simple heuristic
             var text = that.labelForCurrentLanguage();
             myWidth =measureTextWidth(text,"text")+20;
-
             // check for sub names;
 			var indicatorText=that.indicationString();
             var indicatorWidth=measureTextWidth(indicatorText,"subtext")+20;
 			if (indicatorWidth>myWidth)
 				myWidth=indicatorWidth;
 
-			return myWidth;
+            return myWidth;
 		};
 
         function measureTextWidth(text, textStyle) {
@@ -515,18 +524,65 @@ module.exports = (function () {
             return w;
         }
         this.textWidth = function () {
-           //
-            if(graph.options().dynamicLabelWidth()===true) {
-                return that.getMyWidth();
-            }
             return labelWidth;
         };
         this.width= function(){
-			if(graph.options().dynamicLabelWidth()===true){
-				return that.getMyWidth();
-			}
 			return labelWidth;
         };
+
+        this.animateDynamicLabelWidth=function(dynamic) {
+            that.removeHalo();
+            // remove old textbox;
+            var height=that.height();
+            if (dynamic === true) {
+                labelWidth = that.getMyWidth();
+                shapeElement.transition().tween("attr", function () {})
+                    .ease('linear')
+                    .duration(100)
+                    .attr({x: -labelWidth / 2, y: -height / 2, width: labelWidth, height: height})
+                    .each("end", function () {
+                        textElement.remove();
+                        labelWidth = that.getMyWidth();
+                        that.addTextLabelElement();
+                    });
+
+            } else {
+                textElement.remove();
+                labelWidth = defaultWidth;
+                shapeElement.transition().tween("attr", function () {})
+                    .ease('linear')
+                    .duration(100)
+                    .attr({x: -labelWidth / 2, y: -height / 2, width: labelWidth, height: height})
+                    .each("end", function () {
+                        //console.log("done animation!")
+                    });
+                that.addTextLabelElement();
+            }
+
+            // for the pin we dont need to differ between different widths -- they are already set
+            if (that.pinned() === true  && pinGroupElement){
+                var dx=0.5*labelWidth-10,
+					dy=-25;
+                pinGroupElement.transition()
+                    .tween("attr.translate", function () {})
+                    .attr("transform", "translate(" + dx + ","+ dy+ ")")
+                    .ease('linear')
+                    .duration(100);
+			}
+
+        };
+
+        this.addTextLabelElement=function(){
+        	var labelContainer=that.labelElement();
+
+            var equivalentsString = that.equivalentsString();
+            var suffixForFollowingEquivalents = equivalentsString ? "," : "";
+
+            textElement = new CenteringTextElement(labelContainer, this.backgroundColor());
+            textElement.addText(this.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
+            textElement.addEquivalents(equivalentsString);
+            textElement.addSubText(this.indicationString());
+		};
 
 		forceLayoutNodeFunctions.addTo(this);
 	};
