@@ -15,6 +15,7 @@ module.exports = function (graph) {
     var t_zoomIn;
 
     var zoomValue;
+    var showSlider=true;
 
     var w = graph.options().width();
     var h = graph.options().height();
@@ -44,23 +45,9 @@ module.exports = function (graph) {
         t_zoomIn=requestAnimationFrame(timed_zoomIn);
     }
 
+
+
     zoomSlider.setup = function () {
-
-        // // not all devices have the same requestAnimation or cancelAnimation function
-        // window.requestAnimationFrame = window.requestAnimationFrame
-        //     || window.mozRequestAnimationFrame
-        //     || window.webkitRequestAnimationFrame
-        //     || window.msRequestAnimationFrame
-        //     || function(f){return setTimeout(f, 1000/60)}; // simulate calling code 60
-        //
-        //
-        // window.cancelAnimationFrame = window.cancelAnimationFrame
-        //     || window.mozCancelAnimationFrame
-        //     || function(requestID){clearTimeout(requestID)}; //fall back
-        //
-
-
-
 
         slider= d3.select("#zoomSliderParagraph").append("input")
             .datum({})
@@ -114,7 +101,11 @@ module.exports = function (graph) {
 
     };
 
-
+    zoomSlider.showSlider=function(val){
+        if (!arguments.length) return showSlider;
+        d3.select("#zoomSlider").classed("hidden",!val);
+        showSlider=val;
+    };
 
     zoomSlider.zooming=function(){
         graph.options().navigationMenu().hideAllMenus();

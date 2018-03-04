@@ -17,6 +17,7 @@ module.exports = function () {
 		navigationMenu = require("./menu/navigationMenu") (graph),
         zoomSlider     = require("./menu/zoomSlider")     (graph),
 		sidebar        = require("./sidebar")             (graph),
+		configMenu     = require("./menu/configMenu")     (graph),
 
 	// Graph modules
 		colorExternalsSwitch 	 = webvowl.modules.colorExternalsSwitch(graph),
@@ -66,6 +67,7 @@ module.exports = function () {
 		sidebar.setup();
 
 
+
         var agentVersion=getInternetExplorerVersion();
         console.log("agent Version "+agentVersion);
        	if (agentVersion> 0 && agentVersion<= 11) {
@@ -104,7 +106,7 @@ module.exports = function () {
 			options.graphObject(graph);
 			options.zoomSlider(zoomSlider);
             ontologyMenu.setup(loadOntologyFromText);
-
+            configMenu.setup();
 			graph.start();
 			adjustSize();
 			// graph.updateSideBarVis(true);
