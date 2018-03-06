@@ -177,10 +177,8 @@ module.exports =  function (graph) {
             Class_dragger.rootNodeLayer.selectAll("*").on("mouseover", Class_dragger.onMouseOver)
                 .on("mouseout", Class_dragger.onMouseOut)
                  .on("click", function(){
-                     console.log("This is a Single for a dragger oO ")
                  })
                  .on("dblclick", function(){
-                     console.log("This is a dblclick for a dragger oO ")
                  })
                 .on("mousedown", Class_dragger.mouseDown)
                 .on("mouseup", Class_dragger.mouseUp);

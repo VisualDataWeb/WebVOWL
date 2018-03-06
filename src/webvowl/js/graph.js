@@ -1724,7 +1724,7 @@ module.exports = function (graphContainerSelector) {
         nodeFreezer = setTimeout(function () {
             if (node && node.frozen() === true && node.pinned() === false && graph.paused() === false) {
                 node.frozen(false);
-                node.locked(false)
+                node.locked(false);
             }
         }, 2000);
 
@@ -2052,8 +2052,8 @@ module.exports = function (graphContainerSelector) {
                 graph.removeNodeViaEditor(node);
                 d3.event.stopPropagation();
             })
-                .on("mouseover", function(){editElementHoverOn(node,touchBehaviour)})
-                .on("mouseout", function(){editElementHoverOut(node,touchBehaviour)});
+                .on("mouseover", function(){editElementHoverOn(node,touchBehaviour);})
+                .on("mouseout", function(){editElementHoverOut(node,touchBehaviour);});
 
             addDataPropertyGroupElement.classed("hidden", true);
             classDragger.nodeElement.on("mouseover", editElementHoverOn)
@@ -2074,10 +2074,10 @@ module.exports = function (graphContainerSelector) {
                 })
                     .on("mouseover", function(){
                         //      console.log("editElement Hover");
-                        editElementHoverOn(node,touchBehaviour)})
+                        editElementHoverOn(node,touchBehaviour);})
                     .on("mouseout", function(){
                         //    console.log("editElement Hover OUT");
-                        editElementHoverOut(node,touchBehaviour)});
+                        editElementHoverOut(node,touchBehaviour);});
             } else {
                 classDragger.hideDragger(true);
             }

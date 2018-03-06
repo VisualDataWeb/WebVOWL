@@ -195,10 +195,8 @@ module.exports =  function (graph) {
             rootLayer.on("mouseover", Range_dragger.onMouseOver)
                 .on("mouseout", Range_dragger.onMouseOut)
                  .on("click", function(){
-                     console.log("This is a Single for a dragger oO ")
                  })
                  .on("dblclick", function(){
-                     console.log("This is a dblclick for a dragger oO ")
                  })
                 .on("mousedown", Range_dragger.mouseDown)
                 .on("mouseup", Range_dragger.mouseUp);

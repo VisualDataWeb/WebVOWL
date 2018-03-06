@@ -578,7 +578,7 @@ module.exports = (function () {
                 shapeElement.transition().tween("attr", function () {})
                     .ease('linear')
                     .duration(100)
-                    .attr({x: -myWidth / 2, y: -h/ 2, width: myWidth, height: h})
+                    .attr({x: -myWidth / 2, y: -h/ 2, width: myWidth, height: h});
             }
 
             // for the pin we dont need to differ between different widths -- they are already set
