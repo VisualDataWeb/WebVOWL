@@ -1610,8 +1610,9 @@ module.exports = function (graphContainerSelector) {
     graph.getTargetNode = function (position) {
         var dx = position[0];
         var dy = position[1];
-        var tN = undefined;
+        var tN= null;
         var minDist = 1000000000000;
+        // This is a bit OVERKILL for the computation of one node >> TODO: KD-TREE SEARCH
         unfilteredData.nodes.forEach(function (el) {
             var cDist = Math.sqrt((el.x - dx) * (el.x - dx) + (el.y - dy) * (el.y - dy));
             if (cDist < minDist) {
@@ -2023,7 +2024,6 @@ module.exports = function (graphContainerSelector) {
 
     }
     graph.activateHoverElements = function (val, node,touchBehaviour) {
-        console.log("where are my elements? ")
         if (editMode === false){
             return; // nothing to do;
         }

@@ -40,10 +40,10 @@ CenteringTextElement.prototype.saveCorrespondingSpan=function(correspondingSpan)
     this.storedSpanArrays.push(correspondingSpan);
 };
 CenteringTextElement.prototype.saveFullTextLine=function(fullText){
-	this.storedFullTextLines.push(fullText)
+	this.storedFullTextLines.push(fullText);
 };
 CenteringTextElement.prototype.saveStyle=function(style){
-    this.storedStyle.push(style)
+    this.storedStyle.push(style);
 };
 
 CenteringTextElement.prototype.updateAllTextElements=function(){
@@ -58,6 +58,7 @@ CenteringTextElement.prototype.updateAllTextElements=function(){
 CenteringTextElement.prototype.addTextline = function (text, style, prefix, postfix) {
 	var truncatedText = textTools.truncate(text, this._textBlock().datum().textWidth(), style);
 	this.saveFullTextLine(text);
+	this.saveStyle(style);
 	var tspan = this._textBlock().append("tspan")
 		.classed(this.CSS_CLASSES.default, true)
 		.classed(style, true)

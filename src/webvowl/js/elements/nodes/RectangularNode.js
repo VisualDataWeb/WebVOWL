@@ -192,7 +192,6 @@ module.exports = (function () {
 
 
 		this.animateDynamicLabelWidth=function(dynamic) {
-			return;
             that.removeHalo();
             var height=that.height();
             if (dynamic === true) {
