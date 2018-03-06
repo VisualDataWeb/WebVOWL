@@ -15,12 +15,19 @@ module.exports = (function () {
 			intersection,
 			union,
 			links,
+            rendertype="round",
 		// Additional attributes
 			maxIndividualCount,
 		// Element containers
 			nodeElement;
+        that.editingTextElement=false;
 
 
+        this.renderType=function(t){
+            if (!arguments.length) return rendertype;
+            rendertype = t;
+            return this;
+        };
 		// Properties
 		this.complement = function (p) {
 			if (!arguments.length) return complement;
@@ -148,13 +155,21 @@ module.exports = (function () {
             if (that.animationProcess()===false) {
                 nodeContainer.appendChild(selectedNode);
             }
+
 			that.setHoverHighlighting(true);
 			that.mouseEntered(true);
+
+            if (graph.editorMode()===true &&graph.ignoreOtherHoverEvents()===false) {
+                graph.activateHoverElements(true, that);
+            }
 		}
 
 		function onMouseOut() {
 			that.setHoverHighlighting(false);
 			that.mouseEntered(false);
+            if (graph.editorMode()===true && graph.ignoreOtherHoverEvents()===false) {
+                graph.activateHoverElements(false);
+            }
 		}
 
 

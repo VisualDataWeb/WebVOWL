@@ -11,7 +11,7 @@ var unescape = require("lodash/unescape");
 module.exports = function (graph) {
 
 	var ontologyMenu = {},
-		DEFAULT_JSON_NAME = "foaf", // This file is loaded by default
+		DEFAULT_JSON_NAME = "empty", // This file is loaded by default
 		loadingError = d3.select("#loading-error"),
 		loadingProgress = d3.select("#loading-progress"),
 		ontologyMenuTimeout,
@@ -86,6 +86,7 @@ module.exports = function (graph) {
 	 */
 	function updateNavigationHrefs() {
 		d3.selectAll("#menuElementContainer > li > a").attr("href", location.hash || "#");
+        d3.selectAll("#showEditorHint").attr("href", location.hash || "#");
 	}
 
 	ontologyMenu.setIriText=function(text){

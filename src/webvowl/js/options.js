@@ -32,13 +32,35 @@ module.exports = function () {
 		exportMenu,
 		graphObject,
         zoomSlider,
+        datatypeFilter,
+        objectPropertyFilter,
+        subclassFilter,
+        setOperatorFilter,
+
 		rectangularRep=false,
 		scaleNodesByIndividuals = true;
 
 
+    options.datatypeFilter=function(val){
+        if (!arguments.length) return datatypeFilter;
+        datatypeFilter=val;
+    };
+    options.objectPropertyFilter=function(val){
+        if (!arguments.length) return objectPropertyFilter;
+        objectPropertyFilter=val;
+    };
+    options.subclassFilter=function(val){
+        if (!arguments.length) return subclassFilter;
+        subclassFilter=val;
+    };
+    options.setOperatorFilter=function(val){
+        if (!arguments.length) return setOperatorFilter;
+        setOperatorFilter=val;
+    };
 
 
-	options.zoomSlider=function(val){
+
+    options.zoomSlider=function(val){
 		if (!arguments.length) return zoomSlider;
 		zoomSlider=val;
 	};

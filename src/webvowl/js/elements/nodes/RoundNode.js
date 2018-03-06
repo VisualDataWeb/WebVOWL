@@ -122,11 +122,9 @@ module.exports = (function () {
 		 */
 		this.drawPin = function () {
 			that.pinned(true);
-
-			var dx = (2 / 5) * that.actualRadius(),
-				dy = (-7 / 10) * that.actualRadius();
-
-			pinGroupElement = drawTools.drawPin(that.nodeElement(), dx, dy, this.removePin);
+            var dx = (-3.5 / 5) * that.actualRadius(),
+                dy = (-7 / 10) * that.actualRadius();
+            pinGroupElement = drawTools.drawPin(that.nodeElement(), dx, dy, this.removePin);
 		};
 
 		/**

@@ -29,13 +29,26 @@
 				to run WebVOWL.
 				<label id="killWarning">Hide warning</label>
 			</div>
-
+	    	<div id="editorHint" class="hidden">
+		    	<div id="editorHintText">
+			    	<ul>
+						<li>Create a class with <b>double click / tap</b> on empty canvas area.</li>
+						<li>Edit names with <b>double click / tap</b> on element.</li>
+						<li>Additional editing functionality is provided in the sidebar.</li>
+					</ul>
+					<label id="killEditorHint">Got It</label>
+				</div>
+			</div>
 			<div id="logo" class="noselect">
 
 			<!-- build:process -->
 				<h2>WebVOWL</h2>
 				<div style="height:3px" ></div>
-				<h2>Editor <span><%= version %> (beta)</span> </h2>
+				<h2>Editor <span><%= version %> (beta)</span><br/>
+					<span id="modeOfOperationString" style="
+							font-size: 0.4em; font-style: italic;">mode of operation</span>
+				</h2>
+
 			<!-- /build -->
 			</div>
 			<div id="loading-info">
@@ -64,6 +77,7 @@
 				<li><a href="#goodrelations" id="goodrelations">GoodRelations Vocabulary for E-Commerce</a></li>
 				<li><a href="#sioc" id="sioc">SIOC (Semantically-Interlinked Online Communities) Core Ontology</a></li>
 				<li><a href="#ontovibe" id="ontovibe">Ontology Visualization Benchmark (OntoViBe)</a></li>
+				<li><a href="#empty" id="empty">Create new Ontology(empty)</a></li>
 
 				<!-- build:remove release-->
 				<li><a href="#benchmark" id="benchmark">Benchmark Graph for VOWL</a></li>
@@ -122,9 +136,11 @@
 			<!--Config Menu -->
 			<ul id="m_config" class="toolTipMenu noselect">
 				<li class="toggleOption" id="zoomSliderOption"></li>
+				<li class="toggleOption" id="editMode"></li>
 			</ul>
 			<!--About Menu-->
 			<ul id="m_about" class="toolTipMenu">
+				<li><a href="#" id="showEditorHint" >Editor Hint (Help)</a></li>
 				<li><a href="license.txt" target="_blank">MIT License &copy; 2014-2018</a></li>
 				<li id="credits" class="option">WebVOWL Developers:<br/>
 					Vincent Link, Steffen Lohmann, Eduard Marbach, Stefan Negru, Vitalis Wiens
@@ -180,7 +196,13 @@
 
 	</section>
 	<aside id="detailsArea" >
-		<section id="generalDetails">
+		<section id="generalDetailsEdit" class="hidden">
+			<form class="converter-form-Editor " id="titleEditForm">
+				<label class="EditLabelForInput" id="titleEditor-label" for="titleEditor">Title:</label>
+				<input class="modifiedInputStyle" type="text" id="titleEditor" value="">
+			</form>
+		</section>
+		<section id="generalDetails" class="hidden">
 			<h1 id="title"></h1>
 			<span><a id="about" href=""></a></span>
 			<h5>Version: <span id="version"></span></h5>

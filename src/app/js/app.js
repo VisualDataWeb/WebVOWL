@@ -105,6 +105,12 @@ module.exports = function () {
 			options.exportMenu(exportMenu);
 			options.graphObject(graph);
 			options.zoomSlider(zoomSlider);
+
+            options.datatypeFilter(datatypeFilter);
+            options.objectPropertyFilter(objectPropertyFilter);
+            options.subclassFilter(subclassFilter);
+            options.setOperatorFilter(setOperatorFilter);
+
             ontologyMenu.setup(loadOntologyFromText);
             configMenu.setup();
 			graph.start();
@@ -128,6 +134,12 @@ module.exports = function () {
                     d3.event.preventDefault();
                 }
             });
+            d3.select("#killEditorHint").on("click",function(){
+                d3.select("#editorHint").classed("hidden",true);
+            });
+            d3.select("#showEditorHint").on("click",function(){
+                d3.select("#editorHint").classed("hidden",false);
+			});
         }
 	};
 
@@ -171,17 +183,26 @@ module.exports = function () {
 		}
 
 		//@WORKAROUND
-		// check if data has classes and properties;
-		var classCount				  = parseInt(data.metrics.classCount);
-		var objectPropertyCount		  = parseInt(data.metrics.objectPropertyCount);
-		var datatypePropertyCount	  = parseInt(data.metrics.datatypePropertyCount);
+        var newOntology=false;
+        if (data.header && data.header.iri==="http://visualdataweb.org/newOntology/"){
+            // this loads an empty ontology and ignores the warning for the that we have an empty ontology
+            newOntology=true;
+        }
+        // check if data has classes and properties;
+        var classCount				  = parseInt(data.metrics.classCount);
+        var objectPropertyCount		  = parseInt(data.metrics.objectPropertyCount);
+        var datatypePropertyCount	  = parseInt(data.metrics.datatypePropertyCount);
 
-		if (classCount === 0 && objectPropertyCount===0 && datatypePropertyCount===0 ){
-			// generate message for the user;
-			ontologyMenu.emptyGraphError();
-		}
+        if ( newOntology===false &&classCount === 0 && objectPropertyCount===0 && datatypePropertyCount===0 ){
+            // generate message for the user;
+            ontologyMenu.emptyGraphError();
+        }
 
-		exportMenu.setJsonText(jsonText);
+        if (newOntology){
+            d3.select("#editorHint").classed("hidden",false);
+        }
+
+        exportMenu.setJsonText(jsonText);
 		options.data(data);
 		graph.load();
 		
@@ -189,6 +210,7 @@ module.exports = function () {
 		exportMenu.setFilename(filename);
         graph.updateZoomSliderValueFromOutside();
         adjustSize();
+        sidebar.updateShowedInformation();
 	}
 
 	function adjustSize() {
@@ -210,6 +232,14 @@ module.exports = function () {
 		options.width ( width  )
 			   .height( height );
 		graph.updateStyle();
+
+        if (isTouchDevice()===true){
+            d3.select("#modeOfOperationString").node().innerHTML="touch able device detected";
+         //   graph.setTouchDevice(true);
+
+        }else{
+            d3.select("#modeOfOperationString").node().innerHTML="point & click device detected";
+        }
 
         adjustSliderSize();
 
@@ -284,6 +314,15 @@ module.exports = function () {
 
 
     }
+    function isTouchDevice() {
+        try {
+            document.createEvent("TouchEvent");
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
 
 	function getInternetExplorerVersion(){
         var ua,

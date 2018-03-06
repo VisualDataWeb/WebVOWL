@@ -9,25 +9,74 @@
    [done nodes]>> dynamic-> static  : change labelContent start animation
 
     // ----- TODO -----
-    [ ] (MID PRIORITY)search for better solution to update the label content text
+    [In Progress](MID PRIORITY)search for better solution to update the label content text
+      using update text content is faster than create the new text elements
+
+
+
     [ ] (LOW PRIORITY) add max label width slider to config menu
 
 
 [TODO] Overwrite Double Click and double Tab
+   [DONE] add mode of operation string
+   [DONE] add EditMode to Options/ or Modes (Experimental)
+   [DONE] add handler for different edit modes
+   [] add editor mode to options object << set flag via uri
+      // this should be used later for the reviewers calling empty ontology with
+      // editor mode enabled directly
+   [DONE] add Node Creation on DoubleClick [WORKS], add node on DoubleTap [DONE]
 
-[TODO] Add "empty" Ontololgy and Editor hints
-   [ ] Editor hint should be added to the options object // << setting flag via url
+[DONE] Add "empty" Ontology and Editor hints
+   [DONE] Add Empty Ontology file and Ontology Line Item
+   [DONE] Add Editor hint
+
+[DONE] ADD SHOW EDITOR HINT
 
 
+[DONE] Add Visual Editor Elements
+   [DONE] Dragger Arrow
+   [DONE] Add Datatype property
+   [DONE] remove element
+   [DONE] Visual Elements for Properties
 
-[TODO] Add Visual Editor Elements
-   [] Dragger Arrow
-   [] Add Datatype property
-   [] remove element
+[DONE] Add creation and delete function
+   [DONE] Add CreateNewObjectProperty Function
+   [DONE] Add CreateNewDatatype Function
+   [DONE] Add Removal Function
+
+[TODO]
+    [] Add Text label Edit functions for nodes      (dblClick)
+    [] Add Text label Edit functions for Properties (dblClick)
+    [] Improve name Changer (also for the IRI)
+
 
 [TODO]
     [] Add Visual elements for selection of Property // << domain range changer
 
+
+[TODO] Handle Delete of InvereOf Property Containers
+   -> possible option ( selecting the container provides the option of split (remove inverseOf statement)
+   -> delete upper element would also delete the inverse option >> throw warning 
+
+
+[TODO] Create Right side bar for editor Mode
+    [ ] swap between editor and view mode for right sidebar
+    [ ] create left side bar when editMode
+
+[TODO] Right Sidebar Elements
+    [Done] Title Editor
+    [] IRI Editor
+    [] Version
+    [] Authors
+    [] Language
+       -> add language button + lang selection
+
+    [] Add Accordion Object (static elements in the html)
+       // Maybe reorganize the editor informations !<<
+       -> Description
+       -> MetaData
+       -> Statistics
+       -> Selection Details
 
 
 [TODO] Add Left sidebar

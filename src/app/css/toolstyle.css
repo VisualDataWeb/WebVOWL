@@ -1156,3 +1156,74 @@ a#locateSearchResult{
 	position:relative;
 	top:5px;
 }
+
+/*Editor hints*/
+#editorHint {
+	padding: 5px 5px;
+	position: absolute;
+	text-align: center;
+	width:  100%;
+	pointer-events: none;
+}
+
+#editorHint label {
+	pointer-events: auto;
+	float: right;
+	padding: 5px 5px;
+	color: #ffdd00;
+}
+#editorHint label:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#editorHint > div {
+	pointer-events: auto;
+	text-align: left;
+	display: inline-block;
+	color: #ffffff;
+	font-size: 0.8em;
+	background-color: #18202A;
+	padding: 5px 5px;
+	border-radius: 5px;
+
+}
+
+#editorHint > * > ul {
+	-webkit-padding-start: 20px;
+	padding: 0 16px;
+
+
+}
+#editorHint > * > ul > li {
+	padding: 5px;
+}
+
+converter-form-Editor{
+	align-items: center;
+}
+
+.converter-form-Editor label {
+	display: inline-block;
+	line-height: normal;
+}
+
+.converter-form-Editor input {
+	/*box-sizing: border-box;*/
+	height: 18px;
+	/*width: 69%;*/
+	float:right;
+	margin-right: 5px;
+	border: 1px solid #34495E;
+	background-color: #34495E;
+	color : white;
+	/*border-bottom: 1px solid #d90;*/
+	/*text-align: center;*/
+	width: auto;
+}
+
+.converter-form-Editor input:disabled{
+	background-color: #545350;
+	border: 1px solid #34495E;
+	color: #939798;
+}

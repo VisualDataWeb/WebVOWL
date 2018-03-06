@@ -542,5 +542,14 @@ module.exports = function (graph) {
         });
     };
 
+
+    sidebar.updateShowedInformation=function(){
+		var editMode=graph.editorMode();
+        d3.select("#generalDetails").classed("hidden",editMode);
+        d3.select("#generalDetailsEdit").classed("hidden",!editMode);
+
+	};
+
+
 	return sidebar;
 };

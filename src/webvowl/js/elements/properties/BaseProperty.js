@@ -7,10 +7,9 @@ var rectangularElementTools = require("../rectangularElementTools")();
 module.exports = (function () {
 
 	// Static variables
-	var labelHeight = 28,
-		labelWidth = 80,
-
-		smallestRadius = labelHeight / 2;
+      var labelHeight = 28,
+        labelWidth = 80,
+        smallestRadius = labelHeight / 2;
 
 
 	// Constructor, private variables and privileged methods
@@ -42,8 +41,14 @@ module.exports = (function () {
 			haloGroupElement,
 			myWidth=80,
             defaultWidth=80,
+			dynamicWidth,
             shapeElement,
             textElement,
+            parent_labelObject,
+			croppedLabelText,
+			croppedSuffix,
+			croppedOthers,
+
 
         redundantProperties = [];
 
@@ -54,6 +59,14 @@ module.exports = (function () {
 		this.getPin=function(){
 			return pinGroupElement;
 		};
+        this.labelObject=function (lo){
+            if (!arguments.length){
+                return parent_labelObject;
+            }
+            else parent_labelObject=lo;
+
+
+        };
 
 		// Properties
 		this.cardinality = function (p) {
@@ -197,11 +210,13 @@ module.exports = (function () {
 			if (!that.labelVisible()) {
 				return undefined;
 			}
-            if (graph.options().dynamicLabelWidth()===true) labelWidth=that.getMyWidth();
-            else                							labelWidth=defaultWidth;
+			// on draw collect the information about the cropped text
+            dynamicWidth=that.getMyWidth();
+
+            if (graph.options().dynamicLabelWidth()===true) myWidth=dynamicWidth;
+            else                							myWidth=defaultWidth;
 
 			that.labelElement(attachLabel(that));
-
 			// Draw an inverse label and reposition both labels if necessary
 			if (that.inverse()) {
 				var yTransformation = (that.height() / 2) + 1 /* additional space */;
@@ -327,6 +342,13 @@ module.exports = (function () {
 				}
 
 			});
+            if (graph.ignoreOtherHoverEvents()===false) {
+                var inversed=false;
+                if (that.inverse()){
+                	inversed=true;
+                }
+                graph.activateHoverElementsForProperties(enable, that,inversed);
+            }
 		};
 
 		/**
@@ -396,8 +418,8 @@ module.exports = (function () {
 
 		this.drawPin = function () {
 			that.pinned(true);
-            if (graph.options().dynamicLabelWidth()===true) labelWidth=that.getMyWidth();
-            else                							labelWidth=defaultWidth;
+            if (graph.options().dynamicLabelWidth()===true) myWidth=that.getMyWidth();
+            else                							myWidth=defaultWidth;
 
 			if (that.inverse()){
 				// check which element is rendered on top and add a pin to it
@@ -524,44 +546,45 @@ module.exports = (function () {
             return w;
         }
         this.textWidth = function () {
-            return labelWidth;
+            return myWidth;
         };
         this.width= function(){
-			return labelWidth;
+			return myWidth;
         };
 
         this.animateDynamicLabelWidth=function(dynamic) {
+			// console.log("animating Property");
             that.removeHalo();
+
             // remove old textbox;
-            var height=that.height();
+            var h=that.height();
+			if (dynamicWidth===undefined)
+				dynamicWidth=that.getMyWidth();
+
             if (dynamic === true) {
-                labelWidth = that.getMyWidth();
+                myWidth = dynamicWidth;
                 shapeElement.transition().tween("attr", function () {})
                     .ease('linear')
                     .duration(100)
-                    .attr({x: -labelWidth / 2, y: -height / 2, width: labelWidth, height: height})
+                    .attr({x: -myWidth / 2, y: -h/ 2, width: myWidth, height: h})
                     .each("end", function () {
-                        textElement.remove();
-                        labelWidth = that.getMyWidth();
-                        that.addTextLabelElement();
+                         that.updateTextElement();
                     });
 
             } else {
-                textElement.remove();
-                labelWidth = defaultWidth;
+            	// Static width for property labels = 80
+                myWidth = defaultWidth;
+                that.updateTextElement();
                 shapeElement.transition().tween("attr", function () {})
                     .ease('linear')
                     .duration(100)
-                    .attr({x: -labelWidth / 2, y: -height / 2, width: labelWidth, height: height})
-                    .each("end", function () {
-                        //console.log("done animation!")
-                    });
-                that.addTextLabelElement();
+                    .attr({x: -myWidth / 2, y: -h/ 2, width: myWidth, height: h})
             }
 
             // for the pin we dont need to differ between different widths -- they are already set
             if (that.pinned() === true  && pinGroupElement){
-                var dx=0.5*labelWidth-10,
+            	console.log("pinned?");
+                var dx=0.5*myWidth-10,
 					dy=-25;
                 pinGroupElement.transition()
                     .tween("attr.translate", function () {})
@@ -569,7 +592,7 @@ module.exports = (function () {
                     .ease('linear')
                     .duration(100);
 			}
-
+            // console.log("animating Property --- Done");
         };
 
         this.addTextLabelElement=function(){
@@ -583,6 +606,27 @@ module.exports = (function () {
             textElement.addEquivalents(equivalentsString);
             textElement.addSubText(this.indicationString());
 		};
+
+        this.updateTextElement=function(){
+
+        	var textBlock=textElement.getTextBox();
+        	var numChilderen=textBlock.node().children.length;
+        	// console.log("Number Of Children "+ numChilderen);
+        	var text="This Croped";
+            if (graph.options().dynamicLabelWidth()===true){
+            	text=that.labelForCurrentLanguage();
+			}
+        	if (numChilderen===1){ // property with only the label;
+                textBlock.node().children[0].textContent=text;
+			}
+            // var suffix="suffix";
+            // var equi="equi";
+            // var subText="subTex";
+
+
+
+		};
+
 
 		forceLayoutNodeFunctions.addTo(this);
 	};

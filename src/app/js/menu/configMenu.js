@@ -10,6 +10,7 @@ module.exports = function (graph) {
             searchMenu.hideSearchEntries();
         });
         addCheckBox("showZoomSlider","Show Zoom Slider","#zoomSliderOption",graph.options().zoomSlider().showSlider,0);
+        addCheckBox("editorMode","Editor Mode (experimental)","#editMode",graph.editorMode,0);
 
     };
 
