@@ -357,7 +357,7 @@ module.exports = function (graphContainerSelector) {
             }
         }
         if (hoveredPropertyElement) {
-            setDeleteHoverElementPositionProperty(hoveredPropertyElement)
+            setDeleteHoverElementPositionProperty(hoveredPropertyElement);
         }
 
         updateHaloRadius();

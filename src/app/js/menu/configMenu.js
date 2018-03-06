@@ -11,7 +11,7 @@ module.exports = function (graph) {
         });
         addCheckBox("showZoomSlider","Show Zoom Slider","#zoomSliderOption",graph.options().zoomSlider().showSlider,0);
         addCheckBox("editorMode","Editor Mode (experimental)","#editMode",graph.editorMode,0);
-        addLabelWidthSlider("#maxLabelWidthSliderOption","maxLabelWidth","Max Label Width", graph.options().maxLabelWidth)
+        addLabelWidthSlider("#maxLabelWidthSliderOption","maxLabelWidth","Max Label Width", graph.options().maxLabelWidth);
     };
 
 
