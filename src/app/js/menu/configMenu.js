@@ -11,9 +11,64 @@ module.exports = function (graph) {
         });
         addCheckBox("showZoomSlider","Show Zoom Slider","#zoomSliderOption",graph.options().zoomSlider().showSlider,0);
         addCheckBox("editorMode","Editor Mode (experimental)","#editMode",graph.editorMode,0);
-
+        addLabelWidthSlider("#maxLabelWidthSliderOption","maxLabelWidth","Max Label Width", graph.options().maxLabelWidth)
     };
 
+
+    function addLabelWidthSlider(selector, identifier, label, onChangeFunction) {
+        var sliderContainer,
+            sliderValueLabel;
+
+
+
+        sliderContainer = d3.select(selector)
+            .append("div")
+            .classed("distanceSliderContainer", true);
+
+        var slider = sliderContainer.append("input")
+            .attr("id", identifier + "Slider")
+            .attr("type", "range")
+            .attr("min", 80)
+            .attr("max", 400)
+            .attr("value", onChangeFunction())
+            .attr("step", 10);
+        sliderContainer.append("label")
+            .classed("description", true)
+            .attr("for", identifier + "Slider")
+            .text(label);
+        sliderValueLabel = sliderContainer.append("label")
+            .classed("value", true)
+            .attr("for", identifier + "Slider")
+            .text(onChangeFunction());
+
+        //
+        slider.on("focusout",function(){
+            graph.updateStyle();
+        });
+
+        slider.on("input", function () {
+            var value = slider.property("value");
+            onChangeFunction(value);
+            sliderValueLabel.text(value);
+            graph.animateDynamicLabelWidth();
+        });
+
+        // add wheel event to the slider
+        slider.on("wheel",function(){
+            var wheelEvent=d3.event;
+            var offset;
+            if (wheelEvent.deltaY<0) offset=10;
+            if (wheelEvent.deltaY>0) offset=-10;
+            var oldVal=parseInt(slider.property("value"));
+            var newSliderValue=oldVal+offset;
+            if (newSliderValue!==oldVal){
+                slider.property("value",newSliderValue);
+                onChangeFunction(newSliderValue);
+                slider.on("input")(); // << set text and update the graphStyles
+            }
+            d3.event.preventDefault();
+        });
+    }
 
     function addCheckBox(identifier, modeName, selector,onChangeFunc,updateLvl) {
         var configOptionContainer = d3.select(selector)

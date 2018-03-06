@@ -45,10 +45,6 @@ module.exports = (function () {
             shapeElement,
             textElement,
             parent_labelObject,
-			croppedLabelText,
-			croppedSuffix,
-			croppedOthers,
-
 
         redundantProperties = [];
 
@@ -213,7 +209,7 @@ module.exports = (function () {
 			// on draw collect the information about the cropped text
             dynamicWidth=that.getMyWidth();
 
-            if (graph.options().dynamicLabelWidth()===true) myWidth=dynamicWidth;
+            if (graph.options().dynamicLabelWidth()===true) myWidth=Math.min(dynamicWidth,graph.options().maxLabelWidth());
             else                							myWidth=defaultWidth;
 
 			that.labelElement(attachLabel(that));
@@ -555,6 +551,9 @@ module.exports = (function () {
         this.animateDynamicLabelWidth=function(dynamic) {
 			// console.log("animating Property");
             that.removeHalo();
+            if (shapeElement===undefined){// this handles setOperatorProperties which dont have a shapeElement!
+            	return;
+			}
 
             // remove old textbox;
             var h=that.height();
@@ -562,7 +561,8 @@ module.exports = (function () {
 				dynamicWidth=that.getMyWidth();
 
             if (dynamic === true) {
-                myWidth = dynamicWidth;
+                myWidth = Math.min(dynamicWidth,graph.options().maxLabelWidth());
+
                 shapeElement.transition().tween("attr", function () {})
                     .ease('linear')
                     .duration(100)
@@ -608,23 +608,7 @@ module.exports = (function () {
 		};
 
         this.updateTextElement=function(){
-
-        	var textBlock=textElement.getTextBox();
-        	var numChilderen=textBlock.node().children.length;
-        	// console.log("Number Of Children "+ numChilderen);
-        	var text="This Croped";
-            if (graph.options().dynamicLabelWidth()===true){
-            	text=that.labelForCurrentLanguage();
-			}
-        	if (numChilderen===1){ // property with only the label;
-                textBlock.node().children[0].textContent=text;
-			}
-            // var suffix="suffix";
-            // var equi="equi";
-            // var subText="subTex";
-
-
-
+        	textElement.updateAllTextElements();
 		};
 
 

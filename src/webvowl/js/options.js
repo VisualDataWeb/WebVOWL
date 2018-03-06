@@ -36,6 +36,7 @@ module.exports = function () {
         objectPropertyFilter,
         subclassFilter,
         setOperatorFilter,
+        maxLabelWidth=120,
 
 		rectangularRep=false,
 		scaleNodesByIndividuals = true;
@@ -44,6 +45,10 @@ module.exports = function () {
     options.datatypeFilter=function(val){
         if (!arguments.length) return datatypeFilter;
         datatypeFilter=val;
+    };
+    options.maxLabelWidth=function(val){
+        if (!arguments.length) return maxLabelWidth;
+        maxLabelWidth=val;
     };
     options.objectPropertyFilter=function(val){
         if (!arguments.length) return objectPropertyFilter;

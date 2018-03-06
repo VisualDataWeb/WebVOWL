@@ -4,6 +4,10 @@ var AbstractTextElement = require("./AbstractTextElement");
 module.exports = CenteringTextElement;
 function CenteringTextElement(container, backgroundColor) {
 	AbstractTextElement.apply(this, arguments);
+    this.storedFullTextLines=[];
+    this.storedSpanArrays=[];
+    this.storedStyle=[];
+
 }
 
 CenteringTextElement.prototype = Object.create(AbstractTextElement.prototype);
@@ -17,7 +21,7 @@ CenteringTextElement.prototype.addText = function (text, prefix, suffix) {
 
 CenteringTextElement.prototype.addSubText = function (text) {
 	if (text) {
-		this.addTextline(text, this.CSS_CLASSES.subtext, "(", ")");
+		this.addTextline("("+text+")", this.CSS_CLASSES.subtext );
 	}
 };
 
@@ -32,17 +36,35 @@ CenteringTextElement.prototype.addInstanceCount = function (instanceCount) {
 		this.addTextline(instanceCount.toString(), this.CSS_CLASSES.instanceCount);
 	}
 };
+CenteringTextElement.prototype.saveCorrespondingSpan=function(correspondingSpan){
+    this.storedSpanArrays.push(correspondingSpan);
+};
+CenteringTextElement.prototype.saveFullTextLine=function(fullText){
+	this.storedFullTextLines.push(fullText)
+};
+CenteringTextElement.prototype.saveStyle=function(style){
+    this.storedStyle.push(style)
+};
+
+CenteringTextElement.prototype.updateAllTextElements=function(){
+	// TODO : TEST THIS postPrefix >>>  _applyPreAndPostFix
+    for (var i=0;i<this.storedSpanArrays.length;i++){
+        var truncatedText = textTools.truncate(this.storedFullTextLines[i], this._textBlock().datum().textWidth(), this.storedStyle[i]);
+        this.storedSpanArrays[i].text(truncatedText);
+	}
+};
 
 
 CenteringTextElement.prototype.addTextline = function (text, style, prefix, postfix) {
 	var truncatedText = textTools.truncate(text, this._textBlock().datum().textWidth(), style);
-
+	this.saveFullTextLine(text);
 	var tspan = this._textBlock().append("tspan")
 		.classed(this.CSS_CLASSES.default, true)
 		.classed(style, true)
 		.text(this._applyPreAndPostFix(truncatedText, prefix, postfix))
 		.attr("x", 0);
 	this._repositionTextLine(tspan);
+	this.saveCorrespondingSpan(tspan);
 
 	this._repositionTextBlock();
 };

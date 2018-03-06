@@ -6,6 +6,7 @@ var elementTools = require("./util/elementTools")();
 var nodePrototypeMap = require("./elements/nodes/nodeMap")();
 var propertyPrototypeMap = require("./elements/properties/propertyMap")();
 var classDragger= require("./classDragger")();
+var rangeDragger= require("./rangeDragger")();
 module.exports = function (graphContainerSelector) {
     var graph = {},
         CARDINALITY_HDISTANCE = 20,
@@ -201,24 +202,37 @@ module.exports = function (graphContainerSelector) {
             })
             .on("dragstart", function (d) {
                 d3.event.sourceEvent.stopPropagation(); // Prevent panning
+                graph.ignoreOtherHoverEvents(true);
                 if (d.type && d.type() === "Class_dragger") {
-                    graph.ignoreOtherHoverEvents(true);
-                    classDragger.mouseButtonPressed = false;
+                    classDragger.mouseButtonPressed = true;
                     clearTimeout(delayedHider);
                     classDragger.selectedViaTouch(true);
                     d.parentNode().locked(true);
                     draggingStarted=true;
+                } else if (d.type && d.type() === "Range_dragger") {
+                    rangeDragger.mouseButtonPressed = true;
+                    // clearTimeout(delayedHider);
+                    // classDragger.selectedViaTouch(true);
+                    // d.parentNode().locked(true);
 
                 }
+
+
+
                 else {
                     d.locked(true);
                     moved = false;
                 }
             })
             .on("drag", function (d) {
+
                 if (d.type && d.type() === "Class_dragger") {
                      classDragger.setPosition(d3.event.x, d3.event.y);
-                } else {
+                } else if (d.type && d.type() === "Range_dragger") {
+                    rangeDragger.setPosition(d3.event.x, d3.event.y);
+                }
+
+                else {
                     d.px = d3.event.x;
                     d.py = d3.event.y;
                     force.resume();
@@ -231,10 +245,10 @@ module.exports = function (graphContainerSelector) {
                 }
             })
             .on("dragend", function (d) {
+                graph.ignoreOtherHoverEvents(false);
                 if (d.type && d.type() === "Class_dragger") {
                     var nX = classDragger.x;
                     var nY = classDragger.y;
-                    graph.ignoreOtherHoverEvents(false);
                     clearTimeout(delayedHider);
                     classDragger.mouseButtonPressed = false;
                     classDragger.selectedViaTouch(false);
@@ -249,7 +263,12 @@ module.exports = function (graphContainerSelector) {
                         editElementHoverOut();
                     }
                     draggingStarted=false;
-                } else {
+                } else if (d.type && d.type() === "Range_dragger") {
+                    console.log("TODO: change the range of this property!");
+                    rangeDragger.mouseButtonPressed = false;
+                }
+
+                else {
                     d.locked(false);
                     var pnp = graph.options().pickAndPinModule();
                     if (pnp.enabled() === true && moved === true) {
@@ -270,6 +289,7 @@ module.exports = function (graphContainerSelector) {
             .on("zoom", zoomed);
 
         draggerObjectsArray.push(classDragger);
+        draggerObjectsArray.push(rangeDragger);
 
     }
 
@@ -299,6 +319,12 @@ module.exports = function (graphContainerSelector) {
                 position = math.calculateCenter(linkDomainIntersection, linkRangeIntersection);
                 label.x = position.x;
                 label.y = position.y;
+                label.linkRangeIntersection=linkRangeIntersection;
+                label.linkDomainIntersection=linkDomainIntersection;
+                if (link.property().focused()===true){
+                    console.log("update rangeDragger");
+                    rangeDragger.updateElement();
+                }
             }
             return "translate(" + label.x + "," + label.y + ")";
         });
@@ -350,6 +376,19 @@ module.exports = function (graphContainerSelector) {
 
         labelGroupElements.selectAll(".label").on("click", function (clickedProperty) {
             executeModules(clickedProperty);
+            // add the
+            console.log(clickedProperty.type());
+            // We say that Datatype properties are not allowed to have domain range draggers
+            if (clickedProperty.focused() && clickedProperty.type()!=="owl:DatatypeProperty"){
+                console.log("SHOW Range Dragger");
+                rangeDragger.setParentProperty(clickedProperty);
+                rangeDragger.hideDragger(false);
+                rangeDragger.addMouseEvents();
+            }
+            else{
+                console.log("HIDE Range Dragger");
+                rangeDragger.hideDragger(true);
+            }
         });
     }
 
@@ -1749,7 +1788,7 @@ module.exports = function (graphContainerSelector) {
     /** --------------------------------------------------------- **/
 
     graph.animateDynamicLabelWidth=function() {
-        console.log("CALLING ANIMATE DYNAMIC LABEL WIDTH!");
+        // console.log("CALLING ANIMATE DYNAMIC LABEL WIDTH!");
         var wantedWidth = options.dynamicLabelWidth();
         var i;
         for (i = 0; i < classNodes.length; i++) {
@@ -1915,6 +1954,7 @@ module.exports = function (graphContainerSelector) {
     graph.activateHoverElementsForProperties = function (val, property,inversed) {
         if (editMode === false) return; // nothing to do;
 
+
         if (val === true) {
             // make them visible
             // console.log("Property Highlighter");
@@ -1983,6 +2023,7 @@ module.exports = function (graphContainerSelector) {
 
     }
     graph.activateHoverElements = function (val, node,touchBehaviour) {
+        console.log("where are my elements? ")
         if (editMode === false){
             return; // nothing to do;
         }

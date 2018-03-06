@@ -2,28 +2,21 @@
 	-> Show zoomSlider Option
 
 [TODO] Add Animation for dynamic label width
-   [done for properties]>> static -> dynamic : on animation end change labelContent
-   [done for properties]>> dynamic-> static  : change labelContent start animation
+    [done for properties]>> static -> dynamic : on animation end change labelContent
+    [done for properties]>> dynamic-> static  : change labelContent start animation
 
-   [done for nodes]>> static -> dynamic : on animation end change labelContent
-   [done nodes]>> dynamic-> static  : change labelContent start animation
+    [done for nodes]>> static -> dynamic : on animation end change labelContent
+    [done nodes]>> dynamic-> static  : change labelContent start animation
 
-    // ----- TODO -----
-    [In Progress](MID PRIORITY)search for better solution to update the label content text
-      using update text content is faster than create the new text elements
-
+    [DONE](MID PRIORITY)search for better solution to update the label content text
+    [DONE] (LOW PRIORITY) add max label width slider to config menu
 
 
-    [ ] (LOW PRIORITY) add max label width slider to config menu
 
-
-[TODO] Overwrite Double Click and double Tab
+[DONE] Overwrite Double Click and double Tab
    [DONE] add mode of operation string
    [DONE] add EditMode to Options/ or Modes (Experimental)
    [DONE] add handler for different edit modes
-   [] add editor mode to options object << set flag via uri
-      // this should be used later for the reviewers calling empty ontology with
-      // editor mode enabled directly
    [DONE] add Node Creation on DoubleClick [WORKS], add node on DoubleTap [DONE]
 
 [DONE] Add "empty" Ontology and Editor hints
@@ -44,6 +37,7 @@
    [DONE] Add CreateNewDatatype Function
    [DONE] Add Removal Function
 
+
 [TODO]
     [] Add Text label Edit functions for nodes      (dblClick)
     [] Add Text label Edit functions for Properties (dblClick)
@@ -52,6 +46,12 @@
 
 [TODO]
     [] Add Visual elements for selection of Property // << domain range changer
+    [] MAKE BETTER VISUAL ELEMENTS FOR RANGE AND DOMAIN DRAGGER
+    [DONE] Positioning and dragging range modifier
+    [] Add visual handling for range modifier (drag a shadow clone of the property)
+
+    [] Positioning and dragging Domain modifier
+    [] Add visual handling for Domain modifier (drag a shadow clone of the property)
 
 
 [TODO] Handle Delete of InvereOf Property Containers
@@ -83,3 +83,11 @@
  [ ] collapsable element
  [ ] accordions for different element (classes, properties)
  [ ] this should provide kind of legend for all elemeents
+
+
+-------------------------------------------LOW PRIORITY-----------------------------------------------------------------
+[ ] add editor mode to options object << set flag via uri
+       // this should be used later for the reviewers calling empty ontology with
+       // editor mode enabled directly
+
+[ ]  add min label width slider to config menu << ASK STEFFEN ABOUT HIS OPINION FOR THIS
