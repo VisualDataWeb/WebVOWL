@@ -484,6 +484,8 @@ main {
 	padding-right: 4px;
 	content: "\25BC"
 }
+
+
 .accordion-trigger:not(.accordion-trigger-active):before {
 	padding-right: 4px;
 	content: "\25BA"
@@ -596,6 +598,64 @@ main {
 	padding: 10px 0;
 	text-align: left;
 }
+#generalDetailsEdit{
+	/*color: #ecf0f1;*/
+	color: #ecf0f1;
+}
+#generalDetailsEdit > div{
+	padding: 5px;
+}
+
+#generalDetailsEdit > h3{
+	color: #ecf0f1;
+	display: block;
+	font-size: 1.1em;
+	font-weight: 100;
+	margin: 0;
+	padding: 10px 0;
+	text-align: left;
+}
+
+.subAccordion {
+	color: #ecf0f1;
+	display: block;
+	font-size: 0.8em;
+	font-weight: 100;
+	margin: 0;
+	padding: 5px;
+	text-align: left;
+}
+
+.subAccordionDescription{
+	padding: 0 5px;
+}
+.boxed{
+	padding: 0 5px;
+}
+.separatorLineRight{
+	border-right : 1px solid #f00;
+}
+#prefixURL_Description{
+	padding: 5px 0 0 0;
+}
+.prefixIRIElements {
+	display: inline-block;
+	padding: 3px;
+	border-bottom: 1px solid #34495E;
+	width: 100%
+}
+
+.prefixInput{
+	width : 30px;
+	display: inline-block;
+	margin-right:5px;
+}
+.prefixURL{
+	width: 100px;
+	display: inline-block;
+	paddig-left:5px;
+}
+
 .selectedDefaultElement{
 	text-align: center;
 	color: #f19505;
@@ -807,7 +867,7 @@ main {
 
 }
 
-m_config{
+#m_config{
 	max-width: 180px;
 	width: 180px;
 	position: absolute;
@@ -1325,27 +1385,44 @@ a#locateSearchResult{
 	padding: 5px;
 }
 
-converter-form-Editor{
-	align-items: center;
+.converter-form-Editor{
+	/*display: inline-block;*/
+}
+
+.textLineEditWithLabel{
+	display: inline-block;
+	width : 100%;
+	border-bottom: 1px solid #34495E;
+	padding: 2px 0;
+
 }
 
 .converter-form-Editor label {
-	display: inline-block;
+	/*//display: inline-block;*/
 	line-height: normal;
+}
+.prefixIRIElements input{
+	border: 1px solid #34495E;
+	background-color: #34495E;
+	color : white;
+}
+.prefixIRIElements  input:disabled{
+	background-color: rgb(24, 32, 42);
+	border: 1px solid rgb(24, 32, 42);
+	color: white;
 }
 
 .converter-form-Editor input {
 	/*box-sizing: border-box;*/
-	height: 18px;
+	/*height: 18px;*/
 	/*width: 69%;*/
 	float:right;
-	margin-right: 5px;
 	border: 1px solid #34495E;
 	background-color: #34495E;
 	color : white;
 	/*border-bottom: 1px solid #d90;*/
 	/*text-align: center;*/
-	width: auto;
+	/*display: inline-block;*/
 }
 
 .converter-form-Editor input:disabled{

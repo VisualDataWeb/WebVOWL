@@ -62,38 +62,48 @@
    -> delete upper element would also delete the inverse option >> throw warning 
 
 
-[TODO] Create Right side bar for editor Mode
-    [ ] swap between editor and view mode for right sidebar
-    [DONE] create left side bar when editMode
+[DONE] swap between editor and view mode for right sidebar
+
 
 [TODO] Right Sidebar Elements
    [] Ontology MetaData
         [Done] Title Editor
-        [] IRI Editor
-        [] Version
-        [] Authors
+        [Done] IRI Editor
+        [Done] Version
+        [Done] Authors
+        [] Prefix
+           -> add buttons for edit and delete
+           -> edit enables the element
         [] Language
             -> add language button + lang selection
+        [] add adjustsize for the elements
 
     [] Add Accordion Object (static elements in the html)
        // Maybe reorganize the editor informations !<<
        -> Description
-       -> MetaData
-       -> Statistics
+       -> [ SKIP ]MetaData  // << Keep editor sidebar slim
+       -> [ SKIP ]Statistics // << Keep editor sidebar slim
        -> Selection Details
 
 
 [TODO] Add Left sidebar
- [DONE] collapsable element
+ [DONE] create left side bar when editMode
+ [DONE] collapse element
  [DONE] accordions for different element (classes, properties)
  [ ] Add Visual Representations for the Elements
 
+
+-------------------------------------------High PRIORITY-----------------------------------------------------------------
+    [] Prevent same definition of a Resources (e.g same named classes)
+    [] How are properties handeled with different multiple domain and ranges?
 
 
 -------------------------------------------MID PRIORITY-----------------------------------------------------------------
     [] Prevent Multiple creation of subclasses between A -> B
     [] Allow shortCut A sco B and B sco A >> A isEquivalent B (create equi class and merge)
     [] Add Equivalent Class and Property to default types
+
+
 
 
 -------------------------------------------TESTS -----------------------------------------------------------------

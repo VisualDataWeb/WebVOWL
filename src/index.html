@@ -226,10 +226,46 @@
 	</section>
 	<aside id="detailsArea" >
 		<section id="generalDetailsEdit" class="hidden">
-			<form class="converter-form-Editor " id="titleEditForm">
-				<label class="EditLabelForInput" id="titleEditor-label" for="titleEditor">Title:</label>
-				<input class="modifiedInputStyle" type="text" id="titleEditor" value="">
-			</form>
+			<h3 class="accordion-trigger noselect accordion-trigger-active">Ontology</h3>
+			<div>
+				<div class="textLineEditWithLabel">
+					<form class="converter-form-Editor " id="titleEditForm">
+						<label class="EditLabelForInput" id="titleEditor-label" for="titleEditor" title="dc:title? Maybe?">Title:</label>
+						<input class="modifiedInputStyle" type="text" id="titleEditor" autocomplete="off" value="">
+					</form>
+				</div>
+				<div class="textLineEditWithLabel">
+					<form class="converter-form-Editor " id="iriEditForm">
+						<label class="EditLabelForInput" id="iriEditor-label" for="iriEditor">IRI:</label>
+						<input type="text" id="iriEditor" autocomplete="off" value="">
+					</form>
+				</div>
+				<div class="textLineEditWithLabel">
+					<form class="converter-form-Editor " id="versionEditForm">
+						<label class="EditLabelForInput" id="versionEditor-label" for="versionEditor" title="dc:version Maybe?">Version:</label>
+						<input type="text" id="versionEditor" value="" autocomplete="off">
+					</form>
+				</div>
+				<div class="textLineEditWithLabel">
+					<form class="converter-form-Editor " id="authorsEditForm">
+						<label class="EditLabelForInput" id="authorsEditor-label" for="authorsEditor" title="dc:authors Maybe?">Authors:</label>
+						<input type="text" id="authorsEditor" value="" autocomplete="off">
+					</form>
+				</div>
+				<h4 class="subAccordion accordion-trigger noselect accordion-trigger-active">Prefix</h4>
+				<div class="subAccordionDescription" id="containerForPrefixURL">
+					<div id="prefixURL_Description">
+						<span class="boxed separatorLineRight">Prefix</span>
+						<span class="boxed">IRI /URL</span>
+					</div>
+					<!--<div class="prefixIRIElements" id="prefixContainer">-->
+						<!--<input class="prefixInput " type="text" id="AA" value="" autocomplete="off">-->
+						<!--<input class="prefixURL" type="text" id="BB" value="" autocomplete="off">-->
+					<!--</div>-->
+				</div>
+
+
+			</div>
 		</section>
 		<section id="generalDetails" class="hidden">
 			<h1 id="title"></h1>

@@ -29,6 +29,7 @@ module.exports = function () {
 		ontologyMenu,
 		sidebar,
 		leftSidebar,
+		editSidebar,
 		navigationMenu,
 		exportMenu,
 		graphObject,
@@ -44,13 +45,32 @@ module.exports = function () {
         supportedDatatypes=["rdfs:Literal", "xsd:boolean", "xsd:double", "xsd:integer", "xsd:string","undefined"],
         supportedClasses=["owl:Thing","owl:Class","owl:DeprecatedClass"],
         supportedProperties=["owl:objectProperty","rdfs:subClassOf","owl:disjointWith"],
+		prefixList={
+            rdf:'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+    		rdfs:'http://www.w3.org/2000/01/rdf-schema#',
+    		owl:'http://www.w3.org/2002/07/owl#',
+    		xml:'http://www.w3.org/XML/1998/namespace',
+    		xsd:'http://www.w3.org/2001/XMLSchema',
+    		dc:'http://purl.org/dc/elements/1.1/#'
+		},
+
 
 
         rectangularRep=false,
 		scaleNodesByIndividuals = true;
 
+	options.prefixList=function () {
+		return prefixList;
+    };
+    options.addPrefix=function(prefix,url){
+		console.log("TODO: add "+prefix+" "+url);
+	};
+    options.removePrefix=function(prefix){
+        console.log("TODO: remove "+prefix);
+    };
 
-	options.supportedDatatypes  = function(){ return supportedDatatypes;  };
+
+    options.supportedDatatypes  = function(){ return supportedDatatypes;  };
 	options.supportedClasses    = function(){ return supportedClasses;    };
 	options.supportedProperties = function(){ return supportedProperties; };
 
@@ -81,6 +101,10 @@ module.exports = function () {
     options.leftSidebar=function(val){
         if (!arguments.length) return leftSidebar;
         leftSidebar=val;
+    };
+	options.editSidebar=function(val){
+        if (!arguments.length) return editSidebar;
+        editSidebar=val;
     };
 
 

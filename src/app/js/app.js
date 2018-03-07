@@ -17,7 +17,8 @@ module.exports = function () {
 		navigationMenu = require("./menu/navigationMenu") (graph),
         zoomSlider     = require("./menu/zoomSlider")     (graph),
 		sidebar        = require("./sidebar")             (graph),
-        leftSidebar    = require("./leftSidebar")          (graph),
+        leftSidebar    = require("./leftSidebar")         (graph),
+        editSidebar    = require("./editSidebar")         (graph),
 		configMenu     = require("./menu/configMenu")     (graph),
 
 	// Graph modules
@@ -67,6 +68,7 @@ module.exports = function () {
 		pauseMenu.setup();
 		sidebar.setup();
 		leftSidebar.setup();
+		editSidebar.setup();
 
 
 
@@ -105,6 +107,7 @@ module.exports = function () {
 			options.navigationMenu(navigationMenu);
 			options.sidebar(sidebar);
             options.leftSidebar(leftSidebar);
+            options.editSidebar(editSidebar);
 			options.exportMenu(exportMenu);
 			options.graphObject(graph);
 			options.zoomSlider(zoomSlider);

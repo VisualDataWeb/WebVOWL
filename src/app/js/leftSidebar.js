@@ -136,7 +136,7 @@ module.exports = function (graph) {
         var triggers = d3.selectAll(".accordion-trigger");
 
         // Collapse all inactive triggers on startup
-        collapseContainers(d3.selectAll(".accordion-trigger:not(.accordion-trigger-active) + div"));
+        // collapseContainers(d3.selectAll(".accordion-trigger:not(.accordion-trigger-active) + div"));
 
         triggers.on("click", function () {
             var selectedTrigger = d3.select(this);
