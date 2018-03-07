@@ -65,54 +65,55 @@ module.exports = function (graph) {
         var supportedDatatypes=graph.options().supportedDatatypes();
         var supportedProperties=graph.options().supportedProperties();
         var i;
-        var aSelectionContainer;
+
         for (i=0;i<supportedClasses.length;i++){
-            aSelectionContainer=classContainer.append("div");
-            aSelectionContainer.classed("containerForDefaultSelection",true);
-            aSelectionContainer.classed("noselect",true);
-            aSelectionContainer.node().id="selectedClass"+supportedClasses[i];
-            aSelectionContainer.node().innerHTML=supportedClasses[i];
+            var aClassSelectionContainer;
+            aClassSelectionContainer=classContainer.append("div");
+            aClassSelectionContainer.classed("containerForDefaultSelection",true);
+            aClassSelectionContainer.classed("noselect",true);
+            aClassSelectionContainer.node().id="selectedClass"+supportedClasses[i];
+            aClassSelectionContainer.node().innerHTML=supportedClasses[i];
 
             if (supportedClasses[i]===defaultClass){
-                selectThisDefaultElement(aSelectionContainer.node());
+                selectThisDefaultElement(aClassSelectionContainer.node());
             }
 
             // connect this button;
-            aSelectionContainer.on("click",function(){
+            aClassSelectionContainer.on("click",function(){
                 unselectAllElements(defaultClassSelectionContainers);
                 selectThisDefaultElement(this);
                 updateDefaultNameInAccordion(this,"defaultClass");
 
             });
-            defaultClassSelectionContainers.push(aSelectionContainer);
+            defaultClassSelectionContainers.push(aClassSelectionContainer);
         }
 
         for (i=0;i<supportedDatatypes.length;i++){
-            aSelectionContainer=datatypeContainer.append("div");
-            aSelectionContainer.classed("containerForDefaultSelection",true);
-            aSelectionContainer.classed("noselect",true);
-            aSelectionContainer.node().id="selectedDatatype"+supportedDatatypes[i];
-            aSelectionContainer.node().innerHTML=supportedDatatypes[i];
+            var aDTSelectionContainer=datatypeContainer.append("div");
+            aDTSelectionContainer.classed("containerForDefaultSelection",true);
+            aDTSelectionContainer.classed("noselect",true);
+            aDTSelectionContainer.node().id="selectedDatatype"+supportedDatatypes[i];
+            aDTSelectionContainer.node().innerHTML=supportedDatatypes[i];
 
             if (supportedDatatypes[i]===defaultDatatype){
-                selectThisDefaultElement(aSelectionContainer.node());
+                selectThisDefaultElement(aDTSelectionContainer.node());
             }
-            aSelectionContainer.on("click",function(){
+            aDTSelectionContainer.on("click",function(){
                 unselectAllElements(defaultDatatypeSelectionContainers);
                 selectThisDefaultElement(this);
                 updateDefaultNameInAccordion(this,"defaultDatatype");
 
             });
 
-            defaultDatatypeSelectionContainers.push(aSelectionContainer);
+            defaultDatatypeSelectionContainers.push(aDTSelectionContainer);
         }
         for (i=0;i<supportedProperties.length;i++){
-            aSelectionContainer=propertyContainer.append("div");
-            aSelectionContainer.classed("containerForDefaultSelection",true);
-            aSelectionContainer.classed("noselect",true);
-            aSelectionContainer.node().id="selectedClass"+supportedProperties[i];
-            aSelectionContainer.node().innerHTML=supportedProperties[i];
-            aSelectionContainer.on("click",function(){
+           var aPropSelectionContainer=propertyContainer.append("div");
+            aPropSelectionContainer.classed("containerForDefaultSelection",true);
+            aPropSelectionContainer.classed("noselect",true);
+            aPropSelectionContainer.node().id="selectedClass"+supportedProperties[i];
+            aPropSelectionContainer.node().innerHTML=supportedProperties[i];
+            aPropSelectionContainer.on("click",function(){
                 unselectAllElements(defaultPropertySelectionContainers);
                 selectThisDefaultElement(this);
                 updateDefaultNameInAccordion(this,"defaultProperty");
@@ -120,10 +121,10 @@ module.exports = function (graph) {
             });
 
             if (supportedProperties[i]===defaultProperty){
-                selectThisDefaultElement(aSelectionContainer.node());
+                selectThisDefaultElement(aPropSelectionContainer.node());
             }
 
-            defaultPropertySelectionContainers.push(aSelectionContainer);
+            defaultPropertySelectionContainers.push(aPropSelectionContainer);
         }
 
         // set default selected elements;
@@ -149,9 +150,7 @@ module.exports = function (graph) {
         collapseContainers(d3.selectAll(".accordion-trigger:not(.accordion-trigger-active) + div"));
 
         triggers.on("click", function () {
-            var selectedTrigger = d3.select(this),
-                activeTriggers = d3.selectAll(".accordion-trigger-active");
-
+            var selectedTrigger = d3.select(this);
             if (selectedTrigger.classed("accordion-trigger-active")) {
                 // Collapse the active (which is also the selected) trigger
                 collapseContainers(d3.select(selectedTrigger.node().nextElementSibling));
@@ -177,8 +176,8 @@ module.exports = function (graph) {
     leftSidebar.isSidebarVisible=function(){return visibleSidebar;};
 
     leftSidebar.updateSideBarVis=function(init){
-        var vis=sidebar.getSidebarVisibility();
-        sidebar.showSidebar(parseInt(vis),init);
+        var vis=leftSidebar.getSidebarVisibility();
+        leftSidebar.showSidebar(parseInt(vis),init);
     };
 
     leftSidebar.initSideBarAnimation=function() {

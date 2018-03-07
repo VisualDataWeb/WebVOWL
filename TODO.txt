@@ -1,7 +1,7 @@
 [DONE] Add Config Menu 
 	-> Show zoomSlider Option
 
-[TODO] Add Animation for dynamic label width
+[DONE]  Add Animation for dynamic label width
     [done for properties]>> static -> dynamic : on animation end change labelContent
     [done for properties]>> dynamic-> static  : change labelContent start animation
 
@@ -38,8 +38,8 @@
    [DONE] Add Removal Function
 
 
-[TODO]
-    [] Fix Dynamic Label Width for rectangular nodes
+[DONE]
+    [DONE] Fix Dynamic Label Width for rectangular nodes
 
 [TODO]
     [] Add Text label Edit functions for nodes      (dblClick)
@@ -64,15 +64,16 @@
 
 [TODO] Create Right side bar for editor Mode
     [ ] swap between editor and view mode for right sidebar
-    [ ] create left side bar when editMode
+    [DONE] create left side bar when editMode
 
 [TODO] Right Sidebar Elements
-    [Done] Title Editor
-    [] IRI Editor
-    [] Version
-    [] Authors
-    [] Language
-       -> add language button + lang selection
+   [] Ontology MetaData
+        [Done] Title Editor
+        [] IRI Editor
+        [] Version
+        [] Authors
+        [] Language
+            -> add language button + lang selection
 
     [] Add Accordion Object (static elements in the html)
        // Maybe reorganize the editor informations !<<
@@ -89,10 +90,10 @@
 
 
 
-
 -------------------------------------------MID PRIORITY-----------------------------------------------------------------
     [] Prevent Multiple creation of subclasses between A -> B
     [] Allow shortCut A sco B and B sco A >> A isEquivalent B (create equi class and merge)
+    [] Add Equivalent Class and Property to default types
 
 
 -------------------------------------------TESTS -----------------------------------------------------------------

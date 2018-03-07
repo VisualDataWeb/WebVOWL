@@ -42,15 +42,16 @@ module.exports = function (graph) {
             .text(onChangeFunction());
 
         //
-        slider.on("focusout",function(){
-            graph.updateStyle();
-        });
+        // slider.on("focusout",function(){
+        //     graph.updateStyle();
+        // });
 
         slider.on("input", function () {
             var value = slider.property("value");
             onChangeFunction(value);
             sliderValueLabel.text(value);
-            graph.animateDynamicLabelWidth();
+            if (graph.options().dynamicLabelWidth()===true)
+                graph.animateDynamicLabelWidth();
         });
 
         // add wheel event to the slider

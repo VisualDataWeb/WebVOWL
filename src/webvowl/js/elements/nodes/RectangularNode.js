@@ -127,7 +127,7 @@ module.exports = (function () {
 
 			// set the value for that.width()
             // update labelWidth Value;
-            if (graph.options().dynamicLabelWidth()===true) labelWidth=that.getMyWidth();
+            if (graph.options().dynamicLabelWidth()===true) labelWidth=Math.min(that.getMyWidth(),graph.options().maxLabelWidth());
             else                							labelWidth=defaultWidth;
 
             width=labelWidth;
@@ -189,34 +189,31 @@ module.exports = (function () {
 
 		};
 
-
+        this.updateTextElement=function(){
+            textBlock.updateAllTextElements();
+        };
 
 		this.animateDynamicLabelWidth=function(dynamic) {
             that.removeHalo();
             var height=that.height();
             if (dynamic === true) {
-                labelWidth = that.getMyWidth();
+                labelWidth = Math.min(that.getMyWidth(),graph.options().maxLabelWidth());
                 shapeElement.transition().tween("attr", function () {})
                     .ease('linear')
                     .duration(100)
                     .attr({x: -labelWidth / 2, y: -height / 2, width: labelWidth, height: height})
                     .each("end", function () {
-                        textBlock.remove();
-                        labelWidth = that.getMyWidth();
-                        that.addTextLabelElement();
+                        that.updateTextElement();
                     });
 
             } else {
-                textBlock.remove();
                 labelWidth = defaultWidth;
+                that.updateTextElement();
                 shapeElement.transition().tween("attr", function () {})
                     .ease('linear')
                     .duration(100)
-                    .attr({x: -labelWidth / 2, y: -height / 2, width: labelWidth, height: height})
-                    .each("end", function () {
-                        //console.log("done animation!")
-                    });
-                that.addTextLabelElement();
+                    .attr({x: -labelWidth / 2, y: -height / 2, width: labelWidth, height: height});
+
             }
 
             // for the pin we dont need to differ between different widths -- they are already set
