@@ -49,14 +49,22 @@ module.exports = function (graph) {
         d3.select("#"+identifier).node().innerHTML=element.innerHTML;
     }
 
-    function createConnectionForDefaultClassSelection(){
-        for (var i =0;i< defaultClassSelectionContainers;i++)
-            defaultClassSelectionContainers[i].on("click",function(){
-            unselectAllElements(defaultClassSelectionContainers);
-            selectThisDefaultElement(this);
-            updateDefaultNameInAccordion(this,"defaultClass");
-        });
+    function classSelectorFunction(){
+        unselectAllElements(defaultClassSelectionContainers);
+        selectThisDefaultElement(this);
+        updateDefaultNameInAccordion(this,"defaultClass");
     }
+    function datatypeSelectorFunction(){
+        unselectAllElements(defaultDatatypeSelectionContainers);
+        selectThisDefaultElement(this);
+        updateDefaultNameInAccordion(this,"defaultDatatype");
+    }
+    function propertySelectorFunction(){
+        unselectAllElements(defaultDatatypeSelectionContainers);
+        selectThisDefaultElement(this);
+        updateDefaultNameInAccordion(this,"defaultProperty");
+    }
+
 
 	function setupSelectionContainers(){
         var classContainer    = d3.select("#classContainer");
@@ -84,9 +92,9 @@ module.exports = function (graph) {
             if (supportedClasses[i]===defaultClass){
                 selectThisDefaultElement(aClassSelectionContainer.node());
             }
+            aClassSelectionContainer.on("click", classSelectorFunction);
             defaultClassSelectionContainers.push(aClassSelectionContainer);
         }
-        createConnectionForDefaultClassSelection();
 
         for (i=0;i<supportedDatatypes.length;i++){
             var aDTSelectionContainer=datatypeContainer.append("div");
@@ -98,13 +106,7 @@ module.exports = function (graph) {
             if (supportedDatatypes[i]===defaultDatatype){
                 selectThisDefaultElement(aDTSelectionContainer.node());
             }
-            aDTSelectionContainer.on("click",function(){
-                unselectAllElements(defaultDatatypeSelectionContainers);
-                selectThisDefaultElement(this);
-                updateDefaultNameInAccordion(this,"defaultDatatype");
-
-            });
-
+            aDTSelectionContainer.on("click",datatypeSelectorFunction);
             defaultDatatypeSelectionContainers.push(aDTSelectionContainer);
         }
         for (i=0;i<supportedProperties.length;i++){
@@ -113,25 +115,12 @@ module.exports = function (graph) {
             aPropSelectionContainer.classed("noselect",true);
             aPropSelectionContainer.node().id="selectedClass"+supportedProperties[i];
             aPropSelectionContainer.node().innerHTML=supportedProperties[i];
-            aPropSelectionContainer.on("click",function(){
-                unselectAllElements(defaultPropertySelectionContainers);
-                selectThisDefaultElement(this);
-                updateDefaultNameInAccordion(this,"defaultProperty");
-
-            });
-
+            aPropSelectionContainer.on("click",propertySelectorFunction);
             if (supportedProperties[i]===defaultProperty){
                 selectThisDefaultElement(aPropSelectionContainer.node());
             }
-
             defaultPropertySelectionContainers.push(aPropSelectionContainer);
         }
-
-        // set default selected elements;
-
-
-
-
     }
 
     function setupCollapsing() {
