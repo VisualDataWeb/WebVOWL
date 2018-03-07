@@ -1558,9 +1558,13 @@ module.exports = function (graphContainerSelector) {
 
         var svgGraph = d3.selectAll(".vowlGraph");
         if (editMode === true) {
+            options.leftSidebar().showSidebar(1);
+            options.leftSidebar().hideCollapseButton(false);
             svgGraph.on("dblclick.zoom", graph.modified_dblClickFunction);
         }else{
             svgGraph.on("dblclick.zoom",originalD3_dblClickFunction);
+            options.leftSidebar().showSidebar(0);
+            options.leftSidebar().hideCollapseButton(true);
         }
 
         options.sidebar().updateShowedInformation();
@@ -1576,9 +1580,21 @@ module.exports = function (graphContainerSelector) {
         var aNode,prototype;
         var forceUpdate=true;
         // create a node of that id;
-        prototype= NodePrototypeMap.get("owl:class");
+
+        var typeToCreate=d3.select("#defaultClass").node().innerHTML;
+        console.log("Want To create TYPE :"+typeToCreate);
+
+        prototype= NodePrototypeMap.get(typeToCreate.toLowerCase());
         aNode = new prototype(graph);
-        aNode.label("NewClass");
+        if (typeToCreate==="owl:Thing") {
+            aNode.label("Thing");
+        }
+        else{
+            aNode.label("NewClass");
+        }
+
+        console.log("CreateNOde Type TYPE :"+aNode.type());
+
 
         aNode.x = pos.x;
         aNode.y = pos.y;
@@ -1632,13 +1648,36 @@ module.exports = function (graphContainerSelector) {
     };
 
     function createNewObjectProperty(domain,range){
-        if (graph.options().objectPropertyFilter().enabled()===true) {
+        // check type of the property that we want to create;
+
+        var defaultPropertyName=d3.select("#defaultProperty").node().innerHTML;
+        console.log("WE want to create the Default Property"+ defaultPropertyName);
+
+
+
+        if (defaultPropertyName==="owl:objectProperty" && graph.options().objectPropertyFilter().enabled()===true) {
             recalculatePositions();
             alert("Object properties are filtered out in the visualization!\nElement not created!");	// deselect
             graph.selectNode(undefined);
             return;
         }
-        var propPrototype=PropertyPrototypeMap.get("owl:objectproperty");
+
+        if (defaultPropertyName==="owl:disjointWith" && graph.options().disjointPropertyFilter().enabled()===true) {
+            recalculatePositions();
+            alert("owl:disjointWith properties are filtered out in the visualization!\nElement not created!");	// deselect
+            graph.selectNode(undefined);
+            return;
+        }
+
+        if (domain===range && defaultPropertyName!=="owl:objectProperty"){
+            recalculatePositions();
+            alert("owl:disjointWith or rdfs:subClassOf can not be created as loops (domain == range)\nElement not created!");	// deselect
+            graph.selectNode(undefined);
+            return;
+        }
+
+
+        var propPrototype=PropertyPrototypeMap.get(defaultPropertyName.toLowerCase());
         var aProp= new propPrototype(graph);
         aProp.id("objectProperty"+eP++);
         aProp.domain(domain);
@@ -1682,11 +1721,31 @@ module.exports = function (graphContainerSelector) {
         var aNode, prototype;
 
         // create a default datatype Node >> HERE LITERAL;
-        prototype = NodePrototypeMap.get("rdfs:literal");
-        aNode = new prototype(graph);
-        aNode.label("Literal");
-        aNode.iri("http://www.w3.org/2000/01/rdf-schema#Literal");
-        aNode.baseIri("http://www.w3.org/2000/01/rdf-schema#");
+        var defaultDatatypeName=d3.select("#defaultDatatype").node().innerHTML;
+        if (defaultDatatypeName==="rdfs:Literal") {
+            prototype = NodePrototypeMap.get("rdfs:literal");
+            aNode = new prototype(graph);
+            aNode.label("Literal");
+            aNode.iri("http://www.w3.org/2000/01/rdf-schema#Literal");
+            aNode.baseIri("http://www.w3.org/2000/01/rdf-schema#");
+        }else {
+            prototype = NodePrototypeMap.get("rdfs:datatype");
+            aNode = new prototype(graph);
+            var identifier="";
+            if (defaultDatatypeName==="undefined"){
+                identifier="undefined";
+                aNode.label(identifier);
+                // TODO : HANDLER FOR UNDEFINED DATATYPES!!<<<>>>>>>>>>>>..
+                aNode.iri("http://www.undefinedDatatype.org/#"+identifier);
+                aNode.baseIri("http://www.undefinedDatatype.org/#");
+            }else{
+                identifier=defaultDatatypeName.split(":")[1];
+                aNode.label(identifier);
+                aNode.iri("http://www.w3.org/2001/XMLSchema#"+identifier);
+                aNode.baseIri("http://www.w3.org/2001/XMLSchema#");
+            }
+        }
+
 
         var nX = node.x - node.actualRadius() - 100;
         var nY = node.y + node.actualRadius() + 100;
@@ -1781,6 +1840,10 @@ module.exports = function (graphContainerSelector) {
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
     };
+
+
+
+
 
 
 

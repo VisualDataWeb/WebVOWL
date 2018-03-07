@@ -28,6 +28,7 @@ module.exports = function () {
 		searchMenu,
 		ontologyMenu,
 		sidebar,
+		leftSidebar,
 		navigationMenu,
 		exportMenu,
 		graphObject,
@@ -38,9 +39,20 @@ module.exports = function () {
         setOperatorFilter,
         maxLabelWidth=120,
 
-		rectangularRep=false,
+        disjointPropertyFilter,
+
+        supportedDatatypes=["rdfs:Literal", "xsd:boolean", "xsd:double", "xsd:integer", "xsd:string","undefined"],
+        supportedClasses=["owl:Thing","owl:Class","owl:DeprecatedClass"],
+        supportedProperties=["owl:objectProperty","rdfs:subClassOf","owl:disjointWith"],
+
+
+        rectangularRep=false,
 		scaleNodesByIndividuals = true;
 
+
+	options.supportedDatatypes  = function(){ return supportedDatatypes;  };
+	options.supportedClasses    = function(){ return supportedClasses;    };
+	options.supportedProperties = function(){ return supportedProperties; };
 
     options.datatypeFilter=function(val){
         if (!arguments.length) return datatypeFilter;
@@ -54,6 +66,10 @@ module.exports = function () {
         if (!arguments.length) return objectPropertyFilter;
         objectPropertyFilter=val;
     };
+    options.disjointPropertyFilter=function(val){
+        if (!arguments.length) return disjointPropertyFilter;
+        disjointPropertyFilter=val;
+    };
     options.subclassFilter=function(val){
         if (!arguments.length) return subclassFilter;
         subclassFilter=val;
@@ -61,6 +77,10 @@ module.exports = function () {
     options.setOperatorFilter=function(val){
         if (!arguments.length) return setOperatorFilter;
         setOperatorFilter=val;
+    };
+    options.leftSidebar=function(val){
+        if (!arguments.length) return leftSidebar;
+        leftSidebar=val;
     };
 
 

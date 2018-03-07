@@ -139,6 +139,47 @@ a:hover {
 	100% { width: 78%;}
 }
 
+
+
+/*----------------------------------------------
+  SideBar Animation Class;
+----------------------------------------------- */
+@-webkit-keyframes l_sbExpandAnimation {
+	0% {  width: 0px;}
+	100% {width: 200px;}
+}
+@-moz-keyframes l_sbExpandAnimation {
+	0% {  width: 0px;}
+	100% {width: 200px;}
+}
+@-o-keyframes l_sbExpandAnimation {
+	0% {  width: 0px;}
+	100% {width: 200px;}
+}
+@keyframes l_sbExpandAnimation {
+	0% {  width: 0px;}
+	100% {width: 200px;}
+}
+
+/*Collapse Animation*/
+@-webkit-keyframes l_sbCollapseAnimation {
+	0%   { width: 200px;}
+	100% { width: 0px;}
+}
+@-moz-keyframes l_sbCollapseAnimation  {
+	0%   { width: 200px;}
+	100% { width: 0px;}
+}
+@-o-keyframes l_sbCollapseAnimation  {
+	0%   { width: 200px;}
+	100% { width: 0px;}
+}
+@keyframes l_sbCollapseAnimation  {
+	0%   { width: 200px;}
+	100% { width: 0px;}
+}
+
+
 /*----------------------------------------------
         LAYOUT
 ----------------------------------------------*/
@@ -519,6 +560,84 @@ main {
 	border: 1px solid #000000;
 	background-color: #ecf0f1;
 	cursor: pointer;
+}
+
+
+#leftSideBarCollapseButton{
+	box-sizing: border-box;
+	top: 0px;
+	padding:5px;
+	color: #000000;
+	float:left;
+	position:absolute;
+	right:-20px;
+	border: 1px solid #000000;
+	background-color: #ecf0f1;
+	cursor: pointer;
+}
+
+#leftSideBarContent{
+	color: #000000;
+	float:left;
+	position:absolute;
+	left:0;
+	/*border: 1px solid #000000;*/
+	background-color: rgb(24, 32, 42);
+	width:100%;
+	height:100%;
+}
+
+#leftSideBarContent > h3{
+	color: #ecf0f1;
+	display: block;
+	font-size: 1.1em;
+	font-weight: 100;
+	margin: 0;
+	padding: 10px 0;
+	text-align: left;
+}
+.selectedDefaultElement{
+	text-align: center;
+	color: #f19505;
+}
+
+.containerForDefaultSelection{
+	color: #ecf0f1;
+	display: block;
+	font-size: 1.1em;
+	font-weight: 100;
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+}
+
+.defaultSelected{
+	color: #a15d05;
+	background-color: #283943;
+}
+
+.containerForDefaultSelection:hover{
+	color: #f19505;
+	background-color: #394f5a;
+	display: block;
+	cursor: pointer;
+
+}
+
+#containerForLeftSideBar{
+	top: 50px;
+	float:left;
+	position:absolute;
+	left:0;
+	width:200px;
+	height:200px;
+}
+
+#leftSideBar{
+	width:100%;
+	height:100%;
+	background-color: rgb(24, 32, 42);
+
 }
 
 #loading-info {

@@ -6,7 +6,8 @@ module.exports = (function () {
 		DatatypeNode.apply(this, arguments);
 
 		this.attributes(["datatype"])
-			.type("rdfs:Datatype");
+			.type("rdfs:Datatype")
+			.styleClass("datatype");
 	};
 	o.prototype = Object.create(DatatypeNode.prototype);
 	o.prototype.constructor = o;

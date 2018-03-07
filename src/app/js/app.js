@@ -17,6 +17,7 @@ module.exports = function () {
 		navigationMenu = require("./menu/navigationMenu") (graph),
         zoomSlider     = require("./menu/zoomSlider")     (graph),
 		sidebar        = require("./sidebar")             (graph),
+        leftSidebar    = require("./leftSidebar")          (graph),
 		configMenu     = require("./menu/configMenu")     (graph),
 
 	// Graph modules
@@ -65,6 +66,7 @@ module.exports = function () {
 		modeMenu.setup(pickAndPin, nodeScalingSwitch, compactNotationSwitch, colorExternalsSwitch);
 		pauseMenu.setup();
 		sidebar.setup();
+		leftSidebar.setup();
 
 
 
@@ -102,6 +104,7 @@ module.exports = function () {
 			options.ontologyMenu(ontologyMenu);
 			options.navigationMenu(navigationMenu);
 			options.sidebar(sidebar);
+            options.leftSidebar(leftSidebar);
 			options.exportMenu(exportMenu);
 			options.graphObject(graph);
 			options.zoomSlider(zoomSlider);
@@ -110,6 +113,7 @@ module.exports = function () {
             options.objectPropertyFilter(objectPropertyFilter);
             options.subclassFilter(subclassFilter);
             options.setOperatorFilter(setOperatorFilter);
+            options.disjointPropertyFilter(disjointFilter);
 
             ontologyMenu.setup(loadOntologyFromText);
             configMenu.setup();
@@ -140,6 +144,9 @@ module.exports = function () {
             d3.select("#showEditorHint").on("click",function(){
                 d3.select("#editorHint").classed("hidden",false);
 			});
+
+            d3.select("#containerForLeftSideBar").style("width","0px"); // init value
+
         }
 	};
 
@@ -210,7 +217,9 @@ module.exports = function () {
 		exportMenu.setFilename(filename);
         graph.updateZoomSliderValueFromOutside();
         adjustSize();
+
         sidebar.updateShowedInformation();
+        leftSidebar.showSidebar(1); // << TODO : this is currently for debugging
 	}
 
 	function adjustSize() {
@@ -268,6 +277,17 @@ module.exports = function () {
             rightButton.classed("hidden",true);
             leftButton.classed("hidden",true);
 		}
+
+		// adjust height of the leftSidebar element;
+        var lsb_offset=d3.select("#logo").node().getBoundingClientRect().height+5;
+        var lsb_height=height-lsb_offset;
+        d3.select("#containerForLeftSideBar").style("top",lsb_offset+"px");
+        d3.select("#containerForLeftSideBar").style("height",lsb_height+"px");
+
+		// var lsb_offest=d3.select("#logo").node().getBoundingClientRect().height+5;
+        // var lsb_offestLeft=d3.select("#leftSideBar").node().getBoundingClientRect().width;
+        // // d3.select("#leftSideBarCollapseButton").style("top",lsb_offest+"px");
+        // d3.select("#leftSideBarCollapseButton").style("left",lsb_offestLeft+"px");
 
 	}
 

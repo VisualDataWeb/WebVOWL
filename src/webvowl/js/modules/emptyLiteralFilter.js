@@ -54,12 +54,12 @@ module.exports = function () {
 				}
 			// check for node type == OWL:THING
 			} else if (nodes[i].type() === "owl:Thing"){
-				if (thingUsageMap[nodeId] === undefined) {
-					nodesToRemove.push(nodeId);
-				}
-				else {
+				// if (thingUsageMap[nodeId] === undefined) {
+				// 	// nodesToRemove.push(nodeId);
+				// }
+				// else {
 					newNodes.push(nodes[i]);
-				}
+				// }
 			}else{
 				newNodes.push(nodes[i]);
 			}
