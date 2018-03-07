@@ -45,9 +45,11 @@ module.exports = function (graph) {
                 prefURL.node().id="prefixURLFor_"+name;
                 prefURL.node().autocomplete="off";
                 prefURL.node().value=prefixElements[name];
+
+                prefInput.node().disabled=true;
+                prefURL.node().disabled=true;
+
             }
-            prefInput.node().disabled=true;
-            prefURL.node().disabled=true;
 
         }
 
