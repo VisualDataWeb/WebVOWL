@@ -49,7 +49,14 @@ module.exports = function (graph) {
         d3.select("#"+identifier).node().innerHTML=element.innerHTML;
     }
 
-
+    function createConnectionForDefaultClassSelection(){
+        for (var i =0;i< defaultClassSelectionContainers;i++)
+            defaultClassSelectionContainers[i].on("click",function(){
+            unselectAllElements(defaultClassSelectionContainers);
+            selectThisDefaultElement(this);
+            updateDefaultNameInAccordion(this,"defaultClass");
+        });
+    }
 
 	function setupSelectionContainers(){
         var classContainer    = d3.select("#classContainer");
@@ -77,16 +84,9 @@ module.exports = function (graph) {
             if (supportedClasses[i]===defaultClass){
                 selectThisDefaultElement(aClassSelectionContainer.node());
             }
-
-            // connect this button;
-            aClassSelectionContainer.on("click",function(){
-                unselectAllElements(defaultClassSelectionContainers);
-                selectThisDefaultElement(this);
-                updateDefaultNameInAccordion(this,"defaultClass");
-
-            });
             defaultClassSelectionContainers.push(aClassSelectionContainer);
         }
+        createConnectionForDefaultClassSelection();
 
         for (i=0;i<supportedDatatypes.length;i++){
             var aDTSelectionContainer=datatypeContainer.append("div");
