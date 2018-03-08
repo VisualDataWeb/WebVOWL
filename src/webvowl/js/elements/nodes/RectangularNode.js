@@ -193,6 +193,12 @@ module.exports = (function () {
             textBlock.updateAllTextElements();
         };
 
+        this.redrawLabelText=function(){
+            textBlock.remove();
+            textBlock = new CenteringTextElement(that.nodeElement(), that.backgroundColor());
+            textBlock.addText(that.labelForCurrentLanguage());
+        };
+
 		this.animateDynamicLabelWidth=function(dynamic) {
             that.removeHalo();
             var height=that.height();

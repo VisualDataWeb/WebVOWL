@@ -1569,9 +1569,19 @@ module.exports = function (graphContainerSelector) {
         if (typeString==="owl:Thing") {
             aNode.label("Thing");
         }
-        else{
+        else if (elementTools.isDatatype()===false){
             aNode.label("NewClass");
         }
+
+        if (typeString==="rdfs:Datatype"){
+            if (aNode.dType()==="undefined")
+                aNode.label("Undefined Datatatype");
+            else{
+                var identifier=aNode.dType().split(":")[1];
+                aNode.label(identifier);
+            }
+        }
+
         for (var i = 0; i < unfilteredData.properties.length; i++) {
             if (unfilteredData.properties[i].domain() === element) {
                 unfilteredData.properties[i].toString();
@@ -1819,13 +1829,16 @@ module.exports = function (graphContainerSelector) {
             var identifier="";
             if (defaultDatatypeName==="undefined"){
                 identifier="undefined";
+
                 aNode.label(identifier);
                 // TODO : HANDLER FOR UNDEFINED DATATYPES!!<<<>>>>>>>>>>>..
                 aNode.iri("http://www.undefinedDatatype.org/#"+identifier);
                 aNode.baseIri("http://www.undefinedDatatype.org/#");
+                aNode.dType(defaultDatatypeName);
             }else{
                 identifier=defaultDatatypeName.split(":")[1];
                 aNode.label(identifier);
+                aNode.dType(defaultDatatypeName);
                 aNode.iri("http://www.w3.org/2001/XMLSchema#"+identifier);
                 aNode.baseIri("http://www.w3.org/2001/XMLSchema#");
             }

@@ -9,6 +9,9 @@ module.exports = function (graph) {
 		languageTools = webvowl.util.languageTools(),
 		elementTools = webvowl.util.elementTools();
 
+
+
+
 	var oldPrefix, oldPrefixURL;
     var prefix_editMode=false;
     editSidebar.setup=function(){
@@ -16,8 +19,19 @@ module.exports = function (graph) {
         setupCollapsing();
         setupPrefixList();
         setupAddPrefixButton();
+        setupSupportedDatatypes();
 
 	};
+
+    function setupSupportedDatatypes(){
+        var datatypeEditorSelection=d3.select("#typeEditor_datatype").node();
+        var supportedDatatypes=["undefined", "xsd:boolean", "xsd:double", "xsd:integer", "xsd:string"];
+        for (var i = 0; i < supportedDatatypes.length; i++) {
+            var optB = document.createElement('option');
+            optB.innerHTML = supportedDatatypes[i];
+            datatypeEditorSelection.appendChild(optB);
+        }
+    }
 
     function setupAddPrefixButton() {
         var btn=d3.select("#addPrefixButton");
@@ -39,14 +53,12 @@ module.exports = function (graph) {
                 editButton.node().title="Edit Prefix and URL";
                 editButton.node().elementStyle="save";
 
-
                 var prefInput=prefixEditContainer.append("input");
                 prefInput.classed("prefixInput",true);
                 prefInput.node().type="text";
                 prefInput.node().id="prefixInputFor_"+name;
                 prefInput.node().autocomplete="off";
                 prefInput.node().value="";
-
 
                 var prefURL=prefixEditContainer.append("input");
                 prefURL.classed("prefixURL",true);
@@ -59,7 +71,6 @@ module.exports = function (graph) {
                 prefURL.node().disabled=false;
                 prefix_editMode=true;
 
-
                 var deleteButton=prefixEditContainer.append("span");
                 deleteButton.classed("deletePrefixButton",true);
                 deleteButton.classed("noselect",true);
@@ -68,12 +79,10 @@ module.exports = function (graph) {
                 deleteButton.node().title="Delete  Prefix and URL";
 
                 // connect the buttons;
-
                 editButton.on("click",enablePrefixEdit);
                 deleteButton.on("click",deletePrefixLine);
 
                 // swap focus to prefixInput
-
                 prefInput.node().focus();
                 oldPrefix=name;
                 oldPrefixURL="";
@@ -84,14 +93,6 @@ module.exports = function (graph) {
 
     function setupPrefixList(){
         var prefixListContainer=d3.select("#prefixURL_Container");
-
-        /*
-         <div class="prefixIRIElements" id="prefixContainer">
-         <input class="prefixInput " type="text" id="AA" value="" autocomplete="off">
-         <input class="prefixURL" type="text" id="BB" value="" autocomplete="off">
-         </div>
-        * */
-
         var prefixElements=graph.options().prefixList();
         for (var name in prefixElements){
             if (prefixElements.hasOwnProperty(name)){
@@ -99,6 +100,7 @@ module.exports = function (graph) {
                 prefixEditContainer.classed("prefixIRIElements",true);
                 prefixEditContainer.node().id="prefixContainerFor_"+name;
 
+                // create edit button which enables the input fields
                 var editButton=prefixEditContainer.append("span");
                 editButton.classed("editPrefixButton",true);
                 editButton.classed("noselect",true);
@@ -107,7 +109,7 @@ module.exports = function (graph) {
                 editButton.node().title="Edit Prefix and URL";
                 editButton.node().elementStyle="edit";
 
-
+                // create input field for prefix
                 var prefInput=prefixEditContainer.append("input");
                 prefInput.classed("prefixInput",true);
                 prefInput.node().type="text";
@@ -115,7 +117,7 @@ module.exports = function (graph) {
                 prefInput.node().autocomplete="off";
                 prefInput.node().value=name;
 
-
+                // create input field for prefix url
                 var prefURL=prefixEditContainer.append("input");
                 prefURL.classed("prefixURL",true);
                 prefURL.node().type="text";
@@ -123,10 +125,11 @@ module.exports = function (graph) {
                 prefURL.node().autocomplete="off";
                 prefURL.node().value=prefixElements[name];
 
+                // disable the input fields (already defined elements can be edited later)
                 prefInput.node().disabled=true;
                 prefURL.node().disabled=true;
 
-
+                // create the delete button
                 var deleteButton=prefixEditContainer.append("span");
                 deleteButton.classed("deletePrefixButton",true);
                 deleteButton.classed("noselect",true);
@@ -139,7 +142,6 @@ module.exports = function (graph) {
             }
         }
     }
-
 
     function deletePrefixLine() {
         var selector=this.id.split("_")[1];
@@ -174,6 +176,29 @@ module.exports = function (graph) {
                 prefix_editMode=false;
             }
         }
+    }
+
+    function changeDatatypeType(element){
+        var datatypeEditorSelection=d3.select("#typeEditor_datatype").node();
+        var givenName=datatypeEditorSelection.value;
+        var identifier=givenName.split(":")[1];
+
+        if (datatypeEditorSelection.value!=="undefined"){
+            d3.select("#element_iriEditor").node().disabled = true;
+            d3.select("#element_labelEditor").node().disabled = true;
+        }else{
+            identifier="Undefined Datatype";
+            d3.select("#element_iriEditor").node().disabled = false;
+            d3.select("#element_labelEditor").node().disabled = false;
+        }
+        element.label(identifier);
+        element.dType(givenName);
+        element.iri("http://www.w3.org/2001/XMLSchema#"+identifier);
+        element.baseIri("http://www.w3.org/2001/XMLSchema#");
+        element.redrawLabelText();
+
+        d3.select("#element_iriEditor").node().value=element.iri();
+        d3.select("#element_labelEditor").node().value=element.labelForCurrentLanguage();
     }
 
     editSidebar.updateEditDeleteButtonIds=function(oldPrefix,newPrefix){
@@ -216,7 +241,20 @@ module.exports = function (graph) {
                 d3.select("#element_labelEditor").node().disabled=true;
             }
             if (element.type()==="rdfs:Datatype") {
+                var datatypeEditorSelection=d3.select("#typeEditor_datatype");
                 d3.select("#typeEditForm_datatype").classed("hidden",false);
+                d3.select("#element_iriEditor").node().disabled = false;
+                d3.select("#element_labelEditor").node().disabled = false;
+
+                datatypeEditorSelection.node().value=element.dType();
+                if (datatypeEditorSelection.node().value!=="undefined"){
+                    d3.select("#element_iriEditor").node().disabled = true;
+                    d3.select("#element_labelEditor").node().disabled = true;
+                }
+                // reconnect the element
+                datatypeEditorSelection.on("change", function () {
+                    changeDatatypeType(element);
+                });
 
             }
 
@@ -250,6 +288,7 @@ module.exports = function (graph) {
         if (elementTools.isNode(element)){
             graph.changeNodeType(element);
         }
+
         if (elementTools.isProperty(element)){
             graph.changePropertyType(element);
         }
@@ -270,7 +309,7 @@ module.exports = function (graph) {
                     availiblePrototypes.push("owl:disjointWith");
                 }
             }
-            console.log(availiblePrototypes);
+            // console.log(availiblePrototypes);
             return availiblePrototypes;
         }
         //  console.log("The Node Map:-----------------------");
@@ -284,7 +323,7 @@ module.exports = function (graph) {
             // availiblePrototypes.push("owl:complementOf");
             // availiblePrototypes.push("owl:disjointUnionOf");
         }
-        console.log(availiblePrototypes);
+        // console.log(availiblePrototypes);
         return availiblePrototypes;
     }
 
