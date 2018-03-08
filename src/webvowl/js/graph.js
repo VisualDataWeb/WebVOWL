@@ -1591,13 +1591,16 @@ module.exports = function (graphContainerSelector) {
         // handle focuser!
         options.focuserModule().handle(aNode);
 
-        element=undefined;
+        element=null;
 
     };
 
 
     graph.changePropertyType=function(element){
         var typeString=d3.select("#typeEditor").node().value;
+
+        // create warning
+        if (sanityCheckProperty(element.domain(),element.range(),typeString)===false) return;
 
         var propPrototype=PropertyPrototypeMap.get(typeString.toLowerCase());
         var aProp= new propPrototype(graph);
@@ -1628,7 +1631,7 @@ module.exports = function (graphContainerSelector) {
         }
 
         options.focuserModule().handle(aProp);
-        element=undefined;
+        element=null;
     };
 
 
@@ -1687,12 +1690,8 @@ module.exports = function (graphContainerSelector) {
         aNode.baseIri("http://someIRI.de/");
         aNode.iri(aNode.baseIri()+aNode.id());
         addNewNodeElement(aNode,forceUpdate);
-        // graph.selectNode(undefined);
-        // graph.updateEditInfo();
-        // graph.options().sidebar().updateSelectionInformation(undefined,true);
-        // updateStatistics();
-
-        // graph.options().sidebar().updateSelectionInformation(undefined,false);
+        console.log("----------------------------------------HANDLER -------------- DO SELET? ");
+        options.focuserModule().handle(aNode,true);
     }
 
 
@@ -1727,6 +1726,30 @@ module.exports = function (graphContainerSelector) {
         return tN;
     };
 
+
+    function sanityCheckProperty(domain,range,typeString){
+
+        if (typeString==="owl:objectProperty" && graph.options().objectPropertyFilter().enabled()===true) {
+            recalculatePositions();
+            alert("Object properties are filtered out in the visualization!\nElement not created!");	// deselect
+            return false;
+        }
+
+        if (typeString==="owl:disjointWith" && graph.options().disjointPropertyFilter().enabled()===true) {
+            recalculatePositions();
+            alert("owl:disjointWith properties are filtered out in the visualization!\nElement not created!");	// deselect
+            return false;
+        }
+
+        if (domain===range && typeString!=="owl:objectProperty"){
+            recalculatePositions();
+            alert("owl:disjointWith or rdfs:subClassOf can not be created as loops (domain == range)\nElement not created!");	// deselect
+            return false;
+        }
+        return true; // we can create a property
+
+    }
+
     function createNewObjectProperty(domain,range){
         // check type of the property that we want to create;
 
@@ -1735,26 +1758,7 @@ module.exports = function (graphContainerSelector) {
 
 
 
-        if (defaultPropertyName==="owl:objectProperty" && graph.options().objectPropertyFilter().enabled()===true) {
-            recalculatePositions();
-            alert("Object properties are filtered out in the visualization!\nElement not created!");	// deselect
-            graph.selectNode(undefined);
-            return;
-        }
-
-        if (defaultPropertyName==="owl:disjointWith" && graph.options().disjointPropertyFilter().enabled()===true) {
-            recalculatePositions();
-            alert("owl:disjointWith properties are filtered out in the visualization!\nElement not created!");	// deselect
-            graph.selectNode(undefined);
-            return;
-        }
-
-        if (domain===range && defaultPropertyName!=="owl:objectProperty"){
-            recalculatePositions();
-            alert("owl:disjointWith or rdfs:subClassOf can not be created as loops (domain == range)\nElement not created!");	// deselect
-            graph.selectNode(undefined);
-            return;
-        }
+       if (sanityCheckProperty(domain,range,defaultPropertyName)===false) return;
 
 
         var propPrototype=PropertyPrototypeMap.get(defaultPropertyName.toLowerCase());
@@ -1784,6 +1788,9 @@ module.exports = function (graphContainerSelector) {
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
 
+        options.focuserModule().handle(aProp);
+        graph.activateHoverElementsForProperties(true,aProp,false);
+
     }
 
     graph.createDataTypeProperty = function (node) {
@@ -1793,7 +1800,6 @@ module.exports = function (graphContainerSelector) {
         if (graph.options().datatypeFilter().enabled() === true) {
             recalculatePositions();
             alert("Datatype properties are filtered out in the visualization!\nElement not created!");	// deselect
-            graph.selectNode(undefined);
             return;
         }
 
@@ -1895,22 +1901,24 @@ module.exports = function (graphContainerSelector) {
         // splice them;
         for (i = 0; i < propsToRemove.length; i++) {
             unfilteredData.properties.splice(unfilteredData.properties.indexOf(propsToRemove[i]), 1);
-            propsToRemove[i]=undefined;
+            propsToRemove[i]=null;
         }
         for (i = 0; i < nodesToRemove.length; i++) {
             unfilteredData.nodes.splice(unfilteredData.nodes.indexOf(nodesToRemove[i]), 1);
-            nodesToRemove[i]=undefined;;
+            nodesToRemove[i]=null;
         }
         graph.update();
         options.focuserModule().handle(undefined);
-        nodesToRemove=undefined;
-        propsToRemove=undefined;
+        nodesToRemove=null;
+        propsToRemove=null;
 
     };
 
     graph.removePropertyViaEditor = function (property) {
         if (property.type().toLocaleLowerCase() === "owl:datatypeproperty") {
+            var datatype=property.range();
             unfilteredData.nodes.splice(unfilteredData.nodes.indexOf(property.range()), 1);
+            datatype=null;
         }
         unfilteredData.properties.splice(unfilteredData.properties.indexOf(property), 1);
         hoveredPropertyElement = undefined;
@@ -1918,7 +1926,7 @@ module.exports = function (graphContainerSelector) {
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
         options.focuserModule().handle(undefined);
-        delete property;
+        property=null;
     };
 
 

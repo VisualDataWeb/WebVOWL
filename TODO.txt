@@ -84,12 +84,18 @@
        -> [ SKIP ]MetaData  // << Keep editor sidebar slim
        -> [ SKIP ]Statistics // << Keep editor sidebar slim
        -> Selection Details
-            [] handle iri change and prefixd representation
+            [] handle iri change and prefixed representation
             [] handle label changes
             [DONE] handle type changes
+            [] handle characteristics;
 
+[TODO]
+    On mobile devices, handling the height, should not change the graph height
+    but translate the graph a bit (this should help to keep the nodes from runnig away when keyboard is poped up)
 
+[TODO] >> handler solitary subclass filter
 
+[TODO] position of the collapse button fror leftSiderbar
 
 [TODO] Add Left sidebar
  [DONE] create left side bar when editMode
