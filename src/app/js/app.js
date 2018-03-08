@@ -118,6 +118,8 @@ module.exports = function () {
             options.setOperatorFilter(setOperatorFilter);
             options.disjointPropertyFilter(disjointFilter);
 
+            options.focuserModule(focuser);
+
             ontologyMenu.setup(loadOntologyFromText);
             configMenu.setup();
 			graph.start();

@@ -35,6 +35,7 @@ module.exports = function () {
 		graphObject,
         zoomSlider,
         datatypeFilter,
+        focuserModule,
         objectPropertyFilter,
         subclassFilter,
         setOperatorFilter,
@@ -113,6 +114,10 @@ module.exports = function () {
     options.datatypeFilter=function(val){
         if (!arguments.length) return datatypeFilter;
         datatypeFilter=val;
+    };
+    options.focuserModule=function(val){
+        if (!arguments.length) return focuserModule;
+        focuserModule=val;
     };
     options.maxLabelWidth=function(val){
         if (!arguments.length) return maxLabelWidth;

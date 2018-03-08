@@ -23,6 +23,15 @@ module.exports = (function () {
         that.editingTextElement=false;
 
 
+        this.copyInformation=function(other){
+            console.log(other.labelForCurrentLanguage());
+            that.label(other.label());
+            that.complement(other.complement());
+            that.iri(other.iri());
+            that.baseIri(other.baseIri());
+        };
+
+
         this.renderType=function(t){
             if (!arguments.length) return rendertype;
             rendertype = t;

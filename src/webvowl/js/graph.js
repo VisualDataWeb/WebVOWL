@@ -1550,8 +1550,89 @@ module.exports = function (graphContainerSelector) {
 
 
     /** --------------------------------------------------------- **/
-    /** -- VOWL EDITOR  create/ delete functions --               **/
+    /** -- VOWL EDITOR  create/ edit /delete functions --         **/
     /** --------------------------------------------------------- **/
+
+    graph.changeNodeType=function(element){
+
+        var typeString=d3.select("#typeEditor").node().value;
+        var prototype= NodePrototypeMap.get(typeString.toLowerCase());
+        var aNode = new prototype(graph);
+
+        aNode.x = element.x;
+        aNode.y = element.y;
+        aNode.px = element.x;
+        aNode.py = element.y;
+        aNode.id(element.id());
+        aNode.copyInformation(element);
+
+        if (typeString==="owl:Thing") {
+            aNode.label("Thing");
+        }
+        else{
+            aNode.label("NewClass");
+        }
+        for (var i = 0; i < unfilteredData.properties.length; i++) {
+            if (unfilteredData.properties[i].domain() === element) {
+                unfilteredData.properties[i].toString();
+                //            console.log("Updating Domain");
+                unfilteredData.properties[i].domain(aNode);
+            }
+            if (unfilteredData.properties[i].range()  === element) {
+                unfilteredData.properties[i].range( aNode);
+                //          console.log("Updating Range");
+                unfilteredData.properties[i].toString();
+            }
+        }
+        unfilteredData.nodes.splice(unfilteredData.nodes.indexOf(element), 1);
+
+        // very important thing for selection!;
+        addNewNodeElement(aNode);
+        // handle focuser!
+        options.focuserModule().handle(aNode);
+
+        delete element;
+
+    };
+
+
+    graph.changePropertyType=function(element){
+        var typeString=d3.select("#typeEditor").node().value;
+
+        var propPrototype=PropertyPrototypeMap.get(typeString.toLowerCase());
+        var aProp= new propPrototype(graph);
+
+        aProp.id(element.id());
+        aProp.domain(element.domain());
+        aProp.range(element.range());
+
+
+
+
+        // // TODO: change its base IRI to proper value
+        // var ontoIRI="http://someTest.de";
+        // aProp.baseIri(ontoIRI);
+        // aProp.iri(aProp.baseIri()+aProp.id());
+
+
+
+        // add this to the data;
+        unfilteredData.properties.push(aProp);
+        unfilteredData.properties.splice(unfilteredData.properties.indexOf(element), 1);
+        graph.update();
+        if (element.labelObject() && aProp.labelObject()) {
+            aProp.labelObject().x  = element.labelObject().x;
+            aProp.labelObject().px = element.labelObject().px;
+            aProp.labelObject().y  = element.labelObject().y;
+            aProp.labelObject().py = element.labelObject().py;
+        }
+
+        options.focuserModule().handle(aProp);
+        delete element;
+
+    };
+
+
     graph.editorMode=function(val){
         if(!arguments.length) return editMode;
         else editMode=val;
@@ -1815,19 +1896,17 @@ module.exports = function (graphContainerSelector) {
         // splice them;
         for (i = 0; i < propsToRemove.length; i++) {
             unfilteredData.properties.splice(unfilteredData.properties.indexOf(propsToRemove[i]), 1);
+            delete propsToRemove[i];
         }
         for (i = 0; i < nodesToRemove.length; i++) {
             unfilteredData.nodes.splice(unfilteredData.nodes.indexOf(nodesToRemove[i]), 1);
+            delete nodesToRemove[i];
         }
-        // hoveredPropertyElement = undefined;
-        // hoveredNodeElement=undefined;
-        //
-        // graph.currentlySelectedNode(undefined);
-        // graph.selectNode(undefined);
         graph.update();
-        // generateDictionary(unfilteredData);
-        // graph.getUpdateDictionary();
-        // updateStatistics();
+        options.focuserModule().handle(undefined);
+        delete nodesToRemove;
+        delete propsToRemove;
+
     };
 
     graph.removePropertyViaEditor = function (property) {
@@ -1839,6 +1918,8 @@ module.exports = function (graphContainerSelector) {
         graph.update();
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
+        options.focuserModule().handle(undefined);
+        delete property;
     };
 
 

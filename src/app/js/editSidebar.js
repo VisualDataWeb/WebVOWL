@@ -198,9 +198,7 @@ module.exports = function (graph) {
             d3.select("#element_iriEditor").node().value=element.iri();
             d3.select("#element_labelEditor").node().value=element.labelForCurrentLanguage();
 
-            d3.select("#selectedElementType").node().innerHTML=element.type();
             // check if we are allowed to change IRI OR LABEL
-
             d3.select("#element_iriEditor").node().disabled=false;
             d3.select("#element_labelEditor").node().disabled=false;
 
@@ -217,11 +215,72 @@ module.exports = function (graph) {
                 d3.select("#element_labelEditor").node().disabled=true;
             }
 
+            // add type selector
+            var typeEditorSelection=d3.select("#typeEditor").node();
+            var htmlCollection = typeEditorSelection.children;
+            var numEntries = htmlCollection.length;
+            var i;
+            var elementPrototypes=getElementPrototypes(element);
+            for (i = 0; i < numEntries; i++)
+                htmlCollection[0].remove();
+
+            for (i = 0; i < elementPrototypes.length; i++) {
+                var optA = document.createElement('option');
+                optA.innerHTML = elementPrototypes[i];
+                typeEditorSelection.appendChild(optA);
+            }
+            // set the proper value in the selection
+            typeEditorSelection.value=element.type();
+            d3.select("#typeEditor").on("change",function(){
+                elementTypeSelectionChanged(element);
+            });
 
         }
 
 
     };
+
+    function elementTypeSelectionChanged(element) {
+        if (elementTools.isNode(element)){
+            graph.changeNodeType(element);
+        }
+        if (elementTools.isProperty(element)){
+            graph.changePropertyType(element);
+        }
+    }
+    
+    function getElementPrototypes(selectedElement){
+        var availiblePrototypes=[];
+        if (elementTools.isProperty(selectedElement)){
+            //  console.log("The Property Map:-----------------------");
+            if (selectedElement.type()==="owl:DatatypeProperty")
+                availiblePrototypes.push("owl:DatatypeProperty");
+            else
+            {
+                availiblePrototypes.push("owl:ObjectProperty");
+                // handling loops !
+                if (selectedElement.domain()!==selectedElement.range()) {
+                    availiblePrototypes.push("rdfs:subClassOf");
+                    availiblePrototypes.push("owl:disjointWith");
+                }
+            }
+            console.log(availiblePrototypes);
+            return availiblePrototypes;
+        }
+        //  console.log("The Node Map:-----------------------");
+        if(selectedElement.renderType()==="rect"){
+            availiblePrototypes.push("rdfs:Literal");
+            availiblePrototypes.push("rdfs:Datatype");
+        }else {
+            availiblePrototypes.push("owl:Class");
+            availiblePrototypes.push("owl:Thing");
+            //  TODO: ADD MORE TYPES
+            // availiblePrototypes.push("owl:complementOf");
+            // availiblePrototypes.push("owl:disjointUnionOf");
+        }
+        console.log(availiblePrototypes);
+        return availiblePrototypes;
+    }
 
 
     function setupCollapsing() {
