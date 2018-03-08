@@ -26,7 +26,7 @@ module.exports = function () {
 		compactNotationSwitch 	 = webvowl.modules.compactNotationSwitch(graph),
 		datatypeFilter 			 = webvowl.modules.datatypeFilter(),
 		disjointFilter 			 = webvowl.modules.disjointFilter(),
-		focuser 				 = webvowl.modules.focuser(),
+		focuser 				 = webvowl.modules.focuser(graph),
 		emptyLiteralFilter		 = webvowl.modules.emptyLiteralFilter(),
 		nodeDegreeFilter 		 = webvowl.modules.nodeDegreeFilter(filterMenu),
 		nodeScalingSwitch 		 = webvowl.modules.nodeScalingSwitch(graph),
@@ -222,7 +222,7 @@ module.exports = function () {
         adjustSize();
 
         sidebar.updateShowedInformation();
-        leftSidebar.showSidebar(1); // << TODO : this is currently for debugging
+        leftSidebar.showSidebar(0); // << TODO : this is currently for debugging
 	}
 
 	function adjustSize() {

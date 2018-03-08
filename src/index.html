@@ -254,7 +254,7 @@
 						<input type="text" id="authorsEditor" value="" autocomplete="off">
 					</form>
 				</div>
-				<h4 class="subAccordion accordion-trigger noselect accordion-trigger-active">Prefix</h4>
+				<h4 class="subAccordion accordion-trigger noselect">Prefix</h4>
 				<div class="subAccordionDescription" id="containerForPrefixURL">
 					<div id="prefixURL_Description">
 						<span class="boxed separatorLineRight">Prefix</span>
@@ -271,23 +271,31 @@
 				</div>
 			</div>  <!--end of ontology metaData -->
 
-			<h3 class="accordion-trigger noselect accordion-trigger-active">Description</h3>
+			<h3 class="accordion-trigger noselect">Description</h3>
 			<div>
 				<textarea title="dc:title maybe?" class="descriptionTextClass" id="descriptionEditor" ></textarea>
 			</div>
 			<h3 class="accordion-trigger noselect accordion-trigger-active">Selected Element</h3>
 			<div>
-				<div class="textLineEditWithLabel">
-					<form class="converter-form-Editor " id="element_iriEditForm">
-						<label class="EditLabelForInput" id="element_iriEditor-label" for="element_iriEditor">IRI:</label>
-						<input type="text" id="element_iriEditor" autocomplete="off" value="">
-					</form>
+				<div id="selectedElementProperties" class="hidden">
+					<div class="textLineEditWithLabel">
+						<form class="converter-form-Editor " id="element_iriEditForm">
+							<label class="EditLabelForInput" id="element_iriEditor-label" for="element_iriEditor">IRI:</label>
+							<input type="text" id="element_iriEditor" autocomplete="off" value="">
+						</form>
+					</div>
+					<div class="textLineEditWithLabel">
+						<form class="converter-form-Editor " id="element_labelEditForm">
+							<label class="EditLabelForInput" id="element_labelEditor-label" for="element_labelEditor">Label:</label>
+							<input type="text" id="element_labelEditor" autocomplete="off" value="">
+						</form>
+					</div>
+					<div class="textLineEditWithLabel">
+						<span> Type: </span><span id="selectedElementType"> Hello Type </span>
+					</div>
 				</div>
-				<div class="textLineEditWithLabel">
-					<form class="converter-form-Editor " id="element_labelEditForm">
-						<label class="EditLabelForInput" id="element_labelEditor-label" for="element_labelEditor">Label:</label>
-						<input type="text" id="element_labelEditor" autocomplete="off" value="">
-					</form>
+				<div id="selectedElementPropertiesEmptyHint">
+					Select an element in the visualization.
 				</div>
 			</div>
 

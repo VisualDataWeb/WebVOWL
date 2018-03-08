@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = function (graph) {
 	var focuser = {},
 		focusedElement;
 
@@ -17,6 +17,12 @@ module.exports = function () {
 			focusedElement = selectedElement;
 		} else {
 			focusedElement = undefined;
+		}
+		if (focusedElement && focusedElement.focused()){
+            graph.options().editSidebar().updateSelectionInformation(focusedElement);
+		}
+		else{
+            graph.options().editSidebar().updateSelectionInformation(undefined);
 		}
 	};
 

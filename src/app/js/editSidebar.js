@@ -184,6 +184,46 @@ module.exports = function (graph) {
         d3.select("#prefixContainerFor_"   + oldPrefix).node().id = "prefixContainerFor_"   + newPrefix;
     };
 
+    editSidebar.updateSelectionInformation=function(element){
+        if( element === undefined){
+            // show hint;
+            d3.select("#selectedElementProperties").classed("hidden",true);
+            d3.select("#selectedElementPropertiesEmptyHint").classed("hidden",false);
+        }
+        else{
+            d3.select("#selectedElementProperties").classed("hidden",false);
+            d3.select("#selectedElementPropertiesEmptyHint").classed("hidden",true);
+
+            // set the element IRI, and labels
+            d3.select("#element_iriEditor").node().value=element.iri();
+            d3.select("#element_labelEditor").node().value=element.labelForCurrentLanguage();
+
+            d3.select("#selectedElementType").node().innerHTML=element.type();
+            // check if we are allowed to change IRI OR LABEL
+
+            d3.select("#element_iriEditor").node().disabled=false;
+            d3.select("#element_labelEditor").node().disabled=false;
+
+            if (element.type()==="rdfs:subClassOf"){
+                d3.select("#element_iriEditor").node().value="http://www.w3.org/2000/01/rdf-schema#subClassOf";
+                d3.select("#element_labelEditor").node().value="Subclass of";
+                d3.select("#element_iriEditor").node().disabled=true;
+                d3.select("#element_labelEditor").node().disabled=true;
+            }
+            if (element.type()==="owl:Thing"){
+                d3.select("#element_iriEditor").node().value="http://www.w3.org/2002/07/owl#Thing";
+                d3.select("#element_labelEditor").node().value="Thing";
+                d3.select("#element_iriEditor").node().disabled=true;
+                d3.select("#element_labelEditor").node().disabled=true;
+            }
+
+
+        }
+
+
+    };
+
+
     function setupCollapsing() {
         // TODO : Decision , for now I want to have the control over the collapse expand operation of the
         // TODO : elements, otherwise the old approach will also randomly collapse other containers
