@@ -1591,7 +1591,7 @@ module.exports = function (graphContainerSelector) {
         // handle focuser!
         options.focuserModule().handle(aNode);
 
-        delete element;
+        element=undefined;
 
     };
 
@@ -1628,8 +1628,7 @@ module.exports = function (graphContainerSelector) {
         }
 
         options.focuserModule().handle(aProp);
-        delete element;
-
+        element=undefined;
     };
 
 
@@ -1896,16 +1895,16 @@ module.exports = function (graphContainerSelector) {
         // splice them;
         for (i = 0; i < propsToRemove.length; i++) {
             unfilteredData.properties.splice(unfilteredData.properties.indexOf(propsToRemove[i]), 1);
-            delete propsToRemove[i];
+            propsToRemove[i]=undefined;
         }
         for (i = 0; i < nodesToRemove.length; i++) {
             unfilteredData.nodes.splice(unfilteredData.nodes.indexOf(nodesToRemove[i]), 1);
-            delete nodesToRemove[i];
+            nodesToRemove[i]=undefined;;
         }
         graph.update();
         options.focuserModule().handle(undefined);
-        delete nodesToRemove;
-        delete propsToRemove;
+        nodesToRemove=undefined;
+        propsToRemove=undefined;
 
     };
 
