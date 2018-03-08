@@ -64,9 +64,45 @@ module.exports = function () {
     };
     options.addPrefix=function(prefix,url){
 		console.log("TODO: add "+prefix+" "+url);
+		prefixList[prefix]=url;
 	};
+
+    function validURL(str) {
+        var urlregex = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;
+        return urlregex.test(str);
+    }
+
+    options.updatePrefix=function(oldPrefix,newPrefix, oldURL,newURL){
+    	if (oldPrefix===newPrefix && oldURL===newURL){
+    		console.log("Nothing to update");
+    		return true;
+		}
+        if (oldPrefix===newPrefix && oldURL!==newURL && validURL(newURL)===true){
+            console.log("Update URL");
+			prefixList[oldPrefix]=newURL;
+        }else if (oldPrefix===newPrefix && oldURL!==newURL && validURL(newURL)===false){
+        	console.log("new URL is not Valid!");
+        	return false;
+		}
+        if (oldPrefix!==newPrefix && validURL(newURL)===true){
+
+        	// sanity check
+			if (prefixList.hasOwnProperty(newPrefix)){
+                console.log("Already have this prefix!");
+				return false;
+			}
+			options.removePrefix(oldPrefix);
+			options.addPrefix(newPrefix,newURL);
+			editSidebar.updateEditDeleteButtonIds(oldPrefix,newPrefix);
+			return true;
+		}
+
+		console.log("Is new URL ("+newURL+") valid?  >> "+validURL(newURL));
+		return false;
+    };
+
     options.removePrefix=function(prefix){
-        console.log("TODO: remove "+prefix);
+        delete prefixList[prefix];
     };
 
 

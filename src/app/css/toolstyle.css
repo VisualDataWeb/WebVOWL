@@ -635,6 +635,38 @@ main {
 .separatorLineRight{
 	border-right : 1px solid #f00;
 }
+.editPrefixButton:hover{
+	color: #ff972d;
+	cursor: pointer;
+}
+.deletePrefixButton:hover{
+	color: #ff972d;
+	cursor: pointer;
+}
+.deletePrefixButton{
+	color: #ff0000;
+	cursor: pointer;
+}
+#containerForAddPrefixButton{
+	width: 100%;
+	margin-top: 5px;
+}
+.roundedButton{
+	border: 1px solid #000000;
+	border-radius: 20px;
+	padding: 0 5px;
+	background: #fff;
+	cursor: pointer;
+	color:black;
+	outline: none;
+}
+.roundedButton:hover{
+	background: #318638;
+	cursor: pointer;
+	color:#fff;
+	outline: none;
+}
+
 #prefixURL_Description{
 	padding: 5px 0 0 0;
 }
