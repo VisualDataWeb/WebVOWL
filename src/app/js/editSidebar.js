@@ -201,6 +201,15 @@ module.exports = function (graph) {
         d3.select("#element_labelEditor").node().value=element.labelForCurrentLanguage();
     }
 
+    function changeIriForElement(element){
+        var url=d3.select("#element_iriEditor").node().value;
+        element.iri(url);
+    }
+    function changeLabelForElement(element){
+        element.label(d3.select("#element_labelEditor").node().value);
+        element.redrawLabelText();
+    }
+
     editSidebar.updateEditDeleteButtonIds=function(oldPrefix,newPrefix){
         d3.select("#prefixInputFor_"  + oldPrefix).node().id = "prefixInputFor_"  + newPrefix;
         d3.select("#prefixURLFor_"    + oldPrefix).node().id = "prefixURLFor_"    + newPrefix;
@@ -224,6 +233,26 @@ module.exports = function (graph) {
             d3.select("#element_iriEditor").node().value=element.iri();
             d3.select("#element_labelEditor").node().value=element.labelForCurrentLanguage();
 
+            d3.select("#element_iriEditor")
+                .on("change",function(){changeIriForElement(element);})
+                .on("keydown", function(){
+                    d3.event.stopPropagation();
+                    if (d3.event.keyCode === 13){
+                        d3.event.preventDefault();
+                        changeIriForElement(element);
+                    }
+                });
+
+
+            d3.select("#element_labelEditor")
+                .on("change",function(){changeLabelForElement(element);})
+                .on("keydown", function(){
+                    d3.event.stopPropagation();
+                    if (d3.event.keyCode === 13){
+                        d3.event.preventDefault();
+                        changeLabelForElement(element);
+                    }
+                });
             // check if we are allowed to change IRI OR LABEL
             d3.select("#element_iriEditor").node().disabled=false;
             d3.select("#element_labelEditor").node().disabled=false;
@@ -240,16 +269,20 @@ module.exports = function (graph) {
                 d3.select("#element_iriEditor").node().disabled=true;
                 d3.select("#element_labelEditor").node().disabled=true;
             }
+            if (element.type()==="rdfs:Literal"){
+                d3.select("#element_iriEditor").node().disabled = true;
+                d3.select("#element_labelEditor").node().disabled = true;
+            }
             if (element.type()==="rdfs:Datatype") {
                 var datatypeEditorSelection=d3.select("#typeEditor_datatype");
                 d3.select("#typeEditForm_datatype").classed("hidden",false);
-                d3.select("#element_iriEditor").node().disabled = false;
-                d3.select("#element_labelEditor").node().disabled = false;
+                d3.select("#element_iriEditor").node().disabled = true;
+                d3.select("#element_labelEditor").node().disabled = true;
 
                 datatypeEditorSelection.node().value=element.dType();
-                if (datatypeEditorSelection.node().value!=="undefined"){
-                    d3.select("#element_iriEditor").node().disabled = true;
-                    d3.select("#element_labelEditor").node().disabled = true;
+                if (datatypeEditorSelection.node().value==="undefined"){
+                    d3.select("#element_iriEditor").node().disabled = false;
+                    d3.select("#element_labelEditor").node().disabled = false;
                 }
                 // reconnect the element
                 datatypeEditorSelection.on("change", function () {

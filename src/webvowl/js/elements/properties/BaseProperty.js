@@ -41,7 +41,6 @@ module.exports = (function () {
 			haloGroupElement,
 			myWidth=80,
             defaultWidth=80,
-			dynamicWidth,
             shapeElement,
             textElement,
             parent_labelObject,
@@ -206,10 +205,7 @@ module.exports = (function () {
 			if (!that.labelVisible()) {
 				return undefined;
 			}
-			// on draw collect the information about the cropped text
-            dynamicWidth=that.getMyWidth();
-
-            if (graph.options().dynamicLabelWidth()===true) myWidth=Math.min(dynamicWidth,graph.options().maxLabelWidth());
+            if (graph.options().dynamicLabelWidth()===true) myWidth=Math.min(that.getMyWidth(),graph.options().maxLabelWidth());
             else                							myWidth=defaultWidth;
 
 			that.labelElement(attachLabel(that));
@@ -557,11 +553,9 @@ module.exports = (function () {
 
             // remove old textbox;
             var h=that.height();
-			if (dynamicWidth===undefined)
-				dynamicWidth=that.getMyWidth();
 
             if (dynamic === true) {
-                myWidth = Math.min(dynamicWidth,graph.options().maxLabelWidth());
+                myWidth = Math.min(that.getMyWidth(),graph.options().maxLabelWidth());
 
                 shapeElement.transition().tween("attr", function () {})
                     .ease('linear')
@@ -593,6 +587,12 @@ module.exports = (function () {
                     .duration(100);
 			}
             // console.log("animating Property --- Done");
+        };
+
+        this.redrawLabelText=function(){
+            textElement.remove();
+            that.addTextLabelElement();
+            that.animateDynamicLabelWidth(graph.options().dynamicLabelWidth());
         };
 
         this.addTextLabelElement=function(){

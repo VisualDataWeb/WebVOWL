@@ -197,6 +197,7 @@ module.exports = (function () {
             textBlock.remove();
             textBlock = new CenteringTextElement(that.nodeElement(), that.backgroundColor());
             textBlock.addText(that.labelForCurrentLanguage());
+            that.animateDynamicLabelWidth(graph.options().dynamicLabelWidth());
         };
 
 		this.animateDynamicLabelWidth=function(dynamic) {

@@ -209,6 +209,10 @@ module.exports = (function () {
 			}
 		};
 
+        this.redrawLabelText=function(){
+            that.textBlock().remove();
+            that.textBlock(createTextBlock());
+        };
 		function createTextBlock() {
 			var textBlock = new CenteringTextElement(that.nodeElement(), that.backgroundColor());
 
