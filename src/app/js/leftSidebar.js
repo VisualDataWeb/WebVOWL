@@ -60,7 +60,7 @@ module.exports = function (graph) {
         updateDefaultNameInAccordion(this,"defaultDatatype");
     }
     function propertySelectorFunction(){
-        unselectAllElements(defaultDatatypeSelectionContainers);
+        unselectAllElements(defaultPropertySelectionContainers);
         selectThisDefaultElement(this);
         updateDefaultNameInAccordion(this,"defaultProperty");
     }
@@ -175,9 +175,13 @@ module.exports = function (graph) {
             if (visibleSidebar === true) {
                 sideBarContainer.style("width", "200px");
                 sideBarContent.classed("hidden",false);
+                d3.select("#leftSideBarCollapseButton").style("left","200px");
+                d3.select("#leftSideBarCollapseButton").classed("hidden",false);
             }
             else {
                 sideBarContainer.style("width", "0px");
+                d3.select("#leftSideBarCollapseButton").style("left","0px");
+                d3.select("#leftSideBarCollapseButton").classed("hidden",false);
             }
             graph.updateCanvasContainerSize();
             graph.options().navigationMenu().updateScrollButtonVisibility();
@@ -187,9 +191,11 @@ module.exports = function (graph) {
     leftSidebar.showSidebar=function(val,init){
         // make val to bool
 		console.log("wannt to show sidebar?"+val);
+        d3.select("#leftSideBarCollapseButton").classed("hidden",true);
         if (val===1) {
             visibleSidebar=true;
             collapseButton.node().innerHTML="<";
+
 
             // call expand animation;
             sideBarContainer .style("-webkit-animation-name","l_sbExpandAnimation");
