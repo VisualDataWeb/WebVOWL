@@ -193,6 +193,7 @@ module.exports = function (graph) {
         else{
             d3.select("#selectedElementProperties").classed("hidden",false);
             d3.select("#selectedElementPropertiesEmptyHint").classed("hidden",true);
+            d3.select("#typeEditForm_datatype").classed("hidden",true);
 
             // set the element IRI, and labels
             d3.select("#element_iriEditor").node().value=element.iri();
@@ -214,6 +215,11 @@ module.exports = function (graph) {
                 d3.select("#element_iriEditor").node().disabled=true;
                 d3.select("#element_labelEditor").node().disabled=true;
             }
+            if (element.type()==="rdfs:Datatype") {
+                d3.select("#typeEditForm_datatype").classed("hidden",false);
+
+            }
+
 
             // add type selector
             var typeEditorSelection=d3.select("#typeEditor").node();

@@ -1690,7 +1690,6 @@ module.exports = function (graphContainerSelector) {
         aNode.baseIri("http://someIRI.de/");
         aNode.iri(aNode.baseIri()+aNode.id());
         addNewNodeElement(aNode,forceUpdate);
-        console.log("----------------------------------------HANDLER -------------- DO SELET? ");
         options.focuserModule().handle(aNode,true);
     }
 
@@ -1873,6 +1872,7 @@ module.exports = function (graphContainerSelector) {
                 node.locked(false);
             }
         }, 2000);
+        options.focuserModule().handle(undefined);
 
     };
 

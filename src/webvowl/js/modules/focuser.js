@@ -7,12 +7,11 @@ module.exports = function (graph) {
 		if (d3.event.defaultPrevented && forced===undefined) {
 			return;
 		}
-
 		if (focusedElement !== undefined) {
 			focusedElement.toggleFocus();
 		}
 
-		if (focusedElement !== selectedElement) {
+		if (focusedElement !== selectedElement && selectedElement) {
 			selectedElement.toggleFocus();
 			focusedElement = selectedElement;
 		} else {
