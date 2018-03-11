@@ -25,10 +25,16 @@ module.exports = (function () {
 			mouseEntered = false,
 			styleClass,
 			visible = true,
+
+			backupLabel,
 		// Other
 			languageTools = require("../util/languageTools")();
 
 
+		this.backupLabel=function(label){
+			if (!arguments.length) return backupLabel;
+			backupLabel=label;
+		};
 		// Properties
 		this.attributes = function (p) {
 			if (!arguments.length) return attributes;

@@ -19,6 +19,7 @@ module.exports = (function () {
 		// Additional attributes
 			maxIndividualCount,
             fobj, // foreigner object for editing
+            ignoreLocalHoverEvents=false,
 		// Element containers
 			nodeElement;
         that.editingTextElement=false;
@@ -30,11 +31,19 @@ module.exports = (function () {
             that.complement(other.complement());
             that.iri(other.iri());
             that.baseIri(other.baseIri());
+            if (other.type()==="owl:Class"){
+            	that.backupLabel(other.label());
+            	console.log("copied backup label"+that.backupLabel());
+			}
+			if (other.backupLabel()!==undefined){
+            	that.backupLabel(other.backupLabel());
+			}
         };
 
         this.enableEditing=function(autoEditing){
-        	if (autoEditing===false)  return;
-        	else that.raiseDoubleClickEdit(true);
+        	if (autoEditing===false)
+        		return;
+        	that.raiseDoubleClickEdit(true);
 		};
 
         this.raiseDoubleClickEdit=function(forceIRISync){
@@ -48,14 +57,17 @@ module.exports = (function () {
                  nodeElement.selectAll(".foreignelements").remove();
             }
 
+            graph.options().focuserModule().handle(undefined);
+            graph.options().focuserModule().handle(that);
             that.editingTextElement=true;
+            ignoreLocalHoverEvents=true;
             that.nodeElement().selectAll("circle").classed("hoveredForEditing", true);
 			that.frozen(true);
             graph.killDelayedTimer();
             graph.ignoreOtherHoverEvents(true);
             fobj= nodeElement.append("foreignObject")
-                 .attr("x",-0.5*that.textWidth())
-                 .attr("y",-13)
+                 .attr("x",-0.5*(that.textWidth()-2))
+                 .attr("y",-12)
                  .attr("height", 30)
                  .attr("class","foreignelements")
                  .on("dragstart",function(){return false;}) // remove drag operations of text element)
@@ -64,6 +76,9 @@ module.exports = (function () {
             //
             //
             //
+
+			console.log("fObject height "+fobj.attr("height"));
+
             var editText=fobj.append("xhtml:input")
                  .attr("class","nodeEditSpan")
                  .attr("id", that.id())
@@ -74,13 +89,13 @@ module.exports = (function () {
                  }); // remove drag operations of text element)
 
             var bgColor='#f00';
-            var txtWidth=that.textWidth();
-            console.log("Have TXT WIDTH"+txtWidth);
+            var txtWidth=that.textWidth()-2;
             editText.style({
-                 // 'line-height': '30px',
+
                  'align': 'center',
                  'color': 'black',
 				 'width': txtWidth+"px",
+				 'height': '15px',
                  'background-color': bgColor,
                  'border-bottom': '2px solid black'
              });
@@ -90,7 +105,7 @@ module.exports = (function () {
              txtNode.select();
 			 d3.event.stopPropagation();
 
-            // d3.event.stopPropagation();
+             d3.event.stopPropagation();
             // ignoreNodeHoverEvent=true;
             // // add some events that relate to this object
             editText.on("click", function(){
@@ -100,6 +115,7 @@ module.exports = (function () {
             editText.on("mouseout",function(){
                 console.log("hovered Out of the input Field");
                 d3.event.stopPropagation();
+
 
             });
             editText.on("mousedown", function(){
@@ -125,7 +141,10 @@ module.exports = (function () {
 
                 })
                 .on("blur", function(){
+
                     console.log("CALLING BLUR FUNCTION ----------------------"+d3.event);
+                    that.editingTextElement=false;
+                    ignoreLocalHoverEvents=false;
                     that.nodeElement().selectAll("circle").classed("hoveredForEditing", false);
                     var newLabel=editText.node().value;
                     nodeElement.selectAll(".foreignelements").remove();
@@ -261,7 +280,7 @@ module.exports = (function () {
 		};
 
 		function onMouseOver() {
-			if (that.mouseEntered()) {
+			if (that.mouseEntered() || ignoreLocalHoverEvents===true) {
 				return;
 			}
 

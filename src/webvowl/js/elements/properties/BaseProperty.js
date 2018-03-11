@@ -37,6 +37,8 @@ module.exports = (function () {
 			linkGroup,
 			markerElement,
 		// Other
+            ignoreLocalHoverEvents,
+            fobj,
 			pinGroupElement,
 			haloGroupElement,
 			myWidth=80,
@@ -610,7 +612,140 @@ module.exports = (function () {
         this.updateTextElement=function(){
         	textElement.updateAllTextElements();
 		};
+        this.enableEditing=function(autoEditing){
+            if (autoEditing===false)
+                return;
+            that.raiseDoubleClickEdit(true);
+        };
 
+        this.raiseDoubleClickEdit=function(forceIRISync){
+            console.log("executing Property doubleClick >> EDITING LABEL "+that.labelForCurrentLanguage());
+            d3.selectAll(".foreignelements").remove();
+            if (that.labelElement()===undefined || this.type()==="owl:disjointWith" || this.type()==="rdfs:subClassOf") {
+                console.log("No Container found");
+                return;
+            }
+            if (fobj!=undefined){
+                that.labelElement().selectAll(".foreignelements").remove();
+            }
+
+            graph.options().focuserModule().handle(undefined);
+            graph.options().focuserModule().handle(that);
+            that.editingTextElement=true;
+            ignoreLocalHoverEvents=true;
+            that.labelElement().selectAll("rect").classed("hoveredForEditing", true);
+            that.frozen(true);
+            graph.killDelayedTimer();
+            graph.ignoreOtherHoverEvents(true);
+            fobj= that.labelElement().append("foreignObject")
+                .attr("x",-0.5*that.textWidth())
+                .attr("y",-13)
+                .attr("height", 25)
+                .attr("class","foreignelements")
+                .on("dragstart",function(){return false;}) // remove drag operations of text element)
+                .attr("width", that.textWidth()-2);
+            // adding a Style to the fObject
+            //
+            //
+            //
+            var editText=fobj.append("xhtml:input")
+                .attr("class","nodeEditSpan")
+                .attr("id", that.id())
+                .attr("align","center")
+                .attr("contentEditable", "true")
+                .on("dragstart",function(){
+                    return false;
+                }); // remove drag operations of text element)
+
+            var bgColor='#f00';
+            var txtWidth=that.textWidth()-2;
+            editText.style({
+                // 'line-height': '30px',
+                'align': 'center',
+                'color': 'black',
+                'width': txtWidth+"px",
+                'background-color': bgColor,
+                'border-bottom': '2px solid black'
+            });
+            var  txtNode=editText.node();
+            txtNode.value=that.labelForCurrentLanguage();
+            txtNode.focus();
+            txtNode.select();
+
+
+            // add some events that relate to this object
+            editText.on("click", function(){
+                return false;
+            });
+            // // remove hover Events for now;
+            editText.on("mouseout",function(){
+                return false;
+            });
+            editText.on("mousedown", function(){
+                return false;
+            })
+			.on("keydown", function(){
+
+                    if (d3.event.keyCode ===13){
+                        this.blur();
+                        that.frozen(false); // << releases the not after selection
+                        that.locked(false);
+                    }
+                })
+                .on("keyup",function(){
+                    if (forceIRISync){
+                        var labelName=editText.node().value;
+                        var resourceName=labelName.replace(" ","_");
+                        var syncedIRI=that.baseIri()+resourceName;
+                        that.iri(syncedIRI);
+                        d3.select("#element_iriEditor").node().value=syncedIRI;
+                    }
+                    d3.select("#element_labelEditor").node().value=editText.node().value;
+
+                })
+                .on("blur", function(){
+                    console.log("CALLING BLUR FUNCTION ----------------------"+d3.event);
+                    that.editingTextElement=false;
+                    ignoreLocalHoverEvents=false;
+                    that.labelElement().selectAll("rect").classed("hoveredForEditing", false);
+                    var newLabel=editText.node().value;
+                    that.labelElement().selectAll(".foreignelements").remove();
+                    // that.setLabelForCurrentLanguage(classNameConvention(editText.node().value));
+                    that.label(newLabel);
+                    that.redrawLabelText();
+                    updateHoverElements(true);
+                    graph.showHoverElementsAfterAnimation(that,false);
+                    graph.ignoreOtherHoverEvents(false);
+                    graph.options().focuserModule().handle(undefined);
+                    graph.options().focuserModule().handle(that);
+                });	// add a foreiner element to this thing;
+
+        };
+
+        // update hover elements
+		function updateHoverElements(enable) {
+            if (graph.ignoreOtherHoverEvents() === false) {
+                var inversed = false;
+                if (that.inverse()) {
+                    inversed = true;
+                }
+                if (enable===true) {
+                    graph.activateHoverElementsForProperties(enable, that, inversed);
+                }
+            }
+        }
+		that.copyInformation=function(other){
+            that.label(other.label());
+            that.iri(other.iri());
+            that.baseIri(other.baseIri());
+            if (other.type()==="owl:ObjectProperty" || other.type()==="owl:DatatypeProperty"){
+                that.backupLabel(other.label());
+                console.log("copied backup label"+that.backupLabel());
+            }
+            if (other.backupLabel()!==undefined){
+                that.backupLabel(other.backupLabel());
+            }
+		};
 
 		forceLayoutNodeFunctions.addTo(this);
 	};

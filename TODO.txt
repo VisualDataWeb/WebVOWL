@@ -57,7 +57,7 @@
     [] Add visual handling for Domain modifier (drag a shadow clone of the property)
 
 
-[TODO] Handle Delete of InvereOf Property Containers
+[TODO] Handle Delete of InverseOf Property Containers
    -> possible option ( selecting the container provides the option of split (remove inverseOf statement)
    -> delete upper element would also delete the inverse option >> throw warning 
 
@@ -85,10 +85,9 @@
        -> [ SKIP ]Statistics // << Keep editor sidebar slim
        -> Selection Details
             [] handle iri change and prefixed representation
-            [] handle label changes
+            [DONE] handle label changes
             [DONE] handle type changes
-            [] datatype >> e.g rdfs:Datatype >> xsd:integer
-            [] handle characteristics;
+            [DONE] datatype >> e.g rdfs:Datatype >> xsd:integer
 
 [TODO]
     On mobile devices, handling the height, should not change the graph height
@@ -96,7 +95,7 @@
 
 [TODO] >> handler solitary subclass filter
 
-[TODO] position of the collapse button fror leftSiderbar
+[DONE] position of the collapse button for leftSidebar
 
 [TODO] Add Left sidebar
  [DONE] create left side bar when editMode
@@ -104,6 +103,10 @@
  [DONE] accordions for different element (classes, properties)
  [ ] Add Visual Representations for the Elements
 
+
+[TODO] Node and Property Characteristics handling
+[TODO] Domain Range Changer (Visual Elements and Shadow Clones of properties
+[TODO] EXPORT TTL MODULE
 
 -------------------------------------------High PRIORITY-----------------------------------------------------------------
     [] Prevent same definition of a Resources (e.g same named classes)
@@ -114,7 +117,8 @@
     [] Prevent Multiple creation of subclasses between A -> B
     [] Allow shortCut A sco B and B sco A >> A isEquivalent B (create equi class and merge)
     [] Add Equivalent Class and Property to default types
-
+    [DONE] Add backup label variable, when switching between types (e.g class-> thing -> class)
+    [] Change position of the property hoverElement when it is hovered but label changed in sidebar.
 
 
 

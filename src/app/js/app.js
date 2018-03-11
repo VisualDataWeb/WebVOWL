@@ -211,7 +211,8 @@ module.exports = function () {
         }
 
         if (newOntology){
-            d3.select("#editorHint").classed("hidden",false);
+            //TODO: PUT THIS BACK ON WHEN RELEASING
+            // d3.select("#editorHint").classed("hidden",false);
         }
 
         exportMenu.setJsonText(jsonText);
@@ -224,7 +225,10 @@ module.exports = function () {
         adjustSize();
 
         sidebar.updateShowedInformation();
-        leftSidebar.showSidebar(0); // << TODO : this is currently for debugging
+        // leftSidebar.showSidebar(0); // << TODO : this is currently for debugging
+        d3.select("#leftSideBarCollapseButton").style("left","0px");
+        d3.select("#leftSideBarCollapseButton").classed("hidden",false);
+
 	}
 
 	function adjustSize() {
@@ -287,6 +291,7 @@ module.exports = function () {
         var lsb_offset=d3.select("#logo").node().getBoundingClientRect().height+5;
         var lsb_height=height-lsb_offset;
         d3.select("#containerForLeftSideBar").style("top",lsb_offset+"px");
+        d3.select("#leftSideBarCollapseButton").style("top",lsb_offset+"px");
         d3.select("#containerForLeftSideBar").style("height",lsb_height+"px");
 
 		// var lsb_offest=d3.select("#logo").node().getBoundingClientRect().height+5;

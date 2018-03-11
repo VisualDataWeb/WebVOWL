@@ -375,7 +375,7 @@ module.exports = function (graphContainerSelector) {
         });
 
         nodeElements.on("dblclick",function(clickedNode){
-            console.log("doubleClick Event on Node or property" +clickedNode.toString());
+            console.log("doubleClick Event on Node" +clickedNode.toString());
             // stop the propagation
             d3.event.stopPropagation();
             //   console.log("Stopped Propagation");
@@ -401,6 +401,17 @@ module.exports = function (graphContainerSelector) {
                 console.log("HIDE Range Dragger");
                 rangeDragger.hideDragger(true);
             }
+        });
+        labelGroupElements.selectAll(".label").on("dblclick",function(clickedProperty){
+            console.log("doubleClick Event on Property" +clickedProperty.toString());
+            // stop the propagation
+            d3.event.stopPropagation();
+            //   console.log("Stopped Propagation");
+            // executeModules(clickedNode);
+            if (editMode===true){
+                clickedProperty.raiseDoubleClickEdit();
+            }
+
         });
     }
 
@@ -1581,8 +1592,12 @@ module.exports = function (graphContainerSelector) {
         if (typeString==="owl:Thing") {
             aNode.label("Thing");
         }
-        else if (elementTools.isDatatype()===false){
-            aNode.label("NewClass");
+        else if (elementTools.isDatatype(element)===false){
+            if (element.backupLabel()!==undefined){
+                aNode.label(element.backupLabel());
+            }else {
+                aNode.label("NewClass");
+            }
         }
 
         if (typeString==="rdfs:Datatype"){
@@ -1621,17 +1636,24 @@ module.exports = function (graphContainerSelector) {
     graph.changePropertyType=function(element){
         var typeString=d3.select("#typeEditor").node().value;
 
+
         // create warning
         if (sanityCheckProperty(element.domain(),element.range(),typeString)===false) return;
 
         var propPrototype=PropertyPrototypeMap.get(typeString.toLowerCase());
         var aProp= new propPrototype(graph);
-
+        aProp.copyInformation(element);
         aProp.id(element.id());
         aProp.domain(element.domain());
         aProp.range(element.range());
 
 
+
+        if (element.backupLabel()!==undefined){
+            aProp.label(element.backupLabel());
+        }else {
+            aProp.label("newObjectProperty");
+        }
 
 
         // // TODO: change its base IRI to proper value
@@ -1793,10 +1815,15 @@ module.exports = function (graphContainerSelector) {
         aProp.range(range);
         aProp.label("newObjectProperty");
         // TODO: change its base IRI to proper value
-        var ontoIRI="http://someTest.de";
+        var ontoIRI="http://someTest.de/";
         aProp.baseIri(ontoIRI);
         aProp.iri(aProp.baseIri()+aProp.id());
 
+        var autoEditElement=false;
+
+        if (defaultPropertyName==="owl:objectProperty"){
+            autoEditElement=true;
+        }
 
         var pX=0.49*(domain.x+range.x);
         var pY=0.49*(domain.y+range.y);
@@ -1815,6 +1842,7 @@ module.exports = function (graphContainerSelector) {
 
         options.focuserModule().handle(aProp);
         graph.activateHoverElementsForProperties(true,aProp,false);
+        aProp.enableEditing(autoEditElement);
 
     }
 
@@ -2082,6 +2110,17 @@ module.exports = function (graphContainerSelector) {
 
     }
 
+
+    // TODO : experimental code for updating dynamic label with and its hover element
+    graph.hideHoverPropertyElementsForAnimation=function(){
+        deleteGroupElement.classed("hidden", true);
+    };
+    graph.showHoverElementsAfterAnimation=function(property,inversed){
+        setDeleteHoverElementPositionProperty(property,inversed);
+        deleteGroupElement.classed("hidden", false);
+
+    };
+
     function editElementHoverOnHidden(){
         classDragger.nodeElement.classed("classDraggerNodeHovered", true);
         classDragger.nodeElement.classed("classDraggerNode", false);
@@ -2262,6 +2301,7 @@ module.exports = function (graphContainerSelector) {
                 classDragger.hideDragger(true);
             }
         }else {
+            console.log("dalayed hider ? ");
             delayedHiddingHoverElements(node,touchBehaviour);
         }
     };
