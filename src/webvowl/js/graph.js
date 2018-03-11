@@ -374,6 +374,18 @@ module.exports = function (graphContainerSelector) {
             executeModules(clickedNode);
         });
 
+        nodeElements.on("dblclick",function(clickedNode){
+            console.log("doubleClick Event on Node or property" +clickedNode.toString());
+            // stop the propagation
+            d3.event.stopPropagation();
+            //   console.log("Stopped Propagation");
+            // executeModules(clickedNode);
+            if (editMode===true){
+                clickedNode.raiseDoubleClickEdit();
+            }
+
+        });
+
         labelGroupElements.selectAll(".label").on("click", function (clickedProperty) {
             executeModules(clickedProperty);
             // add the
@@ -1679,11 +1691,13 @@ module.exports = function (graphContainerSelector) {
 
         prototype= NodePrototypeMap.get(typeToCreate.toLowerCase());
         aNode = new prototype(graph);
+        var autoEditElement=false;
         if (typeToCreate==="owl:Thing") {
             aNode.label("Thing");
         }
         else{
             aNode.label("NewClass");
+            autoEditElement=true;
         }
 
         console.log("CreateNOde Type TYPE :"+aNode.type());
@@ -1701,6 +1715,8 @@ module.exports = function (graphContainerSelector) {
         aNode.iri(aNode.baseIri()+aNode.id());
         addNewNodeElement(aNode,forceUpdate);
         options.focuserModule().handle(aNode,true);
+        aNode.enableEditing(autoEditElement);
+
     }
 
 

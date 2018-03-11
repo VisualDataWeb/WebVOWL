@@ -18,6 +18,7 @@ module.exports = (function () {
             rendertype="round",
 		// Additional attributes
 			maxIndividualCount,
+            fobj, // foreigner object for editing
 		// Element containers
 			nodeElement;
         that.editingTextElement=false;
@@ -29,6 +30,113 @@ module.exports = (function () {
             that.complement(other.complement());
             that.iri(other.iri());
             that.baseIri(other.baseIri());
+        };
+
+        this.enableEditing=function(autoEditing){
+        	if (autoEditing===false)  return;
+        	else that.raiseDoubleClickEdit(true);
+		};
+
+        this.raiseDoubleClickEdit=function(forceIRISync){
+            console.log("executing node doubleClick >> EDITING LABEL "+that.labelForCurrentLanguage());
+            d3.selectAll(".foreignelements").remove();
+            if (nodeElement===undefined || this.type()==="owl:Thing" || this.type()==="rdfs:Literal") {
+                 console.log("No Container found");
+                 return;
+            }
+            if (fobj!=undefined){
+                 nodeElement.selectAll(".foreignelements").remove();
+            }
+
+            that.editingTextElement=true;
+            that.nodeElement().selectAll("circle").classed("hoveredForEditing", true);
+			that.frozen(true);
+            graph.killDelayedTimer();
+            graph.ignoreOtherHoverEvents(true);
+            fobj= nodeElement.append("foreignObject")
+                 .attr("x",-0.5*that.textWidth())
+                 .attr("y",-13)
+                 .attr("height", 30)
+                 .attr("class","foreignelements")
+                 .on("dragstart",function(){return false;}) // remove drag operations of text element)
+                 .attr("width", that.textWidth()-2);
+            // adding a Style to the fObject
+            //
+            //
+            //
+            var editText=fobj.append("xhtml:input")
+                 .attr("class","nodeEditSpan")
+                 .attr("id", that.id())
+                 .attr("align","center")
+                 .attr("contentEditable", "true")
+                 .on("dragstart",function(){
+                     return false;
+                 }); // remove drag operations of text element)
+
+            var bgColor='#f00';
+            var txtWidth=that.textWidth();
+            console.log("Have TXT WIDTH"+txtWidth);
+            editText.style({
+                 // 'line-height': '30px',
+                 'align': 'center',
+                 'color': 'black',
+				 'width': txtWidth+"px",
+                 'background-color': bgColor,
+                 'border-bottom': '2px solid black'
+             });
+             var  txtNode=editText.node();
+             txtNode.value=that.labelForCurrentLanguage();
+             txtNode.focus();
+             txtNode.select();
+			 d3.event.stopPropagation();
+
+            // d3.event.stopPropagation();
+            // ignoreNodeHoverEvent=true;
+            // // add some events that relate to this object
+            editText.on("click", function(){
+                 d3.event.stopPropagation();
+            });
+            // // remove hover Events for now;
+            editText.on("mouseout",function(){
+                console.log("hovered Out of the input Field");
+                d3.event.stopPropagation();
+
+            });
+            editText.on("mousedown", function(){
+                d3.event.stopPropagation();
+            })
+                .on("keydown", function(){
+                    d3.event.stopPropagation();
+                    if (d3.event.keyCode ===13){
+                        this.blur();
+                        that.frozen(false); // << releases the not after selection
+						that.locked(false);
+                    }
+                })
+				.on("keyup",function(){
+                    if (forceIRISync){
+                    	var labelName=editText.node().value;
+                    	var resourceName=labelName.replace(" ","_");
+                        var syncedIRI=that.baseIri()+resourceName;
+                        that.iri(syncedIRI);
+                        d3.select("#element_iriEditor").node().value=syncedIRI;
+                    }
+                    d3.select("#element_labelEditor").node().value=editText.node().value;
+
+                })
+                .on("blur", function(){
+                    console.log("CALLING BLUR FUNCTION ----------------------"+d3.event);
+                    that.nodeElement().selectAll("circle").classed("hoveredForEditing", false);
+                    var newLabel=editText.node().value;
+                    nodeElement.selectAll(".foreignelements").remove();
+                    // that.setLabelForCurrentLanguage(classNameConvention(editText.node().value));
+                    that.label(newLabel);
+                    that.redrawLabelText();
+                    graph.ignoreOtherHoverEvents(false);
+                    graph.options().focuserModule().handle(undefined);
+                    graph.options().focuserModule().handle(that);
+            	});	// add a foreiner element to this thing;
+
         };
 
 

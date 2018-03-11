@@ -597,6 +597,28 @@ main {
 	cursor: pointer;
 }
 
+.nodeEditSpan{
+	color: #000;
+	background-color: #fff;
+	text-align: center;
+	/*overflow: auto;*/
+	border : none;
+	padding-top: 6px;
+}
+.nodeEditSpan:focus {
+	outline:none;
+	border:none;
+}
+.foreignelements{
+	/*width: 80px;*/
+	/*height: 3px;*/
+	border : none;
+}
+.foreignelements:focus {
+	outline:none;
+	border:none;
+}
+
 #leftSideBarContent{
 	color: #000000;
 	float:left;
