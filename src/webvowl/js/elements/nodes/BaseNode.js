@@ -53,7 +53,7 @@ module.exports = (function () {
                  console.log("No Container found");
                  return;
             }
-            if (fobj!=undefined){
+            if (fobj!==undefined){
                  nodeElement.selectAll(".foreignelements").remove();
             }
 

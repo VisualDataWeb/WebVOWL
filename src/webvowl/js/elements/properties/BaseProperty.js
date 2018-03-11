@@ -625,7 +625,7 @@ module.exports = (function () {
                 console.log("No Container found");
                 return;
             }
-            if (fobj!=undefined){
+            if (fobj!==undefined){
                 that.labelElement().selectAll(".foreignelements").remove();
             }
 
