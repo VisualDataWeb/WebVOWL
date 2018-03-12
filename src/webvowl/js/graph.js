@@ -286,8 +286,7 @@ module.exports = function (graphContainerSelector) {
                     var targetRangeNode = graph.getTargetNode(rangeDraggerEndPos);
                     if (elementTools.isDatatype(targetRangeNode)===true) {
                         targetRangeNode = null;
-                        targetDomainNode = null;
-                        console.log("---------------TARGET NODE IS A DATATYPE/ LITERAL ------------")
+                        console.log("---------------TARGET NODE IS A DATATYPE/ LITERAL ------------");
                     }
                     rangeDragger.mouseButtonPressed = false;
                     domainDragger.mouseButtonPressed = false;
@@ -308,7 +307,7 @@ module.exports = function (graphContainerSelector) {
                     var targetDomainNode = graph.getTargetNode(domainDraggerEndPos);
                     if (elementTools.isDatatype(targetDomainNode)===true) {
                         targetDomainNode = null;
-                        console.log("---------------TARGET NODE IS A DATATYPE/ LITERAL ------------")
+                        console.log("---------------TARGET NODE IS A DATATYPE/ LITERAL ------------");
                     }
                     rangeDragger.mouseButtonPressed = false;
                     domainDragger.mouseButtonPressed = false;
