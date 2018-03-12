@@ -150,7 +150,6 @@ module.exports = (function () {
 		this.range = function (p) {
 			if (!arguments.length) return range;
 			range = p;
-			console.log("have updated range!");
 			return this;
 		};
 
