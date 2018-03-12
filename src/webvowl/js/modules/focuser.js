@@ -4,7 +4,7 @@ module.exports = function (graph) {
 
 	focuser.handle = function (selectedElement,forced) {
 		// Don't display details on a drag event, which will be prevented
-		if (d3.event.defaultPrevented && forced===undefined) {
+		if (d3.event && d3.event.defaultPrevented && forced===undefined) {
 			return;
 		}
 		if (focusedElement !== undefined) {

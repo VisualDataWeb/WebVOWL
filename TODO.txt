@@ -76,7 +76,8 @@
            -> [Done]edit enables the element
         [--] Language
             -> add language button + lang selection
-        [--] add adjust size for the elements
+        [DONE] add adjust size for the elements
+        [TODO] add adjust size for prefixes
 
     [] Add Accordion Object (static elements in the html)
        // Maybe reorganize the editor information !<<
@@ -84,7 +85,7 @@
        -> [ SKIP ]MetaData  // << Keep editor sidebar slim
        -> [ SKIP ]Statistics // << Keep editor sidebar slim
        -> Selection Details
-            [] handle iri change and prefixed representation
+            [TODO] handle iri change and prefixed representation
             [DONE] handle label changes
             [DONE] handle type changes
             [DONE] datatype >> e.g rdfs:Datatype >> xsd:integer
@@ -101,10 +102,14 @@
  [DONE] create left side bar when editMode
  [DONE] collapse element
  [DONE] accordions for different element (classes, properties)
- [ ] Add Visual Representations for the Elements
+ [ ] Add Visual Representations for the Elements on hover ( show VOWL spec description )
+     --> add toggle option to show visual and spec definitions
 
 
-[TODO] Node and Property Characteristics handling
+[DONE] Node and Property Characteristics handling
+    [DONE] Node Characteristics (means deprecated toggle option and external attribute span)
+    [DONE] Property Characteristics (external[done], deprecated[done], and functional etc...)
+
 [TODO] Domain Range Changer (Visual Elements and Shadow Clones of properties
 [TODO] EXPORT TTL MODULE
 

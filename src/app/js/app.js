@@ -119,6 +119,7 @@ module.exports = function () {
             options.disjointPropertyFilter(disjointFilter);
 
             options.focuserModule(focuser);
+            options.colorExternalsModule(colorExternalsSwitch);
 
             ontologyMenu.setup(loadOntologyFromText);
             configMenu.setup();
@@ -228,6 +229,7 @@ module.exports = function () {
         // leftSidebar.showSidebar(0); // << TODO : this is currently for debugging
         d3.select("#leftSideBarCollapseButton").style("left","0px");
         d3.select("#leftSideBarCollapseButton").classed("hidden",false);
+        editSidebar.updateElementWidth();
 
 	}
 
@@ -293,7 +295,7 @@ module.exports = function () {
         d3.select("#containerForLeftSideBar").style("top",lsb_offset+"px");
         d3.select("#leftSideBarCollapseButton").style("top",lsb_offset+"px");
         d3.select("#containerForLeftSideBar").style("height",lsb_height+"px");
-
+        editSidebar.updateElementWidth();
 		// var lsb_offest=d3.select("#logo").node().getBoundingClientRect().height+5;
         // var lsb_offestLeft=d3.select("#leftSideBar").node().getBoundingClientRect().width;
         // // d3.select("#leftSideBarCollapseButton").style("top",lsb_offest+"px");

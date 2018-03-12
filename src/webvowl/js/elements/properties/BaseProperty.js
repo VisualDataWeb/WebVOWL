@@ -147,6 +147,7 @@ module.exports = (function () {
 		this.range = function (p) {
 			if (!arguments.length) return range;
 			range = p;
+			console.log("have updated range!");
 			return this;
 		};
 
@@ -189,6 +190,28 @@ module.exports = (function () {
 			graph.options().searchMenu().clearText();
 		};
 
+
+		this.redrawElement=function(){
+			shapeElement.remove();
+            textElement.remove();
+
+            that.drawLabel(that.labelElement());
+            that.animateDynamicLabelWidth(graph.options().dynamicLabelWidth());
+
+
+
+
+            // shapeElement=this.addRect(that.labelElement());
+            //
+            // var equivalentsString = that.equivalentsString();
+            // var suffixForFollowingEquivalents = equivalentsString ? "," : "";
+            //
+            // textElement = new CenteringTextElement(labelContainer, this.backgroundColor());
+            // textElement.addText(this.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
+            // textElement.addEquivalents(equivalentsString);
+            // textElement.addSubText(this.indicationString());
+
+		};
 
 		// Reused functions TODO refactor
 		this.draw = function (labelGroup) {
@@ -257,9 +280,17 @@ module.exports = (function () {
 			if (that.visualAttributes()) {
 				rect.classed(that.visualAttributes(), true);
 			}
-			if (that.backgroundColor()) {
-				rect.style("fill", that.backgroundColor());
-			}
+
+			var bgColor=that.backgroundColor();
+
+			if (that.attributes().indexOf("deprecated")>-1){
+				bgColor=undefined;
+                rect.classed("deprecatedproperty", true);
+			}else {
+                rect.classed("deprecatedproperty", false);
+            }
+			rect.style("fill", bgColor);
+
 			return rect;
 		};
 		this.drawLabel = function (labelContainer) {
@@ -268,7 +299,11 @@ module.exports = (function () {
 			var equivalentsString = that.equivalentsString();
 			var suffixForFollowingEquivalents = equivalentsString ? "," : "";
 
-			textElement = new CenteringTextElement(labelContainer, this.backgroundColor());
+            var bgColor=that.backgroundColor();
+            if (that.attributes().indexOf("deprecated")>-1){
+                bgColor=undefined;
+            }
+			textElement = new CenteringTextElement(labelContainer, bgColor);
 			textElement.addText(this.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
 			textElement.addEquivalents(equivalentsString);
 			textElement.addSubText(this.indicationString());
@@ -557,6 +592,7 @@ module.exports = (function () {
             var h=that.height();
 
             if (dynamic === true) {
+
                 myWidth = Math.min(that.getMyWidth(),graph.options().maxLabelWidth());
 
                 shapeElement.transition().tween("attr", function () {})

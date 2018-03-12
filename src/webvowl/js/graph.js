@@ -7,6 +7,7 @@ var nodePrototypeMap = require("./elements/nodes/nodeMap")();
 var propertyPrototypeMap = require("./elements/properties/propertyMap")();
 var classDragger= require("./classDragger")();
 var rangeDragger= require("./rangeDragger")();
+var shadowClone=require("./shadowClone")();
 module.exports = function (graphContainerSelector) {
     var graph = {},
         CARDINALITY_HDISTANCE = 20,
@@ -211,6 +212,9 @@ module.exports = function (graphContainerSelector) {
                     draggingStarted=true;
                 } else if (d.type && d.type() === "Range_dragger") {
                     rangeDragger.mouseButtonPressed = true;
+                    shadowClone.hideClone(false);
+                    shadowClone.updateElement();
+
                     // clearTimeout(delayedHider);
                     // classDragger.selectedViaTouch(true);
                     // d.parentNode().locked(true);
@@ -230,6 +234,7 @@ module.exports = function (graphContainerSelector) {
                      classDragger.setPosition(d3.event.x, d3.event.y);
                 } else if (d.type && d.type() === "Range_dragger") {
                     rangeDragger.setPosition(d3.event.x, d3.event.y);
+                    shadowClone.setPosition(d3.event.x, d3.event.y);
                 }
 
                 else {
@@ -265,7 +270,29 @@ module.exports = function (graphContainerSelector) {
                     draggingStarted=false;
                 } else if (d.type && d.type() === "Range_dragger") {
                     console.log("TODO: change the range of this property!");
+                    var rX=rangeDragger.x;
+                    var rY=rangeDragger.y;
+                    var rangeDraggerEndPos = [rX, rY];
+                    console.log("rangeDreggetPOs");
+                    console.log(rangeDraggerEndPos);
+                    var targetRangeNode = graph.getTargetNode(rangeDraggerEndPos);
+                    console.log("have targetRangeNOde");
+                    console.log(targetRangeNode);
                     rangeDragger.mouseButtonPressed = false;
+                    shadowClone.hideClone(true);
+
+                    if (targetRangeNode===null){
+                        console.log("COULD NOT FIND NODE TO CONNECT");
+                        d.reDrawEverthing();
+                        // rangeDragger.setParentProperty(clickedProperty);
+                    }
+                    else{
+                        d.updateRange(targetRangeNode);
+                        graph.update();
+
+
+                    }
+
                 }
 
                 else {
@@ -290,6 +317,7 @@ module.exports = function (graphContainerSelector) {
 
         draggerObjectsArray.push(classDragger);
         draggerObjectsArray.push(rangeDragger);
+        draggerObjectsArray.push(shadowClone);
 
     }
 
@@ -394,6 +422,7 @@ module.exports = function (graphContainerSelector) {
             if (clickedProperty.focused() && clickedProperty.type()!=="owl:DatatypeProperty"){
                 console.log("SHOW Range Dragger");
                 rangeDragger.setParentProperty(clickedProperty);
+                shadowClone.setParentProperty(clickedProperty);
                 rangeDragger.hideDragger(false);
                 rangeDragger.addMouseEvents();
             }
@@ -578,12 +607,22 @@ module.exports = function (graphContainerSelector) {
                 return d.id();
             })
             .call(dragBehaviour);
+        console.log("Do we have Dragger? <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        console.log(drElement);
         drElement.each(function (node) {
             node.svgRoot(d3.select(this));
             node.svgPathLayer(draggerPathLayer);
+            if (node.type()==="shadowClone"){
+                console.log("Clone Drawer -->>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                node.drawClone();
+                node.hideClone(true);
+            }else{
             node.drawNode();
             node.hideDragger(true);
+            }
         });
+
+
 
 
 
@@ -955,7 +994,7 @@ module.exports = function (graphContainerSelector) {
         options.filterModules().forEach(function (module) {
             preprocessedData = filterFunction(module, preprocessedData);
         });
-
+        options.focuserModule().handle(undefined,true);
         classNodes = preprocessedData.nodes;
         properties = preprocessedData.properties;
         links = linkCreator.createLinks(properties);
@@ -1762,15 +1801,21 @@ module.exports = function (graphContainerSelector) {
                 tN = el;
             }
         });
-        var offsetDist=hoveredNodeElement.actualRadius()+30;
-        if (minDist > offsetDist) return null;
-        if (tN.renderType() === "rect") return null;
-        if (tN===hoveredNodeElement && minDist<=hoveredNodeElement.actualRadius()){
+        if (hoveredNodeElement){
+            var offsetDist=hoveredNodeElement.actualRadius()+30;
+            if (minDist > offsetDist) return null;
+            if (tN.renderType() === "rect") return null;
+            if (tN===hoveredNodeElement && minDist<=hoveredNodeElement.actualRadius()){
+                return tN;
+            }else if (tN===hoveredNodeElement && minDist>hoveredNodeElement.actualRadius()){
+                return null;
+            }
             return tN;
-        }else if (tN===hoveredNodeElement && minDist>hoveredNodeElement.actualRadius()){
-            return null;
         }
-        return tN;
+        else{
+            return tN;
+
+        }
     };
 
 
@@ -1904,7 +1949,7 @@ module.exports = function (graphContainerSelector) {
         // add also the datatype Property to it
         var propPrototype = PropertyPrototypeMap.get("owl:datatypeproperty");
         var aProp = new propPrototype(graph);
-        aProp.id(eP++);
+        aProp.id("datatypeProperty"+eP++);
 
         // create the connection
         aProp.domain(node);
@@ -1986,6 +2031,9 @@ module.exports = function (graphContainerSelector) {
         property=null;
     };
 
+    graph.executeColorExternalsModule=function(){
+        options.colorExternalsModule().filter(unfilteredData.nodes,unfilteredData.properties);
+    };
 
 
 

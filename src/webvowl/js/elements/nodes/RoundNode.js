@@ -14,6 +14,7 @@ module.exports = (function () {
 			pinGroupElement,
 			haloGroupElement = null,
 			rectangularRepresentation=false,
+            renderingElement,
 			textBlock;
 
 		this.setRectangularRepresentation=function(val){
@@ -179,18 +180,38 @@ module.exports = (function () {
 
 			that.nodeElement(parentElement);
 
+			var bgColor=that.backgroundColor();
+
+			if (that.attributes().indexOf("deprecated")>-1){
+				bgColor=undefined;
+			}
 			if (additionalCssClasses instanceof Array) {
 				cssClasses = cssClasses.concat(additionalCssClasses);
 			}
             if (rectangularRepresentation===true) {
-                drawTools.appendRectangularClass(parentElement, 80,80, cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
+               	renderingElement = drawTools.appendRectangularClass(parentElement, 80,80, cssClasses, that.labelForCurrentLanguage(), bgColor);
             }else {
-                drawTools.appendCircularClass(parentElement, that.actualRadius(), cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
+				renderingElement = drawTools.appendCircularClass(parentElement, that.actualRadius(), cssClasses, that.labelForCurrentLanguage(), bgColor);
             }
 
 			that.postDrawActions(parentElement);
 		};
 
+		this.redrawElement=function(){
+			renderingElement.remove();
+			textBlock.remove();
+            var bgColor=that.backgroundColor();
+            if (that.attributes().indexOf("deprecated")>-1){
+                bgColor=undefined;
+            }
+            var cssClasses = that.collectCssClasses();
+            if (rectangularRepresentation===true) {
+                renderingElement = drawTools.appendRectangularClass(that.nodeElement(), 80,80, cssClasses, that.labelForCurrentLanguage(), bgColor);
+            }else {
+                renderingElement = drawTools.appendCircularClass(that.nodeElement(), that.actualRadius(), cssClasses, that.labelForCurrentLanguage(), bgColor);
+            }
+            that.postDrawActions(that.nodeElement());
+		};
 		/**
 		 * Common actions that should be invoked after drawing a node.
 		 */
@@ -214,7 +235,11 @@ module.exports = (function () {
             that.textBlock(createTextBlock());
         };
 		function createTextBlock() {
-			var textBlock = new CenteringTextElement(that.nodeElement(), that.backgroundColor());
+			var bgColor=that.backgroundColor();
+			if (that.attributes().indexOf("deprecated")>-1)
+				bgColor=undefined;
+
+			var textBlock = new CenteringTextElement(that.nodeElement(), bgColor);
 
 			var equivalentsString = that.equivalentsString();
 			var suffixForFollowingEquivalents = equivalentsString ? "," : "";

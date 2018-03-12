@@ -21,6 +21,7 @@ module.exports = (function () {
 
 		addCssClasses(circle, cssClasses);
 		addToolTip(circle, tooltip);
+
 		addBackgroundColor(circle, backgroundColor);
 
 		return circle;

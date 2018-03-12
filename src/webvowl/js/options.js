@@ -36,6 +36,7 @@ module.exports = function () {
         zoomSlider,
         datatypeFilter,
         focuserModule,
+        colorExternalsModule,
         objectPropertyFilter,
         subclassFilter,
         setOperatorFilter,
@@ -118,6 +119,9 @@ module.exports = function () {
     options.focuserModule=function(val){
         if (!arguments.length) return focuserModule;
         focuserModule=val;
+    };options.colorExternalsModule=function(val){
+        if (!arguments.length) return colorExternalsModule;
+        colorExternalsModule=val;
     };
     options.maxLabelWidth=function(val){
         if (!arguments.length) return maxLabelWidth;

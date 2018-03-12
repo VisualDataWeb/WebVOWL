@@ -2,7 +2,7 @@
 module.exports =  function (graph) {
     /** variable defs **/
     var Range_dragger={};
-    Range_dragger.nodeId = 10001;
+    Range_dragger.nodeId = 10002;
     Range_dragger.parent = undefined;
     Range_dragger.x = 0;
     Range_dragger.y = 0;
@@ -13,6 +13,7 @@ module.exports =  function (graph) {
     Range_dragger.mouseButtonPressed = false;
     Range_dragger.nodeElement = undefined;
     Range_dragger.draggerObject= undefined;
+
     Range_dragger.pathElement = undefined;
     Range_dragger.typus = "Range_dragger";
 
@@ -29,6 +30,14 @@ module.exports =  function (graph) {
         Range_dragger.pathElement.classed("hidden",val);
         Range_dragger.nodeElement.classed("hidden",val);
         Range_dragger.draggerObject.classed("hidden",val);
+    };
+
+    Range_dragger.reDrawEverthing=function(){
+        Range_dragger.setParentProperty(Range_dragger.parent);
+    };
+    Range_dragger.updateRange=function(newRange){
+        Range_dragger.parent.range(newRange);
+        Range_dragger.parent.label("udpatedRange LABEL");
     };
 
     Range_dragger.setParentProperty = function (parentProperty) {
@@ -259,7 +268,8 @@ module.exports =  function (graph) {
             var angle = Math.atan2(range_y-ep_range_y  , range_x-ep_range_x ) * 180 / Math.PI;
             Range_dragger.nodeElement.attr("transform","translate(" + ep_range_x  + "," + ep_range_y  + ")"+"rotate(" + angle + ")");
             // if (Range_dragger.pathElement) {
-
+            Range_dragger.x=x;
+            Range_dragger.y=y;
 
         };
 
