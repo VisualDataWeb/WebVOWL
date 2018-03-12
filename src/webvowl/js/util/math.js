@@ -42,6 +42,36 @@ module.exports = (function () {
 	 * @param link the link
 	 * @returns {*}
 	 */
+
+	math.getLoopPoints=function(link){
+        var node = link.domain(),
+            label = link.label();
+
+        var fairShareLoopAngle = 360 / link.loops().length,
+            fairShareLoopAngleWithMargin = fairShareLoopAngle * 0.8,
+            loopAngle = Math.min(60, fairShareLoopAngleWithMargin);
+
+        var dx = label.x - node.x,
+            dy = label.y - node.y,
+            labelRadian = Math.atan2(dy, dx),
+            labelAngle = calculateAngle(labelRadian);
+
+        var startAngle = labelAngle - loopAngle / 2,
+            endAngle = labelAngle + loopAngle / 2;
+
+        var arcFrom = calculateRadian(startAngle),
+            arcTo = calculateRadian(endAngle),
+
+            x1 = Math.cos(arcFrom) * node.actualRadius(),
+            y1 = Math.sin(arcFrom) * node.actualRadius(),
+
+            x2 = Math.cos(arcTo) * node.actualRadius(),
+            y2 = Math.sin(arcTo) * node.actualRadius(),
+
+            fixPoint1 = {"x": node.x + x1, "y": node.y + y1},
+            fixPoint2 = {"x": node.x + x2, "y": node.y + y2};
+		return [fixPoint1,fixPoint2];
+    };
 	math.calculateLoopPath = function (link) {
 		var node = link.domain(),
 			label = link.label();

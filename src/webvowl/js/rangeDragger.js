@@ -37,7 +37,6 @@ module.exports =  function (graph) {
     };
     Range_dragger.updateRange=function(newRange){
         Range_dragger.parent.range(newRange);
-        Range_dragger.parent.label("udpatedRange LABEL");
     };
 
     Range_dragger.setParentProperty = function (parentProperty) {
@@ -60,6 +59,7 @@ module.exports =  function (graph) {
         Range_dragger.pathElement.classed("hidden",val);
         Range_dragger.nodeElement.classed("hidden",val);
         Range_dragger.draggerObject.classed("hidden",val);
+
 
     };
     /** BASE HANDLING FUNCTIONS ------------------------------------------------- **/
@@ -138,62 +138,43 @@ module.exports =  function (graph) {
 
     };
 
+    Range_dragger.updateElementViaDomainDragger=function(x,y){
+
+        var range_x=x;
+        var range_y=y;
+
+        var dex=Range_dragger.parent.range().x;
+        var dey=Range_dragger.parent.range().y;
+
+        var dir_X= x-dex;
+        var dir_Y= y-dey;
+
+        var len=Math.sqrt(dir_X*dir_X+dir_Y*dir_Y);
+
+        var nX=dir_X/len;
+        var nY=dir_Y/len;
 
 
-    Range_dragger.updateElement = function () {
+        var ep_range_x=dex+nX*Range_dragger.parent.range().actualRadius();
+        var ep_range_y=dey+nY*Range_dragger.parent.range().actualRadius();
+
+        var angle = Math.atan2(ep_range_y-range_y  , ep_range_x-range_x ) * 180 / Math.PI +180;
+        Range_dragger.nodeElement.attr("transform","translate(" + ep_range_x  + "," + ep_range_y  + ")"+"rotate(" + angle + ")");
+    };
+
+
+    Range_dragger.updateElement = function (isLoop) {
         if (Range_dragger.mouseButtonPressed===true || Range_dragger.parent===undefined) return;
 
         var range_x=Range_dragger.parent.range().x;
         var range_y=Range_dragger.parent.range().y;
 
-        // var position of the rangeEndPoint
         var ep_range_x=Range_dragger.parent.labelObject().linkRangeIntersection.x;
         var ep_range_y=Range_dragger.parent.labelObject().linkRangeIntersection.y;
 
         var angle = Math.atan2(ep_range_y-range_y  , ep_range_x-range_x ) * 180 / Math.PI;
-        //
-
-
-
         Range_dragger.nodeElement.attr("transform","translate(" + ep_range_x  + "," + ep_range_y  + ")"+"rotate(" + angle + ")");
-         // if (Range_dragger.pathElement) {
 
-             // compute start point ;
-        //
-        //
-        //      var sX = Range_dragger.parent.labelObject().linkDomainIntersection.x,
-        //          sY = Range_dragger.parent.labelObject().linkDomainIntersection.y,
-        //          eX = Range_dragger.parent.labelObject().linkRangeIntersection.x,
-        //          eY = Range_dragger.parent.labelObject().linkRangeIntersection.y;
-        //
-        //
-        //      // this is used only when you dont have a proper layout ordering;
-        //      var dirX=eX-sX;
-        //      var dirY=eY-sY;
-        //      var len=Math.sqrt((dirX*dirX)+(dirY*dirY));
-        //
-        //      var nX=dirX/len;
-        //      var nY=dirY/len;
-        //
-        //      var ppX=sX+nX*Range_dragger.parent.actualRadius();
-        //      var ppY=sY+nY*Range_dragger.parent.actualRadius();
-        //
-        //
-        //
-        //     Range_dragger.pathElement.attr("x1", ppX)
-        //         .attr("y1", ppY)
-        //         .attr("x2", eX)
-        //         .attr("y2", eY);
-        // }
-        // var angle = Math.atan2(Range_dragger.parent.y - Range_dragger.y, Range_dragger.parent.x - Range_dragger.x) * 180 / Math.PI;
-        //
-        // Range_dragger.nodeElement.attr("transform","translate(" + Range_dragger.x + "," + Range_dragger.y + ")"+"rotate(" + angle + ")");
-        // Range_dragger.draggerObject.attr("transform","translate(" + Range_dragger.x + "," + Range_dragger.y + ")");
-        // // console.log("update Elmenent root element"+Class_dragger.x + "," + Class_dragger.y );
-        //  //
-        //  // Class_dragger.nodeElement.attr("transform", function (d) {
-        //  //     return "rotate(" + angle + ")";
-        //  // });
     };
 
         /** MOUSE HANDLING FUNCTIONS ------------------------------------------------- **/

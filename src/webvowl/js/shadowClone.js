@@ -1,4 +1,4 @@
-
+var CenteringTextElement = require("./util/CenteringTextElement");
 module.exports =  function (graph) {
     /** variable defs **/
     var ShadowClone={};
@@ -26,12 +26,6 @@ module.exports =  function (graph) {
 
     ShadowClone.setParentProperty = function (parentProperty) {
         ShadowClone.parent = parentProperty;
-        console.log(" SHADOW CLONE : >>>>>>>>>>>>>>>>>>>> IntersectionPoint: ");
-
-
-
-        console.log(parentProperty.labelObject().linkRangeIntersection);
-
         var iP_range=parentProperty.labelObject().linkRangeIntersection;
         var iP_domain=parentProperty.labelObject().linkDomainIntersection;
         ShadowClone.s_x = iP_domain.x;
@@ -40,16 +34,66 @@ module.exports =  function (graph) {
         ShadowClone.e_y = iP_range.y;
 
         ShadowClone.updateElement();
-        console.log("updated ELEMENT");
-        console.log("Visible? "+ShadowClone.pathElement.classed("hidden"));
+
+        ShadowClone.rootNodeLayer.remove();
+        ShadowClone.rootNodeLayer=ShadowClone.rootElement.append('g');
+        ShadowClone.rootNodeLayer.datum(parentProperty);
+        // copy rendering element
+        var rect = ShadowClone.rootNodeLayer.append("rect")
+            .classed(parentProperty.styleClass(), true)
+            .classed("property", true)
+            .attr("x", -parentProperty.width() / 2)
+            .attr("y", -parentProperty.height() / 2)
+            .attr("width", parentProperty.width())
+            .attr("height", parentProperty.height());
 
 
+        if (parentProperty.visualAttributes()) {
+            rect.classed(parentProperty.visualAttributes(), true);
+        }
+
+        var bgColor=parentProperty.backgroundColor();
+
+        if (parentProperty.attributes().indexOf("deprecated")>-1){
+            bgColor=undefined;
+            rect.classed("deprecatedproperty", true);
+        }else {
+            rect.classed("deprecatedproperty", false);
+        }
+        rect.style("fill", bgColor);
+
+        // add Text;
+        var equivalentsString = parentProperty.equivalentsString();
+        var suffixForFollowingEquivalents = equivalentsString ? "," : "";
+
+
+        var textElement = new CenteringTextElement(ShadowClone.rootNodeLayer, bgColor);
+        textElement.addText(parentProperty.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
+        textElement.addEquivalents(equivalentsString);
+        textElement.addSubText(parentProperty.indicationString());
+
+
+        var cx=0.5* (ShadowClone.s_x + ShadowClone.e_x);
+        var cy=0.5* (ShadowClone.s_y + ShadowClone.e_y);
+        ShadowClone.rootNodeLayer.attr("transform","translate(" + cx  + "," + cy +")");
+        ShadowClone.rootNodeLayer.classed("hidden",true);
 
     };
 
     ShadowClone.hideClone=function(val){
         ShadowClone.pathElement.classed("hidden",val);
+        ShadowClone.rootNodeLayer.classed("hidden",val);
     };
+
+    ShadowClone.hideParentProperty=function(val){
+
+        var labelObj=ShadowClone.parent.labelElement();
+        if (labelObj)
+            ShadowClone.parent.hide(val);
+
+
+    };
+
     /** BASE HANDLING FUNCTIONS ------------------------------------------------- **/
     ShadowClone.id = function (index) {
         if (!arguments.length) {
@@ -78,14 +122,6 @@ module.exports =  function (graph) {
                 .attr("y1", 0)
                 .attr("x2", 0)
                 .attr("y2", 0);
-            console.log("SHADOWCLONE DRAWED!")
-            // var lineData = [
-            //     {"x": 0, "y": 0},
-            //     {"x": 0, "y": 40},
-            //     {"x": -40, "y": 0},
-            //     {"x": 0, "y": -40},
-            //     {"x": 0, "y": 0}
-            // ];
 
     };
 
@@ -96,6 +132,34 @@ module.exports =  function (graph) {
             .attr("y1", ShadowClone.s_y)
             .attr("x2", ShadowClone.e_x)
             .attr("y2", ShadowClone.e_y);
+        var cx=0.5* (ShadowClone.s_x + ShadowClone.e_x);
+        var cy=0.5* (ShadowClone.s_y + ShadowClone.e_y);
+        ShadowClone.rootNodeLayer.attr("transform","translate(" + cx  + "," + cy +")");
+    };
+
+    ShadowClone.setPositionDomain=function (e_x,e_y){
+
+        var rex=ShadowClone.parent.range().x;
+        var rey=ShadowClone.parent.range().y;
+
+
+        var dir_X= rex-e_x;
+        var dir_Y= rey-e_y;
+
+        var len=Math.sqrt(dir_X*dir_X+dir_Y*dir_Y);
+
+        var nX=dir_X/len;
+        var nY=dir_Y/len;
+
+
+        ShadowClone.s_x=rex-nX*ShadowClone.parent.range().actualRadius();
+        ShadowClone.s_y=rey-nY*ShadowClone.parent.range().actualRadius();
+
+
+
+        ShadowClone.e_x=e_x;
+        ShadowClone.e_y=e_y;
+        ShadowClone.updateElement();
     };
 
     ShadowClone.setPosition= function (s_x,s_y) {

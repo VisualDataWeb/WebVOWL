@@ -41,20 +41,17 @@
 [DONE]
     [DONE] Fix Dynamic Label Width for rectangular nodes
 
-[TODO]
-    [] Add Text label Edit functions for nodes      (dblClick)
-    [] Add Text label Edit functions for Properties (dblClick)
-    [] Improve name Changer (also for the IRI)
+[DONE]
+    [DONE] Add Text label Edit functions for nodes      (dblClick)
+    [DONE] Add Text label Edit functions for Properties (dblClick)
+    [DONE] Improve name Changer (also for the IRI)
 
-
-[TODO]
-    [] Add Visual elements for selection of Property // << domain range changer
-    [] MAKE BETTER VISUAL ELEMENTS FOR RANGE AND DOMAIN DRAGGER
+[DONE]
+    [DONE] Add Visual elements for selection of Property // << domain range changer
     [DONE] Positioning and dragging range modifier
-    [] Add visual handling for range modifier (drag a shadow clone of the property)
-
-    [] Positioning and dragging Domain modifier
-    [] Add visual handling for Domain modifier (drag a shadow clone of the property)
+    [DONE] Add visual handling for range modifier (drag a shadow clone of the property)
+    [DONE] Positioning and dragging Domain modifier
+    [DONE] Add visual handling for Domain modifier (drag a shadow clone of the property)
 
 
 [TODO] Handle Delete of InverseOf Property Containers
@@ -90,11 +87,8 @@
             [DONE] handle type changes
             [DONE] datatype >> e.g rdfs:Datatype >> xsd:integer
 
-[TODO]
-    On mobile devices, handling the height, should not change the graph height
-    but translate the graph a bit (this should help to keep the nodes from runnig away when keyboard is poped up)
 
-[TODO] >> handler solitary subclass filter
+
 
 [DONE] position of the collapse button for leftSidebar
 
@@ -110,12 +104,26 @@
     [DONE] Node Characteristics (means deprecated toggle option and external attribute span)
     [DONE] Property Characteristics (external[done], deprecated[done], and functional etc...)
 
-[TODO] Domain Range Changer (Visual Elements and Shadow Clones of properties
+[DONE] Domain Range Changer (Visual Elements and Shadow Clones of properties
+
+[TODO] on domain/range update set the position of the property to new centered position
+
+[TODO] enable domain dragger for datatypePoroperties
+
+[TODO] add Ontology metaData Values in the input boxes
+
+[TODO] Improve LABEL CHANGER WHEN CLASS HAS DEFAULT NAME
+
+[TODO] >> handler solitary subclass filter
+
 [TODO] EXPORT TTL MODULE
 
 -------------------------------------------High PRIORITY-----------------------------------------------------------------
     [] Prevent same definition of a Resources (e.g same named classes)
     [] How are properties handled with different multiple domain and ranges?
+[TODO]
+    On mobile devices, handling the height, should not change the graph height
+    but translate the graph a bit (this should help to keep the nodes from runnig away when keyboard is poped up)
 
 
 -------------------------------------------MID PRIORITY-----------------------------------------------------------------
@@ -141,3 +149,4 @@
        // editor mode enabled directly
 
 [ ]  add min label width slider to config menu << ASK STEFFEN ABOUT HIS OPINION FOR THIS
+[] MAKE BETTER VISUAL ELEMENTS FOR RANGE AND DOMAIN DRAGGER

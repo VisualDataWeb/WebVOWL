@@ -61,9 +61,12 @@ module.exports = (function () {
                 return parent_labelObject;
             }
             else parent_labelObject=lo;
-
-
         };
+        this.hide=function(val){
+        	that.labelElement().classed("hidden",val);
+        	console.log(that.link());
+        	that.linkGroup().classed("hidden",val);
+		};
 
 		// Properties
 		this.cardinality = function (p) {
@@ -754,6 +757,8 @@ module.exports = (function () {
                     graph.ignoreOtherHoverEvents(false);
                     graph.options().focuserModule().handle(undefined);
                     graph.options().focuserModule().handle(that);
+                    graph.updatePropertyDraggerElements(that);
+
                 });	// add a foreiner element to this thing;
 
         };
