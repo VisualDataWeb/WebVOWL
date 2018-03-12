@@ -481,25 +481,16 @@ module.exports = function (graphContainerSelector) {
         });
 
         nodeElements.on("dblclick",function(clickedNode){
-            console.log("doubleClick Event on Node" +clickedNode.toString());
-            // stop the propagation
             d3.event.stopPropagation();
-            //   console.log("Stopped Propagation");
-            // executeModules(clickedNode);
             if (editMode===true){
                 clickedNode.raiseDoubleClickEdit();
             }
-
         });
 
         labelGroupElements.selectAll(".label").on("click", function (clickedProperty) {
             executeModules(clickedProperty);
-            // add the
-            console.log(clickedProperty.type());
             // We say that Datatype properties are not allowed to have domain range draggers
             if (clickedProperty.focused() && clickedProperty.type()!=="owl:DatatypeProperty"){
-                console.log("SHOW Range Dragger");
-
                 shadowClone.setParentProperty(clickedProperty);
                 rangeDragger.setParentProperty(clickedProperty);
                 rangeDragger.hideDragger(false);
@@ -509,19 +500,12 @@ module.exports = function (graphContainerSelector) {
                 domainDragger.addMouseEvents();
             }
             else{
-                console.log("HIDE Range Dragger");
                 rangeDragger.hideDragger(true);
                 domainDragger.hideDragger(true);
-
-
             }
         });
         labelGroupElements.selectAll(".label").on("dblclick",function(clickedProperty){
-            console.log("doubleClick Event on Property" +clickedProperty.toString());
-            // stop the propagation
             d3.event.stopPropagation();
-            //   console.log("Stopped Propagation");
-            // executeModules(clickedNode);
             if (editMode===true){
                 clickedProperty.raiseDoubleClickEdit();
             }
@@ -1534,7 +1518,6 @@ module.exports = function (graphContainerSelector) {
                     }
                 }
                 if (le_node.property) {
-                    console.log("Checking for property");
                     if (pulseNodeIds.indexOf(forceId) === -1) {
                         pulseNodeIds.push(forceId);
                     }
@@ -1733,12 +1716,10 @@ module.exports = function (graphContainerSelector) {
         for (var i = 0; i < unfilteredData.properties.length; i++) {
             if (unfilteredData.properties[i].domain() === element) {
                 unfilteredData.properties[i].toString();
-                //            console.log("Updating Domain");
                 unfilteredData.properties[i].domain(aNode);
             }
             if (unfilteredData.properties[i].range()  === element) {
                 unfilteredData.properties[i].range( aNode);
-                //          console.log("Updating Range");
                 unfilteredData.properties[i].toString();
             }
         }
@@ -1830,8 +1811,6 @@ module.exports = function (graphContainerSelector) {
         // create a node of that id;
 
         var typeToCreate=d3.select("#defaultClass").node().innerHTML;
-        console.log("Want To create TYPE :"+typeToCreate);
-
         prototype= NodePrototypeMap.get(typeToCreate.toLowerCase());
         aNode = new prototype(graph);
         var autoEditElement=false;
@@ -1842,10 +1821,6 @@ module.exports = function (graphContainerSelector) {
             aNode.label("NewClass");
             autoEditElement=true;
         }
-
-        console.log("CreateNOde Type TYPE :"+aNode.type());
-
-
         aNode.x = pos.x;
         aNode.y = pos.y;
         aNode.px = aNode.x;
@@ -1928,13 +1903,7 @@ module.exports = function (graphContainerSelector) {
         // check type of the property that we want to create;
 
         var defaultPropertyName=d3.select("#defaultProperty").node().innerHTML;
-        console.log("WE want to create the Default Property"+ defaultPropertyName);
-
-
-
        if (sanityCheckProperty(domain,range,defaultPropertyName)===false) return;
-
-
         var propPrototype=PropertyPrototypeMap.get(defaultPropertyName.toLowerCase());
         var aProp= new propPrototype(graph);
         aProp.id("objectProperty"+eP++);
@@ -2127,7 +2096,6 @@ module.exports = function (graphContainerSelector) {
     /** --------------------------------------------------------- **/
 
     graph.animateDynamicLabelWidth=function() {
-        // console.log("CALLING ANIMATE DYNAMIC LABEL WIDTH!");
         var wantedWidth = options.dynamicLabelWidth();
         var i;
         for (i = 0; i < classNodes.length; i++) {
@@ -2306,8 +2274,6 @@ module.exports = function (graphContainerSelector) {
 
 
         if (val === true) {
-            // make them visible
-            // console.log("Property Highlighter");
             clearTimeout(delayedHider);
             hoveredPropertyElement = property;
             if (hoveredNodeElement) {
@@ -2377,7 +2343,6 @@ module.exports = function (graphContainerSelector) {
             return; // nothing to do;
         }
         if (touchBehaviour===undefined) touchBehaviour=false;
-        //    console.log("Selected Touch behaviour?"+touchBehaviour);
         if (val === true) {
             // make them visible
             clearTimeout(delayedHider);
@@ -2422,16 +2387,13 @@ module.exports = function (graphContainerSelector) {
                     d3.event.stopPropagation();
                 })
                     .on("mouseover", function(){
-                        //      console.log("editElement Hover");
                         editElementHoverOn(node,touchBehaviour);})
                     .on("mouseout", function(){
-                        //    console.log("editElement Hover OUT");
                         editElementHoverOut(node,touchBehaviour);});
             } else {
                 classDragger.hideDragger(true);
             }
         }else {
-            console.log("dalayed hider ? ");
             delayedHiddingHoverElements(node,touchBehaviour);
         }
     };

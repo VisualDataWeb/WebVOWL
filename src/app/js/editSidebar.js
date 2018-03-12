@@ -14,7 +14,6 @@ module.exports = function (graph) {
     var oldPrefix, oldPrefixURL;
     var prefix_editMode = false;
     editSidebar.setup = function () {
-        console.log("Setup Edit SideBar");
         setupCollapsing();
         setupPrefixList();
         setupAddPrefixButton();
@@ -144,7 +143,6 @@ module.exports = function (graph) {
 
     function deletePrefixLine() {
         var selector = this.id.split("_")[1];
-        console.log("Delete button for selector:" + selector);
         d3.select("#prefixContainerFor_" + selector).remove();
         graph.options().removePrefix(selector);
         prefix_editMode = false; // <<TODO make some sanity checks
@@ -342,13 +340,6 @@ module.exports = function (graph) {
     maxW = Math.max(maxW, version_labelWidth);
     maxW = Math.max(maxW, author_labelWidth);
 
-
-    console.log("title_labelWidth "+title_labelWidth);
-    console.log("iri_labelWidth "+iri_labelWidth);
-    console.log("version_labelWidth "+version_labelWidth);
-    console.log("author_labelWidth "+author_labelWidth);
-
-
     var meta_inputWidth = div_width - maxW - 10;
 
     d3.select("#titleEditor"  ).style("width", meta_inputWidth + "px");
@@ -526,13 +517,14 @@ module.exports = function (graph) {
            selectedElement.indications(indications);
         }
         // add visual attributes
+        var visAttr;
         if (selectedElement.visualAttributes().indexOf(char) === -1) {
-            var visAttr = selectedElement.visualAttributes();
+            visAttr= selectedElement.visualAttributes();
             visAttr.push(char);
             selectedElement.visualAttributes(visAttr);
         }
         if (getPresentAttribute(selectedElement,"external") && getPresentAttribute(selectedElement,"deprecated")){
-            var visAttr = selectedElement.visualAttributes();
+            visAttr = selectedElement.visualAttributes();
             var visInd=visAttr.indexOf("external");
             if (visInd>-1) {
                 visAttr.splice(visInd, 1);
@@ -540,46 +532,36 @@ module.exports = function (graph) {
             selectedElement.visualAttributes(visAttr);
         }
 
-        console.log("Element: "+selectedElement.toString());
-        console.log("attributes: "+selectedElement.attributes());
-        console.log("visualAttributes: "+selectedElement.visualAttributes());
-        console.log("indications: "+selectedElement.indications());
     }
 
-    function removeAttribute(selectedElement,element){
+    function removeAttribute(selectedElement,element) {
         var attr = selectedElement.attributes();
         var indications = selectedElement.indications();
-        var visAttr= selectedElement.visualAttributes();
-        var attrInd=attr.indexOf(element);
-        if (attrInd>=0) {
+        var visAttr = selectedElement.visualAttributes();
+        var attrInd = attr.indexOf(element);
+        if (attrInd >= 0) {
             attr.splice(attrInd, 1);
         }
-        var indInd=indications.indexOf(element);
-        if (indInd>-1) {
+        var indInd = indications.indexOf(element);
+        if (indInd > -1) {
             indications.splice(indInd, 1);
         }
-        var visInd=visAttr.indexOf(element);
-        if (visInd>-1) {
+        var visInd = visAttr.indexOf(element);
+        if (visInd > -1) {
             visAttr.splice(visInd, 1);
         }
         selectedElement.attributes(attr);
         selectedElement.indications(indications);
         selectedElement.visualAttributes(visAttr);
-        if (element==="deprecated"){
+        if (element === "deprecated") {
             // set its to its original Style
             //typeBaseThign
             // todo : fix all different types
-            if (selectedElement.type()==="owl:Class")  selectedElement.styleClass("class");
-            if (selectedElement.type()==="owl:DatatypeProperty")  selectedElement.styleClass("datatypeproperty");
-            if (selectedElement.type()==="owl:ObjectProperty")  selectedElement.styleClass("objectproperty");
-            if (selectedElement.type()==="owl:disjointWith")  selectedElement.styleClass("disjointwith");
+            if (selectedElement.type() === "owl:Class") selectedElement.styleClass("class");
+            if (selectedElement.type() === "owl:DatatypeProperty") selectedElement.styleClass("datatypeproperty");
+            if (selectedElement.type() === "owl:ObjectProperty") selectedElement.styleClass("objectproperty");
+            if (selectedElement.type() === "owl:disjointWith") selectedElement.styleClass("disjointwith");
         }
-
-
-        console.log("Element: "+selectedElement.toString());
-        console.log("attributes: "+selectedElement.attributes());
-        console.log("visualAttributes: "+selectedElement.visualAttributes());
-        console.log("indications: "+selectedElement.indications());
     }
 
 
@@ -613,7 +595,6 @@ module.exports = function (graph) {
     function getElementPrototypes(selectedElement){
         var availiblePrototypes=[];
         if (elementTools.isProperty(selectedElement)){
-            //  console.log("The Property Map:-----------------------");
             if (selectedElement.type()==="owl:DatatypeProperty")
                 availiblePrototypes.push("owl:DatatypeProperty");
             else
@@ -625,10 +606,8 @@ module.exports = function (graph) {
                     availiblePrototypes.push("owl:disjointWith");
                 }
             }
-            // console.log(availiblePrototypes);
             return availiblePrototypes;
         }
-        //  console.log("The Node Map:-----------------------");
         if(selectedElement.renderType()==="rect"){
             availiblePrototypes.push("rdfs:Literal");
             availiblePrototypes.push("rdfs:Datatype");
@@ -639,7 +618,6 @@ module.exports = function (graph) {
             // availiblePrototypes.push("owl:complementOf");
             // availiblePrototypes.push("owl:disjointUnionOf");
         }
-        // console.log(availiblePrototypes);
         return availiblePrototypes;
     }
 

@@ -41,12 +41,6 @@ module.exports =  function (graph) {
 
     Range_dragger.setParentProperty = function (parentProperty) {
         Range_dragger.parent = parentProperty;
-
-        // get link range intersection;
-
-        console.log("IntersectionPoint: ");
-        console.log(parentProperty.labelObject().linkRangeIntersection);
-
         var iP=parentProperty.labelObject().linkRangeIntersection;
 
         Range_dragger.x = iP.x;
@@ -180,7 +174,6 @@ module.exports =  function (graph) {
         /** MOUSE HANDLING FUNCTIONS ------------------------------------------------- **/
 
         Range_dragger.addMouseEvents = function () {
-             console.log("adding mouse events");
             var rootLayer=Range_dragger.rootNodeLayer.selectAll("*");
             rootLayer.on("mouseover", Range_dragger.onMouseOver)
                 .on("mouseout", Range_dragger.onMouseOut)
@@ -255,8 +248,6 @@ module.exports =  function (graph) {
         };
 
         Range_dragger.setAdditionalClassForClass_dragger = function (name, val) {
-            // console.log("Class_dragger should sett the class here")
-            // Class_dragger.nodeElement.classed(name,val);
 
         };
         return Range_dragger;
