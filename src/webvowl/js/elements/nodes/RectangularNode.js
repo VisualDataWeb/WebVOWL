@@ -191,9 +191,11 @@ module.exports = (function () {
 
         this.updateTextElement=function(){
             textBlock.updateAllTextElements();
+
         };
 
         this.redrawLabelText=function(){
+        	console.log(that.labelForCurrentLanguage()+" Redrawing LABEL >>>>>>>>>>>");
             textBlock.remove();
             textBlock = new CenteringTextElement(that.nodeElement(), that.backgroundColor());
             textBlock.addText(that.labelForCurrentLanguage());

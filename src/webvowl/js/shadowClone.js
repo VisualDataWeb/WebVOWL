@@ -33,11 +33,24 @@ module.exports =  function (graph) {
         ShadowClone.e_x = iP_range.x;
         ShadowClone.e_y = iP_range.y;
 
-        ShadowClone.updateElement();
+
 
         ShadowClone.rootNodeLayer.remove();
         ShadowClone.rootNodeLayer=ShadowClone.rootElement.append('g');
         ShadowClone.rootNodeLayer.datum(parentProperty);
+
+        // ShadowClone.pathElement.remove();
+        // ShadowClone.pathElement = ShadowClone.pathLayer.append('line');
+        //
+        // ShadowClone.pathElement.attr("x1", ShadowClone.s_x)
+        //     .attr("y1", ShadowClone.s_y)
+        //     .attr("x2", ShadowClone.e_x)
+        //     .attr("y2", ShadowClone.e_y);
+
+
+        console.log("Parent Property Styles:");
+        console.log(parentProperty.styleClass());
+
         // copy rendering element
         var rect = ShadowClone.rootNodeLayer.append("rect")
             .classed(parentProperty.styleClass(), true)
@@ -78,6 +91,7 @@ module.exports =  function (graph) {
         ShadowClone.rootNodeLayer.attr("transform","translate(" + cx  + "," + cy +")");
         ShadowClone.rootNodeLayer.classed("hidden",true);
 
+
     };
 
     ShadowClone.hideClone=function(val){
@@ -116,8 +130,8 @@ module.exports =  function (graph) {
 
     /** DRAWING FUNCTIONS ------------------------------------------------- **/
     ShadowClone.drawClone = function () {
-        ShadowClone.pathElement = ShadowClone.pathLayer.append('line')
-                .classed("classNodeDragPath", true);
+        ShadowClone.pathElement = ShadowClone.pathLayer.append('line');
+
         ShadowClone.pathElement.attr("x1", 0)
                 .attr("y1", 0)
                 .attr("x2", 0)
@@ -132,6 +146,7 @@ module.exports =  function (graph) {
             .attr("y1", ShadowClone.s_y)
             .attr("x2", ShadowClone.e_x)
             .attr("y2", ShadowClone.e_y);
+
         var cx=0.5* (ShadowClone.s_x + ShadowClone.e_x);
         var cy=0.5* (ShadowClone.s_y + ShadowClone.e_y);
         ShadowClone.rootNodeLayer.attr("transform","translate(" + cx  + "," + cy +")");

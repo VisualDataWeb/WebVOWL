@@ -64,7 +64,7 @@ module.exports = (function () {
             that.nodeElement().selectAll("circle").classed("hoveredForEditing", true);
 			that.frozen(true);
             graph.killDelayedTimer();
-            graph.ignoreOtherHoverEvents(true);
+            graph.ignoreOtherHoverEvents(false);
             fobj= nodeElement.append("foreignObject")
                  .attr("x",-0.5*(that.textWidth()-2))
                  .attr("y",-12)
@@ -103,7 +103,7 @@ module.exports = (function () {
              txtNode.value=that.labelForCurrentLanguage();
              txtNode.focus();
              txtNode.select();
-			 d3.event.stopPropagation();
+			
 
              d3.event.stopPropagation();
             // ignoreNodeHoverEvent=true;

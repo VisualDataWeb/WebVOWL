@@ -37,6 +37,24 @@ module.exports =  function (graph) {
     };
     Range_dragger.updateRange=function(newRange){
         Range_dragger.parent.range(newRange);
+        // update the position of the new range
+        var rX=newRange.x;
+        var rY=newRange.y;
+
+        var dX= Range_dragger.parent.domain().x;
+        var dY= Range_dragger.parent.domain() .y;
+
+
+        // center
+        var cX=0.49 * (dX+rX);
+        var cY=0.49 * (dY+rY);
+        // put position there;
+        Range_dragger.parent.labelObject().x   = cX;
+        Range_dragger.parent.labelObject().px  = cX;
+        Range_dragger.parent.labelObject().y   = cY;
+        Range_dragger.parent.labelObject().py  = cY;
+
+
     };
 
     Range_dragger.setParentProperty = function (parentProperty) {
@@ -113,20 +131,16 @@ module.exports =  function (graph) {
                     return d.y;
                 })
                 .interpolate("basis-closed");
-            // var pathData="M 20,40 C 0,15 0,-15 20,-40 L -40,0 Z";
-            //TODO : MAKE BETTER VISUSAL ELEMET
-            var pathData="m 31.051988,20.253944 c -10.236454,-12.5797969 -10.236454,-27.6755529 0,-40.25535 0,0 -12.835448,1.417376 -21.6189351,6.580498 -4.9713893,2.922289 -9.09042743,13.54717709 -9.09042743,13.54717709 0,0 4.90120633,7.92339501 8.91774583,10.57587491 6.2497717,4.127282 21.7916167,9.5518 21.7916167,9.5518 z";
-        // var pathData="M 20,40 C 0,15 0,-15 20,-40 20,-40 -35.22907,-23.905556 -45.113897,0.06313453 -35.22907,20.095453 20,40 20,40 Z";
-        // var pathData="M 39.107144,51.25 C 0,17.362169 0,-13.75 39.285715,-49.821429 c 0,0 -69.58321,34.511175 -100.714286,50.35714329 C -22.96643,20.324376 39.107144,51.25 39.107144,51.25 Z";
+        var pathData="M 61,40 C 41,15 41,-15 61,-40 L 1,0 Z";
 
-            Range_dragger.nodeElement =Range_dragger.rootNodeLayer.append('path').attr("d", pathData);
-            Range_dragger.nodeElement.classed("classDraggerNode",true);
-            Range_dragger.draggerObject=Range_dragger.rootNodeLayer.append("circle");
-            Range_dragger.draggerObject.attr("r", 40)
-                .attr("cx", 0)
-                .attr("cy", 0)
-                .classed("superHiddenElement",true)
-                .append("title").text("Add Touch Object Property");
+        Range_dragger.nodeElement =Range_dragger.rootNodeLayer.append('path').attr("d", pathData);
+        Range_dragger.nodeElement.classed("classDraggerNode",true);
+        Range_dragger.draggerObject=Range_dragger.rootNodeLayer.append("circle");
+        Range_dragger.draggerObject.attr("r", 40)
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .classed("superHiddenElement",true)
+            .append("title").text("Add Touch Object Property");
 
 
 
@@ -157,17 +171,19 @@ module.exports =  function (graph) {
     };
 
 
-    Range_dragger.updateElement = function (isLoop) {
+    Range_dragger.updateElement = function () {
         if (Range_dragger.mouseButtonPressed===true || Range_dragger.parent===undefined) return;
 
-        var range_x=Range_dragger.parent.range().x;
-        var range_y=Range_dragger.parent.range().y;
 
-        var ep_range_x=Range_dragger.parent.labelObject().linkRangeIntersection.x;
-        var ep_range_y=Range_dragger.parent.labelObject().linkRangeIntersection.y;
+            var range_x = Range_dragger.parent.range().x;
+            var range_y = Range_dragger.parent.range().y;
 
-        var angle = Math.atan2(ep_range_y-range_y  , ep_range_x-range_x ) * 180 / Math.PI;
-        Range_dragger.nodeElement.attr("transform","translate(" + ep_range_x  + "," + ep_range_y  + ")"+"rotate(" + angle + ")");
+            var ep_range_x = Range_dragger.parent.labelObject().linkRangeIntersection.x;
+            var ep_range_y = Range_dragger.parent.labelObject().linkRangeIntersection.y;
+
+            var angle = Math.atan2(ep_range_y - range_y, ep_range_x - range_x) * 180 / Math.PI;
+            Range_dragger.nodeElement.attr("transform", "translate(" + ep_range_x + "," + ep_range_y + ")" + "rotate(" + angle + ")");
+
 
     };
 

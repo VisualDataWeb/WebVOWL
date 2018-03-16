@@ -64,7 +64,6 @@ module.exports = (function () {
         };
         this.hide=function(val){
         	that.labelElement().classed("hidden",val);
-        	console.log(that.link());
         	that.linkGroup().classed("hidden",val);
 		};
 
@@ -433,7 +432,7 @@ module.exports = (function () {
 		}
 
 		function onMouseOver() {
-			if (that.mouseEntered()) {
+			if (that.mouseEntered()  || ignoreLocalHoverEvents===true) {
 				return;
 			}
 			that.mouseEntered(true);
@@ -657,7 +656,6 @@ module.exports = (function () {
         };
 
         this.raiseDoubleClickEdit=function(forceIRISync){
-            console.log("executing Property doubleClick >> EDITING LABEL "+that.labelForCurrentLanguage());
             d3.selectAll(".foreignelements").remove();
             if (that.labelElement()===undefined || this.type()==="owl:disjointWith" || this.type()==="rdfs:subClassOf") {
                 console.log("No Container found");
@@ -674,7 +672,7 @@ module.exports = (function () {
             that.labelElement().selectAll("rect").classed("hoveredForEditing", true);
             that.frozen(true);
             graph.killDelayedTimer();
-            graph.ignoreOtherHoverEvents(true);
+            graph.ignoreOtherHoverEvents(false);
             fobj= that.labelElement().append("foreignObject")
                 .attr("x",-0.5*that.textWidth())
                 .attr("y",-13)
@@ -709,18 +707,23 @@ module.exports = (function () {
             txtNode.value=that.labelForCurrentLanguage();
             txtNode.focus();
             txtNode.select();
-
+            if (d3.event.stopPropagation) d3.event.stopPropagation();
+            if (d3.event.sourceEvent && d3.event.sourceEvent.stopPropagation) d3.event.sourceEvent.stopPropagation();
 
             // add some events that relate to this object
             editText.on("click", function(){
-                return false;
+                if (d3.event.stopPropagation) d3.event.stopPropagation();
+                if (d3.event.sourceEvent && d3.event.sourceEvent.stopPropagation) d3.event.sourceEvent.stopPropagation();
+
             });
             // // remove hover Events for now;
             editText.on("mouseout",function(){
-                return false;
+                if (d3.event.stopPropagation)d3.event.stopPropagation();
+                if (d3.event.sourceEvent && d3.event.sourceEvent.stopPropagation) d3.event.sourceEvent.stopPropagation();
             });
             editText.on("mousedown", function(){
-                return false;
+                if (d3.event.stopPropagation)d3.event.stopPropagation();
+                if (d3.event.sourceEvent && d3.event.sourceEvent.stopPropagation) d3.event.sourceEvent.stopPropagation();
             })
 			.on("keydown", function(){
 
@@ -742,7 +745,6 @@ module.exports = (function () {
 
                 })
                 .on("blur", function(){
-                    console.log("CALLING BLUR FUNCTION ----------------------"+d3.event);
                     that.editingTextElement=false;
                     ignoreLocalHoverEvents=false;
                     that.labelElement().selectAll("rect").classed("hoveredForEditing", false);

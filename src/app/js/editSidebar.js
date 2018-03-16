@@ -9,7 +9,7 @@ module.exports = function (graph) {
         languageTools = webvowl.util.languageTools(),
         elementTools = webvowl.util.elementTools();
 
-
+    var prefixModule=webvowl.util.prefixTools(graph);
     var selectedElementForCharacteristics;
     var oldPrefix, oldPrefixURL;
     var prefix_editMode = false;
@@ -18,6 +18,58 @@ module.exports = function (graph) {
         setupPrefixList();
         setupAddPrefixButton();
         setupSupportedDatatypes();
+
+
+        console.log("creating title editor handler");
+        console.log(d3.select("#titleEditor"));
+        d3.select("#titleEditor")
+            .on("change", function () {
+                console.log("change title editor");
+                graph.options().addOrUpdateGeneralObjectEntry("title",d3.select("#titleEditor").node().value);
+            })
+            .on("keydown", function () {
+                console.log("A Key is Pressed");
+                d3.event.stopPropagation();
+                if (d3.event.keyCode === 13) {
+                    console.log("Enter PRESSED")
+                    d3.event.preventDefault();
+                    graph.options().addOrUpdateGeneralObjectEntry("title",d3.select("#titleEditor").node().value);
+                }
+            });
+        d3.select("#iriEditor")
+            .on("change", function () {
+                graph.options().addOrUpdateGeneralObjectEntry("iri",d3.select("#iriEditor").node().value);
+            })
+            .on("keydown", function () {
+                d3.event.stopPropagation();
+                if (d3.event.keyCode === 13) {
+                    d3.event.preventDefault();
+                    graph.options().addOrUpdateGeneralObjectEntry("iri",d3.select("#iriEditor").node().value);
+                }
+            });
+        d3.select("#versionEditor")
+            .on("change", function () {
+                graph.options().addOrUpdateGeneralObjectEntry("version",d3.select("#versionEditor").node().value);
+            })
+            .on("keydown", function () {
+                d3.event.stopPropagation();
+                if (d3.event.keyCode === 13) {
+                    d3.event.preventDefault();
+                    graph.options().addOrUpdateGeneralObjectEntry("version",d3.select("#versionEditor").node().value);
+                }
+            });
+        d3.select("#authorsEditor")
+            .on("change", function () {
+                graph.options().addOrUpdateGeneralObjectEntry("author",d3.select("#authorsEditor").node().value);
+            })
+            .on("keydown", function () {
+                d3.event.stopPropagation();
+                if (d3.event.keyCode === 13) {
+                    d3.event.preventDefault();
+                    graph.options().addOrUpdateGeneralObjectEntry("author",d3.select("#authorsEditor").node().value);
+                }
+            });
+
 
     };
 
@@ -48,7 +100,7 @@ module.exports = function (graph) {
                 editButton.classed("noselect", true);
                 editButton.node().innerHTML = "\u2714";
                 editButton.node().id = "editButtonFor_" + name;
-                editButton.node().title = "Edit Prefix and URL";
+                editButton.node().title = "Save new prefix and IRI";
                 editButton.node().elementStyle = "save";
 
                 var prefInput = prefixEditContainer.append("input");
@@ -74,7 +126,7 @@ module.exports = function (graph) {
                 deleteButton.classed("noselect", true);
                 deleteButton.node().innerHTML = "\u2717";
                 deleteButton.node().id = "deleteButtonFor_" + name;
-                deleteButton.node().title = "Delete  Prefix and URL";
+                deleteButton.node().title = "Delete prefix and IRI";
 
                 // connect the buttons;
                 editButton.on("click", enablePrefixEdit);
@@ -104,7 +156,7 @@ module.exports = function (graph) {
                 editButton.classed("noselect", true);
                 editButton.node().innerHTML = "\u270E";
                 editButton.node().id = "editButtonFor_" + name;
-                editButton.node().title = "Edit Prefix and URL";
+                editButton.node().title = "Edit prefix and IRI";
                 editButton.node().elementStyle = "edit";
 
                 // create input field for prefix
@@ -133,12 +185,13 @@ module.exports = function (graph) {
                 deleteButton.classed("noselect", true);
                 deleteButton.node().innerHTML = "\u2717";
                 deleteButton.node().id = "deleteButtonFor_" + name;
-                deleteButton.node().title = "Delete  Prefix and URL";
+                deleteButton.node().title = "Delete prefix and IRI";
 
                 editButton.on("click", enablePrefixEdit);
                 deleteButton.on("click", deletePrefixLine);
             }
         }
+        prefixModule.updatePrefixModel();
     }
 
     function deletePrefixLine() {
@@ -146,6 +199,7 @@ module.exports = function (graph) {
         d3.select("#prefixContainerFor_" + selector).remove();
         graph.options().removePrefix(selector);
         prefix_editMode = false; // <<TODO make some sanity checks
+        prefixModule.updatePrefixModel();
     }
 
     function enablePrefixEdit() {
@@ -160,17 +214,21 @@ module.exports = function (graph) {
             oldPrefix = d3.select("#prefixInputFor_" + selector).node().value;
             oldPrefixURL = d3.select("#prefixURLFor_" + selector).node().value;
             prefix_editMode = true;
+            this.title = "Edit prefix and IRI";
         }
         if (stl === "save") {
             var newPrefixURL = d3.select("#prefixURLFor_" + selector).node().value;
             var newPrefix = d3.select("#prefixInputFor_" + selector).node().value;
+            this.title = "Save new prefix and IRI";
             if (graph.options().updatePrefix(oldPrefix, newPrefix, oldPrefixURL, newPrefixURL) === true) {
                 d3.select("#prefixInputFor_" + newPrefix).node().disabled = true;
                 d3.select("#prefixURLFor_" + newPrefix).node().disabled = true;
+
                 // change the button content
                 this.innerHTML = "\u270E";
                 this.elementStyle = "edit";
                 prefix_editMode = false;
+                prefixModule.updatePrefixModel();
             }
         }
     }
@@ -200,7 +258,14 @@ module.exports = function (graph) {
 
     function changeIriForElement(element) {
         var url = d3.select("#element_iriEditor").node().value;
+
+        // TODO : IF VALID URL ?
+         // NO >> TRY TO SEE IF THERE IS A PREFIX THAT EXIST
+         //       THEN SET URI TO THE PREFIX + URL -BASE URI
+
         element.iri(url);
+        d3.select("#element_iriEditor").node().value=prefixModule.getPrefixRepresentationForFullURI(url);
+
     }
 
     function changeLabelForElement(element) {
@@ -231,6 +296,7 @@ module.exports = function (graph) {
             // set the element IRI, and labels
             d3.select("#element_iriEditor").node().value = element.iri();
             d3.select("#element_labelEditor").node().value = element.labelForCurrentLanguage();
+
 
             d3.select("#element_iriEditor")
                 .on("change", function () {
@@ -291,8 +357,8 @@ module.exports = function (graph) {
                 datatypeEditorSelection.on("change", function () {
                     changeDatatypeType(element);
                 });
-
             }
+
             // add type selector
             var typeEditorSelection = d3.select("#typeEditor").node();
             var htmlCollection = typeEditorSelection.children;
@@ -321,7 +387,30 @@ module.exports = function (graph) {
                 addElementsCharacteristics(element);
             }
             editSidebar.updateElementWidth();
+            var fullURI=d3.select("#element_iriEditor").node().value;
+            d3.select("#element_iriEditor").node().value=prefixModule.getPrefixRepresentationForFullURI(fullURI);
+
         }
+
+    };
+
+    editSidebar.updateGeneralOntologyInfo=function(){
+      // get it from graph.options
+        var generalMetaObj=graph.options().getGeneralMetaObject();
+        if (generalMetaObj.hasOwnProperty("title")) {
+            // title has language to it -.-
+            if (typeof generalMetaObj["title"]==="object") {
+                console.log("ITS AN OBJECT!!!>>>>>>>>>>>>>>");
+                var preferredLanguage = graph && graph.language ? graph.language() : null;
+                var newValue=languageTools.textInLanguage(generalMetaObj["title"], preferredLanguage);
+                d3.select("#titleEditor").node().value = newValue;
+            }else
+            d3.select("#titleEditor").node().value = generalMetaObj["title"];
+        }
+        if (generalMetaObj.hasOwnProperty("iri"))     d3.select("#iriEditor")    .node().value=generalMetaObj["iri"];
+        if (generalMetaObj.hasOwnProperty("version")) d3.select("#versionEditor").node().value=generalMetaObj["version"];
+        if (generalMetaObj.hasOwnProperty("author"))  d3.select("#authorsEditor").node().value=generalMetaObj["author"];
+
 
     };
 
@@ -594,6 +683,7 @@ module.exports = function (graph) {
     
     function getElementPrototypes(selectedElement){
         var availiblePrototypes=[];
+        // TODO the text should be also complied with the prefixes loaded into the ontology
         if (elementTools.isProperty(selectedElement)){
             if (selectedElement.type()==="owl:DatatypeProperty")
                 availiblePrototypes.push("owl:DatatypeProperty");
@@ -603,8 +693,10 @@ module.exports = function (graph) {
                 // handling loops !
                 if (selectedElement.domain()!==selectedElement.range()) {
                     availiblePrototypes.push("rdfs:subClassOf");
-                    availiblePrototypes.push("owl:disjointWith");
                 }
+                availiblePrototypes.push("owl:disjointWith");
+                availiblePrototypes.push("owl:allValuesFrom");
+                availiblePrototypes.push("owl:someValuesFrom");
             }
             return availiblePrototypes;
         }

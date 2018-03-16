@@ -38,6 +38,21 @@ module.exports =  function (graph) {
     };
     Domain_dragger.updateDomain=function(newDomain){
         Domain_dragger.parent.domain(newDomain);
+        // update the position of the new range
+        var rX = Domain_dragger.parent.range().x;
+        var rY = Domain_dragger.parent.range().y;
+        var dX = newDomain.x;
+        var dY = newDomain.y;
+
+         // center
+        var cX=0.49 * (dX+rX);
+        var cY=0.49 * (dY+rY);
+        // put position there;
+        Domain_dragger.parent.labelObject().x   = cX;
+        Domain_dragger.parent.labelObject().px  = cX;
+        Domain_dragger.parent.labelObject().y   = cY;
+        Domain_dragger.parent.labelObject().py  = cY;
+
     };
 
     Domain_dragger.setParentProperty = function (parentProperty) {
@@ -90,19 +105,15 @@ module.exports =  function (graph) {
                 .attr("x2", 0)
                 .attr("y2", 0);
 
-            //TODO : MAKE BETTER VISUSAL ELEMET
-
-            var pathData="M 23.373417,20.387873 C 13.136963,7.8080757 13.226248,-7.1983946 23.462702,-19.778192 c 0,0 -7.160003,9.706399 -14.6176657,16.2584803 -4.3321873,3.8061316 -8.50241083,3.64598079 -8.50241083,3.64598079 0,0 5.03041503,-0.36689716 8.51278743,2.95595121 C 13.842494,7.8408476 23.373417,20.387873 23.373417,20.387873 Z";
-            pathData="m 7.0847073,19.756528 c -10.236454,-12.5797976 -10.147169,-27.5862679 0.089285,-40.166065 0,0 -22.7816793,24.0830515 -19.9525333,17.9315451 1.647481,-3.5821733 -10.175476,2.38553353 -10.175476,2.38553353 0,0 12.785263,7.07904217 10.204344,2.01265027 -1.81993,-3.5725547 19.8343803,17.8363361 19.8343803,17.8363361 z";
-            pathData="M -0.15224119,19.50399 C -10.388695,6.9241923 -10.433339,-8.0376351 -0.19688479,-20.617432 c 0,0 -21.21917921,21.09197977 -18.39003321,14.9404734 1.647481,-3.5821732 -10.175476,5.3319621 -10.175476,5.3319621 0,0 12.651335,10.0701136 10.070416,5.0037217 C -20.511908,1.0861705 -0.15224119,19.50399 -0.15224119,19.50399 Z";
-            Domain_dragger.nodeElement =Domain_dragger.rootNodeLayer.append('path').attr("d", pathData);
-            Domain_dragger.nodeElement.classed("classDraggerNode",true);
-            Domain_dragger.draggerObject=Domain_dragger.rootNodeLayer.append("circle");
-            Domain_dragger.draggerObject.attr("r", 40)
-                .attr("cx", 0)
-                .attr("cy", 0)
-                .classed("superHiddenElement",true)
-                .append("title").text("Add Touch Object Property");
+        var pathData="M 10,40 C -10,15 -10,-15 10,-40 -4.5025829,-20.448277 -15.80965,2.7180462 -50,0 -34.738882,3.0775446 -26.408173,-8.8435577 10,40 Z";
+        Domain_dragger.nodeElement =Domain_dragger.rootNodeLayer.append('path').attr("d", pathData);
+        Domain_dragger.nodeElement.classed("classDraggerNode",true);
+        Domain_dragger.draggerObject=Domain_dragger.rootNodeLayer.append("circle");
+        Domain_dragger.draggerObject.attr("r", 40)
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .classed("superHiddenElement",true)
+            .append("title").text("Add Touch Object Property");
 
 
 
@@ -131,8 +142,7 @@ module.exports =  function (graph) {
     };
 
 
-    Domain_dragger.updateElement = function (isLoop) {
-        // TODO : Loop DOMAIN RANGE ELEMENTSs
+    Domain_dragger.updateElement = function () {
         if (Domain_dragger.mouseButtonPressed===true || Domain_dragger.parent===undefined) return;
 
         var range_x=Domain_dragger.parent.domain().x;

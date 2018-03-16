@@ -47,6 +47,7 @@ module.exports = function (graph) {
     }
     function updateDefaultNameInAccordion(element, identifier){
         d3.select("#"+identifier).node().innerHTML=element.innerHTML;
+        d3.select("#"+identifier).node().title=element.innerHTML;
     }
 
     function classSelectorFunction(){

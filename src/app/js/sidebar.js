@@ -548,8 +548,37 @@ module.exports = function (graph) {
         d3.select("#generalDetails").classed("hidden",editMode);
         d3.select("#generalDetailsEdit").classed("hidden",!editMode);
 
+        // store the meta information in graph.options()
+
+		// todo: update edit meta info
+        graph.options().editSidebar().updateGeneralOntologyInfo();
+
+		// todo: update showed meta info;
+        graph.options().sidebar().updateGeneralOntologyInfo();
+
 	};
 
+    sidebar.updateGeneralOntologyInfo=function() {
+        // get it from graph.options
+        var generalMetaObj = graph.options().getGeneralMetaObject();
+        if (generalMetaObj.hasOwnProperty("title")) {
+            // title has language to it -.-
+            if (typeof generalMetaObj["title"] === "object") {
+                console.log("ITS AN OBJECT!!!>>>>>>>>>>>>>>");
+                var preferredLanguage = graph && graph.language ? graph.language() : null;
+                d3.select("#title").node().value = languageTools.textInLanguage(generalMetaObj["title"], preferredLanguage);
+            } else{
+            	console.log("This SHOULD HAVE UPDATED THE VALUE"+generalMetaObj["title"]);
+                d3.select("#title").node().innerHTML = generalMetaObj["title"];
+            }
 
-	return sidebar;
+        }
+        if (generalMetaObj.hasOwnProperty("iri")) d3.select("#about").node().innerHTML= generalMetaObj["iri"];
+        if (generalMetaObj.hasOwnProperty("iri")) d3.select("#about").node().href= generalMetaObj["iri"];
+        if (generalMetaObj.hasOwnProperty("version")) d3.select("#version").node().innerHTML = generalMetaObj["version"];
+        if (generalMetaObj.hasOwnProperty("author")) d3.select("#authors").node().innerHTML = generalMetaObj["author"];
+    };
+
+
+        return sidebar;
 };

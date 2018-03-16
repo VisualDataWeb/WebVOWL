@@ -59,6 +59,8 @@ module.exports = (function () {
         var startAngle = labelAngle - loopAngle / 2,
             endAngle = labelAngle + loopAngle / 2;
 
+
+
         var arcFrom = calculateRadian(startAngle),
             arcTo = calculateRadian(endAngle),
 
@@ -70,6 +72,7 @@ module.exports = (function () {
 
             fixPoint1 = {"x": node.x + x1, "y": node.y + y1},
             fixPoint2 = {"x": node.x + x2, "y": node.y + y2};
+
 		return [fixPoint1,fixPoint2];
     };
 	math.calculateLoopPath = function (link) {

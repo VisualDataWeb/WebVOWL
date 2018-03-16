@@ -41,12 +41,20 @@ module.exports = function () {
         subclassFilter,
         setOperatorFilter,
         maxLabelWidth=120,
-
+		metadataObject={},
+		generalOntologyMetaData={},
         disjointPropertyFilter,
+        rectangularRep=false,
+        scaleNodesByIndividuals = true,
 
         supportedDatatypes=["rdfs:Literal", "xsd:boolean", "xsd:double", "xsd:integer", "xsd:string","undefined"],
         supportedClasses=["owl:Thing","owl:Class","owl:DeprecatedClass"],
-        supportedProperties=["owl:objectProperty","rdfs:subClassOf","owl:disjointWith"],
+        supportedProperties=["owl:objectProperty",
+			"rdfs:subClassOf",
+			"owl:disjointWith",
+			"owl:allValuesFrom",
+    		"owl:someValuesFrom"
+		],
 		prefixList={
             rdf:'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
     		rdfs:'http://www.w3.org/2000/01/rdf-schema#',
@@ -54,12 +62,49 @@ module.exports = function () {
     		xml:'http://www.w3.org/XML/1998/namespace',
     		xsd:'http://www.w3.org/2001/XMLSchema',
     		dc:'http://purl.org/dc/elements/1.1/#'
-		},
+		};
 
+	options.addOrUpdateGeneralObjectEntry=function(property,value) {
+        if (generalOntologyMetaData.hasOwnProperty(property)) {
+        	console.log("updating "+property+ "from "+generalOntologyMetaData[property]+ " to "+value);
+            generalOntologyMetaData[property] = value;
+        } else {
+            console.log("ADDING THIS PROPERTY TO META OBJECT");
+            generalOntologyMetaData[property] = value;
+        }
+    };
 
+    options.getGeneralMetaObjectProperty=function(property){
+        if (generalOntologyMetaData.hasOwnProperty(property)) {
+            return generalOntologyMetaData[property];
+        }
+    };
 
-        rectangularRep=false,
-		scaleNodesByIndividuals = true;
+    options.getGeneralMetaObject=function(){
+        console.log("Returning full GENERAL Meta object Info");
+        return generalOntologyMetaData;
+    };
+
+    options.addOrUpdateMetaObjectEntry=function(property,value){
+
+		if (metadataObject.hasOwnProperty(property)){
+			metadataObject[property]=value;
+		}else{
+			console.log("ADDING THIS PROPERTY TO META OBJECT");
+			metadataObject[property]=value;
+		}
+	};
+
+	options.getMetaObjectProperty=function(property){
+		 if (metadataObject.hasOwnProperty(property)) {
+             return metadataObject[property];
+         }
+	};
+	options.getMetaObject=function(){
+		console.log("Returning full Meta object Info");
+		return metadataObject;
+	};
+
 
 	options.prefixList=function () {
 		return prefixList;
