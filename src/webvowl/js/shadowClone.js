@@ -35,6 +35,8 @@ module.exports =  function (graph) {
 
 
 
+
+
         ShadowClone.rootNodeLayer.remove();
         ShadowClone.rootNodeLayer=ShadowClone.rootElement.append('g');
         ShadowClone.rootNodeLayer.datum(parentProperty);
@@ -46,6 +48,15 @@ module.exports =  function (graph) {
         //     .attr("y1", ShadowClone.s_y)
         //     .attr("x2", ShadowClone.e_x)
         //     .attr("y2", ShadowClone.e_y);
+        ShadowClone.pathElement.remove();
+        ShadowClone.pathElement = ShadowClone.pathLayer.append('line');
+
+        ShadowClone.pathElement.attr("x1", ShadowClone.s_x)
+            .attr("y1", ShadowClone.s_y)
+            .attr("x2", ShadowClone.e_x)
+            .attr("y2", ShadowClone.e_y);
+        ShadowClone.pathElement.classed(parentProperty.linkType(), true);
+
 
 
         console.log("Parent Property Styles:");
@@ -90,13 +101,14 @@ module.exports =  function (graph) {
         var cy=0.5* (ShadowClone.s_y + ShadowClone.e_y);
         ShadowClone.rootNodeLayer.attr("transform","translate(" + cx  + "," + cy +")");
         ShadowClone.rootNodeLayer.classed("hidden",true);
+        ShadowClone.pathElement.classed("hidden",true);
 
 
     };
 
     ShadowClone.hideClone=function(val){
-        ShadowClone.pathElement.classed("hidden",val);
         ShadowClone.rootNodeLayer.classed("hidden",val);
+        ShadowClone.pathElement.classed("hidden",val);
     };
 
     ShadowClone.hideParentProperty=function(val){
@@ -152,6 +164,29 @@ module.exports =  function (graph) {
         ShadowClone.rootNodeLayer.attr("transform","translate(" + cx  + "," + cy +")");
     };
 
+    ShadowClone.setInitialPosition=function(){
+        var rex=ShadowClone.parent.range().x;
+        var rey=ShadowClone.parent.range().y;
+
+
+        var dex=ShadowClone.parent.domain().x;
+        var dey=ShadowClone.parent.domain().y;
+
+
+        var dir_X= rex-dex;
+        var dir_Y= rey-dey;
+
+        var len=Math.sqrt(dir_X*dir_X+dir_Y*dir_Y);
+        var nX=dir_X/len;
+        var nY=dir_Y/len;
+        ShadowClone.s_x=rex-nX*ShadowClone.parent.range().actualRadius();
+        ShadowClone.s_y=rey-nY*ShadowClone.parent.range().actualRadius();
+
+        ShadowClone.e_x=dex+nX*ShadowClone.parent.domain().actualRadius();
+        ShadowClone.e_y=dey+nY*ShadowClone.parent.domain().actualRadius();
+        ShadowClone.updateElement();
+
+    };
     ShadowClone.setPositionDomain=function (e_x,e_y){
 
         var rex=ShadowClone.parent.range().x;

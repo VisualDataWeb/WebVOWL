@@ -215,37 +215,44 @@ module.exports = function (graphContainerSelector) {
                     d.parentNode().locked(true);
                     draggingStarted=true;
                 } else if (d.type && d.type() === "Range_dragger") {
-                    rangeDragger.mouseButtonPressed = true;
-                    domainDragger.mouseButtonPressed = true;
+
+                    frozenDomainForPropertyDragger=shadowClone.parentNode().domain();
+                    frozenRangeForPropertyDragger=shadowClone.parentNode().range();
+                    shadowClone.setInitialPosition();
                     shadowClone.hideClone(false);
                     shadowClone.hideParentProperty(true);
                     shadowClone.updateElement();
                     deleteGroupElement.classed("hidden", true);
                     addDataPropertyGroupElement.classed("hidden", true);
-                    frozenDomainForPropertyDragger=shadowClone.parentNode().domain();
-                    frozenRangeForPropertyDragger=shadowClone.parentNode().range();
                     frozenDomainForPropertyDragger.frozen(true);
                     frozenDomainForPropertyDragger.locked(true);
                     frozenRangeForPropertyDragger.frozen(true);
                     frozenRangeForPropertyDragger.locked(true);
+                    domainDragger.updateElement();
+                    domainDragger.mouseButtonPressed = true;
+                    rangeDragger.updateElement();
+                    rangeDragger.mouseButtonPressed = true;
+                  //  shadowClone.setPosition(d.x, d.y);
 
 
                 }else if (d.type && d.type() === "Domain_dragger") {
-                    rangeDragger.mouseButtonPressed = true;
-                    domainDragger.mouseButtonPressed = true;
+                    frozenDomainForPropertyDragger=shadowClone.parentNode().domain();
+                    frozenRangeForPropertyDragger=shadowClone.parentNode().range();
+                    shadowClone.setInitialPosition();
                     shadowClone.hideClone(false);
                     shadowClone.hideParentProperty(true);
                     shadowClone.updateElement();
                     deleteGroupElement.classed("hidden", true);
                     addDataPropertyGroupElement.classed("hidden", true);
-                    frozenDomainForPropertyDragger=shadowClone.parentNode().domain();
-                    frozenRangeForPropertyDragger=shadowClone.parentNode().range();
+
                     frozenDomainForPropertyDragger.frozen(true);
                     frozenDomainForPropertyDragger.locked(true);
                     frozenRangeForPropertyDragger.frozen(true);
                     frozenRangeForPropertyDragger.locked(true);
-
-
+                    domainDragger.updateElement();
+                    domainDragger.mouseButtonPressed = true;
+                    rangeDragger.updateElement();
+                    rangeDragger.mouseButtonPressed = true;
                 }
                 else {
                     d.locked(true);
@@ -303,7 +310,11 @@ module.exports = function (graphContainerSelector) {
                     frozenDomainForPropertyDragger.locked(false);
                     frozenRangeForPropertyDragger.frozen(false);
                     frozenRangeForPropertyDragger.locked(false);
-
+                    rangeDragger.mouseButtonPressed = false;
+                    domainDragger.mouseButtonPressed = false;
+                    domainDragger.updateElement();
+                    rangeDragger.updateElement();
+                    shadowClone.hideClone(true);
                     var rX=rangeDragger.x;
                     var rY=rangeDragger.y;
                     var rangeDraggerEndPos = [rX, rY];
@@ -312,9 +323,7 @@ module.exports = function (graphContainerSelector) {
                         targetRangeNode = null;
                         console.log("---------------TARGET NODE IS A DATATYPE/ LITERAL ------------");
                     }
-                    rangeDragger.mouseButtonPressed = false;
-                    domainDragger.mouseButtonPressed = false;
-                    shadowClone.hideClone(true);
+
                     if (targetRangeNode===null){
                         d.reDrawEverthing();
                         shadowClone.hideParentProperty(false);
@@ -329,6 +338,12 @@ module.exports = function (graphContainerSelector) {
                     frozenDomainForPropertyDragger.locked(false);
                     frozenRangeForPropertyDragger.frozen(false);
                     frozenRangeForPropertyDragger.locked(false);
+                    rangeDragger.mouseButtonPressed = false;
+                    domainDragger.mouseButtonPressed = false;
+                    domainDragger.updateElement();
+                    rangeDragger.updateElement();
+                    shadowClone.hideClone(true);
+
                     var dX=domainDragger.x;
                     var dY=domainDragger.y;
                     var domainDraggerEndPos = [dX, dY];
@@ -337,8 +352,6 @@ module.exports = function (graphContainerSelector) {
                         targetDomainNode = null;
                         console.log("---------------TARGET NODE IS A DATATYPE/ LITERAL ------------");
                     }
-                    rangeDragger.mouseButtonPressed = false;
-                    domainDragger.mouseButtonPressed = false;
                     shadowClone.hideClone(true);
                     if (targetDomainNode===null){
                         d.reDrawEverthing();
@@ -409,6 +422,8 @@ module.exports = function (graphContainerSelector) {
                 if (link.property().focused()===true){
                         rangeDragger.updateElement();
                         domainDragger.updateElement();
+                    // shadowClone.setPosition(link.property().range().x,link.property().range().y);
+                    // shadowClone.setPositionDomain(link.property().domain().x,link.property().domain().y);
                 }
             }else{
                 label.linkDomainIntersection = math.calculateIntersection(link.label(),link.domain(),  0);
@@ -416,6 +431,8 @@ module.exports = function (graphContainerSelector) {
                 if (link.property().focused()===true){
                         rangeDragger.updateElement();
                         domainDragger.updateElement();
+                    // shadowClone.setPosition(link.property().range().x,link.property().range().y);
+                    // shadowClone.setPositionDomain(link.property().domain().x,link.property().domain().y);
                 }
 
             }
@@ -443,6 +460,8 @@ module.exports = function (graphContainerSelector) {
             if (l.property().focused()===true){
                 domainDragger.updateElement();
                 rangeDragger.updateElement();
+                // shadowClone.setPosition(l.property().range().x,l.property().range().y);
+                // shadowClone.setPositionDomain(l.property().domain().x,l.property().domain().y);
             }
             return curveFunction([pathStart, curvePoint, pathEnd]);
         });
@@ -509,7 +528,7 @@ module.exports = function (graphContainerSelector) {
 
         labelGroupElements.selectAll(".label").on("click", function (clickedProperty) {
             executeModules(clickedProperty);
-            if (clickedProperty.editingTextElement!==true) {
+           if (clickedProperty.editingTextElement!==true) {
                 // We say that Datatype properties are not allowed to have domain range draggers
                 if (clickedProperty.focused() && clickedProperty.type() !== "owl:DatatypeProperty") {
                     shadowClone.setParentProperty(clickedProperty);
@@ -1099,15 +1118,11 @@ module.exports = function (graphContainerSelector) {
 
                 if (header.other){
                     var otherObjects=header.other;
-                    console.log(otherObjects);
                     for (var name in otherObjects){
-                        console.log(name);
                         if (otherObjects.hasOwnProperty(name)){
-                            console.log("found object")
                             var otherObj=otherObjects[name];
-                            console.log(otherObj);
                             if (otherObj.hasOwnProperty("identifier") && otherObj.hasOwnProperty("value")){
-                                graph.options().addOrUpdateMetaObjectEntry(otherObj["identfier"],otherObj["value"]);
+                                graph.options().addOrUpdateMetaObjectEntry(otherObj['identfier'],otherObj['value']);
                             }
                         }
                     }

@@ -12,7 +12,6 @@ module.exports =  function (graph) {
     function splitURLIntoBaseAndResource(fullURL){
 
         var splitedURL={base:"",resource:""};
-        console.log(fullURL);
         var resource,base;
         // check if there is a last hashTag
         if (fullURL.indexOf("#")){
@@ -31,13 +30,10 @@ module.exports =  function (graph) {
 
     prefixRepresentationModule.getPrefixRepresentationForFullURI=function(fullURL){
         var splittedURL=splitURLIntoBaseAndResource(fullURL);
-        console.log(splittedURL);
         // lazy approach , for
         // loop over prefix model
         for (var name in currentPrefixModel){
             if (currentPrefixModel.hasOwnProperty(name)){
-                // compare the uri
-                console.log("Source:"+currentPrefixModel[name]+" -> target"+splittedURL.base);
                 // THIS IS CASE SENSITIVE!
                 if (currentPrefixModel[name]===splittedURL.base){
                     return name+":"+splittedURL.resource;
