@@ -566,7 +566,7 @@ module.exports = function (graph) {
             if (typeof generalMetaObj['title'] === "object") {
                 console.log("ITS AN OBJECT!!!>>>>>>>>>>>>>>");
                 var preferredLanguage = graph && graph.language ? graph.language() : null;
-                d3.select("#title").node().value = languageTools.textInLanguage(generalMetaObj['title], preferredLanguage);
+                d3.select("#title").node().value = languageTools.textInLanguage(generalMetaObj['title'], preferredLanguage);
             } else{
             	console.log("This SHOULD HAVE UPDATED THE VALUE"+generalMetaObj['title']);
                 d3.select("#title").node().innerHTML = generalMetaObj['title'];
