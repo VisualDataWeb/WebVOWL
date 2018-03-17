@@ -449,8 +449,8 @@ module.exports = function (graph) {
 
     d3.select("#element_iriEditor"    ).style("width", selectedElement_inputWidth + "px");
     d3.select("#element_labelEditor"  ).style("width", selectedElement_inputWidth + "px");
-    d3.select("#typeEditor"           ).style("width", selectedElement_inputWidth + "px");
-    d3.select("#typeEditor_datatype"  ).style("width", selectedElement_inputWidth + "px");
+    d3.select("#typeEditor"           ).style("width", selectedElement_inputWidth+4 + "px");
+    d3.select("#typeEditor_datatype"  ).style("width", selectedElement_inputWidth+4 + "px");
 
     // var desc_width = div_width - 30;
     // d3.select("#descriptionEditor").style("width", desc_width + "px");
