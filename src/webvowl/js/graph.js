@@ -576,7 +576,7 @@ module.exports = function (graphContainerSelector) {
             var str2Compare=graph.options().getGeneralMetaObject().iri+element.id();
             return element.iri()===str2Compare;
         }
-        return false
+        return false;
     }
 
     /** Adjusts the containers current scale and position. */
