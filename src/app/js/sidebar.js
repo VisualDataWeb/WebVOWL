@@ -563,20 +563,20 @@ module.exports = function (graph) {
         var generalMetaObj = graph.options().getGeneralMetaObject();
         if (generalMetaObj.hasOwnProperty("title")) {
             // title has language to it -.-
-            if (typeof generalMetaObj['title'] === "object") {
+            if (typeof generalMetaObj.title === "object") {
                 console.log("ITS AN OBJECT!!!>>>>>>>>>>>>>>");
                 var preferredLanguage = graph && graph.language ? graph.language() : null;
-                d3.select("#title").node().value = languageTools.textInLanguage(generalMetaObj['title'], preferredLanguage);
+                d3.select("#title").node().value = languageTools.textInLanguage(generalMetaObj.title, preferredLanguage);
             } else{
-            	console.log("This SHOULD HAVE UPDATED THE VALUE"+generalMetaObj['title']);
-                d3.select("#title").node().innerHTML = generalMetaObj['title'];
+            	console.log("This SHOULD HAVE UPDATED THE VALUE"+generalMetaObj.title);
+                d3.select("#title").node().innerHTML = generalMetaObj.title;
             }
 
         }
-        if (generalMetaObj.hasOwnProperty("iri")) d3.select("#about").node().innerHTML= generalMetaObj['iri'];
-        if (generalMetaObj.hasOwnProperty("iri")) d3.select("#about").node().href= generalMetaObj['iri'];
-        if (generalMetaObj.hasOwnProperty("version")) d3.select("#version").node().innerHTML = generalMetaObj['version'];
-        if (generalMetaObj.hasOwnProperty("author")) d3.select("#authors").node().innerHTML = generalMetaObj['author'];
+        if (generalMetaObj.hasOwnProperty("iri")) d3.select("#about").node().innerHTML= generalMetaObj.iri;
+        if (generalMetaObj.hasOwnProperty("iri")) d3.select("#about").node().href= generalMetaObj.iri;
+        if (generalMetaObj.hasOwnProperty("version")) d3.select("#version").node().innerHTML = generalMetaObj.version;
+        if (generalMetaObj.hasOwnProperty("author")) d3.select("#authors").node().innerHTML = generalMetaObj.author;
     };
 
 

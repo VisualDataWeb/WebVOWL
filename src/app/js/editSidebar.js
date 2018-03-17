@@ -398,16 +398,16 @@ module.exports = function (graph) {
         var generalMetaObj=graph.options().getGeneralMetaObject();
         if (generalMetaObj.hasOwnProperty("title")) {
             // title has language to it -.-
-            if (typeof generalMetaObj['title']==="object") {
+            if (typeof generalMetaObj.title==="object") {
                 console.log("ITS AN OBJECT!!!>>>>>>>>>>>>>>");
                 var preferredLanguage = graph && graph.language ? graph.language() : null;
-                d3.select("#titleEditor").node().value = languageTools.textInLanguage(generalMetaObj['title'], preferredLanguage);
+                d3.select("#titleEditor").node().value = languageTools.textInLanguage(generalMetaObj.title, preferredLanguage);
             }else
             d3.select("#titleEditor").node().value = generalMetaObj['title'];
         }
-        if (generalMetaObj.hasOwnProperty("iri"))     d3.select("#iriEditor")    .node().value=generalMetaObj['iri'];
-        if (generalMetaObj.hasOwnProperty("version")) d3.select("#versionEditor").node().value=generalMetaObj['version'];
-        if (generalMetaObj.hasOwnProperty("author"))  d3.select("#authorsEditor").node().value=generalMetaObj['author'];
+        if (generalMetaObj.hasOwnProperty("iri"))     d3.select("#iriEditor")    .node().value=generalMetaObj.iri;
+        if (generalMetaObj.hasOwnProperty("version")) d3.select("#versionEditor").node().value=generalMetaObj.version;
+        if (generalMetaObj.hasOwnProperty("author"))  d3.select("#authorsEditor").node().value=generalMetaObj.author;
 
 
     };
