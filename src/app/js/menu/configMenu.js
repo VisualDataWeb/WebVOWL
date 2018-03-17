@@ -12,6 +12,7 @@ module.exports = function (graph) {
         addCheckBox("drawPropertyDraggerOnHover","Draw PropertyDragger onHover","#drawPropertyDraggerOnHover",graph.options().drawPropertyDraggerOnHover,0)
         addCheckBox("showZoomSlider","Show Zoom Slider","#zoomSliderOption",graph.options().zoomSlider().showSlider,0);
         addCheckBox("editorMode","Editor Mode (experimental)","#editMode",graph.editorMode,0);
+        addCheckBox("showDraggerObject","Show Dragger Object(DebugMode)","#showDraggerObject",graph.options().showDraggerObject,3);
         addLabelWidthSlider("#maxLabelWidthSliderOption","maxLabelWidth","Max Label Width", graph.options().maxLabelWidth);
     };
 
@@ -95,11 +96,9 @@ module.exports = function (graph) {
                 if (updateLvl===2){
                     graph.update();
                 }
+
                 if (updateLvl===3){
-                    graph.changeShapeAnimation();
-                }
-                if (updateLvl===4){
-                    graph.changeThingMultiplication();
+                    graph.updateDraggerElements();
                 }
             }
 

@@ -47,6 +47,7 @@ module.exports = function () {
         rectangularRep=false,
         drawPropertyDraggerOnHover=true,
         scaleNodesByIndividuals = true,
+        showDraggerObject=true,
 
         supportedDatatypes=["rdfs:Literal", "xsd:boolean", "xsd:double", "xsd:integer", "xsd:string","undefined"],
         supportedClasses=["owl:Thing","owl:Class","owl:DeprecatedClass"],
@@ -161,6 +162,13 @@ module.exports = function () {
     options.datatypeFilter=function(val){
         if (!arguments.length) return datatypeFilter;
         datatypeFilter=val;
+    };
+
+    options.showDraggerObject=function(val){
+        if (!arguments.length){
+        	console.log("hnnnn:"+showDraggerObject);
+        	return showDraggerObject;}
+        showDraggerObject=val;
     };
     options.drawPropertyDraggerOnHover=function(val){
         if (!arguments.length) return drawPropertyDraggerOnHover;

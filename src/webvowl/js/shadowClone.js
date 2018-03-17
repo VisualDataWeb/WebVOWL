@@ -29,13 +29,14 @@ module.exports =  function (graph) {
 
     ShadowClone.setParentProperty = function (parentProperty) {
         ShadowClone.parent = parentProperty;
-        var iP_range=parentProperty.labelObject().linkRangeIntersection;
-        var iP_domain=parentProperty.labelObject().linkDomainIntersection;
-        ShadowClone.s_x = iP_domain.x;
-        ShadowClone.s_y = iP_domain.y;
-        ShadowClone.e_x = iP_range.x;
-        ShadowClone.e_y = iP_range.y;
-
+        if (parentProperty.labelObject().linkRangeIntersection && parentProperty.labelObject().linkDomainIntersection) {
+            var iP_range = parentProperty.labelObject().linkRangeIntersection;
+            var iP_domain = parentProperty.labelObject().linkDomainIntersection;
+            ShadowClone.s_x = iP_domain.x;
+            ShadowClone.s_y = iP_domain.y;
+            ShadowClone.e_x = iP_range.x;
+            ShadowClone.e_y = iP_range.y;
+        }
 
 
 
@@ -60,10 +61,6 @@ module.exports =  function (graph) {
             .attr("y2", ShadowClone.e_y);
         ShadowClone.pathElement.classed(parentProperty.linkType(), true);
 
-
-
-        console.log("Parent Property Styles:");
-        console.log(parentProperty.styleClass());
 
         // copy rendering element
         var rect = ShadowClone.rootNodeLayer.append("rect")

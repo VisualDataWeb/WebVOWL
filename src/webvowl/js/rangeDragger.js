@@ -59,11 +59,12 @@ module.exports =  function (graph) {
 
     Range_dragger.setParentProperty = function (parentProperty) {
         Range_dragger.parent = parentProperty;
-        var iP=parentProperty.labelObject().linkRangeIntersection;
+        if (parentProperty.labelObject().linkRangeIntersection) {
+            var iP = parentProperty.labelObject().linkRangeIntersection;
 
-        Range_dragger.x = iP.x;
-        Range_dragger.y = iP.y;
-
+            Range_dragger.x = iP.x;
+            Range_dragger.y = iP.y;
+        }
         Range_dragger.updateElement();
     };
 
@@ -139,8 +140,9 @@ module.exports =  function (graph) {
         Range_dragger.draggerObject.attr("r", 40)
             .attr("cx", 0)
             .attr("cy", 0)
-            .classed("superHiddenElement",true)
-            .append("title").text("Add Touch Object Property");
+            .classed("superHiddenElement",true);
+        Range_dragger.draggerObject.classed("superOpacityElement",!graph.options().showDraggerObject());
+
 
 
 
@@ -166,24 +168,42 @@ module.exports =  function (graph) {
         var ep_range_x=dex+nX*Range_dragger.parent.range().actualRadius();
         var ep_range_y=dey+nY*Range_dragger.parent.range().actualRadius();
 
+
+        var dx=range_x-ep_range_x;
+        var dy=range_y-ep_range_y;
+        len=Math.sqrt(dx*dx+dy*dy);
+        nX=dx/len;
+        nY=dy/len;
+
         var angle = Math.atan2(ep_range_y-range_y  , ep_range_x-range_x ) * 180 / Math.PI +180;
         Range_dragger.nodeElement.attr("transform","translate(" + ep_range_x  + "," + ep_range_y  + ")"+"rotate(" + angle + ")");
+        var doX = ep_range_x + nX * 40;
+        var doY = ep_range_y + nY * 40;
+        Range_dragger.draggerObject.attr("transform", "translate(" + doX + "," + doY + ")");
+
     };
 
 
     Range_dragger.updateElement = function () {
-        if (Range_dragger.mouseButtonPressed===true || Range_dragger.parent===undefined) return;
-
-
+        if (Range_dragger.mouseButtonPressed===true || Range_dragger.parent===undefined||
+            Range_dragger.parent.labelObject().linkRangeIntersection===undefined ) return;
             var range_x = Range_dragger.parent.range().x;
             var range_y = Range_dragger.parent.range().y;
 
             var ep_range_x = Range_dragger.parent.labelObject().linkRangeIntersection.x;
             var ep_range_y = Range_dragger.parent.labelObject().linkRangeIntersection.y;
-
+        // offset for dragger object
+            var dx=range_x-ep_range_x;
+            var dy=range_y-ep_range_y;
+            var len=Math.sqrt(dx*dx+dy*dy);
+            var nX=dx/len;
+            var nY=dy/len;
             var angle = Math.atan2(ep_range_y - range_y, ep_range_x - range_x) * 180 / Math.PI;
-            Range_dragger.nodeElement.attr("transform", "translate(" + ep_range_x + "," + ep_range_y + ")" + "rotate(" + angle + ")");
 
+            var doX=ep_range_x - nX*40;
+            var doY=ep_range_y - nY*40;
+            Range_dragger.nodeElement.attr("transform", "translate(" + ep_range_x + "," + ep_range_y + ")" + "rotate(" + angle + ")");
+            Range_dragger.draggerObject.attr("transform","translate(" +doX + "," +doY + ")");
 
     };
 
@@ -255,9 +275,22 @@ module.exports =  function (graph) {
             var ep_range_x=x;
             var ep_range_y=y;
 
-            var angle = Math.atan2(range_y-ep_range_y  , range_x-ep_range_x ) * 180 / Math.PI;
-            Range_dragger.nodeElement.attr("transform","translate(" + ep_range_x  + "," + ep_range_y  + ")"+"rotate(" + angle + ")");
-            // if (Range_dragger.pathElement) {
+            // offset for dragger object
+            var dx=range_x-ep_range_x;
+            var dy=range_y-ep_range_y;
+
+            var len=Math.sqrt(dx*dx+dy*dy);
+
+            var nX=dx/len;
+            var nY=dy/len;
+
+
+
+            var angle = Math.atan2(dy, dx) * 180 / Math.PI;
+            var doX=ep_range_x+nX*40;
+            var doY=ep_range_y+nY*40;
+            Range_dragger.nodeElement.attr("transform", "translate(" + ep_range_x + "," + ep_range_y + ")" + "rotate(" + angle + ")");
+            Range_dragger.draggerObject.attr("transform","translate(" +doX + "," +doY + ")");
             Range_dragger.x=x;
             Range_dragger.y=y;
 

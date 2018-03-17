@@ -119,8 +119,9 @@ module.exports =  function (graph) {
             Class_dragger.draggerObject.attr("r", 40)
                 .attr("cx", 0)
                 .attr("cy", 0)
-                .classed("superHiddenElement",true)
-                .append("title").text("Add Touch Object Property");
+                .classed("superHiddenElement",true);
+                Class_dragger.draggerObject.classed("superOpacityElement",!graph.options().showDraggerObject());
+
 
 
 

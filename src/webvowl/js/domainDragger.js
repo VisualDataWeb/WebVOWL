@@ -60,12 +60,12 @@ module.exports =  function (graph) {
 
         // get link range intersection;
 
+        if (parentProperty.labelObject().linkDomainIntersection) {
+            var iP = parentProperty.labelObject().linkDomainIntersection;
 
-        var iP=parentProperty.labelObject().linkDomainIntersection;
-
-        Domain_dragger.x = iP.x;
-        Domain_dragger.y = iP.y;
-
+            Domain_dragger.x = iP.x;
+            Domain_dragger.y = iP.y;
+        }
         Domain_dragger.updateElement();
     };
 
@@ -112,8 +112,9 @@ module.exports =  function (graph) {
         Domain_dragger.draggerObject.attr("r", 40)
             .attr("cx", 0)
             .attr("cy", 0)
-            .classed("superHiddenElement",true)
-            .append("title").text("Add Touch Object Property");
+            .classed("superHiddenElement",true);
+        Domain_dragger.draggerObject.classed("superOpacityElement",!graph.options().showDraggerObject());
+
 
 
 
@@ -139,6 +140,9 @@ module.exports =  function (graph) {
 
         var angle = Math.atan2(ep_range_y-range_y  , ep_range_x-range_x ) * 180 / Math.PI ;
         Domain_dragger.nodeElement.attr("transform","translate(" + ep_range_x  + "," + ep_range_y  + ")"+"rotate(" + angle + ")");
+        var dox=ep_range_x+nX*20;
+        var doy=ep_range_y+nY*20;
+        Domain_dragger.draggerObject.attr("transform","translate(" + dox  + "," + doy+ ")");
     };
 
 
@@ -149,12 +153,22 @@ module.exports =  function (graph) {
         var range_y=Domain_dragger.parent.domain().y;
 
 
-
+        if (Domain_dragger.parent.labelObject().linkDomainIntersection===undefined) return;
         var ep_range_x=Domain_dragger.parent.labelObject().linkDomainIntersection.x;
         var ep_range_y=Domain_dragger.parent.labelObject().linkDomainIntersection.y;
 
+        var dx=range_x-ep_range_x;
+        var dy=range_y-ep_range_y;
+        var len=Math.sqrt(dx*dx+dy*dy);
+
+        var nX=dx/len;
+        var nY=dy/len;
+
+        var dox=ep_range_x-nX*20;
+        var doy=ep_range_y-nY*20;
         var angle = Math.atan2(ep_range_y-range_y  , ep_range_x-range_x ) * 180 / Math.PI +180;
         Domain_dragger.nodeElement.attr("transform","translate(" + ep_range_x  + "," + ep_range_y  + ")"+"rotate(" + angle + ")");
+        Domain_dragger.draggerObject.attr("transform","translate(" + dox+ "," + doy+ ")");
     };
 
         /** MOUSE HANDLING FUNCTIONS ------------------------------------------------- **/
@@ -225,9 +239,21 @@ module.exports =  function (graph) {
             var ep_range_x=x;
             var ep_range_y=y;
 
+            // offset for dragger object
+            var dx=range_x-ep_range_x;
+            var dy=range_y-ep_range_y;
+
+            var len=Math.sqrt(dx*dx+dy*dy);
+
+            var nX=dx/len;
+            var nY=dy/len;
+            var dox=ep_range_x+nX*20;
+            var doy=ep_range_y+nY*20;
+
             var angle = Math.atan2(range_y-ep_range_y  , range_x-ep_range_x ) * 180 / Math.PI+180;
             Domain_dragger.nodeElement.attr("transform","translate(" + ep_range_x  + "," + ep_range_y  + ")"+"rotate(" + angle + ")");
-            // if (Range_dragger.pathElement) {
+            Domain_dragger.draggerObject.attr("transform","translate(" + dox  + "," + doy  + ")");
+
             Domain_dragger.x=x;
             Domain_dragger.y=y;
 
