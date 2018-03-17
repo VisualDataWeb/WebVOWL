@@ -1,4 +1,6 @@
 var CenteringTextElement = require("./util/CenteringTextElement");
+var elementTools = require("./util/elementTools")();
+var math = require("./util/math")();
 module.exports =  function (graph) {
     /** variable defs **/
     var ShadowClone={};
@@ -14,6 +16,7 @@ module.exports =  function (graph) {
     ShadowClone.nodeElement = undefined;
     ShadowClone.pathElement = undefined;
     ShadowClone.typus = "shadowClone";
+
 
     ShadowClone.type = function () {
             return ShadowClone.typus;
@@ -193,18 +196,24 @@ module.exports =  function (graph) {
         var rey=ShadowClone.parent.range().y;
 
 
-        var dir_X= rex-e_x;
-        var dir_Y= rey-e_y;
-
-        var len=Math.sqrt(dir_X*dir_X+dir_Y*dir_Y);
-
-        var nX=dir_X/len;
-        var nY=dir_Y/len;
 
 
-        ShadowClone.s_x=rex-nX*ShadowClone.parent.range().actualRadius();
-        ShadowClone.s_y=rey-nY*ShadowClone.parent.range().actualRadius();
+        if (elementTools.isDatatype(ShadowClone.parent.range())===true){
+            var intersection=math.calculateIntersection(ShadowClone.parent.domain(),ShadowClone.parent.range(),0);
+            ShadowClone.s_x =intersection.x ;
+            ShadowClone.s_y = intersection.y;
+        }else {
+            var dir_X= rex-e_x;
+            var dir_Y= rey-e_y;
 
+            var len=Math.sqrt(dir_X*dir_X+dir_Y*dir_Y);
+
+            var nX=dir_X/len;
+            var nY=dir_Y/len;
+            ShadowClone.s_x = rex - nX * ShadowClone.parent.range().actualRadius();
+            ShadowClone.s_y = rey - nY * ShadowClone.parent.range().actualRadius();
+
+        }
 
 
         ShadowClone.e_x=e_x;
