@@ -45,6 +45,7 @@ module.exports = function () {
 		generalOntologyMetaData={},
         disjointPropertyFilter,
         rectangularRep=false,
+        drawPropertyDraggerOnHover=true,
         scaleNodesByIndividuals = true,
 
         supportedDatatypes=["rdfs:Literal", "xsd:boolean", "xsd:double", "xsd:integer", "xsd:string","undefined"],
@@ -160,6 +161,10 @@ module.exports = function () {
     options.datatypeFilter=function(val){
         if (!arguments.length) return datatypeFilter;
         datatypeFilter=val;
+    };
+    options.drawPropertyDraggerOnHover=function(val){
+        if (!arguments.length) return drawPropertyDraggerOnHover;
+        drawPropertyDraggerOnHover=val;
     };
     options.focuserModule=function(val){
         if (!arguments.length) return focuserModule;

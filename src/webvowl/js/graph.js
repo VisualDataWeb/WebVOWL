@@ -515,6 +515,7 @@ module.exports = function (graphContainerSelector) {
             });
         }
 
+
         nodeElements.on("click", function (clickedNode) {
             executeModules(clickedNode);
         });
@@ -522,7 +523,7 @@ module.exports = function (graphContainerSelector) {
         nodeElements.on("dblclick",function(clickedNode){
             d3.event.stopPropagation();
             if (editMode===true){
-                clickedNode.raiseDoubleClickEdit();
+                clickedNode.raiseDoubleClickEdit(defaultIriValue(clickedNode));
             }
         });
 
@@ -556,10 +557,19 @@ module.exports = function (graphContainerSelector) {
         labelGroupElements.selectAll(".label").on("dblclick",function(clickedProperty){
             d3.event.stopPropagation();
             if (editMode===true){
-                clickedProperty.raiseDoubleClickEdit();
+                clickedProperty.raiseDoubleClickEdit(defaultIriValue(clickedProperty));
             }
 
         });
+    }
+
+    function defaultIriValue(element){
+        // get the iri of that element;
+        if (graph.options().getGeneralMetaObject().iri){
+            var str2Compare=graph.options().getGeneralMetaObject().iri+element.id();
+            return element.iri()===str2Compare;
+        }
+        return false
     }
 
     /** Adjusts the containers current scale and position. */
@@ -2382,6 +2392,31 @@ module.exports = function (graphContainerSelector) {
         if (val === true) {
             clearTimeout(delayedHider);
             hoveredPropertyElement = property;
+            if (graph.options().drawPropertyDraggerOnHover()===true){
+                if (property.type() !== "owl:DatatypeProperty") {
+                    shadowClone.setParentProperty(property);
+                    rangeDragger.setParentProperty(property);
+                    rangeDragger.hideDragger(false);
+                    rangeDragger.addMouseEvents();
+                    domainDragger.setParentProperty(property);
+                    domainDragger.hideDragger(false);
+                    domainDragger.addMouseEvents();
+                } else if (property.type() === "owl:DatatypeProperty") {
+                    shadowClone.setParentProperty(property);
+                    rangeDragger.setParentProperty(property);
+                    rangeDragger.hideDragger(true);
+                    rangeDragger.addMouseEvents();
+                    domainDragger.setParentProperty(property);
+                    domainDragger.hideDragger(false);
+                    domainDragger.addMouseEvents();
+                }
+            }
+            else { // hide when we dont want that option
+                    rangeDragger.hideDragger(true);
+                    domainDragger.hideDragger(true);
+                
+            }
+
             if (hoveredNodeElement) {
                 if (hoveredNodeElement && hoveredNodeElement.pinned() === false && graph.paused() === false) {
                     hoveredNodeElement.frozen(false);

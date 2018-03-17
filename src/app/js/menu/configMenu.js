@@ -9,6 +9,7 @@ module.exports = function (graph) {
             var searchMenu=graph.options().searchMenu();
             searchMenu.hideSearchEntries();
         });
+        addCheckBox("drawPropertyDraggerOnHover","Draw PropertyDragger onHover","#drawPropertyDraggerOnHover",graph.options().drawPropertyDraggerOnHover,0)
         addCheckBox("showZoomSlider","Show Zoom Slider","#zoomSliderOption",graph.options().zoomSlider().showSlider,0);
         addCheckBox("editorMode","Editor Mode (experimental)","#editMode",graph.editorMode,0);
         addLabelWidthSlider("#maxLabelWidthSliderOption","maxLabelWidth","Max Label Width", graph.options().maxLabelWidth);
