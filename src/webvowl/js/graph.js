@@ -1122,7 +1122,7 @@ module.exports = function (graphContainerSelector) {
                         if (otherObjects.hasOwnProperty(name)){
                             var otherObj=otherObjects[name];
                             if (otherObj.hasOwnProperty("identifier") && otherObj.hasOwnProperty("value")){
-                                graph.options().addOrUpdateMetaObjectEntry(otherObj['identfier'],otherObj['value']);
+                                graph.options().addOrUpdateMetaObjectEntry(otherObj.identfier, otherObj.value);
                             }
                         }
                     }
