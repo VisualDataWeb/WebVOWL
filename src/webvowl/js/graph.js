@@ -2193,8 +2193,7 @@ module.exports = function (graphContainerSelector) {
             graph.options().warningModule().responseWarning(
                 "Removing Elements",
                 "You are about to delete "+nodesToRemove.length+" Nodes and "+propsToRemove.length+ " Properties",
-                "Awaiting Response!"
-                ,graph.removeNodesViaResponse,[nodesToRemove,propsToRemove],false);
+                "Awaiting Response!",graph.removeNodesViaResponse,[nodesToRemove,propsToRemove],false);
 
 
 

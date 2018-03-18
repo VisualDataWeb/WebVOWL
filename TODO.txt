@@ -54,16 +54,13 @@
     [DONE] Add visual handling for Domain modifier (drag a shadow clone of the property)
 
 
-[TODO] Handle Delete of InverseOf Property Containers
-   -> possible option ( selecting the container provides the option of split (remove inverseOf statement)
-   -> delete upper element would also delete the inverse option >> throw warning 
 
 
 [DONE] swap between editor and view mode for right sidebar
 
 
 [TODO] Right Sidebar Elements
-   [] Ontology MetaData
+   [DONE] Ontology MetaData
         [Done] Title Editor
         [Done] IRI Editor
         [Done] Version
@@ -74,7 +71,7 @@
         [--] Language
             -> add language button + lang selection
         [DONE] add adjust size for the elements
-        [TODO] add adjust size for prefixes
+        [DONE] add adjust size for prefixes
 
     [] Add Accordion Object (static elements in the html)
        // Maybe reorganize the editor information !<<
@@ -128,27 +125,35 @@
 [DONE] Change Visual Elements
 [DONE] added default constructors for some and all values from
 [DONE] Draw Property Drager ono Hover? >> config Option
-
-[TODO] external element identification
-[TODO] EXPORT TTL MODULE
-[TODO] Warning Message Box and its Handler
+[DONE] Warning Message Box and its Handler
 
 
 
-[TODO] the text should be also complied with the prefixes loaded into the ontology
-// editSiderbar L 686
---> do not allow to remove rdfs, owl, xsd prefixes
+[WORK-AROUND] the text should be also complied with the prefixes loaded into the ontology
+    --> do not allow to remove rdfs, owl, xsd prefixes
 
 *****
 [DONE] Fixed leftsidebar hidding behavior
     (Switching between edit and show mode saves the users preference for showing or hiding the left sidebar)
 [DONE] Fixed prefix input Width
 [DONE] do not allow to remove rdfs, owl, xsd prefixes
-       Fixed hoever elements title
+       Fixed hover elements title
        Added Title to IRI of prefix
        Fixed Add Prefix button behavior
          -> press add prefix > it changes name to save prefix and allwos to execute save (same as the check element)
-[TODO] Default message Box for warning
+[DONE] Default message Box for warning
+
+
+
+[TODO] external element identification
+[TODO] EXPORT TTL MODULE
+[TODO] Handle Delete of InverseOf Property Containers
+   -> possible option ( selecting the container provides the option of split (remove inverseOf statement)
+   -> delete upper element would also delete the inverse option >> throw warning
+
+
+
+
 -------------------------------------------High PRIORITY-----------------------------------------------------------------
     [] Prevent same definition of a Resources (e.g same named classes)
     [] How are properties handled with different multiple domain and ranges?
