@@ -681,7 +681,6 @@ module.exports = function (graphContainerSelector) {
 
         addDataPropertyGroupElement.append("circle")
         // .classed("deleteElement", true)
-
             .attr("r", 12)
             .attr("cx", 0)
             .attr("cy", 0)
@@ -702,6 +701,15 @@ module.exports = function (graphContainerSelector) {
             .attr("x2", 0)
             .attr("y2", 8)
             .append("title").text("Add Datatype Property");
+
+
+        addDataPropertyGroupElement.append("circle")
+            .attr("r", 25)
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .classed("superHiddenElement",true)
+            .classed("superOpacityElement", !graph.options().showDraggerObject());
+
 
         deleteGroupElement=editContainer.append('g')
             .classed("hidden-in-export", true)
@@ -729,6 +737,13 @@ module.exports = function (graphContainerSelector) {
             .attr("x2", -crossLen)
             .attr("y2", crossLen)
             .append("title").text("Delete This Node");
+
+        deleteGroupElement.append("circle")
+            .attr("r", 25)
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .classed("superHiddenElement",true)
+            .classed("superOpacityElement", !graph.options().showDraggerObject());
 
         // Add an extra container for all markers
         markerContainer = linkContainer.append("defs");
@@ -2487,6 +2502,8 @@ module.exports = function (graphContainerSelector) {
         rangeDragger.draggerObject.classed("superOpacityElement", !graph.options().showDraggerObject());
         domainDragger.draggerObject.classed("superOpacityElement", !graph.options().showDraggerObject());
         classDragger.draggerObject.classed("superOpacityElement", !graph.options().showDraggerObject());
+        deleteGroupElement.selectAll(".superHiddenElement").classed("superOpacityElement", !graph.options().showDraggerObject());
+        addDataPropertyGroupElement.selectAll(".superHiddenElement").classed("superOpacityElement", !graph.options().showDraggerObject());
 
    };
 
