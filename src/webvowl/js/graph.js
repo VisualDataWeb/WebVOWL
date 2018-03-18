@@ -2158,7 +2158,7 @@ module.exports = function (graphContainerSelector) {
     };
 
     graph.removeNodesViaResponse=function(nodesToRemove,propsToRemove){
-
+        var i;
         // splice them;
         for (i = 0; i < propsToRemove.length; i++) {
             unfilteredData.properties.splice(unfilteredData.properties.indexOf(propsToRemove[i]), 1);

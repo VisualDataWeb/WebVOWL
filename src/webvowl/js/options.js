@@ -72,7 +72,6 @@ module.exports = function () {
         	if (validURL(value)===false){
 				warningModule.showWarning("Invalid Ontology IRI","Input IRI does not represent an URL","Restoring previous IRI for ontology",1,false);
                 return false;
-
 			}
         	console.log("updating "+property+ "from "+generalOntologyMetaData[property]+ " to "+value);
             generalOntologyMetaData[property] = value;
@@ -133,14 +132,19 @@ module.exports = function () {
             console.log("Update URL");
 			prefixList[oldPrefix]=newURL;
         }else if (oldPrefix===newPrefix && oldURL!==newURL && validURL(newURL)===false){
-        	console.log("new URL is not Valid!");
-        	return false;
+            if (validURL(newURL)===false){
+                warningModule.showWarning("Invalid Prefix IRI","Input IRI does not represent an URL","You should enter a valid URL",1,false);
+                return false;
+            }
+
+            return false;
 		}
         if (oldPrefix!==newPrefix && validURL(newURL)===true){
 
         	// sanity check
 			if (prefixList.hasOwnProperty(newPrefix)){
                 console.log("Already have this prefix!");
+                warningModule.showWarning("Prefix Already Exist","Prefix: "+newPrefix+ " is already defined","You should use an other one",1,false);
 				return false;
 			}
 			options.removePrefix(oldPrefix);
@@ -150,6 +154,10 @@ module.exports = function () {
 		}
 
 		console.log("Is new URL ("+newURL+") valid?  >> "+validURL(newURL));
+        if (validURL(newURL)===false){
+            warningModule.showWarning("Invalid Prefix IRI","Input IRI does not represent an URL","You should enter a valid URL",1,false);
+
+        }
 		return false;
     };
 
