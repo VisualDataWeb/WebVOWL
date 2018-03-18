@@ -496,46 +496,7 @@ module.exports = function (graph) {
         d3.selectAll(".prefixURL").style("width", containerWidth-prefixWdith-45+ "px");
 
 
-    // var desc_width = div_width - 30;
-    // d3.select("#descriptionEditor").style("width", desc_width + "px");
-    //
-    //
-    // //same for the property and class selection
-    // var propIRI_labelWidth = d3.select("#propIRI-Editor-label").node().getBoundingClientRect().width + 10;
-    // var propName_labelWidth = d3.select("#propnameEditor-label").node().getBoundingClientRect().width + 10;
-    // var propType_labelWidth = d3.select("#proptypeEditor-label").node().getBoundingClientRect().width + 10;
-    //
-    // var nodeIRI_labelWidth = d3.select("#nodeIRI-Editor-label").node().getBoundingClientRect().width + 10;
-    // var datatype_labelWidth = d3.select("#datatypeEditor-label").node().getBoundingClientRect().width + 10;
-    // var nodeName_labelWidth = d3.select("#nameEditor-label").node().getBoundingClientRect().width + 10;
-    // var nodetype_labelWidth = d3.select("#typeEditor-label").node().getBoundingClientRect().width + 10;
-    //
-    // var maxW_prop = 0, maxW_node = 0;
-    // maxW_prop = Math.max(maxW_prop, propIRI_labelWidth);
-    // maxW_prop = Math.max(maxW_prop, propName_labelWidth);
-    // maxW_prop = Math.max(maxW_prop, propType_labelWidth);
-    //
-    // maxW_node = Math.max(maxW_node, nodeIRI_labelWidth);
-    // maxW_node = Math.max(maxW_node, nodeName_labelWidth);
-    // maxW_node = Math.max(maxW_node, nodetype_labelWidth);
-    //
-    // var node_inputWidth = div_width - maxW_node - 10;
-    // var prop_inputWidth = div_width - maxW_prop - 10;
-    //
-    //
-    // var dataTypeWidth = div_width - datatype_labelWidth - 10;
-    //
-    // // update the sizes;
-    // d3.select("#nodeIRI-Editor").style("width", node_inputWidth + "px").style("height", title_labelHeight + "px");
-    // d3.select("#nameEditor").style("width", node_inputWidth + "px").style("height", title_labelHeight + "px");
-    // var nodeTypeWidth = node_inputWidth + 4;
-    // d3.select("#typeEditor").style("width", nodeTypeWidth + "px");
-    // d3.select("#datatypeEditor").style("width", dataTypeWidth + "px");
-    //
-    // d3.select("#propIRI-Editor").style("width", prop_inputWidth + "px").style("height", title_labelHeight + "px");
-    // d3.select("#propnameEditor").style("width", prop_inputWidth + "px").style("height", title_labelHeight + "px");
-    // var propTypeWidth = prop_inputWidth + 4;
-    // d3.select("#proptypeEditor").style("width", propTypeWidth + "px");
+
     };
 
     function addElementsCharacteristics(element){
@@ -714,11 +675,18 @@ module.exports = function (graph) {
 
     function elementTypeSelectionChanged(element) {
         if (elementTools.isNode(element)){
-            graph.changeNodeType(element);
+            if ( graph.changeNodeType(element)===false) {
+                //restore old value
+                editSidebar.updateSelectionInformation(element);
+            }
         }
 
         if (elementTools.isProperty(element)){
-            graph.changePropertyType(element);
+            if (graph.changePropertyType(element)===false){
+                //restore old value
+                editSidebar.updateSelectionInformation(element);
+
+            }
         }
 
     }

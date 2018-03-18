@@ -1862,7 +1862,7 @@ module.exports = function (graphContainerSelector) {
 
 
         // create warning
-        if (sanityCheckProperty(element.domain(),element.range(),typeString)===false) return;
+        if (sanityCheckProperty(element.domain(),element.range(),typeString)===false) return false;
 
         var propPrototype=PropertyPrototypeMap.get(typeString.toLowerCase());
         var aProp= new propPrototype(graph);
@@ -2005,20 +2005,23 @@ module.exports = function (graphContainerSelector) {
     function sanityCheckProperty(domain,range,typeString){
 
         if (typeString==="owl:objectProperty" && graph.options().objectPropertyFilter().enabled()===true) {
-            recalculatePositions();
-            alert("Object properties are filtered out in the visualization!\nElement not created!");	// deselect
+            graph.options().warningModule().showWarning("Warning",
+                "Object properties are filtered out in the visualization!",
+                "Element not created!",1,false);
             return false;
         }
 
         if (typeString==="owl:disjointWith" && graph.options().disjointPropertyFilter().enabled()===true) {
-            recalculatePositions();
-            alert("owl:disjointWith properties are filtered out in the visualization!\nElement not created!");	// deselect
+            graph.options().warningModule().showWarning("Warning",
+                "owl:disjointWith properties are filtered out in the visualization!",
+                "Element not created!",1,false);
             return false;
         }
 
         if (domain===range && typeString!=="owl:objectProperty"){
-            recalculatePositions();
-            alert("owl:disjointWith or rdfs:subClassOf can not be created as loops (domain == range)\nElement not created!");	// deselect
+            graph.options().warningModule().showWarning("Warning",
+                "owl:disjointWith or rdfs:subClassOf can not be created as loops (domain == range)",
+                "Element not created!",1,false);
             return false;
         }
         return true; // we can create a property
@@ -2029,7 +2032,7 @@ module.exports = function (graphContainerSelector) {
         // check type of the property that we want to create;
 
         var defaultPropertyName=d3.select("#defaultProperty").node().innerHTML;
-       if (sanityCheckProperty(domain,range,defaultPropertyName)===false) return;
+       if (sanityCheckProperty(domain,range,defaultPropertyName)===false) return false;
         var propPrototype=PropertyPrototypeMap.get(defaultPropertyName.toLowerCase());
         var aProp= new propPrototype(graph);
         aProp.id("objectProperty"+eP++);
@@ -2071,8 +2074,9 @@ module.exports = function (graphContainerSelector) {
         clearTimeout(nodeFreezer);
         // tells user when element is filtered out
         if (graph.options().datatypeFilter().enabled() === true) {
-            recalculatePositions();
-            alert("Datatype properties are filtered out in the visualization!\nElement not created!");	// deselect
+            graph.options().warningModule().showWarning("Warning",
+                "Datatype properties are filtered out in the visualization!",
+                "Element not created!",1,false);
             return;
         }
 
@@ -2153,28 +2157,8 @@ module.exports = function (graphContainerSelector) {
 
     };
 
-    graph.removeNodeViaEditor = function (node) {
-        var propsToRemove = [];
-        var nodesToRemove = [];
-        nodesToRemove.push(node);
-        for (var i = 0; i < unfilteredData.properties.length; i++) {
-            if (unfilteredData.properties[i].domain() === node || unfilteredData.properties[i].range() === node) {
-                propsToRemove.push(unfilteredData.properties[i]);
-                if (unfilteredData.properties[i].type().toLocaleLowerCase() === "owl:datatypeproperty" &&
-                    unfilteredData.properties[i].range() !== node) {
-                    nodesToRemove.push(unfilteredData.properties[i].range());
-                }
-            }
-        }
-        // todo: throw alert if removing more than just one element
-        var removedItems=propsToRemove.length+nodesToRemove.length;
-        if (removedItems>2){
-            if (confirm("Remove :\n"+propsToRemove.length + " properties\n"+nodesToRemove.length+" classes? ")===false){
-                return;
-            }else{
-                // todo : store for undo delete button ;
-            }
-        }
+    graph.removeNodesViaResponse=function(nodesToRemove,propsToRemove){
+
         // splice them;
         for (i = 0; i < propsToRemove.length; i++) {
             unfilteredData.properties.splice(unfilteredData.properties.indexOf(propsToRemove[i]), 1);
@@ -2189,6 +2173,52 @@ module.exports = function (graphContainerSelector) {
         nodesToRemove=null;
         propsToRemove=null;
 
+    };
+
+    graph.removeNodeViaEditor = function (node) {
+        var propsToRemove = [];
+        var nodesToRemove = [];
+        nodesToRemove.push(node);
+        for (var i = 0; i < unfilteredData.properties.length; i++) {
+            if (unfilteredData.properties[i].domain() === node || unfilteredData.properties[i].range() === node) {
+                propsToRemove.push(unfilteredData.properties[i]);
+                if (unfilteredData.properties[i].type().toLocaleLowerCase() === "owl:datatypeproperty" &&
+                    unfilteredData.properties[i].range() !== node) {
+                    nodesToRemove.push(unfilteredData.properties[i].range());
+                }
+            }
+        }
+        var removedItems=propsToRemove.length+nodesToRemove.length;
+        if (removedItems>2){
+            graph.options().warningModule().responseWarning(
+                "Removing Elements",
+                "You are about to delete "+nodesToRemove.length+" Nodes and "+propsToRemove.length+ " Properties",
+                "Awaiting Response!"
+                ,graph.removeNodesViaResponse,[nodesToRemove,propsToRemove],false);
+
+
+
+            //
+            // if (confirm("Remove :\n"+propsToRemove.length + " properties\n"+nodesToRemove.length+" classes? ")===false){
+            //     return;
+            // }else{
+            //     // todo : store for undo delete button ;
+            // }
+        }else{
+            // splice them;
+            for (i = 0; i < propsToRemove.length; i++) {
+                unfilteredData.properties.splice(unfilteredData.properties.indexOf(propsToRemove[i]), 1);
+                propsToRemove[i]=null;
+            }
+            for (i = 0; i < nodesToRemove.length; i++) {
+                unfilteredData.nodes.splice(unfilteredData.nodes.indexOf(nodesToRemove[i]), 1);
+                nodesToRemove[i]=null;
+            }
+            graph.update();
+            options.focuserModule().handle(undefined);
+            nodesToRemove=null;
+            propsToRemove=null;
+        }
     };
 
     graph.removePropertyViaEditor = function (property) {
