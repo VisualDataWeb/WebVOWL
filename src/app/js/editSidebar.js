@@ -37,13 +37,19 @@ module.exports = function (graph) {
             });
         d3.select("#iriEditor")
             .on("change", function () {
-                graph.options().addOrUpdateGeneralObjectEntry("iri",d3.select("#iriEditor").node().value);
+                if (graph.options().addOrUpdateGeneralObjectEntry("iri",d3.select("#iriEditor").node().value)===false){
+                    // restore value
+                    d3.select("#iriEditor").node().value=graph.options().getGeneralMetaObjectProperty('iri');
+                }
             })
             .on("keydown", function () {
                 d3.event.stopPropagation();
                 if (d3.event.keyCode === 13) {
                     d3.event.preventDefault();
-                    graph.options().addOrUpdateGeneralObjectEntry("iri",d3.select("#iriEditor").node().value);
+                    if (graph.options().addOrUpdateGeneralObjectEntry("iri",d3.select("#iriEditor").node().value)===false){
+                        // restore value
+                        d3.select("#iriEditor").node().value=graph.options().getGeneralMetaObjectProperty('iri');
+                    }
                 }
             });
         d3.select("#versionEditor")
@@ -85,6 +91,7 @@ module.exports = function (graph) {
     function setupAddPrefixButton() {
         var btn = d3.select("#addPrefixButton");
         btn.on("click", function () {
+
             // check if we are still in editMode?
             if (prefix_editMode === false) {
                 // create new line entry;
@@ -131,11 +138,17 @@ module.exports = function (graph) {
                 editButton.on("click", enablePrefixEdit);
                 deleteButton.on("click", deletePrefixLine);
 
+                editSidebar.updateElementWidth();
                 // swap focus to prefixInput
                 prefInput.node().focus();
                 oldPrefix = name;
                 oldPrefixURL = "";
+                d3.select("#addPrefixButton").node().innerHTML="Save Prefix";
+            }else{
+                //console.log("execute the save action");
+                d3.select("#editButtonFor_emptyPrefixEntry").node().click();
             }
+
         });
 
     }
@@ -173,7 +186,7 @@ module.exports = function (graph) {
                 prefURL.node().id = "prefixURLFor_" + name;
                 prefURL.node().autocomplete = "off";
                 prefURL.node().value = prefixElements[name];
-
+                prefURL.node().title= prefixElements[name];
                 // disable the input fields (already defined elements can be edited later)
                 prefInput.node().disabled = true;
                 prefURL.node().disabled = true;
@@ -188,12 +201,30 @@ module.exports = function (graph) {
 
                 editButton.on("click", enablePrefixEdit);
                 deleteButton.on("click", deletePrefixLine);
+
+                // EXPERIMENTAL
+
+                if (name==="rdf"  ||
+                    name==="rdfs" ||
+                    name==="xsd"  ||
+                    name==="owl"
+                ){
+                    // make them invis so the spacing does not change
+                    deleteButton.classed("invisiblePrefixButton",true);
+                    deleteButton.classed("deletePrefixButton", false);
+                    editButton.classed("invisiblePrefixButton",true);
+                    editButton.classed("editPrefixButton",false);
+                    editButton.node().disabled=true;
+                    deleteButton.node().disabled=true;
+                }
             }
         }
         prefixModule.updatePrefixModel();
     }
 
     function deletePrefixLine() {
+        if (this.disabled===true) return;
+        d3.select("#addPrefixButton").node().innerHTML="Add Prefix";
         var selector = this.id.split("_")[1];
         d3.select("#prefixContainerFor_" + selector).remove();
         graph.options().removePrefix(selector);
@@ -202,6 +233,9 @@ module.exports = function (graph) {
     }
 
     function enablePrefixEdit() {
+        if (this.disabled===true) return;
+        console.log("this");
+        console.log(this);
         var selector = this.id.split("_")[1];
         var stl = this.elementStyle;
         if (stl === "edit") {
@@ -213,15 +247,18 @@ module.exports = function (graph) {
             oldPrefix = d3.select("#prefixInputFor_" + selector).node().value;
             oldPrefixURL = d3.select("#prefixURLFor_" + selector).node().value;
             prefix_editMode = true;
-            this.title = "Edit prefix and IRI";
+            this.title = "Save new prefix and IRI";
         }
         if (stl === "save") {
             var newPrefixURL = d3.select("#prefixURLFor_" + selector).node().value;
             var newPrefix = d3.select("#prefixInputFor_" + selector).node().value;
-            this.title = "Save new prefix and IRI";
+
+
             if (graph.options().updatePrefix(oldPrefix, newPrefix, oldPrefixURL, newPrefixURL) === true) {
                 d3.select("#prefixInputFor_" + newPrefix).node().disabled = true;
                 d3.select("#prefixURLFor_" + newPrefix).node().disabled = true;
+                d3.select("#addPrefixButton").node().innerHTML="Add Prefix";
+                this.title = "Edit prefix and IRI";
 
                 // change the button content
                 this.innerHTML = "\u270E";
@@ -451,6 +488,13 @@ module.exports = function (graph) {
     d3.select("#element_labelEditor"  ).style("width", selectedElement_inputWidth + "px");
     d3.select("#typeEditor"           ).style("width", selectedElement_inputWidth+4 + "px");
     d3.select("#typeEditor_datatype"  ).style("width", selectedElement_inputWidth+4 + "px");
+
+    // update prefix Element width;
+
+        var containerWidth=d3.select("#containerForPrefixURL").node().getBoundingClientRect().width;
+        var prefixWdith=d3.selectAll(".prefixInput").node().getBoundingClientRect().width;
+        d3.selectAll(".prefixURL").style("width", containerWidth-prefixWdith-45+ "px");
+
 
     // var desc_width = div_width - 30;
     // d3.select("#descriptionEditor").style("width", desc_width + "px");
@@ -744,6 +788,7 @@ module.exports = function (graph) {
                 expandContainers(d3.select(selectedTrigger.node().nextElementSibling));
                 selectedTrigger.classed("accordion-trigger-active", true);
             }
+            editSidebar.updateElementWidth();
         });
     }
     return editSidebar;

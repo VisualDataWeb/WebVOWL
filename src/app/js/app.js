@@ -20,6 +20,7 @@ module.exports = function () {
         leftSidebar    = require("./leftSidebar")         (graph),
         editSidebar    = require("./editSidebar")         (graph),
 		configMenu     = require("./menu/configMenu")     (graph),
+        warningModule  = require("./warningModule")       (graph),
 
 	// Graph modules
 		colorExternalsSwitch 	 = webvowl.modules.colorExternalsSwitch(graph),
@@ -111,6 +112,7 @@ module.exports = function () {
 			options.exportMenu(exportMenu);
 			options.graphObject(graph);
 			options.zoomSlider(zoomSlider);
+			options.warningModule(warningModule);
 
             options.datatypeFilter(datatypeFilter);
             options.objectPropertyFilter(objectPropertyFilter);
@@ -147,6 +149,8 @@ module.exports = function () {
             d3.select("#killEditorHint").on("click",function(){
                 d3.select("#editorHint").classed("hidden",true);
             });
+
+
             d3.select("#showEditorHint").on("click",function(){
                 d3.select("#editorHint").classed("hidden",false);
 			});

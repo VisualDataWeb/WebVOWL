@@ -10,6 +10,7 @@ module.exports = function (graph) {
 		elementTools = webvowl.util.elementTools();
     var collapseButton = d3.select("#leftSideBarCollapseButton");
     var visibleSidebar=0;
+    var backupVisibility=0;
     var sideBarContent = d3.select("#leftSideBarContent");
     var sideBarContainer = d3.select("#containerForLeftSideBar");
     var defaultClassSelectionContainers=[];
@@ -17,16 +18,15 @@ module.exports = function (graph) {
     var defaultPropertySelectionContainers=[];
 
 	leftSidebar.setup=function(){
-		console.log("Setup Left SideBar");
         setupCollapsing();
         leftSidebar.initSideBarAnimation();
 
         collapseButton.on("click",function(){
             graph.options().navigationMenu().hideAllMenus();
             var settingValue=parseInt(leftSidebar.getSidebarVisibility());
-            console.log("LeftSidebar visible?"+settingValue);
             if (settingValue===0) leftSidebar.showSidebar(1);
             else                  leftSidebar.showSidebar(0);
+            backupVisibility=settingValue;
         });
 
         setupSelectionContainers();
@@ -156,12 +156,6 @@ module.exports = function (graph) {
         });
     }
 
-    leftSidebar.initSideBarAnimation=function(){
-        // graphArea.node().addEventListener("animationend", function() {
-        //     detailArea.classed("hidden", !visibleSidebar);
-        //
-        // });
-    };
 
     leftSidebar.isSidebarVisible=function(){return visibleSidebar;};
 
@@ -191,17 +185,35 @@ module.exports = function (graph) {
 
     leftSidebar.showSidebar=function(val,init){
         // make val to bool
-		console.log("wannt to show sidebar?"+val);
+
+        if (init===true){
+            visibleSidebar=(backupVisibility===0);
+            sideBarContent.classed("hidden", !visibleSidebar);
+            sideBarContainer.style("-webkit-animation-name","none");
+            if (visibleSidebar === true) {
+                sideBarContainer.style("width", "200px");
+                sideBarContent.classed("hidden",false);
+                d3.select("#leftSideBarCollapseButton").style("left","200px");
+                d3.select("#leftSideBarCollapseButton").classed("hidden",false);
+            }
+            else {
+                sideBarContainer.style("width", "0px");
+                d3.select("#leftSideBarCollapseButton").style("left","0px");
+                d3.select("#leftSideBarCollapseButton").classed("hidden",false);
+            }
+            graph.updateCanvasContainerSize();
+            graph.options().navigationMenu().updateScrollButtonVisibility();
+            return;
+        }
+
         d3.select("#leftSideBarCollapseButton").classed("hidden",true);
         if (val===1) {
             visibleSidebar=true;
             collapseButton.node().innerHTML="<";
 
-
             // call expand animation;
             sideBarContainer .style("-webkit-animation-name","l_sbExpandAnimation");
             sideBarContainer .style("-webkit-animation-duration","0.5s");
-
         }
         if (val===0) {
             visibleSidebar = false;
@@ -210,8 +222,8 @@ module.exports = function (graph) {
             // call collapse animation
             sideBarContainer .style("-webkit-animation-name","l_sbCollapseAnimation");
             sideBarContainer .style("-webkit-animation-duration","0.5s");
-
         }
+
     };
 
 

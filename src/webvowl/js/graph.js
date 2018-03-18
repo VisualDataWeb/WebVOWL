@@ -1910,8 +1910,9 @@ module.exports = function (graphContainerSelector) {
         var svgGraph = d3.selectAll(".vowlGraph");
         if (editMode === true) {
 
-            options.leftSidebar().showSidebar(1);
+            options.leftSidebar().showSidebar(options.leftSidebar().getSidebarVisibility(),true);
             options.leftSidebar().hideCollapseButton(false);
+            options.editSidebar().updateElementWidth();
             svgGraph.on("dblclick.zoom", graph.modified_dblClickFunction);
         }else{
             svgGraph.on("dblclick.zoom",originalD3_dblClickFunction);

@@ -45,6 +45,7 @@ module.exports = function () {
 		generalOntologyMetaData={},
         disjointPropertyFilter,
         rectangularRep=false,
+        warningModule,
         drawPropertyDraggerOnHover=true,
         scaleNodesByIndividuals = true,
         showDraggerObject=true,
@@ -61,19 +62,24 @@ module.exports = function () {
             rdf:'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
     		rdfs:'http://www.w3.org/2000/01/rdf-schema#',
     		owl:'http://www.w3.org/2002/07/owl#',
-    		xml:'http://www.w3.org/XML/1998/namespace',
-    		xsd:'http://www.w3.org/2001/XMLSchema',
-    		dc:'http://purl.org/dc/elements/1.1/#'
+    	    xsd:'http://www.w3.org/2001/XMLSchema',
+    		dc:'http://purl.org/dc/elements/1.1/#',
+            xml:'http://www.w3.org/XML/1998/namespace'
 		};
 
 	options.addOrUpdateGeneralObjectEntry=function(property,value) {
         if (generalOntologyMetaData.hasOwnProperty(property)) {
+        	if (validURL(value)===false){
+				warningModule.showWarning("Invalid Ontology IRI","Input IRI does not represent an URL","Restoring previous IRI for ontology",1,false);
+                return false;
+
+			}
         	console.log("updating "+property+ "from "+generalOntologyMetaData[property]+ " to "+value);
             generalOntologyMetaData[property] = value;
         } else {
-            console.log("ADDING THIS PROPERTY TO META OBJECT");
             generalOntologyMetaData[property] = value;
         }
+        return true;
     };
 
     options.getGeneralMetaObjectProperty=function(property){
@@ -83,7 +89,6 @@ module.exports = function () {
     };
 
     options.getGeneralMetaObject=function(){
-        console.log("Returning full GENERAL Meta object Info");
         return generalOntologyMetaData;
     };
 
@@ -92,7 +97,6 @@ module.exports = function () {
 		if (metadataObject.hasOwnProperty(property)){
 			metadataObject[property]=value;
 		}else{
-			console.log("ADDING THIS PROPERTY TO META OBJECT");
 			metadataObject[property]=value;
 		}
 	};
@@ -103,7 +107,6 @@ module.exports = function () {
          }
 	};
 	options.getMetaObject=function(){
-		console.log("Returning full Meta object Info");
 		return metadataObject;
 	};
 
@@ -166,7 +169,6 @@ module.exports = function () {
 
     options.showDraggerObject=function(val){
         if (!arguments.length){
-        	console.log("hnnnn:"+showDraggerObject);
         	return showDraggerObject;}
         showDraggerObject=val;
     };
@@ -174,6 +176,12 @@ module.exports = function () {
         if (!arguments.length) return drawPropertyDraggerOnHover;
         drawPropertyDraggerOnHover=val;
     };
+
+    options.warningModule=function(val){
+        if (!arguments.length) return warningModule;
+        warningModule=val;
+    };
+
     options.focuserModule=function(val){
         if (!arguments.length) return focuserModule;
         focuserModule=val;

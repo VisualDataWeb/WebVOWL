@@ -682,6 +682,8 @@ main {
 	color: #ff972d;
 	cursor: pointer;
 }
+
+
 .deletePrefixButton:hover{
 	color: #ff972d;
 	cursor: pointer;
@@ -689,6 +691,12 @@ main {
 .deletePrefixButton{
 	color: #ff0000;
 	cursor: pointer;
+}
+
+
+.invisiblePrefixButton{
+	cursor: default;
+	color: rgb(24, 32, 42);
 }
 #containerForAddPrefixButton{
 	width: 100%;
@@ -1461,6 +1469,38 @@ a#locateSearchResult{
 }
 
 #editorHint > div {
+	pointer-events: auto;
+	text-align: left;
+	display: inline-block;
+	color: #ffffff;
+	font-size: 0.8em;
+	background-color: #18202A;
+	padding: 5px 5px;
+	border-radius: 5px;
+
+}
+
+/*Editor hints*/
+#WarningErrorMessages {
+
+	position: absolute;
+	text-align: center;
+	width:  100%;
+	pointer-events: none;
+}
+
+#WarningErrorMessages label {
+	pointer-events: auto;
+	float: right;
+	padding: 5px 5px;
+	color: #ffdd00;
+}
+#WarningErrorMessages label:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#WarningErrorMessages > div {
 	pointer-events: auto;
 	text-align: left;
 	display: inline-block;
