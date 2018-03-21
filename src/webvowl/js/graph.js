@@ -651,27 +651,7 @@ module.exports = function (graphContainerSelector) {
 
     }
 
-    function redrawContent() {
-        var markerContainer;
-
-        if (!graphContainer) {
-            return;
-        }
-
-        // Empty the graph container
-        graphContainer.selectAll("*").remove();
-
-        // Last container -> elements of this container overlap others
-        linkContainer = graphContainer.append("g").classed("linkContainer", true);
-        cardinalityContainer = graphContainer.append("g").classed("cardinalityContainer", true);
-        labelContainer = graphContainer.append("g").classed("labelContainer", true);
-        nodeContainer = graphContainer.append("g").classed("nodeContainer", true);
-
-        // adding editing Elements
-        var draggerPathLayer=graphContainer.append("g").classed("linkContainer", true);
-        editContainer= graphContainer.append("g").classed("editContainer",true);
-        draggerLayer=graphContainer.append("g").classed("editContainer",true);
-
+    function generateEditElements(){
         addDataPropertyGroupElement=editContainer.append('g')
             .classed("hidden-in-export", true)
             .classed("hidden", true)
@@ -745,6 +725,30 @@ module.exports = function (graphContainerSelector) {
             .classed("superHiddenElement",true)
             .classed("superOpacityElement", !graph.options().showDraggerObject());
 
+
+    }
+
+    function redrawContent() {
+        var markerContainer;
+
+        if (!graphContainer) {
+            return;
+        }
+
+        // Empty the graph container
+        graphContainer.selectAll("*").remove();
+
+        // Last container -> elements of this container overlap others
+        linkContainer = graphContainer.append("g").classed("linkContainer", true);
+        cardinalityContainer = graphContainer.append("g").classed("cardinalityContainer", true);
+        labelContainer = graphContainer.append("g").classed("labelContainer", true);
+        nodeContainer = graphContainer.append("g").classed("nodeContainer", true);
+
+        // adding editing Elements
+        var draggerPathLayer=graphContainer.append("g").classed("linkContainer", true);
+        draggerLayer=graphContainer.append("g").classed("editContainer",true);
+        editContainer= graphContainer.append("g").classed("editContainer",true);
+
         // Add an extra container for all markers
         markerContainer = linkContainer.append("defs");
 
@@ -768,7 +772,7 @@ module.exports = function (graphContainerSelector) {
             node.hideDragger(true);
             }
         });
-
+        generateEditElements();
 
 
 
@@ -2574,14 +2578,16 @@ module.exports = function (graphContainerSelector) {
     function setDeleteHoverElementPositionProperty(property,inversed) {
         if (property && property.labelElement() ){
             var pos =[ property.labelObject().x,property.labelObject().y];
-            var delX = pos[0] + 0.5 * property.width() + 6;
-            var delY = pos[1] - 0.5 * property.height() - 6;
+            var widthElement=parseFloat(property.getShapeElement().attr("width"));
+            var heightElement=parseFloat(property.getShapeElement().attr("height"));
+            var delX = pos[0] + 0.5 * widthElement +6;
+            var delY = pos[1] - 0.5 * heightElement - 6;
+            // this is the lower element
             if (property.labelElement().attr("transform")==="translate(0,15)")
-                delY+=15;
-            // if (inversed===true) {
-            //     delY -= 12;
-            //     console.log("Hey we are inverserd!")
-            // }
+                delY += 15;
+            // this is upper element
+            if (property.labelElement().attr("transform")==="translate(0,-15)")
+                delY-=15;
             deleteGroupElement.attr("transform", "translate(" + delX + "," + delY + ")");
         }else{
             deleteGroupElement.classed("hidden",true);// hide when there is no property

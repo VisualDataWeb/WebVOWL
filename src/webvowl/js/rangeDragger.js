@@ -36,46 +36,63 @@ module.exports =  function (graph) {
         Range_dragger.setParentProperty(Range_dragger.parent);
     };
     Range_dragger.updateRange=function(newRange){
-        Range_dragger.parent.range(newRange);
-        // update the position of the new range
-        var rX=newRange.x;
-        var rY=newRange.y;
+        if (Range_dragger.parent.labelElement().attr("transform") === "translate(0,15)"||
+            Range_dragger.parent.labelElement().attr("transform") === "translate(0,-15)") {
+            var prop = Range_dragger.parent;
+            Range_dragger.parent.inverse().inverse(null);
+            Range_dragger.parent.inverse(null);
+            prop.range(newRange);
+        }
 
-        var dX= Range_dragger.parent.domain().x;
-        var dY= Range_dragger.parent.domain() .y;
+        else {
+            Range_dragger.parent.range(newRange);
+        }
+        // update the position of the new range
+        var rX = newRange.x;
+        var rY = newRange.y;
+
+        var dX = Range_dragger.parent.domain().x;
+        var dY = Range_dragger.parent.domain().y;
 
 
         // center
-        var cX=0.49 * (dX+rX);
-        var cY=0.49 * (dY+rY);
+        var cX = 0.49 * (dX + rX);
+        var cY = 0.49 * (dY + rY);
         // put position there;
-        Range_dragger.parent.labelElement().x   = cX;
-        Range_dragger.parent.labelElement().px  = cX;
-        Range_dragger.parent.labelElement().y   = cY;
-        Range_dragger.parent.labelElement().py  = cY;
-
+        Range_dragger.parent.labelElement().x = cX;
+        Range_dragger.parent.labelElement().px = cX;
+        Range_dragger.parent.labelElement().y = cY;
+        Range_dragger.parent.labelElement().py = cY;
 
     };
 
     Range_dragger.setParentProperty = function (parentProperty,inversed) {
         Range_dragger.parent = parentProperty;
-        var renElement;
         var iP;
-        if (inversed===true){
-            console.log("ADD INVERSED ELEMENT")
-            renElement=parentProperty.inverse();
-            if (renElement.labelElement().linkDomainIntersection) {
-                iP = renElement.labelElement().linkDomainIntersection;
+        var renElem;
+        Range_dragger.parent = parentProperty;
+        renElem=parentProperty.labelObject();
+        if (inversed === true) {
+            if (parentProperty.labelElement().attr("transform") === "translate(0,15)") {
+                iP = renElem.linkDomainIntersection;
+                if (renElem.linkDomainIntersection) {
+                    Range_dragger.x = iP.x;
+                    Range_dragger.y = iP.y;
+                }
+            }else {
+                iP = renElem.linkRangeIntersection;
+                if (renElem.linkRangeIntersection) {
+                    Range_dragger.x = iP.x;
+                    Range_dragger.y = iP.y;
+                }
             }
-        }else{
-            console.log("Lower element!");
-            renElement=parentProperty;
-            iP = renElement.labelElement().linkRangeIntersection;
-
         }
-        if (iP) {
-            Range_dragger.x = iP.x;
-            Range_dragger.y = iP.y;
+        else{
+            iP= renElem.linkRangeIntersection;
+            if (renElem.linkRangeIntersection) {
+                Range_dragger.x = iP.x;
+                Range_dragger.y = iP.y;
+            }
         }
         Range_dragger.updateElement();
     };
@@ -197,25 +214,37 @@ module.exports =  function (graph) {
 
 
     Range_dragger.updateElement = function () {
-        if (Range_dragger.mouseButtonPressed===true || Range_dragger.parent===undefined||
-            Range_dragger.parent.labelElement().linkRangeIntersection===undefined ) return;
-            var range_x = Range_dragger.parent.range().x;
-            var range_y = Range_dragger.parent.range().y;
+        if (Range_dragger.mouseButtonPressed===true || Range_dragger.parent===undefined ) return;
 
-            var ep_range_x = Range_dragger.parent.labelElement().linkRangeIntersection.x;
-            var ep_range_y = Range_dragger.parent.labelElement().linkRangeIntersection.y;
-        // offset for dragger object
-            var dx=range_x-ep_range_x;
-            var dy=range_y-ep_range_y;
-            var len=Math.sqrt(dx*dx+dy*dy);
-            var nX=dx/len;
-            var nY=dy/len;
-            var angle = Math.atan2(ep_range_y - range_y, ep_range_x - range_x) * 180 / Math.PI;
+        var range=Range_dragger.parent.range();
+        var iP=Range_dragger.parent.labelObject().linkRangeIntersection;
 
-            var doX=ep_range_x - nX*40;
-            var doY=ep_range_y - nY*40;
-            Range_dragger.nodeElement.attr("transform", "translate(" + ep_range_x + "," + ep_range_y + ")" + "rotate(" + angle + ")");
-            Range_dragger.draggerObject.attr("transform","translate(" +doX + "," +doY + ")");
+        if (Range_dragger.parent.labelElement().attr("transform")==="translate(0,15)"){
+            range=Range_dragger.parent.inverse().domain();
+            iP=Range_dragger.parent.labelObject().linkDomainIntersection;
+
+        }
+        if (iP===undefined) return;
+        var range_x = range.x;
+        var range_y = range.y;
+
+        var ep_range_x = iP.x;
+        var ep_range_y = iP.y;
+    // offset for dragger object
+        var dx=range_x-ep_range_x;
+        var dy=range_y-ep_range_y;
+        var len=Math.sqrt(dx*dx+dy*dy);
+        var nX=dx/len;
+        var nY=dy/len;
+        var angle = Math.atan2(ep_range_y - range_y, ep_range_x - range_x) * 180 / Math.PI;
+
+        var doX=ep_range_x - nX*40;
+        var doY=ep_range_y - nY*40;
+
+        Range_dragger.nodeElement.attr("transform", "translate(" + ep_range_x + "," + ep_range_y + ")" + "rotate(" + angle + ")");
+        Range_dragger.draggerObject.attr("transform","translate(" +doX + "," +doY + ")");
+
+
 
     };
 

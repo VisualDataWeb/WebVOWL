@@ -56,11 +56,17 @@ module.exports = (function () {
 		this.getPin=function(){
 			return pinGroupElement;
 		};
-        this.labelObject=function (lo){
+        this.labelObject=function (lo,once){
             if (!arguments.length){
                 return parent_labelObject;
             }
-            else parent_labelObject=lo;
+            else {
+                parent_labelObject = lo;
+            	if (that.inverse() && once!==true){
+            		that.inverse().labelObject(lo,true);
+				}
+
+            }
         };
         this.hide=function(val){
         	that.labelElement().classed("hidden",val);
@@ -190,7 +196,9 @@ module.exports = (function () {
 			graph.resetSearchHighlight();
 			graph.options().searchMenu().clearText();
 		};
-
+		this.getShapeElement=function(){
+			return shapeElement;
+		};
 
 		this.redrawElement=function(){
 			shapeElement.remove();
@@ -246,7 +254,6 @@ module.exports = (function () {
 				that.inverse()
 					.labelElement()
 					.attr("transform", "translate(" + 0 + "," + yTransformation + ")");
-				that.inverse().labelObject(that.labelObject());
 			}
 
 			if (that.pinned()) {
