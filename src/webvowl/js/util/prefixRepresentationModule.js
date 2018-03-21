@@ -17,14 +17,25 @@ module.exports =  function (graph) {
         var splitedURL={base:"",resource:""};
         var resource,base;
         // check if there is a last hashTag
-        if (fullURL.indexOf("#")){
+        if (fullURL.indexOf("#")>-1){
+            console.log("THIS HAS a # inside it oO ");
             resource=fullURL.substring(fullURL.lastIndexOf('#')+1);
             base=fullURL.substring(0,fullURL.length-resource.length);
+
+
+            // overwrite base if it is ontologyIri;
+            if (base===graph.options().getGeneralMetaObjectProperty('iri')){
+                base=":";
+            }
             splitedURL.base=base;
             splitedURL.resource=resource;
         }else {
             resource = fullURL.substring(fullURL.lastIndexOf('/') + 1);
             base=fullURL.substring(0,fullURL.length-resource.length);
+            // overwrite base if it is ontologyIri;
+            if (base===graph.options().getGeneralMetaObjectProperty('iri')){
+                base=":";
+            }
             splitedURL.base=base;
             splitedURL.resource=resource;
         }
@@ -32,7 +43,9 @@ module.exports =  function (graph) {
     }
 
     prefixRepresentationModule.getPrefixRepresentationForFullURI=function(fullURL){
+        prefixRepresentationModule.updatePrefixModel();
         var splittedURL=splitURLIntoBaseAndResource(fullURL);
+
         // lazy approach , for
         // loop over prefix model
         for (var name in currentPrefixModel){
@@ -43,6 +56,11 @@ module.exports =  function (graph) {
                 }
             }
         }
+
+        if (splittedURL.base===":"){
+            return ":"+splittedURL.resource;
+        }
+
         return fullURL;
     };
 

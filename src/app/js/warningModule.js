@@ -76,6 +76,7 @@ module.exports =  function (graph) {
         // until the darklord has its answer!
         d3.select("#darthBane").classed("hidden",false);
 
+        var graphWidht=0.5*graph.options().width();
 
 
         if (header.length>0){
@@ -84,12 +85,12 @@ module.exports =  function (graph) {
             var titleHeader=head.append("div");
             // some classes
             titleHeader.style("display","inline-flex");
-            titleHeader.node().innerHTML="<u>Header:</u>";
+            titleHeader.node().innerHTML="<b>Header:</b>";
             titleHeader.style("padding-right","3px");
             var msgHeader=head.append("div");
             // some classes
             msgHeader.style("display","inline-flex");
-            msgHeader.style("max-width","200px");
+            msgHeader.style("max-width",graphWidht+"px");
 
             msgHeader.node().innerHTML=header;
         }
@@ -101,11 +102,11 @@ module.exports =  function (graph) {
             reasonHeader.style("display","inline-flex");
             reasonHeader.style("padding-right","3px");
 
-            reasonHeader.node().innerHTML="<u>Reason:</u>";
+            reasonHeader.node().innerHTML="<b>Reason:</b>";
             var msgReason=reasonContainer.append("div");
             // some classes
             msgReason.style("display","inline-flex");
-            msgReason.style("max-width","200px");
+            msgReason.style("max-width",graphWidht+"px");
             msgReason.node().innerHTML=reason;
         }
         if (action.length>0){
@@ -115,11 +116,11 @@ module.exports =  function (graph) {
             // some classes
             actionHeader.style("display","inline-flex");
             actionHeader.style("padding-right","8px");
-            actionHeader.node().innerHTML="<u>Action:</u>";
+            actionHeader.node().innerHTML="<b>Action:</b>";
             var msgAction=actionContainer.append("div");
             // some classes
             msgAction.style("display","inline-flex");
-            msgAction.style("max-width","200px");
+            msgAction.style("max-width",graphWidht+"px");
             msgAction.node().innerHTML=action;
 
         }
@@ -172,6 +173,7 @@ module.exports =  function (graph) {
 
 
         // add new one;
+        var graphWidht=0.5*graph.options().width();
 
         if (header.length>0){
            var head= warningContainer.append("div");
@@ -179,12 +181,12 @@ module.exports =  function (graph) {
            var titleHeader=head.append("div");
            // some classes
             titleHeader.style("display","inline-flex");
-            titleHeader.node().innerHTML="<u>Header:</u>";
+            titleHeader.node().innerHTML="<b>Header:</b>";
             titleHeader.style("padding-right","3px");
             var msgHeader=head.append("div");
             // some classes
             msgHeader.style("display","inline-flex");
-            msgHeader.style("max-width","200px");
+            msgHeader.style("max-width",graphWidht+"px");
 
             msgHeader.node().innerHTML=header;
         }
@@ -196,11 +198,11 @@ module.exports =  function (graph) {
             reasonHeader.style("display","inline-flex");
             reasonHeader.style("padding-right","3px");
 
-            reasonHeader.node().innerHTML="<u>Reason:</u>";
+            reasonHeader.node().innerHTML="<b>Reason:</b>";
             var msgReason=reasonContainer.append("div");
             // some classes
             msgReason.style("display","inline-flex");
-            msgReason.style("max-width","200px");
+            msgReason.style("max-width",graphWidht+"px");
             msgReason.node().innerHTML=reason;
         }
         if (action.length>0){
@@ -210,11 +212,11 @@ module.exports =  function (graph) {
             // some classes
             actionHeader.style("display","inline-flex");
             actionHeader.style("padding-right","8px");
-            actionHeader.node().innerHTML="<u>Action:</u>";
+            actionHeader.node().innerHTML="<b>Action:</b>";
             var msgAction=actionContainer.append("div");
             // some classes
             msgAction.style("display","inline-flex");
-            msgAction.style("max-width","200px");
+            msgAction.style("max-width",graphWidht+"px");
             msgAction.node().innerHTML=action;
 
         }

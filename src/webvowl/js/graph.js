@@ -728,6 +728,42 @@ module.exports = function (graphContainerSelector) {
 
     }
 
+    graph.getUnfilteredData=function(){
+        return unfilteredData;
+    };
+
+    graph.getClassDataForTtlExport=function(){
+        var allNodes=unfilteredData.nodes;
+        var nodeData=[];
+        for (var i=0;i<allNodes.length;i++){
+            if (allNodes[i].type()!=="rdfs:Literal" &&
+                allNodes[i].type()!=="rdfs:Datatype"&&
+                allNodes[i].type()!=="owl:Thing"){
+                nodeData.push(allNodes[i]);
+            }
+        }
+        return nodeData;
+    };
+
+    graph.getPropertyDataForTtlExport=function(){
+        var propertyData=[];
+        var allProperties=unfilteredData.properties;
+
+        for (var i=0;i<allProperties.length;i++){
+            // currently using only the object properties
+            if (allProperties[i].type()==="owl:ObjectProperty" ||
+                allProperties[i].type()==="owl:DatatypeProperty"  ||
+                allProperties[i].type()==="owl:allValuesFrom"  ||
+                allProperties[i].type()==="owl:ObjectProperty" ||
+                allProperties[i].type()==="owl:someValuesFrom"
+
+            ){
+                propertyData.push(allProperties[i]);
+            }
+        }
+        return propertyData;
+    };
+
     function redrawContent() {
         var markerContainer;
 
@@ -1901,6 +1937,11 @@ module.exports = function (graphContainerSelector) {
             aProp.label("newObjectProperty");
         }
 
+        if (aProp.type()==="rdfs:subClassOf"){
+            aProp.iri("http://www.w3.org/2000/01/rdf-schema#subClassOf");
+        }else{
+            aProp.iri(graph.options().getGeneralMetaObjectProperty('iri')+aProp.id());
+        }
 
         // // TODO: change its base IRI to proper value
         // var ontoIRI="http://someTest.de";

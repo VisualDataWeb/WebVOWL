@@ -1,14 +1,17 @@
 {
   "_comment" : "Just a test ",
   "header" : {
-    "languages" : [ "en" ],
+    "languages" : [ "en", "de" ],
     "baseIris" : [ "http://www.w3.org/2000/01/rdf-schema"],
     "iri" : "http://visualdataweb.org/newOntology/",
     "title" : {
-      "en" : "New Ontology"
+      "en" : "New Ontology",
+      "de" : "Eine Neue Ontology"
     },
     "description" : {
-      "undefined" : "New ontology description"
+      "undefined" : "no No no, no ontology description here",
+      "en" : "New ontology description",
+      "de" : "naja keine description vorhanden halt"
     }
   },
   "namespace" : [ ],

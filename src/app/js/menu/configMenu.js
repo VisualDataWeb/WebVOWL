@@ -10,7 +10,7 @@ module.exports = function (graph) {
             searchMenu.hideSearchEntries();
         });
         addCheckBox("drawPropertyDraggerOnHover","Draw PropertyDragger onHover","#drawPropertyDraggerOnHover",graph.options().drawPropertyDraggerOnHover,0);
-        addCheckBox("showZoomSlider","Show Zoom Slider","#zoomSliderOption",graph.options().zoomSlider().showSlider,0);
+        addCheckBox("showZoomSlider","Zoom Slider","#zoomSliderOption",graph.options().zoomSlider().showSlider,0);
         addCheckBox("editorMode","Editor Mode (experimental)","#editMode",graph.editorMode,0);
         addCheckBox("showDraggerObject","Show Dragger Object(DebugMode)","#showDraggerObject",graph.options().showDraggerObject,3);
         addLabelWidthSlider("#maxLabelWidthSliderOption","maxLabelWidth","Max Label Width", graph.options().maxLabelWidth);

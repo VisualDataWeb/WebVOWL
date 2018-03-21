@@ -75,7 +75,7 @@
 
     [] Add Accordion Object (static elements in the html)
        // Maybe reorganize the editor information !<<
-       -> Description
+       -> [DONE] Description
        -> [ SKIP ]MetaData  // << Keep editor sidebar slim
        -> [ SKIP ]Statistics // << Keep editor sidebar slim
        -> Selection Details
@@ -167,11 +167,24 @@
 [DONE] inverse Delete element Position somehow wrong;
 [DONE] fix labelObejct things
 
-[Questions]: do we allow to have spaces in iri or
-should this directly  replaced by _
+[Questions]
+  [] do we allow to have spaces in iri or
+    should this directly  replaced by _
+
+  [] All and exist possible as loops?
+  [] Datatypeproperties Characteristics? << only functional?
 
 
-[TODO] EXPORT TTL MODULE
+
+
+[WIP] EXPORT TTL MODULE
+
+
+[TODO] sanity check for domain and range drager
+   -> you can still create a loop for subclasses by using domain and range dragger
+
+
+
 [TODO] todo touch device testing
 [TODO] MultiColoring for external elements? << tests and so
 
