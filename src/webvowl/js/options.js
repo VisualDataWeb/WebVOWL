@@ -77,7 +77,7 @@ module.exports = function () {
 	options.addOrUpdateGeneralObjectEntry=function(property,value) {
         if (generalOntologyMetaData.hasOwnProperty(property)) {
         	console.log("Updating Property:"+ property);
-        	if (property=="iri"){
+        	if (property==="iri"){
 				if (validURL(value)===false){
 					warningModule.showWarning("Invalid Ontology IRI","Input IRI does not represent an URL","Restoring previous IRI for ontology",1,false);
 					return false;

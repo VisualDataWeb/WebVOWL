@@ -70,10 +70,11 @@ module.exports =  function (graph) {
     Domain_dragger.setParentProperty = function (parentProperty,inverted) {
         Domain_dragger.invertedProperty = inverted;
         var renElem;
+        var iP;
         Domain_dragger.parent = parentProperty;
         renElem=parentProperty.labelObject();
         if (inverted === true) {
-            var iP;
+
             // this is the lower element
             if (parentProperty.labelElement().attr("transform") === "translate(0,15)") {
                 // console.log("This is the lower element!");

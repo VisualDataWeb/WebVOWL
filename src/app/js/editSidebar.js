@@ -719,9 +719,6 @@ module.exports = function (graph) {
         }
         if (getPresentAttribute(selectedElement,"external") && getPresentAttribute(selectedElement,"deprecated")){
             visAttr = selectedElement.visualAttributes();
-
-            //
-            console.log("THIS SHOULD REMOVE THE EXTERNAL VIS ATTRIBUTE")
             var visInd=visAttr.indexOf("external");
             if (visInd>-1) {
                 visAttr.splice(visInd, 1);

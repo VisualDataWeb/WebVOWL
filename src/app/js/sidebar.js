@@ -561,14 +561,12 @@ module.exports = function (graph) {
     sidebar.updateGeneralOntologyInfo=function() {
         // get it from graph.options
         var generalMetaObj = graph.options().getGeneralMetaObject();
+        var preferredLanguage = graph && graph.language ? graph.language() : null;
         if (generalMetaObj.hasOwnProperty("title")) {
             // title has language to it -.-
             if (typeof generalMetaObj.title === "object") {
-                console.log("ITS AN OBJECT!!!>>>>>>>>>>>>>>");
-                var preferredLanguage = graph && graph.language ? graph.language() : null;
                 d3.select("#title").node().value = languageTools.textInLanguage(generalMetaObj.title, preferredLanguage);
             } else{
-            	console.log("This SHOULD HAVE UPDATED THE VALUE"+generalMetaObj.title);
                 d3.select("#title").node().innerHTML = generalMetaObj.title;
             }
 
@@ -578,8 +576,13 @@ module.exports = function (graph) {
         if (generalMetaObj.hasOwnProperty("version")) d3.select("#version").node().innerHTML = generalMetaObj.version;
         if (generalMetaObj.hasOwnProperty("author")) d3.select("#authors").node().innerHTML = generalMetaObj.author;
  		// this could also be an object >>
-        if (generalMetaObj.hasOwnProperty("description"))
-        	d3.select("#description").node().innerHTML=generalMetaObj.description;
+        if (generalMetaObj.hasOwnProperty("description")) {
+            if (typeof generalMetaObj.description === "object") {
+                d3.select("#description").node().innerHTML = languageTools.textInLanguage(generalMetaObj.description, preferredLanguage);
+            }
+            else
+                d3.select("#description").node().innerHTML = generalMetaObj.description;
+        }
 
         console.log(generalMetaObj.description);
 
