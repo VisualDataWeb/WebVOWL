@@ -29,23 +29,8 @@
 				to run WebVOWL.
 				<label id="killWarning">Hide warning</label>
 			</div>
-	    	<div id="editorHint" class="hidden">
-		    	<div id="editorHintText">
-			    	<ul>
-						<li>Create a class with <b>double click / tap</b> on empty canvas area.</li>
-						<li>Edit names with <b>double click / tap</b> on element.</li>
-						<li>Additional editing functionality is provided in the sidebar.</li>
-					</ul>
-					<label id="killEditorHint">Got It</label>
-				</div>
-			</div>
-		<div id="WarningErrorMessages" class="hidden">
-			<div id="WarningErrorMessagesText">
-				<div id="WarningErrorMessagesContent"> </div>
-			</div>
-		</div>
-			<div id="logo" class="noselect">
 
+		<div id="logo" class="noselect">
 			<!-- build:process -->
 				<h2>WebVOWL</h2>
 				<div style="height:3px" ></div>
@@ -53,9 +38,8 @@
 					<span id="modeOfOperationString" style="
 							font-size: 0.4em; font-style: italic;">mode of operation</span>
 				</h2>
-
 			<!-- /build -->
-			</div>
+		</div>
 			<div id="loading-info">
 				<div id="loading-error" class="hidden">
 					<div id="error-info"></div>
@@ -233,10 +217,11 @@
 			<p class="noselect" id="zoomOutButton">-</p>
 		</div>
 
+
 	</section>
 	<aside id="detailsArea" >
 		<section id="generalDetailsEdit" class="hidden">
-			<h1 id="editHeader">Edit Ontology Options</h1>
+			<h1 id="editHeader" style="font-size: 1.1em;">Edit Ontology Options</h1>
 			<h3 class="accordion-trigger noselect accordion-trigger-active">Ontology</h3>
 			<div>
 				<div class="textLineEditWithLabel">
@@ -278,7 +263,7 @@
 
 			<h3 class="accordion-trigger noselect">Description</h3>
 			<div>
-				<textarea title="dc:title maybe?" class="descriptionTextClass" id="descriptionEditor" ></textarea>
+				<textarea rows="4" cols="25" title="dc:title maybe?" class="descriptionTextClass" id="descriptionEditor" ></textarea>
 			</div>
 			<h3 class="accordion-trigger noselect accordion-trigger-active">Selected Element</h3>
 			<div>
@@ -376,6 +361,12 @@
 			</div>
 		</section>
 	</aside>
+	<div id="darthBane" class="hidden"></div>
+	<div id="WarningErrorMessages" class="hidden">
+		<div id="WarningErrorMessagesText">
+			<div id="WarningErrorMessagesContent"> </div>
+		</div>
+	</div>
 
 </main>
 <script src="js/d3.min.js"></script>

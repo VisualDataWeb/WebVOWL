@@ -577,6 +577,12 @@ module.exports = function (graph) {
         if (generalMetaObj.hasOwnProperty("iri")) d3.select("#about").node().href= generalMetaObj.iri;
         if (generalMetaObj.hasOwnProperty("version")) d3.select("#version").node().innerHTML = generalMetaObj.version;
         if (generalMetaObj.hasOwnProperty("author")) d3.select("#authors").node().innerHTML = generalMetaObj.author;
+ 		// this could also be an object >>
+        if (generalMetaObj.hasOwnProperty("description"))
+        	d3.select("#description").node().innerHTML=generalMetaObj.description;
+
+        console.log(generalMetaObj.description);
+
     };
 
 

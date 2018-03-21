@@ -55,18 +55,30 @@ module.exports =  function (graph) {
 
     };
 
-    Domain_dragger.setParentProperty = function (parentProperty) {
-        Domain_dragger.parent = parentProperty;
+    Domain_dragger.setParentProperty = function (parentProperty,inverted) {
+        Domain_dragger.invertedProperty = inverted;
+        var renElem;
+        Domain_dragger.parent = parentProperty
+        if (inverted === true) {
+           renElem = parentProperty.inverse().labelObject();
+            if (renElem.linkDomainIntersection) {
+                var iP = renElem.linkDomainIntersection;
+                Domain_dragger.x = iP.x;
+                Domain_dragger.y = iP.y;
+            }
 
+        }
         // get link range intersection;
-
-        if (parentProperty.labelObject().linkDomainIntersection) {
-            var iP = parentProperty.labelObject().linkDomainIntersection;
-
-            Domain_dragger.x = iP.x;
-            Domain_dragger.y = iP.y;
+        else{
+            renElem=parentProperty.labelObject();
+            if (renElem.linkDomainIntersection) {
+                var iP = renElem.linkDomainIntersection;
+                Domain_dragger.x = iP.x;
+                Domain_dragger.y = iP.y;
+            }
         }
         Domain_dragger.updateElement();
+
     };
 
     Domain_dragger.hideDragger=function(val){
@@ -105,7 +117,7 @@ module.exports =  function (graph) {
                 .attr("x2", 0)
                 .attr("y2", 0);
 
-        var pathData="M 10,40 C -10,15 -10,-15 10,-40 -4.5025829,-20.448277 -15.80965,2.7180462 -50,0 -34.738882,3.0775446 -26.408173,-8.8435577 10,40 Z";
+        var pathData="M 10,40 C -10,15 -10,-15 10,-40 -8.8233455,-13.641384 -36.711107,-5.1228436 -50,0 -36.696429,4.9079017 -8.6403157,13.745728 10,40 Z";
         Domain_dragger.nodeElement =Domain_dragger.rootNodeLayer.append('path').attr("d", pathData);
         Domain_dragger.nodeElement.classed("classDraggerNode",true);
         Domain_dragger.draggerObject=Domain_dragger.rootNodeLayer.append("circle");

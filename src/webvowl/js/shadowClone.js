@@ -27,19 +27,34 @@ module.exports =  function (graph) {
             return ShadowClone.parent;
     };
 
-    ShadowClone.setParentProperty = function (parentProperty) {
+    ShadowClone.setParentProperty = function (parentProperty,inverted) {
+        ShadowClone.invertedProperty=inverted;
         ShadowClone.parent = parentProperty;
-        if (parentProperty.labelObject().linkRangeIntersection && parentProperty.labelObject().linkDomainIntersection) {
-            var iP_range = parentProperty.labelObject().linkRangeIntersection;
-            var iP_domain = parentProperty.labelObject().linkDomainIntersection;
-            ShadowClone.s_x = iP_domain.x;
-            ShadowClone.s_y = iP_domain.y;
-            ShadowClone.e_x = iP_range.x;
-            ShadowClone.e_y = iP_range.y;
+        var renElment;
+        if (inverted===true) {
+            renElment = parentProperty.inverse().labelObject();
+            if (renElment.linkRangeIntersection && renElment.linkDomainIntersection) {
+                var iiP_range = renElment.linkDomainIntersection;
+                var iiP_domain = renElment.linkRangeIntersection;
+                ShadowClone.s_x = iiP_domain.x;
+                ShadowClone.s_y = iiP_domain.y;
+                ShadowClone.e_x = iiP_range.x;
+                ShadowClone.e_y = iiP_range.y;
+            }
         }
+        else{
+            renElment=parentProperty.labelElement();
 
+            if (renElment.linkRangeIntersection && renElment.linkDomainIntersection) {
+                var iP_range = renElment.linkRangeIntersection;
+                var iP_domain = renElment.linkDomainIntersection;
+                ShadowClone.s_x = iP_domain.x;
+                ShadowClone.s_y = iP_domain.y;
+                ShadowClone.e_x = iP_range.x;
+                ShadowClone.e_y = iP_range.y;
+            }
 
-
+        }
 
         ShadowClone.rootNodeLayer.remove();
         ShadowClone.rootNodeLayer=ShadowClone.rootElement.append('g');
@@ -113,7 +128,7 @@ module.exports =  function (graph) {
 
     ShadowClone.hideParentProperty=function(val){
 
-        var labelObj=ShadowClone.parent.labelElement();
+        var labelObj=ShadowClone.parent.labelObject();
         if (labelObj)
             ShadowClone.parent.hide(val);
 

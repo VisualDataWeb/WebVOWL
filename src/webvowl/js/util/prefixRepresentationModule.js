@@ -9,6 +9,9 @@ module.exports =  function (graph) {
         currentPrefixModel=graph.options().prefixList();
     };
 
+
+
+
     function splitURLIntoBaseAndResource(fullURL){
 
         var splitedURL={base:"",resource:""};

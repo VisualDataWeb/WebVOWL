@@ -152,10 +152,30 @@ module.exports = function () {
 
 
             d3.select("#showEditorHint").on("click",function(){
-                d3.select("#editorHint").classed("hidden",false);
+                graph.options().warningModule().showEditorHint();
 			});
 
             d3.select("#containerForLeftSideBar").style("width","0px"); // init value
+
+            d3.select("#darthBane").style("position","absolute")
+                .style("top","0")
+                .style("background-color","#bdbdbd")
+                .style("opacity","0.5")
+                .style("pointer-events","auto")
+                .style("width",graph.options().width()+"px")
+                .style("height",graph.options().height()+"px")
+                .on("click",function(){
+                    // unlimited power
+                    d3.event.preventDefault();
+                    d3.event.stopPropagation();
+                })
+                .on("dblclick",function(){
+                    // unlimited power
+                    d3.event.preventDefault();
+                    d3.event.stopPropagation();
+                });
+            d3.select("#darthBane").node().draggable=false;
+
 
         }
 	};
@@ -218,6 +238,7 @@ module.exports = function () {
         if (newOntology){
             //TODO: PUT THIS BACK ON WHEN RELEASING
             // d3.select("#editorHint").classed("hidden",false);
+            graph.options().warningModule().showEditorHint();
         }
 
         exportMenu.setJsonText(jsonText);
@@ -249,7 +270,11 @@ module.exports = function () {
 
         }
 
-		graphContainer.style("height", height + "px");
+        d3.select("#darthBane").style("width",window.innerWidth+"px");
+        d3.select("#darthBane").style("height",window.innerHeight+"px");
+        d3.select("#WarningErrorMessages").style("width",width+"px");
+
+        graphContainer.style("height", height + "px");
 		svg.attr("width", width)
 			.attr("height", height);
 

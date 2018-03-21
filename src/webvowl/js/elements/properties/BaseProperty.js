@@ -246,6 +246,7 @@ module.exports = (function () {
 				that.inverse()
 					.labelElement()
 					.attr("transform", "translate(" + 0 + "," + yTransformation + ")");
+				that.inverse().labelObject(that.labelObject());
 			}
 
 			if (that.pinned()) {

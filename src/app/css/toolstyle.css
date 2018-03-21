@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans);*/
 /*----------------------------------------------
         WebVOWL page
 ----------------------------------------------*/
@@ -178,6 +178,48 @@ a:hover {
 	0%   { width: 200px;}
 	100% { width: 0px;}
 }
+
+/*----------------- WARNING ANIMATIONS-------------*/
+
+/*----------------------------------------------
+  SideBar Animation Class;
+----------------------------------------------- */
+@-webkit-keyframes warn_ExpandAnimation {
+	0% {  top: -100%;}
+	100% {top: 0;}
+}
+@-moz-keyframes warn_ExpandAnimation {
+	0% {  top: -100%;}
+	100% {top: 0;}
+}
+@-o-keyframes warn_ExpandAnimation {
+	0% {  top: -100%;}
+	100% {top: 0;}
+}
+@keyframes warn_ExpandAnimation {
+	0% {  top: -100%;}
+	100% {top: 0;}
+}
+
+/*Collapse Animation*/
+@-webkit-keyframes warn_CollapseAnimation {
+	0%   { top: 0;}
+	100% { top: -100%;}
+}
+@-moz-keyframes warn_CollapseAnimation  {
+	0%   { top: 0;}
+	100% { top: -100%;}
+}
+@-o-keyframes warn_bCollapseAnimation  {
+	0%   { top: 0;}
+	100% { top: -100%;}
+}
+@keyframes warn_CollapseAnimation  {
+	0%   { top: 0;}
+	100% { top: -100%;}
+}
+
+
 
 
 /*----------------------------------------------
@@ -744,21 +786,28 @@ main {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	color: #f19505;
 	display: inline-block;
 	max-width: 90px;
 	position: relative;
-	top: 3px;
-	border-bottom: 1px solid;
-
+	top: 2px;
 }
-
-#leftHeader{
+#editHeader{
 	color: #ecf0f1;
+	background-color: #394f5a;
 	display: block;
 	font-size: 1.1em;
 	font-weight: 100;
 	text-align: center;
+}
+#leftHeader{
+	color: #ecf0f1;
+	background-color: #394f5a;
+	display: block;
+	font-size: 1.1em;
+	font-weight: 100;
+	text-align: center;
+	padding: 10px 0;
+	margin: 0;
 }
 .containerForDefaultSelection{
 	color: #ecf0f1;
@@ -1487,6 +1536,7 @@ a#locateSearchResult{
 	text-align: center;
 	width:  100%;
 	pointer-events: none;
+	margin: 10px 0;
 }
 
 #WarningErrorMessages label {
@@ -1512,13 +1562,12 @@ a#locateSearchResult{
 
 }
 
-#editorHint > * > ul {
+#WarningErrorMessagesContent > ul {
 	-webkit-padding-start: 20px;
 	padding: 0 16px;
 
-
 }
-#editorHint > * > ul > li {
+#WarningErrorMessagesContent  > ul > li {
 	padding: 5px;
 }
 
@@ -1537,6 +1586,10 @@ a#locateSearchResult{
 .converter-form-Editor label {
 	/*//display: inline-block;*/
 	line-height: normal;
+}
+.descriptionTextClass{
+	background-color: #34495E;
+	color : white;
 }
 .prefixIRIElements input{
 	border: 1px solid #34495E;

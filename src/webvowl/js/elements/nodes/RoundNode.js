@@ -181,7 +181,7 @@ module.exports = (function () {
 			that.nodeElement(parentElement);
 
 			var bgColor=that.backgroundColor();
-
+			if (bgColor===null) bgColor=undefined;
 			if (that.attributes().indexOf("deprecated")>-1){
 				bgColor=undefined;
 			}
@@ -193,7 +193,6 @@ module.exports = (function () {
             }else {
 				renderingElement = drawTools.appendCircularClass(parentElement, that.actualRadius(), cssClasses, that.labelForCurrentLanguage(), bgColor);
             }
-
 			that.postDrawActions(parentElement);
 		};
 
@@ -204,7 +203,14 @@ module.exports = (function () {
             if (that.attributes().indexOf("deprecated")>-1){
                 bgColor=undefined;
             }
+
+
+
             var cssClasses = that.collectCssClasses();
+			console.log("bgColor");
+            console.log(bgColor);
+
+
             if (rectangularRepresentation===true) {
                 renderingElement = drawTools.appendRectangularClass(that.nodeElement(), 80,80, cssClasses, that.labelForCurrentLanguage(), bgColor);
             }else {

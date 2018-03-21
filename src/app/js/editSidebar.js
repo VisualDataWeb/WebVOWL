@@ -13,6 +13,16 @@ module.exports = function (graph) {
     var selectedElementForCharacteristics;
     var oldPrefix, oldPrefixURL;
     var prefix_editMode = false;
+
+    editSidebar.clearMetaObjectValue=function(){
+        d3.select("#titleEditor").node().value="";
+        d3.select("#iriEditor").node().value="";
+        d3.select("#versionEditor").node().value="";
+        d3.select("#authorsEditor").node().value="";
+        d3.select("#descriptionEditor").node().value="";
+        // todo add clear description;
+    };
+
     editSidebar.setup = function () {
         setupCollapsing();
         setupPrefixList();
@@ -20,15 +30,11 @@ module.exports = function (graph) {
         setupSupportedDatatypes();
 
 
-        console.log("creating title editor handler");
-        console.log(d3.select("#titleEditor"));
         d3.select("#titleEditor")
             .on("change", function () {
-                console.log("change title editor");
                 graph.options().addOrUpdateGeneralObjectEntry("title",d3.select("#titleEditor").node().value);
             })
             .on("keydown", function () {
-                console.log("A Key is Pressed");
                 d3.event.stopPropagation();
                 if (d3.event.keyCode === 13) {
                     d3.event.preventDefault();
@@ -73,6 +79,10 @@ module.exports = function (graph) {
                     d3.event.preventDefault();
                     graph.options().addOrUpdateGeneralObjectEntry("author",d3.select("#authorsEditor").node().value);
                 }
+            });
+        d3.select("#descriptionEditor")
+            .on("change", function () {
+                graph.options().addOrUpdateGeneralObjectEntry("description",d3.select("#descriptionEditor").node().value);
             });
 
 
@@ -234,8 +244,6 @@ module.exports = function (graph) {
 
     function enablePrefixEdit() {
         if (this.disabled===true) return;
-        console.log("this");
-        console.log(this);
         var selector = this.id.split("_")[1];
         var stl = this.elementStyle;
         if (stl === "edit") {
@@ -292,17 +300,101 @@ module.exports = function (graph) {
         d3.select("#element_labelEditor").node().value = element.labelForCurrentLanguage();
     }
 
-    function changeIriForElement(element) {
-        var url = d3.select("#element_iriEditor").node().value;
 
-        // TODO : IF VALID URL ?
-         // NO >> TRY TO SEE IF THERE IS A PREFIX THAT EXIST
-         //       THEN SET URI TO THE PREFIX + URL -BASE URI
+    function identifyExternalCharacteristicForElement(ontoIRI,elementIRI){
+            // returns true or false
+            console.log("Received OntologyIRI: "+ontoIRI);
+            console.log("Received elementIRI: "+elementIRI);
 
-        element.iri(url);
-        d3.select("#element_iriEditor").node().value=prefixModule.getPrefixRepresentationForFullURI(url);
+            //TODO:
+
+        if (elementIRI.indexOf(ontoIRI)>-1)
+            return false;
+
+
+        return true;
 
     }
+
+    function changeIriForElement(element) {
+        var url = d3.select("#element_iriEditor").node().value;
+        var base=graph.options().getGeneralMetaObjectProperty("iri");
+        if (validURL(url)===false){
+
+            // make better usability
+            // try to split element;
+           var tokens=url.split(":");
+
+           //console.log("try to split the input into prefix:name")
+            console.log("Tokens");
+            console.log(tokens);
+            console.log("---------------");
+            // TODO MORE VALIDATION TESTS
+            if (tokens.length===2){
+                var pr=tokens[0];
+                var name=tokens[1];
+                if (pr.length>0){
+                    var basePref=graph.options().prefixList()[pr];
+                    if (basePref===undefined){
+                        console.log("ERROR __________________");
+                        graph.options().warningModule().showWarning("Invalid Element IRI",
+                            "Could not resolve prefix '"+ basePref+"'",
+                            "Restoring previous IRI for Element"+element.iri(),1,false);
+                        d3.select("#element_iriEditor").node().value=element.iri();
+                        return;
+
+                    }
+                    // check if url is not empty
+
+                    if (name.length===0){
+                        graph.options().warningModule().showWarning("Invalid Element IRI",
+                            "Input IRI is EMPTY",
+                            "Restoring previous IRI for Element"+element.iri(),1,false);
+                        console.log("NO INPUT PROVIDED");
+                        d3.select("#element_iriEditor").node().value=element.iri();
+                        return;
+
+                    }
+                    url=basePref+name;
+                }
+                else{
+                    url=base+name;
+                }
+            }else{
+                if (url.length===0){
+                    //
+                    console.log("NO INPUT PROVIDED");
+                    d3.select("#element_iriEditor").node().value=element.iri();
+                    return;
+                }
+                // failed to identify anything useful
+                console.log("Tryig to use the input!");
+                url=base+url;
+            }
+        }
+        element.iri(url);
+
+        if (identifyExternalCharacteristicForElement(base,url)===true){
+            addAttribute(element,"external");
+            // background color for external element;
+            element.backgroundColor("#36C");
+            element.redrawElement();
+            element.redrawLabelText();
+            // handle visual selection
+            graph.options().focuserModule().handle(element,true);
+
+        }
+
+        d3.select("#element_iriEditor").node().value=prefixModule.getPrefixRepresentationForFullURI(url);
+        editSidebar.updateSelectionInformation(element);
+
+    }
+
+    function validURL(str) {
+        var urlregex = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;
+        return urlregex.test(str);
+    }
+
 
     function changeLabelForElement(element) {
         element.label(d3.select("#element_labelEditor").node().value);
@@ -431,13 +523,13 @@ module.exports = function (graph) {
     };
 
     editSidebar.updateGeneralOntologyInfo=function(){
+        var preferredLanguage = graph && graph.language ? graph.language() : null;
+
       // get it from graph.options
         var generalMetaObj=graph.options().getGeneralMetaObject();
         if (generalMetaObj.hasOwnProperty("title")) {
             // title has language to it -.-
             if (typeof generalMetaObj.title==="object") {
-                console.log("ITS AN OBJECT!!!>>>>>>>>>>>>>>");
-                var preferredLanguage = graph && graph.language ? graph.language() : null;
                 d3.select("#titleEditor").node().value = languageTools.textInLanguage(generalMetaObj.title, preferredLanguage);
             }else
             d3.select("#titleEditor").node().value = generalMetaObj.title;
@@ -447,6 +539,16 @@ module.exports = function (graph) {
         if (generalMetaObj.hasOwnProperty("author"))  d3.select("#authorsEditor").node().value=generalMetaObj.author;
 
 
+        if (generalMetaObj.hasOwnProperty("description")){
+
+            if (typeof generalMetaObj.description==="object")
+                d3.select("#descriptionEditor").node().value=
+                    languageTools.textInLanguage(generalMetaObj.description, preferredLanguage);
+            else
+                d3.select("#descriptionEditor").node().value=generalMetaObj.description;
+        }
+        else
+            d3.select("#descriptionEditor").node().value="No Description";
     };
 
     editSidebar.updateElementWidth=function () {
@@ -617,6 +719,9 @@ module.exports = function (graph) {
         }
         if (getPresentAttribute(selectedElement,"external") && getPresentAttribute(selectedElement,"deprecated")){
             visAttr = selectedElement.visualAttributes();
+
+            //
+            console.log("THIS SHOULD REMOVE THE EXTERNAL VIS ATTRIBUTE")
             var visInd=visAttr.indexOf("external");
             if (visInd>-1) {
                 visAttr.splice(visInd, 1);

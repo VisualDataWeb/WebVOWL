@@ -144,15 +144,33 @@
 [DONE] Default message Box for warning
 
 
+***
+[DONE] fixed switching between edit and show mode
+  -> now removes all edit visual elments ;
+[DONE] fixed domain dragger rendering Element
+[DONE] merged Editor warnings and Editor Hint
+[DONE] Added Animation
+[DONE] Introducing Darth Bane (prevents users from doing something when input is needed)
 
-[TODO] external element identification
+
+[DONE] external element identification
 [TODO] EXPORT TTL MODULE
 [TODO] Handle Delete of InverseOf Property Containers
    -> possible option ( selecting the container provides the option of split (remove inverseOf statement)
    -> delete upper element would also delete the inverse option >> throw warning
 
+[TODO] Shadow Clone handling for inverse properties
+[TODO] Shadow Clone copy arrow Head Marker and also set position of
+       it for rectangular nodes (distance to border??)
+[TODO] todo touch device testing
+[TODO] MultiColoring for external elements? << tests and so
 
+[Fixed] Inverse property Killer
+[TODO] inverse Delete element Position somehow wrong;
+[TODO] fix labelObejct things
 
+[Questions]: do we allow to have spaces in iri or
+should this directly  replaced by _
 
 -------------------------------------------High PRIORITY-----------------------------------------------------------------
     [] Prevent same definition of a Resources (e.g same named classes)

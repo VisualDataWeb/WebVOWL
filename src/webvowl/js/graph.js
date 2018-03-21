@@ -1118,6 +1118,9 @@ module.exports = function (graphContainerSelector) {
         };
 
         // update general MetaOBJECT
+        graph.options().clearMetaObject();
+        graph.options().clearGeneralMetaObject();
+        graph.options().editSidebar().clearMetaObjectValue();
         if (options.data()!==undefined) {
             console.log("---------- GET META DATA ----------");
             var header = options.data().header;
@@ -1918,6 +1921,30 @@ module.exports = function (graphContainerSelector) {
     };
 
 
+    function removeEditElements(){
+        rangeDragger.hideDragger(true);
+        domainDragger.hideDragger(true);
+        shadowClone.hideClone(true);
+
+        addDataPropertyGroupElement.classed("hidden",true);
+        deleteGroupElement.classed("hidden",true);
+
+        if (hoveredNodeElement){
+            if (hoveredNodeElement.pinned()===false){
+                hoveredNodeElement.locked(false);
+                hoveredNodeElement.frozen(false);
+            }
+        }
+        if (hoveredPropertyElement){
+            if (hoveredPropertyElement.pinned()===false){
+                hoveredPropertyElement.locked(false);
+                hoveredPropertyElement.frozen(false);
+            }
+        }
+
+
+    }
+
     graph.editorMode=function(val){
         if(!arguments.length) return editMode;
         else editMode=val;
@@ -1933,6 +1960,9 @@ module.exports = function (graphContainerSelector) {
             svgGraph.on("dblclick.zoom",originalD3_dblClickFunction);
             options.leftSidebar().showSidebar(0);
             options.leftSidebar().hideCollapseButton(true);
+            // hide hovered edit elements
+            removeEditElements();
+
         }
 
         options.sidebar().updateShowedInformation();
@@ -2242,6 +2272,13 @@ module.exports = function (graphContainerSelector) {
             datatype=null;
         }
         unfilteredData.properties.splice(unfilteredData.properties.indexOf(property), 1);
+        if (property.inverse()){
+            // so we have inverse
+            property.inverse().inverse(0);
+
+        }
+
+
         hoveredPropertyElement = undefined;
         graph.update();
         generateDictionary(unfilteredData);
@@ -2452,19 +2489,19 @@ module.exports = function (graphContainerSelector) {
             hoveredPropertyElement = property;
             if (graph.options().drawPropertyDraggerOnHover()===true){
                 if (property.type() !== "owl:DatatypeProperty") {
-                    shadowClone.setParentProperty(property);
-                    rangeDragger.setParentProperty(property);
+                    shadowClone.setParentProperty(property,inversed);
+                    rangeDragger.setParentProperty(property,inversed);
                     rangeDragger.hideDragger(false);
                     rangeDragger.addMouseEvents();
-                    domainDragger.setParentProperty(property);
+                    domainDragger.setParentProperty(property,inversed);
                     domainDragger.hideDragger(false);
                     domainDragger.addMouseEvents();
                 } else if (property.type() === "owl:DatatypeProperty") {
-                    shadowClone.setParentProperty(property);
-                    rangeDragger.setParentProperty(property);
+                    shadowClone.setParentProperty(property,inversed);
+                    rangeDragger.setParentProperty(property,inversed);
                     rangeDragger.hideDragger(true);
                     rangeDragger.addMouseEvents();
-                    domainDragger.setParentProperty(property);
+                    domainDragger.setParentProperty(property,inversed);
                     domainDragger.hideDragger(false);
                     domainDragger.addMouseEvents();
                 }
@@ -2535,13 +2572,16 @@ module.exports = function (graphContainerSelector) {
     }
 
     function setDeleteHoverElementPositionProperty(property,inversed) {
-        if (property && property.labelObject()){
+        if (property && property.labelElement() ){
             var pos =[ property.labelObject().x,property.labelObject().y];
             var delX = pos[0] + 0.5 * property.width() + 6;
             var delY = pos[1] - 0.5 * property.height() - 6;
-            if (inversed===true) {
-                delY -= 12;
-            }
+            if (property.labelElement().attr("transform")==="translate(0,15)")
+                delY+=15;
+            // if (inversed===true) {
+            //     delY -= 12;
+            //     console.log("Hey we are inverserd!")
+            // }
             deleteGroupElement.attr("transform", "translate(" + delX + "," + delY + ")");
         }else{
             deleteGroupElement.classed("hidden",true);// hide when there is no property

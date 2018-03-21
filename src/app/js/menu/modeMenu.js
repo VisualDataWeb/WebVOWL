@@ -97,7 +97,9 @@ module.exports = function (graph) {
 			var isEnabled = moduleCheckbox.property("checked");
 			d.module.enabled(isEnabled);
 			if (updateGraphOnClick && silent !== true) {
-				graph.update();
+				graph.executeColorExternalsModule();
+				graph.lazyRefresh();
+				console.log("Graph Updated! >>>M<<<<< ");
 			}
 		});
 
@@ -117,8 +119,9 @@ module.exports = function (graph) {
 			data.active = !data.active;
 			applyColorModeSwitchState(button, colorExternalsMode);
 			if (colorExternalsMode.enabled() && silent !== true) {
-				graph.update();
-			}
+                graph.executeColorExternalsModule();
+                graph.lazyRefresh();
+            }
 		});
 
 		return button;

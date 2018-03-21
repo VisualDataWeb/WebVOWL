@@ -67,12 +67,23 @@ module.exports = function () {
             xml:'http://www.w3.org/XML/1998/namespace'
 		};
 
+	options.clearMetaObject=function(){
+        generalOntologyMetaData={};
+	};
+    options.clearGeneralMetaObject=function(){
+        generalOntologyMetaData={};
+    };
+
 	options.addOrUpdateGeneralObjectEntry=function(property,value) {
         if (generalOntologyMetaData.hasOwnProperty(property)) {
-        	if (validURL(value)===false){
-				warningModule.showWarning("Invalid Ontology IRI","Input IRI does not represent an URL","Restoring previous IRI for ontology",1,false);
-                return false;
-			}
+        	console.log("Updating Property:"+ property);
+        	if (property=="iri"){
+				if (validURL(value)===false){
+					warningModule.showWarning("Invalid Ontology IRI","Input IRI does not represent an URL","Restoring previous IRI for ontology",1,false);
+					return false;
+				}
+        	}
+
         	console.log("updating "+property+ "from "+generalOntologyMetaData[property]+ " to "+value);
             generalOntologyMetaData[property] = value;
         } else {

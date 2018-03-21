@@ -49,19 +49,31 @@ module.exports =  function (graph) {
         var cX=0.49 * (dX+rX);
         var cY=0.49 * (dY+rY);
         // put position there;
-        Range_dragger.parent.labelObject().x   = cX;
-        Range_dragger.parent.labelObject().px  = cX;
-        Range_dragger.parent.labelObject().y   = cY;
-        Range_dragger.parent.labelObject().py  = cY;
+        Range_dragger.parent.labelElement().x   = cX;
+        Range_dragger.parent.labelElement().px  = cX;
+        Range_dragger.parent.labelElement().y   = cY;
+        Range_dragger.parent.labelElement().py  = cY;
 
 
     };
 
-    Range_dragger.setParentProperty = function (parentProperty) {
+    Range_dragger.setParentProperty = function (parentProperty,inversed) {
         Range_dragger.parent = parentProperty;
-        if (parentProperty.labelObject().linkRangeIntersection) {
-            var iP = parentProperty.labelObject().linkRangeIntersection;
+        var renElement;
+        var iP;
+        if (inversed===true){
+            console.log("ADD INVERSED ELEMENT")
+            renElement=parentProperty.inverse();
+            if (renElement.labelElement().linkDomainIntersection) {
+                iP = renElement.labelElement().linkDomainIntersection;
+            }
+        }else{
+            console.log("Lower element!");
+            renElement=parentProperty;
+            iP = renElement.labelElement().linkRangeIntersection;
 
+        }
+        if (iP) {
             Range_dragger.x = iP.x;
             Range_dragger.y = iP.y;
         }
@@ -186,12 +198,12 @@ module.exports =  function (graph) {
 
     Range_dragger.updateElement = function () {
         if (Range_dragger.mouseButtonPressed===true || Range_dragger.parent===undefined||
-            Range_dragger.parent.labelObject().linkRangeIntersection===undefined ) return;
+            Range_dragger.parent.labelElement().linkRangeIntersection===undefined ) return;
             var range_x = Range_dragger.parent.range().x;
             var range_y = Range_dragger.parent.range().y;
 
-            var ep_range_x = Range_dragger.parent.labelObject().linkRangeIntersection.x;
-            var ep_range_y = Range_dragger.parent.labelObject().linkRangeIntersection.y;
+            var ep_range_x = Range_dragger.parent.labelElement().linkRangeIntersection.x;
+            var ep_range_y = Range_dragger.parent.labelElement().linkRangeIntersection.y;
         // offset for dragger object
             var dx=range_x-ep_range_x;
             var dy=range_y-ep_range_y;
