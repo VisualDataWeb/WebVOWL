@@ -37,7 +37,19 @@ module.exports =  function (graph) {
         Domain_dragger.setParentProperty(Domain_dragger.parent);
     };
     Domain_dragger.updateDomain=function(newDomain){
-        Domain_dragger.parent.domain(newDomain);
+        console.log("DomainDragger------------------Update Domain");
+        if (Domain_dragger.parent.labelElement().attr("transform") === "translate(0,15)"||
+            Domain_dragger.parent.labelElement().attr("transform") === "translate(0,-15)") {
+            var prop = Domain_dragger.parent;
+            Domain_dragger.parent.inverse().inverse(null);
+            Domain_dragger.parent.inverse(null);
+            console.log("SPLITTING ITEMS!");
+            prop.domain(newDomain);
+        }
+        else{
+            Domain_dragger.parent.domain(newDomain);
+        }
+
         // update the position of the new range
         var rX = Domain_dragger.parent.range().x;
         var rY = Domain_dragger.parent.range().y;
@@ -58,21 +70,33 @@ module.exports =  function (graph) {
     Domain_dragger.setParentProperty = function (parentProperty,inverted) {
         Domain_dragger.invertedProperty = inverted;
         var renElem;
-        Domain_dragger.parent = parentProperty
+        var iP;
+        Domain_dragger.parent = parentProperty;
+        renElem=parentProperty.labelObject();
         if (inverted === true) {
-           renElem = parentProperty.inverse().labelObject();
-            if (renElem.linkDomainIntersection) {
-                var iP = renElem.linkDomainIntersection;
-                Domain_dragger.x = iP.x;
-                Domain_dragger.y = iP.y;
-            }
 
+            // this is the lower element
+            if (parentProperty.labelElement().attr("transform") === "translate(0,15)") {
+                // console.log("This is the lower element!");
+                iP = renElem.linkRangeIntersection;
+                if (renElem.linkRangeIntersection) {
+                    Domain_dragger.x = iP.x;
+                    Domain_dragger.y = iP.y;
+                }
+            }
+            else{
+                 // console.log("This is the upper  element");
+                iP= renElem.linkDomainIntersection;
+                if (renElem.linkDomainIntersection) {
+                    Domain_dragger.x = iP.x;
+                    Domain_dragger.y = iP.y;
+                }
+            }
         }
-        // get link range intersection;
         else{
-            renElem=parentProperty.labelObject();
+            // console.log("This is single element");
+            iP= renElem.linkDomainIntersection;
             if (renElem.linkDomainIntersection) {
-                var iP = renElem.linkDomainIntersection;
                 Domain_dragger.x = iP.x;
                 Domain_dragger.y = iP.y;
             }
@@ -161,13 +185,20 @@ module.exports =  function (graph) {
     Domain_dragger.updateElement = function () {
         if (Domain_dragger.mouseButtonPressed===true || Domain_dragger.parent===undefined) return;
 
-        var range_x=Domain_dragger.parent.domain().x;
-        var range_y=Domain_dragger.parent.domain().y;
+        var domain=Domain_dragger.parent.domain();
+        var iP=Domain_dragger.parent.labelObject().linkDomainIntersection;
+        if (Domain_dragger.parent.labelElement().attr("transform")==="translate(0,15)"){
+            Domain_dragger.parent.inverse().domain();
+            iP=Domain_dragger.parent.labelObject().linkRangeIntersection;
+
+        }
+        var range_x=domain.x;
+        var range_y=domain.y;
 
 
-        if (Domain_dragger.parent.labelObject().linkDomainIntersection===undefined) return;
-        var ep_range_x=Domain_dragger.parent.labelObject().linkDomainIntersection.x;
-        var ep_range_y=Domain_dragger.parent.labelObject().linkDomainIntersection.y;
+        if (iP===undefined) return;
+        var ep_range_x=iP.x;
+        var ep_range_y=iP.y;
 
         var dx=range_x-ep_range_x;
         var dy=range_y-ep_range_y;

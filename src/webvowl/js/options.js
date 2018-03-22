@@ -62,7 +62,7 @@ module.exports = function () {
             rdf:'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
     		rdfs:'http://www.w3.org/2000/01/rdf-schema#',
     		owl:'http://www.w3.org/2002/07/owl#',
-    	    xsd:'http://www.w3.org/2001/XMLSchema',
+    	    xsd:'http://www.w3.org/2001/XMLSchema#',
     		dc:'http://purl.org/dc/elements/1.1/#',
             xml:'http://www.w3.org/XML/1998/namespace'
 		};
@@ -77,7 +77,7 @@ module.exports = function () {
 	options.addOrUpdateGeneralObjectEntry=function(property,value) {
         if (generalOntologyMetaData.hasOwnProperty(property)) {
         	console.log("Updating Property:"+ property);
-        	if (property=="iri"){
+        	if (property==="iri"){
 				if (validURL(value)===false){
 					warningModule.showWarning("Invalid Ontology IRI","Input IRI does not represent an URL","Restoring previous IRI for ontology",1,false);
 					return false;

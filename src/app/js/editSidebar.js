@@ -286,7 +286,7 @@ module.exports = function (graph) {
             d3.select("#element_iriEditor").node().disabled = true;
             d3.select("#element_labelEditor").node().disabled = true;
         } else {
-            identifier = "Undefined Datatype";
+            identifier = "undefined";
             d3.select("#element_iriEditor").node().disabled = false;
             d3.select("#element_labelEditor").node().disabled = false;
         }
@@ -296,7 +296,7 @@ module.exports = function (graph) {
         element.baseIri("http://www.w3.org/2001/XMLSchema#");
         element.redrawLabelText();
 
-        d3.select("#element_iriEditor").node().value = element.iri();
+        d3.select("#element_iriEditor").node().value = prefixModule.getPrefixRepresentationForFullURI(element.iri());
         d3.select("#element_labelEditor").node().value = element.labelForCurrentLanguage();
     }
 
@@ -467,12 +467,14 @@ module.exports = function (graph) {
                 d3.select("#element_labelEditor").node().disabled = true;
             }
             if (element.type() === "rdfs:Literal") {
+                d3.select("#element_iriEditor").node().value = "http://www.w3.org/2000/01/rdf-schema#Literal";
                 d3.select("#element_iriEditor").node().disabled = true;
                 d3.select("#element_labelEditor").node().disabled = true;
             }
             if (element.type() === "rdfs:Datatype") {
                 var datatypeEditorSelection = d3.select("#typeEditor_datatype");
                 d3.select("#typeEditForm_datatype").classed("hidden", false);
+                d3.select("#element_iriEditor").node().value = "http://www.w3.org/2000/01/rdf-schema#Datatype";
                 d3.select("#element_iriEditor").node().disabled = true;
                 d3.select("#element_labelEditor").node().disabled = true;
 
@@ -719,9 +721,6 @@ module.exports = function (graph) {
         }
         if (getPresentAttribute(selectedElement,"external") && getPresentAttribute(selectedElement,"deprecated")){
             visAttr = selectedElement.visualAttributes();
-
-            //
-            console.log("THIS SHOULD REMOVE THE EXTERNAL VIS ATTRIBUTE")
             var visInd=visAttr.indexOf("external");
             if (visInd>-1) {
                 visAttr.splice(visInd, 1);
@@ -782,6 +781,10 @@ module.exports = function (graph) {
         if (elementTools.isNode(element)){
             if ( graph.changeNodeType(element)===false) {
                 //restore old value
+
+                if (elementTools.isDatatype(element)===true){
+
+                }
                 editSidebar.updateSelectionInformation(element);
             }
         }

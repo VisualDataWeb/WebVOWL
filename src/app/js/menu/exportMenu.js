@@ -8,10 +8,11 @@ module.exports = function (graph) {
 		exportSvgButton,
 		exportFilename,
 		exportJsonButton,
+        exportTurtleButton,
 		copyButton,
 		exportableJsonText;
 
-
+	var exportTTLModule=require("./exportTTLModule")(graph);
 
 
 
@@ -27,6 +28,8 @@ module.exports = function (graph) {
 		copyButton=d3.select("#copyBt")
             .on("click", copyUrl);
 
+        exportTurtleButton = d3.select("#exportTurtle")
+            .on("click",exportTurtle);
 
         var menuEntry= d3.select("#m_export");
 		menuEntry.on("mouseover",function(){
@@ -35,6 +38,12 @@ module.exports = function (graph) {
             exportMenu.exportAsUrl();
 		});
 	};
+    function exportTurtle(){
+		var success=exportTTLModule.requestExport();
+		var result=exportTTLModule.resultingTTL_Content();
+		console.log("Exporter was successful: "+success);
+		console.log("The result is : "+result);
+	}
 
 	exportMenu.setFilename = function (filename) {
 		exportFilename = filename || "export";

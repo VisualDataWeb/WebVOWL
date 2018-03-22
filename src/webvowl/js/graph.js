@@ -651,27 +651,7 @@ module.exports = function (graphContainerSelector) {
 
     }
 
-    function redrawContent() {
-        var markerContainer;
-
-        if (!graphContainer) {
-            return;
-        }
-
-        // Empty the graph container
-        graphContainer.selectAll("*").remove();
-
-        // Last container -> elements of this container overlap others
-        linkContainer = graphContainer.append("g").classed("linkContainer", true);
-        cardinalityContainer = graphContainer.append("g").classed("cardinalityContainer", true);
-        labelContainer = graphContainer.append("g").classed("labelContainer", true);
-        nodeContainer = graphContainer.append("g").classed("nodeContainer", true);
-
-        // adding editing Elements
-        var draggerPathLayer=graphContainer.append("g").classed("linkContainer", true);
-        editContainer= graphContainer.append("g").classed("editContainer",true);
-        draggerLayer=graphContainer.append("g").classed("editContainer",true);
-
+    function generateEditElements(){
         addDataPropertyGroupElement=editContainer.append('g')
             .classed("hidden-in-export", true)
             .classed("hidden", true)
@@ -745,6 +725,66 @@ module.exports = function (graphContainerSelector) {
             .classed("superHiddenElement",true)
             .classed("superOpacityElement", !graph.options().showDraggerObject());
 
+
+    }
+
+    graph.getUnfilteredData=function(){
+        return unfilteredData;
+    };
+
+    graph.getClassDataForTtlExport=function(){
+        var allNodes=unfilteredData.nodes;
+        var nodeData=[];
+        for (var i=0;i<allNodes.length;i++){
+            if (allNodes[i].type()!=="rdfs:Literal" &&
+                allNodes[i].type()!=="rdfs:Datatype"&&
+                allNodes[i].type()!=="owl:Thing"){
+                nodeData.push(allNodes[i]);
+            }
+        }
+        return nodeData;
+    };
+
+    graph.getPropertyDataForTtlExport=function(){
+        var propertyData=[];
+        var allProperties=unfilteredData.properties;
+
+        for (var i=0;i<allProperties.length;i++){
+            // currently using only the object properties
+            if (allProperties[i].type()==="owl:ObjectProperty" ||
+                allProperties[i].type()==="owl:DatatypeProperty"  ||
+                allProperties[i].type()==="owl:allValuesFrom"  ||
+                allProperties[i].type()==="owl:ObjectProperty" ||
+                allProperties[i].type()==="owl:someValuesFrom"
+
+            ){
+                propertyData.push(allProperties[i]);
+            }
+        }
+        return propertyData;
+    };
+
+    function redrawContent() {
+        var markerContainer;
+
+        if (!graphContainer) {
+            return;
+        }
+
+        // Empty the graph container
+        graphContainer.selectAll("*").remove();
+
+        // Last container -> elements of this container overlap others
+        linkContainer = graphContainer.append("g").classed("linkContainer", true);
+        cardinalityContainer = graphContainer.append("g").classed("cardinalityContainer", true);
+        labelContainer = graphContainer.append("g").classed("labelContainer", true);
+        nodeContainer = graphContainer.append("g").classed("nodeContainer", true);
+
+        // adding editing Elements
+        var draggerPathLayer=graphContainer.append("g").classed("linkContainer", true);
+        draggerLayer=graphContainer.append("g").classed("editContainer",true);
+        editContainer= graphContainer.append("g").classed("editContainer",true);
+
         // Add an extra container for all markers
         markerContainer = linkContainer.append("defs");
 
@@ -768,7 +808,7 @@ module.exports = function (graphContainerSelector) {
             node.hideDragger(true);
             }
         });
-
+        generateEditElements();
 
 
 
@@ -1897,6 +1937,11 @@ module.exports = function (graphContainerSelector) {
             aProp.label("newObjectProperty");
         }
 
+        if (aProp.type()==="rdfs:subClassOf"){
+            aProp.iri("http://www.w3.org/2000/01/rdf-schema#subClassOf");
+        }else{
+            aProp.iri(graph.options().getGeneralMetaObjectProperty('iri')+aProp.id());
+        }
 
         // // TODO: change its base IRI to proper value
         // var ontoIRI="http://someTest.de";
@@ -2574,14 +2619,16 @@ module.exports = function (graphContainerSelector) {
     function setDeleteHoverElementPositionProperty(property,inversed) {
         if (property && property.labelElement() ){
             var pos =[ property.labelObject().x,property.labelObject().y];
-            var delX = pos[0] + 0.5 * property.width() + 6;
-            var delY = pos[1] - 0.5 * property.height() - 6;
+            var widthElement=parseFloat(property.getShapeElement().attr("width"));
+            var heightElement=parseFloat(property.getShapeElement().attr("height"));
+            var delX = pos[0] + 0.5 * widthElement +6;
+            var delY = pos[1] - 0.5 * heightElement - 6;
+            // this is the lower element
             if (property.labelElement().attr("transform")==="translate(0,15)")
-                delY+=15;
-            // if (inversed===true) {
-            //     delY -= 12;
-            //     console.log("Hey we are inverserd!")
-            // }
+                delY += 15;
+            // this is upper element
+            if (property.labelElement().attr("transform")==="translate(0,-15)")
+                delY-=15;
             deleteGroupElement.attr("transform", "translate(" + delX + "," + delY + ")");
         }else{
             deleteGroupElement.classed("hidden",true);// hide when there is no property
