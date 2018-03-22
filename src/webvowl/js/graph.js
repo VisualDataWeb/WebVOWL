@@ -727,7 +727,6 @@ module.exports = function (graphContainerSelector) {
 
 
     }
-
     graph.getUnfilteredData=function(){
         return unfilteredData;
     };
