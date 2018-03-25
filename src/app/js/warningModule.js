@@ -80,7 +80,7 @@ module.exports =  function (graph) {
             var titleHeader=head.append("div");
             // some classes
             titleHeader.style("display","inline-flex");
-            titleHeader.node().innerHTML="<b>Header:</b>";
+            titleHeader.node().innerHTML="<b>Warning:</b>";
             titleHeader.style("padding-right","3px");
             var msgHeader=head.append("div");
             // some classes
@@ -176,7 +176,7 @@ module.exports =  function (graph) {
            var titleHeader=head.append("div");
            // some classes
             titleHeader.style("display","inline-flex");
-            titleHeader.node().innerHTML="<b>Header:</b>";
+            titleHeader.node().innerHTML="<b>Warning:</b>";
             titleHeader.style("padding-right","3px");
             var msgHeader=head.append("div");
             // some classes

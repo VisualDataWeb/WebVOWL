@@ -2360,6 +2360,7 @@ module.exports = function (graphContainerSelector) {
     graph.removeNodeViaEditor = function (node) {
         var propsToRemove = [];
         var nodesToRemove = [];
+        var datatypes=0;
         nodesToRemove.push(node);
         for (var i = 0; i < unfilteredData.properties.length; i++) {
             if (unfilteredData.properties[i].domain() === node || unfilteredData.properties[i].range() === node) {
@@ -2367,14 +2368,21 @@ module.exports = function (graphContainerSelector) {
                 if (unfilteredData.properties[i].type().toLocaleLowerCase() === "owl:datatypeproperty" &&
                     unfilteredData.properties[i].range() !== node) {
                     nodesToRemove.push(unfilteredData.properties[i].range());
+                    datatypes++;
                 }
             }
         }
         var removedItems=propsToRemove.length+nodesToRemove.length;
         if (removedItems>2){
+            var text="You are about to delete 1 class and "+propsToRemove.length+ " properties";
+            if (datatypes!==0){
+                 text="You are about to delete 1 class, "+datatypes+" datatypes  and "+propsToRemove.length+ " properties";
+            }
+
+
             graph.options().warningModule().responseWarning(
                 "Removing elements",
-                "You are about to delete "+nodesToRemove.length+" class and "+propsToRemove.length+ " properties",
+                text,
                 "Awaiting response!",graph.removeNodesViaResponse,[nodesToRemove,propsToRemove],false);
 
 
