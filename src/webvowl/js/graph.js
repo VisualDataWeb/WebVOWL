@@ -747,7 +747,6 @@ module.exports = function (graphContainerSelector) {
     graph.getPropertyDataForTtlExport=function(){
         var propertyData=[];
         var allProperties=unfilteredData.properties;
-
         for (var i=0;i<allProperties.length;i++){
             // currently using only the object properties
             if (allProperties[i].type()==="owl:ObjectProperty" ||
@@ -758,6 +757,16 @@ module.exports = function (graphContainerSelector) {
 
             ){
                 propertyData.push(allProperties[i]);
+            }else{
+                if (allProperties[i].type()==="rdfs:subClassOf"){
+                    allProperties[i].baseIri("http://www.w3.org/2000/01/rdf-schema#");
+                    allProperties[i].iri("http://www.w3.org/2000/01/rdf-schema#subClassOf");
+                }
+                if (allProperties[i].type()==="owl:disjointWith"){
+                    allProperties[i].baseIri("http://www.w3.org/2002/07/owl#");
+                    allProperties[i].iri("http://www.w3.org/2002/07/owl#disjointWith");
+
+                }
             }
         }
         return propertyData;
@@ -780,24 +789,6 @@ module.exports = function (graphContainerSelector) {
         return nodeData;
     };
 
-    graph.getPropertyDataForTtlExport=function(){
-        var propertyData=[];
-        var allProperties=unfilteredData.properties;
-
-        for (var i=0;i<allProperties.length;i++){
-            // currently using only the object properties
-            if (allProperties[i].type()==="owl:ObjectProperty" ||
-                allProperties[i].type()==="owl:DatatypeProperty"  ||
-                allProperties[i].type()==="owl:allValuesFrom"  ||
-                allProperties[i].type()==="owl:ObjectProperty" ||
-                allProperties[i].type()==="owl:someValuesFrom"
-
-            ){
-                propertyData.push(allProperties[i]);
-            }
-        }
-        return propertyData;
-    };
 
     function redrawContent() {
         var markerContainer;
@@ -1201,12 +1192,8 @@ module.exports = function (graphContainerSelector) {
         graph.options().clearGeneralMetaObject();
         graph.options().editSidebar().clearMetaObjectValue();
         if (options.data()!==undefined) {
-            console.log("---------- GET META DATA ----------");
             var header = options.data().header;
             if (header) {
-                console.log("HEADER INFORMATION-------------");
-                console.log(header);
-
                 if (header.iri){
                     graph.options().addOrUpdateGeneralObjectEntry("iri",header.iri);
                 }
@@ -1224,9 +1211,9 @@ module.exports = function (graphContainerSelector) {
                     graph.options().addOrUpdateGeneralObjectEntry("description",header.description);
                 }
 
-                console.log("--------------------------------");
-                console.log(graph.options().getGeneralMetaObject());
-                console.log("--------------------------------");
+                // console.log("--------------------------------");
+                // console.log(graph.options().getGeneralMetaObject());
+                // console.log("--------------------------------");
 
                 // get other metadata;
 
@@ -1241,9 +1228,9 @@ module.exports = function (graphContainerSelector) {
                         }
                     }
 
-                    console.log("--------------------------------");
-                    console.log(graph.options().getMetaObject());
-                    console.log("--------------------------------");
+                    // console.log("--------------------------------");
+                    // console.log(graph.options().getMetaObject());
+                    // console.log("--------------------------------");
 
 
                 }
@@ -2484,7 +2471,7 @@ module.exports = function (graphContainerSelector) {
 
     function touchzoomed(){
         forceNotZooming=true;
-        console.log("calling touch zoomed function");
+
 
         var touch_time = d3.event.timeStamp;
         if (touch_time-last_touch_time < 500 && d3.event.touches.length===1) {

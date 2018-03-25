@@ -40,6 +40,7 @@ module.exports =  function (graph) {
         if (graph.genericPropertySanityCheck(Range_dragger.parent.domain(),newRange,
                 Range_dragger.parent.type(),
                 "Could not update range", "Restoring previous range")===false) return;
+        if (Range_dragger.parent.labelElement()===undefined) return;
         if (Range_dragger.parent.labelElement().attr("transform") === "translate(0,15)"||
             Range_dragger.parent.labelElement().attr("transform") === "translate(0,-15)") {
             var prop = Range_dragger.parent;
@@ -77,7 +78,7 @@ module.exports =  function (graph) {
         Range_dragger.parent = parentProperty;
         renElem=parentProperty.labelObject();
         if (inversed === true) {
-            if (parentProperty.labelElement().attr("transform") === "translate(0,15)") {
+            if (parentProperty.labelElement()&& parentProperty.labelElement().attr("transform") === "translate(0,15)") {
                 iP = renElem.linkDomainIntersection;
                 if (renElem.linkDomainIntersection) {
                     Range_dragger.x = iP.x;
@@ -222,7 +223,7 @@ module.exports =  function (graph) {
 
         var range=Range_dragger.parent.range();
         var iP=Range_dragger.parent.labelObject().linkRangeIntersection;
-
+        if (Range_dragger.parent.labelElement()===undefined) return;
         if (Range_dragger.parent.labelElement().attr("transform")==="translate(0,15)"){
             range=Range_dragger.parent.inverse().domain();
             iP=Range_dragger.parent.labelObject().linkDomainIntersection;

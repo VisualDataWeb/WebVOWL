@@ -36,10 +36,18 @@ module.exports = function (graph) {
         var allNodes=graph.getUnfilteredData().nodes;
         var allProps=graph.getUnfilteredData().properties;
 		for (i=0;i<allNodes.length;i++){
-            allNodes[i].prefixRepresentation=prefixModule.getPrefixRepresentationForFullURI(allNodes[i].iri());
+		    var nodeIRI=prefixModule.getPrefixRepresentationForFullURI(allNodes[i].iri());
+		    if (prefixModule.validURL(nodeIRI)===true)
+                allNodes[i].prefixRepresentation="<"+nodeIRI+">";
+		    else
+                allNodes[i].prefixRepresentation=nodeIRI;
 		}
         for (i=0;i<allProps.length;i++){
-            allProps[i].prefixRepresentation=prefixModule.getPrefixRepresentationForFullURI(allProps[i].iri());
+		    var propIRI=prefixModule.getPrefixRepresentationForFullURI(allProps[i].iri());
+            if (prefixModule.validURL(propIRI)===true)
+                allProps[i].prefixRepresentation="<"+propIRI+">";
+            else
+                allProps[i].prefixRepresentation=propIRI;
         }
 	}
 
@@ -47,7 +55,7 @@ module.exports = function (graph) {
 	    if (currentProperties.length===0) return; // we dont need to write that
         resultingTTLContent+="###  Property Definitions (Number of Property) "+currentProperties.length+" ###\r\n";
         for (var i=0;i<currentProperties.length;i++) {
-            resultingTTLContent += "#  "+currentProperties[i].prefixRepresentation +"  --------------------------- Property " + i + "------------------------- \r\n";
+            resultingTTLContent += "#  --------------------------- Property " + i + "------------------------- \r\n";
             resultingTTLContent += extractPropertyDescription(currentProperties[i]);
         }
 	}
@@ -57,7 +65,7 @@ module.exports = function (graph) {
         if (currentNodes.length===0) return; // we dont need to write that
         resultingTTLContent+="###  Class Definitions (Number of Classes) "+currentNodes.length+" ###\r\n";
         for (var i=0;i<currentNodes.length;i++) {
-            resultingTTLContent += "#  "+currentNodes[i].prefixRepresentation +"  --------------------------- Class  " + i + "------------------------- \r\n";
+            resultingTTLContent += "#  --------------------------- Class  " + i + "------------------------- \r\n";
             resultingTTLContent += extractClassDescription(currentNodes[i]);
         }
     }
@@ -69,36 +77,55 @@ module.exports = function (graph) {
 
     function extractClassDescription(node){
         var subject=node.prefixRepresentation;
-        //  console.log("subject:"+ subject);
         var predicate="rdf:type";
         var object=node.type();
+        if (node.type()==="owl:equivalentClass")
+            object="owl:Class";
+
 
         var objectDef=subject+" "+predicate+" "+object;
-        console.log("---------> "+objectDef);
-        console.log("attributes");
-        var attr = node.attributes();
-        console.log(attr);
         if (getPresentAttribute(node,"deprecated")===true){
             objectDef+=", owl:DeprecatedProperty";
         }
-        if (getPresentAttribute(node,"equivalent")===true){
-            objectDef+=", owl:EquivalentClass";
+        // equivalent class handeled using type itself!
+
+        // check for equivalent classes;
+        var indent=getIndent(subject);
+        objectDef+="; \r\n";
+        for (var e=0;e<node.equivalents().length;e++){
+            var eqIRI=prefixModule.getPrefixRepresentationForFullURI(node.equivalents()[e].iri());
+            var eqNode_prefRepresentation="";
+            if (prefixModule.validURL(eqIRI)===true)
+                eqNode_prefRepresentation="<"+eqIRI+">";
+            else
+                eqNode_prefRepresentation=eqIRI;
+            objectDef+=indent+" owl:equivalentClass "+eqNode_prefRepresentation+" ;\r\n";
         }
 
+        // if (getPresentAttribute(node,"equivalent")===true){
+        //     objectDef+=", owl:EquivalentClass";
+        // }
 
-        objectDef+="; \r\n";
-        var indent=getIndent(subject);
+
+
+
         var allProps=graph.getUnfilteredData().properties;
         var myProperties=[];
         var i;
         for (i=0;i<allProps.length;i++){
-            if (allProps[i].domain()===node && allProps[i].type()==="rdfs:subClassOf"){
+            if (allProps[i].domain()===node && allProps[i].type()==="rdfs:subClassOf")
+            {
                 myProperties.push(allProps[i]);
             }
-        }
+            // special case disjoint with>> both domain and range get that property
+            if ((allProps[i].domain()===node) &&
+                allProps[i].type()==="owl:disjointWith"){
+                myProperties.push(allProps[i]);
+            }
+
+            }
         for (i=0;i<myProperties.length;i++) {
             // depending on the property we have to do some things;
-            //        console.log("Adding additional Property to this class");
             if (myProperties[i].range().type !== "own:Thing") {
                 objectDef += indent +" "+ myProperties[i].prefixRepresentation +
                     " " + myProperties[i].range().prefixRepresentation + " ;\r\n";
@@ -115,12 +142,17 @@ module.exports = function (graph) {
 
 	function extractPropertyDescription(property){
         var subject=property.prefixRepresentation;
-        //  console.log("subject:"+ subject);
+        if (subject.length===0){
+            console.log("THIS SHOULD NOT HAPPEN");
+            var propIRI=prefixModule.getPrefixRepresentationForFullURI(property.iri());
+            console.log("FOUND "+propIRI);
+
+
+        }
         var predicate="rdf:type";
         var object=property.type();
 
         var objectDef=subject+" "+predicate+" "+object;
-        console.log("---------> "+objectDef);
         if (getPresentAttribute(property,"deprecated")===true){
             objectDef+=", owl:DeprecatedProperty";
         }
@@ -136,8 +168,12 @@ module.exports = function (graph) {
         if (getPresentAttribute(property,"transitive")===true){
             objectDef+=", owl:TransitiveProperty";
         }
-		var indent=getIndent(subject);
+     	var indent=getIndent(subject);
 
+        if (property.inverse()){
+            objectDef+="; \r\n";
+            objectDef+=indent+" owl:inverseOf "+property.inverse().prefixRepresentation;
+        }
 
         // check for domain and range;
 
@@ -145,8 +181,6 @@ module.exports = function (graph) {
         var domain=property.domain();
         var range=property.range();
 
-        console.log("Domain Type "+ domain.type());
-        console.log("Range Type "+ range.type());
 		if (domain.type()==="owl:Thing" && range.type()==="owl:Thing"){
 			// we do not write domain and range
             if (typeof property.label() !=="object" && property.label().length===0){
@@ -154,7 +188,7 @@ module.exports = function (graph) {
 			}
 		}
 
-		console.log("Should we close the staement?"+ closeStatement);
+
 		if (closeStatement===true){
 			objectDef+=" . \r\n";
 			return objectDef;
@@ -164,22 +198,17 @@ module.exports = function (graph) {
 
 
 		if (domain.type()==="owl:Thing" && range.type()==="owl:Thing") {
-			console.log("Range and Domain are from type OWL:THING!");
             labelDescription = general_Label_languageExtractor(indent, property.label(), "rdfs:label", true);
-            console.log("Resulting Language Description:"+labelDescription);
             objectDef+=labelDescription;
-
         }
 		else{
 			// do not close the statement;
             labelDescription = general_Label_languageExtractor(indent, property.label(), "rdfs:label");
             objectDef+=labelDescription;
             if (domain.type()!=="owl:Thing"){
-                console.log("Adding Domain >>>>>>>>>>>>>>>>>>>>>>>>>>>>");
                 objectDef+=indent+ " rdfs:domain "+ domain.prefixRepresentation+";\r\n";
 			}
             if (range.type()!=="owl:Thing"){
-            	console.log("Adding range >>>>>>>>>>>>>>>>>>>>>>>>>>>>");
                 objectDef+=indent+ " rdfs:range "+ range.prefixRepresentation+";\r\n";
             }
 
@@ -190,11 +219,9 @@ module.exports = function (graph) {
             objectDef=s_needUpdate.substring(0, s_lastPtr) + ". \r\n";
 		}
 
-
-
-		console.log("-----------------------------");
-        console.log(objectDef);
-        console.log("-----------------------------");
+        // console.log("-----------------------------");
+        // console.log(objectDef);
+        // console.log("-----------------------------");
         return objectDef;
 
     }
@@ -205,6 +232,9 @@ module.exports = function (graph) {
 	};
 
 	function getIndent(name){
+	    if (name===undefined){
+	        return "WHYEMPTYNAME?"
+        }
 		return new Array(name.length+1).join(" ");
 	}
 
@@ -252,7 +282,7 @@ module.exports = function (graph) {
 
 	function general_languageExtractor(indent, metaObjectDescription, annotationDescription,endStatement){
         var languageElement=graph.options().getGeneralMetaObjectProperty(metaObjectDescription);
-        console.log(languageElement);
+
         if (typeof languageElement=== 'object'){
             var resultingLanguages=[];
             for (var name in languageElement){
@@ -267,7 +297,7 @@ module.exports = function (graph) {
                 }
             }
             // create resulting titles;
-            console.log(resultingLanguages);
+
             var resultingString="";
             for (var i=0;i<resultingLanguages.length;i++){
                 resultingString+=resultingLanguages[i];
@@ -292,7 +322,7 @@ module.exports = function (graph) {
 
     function general_Label_languageExtractor(indent, label, annotationDescription,endStatement){
         var languageElement=label;
-        console.log(languageElement+ "<<<<<<<<<<<,,-");
+
         if (typeof languageElement=== 'object'){
             var resultingLanguages=[];
             for (var name in languageElement){
@@ -307,7 +337,6 @@ module.exports = function (graph) {
                 }
             }
             // create resulting titles;
-            console.log(resultingLanguages);
             var resultingString="";
             for (var i=0;i<resultingLanguages.length;i++){
                 resultingString+=resultingLanguages[i];

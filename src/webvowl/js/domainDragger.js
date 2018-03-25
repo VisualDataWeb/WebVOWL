@@ -39,7 +39,7 @@ module.exports =  function (graph) {
     Domain_dragger.updateDomain=function(newDomain){
         if (graph.genericPropertySanityCheck(Domain_dragger.parent.range(),newDomain,Domain_dragger.parent.type(),
             "Could not update domain", "Restoring previous range")===false) return;
-
+        if (Domain_dragger.parent.labelElement()===undefined) return;
         if (Domain_dragger.parent.labelElement().attr("transform") === "translate(0,15)"||
             Domain_dragger.parent.labelElement().attr("transform") === "translate(0,-15)") {
             var prop = Domain_dragger.parent;
@@ -78,7 +78,7 @@ module.exports =  function (graph) {
         if (inverted === true) {
 
             // this is the lower element
-            if (parentProperty.labelElement().attr("transform") === "translate(0,15)") {
+            if (parentProperty.labelElement() && parentProperty.labelElement().attr("transform") === "translate(0,15)") {
                 // console.log("This is the lower element!");
                 iP = renElem.linkRangeIntersection;
                 if (renElem.linkRangeIntersection) {
@@ -189,6 +189,7 @@ module.exports =  function (graph) {
 
         var domain=Domain_dragger.parent.domain();
         var iP=Domain_dragger.parent.labelObject().linkDomainIntersection;
+        if (Domain_dragger.parent.labelElement()===undefined) return;
         if (Domain_dragger.parent.labelElement().attr("transform")==="translate(0,15)"){
             Domain_dragger.parent.inverse().domain();
             iP=Domain_dragger.parent.labelObject().linkRangeIntersection;

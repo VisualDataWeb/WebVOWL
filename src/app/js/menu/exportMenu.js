@@ -43,7 +43,7 @@ module.exports = function (graph) {
 		var result=exportTTLModule.resultingTTL_Content();
 		console.log("Exporter was successful: "+success);
 		if (success) {
-            console.log("The result is : " + result);
+            // console.log("The result is : " + result);
             var ontoTitle="NewOntology";
 			// var ontoTitle=graph.options().getGeneralMetaObjectProperty('title');
 			// if (ontoTitle===undefined || ontoTitle.length===0)
@@ -57,10 +57,13 @@ module.exports = function (graph) {
 
 
             // // write the data
-            // var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(result);
-            // exportTurtleButton.attr("href", dataURI)
-            //     .attr("download", ontoTitle+ ".ttl");
+            var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(result);
 
+            exportTurtleButton.attr("href", dataURI)
+                .attr("download", ontoTitle+ ".ttl");
+
+            // okay restore old href?
+          //  exportTurtleButton.attr("href", oldHref);
         }
 	}
 

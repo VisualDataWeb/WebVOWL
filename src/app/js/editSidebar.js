@@ -485,6 +485,14 @@ module.exports = function (graph) {
                 d3.select("#element_iriEditor").node().disabled = true;
                 d3.select("#element_labelEditor").node().disabled = true;
             }
+
+            if (element.type() === "owl:disjointWith") {
+                d3.select("#element_iriEditor").node().value = "http://www.w3.org/2002/07/owl#disjointWith";
+                d3.select("#element_iriEditor").node().title= "http://www.w3.org/2002/07/owl#disjointWith";
+                d3.select("#element_iriEditor").node().disabled = true;
+                d3.select("#element_labelEditor").node().disabled = true;
+            }
+
             if (element.type() === "rdfs:Literal") {
                 d3.select("#element_iriEditor").node().value = "http://www.w3.org/2000/01/rdf-schema#Literal";
                 d3.select("#element_iriEditor").node().title = "http://www.w3.org/2000/01/rdf-schema#Literal";
