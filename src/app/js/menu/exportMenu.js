@@ -42,7 +42,26 @@ module.exports = function (graph) {
 		var success=exportTTLModule.requestExport();
 		var result=exportTTLModule.resultingTTL_Content();
 		console.log("Exporter was successful: "+success);
-		console.log("The result is : "+result);
+		if (success) {
+            console.log("The result is : " + result);
+            var ontoTitle="NewOntology";
+			// var ontoTitle=graph.options().getGeneralMetaObjectProperty('title');
+			// if (ontoTitle===undefined || ontoTitle.length===0)
+			// 	ontoTitle="NewOntology";
+			// else{
+			// 	// language object -.-
+             //    ontoTitle.replace(" ","_")
+			// }
+
+			// TODO: show TEXT in warning module?
+
+
+            // // write the data
+            // var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(result);
+            // exportTurtleButton.attr("href", dataURI)
+            //     .attr("download", ontoTitle+ ".ttl");
+
+        }
 	}
 
 	exportMenu.setFilename = function (filename) {
@@ -182,6 +201,7 @@ module.exports = function (graph) {
 		// remove graphic styles for interaction to go back to normal
 		removeVowlInlineStyles();
 		showNonExportableElements();
+		graph.lazyRefresh();
 	}
 
 	function escapeUnicodeCharacters(text) {
@@ -257,6 +277,9 @@ module.exports = function (graph) {
 
 	function hasBackgroundColorSet(element) {
 		var data = element.datum();
+		if (data===undefined) { // this is dragger Element
+            return false;
+        }
 		return data.backgroundColor && !!data.backgroundColor();
 	}
 
@@ -281,7 +304,8 @@ module.exports = function (graph) {
 						element.style(styleName, null);
 					}
 				}
-				if (element.datum && element.datum().type){
+
+				if (element.datum && element.datum()!==undefined && element.datum().type){
 					if (element.datum().type()==="rdfs:subClassOf") {
 						element.style("fill", null);
 					}
@@ -294,6 +318,8 @@ module.exports = function (graph) {
 	}
 
 	function exportJson() {
+
+		// TODO: UPDATE THE INVALID JSON TEXT;
         graph.options().navigationMenu().hideAllMenus();
 		/**  check if there is data **/
 		if (!exportableJsonText) {

@@ -654,6 +654,9 @@ module.exports = function (graph) {
         else{
             // add the deprecated characteristic;
             var arrayOfPropertyChars=["deprecated","inverse functional", "functional", "transitive"];
+            if (elementTools.isDatatypeProperty(element)===true){
+                arrayOfPropertyChars=["deprecated", "functional"];
+            }
             for (i=0;i<arrayOfPropertyChars.length;i++){
                 filterContainer = charSelectionNode
                     .append("div")

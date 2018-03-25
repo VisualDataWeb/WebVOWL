@@ -177,9 +177,17 @@
 
 
 
-[WIP] EXPORT TTL MODULE
 
+[DONE] Fix Export As SVG
+   -> Editing Elements are somehow now opac; >> lazyRefresh() >> just redraw things
 
+[TODO] Export as JSON
+     -> oldVersion was just reading the input file and added some annotations to it;
+     -> now we need also to add the edited information;
+     -> Most important would be here the meta information (the rest should work out of the box)
+
+[TODO] todo touch device testing
+[TODO] MultiColoring for external elements? << tests and so
 [TODO] sanity check for domain and range drager
    -> you can still create a loop for subclasses by using domain and range dragger
 
