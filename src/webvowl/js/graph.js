@@ -536,7 +536,7 @@ module.exports = function (graphContainerSelector) {
 
         labelGroupElements.selectAll(".label").on("click", function (clickedProperty) {
             executeModules(clickedProperty);
-           if (clickedProperty.editingTextElement!==true) {
+           if (editMode===true && clickedProperty.editingTextElement!==true) {
                 // We say that Datatype properties are not allowed to have domain range draggers
                 if (clickedProperty.focused() && clickedProperty.type() !== "owl:DatatypeProperty") {
                     shadowClone.setParentProperty(clickedProperty);
@@ -783,6 +783,10 @@ module.exports = function (graphContainerSelector) {
         var draggerPathLayer=graphContainer.append("g").classed("linkContainer", true);
         draggerLayer=graphContainer.append("g").classed("editContainer",true);
         editContainer= graphContainer.append("g").classed("editContainer",true);
+
+        draggerPathLayer.classed("hidden-in-export",true);
+        editContainer.classed("hidden-in-export",true);
+        draggerLayer.classed("hidden-in-export",true);
 
         // Add an extra container for all markers
         markerContainer = linkContainer.append("defs");
@@ -1919,7 +1923,7 @@ module.exports = function (graphContainerSelector) {
 
 
         // create warning
-        if (sanityCheckProperty(element.domain(),element.range(),typeString)===false) return false;
+        if (graph.sanityCheckProperty(element.domain(),element.range(),typeString)===false) return false;
 
         var propPrototype=PropertyPrototypeMap.get(typeString.toLowerCase());
         var aProp= new propPrototype(graph);
@@ -2091,7 +2095,7 @@ module.exports = function (graphContainerSelector) {
     };
 
 
-    function sanityCheckProperty(domain,range,typeString){
+    graph.sanityCheckProperty=function(domain,range,typeString){
 
         if (typeString==="owl:objectProperty" && graph.options().objectPropertyFilter().enabled()===true) {
             graph.options().warningModule().showWarning("Warning",
@@ -2107,21 +2111,26 @@ module.exports = function (graphContainerSelector) {
             return false;
         }
 
-        if (domain===range && typeString!=="owl:objectProperty"){
+        if (domain===range && typeString==="rdfs:subClassOf"){
             graph.options().warningModule().showWarning("Warning",
-                "owl:disjointWith or rdfs:subClassOf can not be created as loops (domain == range)",
+                "rdfs:subClassOf can not be created as loops (domain == range)",
+                "Element not created!",1,false);
+            return false;
+        }
+        if (domain===range && typeString==="owl:disjointWith"){
+            graph.options().warningModule().showWarning("Warning",
+                "owl:disjointWith  can not be created as loops (domain == range)",
                 "Element not created!",1,false);
             return false;
         }
         return true; // we can create a property
-
-    }
+    };
 
     function createNewObjectProperty(domain,range){
         // check type of the property that we want to create;
 
         var defaultPropertyName=d3.select("#defaultProperty").node().innerHTML;
-       if (sanityCheckProperty(domain,range,defaultPropertyName)===false) return false;
+       if (graph.sanityCheckProperty(domain,range,defaultPropertyName)===false) return false;
         var propPrototype=PropertyPrototypeMap.get(defaultPropertyName.toLowerCase());
         var aProp= new propPrototype(graph);
         aProp.id("objectProperty"+eP++);
@@ -2280,9 +2289,9 @@ module.exports = function (graphContainerSelector) {
         var removedItems=propsToRemove.length+nodesToRemove.length;
         if (removedItems>2){
             graph.options().warningModule().responseWarning(
-                "Removing Elements",
-                "You are about to delete "+nodesToRemove.length+" Nodes and "+propsToRemove.length+ " Properties",
-                "Awaiting Response!",graph.removeNodesViaResponse,[nodesToRemove,propsToRemove],false);
+                "Removing elements",
+                "You are about to delete "+nodesToRemove.length+" class and "+propsToRemove.length+ " properties",
+                "Awaiting response!",graph.removeNodesViaResponse,[nodesToRemove,propsToRemove],false);
 
 
 

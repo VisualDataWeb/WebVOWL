@@ -30,8 +30,8 @@ module.exports = function (graph) {
         var slider = sliderContainer.append("input")
             .attr("id", identifier + "Slider")
             .attr("type", "range")
-            .attr("min", 80)
-            .attr("max", 400)
+            .attr("min", 20)
+            .attr("max", 600)
             .attr("value", onChangeFunction())
             .attr("step", 10);
         sliderContainer.append("label")

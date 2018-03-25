@@ -30,8 +30,8 @@ module.exports =  function (graph) {
         // warningContainer.classed("editorHint")
         var ul=warningContainer.append('ul');
         ul.append('li').node().innerHTML="Create a class with <b>double click / tap</b> on empty canvas area.";
-        ul.append('li').node().innerHTML="Selection of default constructors is provided in the left sidebar.";
         ul.append('li').node().innerHTML="Edit names with <b>double click / tap</b> on element.</li>";
+        ul.append('li').node().innerHTML="Selection of default constructors is provided in the left sidebar.";
         ul.append('li').node().innerHTML="Additional editing functionality is provided in the right sidebar.";
 
 

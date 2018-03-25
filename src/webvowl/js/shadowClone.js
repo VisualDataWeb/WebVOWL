@@ -77,26 +77,20 @@ module.exports =  function (graph) {
             .attr("y2", ShadowClone.s_y);
         ShadowClone.pathElement.classed(parentProperty.linkType(), true);
 
-        ShadowClone.markerElement.attr("viewBox",parentProperty.markerElement().attr("viewBox"))
-            .attr("markerWidth",parentProperty.markerElement().attr("markerWidth"))
-            .attr("markerHeight", parentProperty.markerElement().attr("markerHeight"))
-            .attr("orient", parentProperty.markerElement().attr("orient"));
+        if (parentProperty.markerElement()) {
+            ShadowClone.markerElement.attr("viewBox", parentProperty.markerElement().attr("viewBox"))
+                .attr("markerWidth", parentProperty.markerElement().attr("markerWidth"))
+                .attr("markerHeight", parentProperty.markerElement().attr("markerHeight"))
+                .attr("orient", parentProperty.markerElement().attr("orient"));
 
-        var markerPath=parentProperty.markerElement().select("path");
-        console.log(markerPath);
-        ShadowClone.markerElement.append("path")
-            .attr("d",markerPath.attr("d"))
-            .classed(parentProperty.markerType(), true);
+            var markerPath = parentProperty.markerElement().select("path");
+            ShadowClone.markerElement.append("path")
+                .attr("d", markerPath.attr("d"))
+                .classed(parentProperty.markerType(), true);
 
-
-        ShadowClone.pathElement.attr("marker-end", "url(#" + "shadowCloneMarker"+ ")");
-        ShadowClone.markerElement.classed("hidden",!elementTools.isDatatypeProperty(parentProperty));
-
-        // create shadowClone Marker;
-
-
-        // copy rendering element
-        console.log(parentProperty.styleClass());
+            ShadowClone.pathElement.attr("marker-end", "url(#" + "shadowCloneMarker" + ")");
+            ShadowClone.markerElement.classed("hidden", !elementTools.isDatatypeProperty(parentProperty));
+        }
         var rect = ShadowClone.rootNodeLayer.append("rect")
             .classed(parentProperty.styleClass(), true)
             .classed("property", true)

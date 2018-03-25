@@ -22,16 +22,13 @@ module.exports = function (graph) {
 
         preparePrefixRepresentation();
 
-        prepareProperties();
-        prepareClasses();
-		console.log("Module Request Export:'");
-
-
+        exportProperties();
+        exportClasses();
 
 		// release the reference from elements to this module;
         currentNodes=null;
         currentProperties=null;
-		return false;
+		return true;
 	};
 
 	function preparePrefixRepresentation(){
@@ -46,7 +43,7 @@ module.exports = function (graph) {
         }
 	}
 
-	function prepareProperties(){
+	function exportProperties(){
 	    if (currentProperties.length===0) return; // we dont need to write that
         resultingTTLContent+="###  Property Definitions (Number of Property) "+currentProperties.length+" ###\r\n";
         for (var i=0;i<currentProperties.length;i++) {
@@ -55,7 +52,7 @@ module.exports = function (graph) {
         }
 	}
 
-	function prepareClasses(){
+	function exportClasses(){
         if (currentNodes.length===0) return; // we dont need to write that
         resultingTTLContent+="###  Class Definitions (Number of Classes) "+currentNodes.length+" ###\r\n";
         for (var i=0;i<currentNodes.length;i++) {
