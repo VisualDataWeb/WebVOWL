@@ -46,6 +46,7 @@ module.exports = function () {
         disjointPropertyFilter,
         rectangularRep=false,
         warningModule,
+        prefixModule,
         drawPropertyDraggerOnHover=true,
         scaleNodesByIndividuals = true,
         showDraggerObject=true,
@@ -199,6 +200,10 @@ module.exports = function () {
     options.warningModule=function(val){
         if (!arguments.length) return warningModule;
         warningModule=val;
+    };
+    options.prefixModule=function(val){
+        if (!arguments.length) return prefixModule;
+        prefixModule=val;
     };
 
     options.focuserModule=function(val){

@@ -14,6 +14,7 @@ module.exports = (function () {
 
 	// Constructor, private variables and privileged methods
 	var Base = function (graph) {
+
 		BaseElement.apply(this, arguments);
 
 		var that = this,
@@ -48,6 +49,7 @@ module.exports = (function () {
             parent_labelObject,
 
         redundantProperties = [];
+
 
 		this.getHalos=function(){
 			return haloGroupElement;
@@ -642,6 +644,7 @@ module.exports = (function () {
             textElement.remove();
             that.addTextLabelElement();
             that.animateDynamicLabelWidth(graph.options().dynamicLabelWidth());
+            shapeElement.select("title").text(that.labelForCurrentLanguage());
         };
 
         this.addTextLabelElement=function(){
@@ -746,10 +749,11 @@ module.exports = (function () {
                 .on("keyup",function(){
                     if (forceIRISync){
                         var labelName=editText.node().value;
-                        var resourceName=labelName.replace(" ","_");
+                        var resourceName=labelName.replaceAll(" ","_");
                         var syncedIRI=that.baseIri()+resourceName;
                         that.iri(syncedIRI);
-                        d3.select("#element_iriEditor").node().value=syncedIRI;
+                        d3.select("#element_iriEditor").node().title=syncedIRI;
+                        d3.select("#element_iriEditor").node().value=graph.options().prefixModule().getPrefixRepresentationForFullURI(syncedIRI);
                     }
                     d3.select("#element_labelEditor").node().value=editText.node().value;
 

@@ -234,6 +234,7 @@ module.exports = (function () {
         this.redrawLabelText=function(){
             that.textBlock().remove();
             that.textBlock(createTextBlock());
+            renderingElement.select("title").text(that.labelForCurrentLanguage());
         };
 		function createTextBlock() {
 			var bgColor=that.backgroundColor();

@@ -47,7 +47,6 @@ module.exports = (function () {
 		};
 
         this.raiseDoubleClickEdit=function(forceIRISync){
-            console.log("executing node doubleClick >> EDITING LABEL "+that.labelForCurrentLanguage());
             d3.selectAll(".foreignelements").remove();
             if (nodeElement===undefined || this.type()==="owl:Thing" || this.type()==="rdfs:Literal") {
                  console.log("No Container found");
@@ -132,10 +131,11 @@ module.exports = (function () {
 				.on("keyup",function(){
                     if (forceIRISync){
                     	var labelName=editText.node().value;
-                    	var resourceName=labelName.replace(" ","_");
+                    	var resourceName=labelName.replaceAll(" ","_");
                         var syncedIRI=that.baseIri()+resourceName;
                         that.iri(syncedIRI);
-                        d3.select("#element_iriEditor").node().value=syncedIRI;
+                        d3.select("#element_iriEditor").node().title=syncedIRI;
+                        d3.select("#element_iriEditor").node().value=graph.options().prefixModule().getPrefixRepresentationForFullURI(syncedIRI);
                     }
                     d3.select("#element_labelEditor").node().value=editText.node().value;
 

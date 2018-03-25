@@ -1,3 +1,7 @@
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
 module.exports = function () {
 
 	var app = {},
@@ -114,6 +118,7 @@ module.exports = function () {
 			options.zoomSlider(zoomSlider);
 			options.warningModule(warningModule);
 
+
             options.datatypeFilter(datatypeFilter);
             options.objectPropertyFilter(objectPropertyFilter);
             options.subclassFilter(subclassFilter);
@@ -175,7 +180,7 @@ module.exports = function () {
                     d3.event.stopPropagation();
                 });
             d3.select("#darthBane").node().draggable=false;
-
+            options.prefixModule(webvowl.util.prefixTools(graph));
 
         }
 	};

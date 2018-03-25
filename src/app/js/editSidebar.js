@@ -14,6 +14,7 @@ module.exports = function (graph) {
     var oldPrefix, oldPrefixURL;
     var prefix_editMode = false;
 
+
     editSidebar.clearMetaObjectValue=function(){
         d3.select("#titleEditor").node().value="";
         d3.select("#iriEditor").node().value="";
@@ -297,16 +298,24 @@ module.exports = function (graph) {
         element.redrawLabelText();
 
         d3.select("#element_iriEditor").node().value = prefixModule.getPrefixRepresentationForFullURI(element.iri());
+        d3.select("#element_iriEditor").node().title = element.iri();
         d3.select("#element_labelEditor").node().value = element.labelForCurrentLanguage();
     }
 
 
     function identifyExternalCharacteristicForElement(ontoIRI,elementIRI){
-        return (elementIRI.indexOf(ontoIRI)>-1);
+        return !(elementIRI.indexOf(ontoIRI)>-1);
 
     }
-
-    function changeIriForElement(element) {
+    function defaultIriValue(element){
+        // get the iri of that element;
+        if (graph.options().getGeneralMetaObject().iri){
+            var str2Compare=graph.options().getGeneralMetaObject().iri+element.id();
+            return element.iri()===str2Compare;
+        }
+        return false;
+    }
+    function changeIriForElement(element ) {
         var url = d3.select("#element_iriEditor").node().value;
         var base=graph.options().getGeneralMetaObjectProperty("iri");
         if (validURL(url)===false){
@@ -363,7 +372,9 @@ module.exports = function (graph) {
             }
         }
         element.iri(url);
-
+        console.log("dafuq?:"+identifyExternalCharacteristicForElement(base,url));
+        console.log("base "+base);
+        console.log("URL "+ url);
         if (identifyExternalCharacteristicForElement(base,url)===true){
             addAttribute(element,"external");
             // background color for external element;
@@ -373,6 +384,7 @@ module.exports = function (graph) {
             // handle visual selection
             graph.options().focuserModule().handle(element,true);
         }else{
+            console.log("remove external thing;")
             removeAttribute(element,"external");
             // background color for external element;
             element.backgroundColor(undefined);
@@ -420,7 +432,7 @@ module.exports = function (graph) {
             // set the element IRI, and labels
             d3.select("#element_iriEditor").node().value = element.iri();
             d3.select("#element_labelEditor").node().value = element.labelForCurrentLanguage();
-
+            d3.select("#element_iriEditor").node().title=element.iri();
 
             d3.select("#element_iriEditor")
                 .on("change", function () {
@@ -431,13 +443,15 @@ module.exports = function (graph) {
                     if (d3.event.keyCode === 13) {
                         d3.event.preventDefault();
                         changeIriForElement(element);
+                        d3.select("#element_iriEditor").node().title=element.iri();
                     }
                 });
 
-
+            var forceIRISync=defaultIriValue(element);
             d3.select("#element_labelEditor")
                 .on("change", function () {
                     changeLabelForElement(element);
+                    editSidebar.updateSelectionInformation(element); // prevents that it will be changed if node is still active
                 })
                 .on("keydown", function () {
                     d3.event.stopPropagation();
@@ -445,6 +459,17 @@ module.exports = function (graph) {
                         d3.event.preventDefault();
                         changeLabelForElement(element);
                     }
+                })
+                .on("keyup", function(){
+                    if (forceIRISync){
+                            var labelName= d3.select("#element_labelEditor").node().value;
+                            var resourceName=labelName.replaceAll(" ","_");
+                            var syncedIRI=element.baseIri()+resourceName;
+
+                            element.iri(syncedIRI);
+                            d3.select("#element_iriEditor").node().title=element.iri();
+                            d3.select("#element_iriEditor").node().value=prefixModule.getPrefixRepresentationForFullURI(syncedIRI);
+                        }
                 });
             // check if we are allowed to change IRI OR LABEL
             d3.select("#element_iriEditor").node().disabled = false;
@@ -452,18 +477,21 @@ module.exports = function (graph) {
 
             if (element.type() === "rdfs:subClassOf") {
                 d3.select("#element_iriEditor").node().value = "http://www.w3.org/2000/01/rdf-schema#subClassOf";
+                d3.select("#element_iriEditor").node().title= "http://www.w3.org/2000/01/rdf-schema#subClassOf";
                 d3.select("#element_labelEditor").node().value = "Subclass of";
                 d3.select("#element_iriEditor").node().disabled = true;
                 d3.select("#element_labelEditor").node().disabled = true;
             }
             if (element.type() === "owl:Thing") {
                 d3.select("#element_iriEditor").node().value = "http://www.w3.org/2002/07/owl#Thing";
+                d3.select("#element_iriEditor").node().title= "http://www.w3.org/2002/07/owl#Thing";
                 d3.select("#element_labelEditor").node().value = "Thing";
                 d3.select("#element_iriEditor").node().disabled = true;
                 d3.select("#element_labelEditor").node().disabled = true;
             }
             if (element.type() === "rdfs:Literal") {
                 d3.select("#element_iriEditor").node().value = "http://www.w3.org/2000/01/rdf-schema#Literal";
+                d3.select("#element_iriEditor").node().title = "http://www.w3.org/2000/01/rdf-schema#Literal";
                 d3.select("#element_iriEditor").node().disabled = true;
                 d3.select("#element_labelEditor").node().disabled = true;
             }
@@ -471,6 +499,7 @@ module.exports = function (graph) {
                 var datatypeEditorSelection = d3.select("#typeEditor_datatype");
                 d3.select("#typeEditForm_datatype").classed("hidden", false);
                 d3.select("#element_iriEditor").node().value = "http://www.w3.org/2000/01/rdf-schema#Datatype";
+                d3.select("#element_iriEditor").node().title = "http://www.w3.org/2000/01/rdf-schema#Datatype";
                 d3.select("#element_iriEditor").node().disabled = true;
                 d3.select("#element_labelEditor").node().disabled = true;
 
@@ -515,7 +544,7 @@ module.exports = function (graph) {
             editSidebar.updateElementWidth();
             var fullURI=d3.select("#element_iriEditor").node().value;
             d3.select("#element_iriEditor").node().value=prefixModule.getPrefixRepresentationForFullURI(fullURI);
-
+            d3.select("#element_iriEditor").node().title=fullURI;
         }
 
     };

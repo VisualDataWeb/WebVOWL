@@ -200,6 +200,7 @@ module.exports = (function () {
             textBlock = new CenteringTextElement(that.nodeElement(), that.backgroundColor());
             textBlock.addText(that.labelForCurrentLanguage());
             that.animateDynamicLabelWidth(graph.options().dynamicLabelWidth());
+            shapeElement.select("title").text(that.labelForCurrentLanguage());
         };
 
 		this.animateDynamicLabelWidth=function(dynamic) {
