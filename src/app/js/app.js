@@ -289,7 +289,7 @@ module.exports = function () {
 
         if (isTouchDevice()===true){
             d3.select("#modeOfOperationString").node().innerHTML="touch able device detected";
-         //   graph.setTouchDevice(true);
+            graph.setTouchDevice(true);
 
         }else{
             d3.select("#modeOfOperationString").node().innerHTML="point & click device detected";

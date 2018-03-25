@@ -2032,15 +2032,61 @@ module.exports = function (graphContainerSelector) {
     graph.editorMode=function(val){
         if(!arguments.length) return editMode;
         else editMode=val;
-
+        var htmlCollection = d3.select("#logo").node().children;
+        var numEntries = htmlCollection.length;
+        for (var i = 0; i < numEntries; i++)
+            htmlCollection[0].remove();
         var svgGraph = d3.selectAll(".vowlGraph");
         if (editMode === true) {
+            // remove the logo things and add the editor logo;
+
+
+
+
+            d3.select("#logo").append("h2").node().innerHTML="WebVOWL";
+            var editDiv=d3.select("#logo").append("div");
+            editDiv.style("height","3px");
+            var editH= d3.select("#logo").append("h2");
+            editH.node().innerHTML="Editor ";
+            editH.append("span").node().innerHTML="0.0.2 (beta)";
+            editH.append('br');
+            var modeOp=editH.append('span');
+            modeOp.node().id="modeOfOperationString";
+            modeOp.style("font-size","0.4em");
+            modeOp.style("font-style","italic");
+            if (touchDevice===true){
+                d3.select("#modeOfOperationString").node().innerHTML="touch able device detected";
+                //   graph.setTouchDevice(true);
+
+            }else{
+                d3.select("#modeOfOperationString").node().innerHTML="point & click device detected";
+            }
+
+
 
             options.leftSidebar().showSidebar(options.leftSidebar().getSidebarVisibility(),true);
             options.leftSidebar().hideCollapseButton(false);
             options.editSidebar().updateElementWidth();
             svgGraph.on("dblclick.zoom", graph.modified_dblClickFunction);
         }else{
+
+  //      <h2>WebVOWL <br/><span><%= version %> -- preview</span></h2>
+           var h2= d3.select("#logo").append("h2");
+           h2.node().innerHTML="WebVOWL";
+           h2.style({
+               "color": "#3498db",
+               "margin": "0",
+               "line-heightv": "0.7",
+               "text-align": "center",
+                "font-size": "3vmin"
+           });
+
+            h2.append("br");
+            var span=h2.append("span");
+            span.node().innerHTML="1.1.0";
+            span.style({"color": "#34495E",
+                "font-size": "2vmin"});
+
             svgGraph.on("dblclick.zoom",originalD3_dblClickFunction);
             options.leftSidebar().showSidebar(0);
             options.leftSidebar().hideCollapseButton(true);

@@ -490,10 +490,12 @@ module.exports = function (graph) {
                 d3.select("#element_iriEditor").node().title = "http://www.w3.org/2000/01/rdf-schema#Literal";
                 d3.select("#element_iriEditor").node().disabled = true;
                 d3.select("#element_labelEditor").node().disabled = true;
+                element.iri("http://www.w3.org/2000/01/rdf-schema#Literal");
             }
             if (element.type() === "rdfs:Datatype") {
                 var datatypeEditorSelection = d3.select("#typeEditor_datatype");
                 d3.select("#typeEditForm_datatype").classed("hidden", false);
+                element.iri("http://www.w3.org/2000/01/rdf-schema#Datatype");
                 d3.select("#element_iriEditor").node().value = "http://www.w3.org/2000/01/rdf-schema#Datatype";
                 d3.select("#element_iriEditor").node().title = "http://www.w3.org/2000/01/rdf-schema#Datatype";
                 d3.select("#element_iriEditor").node().disabled = true;
@@ -501,7 +503,7 @@ module.exports = function (graph) {
 
                 datatypeEditorSelection.node().value = element.dType();
                 if (datatypeEditorSelection.node().value === "undefined") {
-                    d3.select("#element_iriEditor").node().disabled = false;
+                    d3.select("#element_iriEditor").node().disabled = true; // always prevent IRI modifications
                     d3.select("#element_labelEditor").node().disabled = false;
                 }
                 // reconnect the element
