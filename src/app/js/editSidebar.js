@@ -372,9 +372,6 @@ module.exports = function (graph) {
             }
         }
         element.iri(url);
-        console.log("dafuq?:"+identifyExternalCharacteristicForElement(base,url));
-        console.log("base "+base);
-        console.log("URL "+ url);
         if (identifyExternalCharacteristicForElement(base,url)===true){
             addAttribute(element,"external");
             // background color for external element;
@@ -384,7 +381,6 @@ module.exports = function (graph) {
             // handle visual selection
             graph.options().focuserModule().handle(element,true);
         }else{
-            console.log("remove external thing;")
             removeAttribute(element,"external");
             // background color for external element;
             element.backgroundColor(undefined);
