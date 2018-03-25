@@ -304,7 +304,7 @@ module.exports = function (graph) {
 
 
     function identifyExternalCharacteristicForElement(ontoIRI,elementIRI){
-        return !(elementIRI.indexOf(ontoIRI)>-1);
+        return (elementIRI.indexOf(ontoIRI)===-1);
 
     }
     function defaultIriValue(element){

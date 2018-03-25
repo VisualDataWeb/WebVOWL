@@ -233,7 +233,7 @@ module.exports = function (graph) {
 
 	function getIndent(name){
 	    if (name===undefined){
-	        return "WHYEMPTYNAME?"
+	        return "WHYEMPTYNAME?";
         }
 		return new Array(name.length+1).join(" ");
 	}
