@@ -204,12 +204,7 @@ module.exports = (function () {
                 bgColor=undefined;
             }
 
-
-
             var cssClasses = that.collectCssClasses();
-			console.log("bgColor");
-            console.log(bgColor);
-
 
             if (rectangularRepresentation===true) {
                 renderingElement = drawTools.appendRectangularClass(that.nodeElement(), 80,80, cssClasses, that.labelForCurrentLanguage(), bgColor);

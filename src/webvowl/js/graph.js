@@ -2130,6 +2130,21 @@ module.exports = function (graphContainerSelector) {
         }
     };
 
+    graph.genericPropertySanityCheck=function(domain,range,typeString,header,action){
+        if (domain===range && typeString==="rdfs:subClassOf"){
+            graph.options().warningModule().showWarning(header,
+                "rdfs:subClassOf can not be created as loops (domain == range)",
+                action,1,false);
+            return false;
+        }
+        if (domain===range && typeString==="owl:disjointWith"){
+            graph.options().warningModule().showWarning(header,
+                "owl:disjointWith  can not be created as loops (domain == range)",
+                action,1,false);
+            return false;
+        }
+        return true; // we can Change the domain or range
+    };
 
     graph.sanityCheckProperty=function(domain,range,typeString){
 

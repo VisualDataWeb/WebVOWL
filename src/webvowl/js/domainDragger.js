@@ -37,7 +37,9 @@ module.exports =  function (graph) {
         Domain_dragger.setParentProperty(Domain_dragger.parent);
     };
     Domain_dragger.updateDomain=function(newDomain){
-        console.log("DomainDragger------------------Update Domain");
+        if (graph.genericPropertySanityCheck(Domain_dragger.parent.range(),newDomain,Domain_dragger.parent.type(),
+            "Could not update domain", "Restoring previous range")===false) return;
+
         if (Domain_dragger.parent.labelElement().attr("transform") === "translate(0,15)"||
             Domain_dragger.parent.labelElement().attr("transform") === "translate(0,-15)") {
             var prop = Domain_dragger.parent;

@@ -71,6 +71,8 @@ module.exports = (function () {
         this.hide=function(val){
         	that.labelElement().classed("hidden",val);
         	that.linkGroup().classed("hidden",val);
+        	if (that.cardinalityElement())
+        		that.cardinalityElement().classed("hidden",val);
 		};
 
 		// Properties

@@ -302,17 +302,7 @@ module.exports = function (graph) {
 
 
     function identifyExternalCharacteristicForElement(ontoIRI,elementIRI){
-            // returns true or false
-            console.log("Received OntologyIRI: "+ontoIRI);
-            console.log("Received elementIRI: "+elementIRI);
-
-            //TODO:
-
-        if (elementIRI.indexOf(ontoIRI)>-1)
-            return false;
-
-
-        return true;
+        return (elementIRI.indexOf(ontoIRI)>-1);
 
     }
 
@@ -382,7 +372,13 @@ module.exports = function (graph) {
             element.redrawLabelText();
             // handle visual selection
             graph.options().focuserModule().handle(element,true);
-
+        }else{
+            removeAttribute(element,"external");
+            // background color for external element;
+            element.backgroundColor(undefined);
+            element.redrawElement();
+            element.redrawLabelText();
+            graph.options().focuserModule().handle(element,true);
         }
 
         d3.select("#element_iriEditor").node().value=prefixModule.getPrefixRepresentationForFullURI(url);

@@ -11,10 +11,8 @@ module.exports =  function (graph) {
     var visibleWarning=false;
 
     moduleContainer.node().addEventListener("animationend", function () {
-        console.log("Animation Ended  "  + visibleWarning);
-        if (visibleWarning===false) {
+         if (visibleWarning===false) {
             moduleContainer.classed("hidden", true);
-
         }
 
     });
@@ -55,9 +53,6 @@ module.exports =  function (graph) {
     warningModule.disableAllWarnings=function(val){
         disableAllWarnings=val;
     };
-    function callback(msg){
-        console.log("Message From CallBack "+msg);
-    }
     warningModule.responseWarning=function(header,reason,action, callback, parameterArray,forcedWarning){
 
         // TODO this has to be tested !!!
