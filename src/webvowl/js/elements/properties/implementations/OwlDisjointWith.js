@@ -46,7 +46,7 @@ module.exports = (function () {
         };
         this.markerElement=function(){
         	return undefined;
-		}
+		};
 
     };
 	o.prototype = Object.create(BaseProperty.prototype);
