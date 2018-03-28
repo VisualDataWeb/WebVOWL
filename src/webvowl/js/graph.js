@@ -92,6 +92,9 @@ module.exports = function (graphContainerSelector) {
     /** --------------------------------------------------------- **/
     /** -- getter and setter definitions                       -- **/
     /** --------------------------------------------------------- **/
+    graph.isEditorMode = function (){
+        return editMode;
+    };
     graph.getGlobalDOF = function () {
         return global_dof;
     };
@@ -2026,10 +2029,6 @@ module.exports = function (graphContainerSelector) {
         var svgGraph = d3.selectAll(".vowlGraph");
         if (editMode === true) {
             // remove the logo things and add the editor logo;
-
-
-
-
             d3.select("#logo").append("h2").node().innerHTML="WebVOWL";
             var editDiv=d3.select("#logo").append("div");
             editDiv.style("height","3px");

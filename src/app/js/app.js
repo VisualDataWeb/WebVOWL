@@ -151,10 +151,6 @@ module.exports = function () {
                     d3.event.preventDefault();
                 }
             });
-            d3.select("#killEditorHint").on("click",function(){
-                d3.select("#editorHint").classed("hidden",true);
-            });
-
 
             d3.select("#showEditorHint").on("click",function(){
                 graph.options().warningModule().showEditorHint();
@@ -181,8 +177,9 @@ module.exports = function () {
                 });
             d3.select("#darthBane").node().draggable=false;
             options.prefixModule(webvowl.util.prefixTools(graph));
-
         }
+
+        leftSidebar.showSidebar(1,true); // << TODO : this is currently for debugging
 	};
 
 	function loadOntologyFromText(jsonText, filename, alternativeFilename) {
@@ -242,8 +239,8 @@ module.exports = function () {
 
         if (newOntology){
             //TODO: PUT THIS BACK ON WHEN RELEASING
-            // d3.select("#editorHint").classed("hidden",false);
             graph.options().warningModule().showEditorHint();
+
         }
 
         exportMenu.setJsonText(jsonText);
@@ -256,10 +253,13 @@ module.exports = function () {
         adjustSize();
 
         sidebar.updateShowedInformation();
-        // leftSidebar.showSidebar(0); // << TODO : this is currently for debugging
-        d3.select("#leftSideBarCollapseButton").style("left","0px");
-        d3.select("#leftSideBarCollapseButton").classed("hidden",false);
+
+
+
+        // d3.select("#leftSideBarCollapseButton").style("left","0px");
+        // d3.select("#leftSideBarCollapseButton").classed("hidden",false);
         editSidebar.updateElementWidth();
+        graph.editorMode(graph.isEditorMode());
 
 	}
 
@@ -288,11 +288,14 @@ module.exports = function () {
 		graph.updateStyle();
 
         if (isTouchDevice()===true){
-            d3.select("#modeOfOperationString").node().innerHTML="touch able device detected";
+            if (graph.isEditorMode()===true )
+                d3.select("#modeOfOperationString").node().innerHTML="touch able device detected";
             graph.setTouchDevice(true);
 
         }else{
-            d3.select("#modeOfOperationString").node().innerHTML="point & click device detected";
+            if (graph.isEditorMode()===true )
+                d3.select("#modeOfOperationString").node().innerHTML="point & click device detected";
+            graph.setTouchDevice(false);
         }
 
         adjustSliderSize();

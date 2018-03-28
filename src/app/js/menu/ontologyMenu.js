@@ -101,7 +101,7 @@ module.exports = function (graph) {
 	function parseOptions(optsArray){
         var defObj=graph.options().defaultConfig();
 		if (optsArray===undefined){
-            // graph.options().setOptionsFromURL(defObj);
+            //graph.options().setOptionsFromURL(defObj);
             return;
 		}
 		// else parse the given parameters;
