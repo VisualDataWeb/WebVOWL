@@ -22,11 +22,13 @@ module.exports = function (graph) {
 
         preparePrefixRepresentation();
 
-        exportProperties();
-        exportClasses();
+        var property_success=exportProperties();
+        var class_success=exportClasses();
 		// release the reference from elements to this module;
         currentNodes=null;
         currentProperties=null;
+        if (property_success===false || class_success===false)
+            return false;
 		return true;
 
 	};
@@ -56,8 +58,14 @@ module.exports = function (graph) {
         resultingTTLContent+="###  Property Definitions (Number of Property) "+currentProperties.length+" ###\r\n";
         for (var i=0;i<currentProperties.length;i++) {
             resultingTTLContent += "#  --------------------------- Property " + i + "------------------------- \r\n";
-            resultingTTLContent += extractPropertyDescription(currentProperties[i]);
+            var addedElement=extractPropertyDescription(currentProperties[i]);
+            resultingTTLContent += addedElement ;
+            //@ workaround for not supported elements
+            if (addedElement.indexOf("WHYEMPTYNAME")!==-1){
+                return false;
+            }
         }
+        return true;
 	}
 
 
@@ -65,9 +73,15 @@ module.exports = function (graph) {
         if (currentNodes.length===0) return; // we dont need to write that
         resultingTTLContent+="###  Class Definitions (Number of Classes) "+currentNodes.length+" ###\r\n";
         for (var i=0;i<currentNodes.length;i++) {
+            // check for node type here and return false
             resultingTTLContent += "#  --------------------------- Class  " + i + "------------------------- \r\n";
-            resultingTTLContent += extractClassDescription(currentNodes[i]);
+            var addedElement=extractClassDescription(currentNodes[i]);
+            resultingTTLContent += addedElement ;
+            if (addedElement.indexOf("WHYEMPTYNAME")!==-1){
+                return false;
+            }
         }
+        return true;
     }
 
     function getPresentAttribute(selectedElement,element){

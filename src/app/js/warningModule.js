@@ -17,6 +17,16 @@ module.exports =  function (graph) {
 
     });
 
+    warningModule.showExporterWarning=function(){
+        var header = "Could not export ontology";
+        var reason = "Identified unsupported element type, most likely (owl:Union)";
+        var action = "Ontology not exported as TTL";
+
+        warningModule.showWarning(header,reason,action,1,true);
+
+    };
+
+
         warningModule.showEditorHint=function(){
 
         // clear children
@@ -168,7 +178,7 @@ module.exports =  function (graph) {
 
 
         // add new one;
-        var graphWidht=0.5*graph.options().width();
+        var graphWidth=0.5*graph.options().width();
 
         if (header.length>0){
            var head= warningContainer.append("div");
@@ -181,7 +191,7 @@ module.exports =  function (graph) {
             var msgHeader=head.append("div");
             // some classes
             msgHeader.style("display","inline-flex");
-            msgHeader.style("max-width",graphWidht+"px");
+            msgHeader.style("max-width",graphWidth+"px");
 
             msgHeader.node().innerHTML=header;
         }
@@ -197,7 +207,7 @@ module.exports =  function (graph) {
             var msgReason=reasonContainer.append("div");
             // some classes
             msgReason.style("display","inline-flex");
-            msgReason.style("max-width",graphWidht+"px");
+            msgReason.style("max-width",graphWidth+"px");
             msgReason.node().innerHTML=reason;
         }
         if (action.length>0){
@@ -211,7 +221,7 @@ module.exports =  function (graph) {
             var msgAction=actionContainer.append("div");
             // some classes
             msgAction.style("display","inline-flex");
-            msgAction.style("max-width",graphWidht+"px");
+            msgAction.style("max-width",graphWidth+"px");
             msgAction.node().innerHTML=action;
 
         }

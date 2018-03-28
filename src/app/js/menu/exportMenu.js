@@ -64,6 +64,14 @@ module.exports = function (graph) {
 
             // okay restore old href?
           //  exportTurtleButton.attr("href", oldHref);
+        }else{
+			console.log("ShowWarning!");
+			graph.options().warningModule().showExporterWarning();
+            console.log("Stay on the page! "+window.location.href);
+            exportTurtleButton.attr("href", window.location.href);
+
+
+
         }
 	}
 
