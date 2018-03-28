@@ -4,7 +4,7 @@ module.exports = function () {
 		graphContainerSelector,
 		classDistance = 200,
 		datatypeDistance = 120,
-		loopDistance = 100,
+		loopDistance = 150,
 		charge = -500,
 		gravity = 0.025,
 		linkStrength = 1,
@@ -49,7 +49,7 @@ module.exports = function () {
         prefixModule,
         drawPropertyDraggerOnHover=true,
         scaleNodesByIndividuals = true,
-        showDraggerObject=true,
+        showDraggerObject=false,
 
         supportedDatatypes=["rdfs:Literal", "xsd:boolean", "xsd:double", "xsd:integer", "xsd:string","undefined"],
         supportedClasses=["owl:Thing","owl:Class","owl:DeprecatedClass"],

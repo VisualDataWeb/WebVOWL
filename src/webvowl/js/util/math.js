@@ -43,6 +43,8 @@ module.exports = (function () {
 	 * @returns {*}
 	 */
 
+
+
 	math.getLoopPoints=function(link){
         var node = link.domain(),
             label = link.label();
@@ -50,6 +52,10 @@ module.exports = (function () {
         var fairShareLoopAngle = 360 / link.loops().length,
             fairShareLoopAngleWithMargin = fairShareLoopAngle * 0.8,
             loopAngle = Math.min(60, fairShareLoopAngleWithMargin);
+
+        if (label.increasedLoopAngle===true)
+            loopAngle=120;
+
 
         var dx = label.x - node.x,
             dy = label.y - node.y,
@@ -79,9 +85,13 @@ module.exports = (function () {
 		var node = link.domain(),
 			label = link.label();
 
+
 		var fairShareLoopAngle = 360 / link.loops().length,
 			fairShareLoopAngleWithMargin = fairShareLoopAngle * 0.8,
 			loopAngle = Math.min(60, fairShareLoopAngleWithMargin);
+
+        if (label.increasedLoopAngle===true)
+        	loopAngle=120;
 
 		var dx = label.x - node.x,
 			dy = label.y - node.y,

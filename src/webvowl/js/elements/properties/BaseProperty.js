@@ -3,6 +3,7 @@ var CenteringTextElement = require("../../util/CenteringTextElement");
 var drawTools = require("../drawTools")();
 var forceLayoutNodeFunctions = require("../forceLayoutNodeFunctions")();
 var rectangularElementTools = require("../rectangularElementTools")();
+var math= require("../../util/math")();
 
 module.exports = (function () {
 

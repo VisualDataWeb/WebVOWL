@@ -75,6 +75,8 @@ module.exports =  function (graph) {
         Range_dragger.parent = parentProperty;
         var iP;
         var renElem;
+        Range_dragger.isLoopProperty=false;
+        if (parentProperty.domain()===parentProperty.range()) Range_dragger.isLoopProperty=true;
         Range_dragger.parent = parentProperty;
         renElem=parentProperty.labelObject();
         if (inversed === true) {
@@ -99,6 +101,7 @@ module.exports =  function (graph) {
                 Range_dragger.y = iP.y;
             }
         }
+
         Range_dragger.updateElement();
     };
 
@@ -224,11 +227,13 @@ module.exports =  function (graph) {
         var range=Range_dragger.parent.range();
         var iP=Range_dragger.parent.labelObject().linkRangeIntersection;
         if (Range_dragger.parent.labelElement()===undefined) return;
+        var offsetForLoop=48;
         if (Range_dragger.parent.labelElement().attr("transform")==="translate(0,15)"){
             range=Range_dragger.parent.inverse().domain();
             iP=Range_dragger.parent.labelObject().linkDomainIntersection;
-
+            offsetForLoop=-48;
         }
+
         if (iP===undefined) return;
         var range_x = range.x;
         var range_y = range.y;
@@ -245,6 +250,10 @@ module.exports =  function (graph) {
 
         var doX=ep_range_x - nX*40;
         var doY=ep_range_y - nY*40;
+
+        if (Range_dragger.isLoopProperty===true )
+            angle-=offsetForLoop;
+
 
         Range_dragger.nodeElement.attr("transform", "translate(" + ep_range_x + "," + ep_range_y + ")" + "rotate(" + angle + ")");
         Range_dragger.draggerObject.attr("transform","translate(" +doX + "," +doY + ")");

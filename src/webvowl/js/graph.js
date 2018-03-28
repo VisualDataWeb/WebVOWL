@@ -304,10 +304,10 @@ module.exports = function (graphContainerSelector) {
                     classDragger.selectedViaTouch(false);
                     d.setParentNode(d.parentNode());
 
-                    var draggeEndPos = [nX, nY];
-                    var targetNode = graph.getTargetNode(draggeEndPos);
+                    var draggerEndPos = [nX, nY];
+                    var targetNode = graph.getTargetNode(draggerEndPos);
                     if (targetNode) {
-                        createNewObjectProperty(d.parentNode(), targetNode);
+                        createNewObjectProperty(d.parentNode(), targetNode, draggerEndPos);
                     }
                     if (touchDevice===false) {
                         editElementHoverOut();
@@ -456,7 +456,7 @@ module.exports = function (graphContainerSelector) {
                 l.label().linkRangeIntersection=ptrAr[1];
                 l.label().linkDomainIntersection=ptrAr[0];
 
-                if (l.property().focused()===true){
+                if (l.property().focused()===true || hoveredPropertyElement!==undefined){
                     rangeDragger.updateElement();
                     domainDragger.updateElement();
                 }
@@ -549,6 +549,13 @@ module.exports = function (graphContainerSelector) {
                     domainDragger.setParentProperty(clickedProperty);
                     domainDragger.hideDragger(false);
                     domainDragger.addMouseEvents();
+
+                    if (clickedProperty.domain()===clickedProperty.range()){
+                        clickedProperty.labelObject().increasedLoopAngle=true;
+                        recalculatePositions();
+
+                    }
+
                 } else if (clickedProperty.focused() && clickedProperty.type() === "owl:DatatypeProperty") {
                     shadowClone.setParentProperty(clickedProperty);
                     rangeDragger.setParentProperty(clickedProperty);
@@ -557,10 +564,16 @@ module.exports = function (graphContainerSelector) {
                     domainDragger.setParentProperty(clickedProperty);
                     domainDragger.hideDragger(false);
                     domainDragger.addMouseEvents();
+
                 }
                 else {
                     rangeDragger.hideDragger(true);
                     domainDragger.hideDragger(true);
+                    if (clickedProperty.domain()===clickedProperty.range()){
+                        clickedProperty.labelObject().increasedLoopAngle=false;
+                        recalculatePositions();
+
+                    }
                 }
             }
         });
@@ -2095,7 +2108,7 @@ module.exports = function (graphContainerSelector) {
         var forceUpdate=true;
         // create a node of that id;
 
-        var typeToCreate=d3.select("#defaultClass").node().innerHTML;
+        var typeToCreate=d3.select("#defaultClass").node().title;
         prototype= NodePrototypeMap.get(typeToCreate.toLowerCase());
         aNode = new prototype(graph);
         var autoEditElement=false;
@@ -2209,11 +2222,15 @@ module.exports = function (graphContainerSelector) {
         return true; // we can create a property
     };
 
-    function createNewObjectProperty(domain,range){
+    function createNewObjectProperty(domain,range, draggerEndposition){
         // check type of the property that we want to create;
 
-        var defaultPropertyName=d3.select("#defaultProperty").node().innerHTML;
-       if (graph.sanityCheckProperty(domain,range,defaultPropertyName)===false) return false;
+        var defaultPropertyName=d3.select("#defaultProperty").node().title;
+
+        // check if we are allow to create that property
+        if (graph.sanityCheckProperty(domain,range,defaultPropertyName)===false) return false;
+
+
         var propPrototype=PropertyPrototypeMap.get(defaultPropertyName.toLowerCase());
         var aProp= new propPrototype(graph);
         aProp.id("objectProperty"+eP++);
@@ -2228,9 +2245,33 @@ module.exports = function (graphContainerSelector) {
         if (defaultPropertyName==="owl:objectProperty"){
             autoEditElement=true;
         }
-
         var pX=0.49*(domain.x+range.x);
         var pY=0.49*(domain.y+range.y);
+
+        if (domain===range){
+            // we use the dragger endposition to determine an angle to put the loop there;
+            var dirD_x=draggerEndposition[0]-domain.x;
+            var dirD_y=draggerEndposition[1]-domain.y;
+
+            // normalize;
+            var len=Math.sqrt(dirD_x*dirD_x+dirD_y*dirD_y);
+            // it should be very hard to set the position on the same sport but why not handling this
+            var nx=dirD_x/len;
+            var ny=dirD_y/len;
+            // is Nan in javascript like in c len==len returns false when it is not a number?
+            if (isNaN(len)) {
+                nx = 0;
+                ny = -1;
+            }
+
+            // get domain actual raidus
+            var offset=2*domain.actualRadius()+50;
+            pX=domain.x+offset*nx;
+            pY=domain.y+offset*ny;
+
+
+        }
+
 
         // add this to the data;
         unfilteredData.properties.push(aProp);
@@ -2239,6 +2280,7 @@ module.exports = function (graphContainerSelector) {
         aProp.labelObject().px=pX;
         aProp.labelObject().y =pY;
         aProp.labelObject().py=pY;
+
         domain.frozen(false);
         domain.locked(false);
         generateDictionary(unfilteredData);
@@ -2246,6 +2288,7 @@ module.exports = function (graphContainerSelector) {
 
         options.focuserModule().handle(aProp);
         graph.activateHoverElementsForProperties(true,aProp,false);
+        aProp.labelObject().increasedLoopAngle=true;
         aProp.enableEditing(autoEditElement);
 
     }
@@ -2265,7 +2308,7 @@ module.exports = function (graphContainerSelector) {
         var aNode, prototype;
 
         // create a default datatype Node >> HERE LITERAL;
-        var defaultDatatypeName=d3.select("#defaultDatatype").node().innerHTML;
+        var defaultDatatypeName=d3.select("#defaultDatatype").node().title;
         if (defaultDatatypeName==="rdfs:Literal") {
             prototype = NodePrototypeMap.get("rdfs:literal");
             aNode = new prototype(graph);
@@ -2552,6 +2595,10 @@ module.exports = function (graphContainerSelector) {
                     rangeDragger.hideDragger(true);
                     domainDragger.hideDragger(true);
                     shadowClone.hideClone(true);
+
+                    hoveredPropertyElement.labelObject().increasedLoopAngle=false;
+                    // lazy update
+                    recalculatePositions();
                 }
 
                 if (hoveredPropertyElement && hoveredPropertyElement.pinned() === false && graph.paused() === false && hoveredPropertyElement.editingTextElement === false) {
@@ -2630,9 +2677,22 @@ module.exports = function (graphContainerSelector) {
 
         if (val === true) {
             clearTimeout(delayedHider);
+            if (hoveredPropertyElement){
+                if (hoveredPropertyElement.domain()===hoveredPropertyElement.range()) {
+                    hoveredPropertyElement.labelObject().increasedLoopAngle = false;
+                }
+            }
+
             hoveredPropertyElement = property;
             if (graph.options().drawPropertyDraggerOnHover()===true){
+
+
+
                 if (property.type() !== "owl:DatatypeProperty") {
+                    if (property.domain()===property.range()){
+                        property.labelObject().increasedLoopAngle=true;
+                        recalculatePositions();
+                    }
                     shadowClone.setParentProperty(property,inversed);
                     rangeDragger.setParentProperty(property,inversed);
                     rangeDragger.hideDragger(false);
@@ -2640,6 +2700,9 @@ module.exports = function (graphContainerSelector) {
                     domainDragger.setParentProperty(property,inversed);
                     domainDragger.hideDragger(false);
                     domainDragger.addMouseEvents();
+
+
+
                 } else if (property.type() === "owl:DatatypeProperty") {
                     shadowClone.setParentProperty(property,inversed);
                     rangeDragger.setParentProperty(property,inversed);
@@ -2655,6 +2718,10 @@ module.exports = function (graphContainerSelector) {
                     rangeDragger.hideDragger(true);
                     domainDragger.hideDragger(true);
                     shadowClone.hideClone(true);
+                    if (property.domain()===property.range()){
+                        property.labelObject().increasedLoopAngle=false;
+                        recalculatePositions();
+                    }
                 }
             }
 
@@ -2757,6 +2824,12 @@ module.exports = function (graphContainerSelector) {
             if (node && node.frozen() === false && node.pinned() === false) {
                 node.frozen(true);
                 node.locked(false);
+            }
+            if (hoveredPropertyElement && hoveredPropertyElement.focused()===false) {
+                hoveredPropertyElement.labelObject().increasedLoopAngle = false;
+                recalculatePositions();
+                // update the loopAngles;
+
             }
             hoveredPropertyElement = undefined;
             deleteGroupElement.classed("hidden", false);

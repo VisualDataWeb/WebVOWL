@@ -46,7 +46,12 @@ module.exports = function (graph) {
         d3.select(element).classed("defaultSelected",true);
     }
     function updateDefaultNameInAccordion(element, identifier){
-        d3.select("#"+identifier).node().innerHTML=element.innerHTML;
+        var elementDescription="";
+        if (identifier==="defaultClass") elementDescription="Class: ";
+        if (identifier==="defaultDatatype") elementDescription="Datatype: ";
+        if (identifier==="defaultProperty") elementDescription="Property: ";
+
+        d3.select("#"+identifier).node().innerHTML=elementDescription+element.innerHTML;
         d3.select("#"+identifier).node().title=element.innerHTML;
     }
 

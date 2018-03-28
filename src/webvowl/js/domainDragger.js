@@ -38,8 +38,15 @@ module.exports =  function (graph) {
     };
     Domain_dragger.updateDomain=function(newDomain){
         if (graph.genericPropertySanityCheck(Domain_dragger.parent.range(),newDomain,Domain_dragger.parent.type(),
-            "Could not update domain", "Restoring previous range")===false) return;
-        if (Domain_dragger.parent.labelElement()===undefined) return;
+            "Could not update domain", "Restoring previous range")===false){
+            Domain_dragger.updateElement();
+            return;
+        }
+
+        if (Domain_dragger.parent.labelElement()===undefined) {
+            Domain_dragger.updateElement();
+            return;
+        }
         if (Domain_dragger.parent.labelElement().attr("transform") === "translate(0,15)"||
             Domain_dragger.parent.labelElement().attr("transform") === "translate(0,-15)") {
             var prop = Domain_dragger.parent;
@@ -66,6 +73,7 @@ module.exports =  function (graph) {
         Domain_dragger.parent.labelObject().px  = cX;
         Domain_dragger.parent.labelObject().y   = cY;
         Domain_dragger.parent.labelObject().py  = cY;
+        Domain_dragger.updateElement();
 
     };
 
@@ -73,6 +81,10 @@ module.exports =  function (graph) {
         Domain_dragger.invertedProperty = inverted;
         var renElem;
         var iP;
+        Domain_dragger.isLoopProperty=false;
+        if (parentProperty.domain()===parentProperty.range())
+            Domain_dragger.isLoopProperty=true;
+
         Domain_dragger.parent = parentProperty;
         renElem=parentProperty.labelObject();
         if (inverted === true) {
@@ -177,6 +189,7 @@ module.exports =  function (graph) {
         var ep_range_y=dey+nY*Domain_dragger.parent.domain().actualRadius();
 
         var angle = Math.atan2(ep_range_y-range_y  , ep_range_x-range_x ) * 180 / Math.PI ;
+
         Domain_dragger.nodeElement.attr("transform","translate(" + ep_range_x  + "," + ep_range_y  + ")"+"rotate(" + angle + ")");
         var dox=ep_range_x+nX*20;
         var doy=ep_range_y+nY*20;
@@ -213,6 +226,7 @@ module.exports =  function (graph) {
         var dox=ep_range_x-nX*20;
         var doy=ep_range_y-nY*20;
         var angle = Math.atan2(ep_range_y-range_y  , ep_range_x-range_x ) * 180 / Math.PI +180;
+
         Domain_dragger.nodeElement.attr("transform","translate(" + ep_range_x  + "," + ep_range_y  + ")"+"rotate(" + angle + ")");
         Domain_dragger.draggerObject.attr("transform","translate(" + dox+ "," + doy+ ")");
     };
@@ -297,6 +311,7 @@ module.exports =  function (graph) {
             var doy=ep_range_y+nY*20;
 
             var angle = Math.atan2(range_y-ep_range_y  , range_x-ep_range_x ) * 180 / Math.PI+180;
+
             Domain_dragger.nodeElement.attr("transform","translate(" + ep_range_x  + "," + ep_range_y  + ")"+"rotate(" + angle + ")");
             Domain_dragger.draggerObject.attr("transform","translate(" + dox  + "," + doy  + ")");
 

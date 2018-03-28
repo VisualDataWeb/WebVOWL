@@ -327,11 +327,7 @@ module.exports = function () {
 		}
 
 		// adjust height of the leftSidebar element;
-        var lsb_offset=d3.select("#logo").node().getBoundingClientRect().height+5;
-        var lsb_height=height-lsb_offset;
-        d3.select("#containerForLeftSideBar").style("top",lsb_offset+"px");
-        d3.select("#leftSideBarCollapseButton").style("top",lsb_offset+"px");
-        d3.select("#containerForLeftSideBar").style("height",lsb_height+"px");
+
         editSidebar.updateElementWidth();
 		// var lsb_offest=d3.select("#logo").node().getBoundingClientRect().height+5;
         // var lsb_offestLeft=d3.select("#leftSideBar").node().getBoundingClientRect().width;

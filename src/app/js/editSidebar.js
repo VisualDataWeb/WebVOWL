@@ -585,6 +585,13 @@ module.exports = function (graph) {
     };
 
     editSidebar.updateElementWidth=function () {
+        var height = window.innerHeight - 40;
+        var lsb_offset=d3.select("#logo").node().getBoundingClientRect().height+5;
+        var lsb_height=height-lsb_offset;
+        d3.select("#containerForLeftSideBar").style("top",lsb_offset+"px");
+        d3.select("#leftSideBarCollapseButton").style("top",lsb_offset+"px");
+        d3.select("#containerForLeftSideBar").style("height",lsb_height+"px");
+
     var div_width = d3.select("#generalDetailsEdit").node().getBoundingClientRect().width + 10;
     // title :
 
