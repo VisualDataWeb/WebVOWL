@@ -767,9 +767,7 @@ module.exports = function (graphContainerSelector) {
             // currently using only the object properties
             if (allProperties[i].type()==="owl:ObjectProperty" ||
                 allProperties[i].type()==="owl:DatatypeProperty"  ||
-                allProperties[i].type()==="owl:allValuesFrom"  ||
-                allProperties[i].type()==="owl:ObjectProperty" ||
-                allProperties[i].type()==="owl:someValuesFrom"
+                allProperties[i].type()==="owl:ObjectProperty"
 
             ){
                 propertyData.push(allProperties[i]);

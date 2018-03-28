@@ -127,7 +127,11 @@ module.exports = function (graph) {
         var myProperties=[];
         var i;
         for (i=0;i<allProps.length;i++){
-            if (allProps[i].domain()===node && allProps[i].type()==="rdfs:subClassOf")
+            if (allProps[i].domain()===node &&
+                (   allProps[i].type()==="rdfs:subClassOf"||
+                    allProps[i].type()==="owl:allValuesFrom"  ||
+                    allProps[i].type()==="owl:someValuesFrom")
+                )
             {
                 myProperties.push(allProps[i]);
             }
@@ -140,7 +144,19 @@ module.exports = function (graph) {
             }
         for (i=0;i<myProperties.length;i++) {
             // depending on the property we have to do some things;
-            if (myProperties[i].range().type !== "own:Thing") {
+
+            // special case
+            if (myProperties[i].type()==="owl:someValuesFrom"){
+                objectDef += indent +" rdfs:subClassOf [ rdf:type owl:Restriction ; \r\n";
+                objectDef += indent +"                   owl:onProperty :objectSomeValuesFromProperty ;\r\n";
+                if (myProperties[i].range().type() !== "owl:Thing" ) {
+                    objectDef += indent +"                   owl:someValuesFrom " + myProperties[i].range().prefixRepresentation+"\r\n";
+                }
+                objectDef += indent +"                 ];\r\n";
+                continue;
+            }
+
+            if (myProperties[i].range().type() !== "owl:Thing" ) {
                 objectDef += indent +" "+ myProperties[i].prefixRepresentation +
                     " " + myProperties[i].range().prefixRepresentation + " ;\r\n";
 
