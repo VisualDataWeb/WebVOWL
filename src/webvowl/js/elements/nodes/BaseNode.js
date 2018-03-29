@@ -71,12 +71,6 @@ module.exports = (function () {
                  .attr("class","foreignelements")
                  .on("dragstart",function(){return false;}) // remove drag operations of text element)
                  .attr("width", that.textWidth()-2);
-            // adding a Style to the fObject
-            //
-            //
-            //
-
-			console.log("fObject height "+fobj.attr("height"));
 
             var editText=fobj.append("xhtml:input")
                  .attr("class","nodeEditSpan")
@@ -112,7 +106,6 @@ module.exports = (function () {
             });
             // // remove hover Events for now;
             editText.on("mouseout",function(){
-                console.log("hovered Out of the input Field");
                 d3.event.stopPropagation();
 
 
@@ -141,8 +134,6 @@ module.exports = (function () {
 
                 })
                 .on("blur", function(){
-
-                    console.log("CALLING BLUR FUNCTION ----------------------"+d3.event);
                     that.editingTextElement=false;
                     ignoreLocalHoverEvents=false;
                     that.nodeElement().selectAll("circle").classed("hoveredForEditing", false);
@@ -150,6 +141,7 @@ module.exports = (function () {
                     nodeElement.selectAll(".foreignelements").remove();
                     // that.setLabelForCurrentLanguage(classNameConvention(editText.node().value));
                     that.label(newLabel);
+                    that.backupLabel(newLabel);
                     that.redrawLabelText();
                     graph.ignoreOtherHoverEvents(false);
                     graph.options().focuserModule().handle(undefined);

@@ -629,7 +629,6 @@ module.exports = (function () {
 
             // for the pin we dont need to differ between different widths -- they are already set
             if (that.pinned() === true  && pinGroupElement){
-            	console.log("pinned?");
                 var dx=0.5*myWidth-10,
 					dy=-25;
                 pinGroupElement.transition()
@@ -767,6 +766,7 @@ module.exports = (function () {
                     that.labelElement().selectAll(".foreignelements").remove();
                     // that.setLabelForCurrentLanguage(classNameConvention(editText.node().value));
                     that.label(newLabel);
+                    that.backupLabel(newLabel);
                     that.redrawLabelText();
                     updateHoverElements(true);
                     graph.showHoverElementsAfterAnimation(that,false);
@@ -774,6 +774,14 @@ module.exports = (function () {
                     graph.options().focuserModule().handle(undefined);
                     graph.options().focuserModule().handle(that);
                     graph.updatePropertyDraggerElements(that);
+
+                    that.frozen(graph.paused());
+                    that.locked(graph.paused());
+                    that.domain().frozen(graph.paused());
+                    that.domain().locked(graph.paused());
+                    that.range().frozen(graph.paused());
+                    that.range().locked(graph.paused());
+                    graph.removeEditElements();
 
                 });	// add a foreiner element to this thing;
 
@@ -795,7 +803,8 @@ module.exports = (function () {
             that.label(other.label());
             that.iri(other.iri());
             that.baseIri(other.baseIri());
-            if (other.type()==="owl:ObjectProperty" || other.type()==="owl:DatatypeProperty"){
+            if (other.type()==="owl:ObjectProperty" ||
+				other.type()==="owl:DatatypeProperty"){
                 that.backupLabel(other.label());
                 console.log("copied backup label"+that.backupLabel());
             }

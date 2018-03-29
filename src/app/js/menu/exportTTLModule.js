@@ -148,9 +148,19 @@ module.exports = function (graph) {
             // special case
             if (myProperties[i].type()==="owl:someValuesFrom"){
                 objectDef += indent +" rdfs:subClassOf [ rdf:type owl:Restriction ; \r\n";
-                objectDef += indent +"                   owl:onProperty :objectSomeValuesFromProperty ;\r\n";
+                objectDef += indent +"                   owl:onProperty "+myProperties[i].prefixRepresentation+";\r\n";
                 if (myProperties[i].range().type() !== "owl:Thing" ) {
                     objectDef += indent +"                   owl:someValuesFrom " + myProperties[i].range().prefixRepresentation+"\r\n";
+                }
+                objectDef += indent +"                 ];\r\n";
+                continue;
+            }
+
+            if (myProperties[i].type()==="owl:allValuesFrom"){
+                objectDef += indent +" rdfs:subClassOf [ rdf:type owl:Restriction ; \r\n";
+                objectDef += indent +"                   owl:onProperty "+myProperties[i].prefixRepresentation+";\r\n";
+                if (myProperties[i].range().type() !== "owl:Thing" ) {
+                    objectDef += indent +"                   owl:allValuesFrom " + myProperties[i].range().prefixRepresentation+"\r\n";
                 }
                 objectDef += indent +"                 ];\r\n";
                 continue;

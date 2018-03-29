@@ -500,7 +500,7 @@ module.exports = function (graphContainerSelector) {
     }
 
     graph.updatePropertyDraggerElements=function(property){
-        if (property.focused() && property.type()!=="owl:DatatypeProperty"){
+        if (property.type()!=="owl:DatatypeProperty"){
 
             shadowClone.setParentProperty(property);
             rangeDragger.setParentProperty(property);
@@ -539,7 +539,9 @@ module.exports = function (graphContainerSelector) {
 
         labelGroupElements.selectAll(".label").on("click", function (clickedProperty) {
             executeModules(clickedProperty);
+            // currently removed the selection of an element to invoke the dragger
            if (editMode===true && clickedProperty.editingTextElement!==true) {
+               return;
                 // We say that Datatype properties are not allowed to have domain range draggers
                 if (clickedProperty.focused() && clickedProperty.type() !== "owl:DatatypeProperty") {
                     shadowClone.setParentProperty(clickedProperty);
@@ -1903,6 +1905,13 @@ module.exports = function (graphContainerSelector) {
     graph.changeNodeType=function(element){
 
         var typeString=d3.select("#typeEditor").node().value;
+
+        if (graph.classesSanityCheck(element,typeString)===false){
+            // call reselection to restore previous type selection
+            graph.options().editSidebar().updateSelectionInformation(element);
+           return;
+        }
+
         var prototype= NodePrototypeMap.get(typeString.toLowerCase());
         var aNode = new prototype(graph);
 
@@ -1914,7 +1923,7 @@ module.exports = function (graphContainerSelector) {
         aNode.copyInformation(element);
 
         if (typeString==="owl:Thing") {
-            aNode.label("Thing");
+            aNode.label(undefined); // ? like this?
         }
         else if (elementTools.isDatatype(element)===false){
             if (element.backupLabel()!==undefined){
@@ -1949,7 +1958,8 @@ module.exports = function (graphContainerSelector) {
         addNewNodeElement(aNode);
         // handle focuser!
         options.focuserModule().handle(aNode);
-
+        generateDictionary(unfilteredData);
+        graph.getUpdateDictionary();
         element=null;
 
     };
@@ -1980,7 +1990,9 @@ module.exports = function (graphContainerSelector) {
         if (aProp.type()==="rdfs:subClassOf"){
             aProp.iri("http://www.w3.org/2000/01/rdf-schema#subClassOf");
         }else{
-            aProp.iri(graph.options().getGeneralMetaObjectProperty('iri')+aProp.id());
+            if (element.iri()==="http://www.w3.org/2000/01/rdf-schema#subClassOf")
+                aProp.iri(graph.options().getGeneralMetaObjectProperty('iri')+aProp.id());
+            
         }
 
         // // TODO: change its base IRI to proper value
@@ -2005,6 +2017,10 @@ module.exports = function (graphContainerSelector) {
         element=null;
     };
 
+    graph.removeEditElements=function(){
+        // just added to be called form outside
+        removeEditElements();
+    };
 
     function removeEditElements(){
         rangeDragger.hideDragger(true);
@@ -2016,14 +2032,14 @@ module.exports = function (graphContainerSelector) {
 
         if (hoveredNodeElement){
             if (hoveredNodeElement.pinned()===false){
-                hoveredNodeElement.locked(false);
-                hoveredNodeElement.frozen(false);
+                hoveredNodeElement.locked(graph.paused());
+                hoveredNodeElement.frozen(graph.paused());
             }
         }
         if (hoveredPropertyElement){
             if (hoveredPropertyElement.pinned()===false){
-                hoveredPropertyElement.locked(false);
-                hoveredPropertyElement.frozen(false);
+                hoveredPropertyElement.locked(graph.paused());
+                hoveredPropertyElement.frozen(graph.paused());
             }
         }
 
@@ -2130,6 +2146,10 @@ module.exports = function (graphContainerSelector) {
         options.focuserModule().handle(aNode,true);
         aNode.enableEditing(autoEditElement);
 
+
+        aNode.frozen(graph.paused());
+        aNode.locked(graph.paused());
+
     }
 
 
@@ -2186,9 +2206,72 @@ module.exports = function (graphContainerSelector) {
                 action,1,false);
             return false;
         }
+        // allProps[i].type()==="owl:allValuesFrom"  ||
+        // allProps[i].type()==="owl:someValuesFrom"
+        if (domain.type()==="owl:Thing" && typeString==="owl:allValuesFrom"){
+            graph.options().warningModule().showWarning(header,
+                "owl:allValuesFrom can not originate from owl:Thing",
+                action,1,false);
+            return false;
+        }
+        if (domain.type()==="owl:Thing" && typeString==="owl:someValuesFrom"){
+            graph.options().warningModule().showWarning(header,
+                "owl:someValuesFrom can not originate from owl:Thing",
+                action,1,false);
+            return false;
+        }
+
+        if (range.type()==="owl:Thing" && typeString==="owl:allValuesFrom"){
+            graph.options().warningModule().showWarning(header,
+                "owl:allValuesFrom can not be connected to owl:Thing",
+                action,1,false);
+            return false;
+        }
+        if (range.type()==="owl:Thing" && typeString==="owl:someValuesFrom"){
+            graph.options().warningModule().showWarning(header,
+                "owl:someValuesFrom can not be connected to owl:Thing",
+                action,1,false);
+            return false;
+        }
+
         return true; // we can Change the domain or range
     };
 
+    graph.classesSanityCheck=function(classElement,targetType){
+        // this is added due to someValuesFrom properties
+        // we should not be able to change a classElement to a owl:Thing
+        // when it has a property attached to it that uses these restrictions
+        //
+
+        if (targetType==="owl:Class") return true;
+
+        else{
+            // collect all properties which have that one as a domain or range
+            var allProps=unfilteredData.properties;
+            for (var i=0;i<allProps.length;i++){
+                if (allProps[i].range()===classElement ||allProps[i].domain()===classElement)
+                {
+                    // check for the type of that property
+                    if (allProps[i].type()==="owl:someValuesFrom") {
+                        graph.options().warningModule().showWarning("Can not change class type",
+                            "The element has a property that is of type owl:someValuesFrom",
+                            "Element type not changed!",1,true);
+                        return false;
+                    }
+                    if (allProps[i].type()==="owl:allValuesFrom"){
+                        graph.options().warningModule().showWarning("Can not change class type",
+                            "The element has a property that is of type owl:allValuesFrom",
+                            "Element type not changed!",1,true);
+                        return false;
+                    }
+                }
+            }
+
+
+        }
+        return true;
+
+    };
     graph.sanityCheckProperty=function(domain,range,typeString){
 
         if (typeString==="owl:objectProperty" && graph.options().objectPropertyFilter().enabled()===true) {
@@ -2217,6 +2300,34 @@ module.exports = function (graphContainerSelector) {
                 "Element not created!",1,false);
             return false;
         }
+
+        if (domain.type()==="owl:Thing" && typeString==="owl:someValuesFrom"){
+            graph.options().warningModule().showWarning("Warning",
+                "owl:someValuesFrom can not originate from owl:Thing",
+                "Element not created!",1,false);
+            return false;
+        }
+        if (domain.type()==="owl:Thing" && typeString==="owl:allValuesFrom"){
+            graph.options().warningModule().showWarning("Warning",
+                "owl:allValuesFrom can not originate from owl:Thing",
+                "Element not created!",1,false);
+            return false;
+        }
+
+        if (range.type()==="owl:Thing" && typeString==="owl:allValuesFrom"){
+            graph.options().warningModule().showWarning("Warning",
+                "owl:allValuesFrom can not be connected to owl:Thing",
+                "Element not created!",1,false);
+            return false;
+        }
+        if (range.type()==="owl:Thing" && typeString==="owl:someValuesFrom"){
+            graph.options().warningModule().showWarning("Warning",
+                "owl:someValuesFrom can not be connected to owl:Thing",
+                "Element not created!",1,false);
+            return false;
+        }
+
+
         return true; // we can create a property
     };
 
@@ -2279,8 +2390,14 @@ module.exports = function (graphContainerSelector) {
         aProp.labelObject().y =pY;
         aProp.labelObject().py=pY;
 
-        domain.frozen(false);
-        domain.locked(false);
+        aProp.frozen(graph.paused());
+        aProp.locked(graph.paused());
+        domain.frozen(graph.paused());
+        domain.locked(graph.paused());
+        range.frozen(graph.paused());
+        range.locked(graph.paused());
+
+
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
 
@@ -2371,8 +2488,8 @@ module.exports = function (graphContainerSelector) {
             node.frozen(true);
         nodeFreezer = setTimeout(function () {
             if (node && node.frozen() === true && node.pinned() === false && graph.paused() === false) {
-                node.frozen(false);
-                node.locked(false);
+                node.frozen(graph.pause());
+                node.locked(graph.pause());
             }
         }, 2000);
         options.focuserModule().handle(undefined);
@@ -2391,6 +2508,8 @@ module.exports = function (graphContainerSelector) {
             nodesToRemove[i]=null;
         }
         graph.update();
+        generateDictionary(unfilteredData);
+        graph.getUpdateDictionary();
         options.focuserModule().handle(undefined);
         nodesToRemove=null;
         propsToRemove=null;
@@ -2444,6 +2563,8 @@ module.exports = function (graphContainerSelector) {
                 nodesToRemove[i]=null;
             }
             graph.update();
+            generateDictionary(unfilteredData);
+            graph.getUpdateDictionary();
             options.focuserModule().handle(undefined);
             nodesToRemove=null;
             propsToRemove=null;
@@ -2588,7 +2709,7 @@ module.exports = function (graphContainerSelector) {
             delayedHider = setTimeout(function () {
                 deleteGroupElement.classed("hidden", true);
                 addDataPropertyGroupElement.classed("hidden", true);
-                if (hoveredPropertyElement&& hoveredPropertyElement.focused()!==true && graph.options().drawPropertyDraggerOnHover()===true) {
+                if (hoveredPropertyElement&& hoveredPropertyElement.focused()===true && graph.options().drawPropertyDraggerOnHover()===true) {
                     classDragger.hideDragger(true);
                     rangeDragger.hideDragger(true);
                     domainDragger.hideDragger(true);
@@ -2678,6 +2799,7 @@ module.exports = function (graphContainerSelector) {
             if (hoveredPropertyElement){
                 if (hoveredPropertyElement.domain()===hoveredPropertyElement.range()) {
                     hoveredPropertyElement.labelObject().increasedLoopAngle = false;
+                    recalculatePositions();
                 }
             }
 
