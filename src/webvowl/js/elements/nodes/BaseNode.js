@@ -48,6 +48,9 @@ module.exports = (function () {
 
         this.raiseDoubleClickEdit=function(forceIRISync){
             d3.selectAll(".foreignelements").remove();
+
+            console.log("Hey Domble CLICK!");
+
             if (nodeElement===undefined || this.type()==="owl:Thing" || this.type()==="rdfs:Literal") {
                  console.log("No Container found");
                  return;
@@ -56,12 +59,14 @@ module.exports = (function () {
                  nodeElement.selectAll(".foreignelements").remove();
             }
 
+
+            console.log("This Should create some foreignerElment");
+
             graph.options().focuserModule().handle(undefined);
             graph.options().focuserModule().handle(that);
             that.editingTextElement=true;
             ignoreLocalHoverEvents=true;
             that.nodeElement().selectAll("circle").classed("hoveredForEditing", true);
-			that.frozen(true);
             graph.killDelayedTimer();
             graph.ignoreOtherHoverEvents(false);
             fobj= nodeElement.append("foreignObject")
@@ -96,7 +101,9 @@ module.exports = (function () {
              txtNode.value=that.labelForCurrentLanguage();
              txtNode.focus();
              txtNode.select();
-			
+            that.frozen(true); // << releases the not after selection
+            that.locked(true);
+
 
              d3.event.stopPropagation();
             // ignoreNodeHoverEvent=true;
@@ -148,6 +155,7 @@ module.exports = (function () {
                     graph.options().focuserModule().handle(that);
             	});	// add a foreiner element to this thing;
 
+			console.log(that.frozen() + "   "+ that.locked() );
         };
 
 

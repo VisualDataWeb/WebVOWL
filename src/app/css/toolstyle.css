@@ -16,6 +16,9 @@ html{
 	border: none;
 	cursor: pointer;
 }
+.debugOption{
+
+}
 
 .dbEntrySelected {
 	background-color: #bdc3c7;
@@ -1275,6 +1278,13 @@ p#zoomSliderParagraph:hover{
 
 	pointer-events: none;
 }
+.gearIcon{
+	position: absolute;
+	width: 17px;
+	height:17px;
+	pointer-events: none;
+	left :-5px;
+}
 
 
 
@@ -1302,13 +1312,13 @@ li#c_search{
 /*Menu icons before the links selection */
 #c_select  > a::before { content: "\2263"; }
 #c_export  > a::before { content: "\21E4"; }
-#c_gravity > a::before { content: "\2299"; }
+/*#c_gravity > a::before { content: "\2299"; }*/
 #c_filter  > a::before { content: "\25BD"; }
 #c_modes   > a::before { content: "\2606"; }
 #c_reset   > a::before { content: "\21BB"; }
 #c_about   > a::before { content: "\00A9"; }
-#c_config  > a::before { content: "\2699"; }
-
+/*#c_config  > a::before { content: "\2699"; }*/
+#c_config   > a::before { content: "\2299"; }
 li#c_locate {
 	padding: 0;
 }

@@ -44,6 +44,7 @@ module.exports = function (graph) {
 			searchMenu.hideSearchEntries();
 		});
         addCheckBox("labelWidth","Dynamic label width","#dynamicLabelWidth",graph.options().dynamicLabelWidth,1);
+        addCheckBox("editorMode","Editing","#editMode",graph.editorMode,0);
 		addModeItem(pickAndPin, "pickandpin", "Pick & pin", "#pickAndPinOption", false);
 		addModeItem(nodeScaling, "nodescaling", "Node scaling", "#nodeScalingOption", true);
 		addModeItem(compactNotation, "compactnotation", "Compact notation", "#compactNotationOption", true);
@@ -69,9 +70,15 @@ module.exports = function (graph) {
                 // graph.lazyRefresh();
             }
         });
-        moduleOptionContainer.append("label")
+        var label=moduleOptionContainer.append("label")
             .attr("for", identifier + "ModuleCheckbox")
             .text(modeName);
+        if (identifier==="editorMode"){
+            moduleOptionContainer.append("label")
+				.attr("style","font-size:10px;padding-top:3px")
+				.text(" (experimental)");
+		}
+
         dynamicLabelWidthCheckBox=moduleCheckbox;
     }
 

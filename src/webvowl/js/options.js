@@ -145,7 +145,7 @@ module.exports = function () {
 			prefixList[oldPrefix]=newURL;
         }else if (oldPrefix===newPrefix && oldURL!==newURL && validURL(newURL)===false){
             if (validURL(newURL)===false){
-                warningModule.showWarning("Invalid Prefix IRI","Input IRI does not represent an URL","You should enter a valid URL",1,false);
+                warningModule.showWarning("Invalid Prefix IRI","Input IRI does not represent an IRI","You should enter a valid IRI in form of a URL",1,false);
                 return false;
             }
 

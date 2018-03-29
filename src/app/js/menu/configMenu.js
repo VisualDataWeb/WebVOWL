@@ -9,11 +9,16 @@ module.exports = function (graph) {
             var searchMenu=graph.options().searchMenu();
             searchMenu.hideSearchEntries();
         });
-        addCheckBox("drawPropertyDraggerOnHover","Draw PropertyDragger onHover","#drawPropertyDraggerOnHover",graph.options().drawPropertyDraggerOnHover,0);
-        addCheckBox("showZoomSlider","Zoom Slider","#zoomSliderOption",graph.options().zoomSlider().showSlider,0);
-        addCheckBox("editorMode","Editor Mode (experimental)","#editMode",graph.editorMode,0);
-        addCheckBox("showDraggerObject","Show Dragger Object(DebugMode)","#showDraggerObject",graph.options().showDraggerObject,3);
-        addLabelWidthSlider("#maxLabelWidthSliderOption","maxLabelWidth","Max Label Width", graph.options().maxLabelWidth);
+        addCheckBox("drawPropertyDraggerOnHover","Draw propertyDragger onHover","#drawPropertyDraggerOnHover",graph.options().drawPropertyDraggerOnHover,0);
+        addCheckBox("showZoomSlider","Zoom controls","#zoomSliderOption",graph.options().zoomSlider().showSlider,0);
+        // addCheckBox("editorMode","Editor mode (experimental)","#editMode",graph.editorMode,0);
+        addCheckBox("showDraggerObject","Show dragger object(DebugMode)","#showDraggerObject",graph.options().showDraggerObject,3);
+
+
+        // addLabelWidthSlider("#datatypeSliderOption","datatypeSliderOption","Datatype distance", graph.options().datatypeDistance);
+        // addLabelWidthSlider("#classSliderOption","classSliderOption","Class distance", graph.options().classDistance);
+
+        addLabelWidthSlider("#maxLabelWidthSliderOption","maxLabelWidth","Max label width", graph.options().maxLabelWidth);
     };
 
 

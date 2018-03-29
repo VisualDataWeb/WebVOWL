@@ -65,21 +65,21 @@
 
 			<div id="leftSideBar" >
 				<div id="leftSideBarContent" class="hidden">
-					<h2 id="leftHeader">Default Constructor</h2>
+					<h2 id="leftHeader">TODO:Default ontology element</h2>
 					<h3  class=" selectedDefaultElement accordion-trigger noselect accordion-trigger-active" id="defaultClass" title="owl:Class">Class: owl:Class
 					</h3>
 					<div id="classContainer" class="accordion-container ">
 					</div>
-
+					<h3 class="selectedDefaultElement accordion-trigger noselect accordion-trigger-active" title="owl:objectProperty" id="defaultProperty">Property: owl:objectProperty
+					</h3>
+					<div id="propertyContainer" class="accordion-container ">
+					</div>
 					<h3 class="selectedDefaultElement accordion-trigger noselect accordion-trigger-active" title="rdfs:Literal" id="defaultDatatype">Datatype: rdfs:Literal
 					</h3>
 					<div id="datatypeContainer" class="accordion-container ">
 					</div>
 
-					<h3 class="selectedDefaultElement accordion-trigger noselect accordion-trigger-active" title="owl:objectProperty" id="defaultProperty">Property: owl:objectProperty
-					</h3>
-					<div id="propertyContainer" class="accordion-container ">
-					</div>
+
 
 				</div>
 			</div>
@@ -93,7 +93,7 @@
 				<li><a href="#goodrelations" id="goodrelations">GoodRelations Vocabulary for E-Commerce</a></li>
 				<li><a href="#sioc" id="sioc">SIOC (Semantically-Interlinked Online Communities) Core Ontology</a></li>
 				<li><a href="#ontovibe" id="ontovibe">Ontology Visualization Benchmark (OntoViBe)</a></li>
-				<li><a href="#empty" id="empty">Create new Ontology(empty)</a></li>
+				<li><a href="#empty" id="empty">Create new Ontology (empty)</a></li>
 
 				<!-- build:remove release-->
 				<li><a href="#benchmark" id="benchmark">Benchmark Graph for VOWL</a></li>
@@ -128,11 +128,11 @@
 					</div>
 				</li>
 			</ul>
-			<!--Gravity Menu-->
-			<ul id="m_gravity" class="toolTipMenu noselect">
-				<li class="slideOption" id="classSliderOption"></li>
-				<li class="slideOption" id="datatypeSliderOption"></li>
-			</ul>
+			<!--&lt;!&ndash;Gravity Menu&ndash;&gt;-->
+			<!--<ul id="m_gravity" class="toolTipMenu noselect">-->
+				<!--<li class="slideOption" id="classSliderOption"></li>-->
+				<!--<li class="slideOption" id="datatypeSliderOption"></li>-->
+			<!--</ul>-->
 			<!--Filter Menu-->
 			<ul id="m_filter" class="toolTipMenu noselect">
 				<li class="toggleOption" id="datatypeFilteringOption"></li>
@@ -144,6 +144,7 @@
 			</ul>
 			<!--Modes Menu -->
 			<ul id="m_modes" class="toolTipMenu noselect">
+				<li class="toggleOption" id="editMode"></li>
 				<li class="toggleOption" id="dynamicLabelWidth"></li>
 				<li class="toggleOption" id="pickAndPinOption"></li>
 				<li class="toggleOption" id="nodeScalingOption"></li>
@@ -153,14 +154,15 @@
 			<!--Config Menu -->
 			<ul id="m_config" class="toolTipMenu noselect">
 				<li class="toggleOption" id="zoomSliderOption"></li>
-				<li class="toggleOption" id="editMode"></li>
-				<li class="toggleOption" id="drawPropertyDraggerOnHover"></li>
-				<li class="toggleOption" id="showDraggerObject"></li>
+				<li class="debugOption toggleOption" id="drawPropertyDraggerOnHover"></li>
+				<li class="debugOption toggleOption" id="showDraggerObject"></li>
+				<li class="slideOption" id="classSliderOption"></li>
+				<li class="slideOption" id="datatypeSliderOption"></li>
 				<li class="slideOption"  id="maxLabelWidthSliderOption"></li>
 			</ul>
 			<!--About Menu-->
 			<ul id="m_about" class="toolTipMenu">
-				<li><a href="#" id="showEditorHint" >Editor Hint (Help)</a></li>
+				<li class="debugOption"><a href="#" id="showEditorHint" >Editor Hint (Help)</a></li>
 				<li><a href="license.txt" target="_blank">MIT License &copy; 2014-2018</a></li>
 				<li id="credits" class="option">WebVOWL Developers:<br/>
 					Vincent Link, Steffen Lohmann, Eduard Marbach, Stefan Negru, Vitalis Wiens
@@ -195,12 +197,11 @@
 				</li>
 				<li id="c_select"  ><a draggable="false" href="#">Ontology</a></li>
 				<li id="c_export"  ><a draggable="false" href="#">Export</a></li>
-				<li id="c_gravity" ><a draggable="false" href="#">Gravity</a></li>
 				<li id="c_filter"  ><a draggable="false" href="#">Filter</a></li>
 				<li id="c_modes"   ><a draggable="false" href="#">Modes</a></li>
 				<li id="c_reset"   ><a draggable="false" id="reset-button" href="#" type="reset">Reset</a></li>
 				<li id="c_pause"   ><a draggable="false" id="pause-button" href="#">Pause</a></li>
-				<li id="c_config"  ><a draggable="false" href="#">Options</a></li>
+				<li id="c_config"  ><a draggable="false" href="#">Options</a>
 				<li id="c_about"   ><a draggable="false" href="#">About</a></li>
 			</ul>
 
@@ -218,7 +219,7 @@
 	</section>
 	<aside id="detailsArea" >
 		<section id="generalDetailsEdit" class="hidden">
-			<h1 id="editHeader" style="font-size: 1.1em;">Edit Ontology Options</h1>
+			<h1 id="editHeader" style="font-size: 1.1em;">TODO:Edit Ontology Options</h1>
 			<h3 class="accordion-trigger noselect accordion-trigger-active">Ontology</h3>
 			<div>
 				<div class="textLineEditWithLabel">

@@ -527,10 +527,21 @@ module.exports = function (graphContainerSelector) {
 
 
         nodeElements.on("click", function (clickedNode) {
-            executeModules(clickedNode);
+
+            // manaual double clicker // helper for iphone 6 etc...
+            if (touchDevice===true && doubletap()===true){
+                d3.event.stopPropagation();
+                if (editMode===true){
+                    clickedNode.raiseDoubleClickEdit(defaultIriValue(clickedNode));
+                }
+            }
+            else {
+                executeModules(clickedNode);
+            }
         });
 
         nodeElements.on("dblclick",function(clickedNode){
+
             d3.event.stopPropagation();
             if (editMode===true){
                 clickedNode.raiseDoubleClickEdit(defaultIriValue(clickedNode));
@@ -1962,6 +1973,10 @@ module.exports = function (graphContainerSelector) {
         graph.getUpdateDictionary();
         element=null;
 
+
+
+
+
     };
 
 
@@ -1992,7 +2007,7 @@ module.exports = function (graphContainerSelector) {
         }else{
             if (element.iri()==="http://www.w3.org/2000/01/rdf-schema#subClassOf")
                 aProp.iri(graph.options().getGeneralMetaObjectProperty('iri')+aProp.id());
-            
+
         }
 
         // // TODO: change its base IRI to proper value
@@ -2144,11 +2159,12 @@ module.exports = function (graphContainerSelector) {
         aNode.iri(aNode.baseIri()+aNode.id());
         addNewNodeElement(aNode,forceUpdate);
         options.focuserModule().handle(aNode,true);
+        aNode.frozen(graph.paused());
+        aNode.locked(graph.paused());
         aNode.enableEditing(autoEditElement);
 
 
-        aNode.frozen(graph.paused());
-        aNode.locked(graph.paused());
+
 
     }
 
@@ -2631,12 +2647,36 @@ module.exports = function (graphContainerSelector) {
     };
 
     graph.modified_dblClickFunction=function() {
+
         d3.event.stopPropagation();
         d3.event.preventDefault();
         // get position where we want to add the node;
         var grPos = getClickedScreenCoords(d3.event.clientX, d3.event.clientY, graph.translation(), graph.scaleFactor());
         createNewNodeAtPosition(grPos);
     };
+
+    function doubletap() {
+        console.log("checking for duble tap!!!");
+        var touch_time = d3.event.timeStamp;
+        var qwe=touch_time-last_touch_time;
+        console.log(d3.event);
+        var rwq=d3.event.touches.length;
+        console.log("QWE="+qwe);
+        console.log("rwq="+rwq);
+        if (touch_time-last_touch_time < 500 && d3.event.touches.length===1) {
+            d3.event.stopPropagation();
+            last_touch_time = touch_time;
+
+            if (editMode===true) {
+                //graph.modified_dblClickFunction();
+                d3.event.preventDefault();
+                d3.event.stopPropagation();
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     function touchzoomed(){
         forceNotZooming=true;

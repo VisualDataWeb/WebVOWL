@@ -41,6 +41,7 @@ module.exports = function () {
 		statistics 				 = webvowl.modules.statistics(),
 		subclassFilter 			 = webvowl.modules.subclassFilter(),
 		setOperatorFilter 		 = webvowl.modules.setOperatorFilter();
+	var hideDebugOptions=true;
 
 	app.initialize = function () {
         window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function(f){return setTimeout(f, 1000/60);}; // simulate calling code 60
@@ -141,13 +142,18 @@ module.exports = function () {
 
 
 			graph.setDefaultZoom(defZoom);
-
+            d3.selectAll(".debugOption").classed("hidden",hideDebugOptions);
 
 			// prevent backspace killer
             var htmlBody=d3.select("body");
             d3.select(document).on("keydown", function (e) {
                 if (d3.event.keyCode === 8 && d3.event.target===htmlBody.node() ) {
                 	// we could add here an alert
+                    d3.event.preventDefault();
+                }
+                if (d3.event.ctrlKey && d3.event.keyCode===75) {
+                    hideDebugOptions=!hideDebugOptions;
+                    d3.selectAll(".debugOption").classed("hidden",hideDebugOptions);
                     d3.event.preventDefault();
                 }
             });
