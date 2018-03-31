@@ -2658,22 +2658,27 @@ module.exports = function (graphContainerSelector) {
     function doubletap() {
         console.log("checking for duble tap!!!");
         var touch_time = d3.event.timeStamp;
-        var qwe=touch_time-last_touch_time;
-        console.log(d3.event);
-        var rwq=d3.event.touches.length;
-        console.log("QWE="+qwe);
-        console.log("rwq="+rwq);
-        if (touch_time-last_touch_time < 500 && d3.event.touches.length===1) {
-            d3.event.stopPropagation();
-            last_touch_time = touch_time;
+        var numTouchers=1;
+        if (d3.event && d3.event.touches && d3.event.touches.length)
+            numTouchers=d3.event.touches.length;
 
+
+        console.log(touch_time-last_touch_time);
+        console.log(numTouchers);
+
+        if (touch_time-last_touch_time < 800 && numTouchers===1) {
+            d3.event.stopPropagation();
+
+            console.log("A double TAP");
             if (editMode===true) {
                 //graph.modified_dblClickFunction();
                 d3.event.preventDefault();
                 d3.event.stopPropagation();
+                last_touch_time = touch_time;
                 return true;
             }
         }
+        last_touch_time = touch_time;
         return false;
     }
 
