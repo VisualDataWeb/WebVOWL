@@ -106,9 +106,10 @@ module.exports =  function (graph) {
     };
 
     Range_dragger.hideDragger=function(val){
-        Range_dragger.pathElement.classed("hidden",val);
-        Range_dragger.nodeElement.classed("hidden",val);
-        Range_dragger.draggerObject.classed("hidden",val);
+
+        if (Range_dragger.pathElement) Range_dragger.pathElement.classed("hidden",val);
+        if (Range_dragger.nodeElement) Range_dragger.nodeElement.classed("hidden",val);
+        if (Range_dragger.draggerObject) Range_dragger.draggerObject.classed("hidden",val);
 
 
     };

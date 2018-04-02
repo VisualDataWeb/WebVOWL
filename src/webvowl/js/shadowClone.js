@@ -134,8 +134,8 @@ module.exports =  function (graph) {
     };
 
     ShadowClone.hideClone=function(val){
-        ShadowClone.rootNodeLayer.classed("hidden",val);
-        ShadowClone.pathElement.classed("hidden",val);
+        if (ShadowClone.rootNodeLayer)ShadowClone.rootNodeLayer.classed("hidden",val);
+        if (ShadowClone.pathElement) ShadowClone.pathElement.classed("hidden",val);
     };
 
     ShadowClone.hideParentProperty=function(val){

@@ -213,7 +213,7 @@ a:hover {
 	0%   { top: 0;}
 	100% { top: -100%;}
 }
-@-o-keyframes warn_bCollapseAnimation  {
+@-o-keyframes warn_CollapseAnimation  {
 	0%   { top: 0;}
 	100% { top: -100%;}
 }
@@ -917,6 +917,16 @@ main {
 		transform: rotate(359deg);
 	}
 }
+
+@-o-keyframes spin {
+	0% {
+		-o-transform: rotate(0deg);
+	}
+	100% {
+		-o-transform: rotate(359deg);
+	}
+}
+
 .truncate {
 	max-width:250px;
 	white-space: nowrap;

@@ -22,14 +22,63 @@ module.exports = (function () {
             ignoreLocalHoverEvents=false,
 		// Element containers
 			nodeElement;
+
+		// array to store my properties; // we will need this also later for semantic zooming stuff
+			var assignedProperties=[];
         that.editingTextElement=false;
 
+        this.isPropertyAssignedToThisElement=function(property){
+        	// this goes via IRIS
+			console.log("Element IRI :"+property.iri());
+			if (property.type()==="rdfs:subClassOf")
+			for (var i=0;i<assignedProperties.length;i++){
+				var iriEl=assignedProperties[i].iri();
+				if (property.iri()===iriEl){
+					return true;
+				}
+                if (property.type()==="rdfs:subClassOf" && assignedProperties[i].type()==="rdfs:subClassOf")
+                	return true;
+                if (property.type()==="owl:disjointWith" && assignedProperties[i].type()==="owl:disjointWith")
+                    return true;
+
+            }
+			return false;
+		};
+
+
+        this.existingPropertyIRI=function(url){
+            // this goes via IRIS
+            for (var i=0;i<assignedProperties.length;i++){
+                var iriEl=assignedProperties[i].iri();
+                if (iriEl===url){
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        this.addProperty=function(property){
+        	if (assignedProperties.indexOf(property)===-1){
+        		assignedProperties.push(property);
+			}
+		};
+
+        this.removeProperty=function(property){
+            if (assignedProperties.indexOf(property)===-1){
+                assignedProperties.splice(assignedProperties.indexOf(property),1);
+            }
+        };
+        this.getMyProperties=function(){return assignedProperties;};
+        this.copyOtherProperties=function(otherProperties){
+        	assignedProperties=otherProperties;
+		};
 
         this.copyInformation=function(other){
             console.log(other.labelForCurrentLanguage());
             that.label(other.label());
             that.complement(other.complement());
             that.iri(other.iri());
+          	that.copyOtherProperties(other.getMyProperties());
             that.baseIri(other.baseIri());
             if (other.type()==="owl:Class"){
             	that.backupLabel(other.label());
@@ -48,9 +97,6 @@ module.exports = (function () {
 
         this.raiseDoubleClickEdit=function(forceIRISync){
             d3.selectAll(".foreignelements").remove();
-
-            console.log("Hey Domble CLICK!");
-
             if (nodeElement===undefined || this.type()==="owl:Thing" || this.type()==="rdfs:Literal") {
                  console.log("No Container found");
                  return;
@@ -60,10 +106,12 @@ module.exports = (function () {
             }
 
 
-            console.log("This Should create some foreignerElment");
-
             graph.options().focuserModule().handle(undefined);
             graph.options().focuserModule().handle(that);
+            // add again the editing elements to that one
+            if (graph.isTouchDevice()===true) {
+                graph.activateHoverElements(true, that,true);
+            }
             that.editingTextElement=true;
             ignoreLocalHoverEvents=true;
             that.nodeElement().selectAll("circle").classed("hoveredForEditing", true);
@@ -154,8 +202,6 @@ module.exports = (function () {
                     graph.options().focuserModule().handle(undefined);
                     graph.options().focuserModule().handle(that);
             	});	// add a foreiner element to this thing;
-
-			console.log(that.frozen() + "   "+ that.locked() );
         };
 
 
@@ -291,13 +337,21 @@ module.exports = (function () {
             if (that.animationProcess()===false) {
                 nodeContainer.appendChild(selectedNode);
             }
+			if (graph.isTouchDevice()===false) {
+                that.setHoverHighlighting(true);
+                that.mouseEntered(true);
+                if (graph.editorMode()===true &&graph.ignoreOtherHoverEvents()===false) {
+                    graph.activateHoverElements(true, that);
+                }
+            }else{
+                if (graph.editorMode()===true &&graph.ignoreOtherHoverEvents()===false) {
+                    graph.activateHoverElements(true, that,true);
+                }
 
-			that.setHoverHighlighting(true);
-			that.mouseEntered(true);
+			}
 
-            if (graph.editorMode()===true &&graph.ignoreOtherHoverEvents()===false) {
-                graph.activateHoverElements(true, that);
-            }
+
+
 		}
 
 		function onMouseOut() {

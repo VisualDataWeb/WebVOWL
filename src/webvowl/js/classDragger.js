@@ -47,9 +47,9 @@ module.exports =  function (graph) {
     };
 
     Class_dragger.hideDragger=function(val){
-        Class_dragger.pathElement.classed("hidden",val);
-        Class_dragger.nodeElement.classed("hidden",val);
-        Class_dragger.draggerObject.classed("hidden",val);
+        if (Class_dragger.pathElement) Class_dragger.pathElement.classed("hidden",val);
+        if (Class_dragger.nodeElement) Class_dragger.nodeElement.classed("hidden",val);
+        if (Class_dragger.draggerObject) Class_dragger.draggerObject.classed("hidden",val);
 
     };
     /** BASE HANDLING FUNCTIONS ------------------------------------------------- **/

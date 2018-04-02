@@ -48,9 +48,21 @@ module.exports = (function () {
             shapeElement,
             textElement,
             parent_labelObject,
+			backupFullIri,
 
         redundantProperties = [];
 
+
+		this.existingPropertyIRI=function(url){
+			var b1=that.domain().existingPropertyIRI(url);
+			var b2=that.range().existingPropertyIRI(url);
+
+			console.log("Testing url "+ url);
+			console.log("domain has property:"+b1);
+            console.log("range has property:"+b2);
+
+			return (b1 || b2);
+		};
 
 		this.getHalos=function(){
 			return haloGroupElement;
@@ -369,6 +381,8 @@ module.exports = (function () {
 			if (that.labelElement && that.labelElement()) {
 				that.labelElement().select("rect").classed("hovered", enable);
 			}
+
+
 			that.linkGroup().selectAll("path, text").classed("hovered", enable);
 			if (that.markerElement()) {
 				that.markerElement().select("path").classed("hovered", enable);
@@ -385,13 +399,28 @@ module.exports = (function () {
 				}
 
 			});
-            if (graph.ignoreOtherHoverEvents()===false) {
-                var inversed=false;
-                if (that.inverse()){
-                	inversed=true;
-                }
-                graph.activateHoverElementsForProperties(enable, that,inversed);
-            }
+            var inversed=false;
+
+			if (graph.ignoreOtherHoverEvents()===false) {
+				if (that.inverse()){
+					inversed=true;
+				}
+
+				if (graph.isTouchDevice()===false) {
+					graph.activateHoverElementsForProperties(enable, that, inversed);
+				}
+					else{
+						that.labelElement().select("rect").classed("hovered", false);
+               		     that.linkGroup().selectAll("path, text").classed("hovered", false);
+                    if (that.markerElement()) {
+                        that.markerElement().select("path").classed("hovered", false);
+                        if (that.cardinalityElement()) {
+                            that.cardinalityElement().classed("hovered", false);
+                        }
+                    }
+					graph.activateHoverElementsForProperties(enable, that, inversed,true);
+					}
+			}
 		};
 
 		/**
@@ -751,7 +780,8 @@ module.exports = (function () {
                         var labelName=editText.node().value;
                         var resourceName=labelName.replaceAll(" ","_");
                         var syncedIRI=that.baseIri()+resourceName;
-                        that.iri(syncedIRI);
+                        backupFullIri=syncedIRI;
+
                         d3.select("#element_iriEditor").node().title=syncedIRI;
                         d3.select("#element_iriEditor").node().value=graph.options().prefixModule().getPrefixRepresentationForFullURI(syncedIRI);
                     }
@@ -759,6 +789,8 @@ module.exports = (function () {
 
                 })
                 .on("blur", function(){
+
+                	console.log("Calling property BLUR function");
                     that.editingTextElement=false;
                     ignoreLocalHoverEvents=false;
                     that.labelElement().selectAll("rect").classed("hoveredForEditing", false);
@@ -771,9 +803,8 @@ module.exports = (function () {
                     updateHoverElements(true);
                     graph.showHoverElementsAfterAnimation(that,false);
                     graph.ignoreOtherHoverEvents(false);
-                    graph.options().focuserModule().handle(undefined);
-                    graph.options().focuserModule().handle(that);
-                    graph.updatePropertyDraggerElements(that);
+
+
 
                     that.frozen(graph.paused());
                     that.locked(graph.paused());
@@ -782,6 +813,23 @@ module.exports = (function () {
                     that.range().frozen(graph.paused());
                     that.range().locked(graph.paused());
                     graph.removeEditElements();
+
+					console.log("Checking if element is Identical ?");
+                    if  (that.existingPropertyIRI(backupFullIri)===false) {
+                    	// updates the iri if can be done
+                        that.iri(backupFullIri);
+                    }else{
+                    	// throw warnign
+                        graph.options().warningModule().showWarning("Already Seen This one ",
+                            "Input IRI:"+backupFullIri+" for element: "+ that.labelForCurrentLanguage()+" already been set",
+                            "Restoring previous IRI for Element : "+that.iri(),1,false);
+
+					}
+
+                    graph.options().focuserModule().handle(undefined);
+                    graph.options().focuserModule().handle(that);
+                    graph.updatePropertyDraggerElements(that);
+
 
                 });	// add a foreiner element to this thing;
 

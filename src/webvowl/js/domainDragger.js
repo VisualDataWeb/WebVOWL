@@ -120,9 +120,9 @@ module.exports =  function (graph) {
     };
 
     Domain_dragger.hideDragger=function(val){
-        Domain_dragger.pathElement.classed("hidden",val);
-        Domain_dragger.nodeElement.classed("hidden",val);
-        Domain_dragger.draggerObject.classed("hidden",val);
+        if (Domain_dragger.pathElement) Domain_dragger.pathElement.classed("hidden",val);
+        if (Domain_dragger.nodeElement) Domain_dragger.nodeElement.classed("hidden",val);
+        if (Domain_dragger.draggerObject) Domain_dragger.draggerObject.classed("hidden",val);
 
 
     };

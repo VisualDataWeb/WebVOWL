@@ -371,6 +371,18 @@ module.exports = function (graph) {
                 url=base+url;
             }
         }
+
+        // check iri Assignment
+
+        if (element.existingPropertyIRI(url)===true){
+            console.log("I Have seen this Particular URL already "+url);
+            graph.options().warningModule().showWarning("Already Seen This one ",
+                "Input IRI For Element"+ element.labelForCurrentLanguage()+" already been set  ",
+                "Restoring previous IRI for Element"+element.iri(),1,false);
+            d3.select("#element_iriEditor").node().value=graph.options().prefixModule().getPrefixRepresentationForFullURI(element.iri());
+            return;
+        }
+
         element.iri(url);
         if (identifyExternalCharacteristicForElement(base,url)===true){
             addAttribute(element,"external");
@@ -413,6 +425,21 @@ module.exports = function (graph) {
         d3.select("#prefixContainerFor_" + oldPrefix).node().id = "prefixContainerFor_" + newPrefix;
     };
 
+    editSidebar.checkProperIriChange = function (element){
+        console.log("Element changed Label");
+        var url=d3.select("#element_iriEditor").node().value;
+        console.log("Testing URL "+url);
+        if (element.existingPropertyIRI(url)===true){
+            console.log("I Have seen this Particular URL already "+url);
+            graph.options().warningModule().showWarning("Already Seen This one ",
+                "Input IRI For Element"+ element.labelForCurrentLanguage()+" already been set  ",
+                "Restoring previous IRI for Element : "+element.iri(),1,false);
+            d3.select("#element_iriEditor").node().value=graph.options().prefixModule().getPrefixRepresentationForFullURI(element.iri());
+            return false;
+        }
+        return true;
+    };
+
     editSidebar.updateSelectionInformation = function (element) {
         if (element === undefined) {
             // show hint;
@@ -432,12 +459,14 @@ module.exports = function (graph) {
 
             d3.select("#element_iriEditor")
                 .on("change", function () {
-                    changeIriForElement(element);
+                    if (editSidebar.checkProperIriChange(element)===false) return ;
+                        changeIriForElement(element);
                 })
                 .on("keydown", function () {
                     d3.event.stopPropagation();
                     if (d3.event.keyCode === 13) {
                         d3.event.preventDefault();
+                        if (editSidebar.checkProperIriChange(element)===false) return ;
                         changeIriForElement(element);
                         d3.select("#element_iriEditor").node().title=element.iri();
                     }
@@ -446,6 +475,8 @@ module.exports = function (graph) {
             var forceIRISync=defaultIriValue(element);
             d3.select("#element_labelEditor")
                 .on("change", function () {
+                    console.log("Element changed Label");
+                    if (editSidebar.checkProperIriChange(element)===false) return ;
                     changeLabelForElement(element);
                     editSidebar.updateSelectionInformation(element); // prevents that it will be changed if node is still active
                 })
@@ -453,6 +484,7 @@ module.exports = function (graph) {
                     d3.event.stopPropagation();
                     if (d3.event.keyCode === 13) {
                         d3.event.preventDefault();
+                        if (editSidebar.checkProperIriChange(element)===false) return ;
                         changeLabelForElement(element);
                     }
                 })
@@ -527,7 +559,7 @@ module.exports = function (graph) {
             var i;
             var elementPrototypes = getElementPrototypes(element);
             for (i = 0; i < numEntries; i++)
-                htmlCollection[0].remove();
+                typeEditorSelection.removeChild(htmlCollection[0]);
 
             for (i = 0; i < elementPrototypes.length; i++) {
                 var optA = document.createElement('option');
@@ -651,7 +683,7 @@ module.exports = function (graph) {
         if (htmlCollection) {
             var numEntries = htmlCollection.length;
             for (var q = 0; q < numEntries; q++) {
-                htmlCollection[0].remove();
+                charSelectionNode.node().removeChild(htmlCollection[0]);
             }
         }
         // datatypes kind of ignored by the elementsNeedCharacteristics function
