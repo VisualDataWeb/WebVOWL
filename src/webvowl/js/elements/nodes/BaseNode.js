@@ -75,7 +75,8 @@ module.exports = (function () {
 
         this.copyInformation=function(other){
             console.log(other.labelForCurrentLanguage());
-            that.label(other.label());
+            if (other.type()!=="owl:Thing")
+            	that.label(other.label());
             that.complement(other.complement());
             that.iri(other.iri());
           	that.copyOtherProperties(other.getMyProperties());

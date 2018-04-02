@@ -1943,11 +1943,13 @@ module.exports = function (graphContainerSelector) {
         aNode.copyInformation(element);
 
         if (typeString==="owl:Thing") {
-            aNode.label(undefined); // ? like this?
+            aNode.label("Thing");
         }
         else if (elementTools.isDatatype(element)===false){
             if (element.backupLabel()!==undefined){
                 aNode.label(element.backupLabel());
+            }else if (aNode.backupLabel()!==undefined){
+                aNode.label(aNode.backupLabel());
             }else {
                 aNode.label("NewClass");
             }

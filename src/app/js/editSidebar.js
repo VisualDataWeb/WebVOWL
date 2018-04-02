@@ -441,11 +441,13 @@ module.exports = function (graph) {
     };
 
     editSidebar.updateSelectionInformation = function (element) {
+
         if (element === undefined) {
             // show hint;
             d3.select("#selectedElementProperties").classed("hidden", true);
             d3.select("#selectedElementPropertiesEmptyHint").classed("hidden", false);
             selectedElementForCharacteristics = null;
+            editSidebar.updateElementWidth();
         }
         else {
             d3.select("#selectedElementProperties").classed("hidden", false);
@@ -579,10 +581,10 @@ module.exports = function (graph) {
             if (needChar === true) {
                 addElementsCharacteristics(element);
             }
-            editSidebar.updateElementWidth();
             var fullURI=d3.select("#element_iriEditor").node().value;
             d3.select("#element_iriEditor").node().value=prefixModule.getPrefixRepresentationForFullURI(fullURI);
             d3.select("#element_iriEditor").node().title=fullURI;
+            editSidebar.updateElementWidth();
         }
 
     };
@@ -624,8 +626,11 @@ module.exports = function (graph) {
         d3.select("#leftSideBarCollapseButton").style("top",lsb_offset+"px");
         d3.select("#containerForLeftSideBar").style("height",lsb_height+"px");
 
-    var div_width = d3.select("#generalDetailsEdit").node().getBoundingClientRect().width + 10;
+    var div_width = d3.select("#generalDetailsEdit").node().getBoundingClientRect().width ;
+    div_width+=10;
     // title :
+        //TODO layout bug<< bounding rect returns wrong value oO
+        console.log("Div WIDTH="+d3.select("#generalDetailsEdit").node().getBoundingClientRect());
 
     var title_labelWidth   = d3.select("#titleEditor-label"  ).node().getBoundingClientRect().width + 20;
     var iri_labelWidth     = d3.select("#iriEditor-label"    ).node().getBoundingClientRect().width + 20;
@@ -666,8 +671,10 @@ module.exports = function (graph) {
     // update prefix Element width;
 
         var containerWidth=d3.select("#containerForPrefixURL").node().getBoundingClientRect().width;
-        var prefixWdith=d3.selectAll(".prefixInput").node().getBoundingClientRect().width;
-        d3.selectAll(".prefixURL").style("width", containerWidth-prefixWdith-45+ "px");
+        if (containerWidth!==0) {
+            var prefixWdith = d3.selectAll(".prefixInput").node().getBoundingClientRect().width;
+            d3.selectAll(".prefixURL").style("width", containerWidth - prefixWdith - 45 + "px");
+        }
 
 
 
