@@ -4,8 +4,16 @@ WebVOWL Editor [![Build Status](https://travis-ci.org/VisualDataWeb/WebVOWL.svg?
 This repository is a branch of WebVOWL.
 It extends WebVOWL with visual modeling functionality.
  
+User Interface Overview
+------------------------
+![alt text](./overviewImage.png)
 
-
+1) Collapsible sidebar for default element selection 
+2) Message dialog box
+3) Editing elements for a selected object property
+4) Editing elements for a selected class
+5) Navigation menu
+6) Zooming controls
 Requirements
 ------------
 
