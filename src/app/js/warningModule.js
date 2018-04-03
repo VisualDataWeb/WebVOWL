@@ -230,9 +230,10 @@ module.exports =  function (graph) {
 
         // we have 2 types of warnings
         // type 1 = only okay button
-        // type 2 = okay, and cancel button,
+        // type 2 = ShowMe , and cancel button,
+        var gotItButton;
         if (type===1) {
-            var gotItButton = warningContainer.append("label");
+            gotItButton= warningContainer.append("label");
             gotItButton.node().id = "killWarningErrorMessages";
             gotItButton.node().innerHTML = "Got It";
             d3.select("#killWarningErrorMessages").on("click",function(){
@@ -244,7 +245,7 @@ module.exports =  function (graph) {
 
 
         if (type===2) {
-            var gotItButton = warningContainer.append("label");
+            gotItButton = warningContainer.append("label");
             gotItButton.node().id = "killWarningErrorMessages";
             gotItButton.node().innerHTML = "Got It";
             d3.select("#killWarningErrorMessages").on("click",function(){
@@ -254,7 +255,7 @@ module.exports =  function (graph) {
             });
             var ShowElementButton = warningContainer.append("label");
             ShowElementButton.node().id = "showElementThing";
-            ShowElementButton.node().innerHTML = "ShowElement";
+            ShowElementButton.node().innerHTML = "Show Element";
             d3.select("#showElementThing").on("click",function(){
                 // assume the additional Element is for halo;
                 if (additionalOpts.halo()===false) {
