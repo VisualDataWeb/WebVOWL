@@ -2579,11 +2579,12 @@ module.exports = function (graphContainerSelector) {
         aProp.iri(ontoIri + aProp.id());
         // add this to the data;
         unfilteredData.properties.push(aProp);
+
+
         graph.update();
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
-        if (node)
-            node.frozen(true);
+
         nodeFreezer = setTimeout(function () {
             if (node && node.frozen() === true && node.pinned() === false && graph.paused() === false) {
                 node.frozen(graph.paused());
@@ -2591,7 +2592,10 @@ module.exports = function (graphContainerSelector) {
             }
         }, 2000);
         options.focuserModule().handle(undefined);
-
+        if (node){
+            node.frozen(true);
+            node.locked(true);
+        }
     };
 
     graph.removeNodesViaResponse=function(nodesToRemove,propsToRemove){

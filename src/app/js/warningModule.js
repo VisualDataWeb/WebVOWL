@@ -144,7 +144,7 @@ module.exports =  function (graph) {
                 callback(parameterArray[0],parameterArray[1],parameterArray[2],parameterArray[3]);// << THIS IS KINDA A HACK
 
             });
-
+        warningContainer.append("span").node().innerHTML="|";
         var cancelButton= warningContainer.append("label");
         cancelButton.node().id = "cancelButton";
         cancelButton.node().innerHTML = "Cancel";
@@ -253,7 +253,7 @@ module.exports =  function (graph) {
                 moduleContainer.style("-webkit-animation-name","warn_CollapseAnimation");
                 moduleContainer.style("-webkit-animation-duration","0.5s");
             });
-            warningContainer.append("span").node().text="|";
+            warningContainer.append("span").node().innerHTML="|";
             var zoomToElementButton = warningContainer.append("label");
             zoomToElementButton.node().id = "zoomElementThing";
             zoomToElementButton.node().innerHTML = "Zoom to element ";
@@ -261,7 +261,7 @@ module.exports =  function (graph) {
                 // assume the additional Element is for halo;
                 graph.zoomToElementInGraph(additionalOpts);
             });
-            warningContainer.append("span").node().text="|";
+            warningContainer.append("span").node().innerHTML="|";
             var ShowElementButton = warningContainer.append("label");
             ShowElementButton.node().id = "showElementThing";
             ShowElementButton.node().innerHTML = "Indicate element";
