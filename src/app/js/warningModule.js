@@ -255,12 +255,20 @@ module.exports =  function (graph) {
             });
             var ShowElementButton = warningContainer.append("label");
             ShowElementButton.node().id = "showElementThing";
-            ShowElementButton.node().innerHTML = "Show Element";
+            ShowElementButton.node().innerHTML = "Show Halo";
             d3.select("#showElementThing").on("click",function(){
                 // assume the additional Element is for halo;
                 if (additionalOpts.halo()===false) {
                     additionalOpts.drawHalo();
+                    graph.updatePulseIds([additionalOpts.id()]);
                 }
+            });
+            var zoomToElementButton = warningContainer.append("label");
+            zoomToElementButton.node().id = "zoomElementThing";
+            zoomToElementButton.node().innerHTML = "Zoom to element ";
+            d3.select("#zoomElementThing").on("click",function(){
+                // assume the additional Element is for halo;
+                graph.zoomToElementInGraph(additionalOpts);
             });
         }
 

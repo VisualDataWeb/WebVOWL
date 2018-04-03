@@ -1669,6 +1669,13 @@ module.exports = function (graphContainerSelector) {
         return "translate(" + graphTranslation[0] + "," + graphTranslation[1] + ")scale(" + zoomFactor + ")";
     }
 
+    graph.zoomToElementInGraph=function(element){
+        targetLocationZoom(element);
+    };
+    graph.updateHaloRadius=function(element){
+        computeDistanceToCenter(element);
+    };
+
     function targetLocationZoom(target) {
         // store the original information
         var cx = 0.5 * graph.options().width();
