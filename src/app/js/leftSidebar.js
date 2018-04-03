@@ -190,7 +190,7 @@ module.exports = function (graph) {
 
     leftSidebar.showSidebar=function(val,init){
         // make val to bool
-
+        var collapseButton= d3.select("#leftSideBarCollapseButton");
         if (init===true){
             visibleSidebar=(backupVisibility===0);
             sideBarContent.classed("hidden", !visibleSidebar);
@@ -200,11 +200,14 @@ module.exports = function (graph) {
                 sideBarContent.classed("hidden",false);
                 d3.select("#leftSideBarCollapseButton").style("left","200px");
                 d3.select("#leftSideBarCollapseButton").classed("hidden",false);
+                collapseButton.node().innerHTML="<";
             }
+
             else {
                 sideBarContainer.style("width", "0px");
                 d3.select("#leftSideBarCollapseButton").style("left","0px");
                 d3.select("#leftSideBarCollapseButton").classed("hidden",false);
+                collapseButton.node().innerHTML=">";
             }
             graph.updateCanvasContainerSize();
             graph.options().navigationMenu().updateScrollButtonVisibility();

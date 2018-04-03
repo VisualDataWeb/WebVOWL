@@ -20,6 +20,7 @@ module.exports = (function () {
 			maxIndividualCount,
             fobj, // foreigner object for editing
             ignoreLocalHoverEvents=false,
+            backupFullIri,
 		// Element containers
 			nodeElement;
 
@@ -106,7 +107,7 @@ module.exports = (function () {
                  nodeElement.selectAll(".foreignelements").remove();
             }
 
-
+            backupFullIri=undefined;
             graph.options().focuserModule().handle(undefined);
             graph.options().focuserModule().handle(that);
             // add again the editing elements to that one
@@ -182,7 +183,8 @@ module.exports = (function () {
                     	var labelName=editText.node().value;
                     	var resourceName=labelName.replaceAll(" ","_");
                         var syncedIRI=that.baseIri()+resourceName;
-                        that.iri(syncedIRI);
+                        backupFullIri=syncedIRI;
+
                         d3.select("#element_iriEditor").node().title=syncedIRI;
                         d3.select("#element_iriEditor").node().value=graph.options().prefixModule().getPrefixRepresentationForFullURI(syncedIRI);
                     }
@@ -199,7 +201,22 @@ module.exports = (function () {
                     that.label(newLabel);
                     that.backupLabel(newLabel);
                     that.redrawLabelText();
+                    that.frozen(graph.paused());
+                    that.locked(graph.paused());
                     graph.ignoreOtherHoverEvents(false);
+                    console.log("Calling blur on Node!");
+                    if (backupFullIri) {
+                        var sanityCheckResult = graph.checkIfIriClassAlreadyExist(backupFullIri);
+                        if (sanityCheckResult === false) {
+                            that.iri(backupFullIri);
+                        } else {
+                            // throw warnign
+                            graph.options().warningModule().showWarning("Already seen this class",
+                                "Input IRI: " + backupFullIri + " for element: " + that.labelForCurrentLanguage() + " already been set",
+                                "Restoring previous IRI for Element : " + that.iri(), 2, false, sanityCheckResult);
+
+                        }
+                    }
                     graph.options().focuserModule().handle(undefined);
                     graph.options().focuserModule().handle(that);
             	});	// add a foreiner element to this thing;

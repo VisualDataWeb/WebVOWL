@@ -164,7 +164,7 @@ module.exports =  function (graph) {
 
     };
 
-    warningModule.showWarning=function(header,reason,action,type,forcedWarning){
+    warningModule.showWarning=function(header,reason,action,type,forcedWarning,additionalOpts){
         if (disableAllWarnings===true && forcedWarning && forcedWarning===false){
             moduleContainer.classed("hidden",true);
         }
@@ -241,6 +241,28 @@ module.exports =  function (graph) {
                 moduleContainer.style("-webkit-animation-duration","0.5s");
             });
         }
+
+
+        if (type===2) {
+            var gotItButton = warningContainer.append("label");
+            gotItButton.node().id = "killWarningErrorMessages";
+            gotItButton.node().innerHTML = "Got It";
+            d3.select("#killWarningErrorMessages").on("click",function(){
+                visibleWarning=false;
+                moduleContainer.style("-webkit-animation-name","warn_CollapseAnimation");
+                moduleContainer.style("-webkit-animation-duration","0.5s");
+            });
+            var ShowElementButton = warningContainer.append("label");
+            ShowElementButton.node().id = "showElementThing";
+            ShowElementButton.node().innerHTML = "ShowElement";
+            d3.select("#showElementThing").on("click",function(){
+                // assume the additional Element is for halo;
+                if (additionalOpts.halo()===false) {
+                    additionalOpts.drawHalo();
+                }
+            });
+        }
+
         visibleWarning=true;
         moduleContainer.classed("hidden",false);
         moduleContainer.style("-webkit-animation-name","warn_ExpandAnimation");

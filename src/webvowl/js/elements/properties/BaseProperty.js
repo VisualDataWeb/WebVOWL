@@ -706,7 +706,7 @@ module.exports = (function () {
             if (fobj!==undefined){
                 that.labelElement().selectAll(".foreignelements").remove();
             }
-
+            backupFullIri=undefined;
             graph.options().focuserModule().handle(undefined);
             graph.options().focuserModule().handle(that);
             that.editingTextElement=true;
@@ -790,7 +790,7 @@ module.exports = (function () {
                 })
                 .on("blur", function(){
 
-                	console.log("Calling property BLUR function");
+
                     that.editingTextElement=false;
                     ignoreLocalHoverEvents=false;
                     that.labelElement().selectAll("rect").classed("hoveredForEditing", false);
@@ -813,19 +813,19 @@ module.exports = (function () {
                     that.range().frozen(graph.paused());
                     that.range().locked(graph.paused());
                     graph.removeEditElements();
+					if (backupFullIri) {
+                        console.log("Checking if element is Identical ?");
+                        if (that.existingPropertyIRI(backupFullIri) === false) {
+                            // updates the iri if can be done
+                            that.iri(backupFullIri);
+                        } else {
+                            // throw warnign
+                            graph.options().warningModule().showWarning("Already Seen This one ",
+                                "Input IRI:" + backupFullIri + " for element: " + that.labelForCurrentLanguage() + " already been set",
+                                "Restoring previous IRI for Element : " + that.iri(), 1, false);
 
-					console.log("Checking if element is Identical ?");
-                    if  (that.existingPropertyIRI(backupFullIri)===false) {
-                    	// updates the iri if can be done
-                        that.iri(backupFullIri);
-                    }else{
-                    	// throw warnign
-                        graph.options().warningModule().showWarning("Already Seen This one ",
-                            "Input IRI:"+backupFullIri+" for element: "+ that.labelForCurrentLanguage()+" already been set",
-                            "Restoring previous IRI for Element : "+that.iri(),1,false);
-
-					}
-
+                        }
+                    }
                     graph.options().focuserModule().handle(undefined);
                     graph.options().focuserModule().handle(that);
                     graph.updatePropertyDraggerElements(that);

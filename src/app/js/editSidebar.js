@@ -371,8 +371,23 @@ module.exports = function (graph) {
                 url=base+url;
             }
         }
-
+        console.log("Checking for assignment "+ url);
         // check iri Assignment
+        if (elementTools.isNode(element)){
+            var sanityCheckResult=graph.checkIfIriClassAlreadyExist(url);
+            if  (sanityCheckResult===false) {
+                element.iri(url);
+            }else{
+                // throw warnign
+                graph.options().warningModule().showWarning("Already seen this class",
+                    "Input IRI: "+url+" for element: "+ element.labelForCurrentLanguage()+" already been set",
+                    "Restoring previous IRI for Element : "+element.iri(),2,false, sanityCheckResult);
+
+                 editSidebar.updateSelectionInformation(element);
+                return;
+
+            }
+        }
 
         if (element.existingPropertyIRI(url)===true){
             console.log("I Have seen this Particular URL already "+url);
@@ -380,10 +395,12 @@ module.exports = function (graph) {
                 "Input IRI For Element"+ element.labelForCurrentLanguage()+" already been set  ",
                 "Restoring previous IRI for Element"+element.iri(),1,false);
             d3.select("#element_iriEditor").node().value=graph.options().prefixModule().getPrefixRepresentationForFullURI(element.iri());
+            editSidebar.updateSelectionInformation(element);
             return;
         }
 
         element.iri(url);
+        console.log("element should be selected! "+element.focused());
         if (identifyExternalCharacteristicForElement(base,url)===true){
             addAttribute(element,"external");
             // background color for external element;
@@ -391,19 +408,26 @@ module.exports = function (graph) {
             element.redrawElement();
             element.redrawLabelText();
             // handle visual selection
-            graph.options().focuserModule().handle(element,true);
+
         }else{
             removeAttribute(element,"external");
             // background color for external element;
             element.backgroundColor(undefined);
             element.redrawElement();
             element.redrawLabelText();
-            graph.options().focuserModule().handle(element,true);
+
         }
+
+        if (element.focused()){
+            graph.options().focuserModule().handle(element,true); // unfocus
+            graph.options().focuserModule().handle(element,true); // focus
+        }
+        // graph.options().focuserModule().handle(undefined);
+
+
 
         d3.select("#element_iriEditor").node().value=prefixModule.getPrefixRepresentationForFullURI(url);
         editSidebar.updateSelectionInformation(element);
-
     }
 
     function validURL(str) {
@@ -461,14 +485,25 @@ module.exports = function (graph) {
 
             d3.select("#element_iriEditor")
                 .on("change", function () {
-                    if (editSidebar.checkProperIriChange(element)===false) return ;
-                        changeIriForElement(element);
+                    var elementIRI=element.iri();
+                    var prefixed=graph.options().prefixModule().getPrefixRepresentationForFullURI(elementIRI);
+                    if (prefixed===d3.select("#element_iriEditor").node().value){
+                        console.log("Iri is identical, nothing has changed!");
+                        return;
+                    }
+                    if (elementTools.isProperty(element)===true) {
+                        if (editSidebar.checkProperIriChange(element) === false) return;
+                    }
+                    changeIriForElement(element);
                 })
                 .on("keydown", function () {
                     d3.event.stopPropagation();
                     if (d3.event.keyCode === 13) {
                         d3.event.preventDefault();
-                        if (editSidebar.checkProperIriChange(element)===false) return ;
+                        console.log("IRI CHANGED Via ENTER pressed");
+                        if (elementTools.isProperty(element)===true) {
+                            if (editSidebar.checkProperIriChange(element) === false) return;
+                        }
                         changeIriForElement(element);
                         d3.select("#element_iriEditor").node().title=element.iri();
                     }

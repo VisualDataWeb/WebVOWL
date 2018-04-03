@@ -2271,6 +2271,28 @@ module.exports = function (graphContainerSelector) {
         return true; // we can Change the domain or range
     };
 
+    graph.checkIfIriClassAlreadyExist=function(url){
+      // search for a class node with this url
+        var allNodes=unfilteredData.nodes;
+        for (var i=0;i<allNodes.length;i++){
+            if (elementTools.isDatatype(allNodes[i])===true || allNodes[i].type()==="owl:Thing")
+                continue;
+
+            // now we are a real class;
+            //get class IRI
+            var classIRI=allNodes[i].iri();
+
+            // this gives me the node for halo
+            if (url===classIRI){
+                return allNodes[i];
+            }
+        }
+        return false;
+
+
+
+    };
+
     graph.classesSanityCheck=function(classElement,targetType){
         // this is added due to someValuesFrom properties
         // we should not be able to change a classElement to a owl:Thing
