@@ -308,8 +308,14 @@ module.exports = function (graph) {
 		var indent=getIndent('<'+ontoIri+'>');
         resultingTTLContent  += '<'+ontoIri+'> rdf:type owl:Ontology ;\r\n' +
             					getOntologyTitle(indent) +
-            					getOntologyDescription(indent);
+            					getOntologyDescription(indent)+
+                                getOntologyVersion(indent)+
+                                getOntologyAuthor(indent);
 
+        // close the statement;
+        var s_needUpdate = resultingTTLContent;
+        var s_lastPtr = s_needUpdate.lastIndexOf(";");
+        resultingTTLContent= s_needUpdate.substring(0, s_lastPtr) + ". \r\n";
 	}
 
 	function getOntologyTitle(indent){
@@ -317,13 +323,38 @@ module.exports = function (graph) {
 	}
 
 	function getOntologyDescription(indent){
-		return general_languageExtractor(indent,"description", "dc:description",true);
+		return general_languageExtractor(indent,"description", "dc:description");
 	}
+    function getOntologyAuthor(indent){
+	    var languageElement=graph.options().getGeneralMetaObjectProperty('author');
+	    if (typeof languageElement!=="object"){
+	        if (languageElement.length===0)
+	            return ""; // an empty string
+            var aString=indent+" dc:creator " +'"'+languageElement+'"\r\n;';
+            return aString;
+        }
+        // we assume this thing is an array;
+        var authorString=indent+" dc:creator " +'"';
+	    for (var i=0;i<languageElement.length-1;i++){
+            authorString+=languageElement[i]+", ";
+        }
+        authorString+=languageElement[languageElement.length-1]+'";\r\n';
+        return authorString;
+    }
+    function getOntologyVersion(indent){
+        var languageElement=graph.options().getGeneralMetaObjectProperty('version');
+        if (typeof languageElement!=="object"){
+            if (languageElement.length===0)
+                return ""; // an empty string
+        }
+        return general_languageExtractor(indent,"version", "owl:versionInfo");
+    }
 
 	function general_languageExtractor(indent, metaObjectDescription, annotationDescription,endStatement){
         var languageElement=graph.options().getGeneralMetaObjectProperty(metaObjectDescription);
 
         if (typeof languageElement=== 'object'){
+
             var resultingLanguages=[];
             for (var name in languageElement){
                 if (languageElement.hasOwnProperty(name)){
