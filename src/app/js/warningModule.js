@@ -253,16 +253,7 @@ module.exports =  function (graph) {
                 moduleContainer.style("-webkit-animation-name","warn_CollapseAnimation");
                 moduleContainer.style("-webkit-animation-duration","0.5s");
             });
-            var ShowElementButton = warningContainer.append("label");
-            ShowElementButton.node().id = "showElementThing";
-            ShowElementButton.node().innerHTML = "Show Halo";
-            d3.select("#showElementThing").on("click",function(){
-                // assume the additional Element is for halo;
-                if (additionalOpts.halo()===false) {
-                    additionalOpts.drawHalo();
-                    graph.updatePulseIds([additionalOpts.id()]);
-                }
-            });
+            warningContainer.append("span").node().text="|";
             var zoomToElementButton = warningContainer.append("label");
             zoomToElementButton.node().id = "zoomElementThing";
             zoomToElementButton.node().innerHTML = "Zoom to element ";
@@ -270,6 +261,22 @@ module.exports =  function (graph) {
                 // assume the additional Element is for halo;
                 graph.zoomToElementInGraph(additionalOpts);
             });
+            warningContainer.append("span").node().text="|";
+            var ShowElementButton = warningContainer.append("label");
+            ShowElementButton.node().id = "showElementThing";
+            ShowElementButton.node().innerHTML = "Indicate element";
+            d3.select("#showElementThing").on("click",function(){
+                // assume the additional Element is for halo;
+                if (additionalOpts.halo()===false) {
+                    additionalOpts.drawHalo();
+                    graph.updatePulseIds([additionalOpts.id()]);
+                }else{
+                    additionalOpts.removeHalo();
+                    additionalOpts.drawHalo();
+                    graph.updatePulseIds([additionalOpts.id()]);
+                }
+            });
+
         }
 
         visibleWarning=true;
