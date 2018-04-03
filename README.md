@@ -14,6 +14,7 @@ User Interface Overview
 4) Editing elements for a selected class
 5) Navigation menu
 6) Zooming controls
+
 Requirements
 ------------
 
