@@ -315,16 +315,17 @@ module.exports = function (graph) {
         }
         return false;
     }
-    function changeIriForElement(element ) {
+
+    function getURLFROMPrefixedVersion(element){
         var url = d3.select("#element_iriEditor").node().value;
         var base=graph.options().getGeneralMetaObjectProperty("iri");
         if (validURL(url)===false){
 
             // make better usability
             // try to split element;
-           var tokens=url.split(":");
+            var tokens=url.split(":");
 
-           //console.log("try to split the input into prefix:name")
+            //console.log("try to split the input into prefix:name")
             console.log("Tokens");
             console.log(tokens);
             console.log("---------------");
@@ -371,10 +372,17 @@ module.exports = function (graph) {
                 url=base+url;
             }
         }
+        return url;
+    }
+
+    function changeIriForElement(element) {
+       var  url=getURLFROMPrefixedVersion(element);
         console.log("Checking for assignment "+ url);
         // check iri Assignment
+        var sanityCheckResult;
         if (elementTools.isNode(element)){
-            var sanityCheckResult=graph.checkIfIriClassAlreadyExist(url);
+
+            sanityCheckResult=graph.checkIfIriClassAlreadyExist(url);
             if  (sanityCheckResult===false) {
                 element.iri(url);
             }else{
@@ -388,16 +396,27 @@ module.exports = function (graph) {
 
             }
         }
+        if (elementTools.isProperty(element)===true) {
+            sanityCheckResult=editSidebar.checkProperIriChange(element,url);
+            if (sanityCheckResult!== false){
+                graph.options().warningModule().showWarning("Already seen this property",
+                    "Input IRI: "+url+" for element: "+ element.labelForCurrentLanguage()+" already been set",
+                    "Restoring previous IRI for Element : "+element.iri(),1,false, sanityCheckResult);
 
-        if (element.existingPropertyIRI(url)===true){
-            console.log("I Have seen this Particular URL already "+url);
-            graph.options().warningModule().showWarning("Already Seen This one ",
-                "Input IRI For Element"+ element.labelForCurrentLanguage()+" already been set  ",
-                "Restoring previous IRI for Element"+element.iri(),1,false);
-            d3.select("#element_iriEditor").node().value=graph.options().prefixModule().getPrefixRepresentationForFullURI(element.iri());
-            editSidebar.updateSelectionInformation(element);
-            return;
+                editSidebar.updateSelectionInformation(element);
+                return;
+            }
         }
+
+        // if (element.existingPropertyIRI(url)===true){
+        //     console.log("I Have seen this Particular URL already "+url);
+        //     graph.options().warningModule().showWarning("Already Seen This one ",
+        //         "Input IRI For Element"+ element.labelForCurrentLanguage()+" already been set  ",
+        //         "Restoring previous IRI for Element"+element.iri(),1,false);
+        //     d3.select("#element_iriEditor").node().value=graph.options().prefixModule().getPrefixRepresentationForFullURI(element.iri());
+        //     editSidebar.updateSelectionInformation(element);
+        //     return;
+        // }
 
         element.iri(url);
         console.log("element should be selected! "+element.focused());
@@ -449,19 +468,29 @@ module.exports = function (graph) {
         d3.select("#prefixContainerFor_" + oldPrefix).node().id = "prefixContainerFor_" + newPrefix;
     };
 
-    editSidebar.checkProperIriChange = function (element){
-        console.log("Element changed Label");
-        var url=d3.select("#element_iriEditor").node().value;
-        console.log("Testing URL "+url);
-        if (element.existingPropertyIRI(url)===true){
-            console.log("I Have seen this Particular URL already "+url);
-            graph.options().warningModule().showWarning("Already Seen This one ",
-                "Input IRI For Element"+ element.labelForCurrentLanguage()+" already been set  ",
-                "Restoring previous IRI for Element : "+element.iri(),1,false);
-            d3.select("#element_iriEditor").node().value=graph.options().prefixModule().getPrefixRepresentationForFullURI(element.iri());
+    editSidebar.checkForExistingURL=function(url){
+            var i;
+            var allProps=graph.getUnfilteredData().properties;
+            for( i=0;  i< allProps.length; i++) {
+                if (allProps[i].iri()===url) return true;
+            }
             return false;
+
+    };
+    editSidebar.checkProperIriChange = function (element,url){
+        console.log("Element changed Label");
+        console.log("Testing URL "+url);
+        if (element.type()==="rdfs:subClassOf" || element.type()==="owl:disjointWith"){
+            console.log("ignore this for now, already handled in the type and domain range changer")
+        }else{
+            var i;
+            var allProps=graph.getUnfilteredData().properties;
+            for( i=0;  i< allProps.length; i++) {
+                if (allProps[i] === element) continue;
+                if (allProps[i].iri()===url) return allProps[i];
+            }
         }
-        return true;
+        return false;
     };
 
     editSidebar.updateSelectionInformation = function (element) {
@@ -491,9 +520,7 @@ module.exports = function (graph) {
                         console.log("Iri is identical, nothing has changed!");
                         return;
                     }
-                    if (elementTools.isProperty(element)===true) {
-                        if (editSidebar.checkProperIriChange(element) === false) return;
-                    }
+
                     changeIriForElement(element);
                 })
                 .on("keydown", function () {
@@ -501,9 +528,6 @@ module.exports = function (graph) {
                     if (d3.event.keyCode === 13) {
                         d3.event.preventDefault();
                         console.log("IRI CHANGED Via ENTER pressed");
-                        if (elementTools.isProperty(element)===true) {
-                            if (editSidebar.checkProperIriChange(element) === false) return;
-                        }
                         changeIriForElement(element);
                         d3.select("#element_iriEditor").node().title=element.iri();
                     }
@@ -512,8 +536,34 @@ module.exports = function (graph) {
             var forceIRISync=defaultIriValue(element);
             d3.select("#element_labelEditor")
                 .on("change", function () {
+                    var sanityCheckResult;
                     console.log("Element changed Label");
-                    if (editSidebar.checkProperIriChange(element)===false) return ;
+                    var url=getURLFROMPrefixedVersion(element);
+                    if (element.iri()!==url) {
+                        if (elementTools.isProperty(element) === true) {
+                            sanityCheckResult = editSidebar.checkProperIriChange(element, url);
+                            if (sanityCheckResult !== false) {
+                                graph.options().warningModule().showWarning("Already seen this property",
+                                    "Input IRI: " + url + " for element: " + element.labelForCurrentLanguage() + " already been set",
+                                    "Continuing with duplicate property!", 1, false, sanityCheckResult);
+                                editSidebar.updateSelectionInformation(element);
+                                return;
+                            }
+                        }
+
+                        if (elementTools.isNode(element) === true) {
+                            sanityCheckResult = graph.checkIfIriClassAlreadyExist(url);
+                            if (sanityCheckResult !== false) {
+                                graph.options().warningModule().showWarning("Already seen this Class",
+                                    "Input IRI: " + url + " for element: " + element.labelForCurrentLanguage() + " already been set",
+                                    "Restoring previous IRI for Element : " + element.iri(), 2, false, sanityCheckResult);
+
+                                editSidebar.updateSelectionInformation(element);
+                                return;
+                            }
+                        }
+                        element.iri(url);
+                    }
                     changeLabelForElement(element);
                     editSidebar.updateSelectionInformation(element); // prevents that it will be changed if node is still active
                 })
@@ -521,7 +571,35 @@ module.exports = function (graph) {
                     d3.event.stopPropagation();
                     if (d3.event.keyCode === 13) {
                         d3.event.preventDefault();
-                        if (editSidebar.checkProperIriChange(element)===false) return ;
+                        var sanityCheckResult;
+                        console.log("Element changed Label");
+                        var url=getURLFROMPrefixedVersion(element);
+                        if (element.iri()!==url) {
+                            if (elementTools.isProperty(element) === true) {
+                                sanityCheckResult = editSidebar.checkProperIriChange(element, url);
+                                if (sanityCheckResult !== false) {
+                                    graph.options().warningModule().showWarning("Already seen this property",
+                                        "Input IRI: " + url + " for element: " + element.labelForCurrentLanguage() + " already been set",
+                                        "Continuing with duplicate property!", 1, false, sanityCheckResult);
+
+                                    editSidebar.updateSelectionInformation(element);
+                                    return;
+                                }
+                            }
+
+                            if (elementTools.isNode(element) === true) {
+                                sanityCheckResult = graph.checkIfIriClassAlreadyExist(url);
+                                if (sanityCheckResult !== false) {
+                                    graph.options().warningModule().showWarning("Already seen this Class",
+                                        "Input IRI: " + url + " for element: " + element.labelForCurrentLanguage() + " already been set",
+                                        "Restoring previous IRI for Element : " + element.iri(), 2, false, sanityCheckResult);
+
+                                    editSidebar.updateSelectionInformation(element);
+                                    return;
+                                }
+                            }
+                            element.iri(url);
+                        }
                         changeLabelForElement(element);
                     }
                 })
@@ -531,7 +609,7 @@ module.exports = function (graph) {
                             var resourceName=labelName.replaceAll(" ","_");
                             var syncedIRI=element.baseIri()+resourceName;
 
-                            element.iri(syncedIRI);
+                            //element.iri(syncedIRI);
                             d3.select("#element_iriEditor").node().title=element.iri();
                             d3.select("#element_iriEditor").node().value=prefixModule.getPrefixRepresentationForFullURI(syncedIRI);
                         }

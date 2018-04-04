@@ -54,14 +54,7 @@ module.exports = (function () {
 
 
 		this.existingPropertyIRI=function(url){
-			var b1=that.domain().existingPropertyIRI(url);
-			var b2=that.range().existingPropertyIRI(url);
-
-			console.log("Testing url "+ url);
-			console.log("domain has property:"+b1);
-            console.log("range has property:"+b2);
-
-			return (b1 || b2);
+			return graph.options().editSidebar().checkForExistingURL(url);
 		};
 
 		this.getHalos=function(){
@@ -815,16 +808,13 @@ module.exports = (function () {
                     graph.removeEditElements();
 					if (backupFullIri) {
                         console.log("Checking if element is Identical ?");
-                        if (that.existingPropertyIRI(backupFullIri) === false) {
-                            // updates the iri if can be done
-                            that.iri(backupFullIri);
-                        } else {
-                            // throw warnign
-                            graph.options().warningModule().showWarning("Already Seen This one ",
-                                "Input IRI:" + backupFullIri + " for element: " + that.labelForCurrentLanguage() + " already been set",
-                                "Restoring previous IRI for Element : " + that.iri(), 1, false);
-
+                        var sanityCheckResult=graph.options().editSidebar().checkProperIriChange(that,backupFullIri);
+                        if (sanityCheckResult!== false) {
+                            graph.options().warningModule().showWarning("Already seen this property",
+                                "Input IRI: " + backupFullIri + " for element: " + that.labelForCurrentLanguage() + " already been set",
+                                "Continuing with duplicate property!", 1, false, sanityCheckResult);
                         }
+                        that.iri(backupFullIri);
                     }
                     graph.options().focuserModule().handle(undefined);
                     graph.options().focuserModule().handle(that);

@@ -1442,7 +1442,7 @@ module.exports = function (graphContainerSelector) {
                 if (node) {
                     if (node.property) {
                         // match search strings with property label
-                        if (node.property().inverse) {
+                        if (node.property().inverse()) {
                             var searchString = graph.options().searchMenu().getSearchString().toLowerCase();
                             var name = node.property().labelForCurrentLanguage().toLowerCase();
                             if (name === searchString) computeDistanceToCenter(node);
@@ -2010,6 +2010,9 @@ module.exports = function (graphContainerSelector) {
         var aProp= new propPrototype(graph);
         aProp.copyInformation(element);
         aProp.id(element.id());
+
+        element.domain().removePropertyElement(element);
+        element.range().removePropertyElement(element);
         aProp.domain(element.domain());
         aProp.range(element.range());
 
@@ -2029,6 +2032,11 @@ module.exports = function (graphContainerSelector) {
 
         }
 
+
+        if (graph.propertyCheckExistenceChecker(aProp,element.domain(),element.range())===false){
+            graph.options().editSidebar().updateSelectionInformation(element);
+            return;
+        }
         // // TODO: change its base IRI to proper value
         // var ontoIRI="http://someTest.de";
         // aProp.baseIri(ontoIRI);
@@ -2040,6 +2048,8 @@ module.exports = function (graphContainerSelector) {
         unfilteredData.properties.push(aProp);
         unfilteredData.properties.splice(unfilteredData.properties.indexOf(element), 1);
         graph.update();
+        aProp.domain().addProperty(aProp);
+        aProp.range().addProperty(aProp);
         if (element.labelObject() && aProp.labelObject()) {
             aProp.labelObject().x  = element.labelObject().x;
             aProp.labelObject().px = element.labelObject().px;
@@ -2336,25 +2346,50 @@ module.exports = function (graphContainerSelector) {
 
     };
 
+    graph.propertyCheckExistenceChecker=function(property,domain,range){
+        var allProps=unfilteredData.properties;
+        var i;
+        if (property.type()==="rdfs:subClassOf" || property.type()==="owl:disjointWith"){
 
-    graph.checkForTripleDuplicate=function(property){
-        var domain=property.domain();
-        var range=property.range();
-        console.log("checking for duplicates");
-        var b1= domain.isPropertyAssignedToThisElement(property);
-        var b2= range.isPropertyAssignedToThisElement(property);
-
-        console.log("test domain results in "+ b1);
-        console.log("test range results in "+ b1);
-
-        if (b1  && b2 ){
-            graph.options().warningModule().showWarning("Warning",
-                "This triple already exist!",
-                "Element not created!",1,false);
-            return false;
+            for( i=0;  i< allProps.length; i++){
+                if (allProps[i]===property) continue;
+                    if (allProps[i].domain()===domain && allProps[i].range()===range && allProps[i].type()=== property.type()){
+                        graph.options().warningModule().showWarning("Warning",
+                            "This triple already exist!",
+                            "Element not created!",1,false);
+                        return false;
+                    }
+                    if (allProps[i].domain()===range && allProps[i].range()===domain){
+                    graph.options().warningModule().showWarning("Warning",
+                        "Inverse assignment already exist! ",
+                        "Element not created!",1,false);
+                    return false;
+                }
+            }
+            return true;
         }
         return true;
+
     };
+
+    // graph.checkForTripleDuplicate=function(property){
+    //     var domain=property.domain();
+    //     var range=property.range();
+    //     console.log("checking for duplicates");
+    //     var b1= domain.isPropertyAssignedToThisElement(property);
+    //     var b2= range.isPropertyAssignedToThisElement(property);
+    //
+    //     console.log("test domain results in "+ b1);
+    //     console.log("test range results in "+ b1);
+    //
+    //     if (b1  && b2 ){
+    //         graph.options().warningModule().showWarning("Warning",
+    //             "This triple already exist!",
+    //             "Element not created!",1,false);
+    //         return false;
+    //     }
+    //     return true;
+    // };
 
     graph.sanityCheckProperty=function(domain,range,typeString){
 
@@ -2374,6 +2409,7 @@ module.exports = function (graphContainerSelector) {
                 "Element not created!",1,false);
             return false;
         }
+
 
         if (domain===range && typeString==="rdfs:subClassOf"){
             graph.options().warningModule().showWarning("Warning",
@@ -2437,7 +2473,7 @@ module.exports = function (graphContainerSelector) {
         aProp.iri(aProp.baseIri()+aProp.id());
 
         // check for duplicate;
-        if (graph.checkForTripleDuplicate(aProp)===false){
+        if (graph.propertyCheckExistenceChecker(aProp,domain,range)===false){
             // delete aProp;
             // hope for garbage collection here -.-
             return false;
@@ -2674,6 +2710,9 @@ module.exports = function (graphContainerSelector) {
     };
 
     graph.removePropertyViaEditor = function (property) {
+        property.domain().removePropertyElement(property);
+        property.range().removePropertyElement(property);
+
         if (property.type().toLocaleLowerCase() === "owl:datatypeproperty") {
             var datatype=property.range();
             unfilteredData.nodes.splice(unfilteredData.nodes.indexOf(property.range()), 1);

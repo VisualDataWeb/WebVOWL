@@ -40,6 +40,11 @@ module.exports =  function (graph) {
         if (graph.genericPropertySanityCheck(Range_dragger.parent.domain(),newRange,
                 Range_dragger.parent.type(),
                 "Could not update range", "Restoring previous range")===false) return;
+
+        // check for triple duplicates!
+
+        if (graph.propertyCheckExistenceChecker(Range_dragger.parent,Range_dragger.parent.domain(),newRange)===false)
+            return;
         if (Range_dragger.parent.labelElement()===undefined) return;
         if (Range_dragger.parent.labelElement().attr("transform") === "translate(0,15)"||
             Range_dragger.parent.labelElement().attr("transform") === "translate(0,-15)") {

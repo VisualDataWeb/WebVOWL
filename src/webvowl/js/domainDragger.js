@@ -37,11 +37,16 @@ module.exports =  function (graph) {
         Domain_dragger.setParentProperty(Domain_dragger.parent);
     };
     Domain_dragger.updateDomain=function(newDomain){
+
         if (graph.genericPropertySanityCheck(Domain_dragger.parent.range(),newDomain,Domain_dragger.parent.type(),
-            "Could not update domain", "Restoring previous range")===false){
+            "Could not update domain", "Restoring previous domain")===false){
             Domain_dragger.updateElement();
             return;
         }
+
+        if (graph.propertyCheckExistenceChecker(Domain_dragger.parent,newDomain,Domain_dragger.parent.range())===false)
+            return;
+
 
         if (Domain_dragger.parent.labelElement()===undefined) {
             Domain_dragger.updateElement();

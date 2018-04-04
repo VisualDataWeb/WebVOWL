@@ -64,8 +64,10 @@ module.exports = (function () {
 			}
 		};
 
-        this.removeProperty=function(property){
-            if (assignedProperties.indexOf(property)===-1){
+        this.removePropertyElement=function(property){
+            console.log("Calling removing old property!"+ property.iri());
+            if (assignedProperties.indexOf(property)!==-1){
+                console.log("Found it!");
                 assignedProperties.splice(assignedProperties.indexOf(property),1);
             }
         };
