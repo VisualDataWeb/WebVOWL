@@ -219,8 +219,10 @@ module.exports = (function () {
 
                         }
                     }
-                    graph.options().focuserModule().handle(undefined);
-                    graph.options().focuserModule().handle(that);
+                    if (graph.isADraggerActive()===false) {
+                        graph.options().focuserModule().handle(undefined);
+                        graph.options().focuserModule().handle(that);
+                    }
             	});	// add a foreiner element to this thing;
         };
 

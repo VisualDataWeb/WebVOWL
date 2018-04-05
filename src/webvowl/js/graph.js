@@ -270,13 +270,16 @@ module.exports = function (graphContainerSelector) {
             .on("drag", function (d) {
 
                 if (d.type && d.type() === "Class_dragger") {
+                     clearTimeout(delayedHider);
                      classDragger.setPosition(d3.event.x, d3.event.y);
                 } else if (d.type && d.type() === "Range_dragger") {
+                    clearTimeout(delayedHider);
                     rangeDragger.setPosition(d3.event.x, d3.event.y);
                     shadowClone.setPosition(d3.event.x, d3.event.y);
                     domainDragger.updateElementViaRangeDragger(d3.event.x, d3.event.y);
                 }
                 else if (d.type && d.type() === "Domain_dragger") {
+                    clearTimeout(delayedHider);
                     domainDragger.setPosition(d3.event.x, d3.event.y);
                     shadowClone.setPositionDomain(d3.event.x, d3.event.y);
                     rangeDragger.updateElementViaDomainDragger(d3.event.x, d3.event.y);
@@ -1933,6 +1936,15 @@ module.exports = function (graphContainerSelector) {
     };
 
 
+    graph.isADraggerActive=function(){
+        if (classDragger.mouseButtonPressed===true ||
+            domainDragger.mouseButtonPressed===true ||
+            rangeDragger.mouseButtonPressed===true){
+            return true;
+        }
+        return false;
+    };
+
     /** --------------------------------------------------------- **/
     /** -- VOWL EDITOR  create/ edit /delete functions --         **/
     /** --------------------------------------------------------- **/
@@ -2943,6 +2955,7 @@ module.exports = function (graphContainerSelector) {
         if (hoveredNodeElement) {
             if (graph.ignoreOtherHoverEvents() === true || tbh === true || hoveredNodeElement.editingTextElement === true) return;
             delayedHider = setTimeout(function () {
+                if (graph.isADraggerActive()===true) return;
                 deleteGroupElement.classed("hidden", true);
                 addDataPropertyGroupElement.classed("hidden", true);
                 classDragger.hideDragger(true);
@@ -2956,6 +2969,7 @@ module.exports = function (graphContainerSelector) {
         if (hoveredPropertyElement) {
             if (graph.ignoreOtherHoverEvents() === true || tbh === true || hoveredPropertyElement.editingTextElement === true) return;
             delayedHider = setTimeout(function () {
+                if (graph.isADraggerActive()===true) return;
                 deleteGroupElement.classed("hidden", true);
                 addDataPropertyGroupElement.classed("hidden", true);
                 classDragger.hideDragger(true);
