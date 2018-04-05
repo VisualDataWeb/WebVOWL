@@ -376,9 +376,8 @@ module.exports = function (graph) {
     }
 
     function changeIriForElement(element) {
-       var  url=getURLFROMPrefixedVersion(element);
-        console.log("Checking for assignment "+ url);
-        // check iri Assignment
+        var  url=getURLFROMPrefixedVersion(element);
+        var base=graph.options().getGeneralMetaObjectProperty("iri");
         var sanityCheckResult;
         if (elementTools.isNode(element)){
 
@@ -419,7 +418,6 @@ module.exports = function (graph) {
         // }
 
         element.iri(url);
-        console.log("element should be selected! "+element.focused());
         if (identifyExternalCharacteristicForElement(base,url)===true){
             addAttribute(element,"external");
             // background color for external element;
@@ -481,7 +479,7 @@ module.exports = function (graph) {
         console.log("Element changed Label");
         console.log("Testing URL "+url);
         if (element.type()==="rdfs:subClassOf" || element.type()==="owl:disjointWith"){
-            console.log("ignore this for now, already handled in the type and domain range changer")
+            console.log("ignore this for now, already handled in the type and domain range changer");
         }else{
             var i;
             var allProps=graph.getUnfilteredData().properties;
