@@ -330,7 +330,7 @@ module.exports = function (graph) {
 	    if (typeof languageElement!=="object"){
 	        if (languageElement.length===0)
 	            return ""; // an empty string
-            var aString=indent+" dc:creator " +'"'+languageElement+'"\r\n;';
+            var aString=indent+" dc:creator " +'"'+languageElement+'";\r\n';
             return aString;
         }
         // we assume this thing is an array;
