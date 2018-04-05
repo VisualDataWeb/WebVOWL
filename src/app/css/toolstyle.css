@@ -226,6 +226,85 @@ a:hover {
 
 
 
+/*// add expand and collaps width for the warn module*/
+@-webkit-keyframes warn_ExpandLeftBarAnimation {
+	0%   { left: 0;}
+	100% { left: 100px;}
+}
+@-moz-keyframes warn_ExpandLeftBarAnimation  {
+	0%   { left: 0;}
+	100% { left: 100px;}
+}
+@-o-keyframes warn_ExpandLeftBarAnimation  {
+	0%   { left: 0;}
+	100% { left: 100px;}
+}
+@keyframes warn_ExpandLeftBarAnimation  {
+	0%   { left: 0;}
+	100% { left: 100px;}
+}
+
+/*Collapse Animation*/
+@-webkit-keyframes warn_CollapseLeftBarAnimation {
+	0%   { left: 100px;}
+	100% { left: 0;}
+}
+@-moz-keyframes warn_CollapseLeftBarAnimation  {
+	0%   { left: 100px;}
+	100% { left: 0;}
+}
+@-o-keyframes warn_CollapseLeftBarAnimation  {
+	0%   { left: 100px;}
+	100% { left: 0;}
+}
+@keyframes warn_CollapseLeftBarAnimation  {
+	0%   { left: 100px;}
+	100% { left: 0;}
+}
+
+
+
+/*// same for the right side expansion*/
+
+/*// add expand and collaps width for the warn module*/
+@-webkit-keyframes warn_ExpandRightBarAnimation   {
+	0%   { width: 100%;}
+	100%   { width: 78%;}
+}
+@-moz-keyframes warn_ExpandRightBarAnimation    {
+	0%   { width: 100%;}
+	100%   { width: 78%;}
+}
+@-o-keyframes warn_ExpandRightBarAnimation  {
+	0%   { width: 100%;}
+	100%   { width: 78%;}
+}
+@keyframes warn_ExpandRightBarAnimation  {
+	  0%   { width: 100%;}
+	100%   { width: 78%;}
+
+}
+
+/*Collapse Animation*/
+@-webkit-keyframes warn_CollapseRightBarAnimation {
+	0%     { width: 78%;}
+	100%   { width: 100%;}
+}
+@-moz-keyframes warn_CollapseRightBarAnimation {
+	0%     { width: 78%;}
+	100%   { width: 100%;}
+}
+@-o-keyframes warn_CollapseRightBarAnimation {
+	0%     { width: 78%;}
+	100%   { width: 100%;}
+}
+@keyframes warn_CollapseRightBarAnimation {
+	0%     { width: 78%;}
+	100%   { width: 100%;}
+}
+
+
+
 /*----------------------------------------------
         LAYOUT
 ----------------------------------------------*/

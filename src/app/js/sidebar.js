@@ -459,17 +459,27 @@ module.exports = function (graph) {
             detailArea.classed("hidden",true);
             if (init===true) {
                 detailArea.classed("hidden",!visibleSidebar);
+
                 graphArea.style("width","78%");
                 graphArea.style("-webkit-animation-name","none");
-                 menuArea.style("width","78%");
-                 menuArea.style("-webkit-animation-name","none");
+
+                menuArea.style("width","78%");
+                menuArea.style("-webkit-animation-name","none");
+
+                d3.select("#WarningErrorMessages").style("width","78%");
+                d3.select("#WarningErrorMessages").style("-webkit-animation-name","none");
             } else {
                 graphArea.style("width","78%");
                 graphArea.style("-webkit-animation-name","sbCollapseAnimation");
                 graphArea.style("-webkit-animation-duration","0.5s");
-                 menuArea.style("width","78%");
-                 menuArea.style("-webkit-animation-name","sbCollapseAnimation");
-                 menuArea.style("-webkit-animation-duration","0.5s");
+
+                menuArea.style("width","78%");
+                menuArea.style("-webkit-animation-name","sbCollapseAnimation");
+                menuArea.style("-webkit-animation-duration","0.5s");
+
+                d3.select("#WarningErrorMessages").style("width","78%");
+                d3.select("#WarningErrorMessages").style("-webkit-animation-name","warn_ExpandRightBarAnimation");
+                d3.select("#WarningErrorMessages").style("-webkit-animation-duration","0.5s");
             }
             graph.options().width(window.innerWidth - (window.innerWidth * 0.22));
             graph.options().navigationMenu().updateScrollButtonVisibility();
@@ -483,16 +493,25 @@ module.exports = function (graph) {
             if (init===true) {
                 graphArea.style("width","100%");
                 graphArea.style("-webkit-animation-name","none");
-                 menuArea.style("width","100%");
-                 menuArea.style("-webkit-animation-name","none");
+
+                menuArea.style("width","100%");
+                menuArea.style("-webkit-animation-name","none");
+
+                d3.select("#WarningErrorMessages").style("width","100%");
+                d3.select("#WarningErrorMessages").style("-webkit-animation-name","none");
             }else {
                 graphArea.style("width","100%");
                 graphArea.style("-webkit-animation-name","sbExpandAnimation");
                 graphArea.style("-webkit-animation-duration","0.5s");
 
-                 menuArea.style("width","100%");
-                 menuArea.style("-webkit-animation-name","sbExpandAnimation");
-                 menuArea.style("-webkit-animation-duration","0.5s");
+				menuArea.style("width","100%");
+                menuArea.style("-webkit-animation-name","sbExpandAnimation");
+                menuArea.style("-webkit-animation-duration","0.5s");
+
+                d3.select("#WarningErrorMessages").style("width","100%");
+                d3.select("#WarningErrorMessages").style("-webkit-animation-name","warn_CollapseRightBarAnimation");
+                d3.select("#WarningErrorMessages").style("-webkit-animation-duration","0.5s");
+
             }
             graph.options().width(window.innerWidth);
             graph.updateCanvasContainerSize();

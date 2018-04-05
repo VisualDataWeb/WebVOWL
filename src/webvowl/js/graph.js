@@ -1964,7 +1964,7 @@ module.exports = function (graphContainerSelector) {
 
         if (typeString==="rdfs:Datatype"){
             if (aNode.dType()==="undefined")
-                aNode.label("Undefined Datatatype");
+                aNode.label("undefined");
             else{
                 var identifier=aNode.dType().split(":")[1];
                 aNode.label(identifier);

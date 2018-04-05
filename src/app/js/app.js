@@ -283,8 +283,9 @@ module.exports = function () {
 
         d3.select("#darthBane").style("width",window.innerWidth+"px");
         d3.select("#darthBane").style("height",window.innerHeight+"px");
-        d3.select("#WarningErrorMessages").style("width",width+"px");
 
+
+        d3.select("#WarningErrorMessages").style("width",width+"px");
         graphContainer.style("height", height + "px");
 		svg.attr("width", width)
 			.attr("height", height);
