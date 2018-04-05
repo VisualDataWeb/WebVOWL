@@ -327,27 +327,33 @@ module.exports = function (graph) {
 	}
     function getOntologyAuthor(indent){
 	    var languageElement=graph.options().getGeneralMetaObjectProperty('author');
-	    if (typeof languageElement!=="object"){
-	        if (languageElement.length===0)
-	            return ""; // an empty string
-            var aString=indent+" dc:creator " +'"'+languageElement+'";\r\n';
-            return aString;
+	    if (languageElement) {
+            if (typeof languageElement !== "object") {
+                if (languageElement.length === 0)
+                    return ""; // an empty string
+                var aString = indent + " dc:creator " + '"' + languageElement + '";\r\n';
+                return aString;
+            }
+            // we assume this thing is an array;
+            var authorString = indent + " dc:creator " + '"';
+            for (var i = 0; i < languageElement.length - 1; i++) {
+                authorString += languageElement[i] + ", ";
+            }
+            authorString += languageElement[languageElement.length - 1] + '";\r\n';
+            return authorString;
+        }else{
+            return ""; // an empty string
         }
-        // we assume this thing is an array;
-        var authorString=indent+" dc:creator " +'"';
-	    for (var i=0;i<languageElement.length-1;i++){
-            authorString+=languageElement[i]+", ";
-        }
-        authorString+=languageElement[languageElement.length-1]+'";\r\n';
-        return authorString;
     }
     function getOntologyVersion(indent){
         var languageElement=graph.options().getGeneralMetaObjectProperty('version');
-        if (typeof languageElement!=="object"){
-            if (languageElement.length===0)
-                return ""; // an empty string
-        }
-        return general_languageExtractor(indent,"version", "owl:versionInfo");
+        if (languageElement){
+            if (typeof languageElement!=="object"){
+                if (languageElement.length===0)
+                    return ""; // an empty string
+            }
+            return general_languageExtractor(indent,"version", "owl:versionInfo");
+        }else return ""; // an empty string
     }
 
 	function general_languageExtractor(indent, metaObjectDescription, annotationDescription,endStatement){
