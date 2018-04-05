@@ -1868,12 +1868,14 @@ module.exports = function (graphContainerSelector) {
         var bboxOffset=50; // default radius of a node;
         var topLeft  = getWorldPosFromScreen(bbox.left,bbox.top,graphTranslation,zoomFactor);
         var botRight = getWorldPosFromScreen(bbox.right,bbox.bottom,graphTranslation,zoomFactor);
-        var w = graph.options().width();
-        var h = graph.options().height();
 
-        topLeft.x  -= bboxOffset;
+        var w = graph.options().width();
+        if (graph.options().leftSidebar().isSidebarVisible()===true)
+            w-=200;
+        var h = graph.options().height();
+        topLeft.x  += bboxOffset;
         topLeft.y  -= bboxOffset;
-        botRight.x += bboxOffset;
+        botRight.x -= bboxOffset;
         botRight.y += bboxOffset;
 
         var g_w = botRight.x-topLeft.x;
@@ -1884,6 +1886,9 @@ module.exports = function (graphContainerSelector) {
         var posY = 0.5*(topLeft.y + botRight.y);
         var cx   = 0.5 * w,
             cy   = 0.5 * h;
+
+        if (graph.options().leftSidebar().isSidebarVisible()===true)
+            cx+=200;
         var cp   = getWorldPosFromScreen(cx, cy, graphTranslation, zoomFactor);
 
         // zoom factor calculations and fail safes;
@@ -1907,7 +1912,10 @@ module.exports = function (graphContainerSelector) {
         if (lenAnimation > 2500) {
             lenAnimation = 2500;
         }
-
+        //
+        // console.log(sP);
+        // console.log(eP);
+        // console.log("cx:"+cx+" cy "+cy);
         graphContainer.attr( "transform", transform(sP, cx, cy) )
             .transition()
             .duration(lenAnimation)
