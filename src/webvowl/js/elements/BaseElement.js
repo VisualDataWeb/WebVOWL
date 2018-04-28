@@ -42,6 +42,10 @@ module.exports = (function () {
 			return this;
 		};
 
+		this.redrawElement=function(){
+			// TODO: OVERLOADED BY INDIVIDUAL ELEMENTS
+		};
+
 		this.backgroundColor = function (p) {
 			if (!arguments.length) return backgroundColor;
 			backgroundColor = p;

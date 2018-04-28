@@ -1,25 +1,18 @@
-/**
- * Contains the navigation "engine"
- *
- * @param graph the associated webvowl graph
- * @returns {{}}
- */
+/** The zoom Slider **/
 module.exports = function (graph) {
     var zoomSlider  = {};
     var minMag=graph.options().minMagnification(),
-        maxMag=graph.options().maxMagnification();
-    var defZoom;
+        maxMag=graph.options().maxMagnification(),
+        defZoom,
+        t_zoomOut,
+        t_zoomIn,
+        zoomValue,
+        showSlider=true,
+        w = graph.options().width(),
+        h = graph.options().height(),
+        slider;
 
-    // some timers;
-    var t_zoomOut;
-    var t_zoomIn;
-
-    var zoomValue;
-
-    var w = graph.options().width();
-    var h = graph.options().height();
     defZoom = Math.min(w, h) / 1000;
-    var slider;
 
     function clearAllTimers() {
         cancelAnimationFrame(t_zoomOut);
@@ -29,45 +22,28 @@ module.exports = function (graph) {
     function timed_zoomOut(){
         zoomValue=0.98*zoomValue;
         // fail saves
-        if (zoomValue < minMag) { zoomValue = minMag;}
+        if (zoomValue < minMag) {
+            zoomValue = minMag;
+        }
         graph.setSliderZoom(zoomValue);
-       // clearTimeout(t_zoomOut);
         t_zoomOut=requestAnimationFrame(timed_zoomOut);
     }
 
     function timed_zoomIn(){
         zoomValue=1.02*zoomValue;
         // fail saves
-        if (zoomValue > maxMag) { zoomValue = maxMag;}
+        if (zoomValue > maxMag) {
+            zoomValue = maxMag;
+        }
         graph.setSliderZoom(zoomValue);
-    //    clearTimeout(t_zoomIn);
         t_zoomIn=requestAnimationFrame(timed_zoomIn);
     }
 
     zoomSlider.setup = function () {
-
-        // // not all devices have the same requestAnimation or cancelAnimation function
-        // window.requestAnimationFrame = window.requestAnimationFrame
-        //     || window.mozRequestAnimationFrame
-        //     || window.webkitRequestAnimationFrame
-        //     || window.msRequestAnimationFrame
-        //     || function(f){return setTimeout(f, 1000/60)}; // simulate calling code 60
-        //
-        //
-        // window.cancelAnimationFrame = window.cancelAnimationFrame
-        //     || window.mozCancelAnimationFrame
-        //     || function(requestID){clearTimeout(requestID)}; //fall back
-        //
-
-
-
-
         slider= d3.select("#zoomSliderParagraph").append("input")
             .datum({})
             .attr("id","zoomSliderElement")
-            // .classed("slideOption",true)
             .attr("type", "range")
-            // .attr("orient","vertical")
             .attr("value", defZoom)
             .attr("min", minMag)
             .attr("max", maxMag)
@@ -76,7 +52,6 @@ module.exports = function (graph) {
             .on("input", function(){
             zoomSlider.zooming();});
 
-        // fixing zoom out button long click thing;
         d3.select("#zoomOutButton").on("mousedown",function(){
             graph.options().navigationMenu().hideAllMenus();
             zoomValue=graph.scaleFactor();
@@ -114,7 +89,11 @@ module.exports = function (graph) {
 
     };
 
-
+    zoomSlider.showSlider=function(val){
+        if (!arguments.length) return showSlider;
+        d3.select("#zoomSlider").classed("hidden",!val);
+        showSlider=val;
+    };
 
     zoomSlider.zooming=function(){
         graph.options().navigationMenu().hideAllMenus();

@@ -79,6 +79,8 @@ module.exports = function (graph) {
             }
             // create custom behavior for click, touch, and hover
             d3.select("#"+c_select[i]).on("mouseover",menuElementOnHovered);
+            d3.select("#"+c_select[i]).on("mouseout",menuElementOutHovered);
+
             d3.select("#"+c_select[i]).on("click",menuElementClicked);
             d3.select("#"+c_select[i]).on("touchstart",menuElementTouched);
 
@@ -134,6 +136,10 @@ module.exports = function (graph) {
         showSingleMenu( this.id );
     }
 
+    function menuElementOutHovered(){
+        hoveroutedControMenu( this.id );
+    }
+
     function menuElementClicked() {
         var m_element=m_select[c_select.indexOf(this.id)];
         if (m_element) {
@@ -154,11 +160,26 @@ module.exports = function (graph) {
         touchedElement=true;
     }
 
+
+    function hoveroutedControMenu( controllerID ){
+        currentlyHoveredEntry=d3.select("#"+controllerID);
+        if (controllerID !== "c_search") {
+                d3.select("#" + controllerID).select("path").style("stroke-width", "0");
+                d3.select("#" + controllerID).select("path").style("fill", "#fff");
+            }
+
+    }
+
     function showSingleMenu( controllerID ){
         currentlyHoveredEntry=d3.select("#"+controllerID).node();
         // get the corresponding menu element for this controller
         var m_element=m_select[c_select.indexOf(controllerID)];
-        if (m_element){
+        if (m_element) {
+            if (controllerID !== "c_search") {
+
+            d3.select("#" + controllerID).select("path").style("stroke-width", "0");
+            d3.select("#" + controllerID).select("path").style("fill", "#bdc3c7");
+        }
             // show it if we have a menu
             currentlyVisibleMenu=d3.select("#"+m_element);
             currentlyVisibleMenu.style("display","block");

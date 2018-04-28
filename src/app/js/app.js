@@ -17,6 +17,7 @@ module.exports = function () {
 		navigationMenu = require("./menu/navigationMenu") (graph),
         zoomSlider     = require("./menu/zoomSlider")     (graph),
 		sidebar        = require("./sidebar")             (graph),
+        configMenu     = require("./menu/configMenu")     (graph),
 
 	// Graph modules
 		colorExternalsSwitch 	 = webvowl.modules.colorExternalsSwitch(graph),
@@ -104,7 +105,7 @@ module.exports = function () {
 			options.graphObject(graph);
 			options.zoomSlider(zoomSlider);
             ontologyMenu.setup(loadOntologyFromText);
-
+            configMenu.setup();
 			graph.start();
 			adjustSize();
 			// graph.updateSideBarVis(true);
@@ -116,6 +117,8 @@ module.exports = function () {
 
 
 			graph.setDefaultZoom(defZoom);
+
+			// set svg hovering classes
 
 
 			// prevent backspace killer

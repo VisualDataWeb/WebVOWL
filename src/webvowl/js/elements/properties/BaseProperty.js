@@ -3,6 +3,7 @@ var CenteringTextElement = require("../../util/CenteringTextElement");
 var drawTools = require("../drawTools")();
 var forceLayoutNodeFunctions = require("../forceLayoutNodeFunctions")();
 var rectangularElementTools = require("../rectangularElementTools")();
+var math= require("../../util/math")();
 
 module.exports = (function () {
 
@@ -40,7 +41,9 @@ module.exports = (function () {
 			pinGroupElement,
 			haloGroupElement,
 			myWidth=80,
-
+            defaultWidth=80,
+            shapeElement,
+            textElement,
 			redundantProperties = [];
 
 		this.getHalos=function(){
@@ -174,7 +177,18 @@ module.exports = (function () {
 			graph.resetSearchHighlight();
 			graph.options().searchMenu().clearText();
 		};
+		this.getShapeElement=function(){
+			return shapeElement;
+		};
 
+		this.redrawElement=function(){
+		// 	console.log("redrawing element !");
+		// 	shapeElement.remove();
+         //    textElement.remove();
+        //
+         //    that.drawLabel(that.labelElement());
+         //    that.animateDynamicLabelWidth(graph.options().dynamicLabelWidth());
+		};
 
 		// Reused functions TODO refactor
 		this.draw = function (labelGroup) {
@@ -185,8 +199,6 @@ module.exports = (function () {
 					.attr("id", property.id());
 
 				property.drawLabel(labelContainer);
-
-
 				return labelContainer;
 			}
 
@@ -202,11 +214,13 @@ module.exports = (function () {
 				that.inverse()
 					.labelElement(attachLabel(that.inverse()));
 
+
 				that.labelElement()
 					.attr("transform", "translate(" + 0 + ",-" + yTransformation + ")");
 				that.inverse()
 					.labelElement()
 					.attr("transform", "translate(" + 0 + "," + yTransformation + ")");
+
 			}
 
 			if (that.pinned()) {
@@ -245,14 +259,17 @@ module.exports = (function () {
 			if (that.backgroundColor()) {
 				rect.style("fill", that.backgroundColor());
 			}
+			return rect;
 		};
 		this.drawLabel = function (labelContainer) {
-			this.addRect(labelContainer);
+            if (graph.options().dynamicLabelWidth()===true) myWidth=Math.min(that.getMyWidth(),graph.options().maxLabelWidth());
+            else                							myWidth=defaultWidth;
 
+            shapeElement=this.addRect(labelContainer);
 			var equivalentsString = that.equivalentsString();
 			var suffixForFollowingEquivalents = equivalentsString ? "," : "";
 
-			var textElement = new CenteringTextElement(labelContainer, this.backgroundColor());
+			textElement = new CenteringTextElement(labelContainer, this.backgroundColor());
 			textElement.addText(this.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
 			textElement.addEquivalents(equivalentsString);
 			textElement.addSubText(this.indicationString());
@@ -389,6 +406,9 @@ module.exports = (function () {
 
 		this.drawPin = function () {
 			that.pinned(true);
+            if (graph.options().dynamicLabelWidth()===true) myWidth=that.getMyWidth();
+            else                							myWidth=defaultWidth;
+
 			if (that.inverse()){
 				// check which element is rendered on top and add a pin to it
 				var tr_that=that.labelElement().attr("transform");
@@ -456,19 +476,11 @@ module.exports = (function () {
                     labelContainer.appendChild(labelNode);
             }
 			haloGroupElement = drawTools.drawRectHalo(that, that.width(), that.height(), offset);
-
-			// append at highest level;
-			// reorder the labelElement;
-
-
-
-
-			// check for all other things;
-           if (haloGroupElement) {
+            if (haloGroupElement) {
                var haloNode = haloGroupElement.node();
                var haloContainer = haloNode.parentNode;
                haloContainer.appendChild(haloNode);
-           }
+            }
             var selectedNode;
             var nodeContainer;
             if (that.pinned()){
@@ -486,7 +498,6 @@ module.exports = (function () {
 		};
 
 		this.getMyWidth=function(){
-			// use a simple heuristic
             var text = that.labelForCurrentLanguage();
             myWidth =measureTextWidth(text,"text")+20;
 
@@ -515,18 +526,78 @@ module.exports = (function () {
             return w;
         }
         this.textWidth = function () {
-           //
-            if(graph.options().dynamicLabelWidth()===true) {
-                return that.getMyWidth();
-            }
-            return labelWidth;
+            return myWidth;
         };
         this.width= function(){
-			if(graph.options().dynamicLabelWidth()===true){
-				return that.getMyWidth();
-			}
-			return labelWidth;
+			return myWidth;
         };
+
+        this.animateDynamicLabelWidth=function(dynamic) {
+
+            that.removeHalo();
+            if (shapeElement===undefined){// this handles setOperatorProperties which dont have a shapeElement!
+				//console.log("no shapeElement found for "+that.labelForCurrentLanguage());
+            	return;
+			}
+
+            var h=that.height();
+            if (dynamic === true) {
+                myWidth = Math.min(that.getMyWidth(),graph.options().maxLabelWidth());
+                shapeElement.transition().tween("attr", function () {})
+                    .ease('linear')
+                    .duration(100)
+                    .attr({x: -myWidth / 2, y: -h/ 2, width: myWidth, height: h})
+                    .each("end", function () {
+                         that.updateTextElement();
+                    });
+            } else {
+            	// Static width for property labels = 80
+                myWidth = defaultWidth;
+                that.updateTextElement();
+                shapeElement.transition().tween("attr", function () {})
+                    .ease('linear')
+                    .duration(100)
+                    .attr({x: -myWidth / 2, y: -h/ 2, width: myWidth, height: h});
+            }
+            if (that.pinned() === true  && pinGroupElement){
+                var dx=0.5*myWidth-10,
+					dy=-25;
+                pinGroupElement.transition()
+                    .tween("attr.translate", function () {})
+                    .attr("transform", "translate(" + dx + ","+ dy+ ")")
+                    .ease('linear')
+                    .duration(100);
+			}
+        };
+
+        this.redrawLabelText=function(){
+            // console.log("calling redraw Label! ");
+            // textElement.remove();
+            // that.addTextLabelElement();
+            // console.log("text element should be added "+ textElement);
+            // that.animateDynamicLabelWidth(graph.options().dynamicLabelWidth());
+            // shapeElement.select("title").text(that.labelForCurrentLanguage());
+        };
+
+        this.addTextLabelElement=function(){
+        	var labelContainer=that.labelElement();
+            var equivalentsString = that.equivalentsString();
+            var suffixForFollowingEquivalents = equivalentsString ? "," : "";
+
+            textElement = new CenteringTextElement(labelContainer, this.backgroundColor());
+            textElement.addText(this.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
+            textElement.addEquivalents(equivalentsString);
+            textElement.addSubText(this.indicationString());
+		};
+
+        this.updateTextElement=function(){
+        	if (!textElement){
+        		console.log("could not find text element for "+ that.labelForCurrentLanguage());
+			}
+			else {
+                textElement.updateAllTextElements();
+            }
+		};
 
 		forceLayoutNodeFunctions.addTo(this);
 	};

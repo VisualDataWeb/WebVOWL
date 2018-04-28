@@ -12,6 +12,7 @@ module.exports = function (graph) {
 
 	var ontologyMenu = {},
 		DEFAULT_JSON_NAME = "foaf", // This file is loaded by default
+		loadingInfo = d3.select("#loading-info"),
 		loadingError = d3.select("#loading-error"),
 		loadingProgress = d3.select("#loading-progress"),
 		ontologyMenuTimeout,
@@ -31,6 +32,7 @@ module.exports = function (graph) {
 
 		var menuEntry= d3.select("#m_select");
 		menuEntry.on("mouseover",function(){
+
 			var searchMenu=graph.options().searchMenu();
 			searchMenu.hideSearchEntries();
 		});
@@ -324,6 +326,7 @@ module.exports = function (graph) {
 	ontologyMenu.emptyGraphError=function(){
 
 		emptyGraph=true;
+        loadingInfo.classed("hidden",false);
 		loadingError.classed("hidden", false);
 		var errorInfo = d3.select("#error-info");
 		errorInfo.text("There is nothing to visualize.");
@@ -339,6 +342,7 @@ module.exports = function (graph) {
 	ontologyMenu.notValidJsonURL=function(){
 
 		emptyGraph=true;
+        loadingInfo.classed("hidden",false);
 		loadingError.classed("hidden", false);
 		var errorInfo = d3.select("#error-info");
 		errorInfo.text("Invalid JSON URL");
@@ -353,6 +357,7 @@ module.exports = function (graph) {
 	ontologyMenu.notValidJsonFile=function(){
 
 		emptyGraph=true;
+        loadingInfo.classed("hidden",false);
 		loadingError.classed("hidden", false);
 		var errorInfo = d3.select("#error-info");
 		errorInfo.text("Invalid JSON file");
@@ -568,11 +573,13 @@ module.exports = function (graph) {
 
 
 	function displayLoadingIndicators() {
+        loadingInfo.classed("hidden",false);
 		loadingError.classed("hidden", true);
 		loadingProgress.classed("hidden", false);
 	}
 
 	function setLoadingStatus(success, description, information) {
+        loadingInfo.classed("hidden",success);
 		loadingError.classed("hidden", success);
 
 		var errorInfo = d3.select("#error-info");
@@ -591,6 +598,7 @@ module.exports = function (graph) {
 
 	function hideLoadingInformations() {
 		loadingProgress.classed("hidden", true);
+        loadingInfo.classed("hidden",true);
 	}
 
 	return ontologyMenu;

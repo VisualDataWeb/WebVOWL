@@ -16,6 +16,8 @@ module.exports = (function () {
             labelWidth = 80,
             myWidth=80,
 			defaultWidth=80,
+			shapeElement,
+            textBlock,
 			smallestRadius = height / 2;
 
 		// Properties
@@ -57,10 +59,6 @@ module.exports = (function () {
 
 		};
 
-
-		// overwrite the labelWith;
-
-
         this.textWidth = function () {
             return labelWidth;
         };
@@ -69,7 +67,6 @@ module.exports = (function () {
         };
 
         this.getMyWidth=function(){
-            // use a simple heuristic
             var text = that.labelForCurrentLanguage();
             myWidth =measureTextWidth(text,"text")+20;
 
@@ -114,21 +111,18 @@ module.exports = (function () {
 		 * @param [additionalCssClasses] additional css classes
 		 */
 		this.draw = function (parentElement, additionalCssClasses) {
-			var textBlock,
-				cssClasses = that.collectCssClasses();
-
+			var cssClasses = that.collectCssClasses();
 			that.nodeElement(parentElement);
 
 			if (additionalCssClasses instanceof Array) {
 				cssClasses = cssClasses.concat(additionalCssClasses);
 			}
 
-			// set the value for that.width()
-            // update labelWidth Value;
-            if (graph.options().dynamicLabelWidth()===true) labelWidth=that.getMyWidth();
+            if (graph.options().dynamicLabelWidth()===true) labelWidth=Math.min(that.getMyWidth(),graph.options().maxLabelWidth());
             else                							labelWidth=defaultWidth;
 
-            drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
+            width=labelWidth;
+            shapeElement=drawTools.appendRectangularClass(parentElement, that.width(), that.height(), cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
 
 			textBlock = new CenteringTextElement(parentElement, that.backgroundColor());
 			textBlock.addText(that.labelForCurrentLanguage());
@@ -174,7 +168,6 @@ module.exports = (function () {
 			var offset = 0;
 			haloGroupElement = drawTools.drawRectHalo(that, this.width(), this.height(), offset);
 
-
             if (that.pinned()){
                 var selectedNode = pinGroupElement.node();
                 var nodeContainer = selectedNode.parentNode;
@@ -182,7 +175,62 @@ module.exports = (function () {
             }
 
 		};
-	};
+
+        this.updateTextElement=function(){
+            textBlock.updateAllTextElements();
+        };
+
+        this.redrawLabelText=function(){
+            textBlock.remove();
+            textBlock = new CenteringTextElement(that.nodeElement(), that.backgroundColor());
+            textBlock.addText(that.labelForCurrentLanguage());
+            that.animateDynamicLabelWidth(graph.options().dynamicLabelWidth());
+            shapeElement.select("title").text(that.labelForCurrentLanguage());
+        };
+
+		this.animateDynamicLabelWidth=function(dynamic) {
+            that.removeHalo();
+            var height=that.height();
+            if (dynamic === true) {
+                labelWidth = Math.min(that.getMyWidth(),graph.options().maxLabelWidth());
+                shapeElement.transition().tween("attr", function () {})
+                    .ease('linear')
+                    .duration(100)
+                    .attr({x: -labelWidth / 2, y: -height / 2, width: labelWidth, height: height})
+                    .each("end", function () {
+                        that.updateTextElement();
+                    });
+
+            } else {
+                labelWidth = defaultWidth;
+                that.updateTextElement();
+                shapeElement.transition().tween("attr", function () {})
+                    .ease('linear')
+                    .duration(100)
+                    .attr({x: -labelWidth / 2, y: -height / 2, width: labelWidth, height: height});
+
+            }
+
+            if (that.pinned() === true  && pinGroupElement){
+                var dx=0.5*labelWidth-10,
+                    dy = -1.1 * height;
+
+                pinGroupElement.transition()
+                    .tween("attr.translate", function () {})
+                    .attr("transform", "translate(" + dx + ","+ dy+ ")")
+                    .ease('linear')
+                    .duration(100);
+            }
+        };
+
+        this.addTextLabelElement=function(){
+            var parentElement=that.nodeElement();
+            textBlock = new CenteringTextElement(parentElement, this.backgroundColor());
+            textBlock.addText(that.labelForCurrentLanguage());
+        };
+
+
+    };
 	o.prototype = Object.create(BaseNode.prototype);
 	o.prototype.constructor = o;
 

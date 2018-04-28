@@ -32,11 +32,17 @@ module.exports = function () {
 		exportMenu,
 		graphObject,
         zoomSlider,
+        maxLabelWidth=120,
 		rectangularRep=false,
 		scaleNodesByIndividuals = true;
 
 
 
+
+    options.maxLabelWidth=function(val){
+        if (!arguments.length) return maxLabelWidth;
+        maxLabelWidth=val;
+    };
 
 	options.zoomSlider=function(val){
 		if (!arguments.length) return zoomSlider;

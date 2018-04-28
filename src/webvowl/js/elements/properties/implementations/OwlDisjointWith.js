@@ -7,6 +7,7 @@ module.exports = (function () {
 		BaseProperty.apply(this, arguments);
 
 		var label = "Disjoint With";
+        var shapeElement;
 		// Disallow overwriting the label
 		this.label = function (p) {
 			if (!arguments.length) return label;
@@ -18,7 +19,7 @@ module.exports = (function () {
 			.type("owl:disjointWith");
 
 		this.drawLabel = function (labelContainer) {
-			this.addRect(labelContainer);
+            shapeElement= this.addRect(labelContainer);
 
 			labelContainer.append("circle")
 				.classed("symbol", true)
@@ -40,7 +41,14 @@ module.exports = (function () {
 			}
 			textElement.translation(0, 20);
 		};
-	};
+        this.getShapeElement=function(){
+            return shapeElement;
+        };
+        this.markerElement=function(){
+        	return undefined;
+		};
+
+    };
 	o.prototype = Object.create(BaseProperty.prototype);
 	o.prototype.constructor = o;
 

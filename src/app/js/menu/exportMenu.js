@@ -279,7 +279,22 @@ module.exports = function (graph) {
 					}
 				}
 			});
-	}
+
+		// repair svg icons in the menu;
+        var scrollContainer = d3.select("#menuElementContainer").node();
+        var controlElements=scrollContainer.children;
+        var numEntries = controlElements.length;
+
+        for (var  i = 0; i < numEntries; i++) {
+            var currentMenu=controlElements[i].id;
+            d3.select("#" + currentMenu).select("path").style("stroke-width", "0");
+            d3.select("#" + currentMenu).select("path").style("fill", "#fff");
+        }
+
+        d3.select("#magnifyingGlass").style("stroke-width","0");
+        d3.select("#magnifyingGlass").style("fill","#666");
+
+    }
 
 	function showNonExportableElements() {
 		d3.selectAll(".hidden-in-export").style("display", null);
