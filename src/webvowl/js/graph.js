@@ -1296,14 +1296,14 @@ module.exports = function (graphContainerSelector) {
         var cp   = getWorldPosFromScreen(cx, cy, graphTranslation, zoomFactor);
 
         // zoom factor calculations and fail safes;
-        var newZoomFactor;
-        if ( w < h && g_w < g_h ) {
+        var newZoomFactor=1.0; // fail save if graph and window are squares
+        if ( w <= h && g_w <= g_h ) {
             newZoomFactor = h / g_h; }
-        if ( w < h && g_w > g_h ) {
+        if ( w <= h && g_w > g_h ) {
             newZoomFactor = w / g_w; }
         if ( w > h && g_w > g_h ) {
             newZoomFactor = w / g_w; }
-        if ( w > h && g_w < g_h ) {
+        if ( w > h && g_w <= g_h ) {
             newZoomFactor = h / g_h; }
 
         // fail saves
