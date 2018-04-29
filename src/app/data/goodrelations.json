@@ -1,5 +1,5 @@
 {
-  "_comment" : "Created with OWL2VOWL (version 0.3.3-SNAPSHOT), http://vowl.visualdataweb.org",
+  "_comment" : "Created with OWL2VOWL (version 0.3.4), http://vowl.visualdataweb.org",
   "header" : {
     "languages" : [ "en", "undefined" ],
     "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://schema.org", "http://purl.org/goodrelations/v1", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "http://xmlns.com/foaf/0.1" ],
@@ -1666,7 +1666,7 @@
       "IRI-based" : "Product"
     },
     "subClasses" : [ "23", "47", "28" ],
-    "attributes" : [ "equivalent", "external" ],
+    "attributes" : [ "external", "equivalent" ],
     "id" : "46"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#DeliveryModeParcelService",
@@ -1944,7 +1944,7 @@
     "label" : {
       "IRI-based" : "Place"
     },
-    "attributes" : [ "equivalent", "external" ],
+    "attributes" : [ "external", "equivalent" ],
     "id" : "133"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#WarrantyPromise",
@@ -3698,7 +3698,7 @@
       "IRI-based" : "description"
     },
     "domain" : "12",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "58"
   }, {
     "range" : "41",
@@ -3818,7 +3818,7 @@
       "IRI-based" : "depiction"
     },
     "domain" : "12",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "96"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#equal",
@@ -4071,7 +4071,7 @@
       "IRI-based" : "name"
     },
     "domain" : "12",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "142"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#hasMaxCurrencyValue",
@@ -5086,7 +5086,7 @@
       "IRI-based" : "manufacturer"
     },
     "domain" : "12",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "210"
   }, {
     "range" : "80",
@@ -5563,7 +5563,7 @@
       "IRI-based" : "productID"
     },
     "domain" : "12",
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "332"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#hasValue",
@@ -6038,7 +6038,7 @@
       "IRI-based" : "image"
     },
     "domain" : "12",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "97"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#appliesToDeliveryMethod",

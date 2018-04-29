@@ -1,5 +1,5 @@
 {
-  "_comment" : "Created with OWL2VOWL (version 0.3.3-SNAPSHOT), http://vowl.visualdataweb.org",
+  "_comment" : "Created with OWL2VOWL (version 0.3.4), http://vowl.visualdataweb.org",
   "header" : {
     "languages" : [ "undefined" ],
     "baseIris" : [ "http://schema.org", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2003/01/geo/wgs84_pos", "http://purl.org/dc/terms", "http://www.w3.org/2001/XMLSchema", "http://xmlns.com/foaf/0.1", "http://www.w3.org/2000/10/swap/pim/contact", "http://www.w3.org/2004/02/skos/core" ],
@@ -126,19 +126,19 @@
     "id" : "86",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "70",
-    "type" : "rdfs:Literal"
+    "id" : "31",
+    "type" : "owl:Thing"
   }, {
     "id" : "39",
     "type" : "owl:Thing"
   }, {
-    "id" : "31",
-    "type" : "owl:Thing"
-  }, {
-    "id" : "98",
+    "id" : "48",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "48",
+    "id" : "70",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "98",
     "type" : "rdfs:Literal"
   }, {
     "id" : "61",
@@ -339,7 +339,7 @@
     "label" : {
       "IRI-based" : "CreativeWork"
     },
-    "attributes" : [ "external", "equivalent" ],
+    "attributes" : [ "equivalent", "external" ],
     "id" : "35"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
@@ -596,11 +596,11 @@
       "undefined" : "Literal"
     }
   }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "70",
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "31",
     "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
+      "undefined" : "Thing"
     }
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
@@ -610,22 +610,22 @@
       "undefined" : "Thing"
     }
   }, {
-    "iri" : "http://www.w3.org/2002/07/owl#Thing",
-    "baseIri" : "http://owl2vowl.de",
-    "id" : "31",
-    "label" : {
-      "undefined" : "Thing"
-    }
-  }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "98",
+    "id" : "48",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
     }
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "48",
+    "id" : "70",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "98",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -637,7 +637,7 @@
     "label" : {
       "IRI-based" : "Person"
     },
-    "attributes" : [ "external", "equivalent" ],
+    "attributes" : [ "equivalent", "external" ],
     "id" : "61"
   }, {
     "iri" : "http://schema.org/Person",
@@ -646,7 +646,7 @@
     "label" : {
       "IRI-based" : "Person"
     },
-    "attributes" : [ "external", "equivalent" ],
+    "attributes" : [ "equivalent", "external" ],
     "id" : "62"
   }, {
     "iri" : "http://schema.org/ImageObject",
@@ -655,7 +655,7 @@
     "label" : {
       "IRI-based" : "ImageObject"
     },
-    "attributes" : [ "external", "equivalent" ],
+    "attributes" : [ "equivalent", "external" ],
     "id" : "99"
   }, {
     "iri" : "http://xmlns.com/foaf/0.1/OnlineAccount",
@@ -718,7 +718,7 @@
     "label" : {
       "IRI-based" : "Agent"
     },
-    "attributes" : [ "external", "equivalent" ],
+    "attributes" : [ "equivalent", "external" ],
     "id" : "13"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
