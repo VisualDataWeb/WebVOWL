@@ -1297,14 +1297,12 @@ module.exports = function (graphContainerSelector) {
 
         // zoom factor calculations and fail safes;
         var newZoomFactor=1.0; // fail save if graph and window are squares
-        if ( w <= h && g_w <= g_h ) {
-            newZoomFactor = h / g_h; }
-        if ( w <= h && g_w > g_h ) {
-            newZoomFactor = w / g_w; }
-        if ( w > h && g_w > g_h ) {
-            newZoomFactor = w / g_w; }
-        if ( w > h && g_w <= g_h ) {
-            newZoomFactor = h / g_h; }
+        //get the smaller one
+        var a=w / g_w;
+        var b=h/ g_h;
+        if (a<b)  newZoomFactor = a;
+        else      newZoomFactor = b;
+
 
         // fail saves
         if ( newZoomFactor > zoom.scaleExtent()[1] ) {
