@@ -1297,8 +1297,15 @@ module.exports = function (graphContainerSelector) {
 
         // zoom factor calculations and fail safes;
         var newZoomFactor;
-        if ( w < h ) { newZoomFactor = w / g_w; }
-        else         { newZoomFactor = h / g_h; }
+        if ( w < h && g_w < g_h ) {
+            newZoomFactor = h / g_h; }
+        if ( w < h && g_w > g_h ) {
+            newZoomFactor = w / g_w; }
+        if ( w > h && g_w > g_h ) {
+            newZoomFactor = w / g_w; }
+        if ( w > h && g_w < g_h ) {
+            newZoomFactor = h / g_h; }
+
         // fail saves
         if ( newZoomFactor > zoom.scaleExtent()[1] ) {
              newZoomFactor = zoom.scaleExtent()[1];
@@ -1310,6 +1317,7 @@ module.exports = function (graphContainerSelector) {
         // apply Zooming
         var sP = [cp.x, cp.y, h / zoomFactor];
         var eP = [posX, posY, h / newZoomFactor];
+
 
         var pos_intp = d3.interpolateZoom(sP, eP);
         var lenAnimation = pos_intp.duration;

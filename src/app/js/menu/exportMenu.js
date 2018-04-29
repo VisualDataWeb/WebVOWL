@@ -106,8 +106,9 @@ module.exports = function (graph) {
             // building up parameter list;
             htmlElement=d3.select("#exportedUrl").node();
             htmlElement.value=urlString;
-            htmlElement.focus();
-            htmlElement.select();
+            // ** -- removed for touch devices : otherwise this will call the mobile-keyboard -- ** //
+            // htmlElement.focus();
+            // htmlElement.select();
             htmlElement.title=urlString;
             return ;
 		}
