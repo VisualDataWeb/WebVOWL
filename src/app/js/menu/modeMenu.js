@@ -64,6 +64,7 @@ module.exports = function (graph) {
         moduleCheckbox.on("click", function (d) {
             var isEnabled = moduleCheckbox.property("checked");
             onChangeFunc(isEnabled);
+            d3.select("#maxLabelWidthSliderOption").classed("hidden",!isEnabled);
             if (updateLvl>0){
                 graph.lazyRefresh(); // maybe to much of an update
             }

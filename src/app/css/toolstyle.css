@@ -746,9 +746,7 @@ main {
 /*Font-color Style for menu entries */
 #menuElementContainer >li > a {
 	color   : #fff;
-	padding: 12px 12px;
-	padding-left:24px;
-
+	padding: 0 12px 0 30px;
 }
 
 .menuElementSvgElement{
@@ -757,7 +755,7 @@ main {
 	display: block;
 	position: absolute;
 	top: 10px;
-	left: 2px;
+	left: 8px;
 }
 
 
@@ -935,7 +933,7 @@ p#zoomSliderParagraph:hover{
 #menuElementContainer > li > a::before {
 	font-size: 1em;
 	margin: 0;
-	padding: 0 0.3em 0 0;
+	padding: 0 6px 0 0;;
 }
 #menuElementContainer a.highlighted {
 	background-color: #d90;
