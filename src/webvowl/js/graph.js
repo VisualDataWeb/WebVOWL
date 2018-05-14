@@ -246,9 +246,10 @@ module.exports = function (graphContainerSelector) {
 
         // Set cardinality positions
         cardinalityElements.attr("transform", function (property) {
+
             var label = property.link().label(),
                 pos = math.calculateIntersection(label, property.range(), CARDINALITY_HDISTANCE),
-                normalV = math.calculateNormalVector(label, property.domain(), CARDINALITY_VDISTANCE);
+                normalV = math.calculateNormalVector(label, property.range(), CARDINALITY_VDISTANCE);
 
             return "translate(" + (pos.x + normalV.x) + "," + (pos.y + normalV.y) + ")";
         });

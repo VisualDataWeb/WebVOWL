@@ -296,12 +296,35 @@ module.exports = (function () {
 
 			if (cardinalityText) {
 				that.cardinalityElement(container);
-				container.append("text")
-					.classed("cardinality", true)
-					.attr("text-anchor", "middle")
-					.attr("dy", "0.5ex")
-					.text(cardinalityText);
-				return true; // drawing successful
+				if (cardinalityText.indexOf("∀")===0 && cardinalityText.length===1){// first element and len==1
+					// replacing text elements to svg elements;
+                    container.classed("cardinality", true)
+                        .attr("text-anchor", "middle")
+						.append("path")
+							.classed("cardinality", true)
+							.attr("d","m -8.8832678,-11.303355 -7.97e-4,0 0.717374,1.833297 8.22987151,21.371761 8.66826659,-21.2123526 0.797082,-1.9927054 0.02471,0 -0.8218553,1.9927054 -2.2517565,5.4201577 -12.4444429,8e-6 -2.2019394,-5.5795821 z")
+							.style("fill","none")
+							.attr("transform","matrix(0.5,0,0,0.5,0.5,0.5)");
+					return true;
+				} else if (cardinalityText.indexOf("∃")===0 && cardinalityText.length===1){
+                    container.classed("cardinality", true)
+                        .attr("text-anchor", "middle")
+                        .append("path")
+                        .classed("cardinality", true)
+                        .attr("d","m -5.5788451,-8.0958763 10.8749368,0 0,8.34681523 -9.5707468,0.040132 9.5707468,-0.040132 0,8.42707237 -10.9150654,0")
+                        .style("fill","none")
+                        .attr("transform","matrix(0.5,0,0,0.5,0.5,0.5)");
+                    return true;
+				}
+
+				else {
+                    container.append("text")
+                        .classed("cardinality", true)
+                        .attr("text-anchor", "middle")
+                        .attr("dy", "0.5ex")
+                        .text(cardinalityText);
+                    return true; // drawing successful
+                 }
 			} else {
 				return false;
 			}
@@ -325,7 +348,8 @@ module.exports = (function () {
 			if (that.markerElement()) {
 				that.markerElement().select("path").classed("hovered", enable);
 				if (that.cardinalityElement()) {
-					that.cardinalityElement().classed("hovered", enable);
+					that.cardinalityElement().selectAll("path").classed("hovered-MathSymbol", enable);
+                    that.cardinalityElement().classed("hovered", enable);
 				}
 			}
 			var subAndSuperProperties = getSubAndSuperProperties();
