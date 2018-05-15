@@ -263,6 +263,7 @@ module.exports = function (graph) {
 
 	function loadOntologyFromUri(relativePath, requestedUri) {
 		fileToLoad=requestedUri;
+		console.log("Ontology to load : "+fileToLoad);
 		var cachedOntology = cachedConversions[relativePath];
 		var trimmedRequestedUri = requestedUri.replace(/\/$/g, "");
 		var filename = trimmedRequestedUri.slice(trimmedRequestedUri.lastIndexOf("/") + 1);
@@ -428,9 +429,10 @@ module.exports = function (graph) {
 				uploadButton.property("disabled", true);
 			} else {
 				inputLabel.text(selectedFiles[0].name);
+                fileToLoad=selectedFiles[0].name;
 				uploadButton.property("disabled", false);
-
 				keepOntologySelectionOpenShortly();
+				uploadButton.node().click();
 			}
 		});
 

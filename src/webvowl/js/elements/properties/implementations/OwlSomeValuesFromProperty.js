@@ -13,7 +13,7 @@ module.exports = (function () {
 			.type("owl:someValuesFrom");
 
 		this.generateCardinalityText = function () {
-			var cardinalityText = "∃";
+			var cardinalityText = "E";
 
 			var superCardinalityText = superGenerateCardinalityText();
 			if (superCardinalityText) {

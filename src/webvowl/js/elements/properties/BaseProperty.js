@@ -296,7 +296,8 @@ module.exports = (function () {
 
 			if (cardinalityText) {
 				that.cardinalityElement(container);
-				if (cardinalityText.indexOf("∀")===0 && cardinalityText.length===1){// first element and len==1
+				if (cardinalityText.indexOf("A")===0 && cardinalityText.length===1){
+
 					// replacing text elements to svg elements;
                     container.classed("cardinality", true)
                         .attr("text-anchor", "middle")
@@ -306,7 +307,7 @@ module.exports = (function () {
 							.style("fill","none")
 							.attr("transform","matrix(0.5,0,0,0.5,0.5,0.5)");
 					return true;
-				} else if (cardinalityText.indexOf("∃")===0 && cardinalityText.length===1){
+				} else if (cardinalityText.indexOf("E")===0 && cardinalityText.length===1 ){
                     container.classed("cardinality", true)
                         .attr("text-anchor", "middle")
                         .append("path")
@@ -316,7 +317,6 @@ module.exports = (function () {
                         .attr("transform","matrix(0.5,0,0,0.5,0.5,0.5)");
                     return true;
 				}
-
 				else {
                     container.append("text")
                         .classed("cardinality", true)
