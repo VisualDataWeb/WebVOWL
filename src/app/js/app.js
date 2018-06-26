@@ -18,6 +18,8 @@ module.exports = function () {
         zoomSlider     = require("./menu/zoomSlider")     (graph),
 		sidebar        = require("./sidebar")             (graph),
         configMenu     = require("./menu/configMenu")     (graph),
+		loadingModule  = require("./loadingModule")       (graph),
+
 
 	// Graph modules
 		colorExternalsSwitch 	 = webvowl.modules.colorExternalsSwitch(graph),
@@ -65,12 +67,12 @@ module.exports = function () {
 		modeMenu.setup(pickAndPin, nodeScalingSwitch, compactNotationSwitch, colorExternalsSwitch);
 		pauseMenu.setup();
 		sidebar.setup();
-
+		loadingModule.setup();
 
         var agentVersion=getInternetExplorerVersion();
-        console.log("agent Version "+agentVersion);
        	if (agentVersion> 0 && agentVersion<= 11) {
-        	console.log("this agent is not supported");
+            console.log("Agent version "+agentVersion);
+        	console.log("This agent is not supported");
 			d3.select("#browserCheck").classed("hidden", false);
 			d3.select("#killWarning" ).classed("hidden", true);
 			d3.select("#optionsArea" ).classed("hidden", true);
@@ -78,6 +80,7 @@ module.exports = function () {
         } else {
 			d3.select("#logo").classed("hidden", false);
 			if (agentVersion===12) {
+				// allow Mircosoft Edge Browser but with warning
                 d3.select("#browserCheck").classed("hidden", false);
                 d3.select("#killWarning").classed("hidden", false);
             } else {
@@ -91,6 +94,7 @@ module.exports = function () {
 
 			// give the options the pointer to the some menus for import and export
 			options.literalFilter(emptyLiteralFilter);
+			options.loadingModule(loadingModule);
 			options.filterMenu(filterMenu);
 			options.modeMenu(modeMenu);
 			options.gravityMenu(gravityMenu);
@@ -108,20 +112,14 @@ module.exports = function () {
             configMenu.setup();
 			graph.start();
 			adjustSize();
-			// graph.updateSideBarVis(true);
 
 			var defZoom;
 			var w = graph.options().width();
 			var h = graph.options().height();
 			defZoom = Math.min(w, h) / 1000;
-
-
 			graph.setDefaultZoom(defZoom);
 
-			// set svg hovering classes
-
-
-			// prevent backspace killer
+			// prevent backspace reloading event
             var htmlBody=d3.select("body");
             d3.select(document).on("keydown", function (e) {
                 if (d3.event.keyCode === 8 && d3.event.target===htmlBody.node() ) {
@@ -129,6 +127,7 @@ module.exports = function () {
                     d3.event.preventDefault();
                 }
             });
+			loadingModule.parseUrlAndLoadOntology(); // loads automatically the ontology provided by the parameters
         }
 	};
 
@@ -136,8 +135,8 @@ module.exports = function () {
 		pauseMenu.reset();
 		graph.options().navigationMenu().hideAllMenus();
 
-		if (jsonText===undefined && filename===undefined){
-			console.log("Nothing to load");
+		if ((jsonText===undefined && filename===undefined) || (jsonText.length===0)){
+            loadingModule.notValidJsonFile();
 			return;
 		}
 
@@ -153,8 +152,7 @@ module.exports = function () {
 			}
 			if (validJSON===false){
 				// the server output is not a valid json file
-				console.log("Retrieved data is not valid! (JSON.parse Error)");
-				ontologyMenu.emptyGraphError();
+                loadingModule.notValidJsonFile();
 				return;
 			}
 
@@ -171,25 +169,28 @@ module.exports = function () {
 			}
 		}
 
-		//@WORKAROUND
-		// check if data has classes and properties;
-		var classCount				  = parseInt(data.metrics.classCount);
-		var objectPropertyCount		  = parseInt(data.metrics.objectPropertyCount);
-		var datatypePropertyCount	  = parseInt(data.metrics.datatypePropertyCount);
 
-		if (classCount === 0 && objectPropertyCount===0 && datatypePropertyCount===0 ){
-			// generate message for the user;
-			ontologyMenu.emptyGraphError();
+		// check if we have graph data
+        var classCount =0;
+		if (data.class!=undefined){
+			classCount=data.class.length;
 		}
 
-		exportMenu.setJsonText(jsonText);
-		options.data(data);
-		graph.load();
-		
-		sidebar.updateOntologyInformation(data, statistics);
-		exportMenu.setFilename(filename);
-        graph.updateZoomSliderValueFromOutside();
-        adjustSize();
+		if (classCount === 0 ){
+			// generate message for the user;
+			loadingModule.emptyGraphContentError();
+		}else {
+            loadingModule.validJsonFile();
+            ontologyMenu.setCachedOntology(filename, jsonText);
+            exportMenu.setJsonText(jsonText);
+            options.data(data);
+            graph.options().loadingModule().setPercentMode();
+            graph.load();
+            sidebar.updateOntologyInformation(data, statistics);
+            exportMenu.setFilename(filename);
+            graph.updateZoomSliderValueFromOutside();
+            adjustSize();
+        }
 	}
 
 	function adjustSize() {
@@ -201,18 +202,21 @@ module.exports = function () {
 		if (sidebar.getSidebarVisibility()==="0"){
             height = window.innerHeight - 40 ;
             width = window.innerWidth;
-
         }
 
+        graph.adjustingGraphSize(true);
 		graphContainer.style("height", height + "px");
 		svg.attr("width", width)
 			.attr("height", height);
 
 		options.width ( width  )
 			   .height( height );
-		graph.updateStyle();
 
+		graph.updateStyle();
         adjustSliderSize();
+
+        d3.select("#loadingInfo-container").style("height",0.5*(height-80)+"px");
+        loadingModule.checkForScreenSize();
 
 		// update also the padding options of loading and the logo positions;
 		var warningDiv=d3.select("#browserCheck");
@@ -250,26 +254,25 @@ module.exports = function () {
         var sliderHeight=150;
         if (fullHeight<150) {
             // hide the slider button;
-            d3.select("#zoomSliderParagraph").classed("hidden", true);//var sliderPos=zoomOutPos-sliderHeight;
-            d3.select("#zoomOutButton").classed("hidden", true);//var sliderPos=zoomOutPos-sliderHeight;
-            d3.select("#zoomInButton").classed("hidden", true);//var sliderPos=zoomOutPos-sliderHeight;
-            d3.select("#centerGraphButton").classed("hidden", true);//var sliderPos=zoomOutPos-sliderHeight;
+            d3.select("#zoomSliderParagraph").classed("hidden", true);
+            d3.select("#zoomOutButton").classed("hidden", true);
+            d3.select("#zoomInButton").classed("hidden", true);
+            d3.select("#centerGraphButton").classed("hidden", true);
             return;
         }
-        d3.select("#zoomSliderParagraph").classed("hidden",false);//var sliderPos=zoomOutPos-sliderHeight;
-        d3.select("#zoomOutButton").classed("hidden",false);//var sliderPos=zoomOutPos-sliderHeight;
-        d3.select("#zoomInButton").classed("hidden",false);//var sliderPos=zoomOutPos-sliderHeight;
-        d3.select("#centerGraphButton").classed("hidden",false);//var sliderPos=zoomOutPos-sliderHeight;
+        d3.select("#zoomSliderParagraph").classed("hidden",false);
+        d3.select("#zoomOutButton").classed("hidden",false);
+        d3.select("#zoomInButton").classed("hidden",false);
+        d3.select("#centerGraphButton").classed("hidden",false);
 
         var zoomInPos=zoomOutPos-20;
         var centerPos=zoomInPos-20;
         if (fullHeight<280){
             // hide the slider button;
-            d3.select("#zoomSliderParagraph").classed("hidden",true);//var sliderPos=zoomOutPos-sliderHeight;
+            d3.select("#zoomSliderParagraph").classed("hidden",true);
             d3.select("#zoomOutButton").style("top",zoomOutPos+"px");
             d3.select("#zoomInButton").style("top",zoomInPos+"px");
             d3.select("#centerGraphButton").style("top",centerPos+"px");
-            // d3.select("#sliderRange").style("width",s_height+"px");
             return;
         }
 
@@ -281,9 +284,6 @@ module.exports = function () {
         d3.select("#zoomInButton").style("top",zoomInPos+"px");
         d3.select("#centerGraphButton").style("top",centerPos+"px");
         d3.select("#zoomSliderParagraph").style("top",sliderPos+"px");
-
-
-
     }
 
 	function getInternetExplorerVersion(){

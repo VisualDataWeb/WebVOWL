@@ -104,7 +104,7 @@ module.exports = (function () {
 		  container=node.labelElement();
 
 		if (!container){
-			console.log("no container found");
+			// console.log("no container found");
 			return;
 		}
 

@@ -28,6 +28,8 @@ module.exports = function (graphContainerSelector) {
         linkContainer,
         // Visual elements
         nodeElements,
+        initialLoad=true,
+        updateRenderingDuringSimulation=false,
         labelGroupElements,
         linkGroups,
         linkPathElements,
@@ -42,6 +44,7 @@ module.exports = function (graphContainerSelector) {
         force,
         dragBehaviour,
         zoomFactor,
+        centerGraphViewOnLoad=false,
         transformAnimation = false,
         graphTranslation,
         graphUpdateRequired = false,
@@ -52,6 +55,8 @@ module.exports = function (graphContainerSelector) {
         defaultZoom = 1.0,
         defaultTargetZoom = 0.8,
         global_dof = -1,
+        keepDetailsCollapsedOnLoading=true,
+        adjustingGraphSize=false,
         zoom;
 
     /** --------------------------------------------------------- **/
@@ -119,11 +124,7 @@ module.exports = function (graphContainerSelector) {
                 zoom.scale( zoomFactor );
                 graph.options().zoomSlider().updateZoomSliderValue(zoomFactor);
             });
-
-
-
     };
-
 
     graph.setZoom = function (value) {
         zoom.scale(value);
@@ -165,7 +166,7 @@ module.exports = function (graphContainerSelector) {
         options.graphContainerSelector(graphContainerSelector);
         var moved = false;
         force = d3.layout.force()
-            .on("tick", recalculatePositions);
+            .on("tick", hiddenRecalculatePositions);
 
         dragBehaviour = d3.behavior.drag()
             .origin(function (d) {
@@ -201,6 +202,7 @@ module.exports = function (graphContainerSelector) {
             .duration(150)
             .scaleExtent([options.minMagnification(), options.maxMagnification()])
             .on("zoom", zoomed);
+        force.stop();
     }
 
     graph.lazyRefresh=function(){
@@ -208,9 +210,63 @@ module.exports = function (graphContainerSelector) {
         recalculatePositions();
     };
 
+    graph.adjustingGraphSize=function (val){
+        adjustingGraphSize=val;
+    };
 
 
+    function hiddenRecalculatePositions(){
+        if (graph.options().loadingModule().successfullyLoadedOntology()===false){
+            force.stop();
+            d3.select("#progressBarValue").node().innerHTML="";
+            graph.updateProgressBarMode();
+            graph.options().loadingModule().showErrorDetailsMessage(hiddenRecalculatePositions);
+            if (keepDetailsCollapsedOnLoading && adjustingGraphSize===false){
+                graph.options().loadingModule().collapseDetails("hiddenRecalculatePositions");
+            }
+            return;
+        }
+        if (updateRenderingDuringSimulation===false){
+            var value=1.0-10*force.alpha();
+            var percent=parseInt(200*value)+"%";
+            graph.options().loadingModule().setPercentValue(percent);
+            d3.select("#progressBarValue").style("width",percent);
+            d3.select("#progressBarValue").node().innerHTML=percent;
 
+            if (value>0.49){
+                updateRenderingDuringSimulation=true;
+                // show graph container;
+                if (graphContainer) {
+                    graphContainer.style("opacity", "1");
+                    percent="100%";
+                    d3.select("#progressBarValue").style("width",percent);
+                    d3.select("#progressBarValue").node().innerHTML=percent;
+                    graph.options().ontologyMenu().append_message_toLastBulletPoint("done");
+                }
+                centerGraphViewOnLoad=false;
+                if (initialLoad) {
+                    if (graph.paused() === false)
+                        force.start();
+                    initialLoad=false;
+                    centerGraphViewOnLoad=true;
+                }
+                force.on("tick",recalculatePositions);
+                recalculatePositions();
+                if (centerGraphViewOnLoad===true && force.nodes().length>0) {
+                    graph.forceRelocationEvent();
+                }
+
+                if (graph.options().loadingModule().missingImportsWarning()===false) {
+                    graph.options().loadingModule().hideLoadingIndicator();
+                    graph.options().ontologyMenu().append_bulletPoint("Successfully loaded ontology");
+                    graph.options().loadingModule().setSuccessful();
+                }else {
+                    graph.options().loadingModule().showWarningDetailsMessage();
+                    graph.options().ontologyMenu().append_bulletPoint("Loaded ontology with warnings");
+                }
+            }
+        }
+    }
     function recalculatePositions() {
         // Set node positions
         nodeElements.attr("transform", function (node) {
@@ -435,20 +491,30 @@ module.exports = function (graphContainerSelector) {
     // Loads all settings, removes the old graph (if it exists) and draws a new one.
     graph.start = function () {
         force.stop();
-        loadGraphData();
+        loadGraphData(true);
         redrawGraph();
-        graph.update();
+        graph.update(true);
+
+        if (graph.options().loadingModule().successfullyLoadedOntology()===false){
+            graph.options().loadingModule().setErrorMode();
+        }
+
     };
 
     // Updates only the style of the graph.
     graph.updateStyle = function () {
         refreshGraphStyle();
-        force.start();
+        if (graph.options().loadingModule().successfullyLoadedOntology()===false){
+            force.stop();
+        }else {
+            force.start();
+        }
     };
 
     graph.reload = function () {
         loadGraphData();
-        this.update();
+        graph.update();
+
     };
 
     graph.load = function () {
@@ -469,7 +535,15 @@ module.exports = function (graphContainerSelector) {
     };
 
     // Updates the graphs displayed data and style.
-    graph.update = function () {
+    graph.update = function (init) {
+        var validOntology=graph.options().loadingModule().successfullyLoadedOntology();
+        if (validOntology===false && (init && init===true) ){
+            graph.options().loadingModule().collapseDetails();
+            return;
+        }
+        if (validOntology===false){ return; }
+
+        keepDetailsCollapsedOnLoading=false;
         refreshGraphData();
         // update node map
         nodeMap = [];
@@ -495,6 +569,7 @@ module.exports = function (graphContainerSelector) {
                 }
             }
         }
+
         force.start();
         redrawContent();
         graph.updatePulseIds(nodeArrayForPulse);
@@ -613,6 +688,7 @@ module.exports = function (graphContainerSelector) {
 
     // removes data when data could not be loaded
     graph.clearGraphData = function () {
+        force.stop();
         var sidebar = graph.options().sidebar();
         if (sidebar)
             sidebar.clearOntologyInformation();
@@ -666,17 +742,34 @@ module.exports = function (graphContainerSelector) {
 
     }
 
-    function loadGraphData() {
+    graph.updateProgressBarMode=function(){
+        var loadingModule=graph.options().loadingModule();
+
+        var state=loadingModule.getProgressBarMode();
+        switch (state) {
+            case  0: loadingModule.setErrorMode(); break;
+            case  1: loadingModule.setBusyMode() ;break;
+            case  2: loadingModule.setPercentMode();break;
+            default: loadingModule.setPercentMode();
+        }
+    };
+
+    function loadGraphData(init) {
+
         // reset the locate button and previously selected locations and other variables
+        var loadingModule=graph.options().loadingModule();
+        force.stop();
         nodeArrayForPulse = [];
         pulseNodeIds = [];
         locationId = 0;
         d3.select("#locateSearchResult").classed("highlighted", false);
         d3.select("#locateSearchResult").node().title = "Nothing to locate, enter search term.";
 
-
+        if (init){
+            force.stop();
+            return;
+        }
         parser.parse(options.data());
-
         unfilteredData = {
             nodes: parser.nodes(),
             properties: parser.properties()
@@ -694,10 +787,38 @@ module.exports = function (graphContainerSelector) {
         parser.parseSettings();
         graphUpdateRequired = parser.settingsImported();
         graph.options().searchMenu().requestDictionaryUpdate();
+        initialLoad = true;
 
-        // resets the zoom and translation so we have an overview for the data;
-     //   graph.reset();
+        // loading handler
+        updateRenderingDuringSimulation = true;
+        centerGraphViewOnLoad = false;
+
+        var validOntology=graph.options().loadingModule().successfullyLoadedOntology();
+        if (graphContainer && validOntology===true) {
+            graphContainer.style("opacity", "0");
+            updateRenderingDuringSimulation=false;
+            graph.options().ontologyMenu().append_bulletPoint("Generating visualization ... ");
+            loadingModule.setPercentMode();
+            force.on("tick", hiddenRecalculatePositions);
+            force.start();
+        } else {
+            force.stop();
+            graph.options().ontologyMenu().append_bulletPoint("Failed to load ontology");
+            loadingModule.setErrorMode();
+        }
+
     }
+
+    graph.handleOnLoadingError=function(){
+        force.stop();
+        graph.clearGraphData();
+        graph.options().ontologyMenu().append_bulletPoint("Failed to load ontology");
+        d3.select("#progressBarValue").node().innherHTML="";
+        d3.select("#progressBarValue").classed("busyProgressBar",false);
+        graph.options().loadingModule().setErrorMode();
+        graph.options().loadingModule().showErrorDetailsMessage();
+
+    };
 
     //Applies the data of the graph options object and parses it. The graph is not redrawn.
     function refreshGraphData() {
@@ -720,6 +841,7 @@ module.exports = function (graphContainerSelector) {
             if (classNodes[i].setRectangularRepresentation)
                 classNodes[i].setRectangularRepresentation(graph.options().rectangularRepresentation());
         }
+
     }
 
     function filterFunction(module, data, initializing) {
@@ -871,9 +993,22 @@ module.exports = function (graphContainerSelector) {
                             if (name === searchString) computeDistanceToCenter(node);
                             else {
                                 node.property().removeHalo();
-                                if (!node.property().inverse().getHalos())
-                                    node.property().inverse().drawHalo();
-                                computeDistanceToCenter(node, true);
+                                if (node.property().inverse()) {
+                                    if (!node.property().inverse().getHalos())
+                                        node.property().inverse().drawHalo();
+                                    computeDistanceToCenter(node, true);
+                                }
+                                if (node.property().equivalents()) {
+                                    var eq=node.property().equivalents();
+                                    for (var e=0;e<eq.length;e++){
+                                        if (!eq[e].getHalos())
+                                            eq[e].drawHalo();
+                                    }
+                                    if (!node.property().getHalos())
+                                        node.property().drawHalo();
+                                    computeDistanceToCenter(node, false);
+
+                                }
                             }
                         }
                     }
@@ -914,10 +1049,25 @@ module.exports = function (graphContainerSelector) {
         var radius;
 
         if (node.property && highlightOfInv === true) {
-            rectHalo = node.property().inverse().getHalos().select("rect");
-            rectHalo.classed("hidden", true);
+            if (node.property().inverse()) {
+                rectHalo = node.property().inverse().getHalos().select("rect");
 
-            roundHalo = node.property().inverse().getHalos().select("circle");
+            } else{
+                if (node.property().getHalos())
+                    rectHalo = node.property().getHalos().select("rect");
+                else{
+                    node.property().drawHalo();
+                    rectHalo = node.property().getHalos().select("rect");
+                }
+            }
+            rectHalo.classed("hidden", true);
+            if (node.property().inverse()) {
+                if (node.property().inverse().getHalos()) {
+                    roundHalo = node.property().inverse().getHalos().select("circle");
+                }
+            }else{
+                roundHalo = node.property().getHalos().select("circle");
+            }
             if (roundHalo.node() === null) {
                 radius = node.property().inverse().width() + 15;
 
@@ -1199,6 +1349,7 @@ module.exports = function (graphContainerSelector) {
         if (nodeIdArray.length === 0) {
             return; // nothing to highlight
         }
+
         pulseNodeIds = [];
         nodeArrayForPulse = nodeIdArray;
         var missedIds = [];

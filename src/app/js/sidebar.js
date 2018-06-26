@@ -98,7 +98,7 @@ module.exports = function (graph) {
 		ontologyInfo = data.header || {};
 
 		updateGraphInformation();
-		displayGraphStatistics(data.metrics, statistics);
+		displayGraphStatistics(undefined, statistics);
 		displayMetadata(ontologyInfo.other);
 
 		// Reset the sidebar selection

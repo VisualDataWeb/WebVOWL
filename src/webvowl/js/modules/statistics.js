@@ -22,7 +22,6 @@ module.exports = function () {
 
 	statistics.filter = function (classesAndDatatypes, properties) {
 		resetStoredData();
-
 		storeTotalCounts(classesAndDatatypes, properties);
 		storeClassAndDatatypeCount(classesAndDatatypes);
 		storePropertyCount(properties);
@@ -69,7 +68,8 @@ module.exports = function () {
 		var datatypeSet = d3.set(),
 			hasThing = false,
 			hasNothing = false;
-
+        classCount=0;
+        var old=0,newcc=0;
 		classesAndDatatypes.forEach(function (node) {
 			if (elementTools.isDatatype(node)) {
 				datatypeSet.add(node.defaultLabel());
@@ -79,15 +79,21 @@ module.exports = function () {
 				} else if (node instanceof OwlNothing) {
 					hasNothing = true;
 				} else {
-					classCount += 1;
-					classCount += countElementArray(node.equivalents());
+					old=classCount;
+					var adds= 1+countElementArray(node.equivalents());
+                    classCount += adds;
+					newcc=classCount;
 				}
+			} else if (node instanceof SetOperatorNode){
+                old=classCount;
+                classCount += 1;
+                newcc=classCount;
 			}
 		});
 
 		// count things and nothings just a single time
-		classCount += hasThing ? 1 : 0;
-		classCount += hasNothing ? 1 : 0;
+		// classCount += hasThing ? 1 : 0;
+		// classCount += hasNothing ? 1 : 0;
 
 		datatypeCount = datatypeSet.size();
 	}
@@ -95,11 +101,18 @@ module.exports = function () {
 	function storePropertyCount(properties) {
 		for (var i = 0, l = properties.length; i < l; i++) {
 			var property = properties[i];
-
-			if (elementTools.isObjectProperty(property)) {
-				objectPropertyCount += getExtendedPropertyCount(property);
-			} else if (elementTools.isDatatypeProperty(properties)) {
-				datatypePropertyCount += getExtendedPropertyCount(property);
+            var attr;
+            var result=false;
+            if (property.attributes){
+                attr=property.attributes();
+                if (attr && attr.indexOf("datatype")!=-1){
+                    result=true;
+                }
+            }
+            if (result===true) {
+                datatypePropertyCount += getExtendedPropertyCount(property);
+            }else if (elementTools.isObjectProperty(property)) {
+                objectPropertyCount += getExtendedPropertyCount(property);
 			}
 		}
 		propertyCount = objectPropertyCount + datatypePropertyCount;
@@ -138,11 +151,23 @@ module.exports = function () {
 	}
 
 	function storeTotalIndividualCount(nodes) {
+		var sawIndividuals={};
 		var totalCount = 0;
 		for (var i = 0, l = nodes.length; i < l; i++) {
-			totalCount += nodes[i].individuals().length || 0;
-		}
+            var individuals = nodes[i].individuals();
+
+            var tempCount = 0;
+            for (var iA = 0; iA < individuals.length; iA++) {
+                if (sawIndividuals[individuals[iA].iri()] === undefined) {
+                    sawIndividuals[individuals[iA].iri()]=1; // this iri for that individual is now set to 1 >> seen it
+                    tempCount++;
+                }
+            }
+            totalCount += tempCount;
+        }
 		totalIndividualCount = totalCount;
+		sawIndividuals={}; // clear the object
+
 	}
 
 

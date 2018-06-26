@@ -21,6 +21,7 @@ module.exports = function () {
 		// menus
 		gravityMenu,
 		filterMenu,
+        loadingModule,
 		modeMenu,
 		pausedMenu,
 		pickAndPinModule,
@@ -263,6 +264,11 @@ module.exports = function () {
 		return options;
 	};
 
+    options.loadingModule=function (p) {
+        if (!arguments.length) return loadingModule;
+        loadingModule=p;
+        return options;
+    };
 
 	// define url loadable options;
     options.setOptionsFromURL=function(opts){
