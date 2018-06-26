@@ -37,7 +37,7 @@ module.exports =  function (graph) {
             d3.select("#loading-info").classed("hidden",true);
         } else {
             // check if it should be visible
-            if (visibilityStatus==true){
+            if (visibilityStatus===true){
               d3.select("#loading-info").classed("hidden",false);
             } else{
               d3.select("#loading-info").classed("hidden",true);
@@ -238,7 +238,7 @@ module.exports =  function (graph) {
         }else{
             // involve the o2v conveter;
             ontologyMenu.append_message("Retrieving ontology from JSON URL " + filename);
-            requestServerTimeStampForJSON_URL(ontologyMenu.callbackLoad_JSON_FromURL,["read?json="+filename,filename])
+            requestServerTimeStampForJSON_URL(ontologyMenu.callbackLoad_JSON_FromURL,["read?json="+filename,filename]);
         }
     };
 
@@ -273,7 +273,7 @@ module.exports =  function (graph) {
             // involve the o2v conveter;
             var encoded=encodeURIComponent(filename);
             ontologyMenu.append_bulletPoint("Retrieving ontology from IRI: " + filename);
-            requestServerTimeStampForIRI_Converte(ontologyMenu.callbackLoad_Ontology_FromIRI,["convert?iri="+encoded,filename])
+            requestServerTimeStampForIRI_Converte(ontologyMenu.callbackLoad_Ontology_FromIRI,["convert?iri="+encoded,filename]);
         }
     };
 
@@ -320,7 +320,7 @@ module.exports =  function (graph) {
 //2] File Upload to OWL2VOWL Converter
                 // 1) check if we can get a timeStamp;
                 var parameterArray=[selectedFile,filename];
-                requestServerTimeStamp(ontologyMenu.callbackLoadFromOntology,parameterArray)
+                requestServerTimeStamp(ontologyMenu.callbackLoadFromOntology,parameterArray);
             }
         }
     };
@@ -405,7 +405,7 @@ module.exports =  function (graph) {
         loadingWasSuccessFul=false;
 
         var old=d3.select("#bulletPoint_container").node().innerHTML;
-        if (old.indexOf("(with warnings)")!=-1 ) { missingImportsWarning=true;}
+        if (old.indexOf("(with warnings)")!==-1 ) { missingImportsWarning=true;}
 
         if (ontologyMenu.cachedOntology(ontoContent)) {
             ontologyMenu.append_bulletPoint("Loading already cached ontology: " + filename);

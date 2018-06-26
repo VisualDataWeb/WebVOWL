@@ -172,7 +172,7 @@ module.exports = function () {
 
 		// check if we have graph data
         var classCount =0;
-		if (data.class!=undefined){
+		if (data.class!==undefined){
 			classCount=data.class.length;
 		}
 

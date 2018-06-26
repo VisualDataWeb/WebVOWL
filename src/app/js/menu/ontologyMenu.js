@@ -247,7 +247,7 @@ module.exports = function (graph) {
 
 	ontologyMenu.setLoadingStatusInfo=function(message){
 		// forward call
-        setLoadingStatusInfo(message)
+        setLoadingStatusInfo(message);
     };
 
     function getLoadingStatusOnceCallBacked(callback,parameter){
@@ -291,7 +291,7 @@ module.exports = function (graph) {
 
 	function callbackUpdateLoadingMessage(msg){
         d3.xhr("loadingStatus", "application/text", function (error, request) {
-        	if (request!=undefined){
+        	if (request!==undefined){
     	        setLoadingStatusInfo(request.responseText+ "<br>"+msg);
         	}else{
         		append_message(msg);
@@ -329,7 +329,7 @@ module.exports = function (graph) {
 
 	function callbackFromIRI_Success(parameter){
         var local_conversionId=parameter[2];
-        if (local_conversionId!=conversion_sessionId){
+        if (local_conversionId!==conversion_sessionId){
             console.log("The conversion process for file:"+parameter[1]+" has been canceled!");
             ontologyMenu.conversionFinished(local_conversionId);
             return;
@@ -369,7 +369,7 @@ module.exports = function (graph) {
 
 	function callbackFromJSON_Success(parameter){
         var local_conversionId=parameter[2];
-        if (local_conversionId!=conversion_sessionId){
+        if (local_conversionId!==conversion_sessionId){
             console.log("The conversion process for file:"+parameter[1]+" has been canceled!");
             return;
         }
@@ -380,7 +380,7 @@ module.exports = function (graph) {
         var error=parameter[0];
         var request=parameter[1];
         var local_conversionId=parameter[2];
-        if (local_conversionId!=conversion_sessionId){
+        if (local_conversionId!==conversion_sessionId){
             console.log("This thread has been canceled!!");
             ontologyMenu.conversionFinished(local_conversionId);
             return;
@@ -403,7 +403,7 @@ module.exports = function (graph) {
 		var error=parameter[0];
 		var request=parameter[1];
 		var local_conversionId=parameter[2];
-		if (local_conversionId!=conversion_sessionId){
+		if (local_conversionId!==conversion_sessionId){
             console.log("The loading process of JSON_URL has been canceled!");
 			return;
 		}
@@ -448,7 +448,7 @@ module.exports = function (graph) {
     	var xhr=parameter[0];
     	var filename=parameter[1];
     	var local_threadId=parameter[2];
-    	if (local_threadId!=conversion_sessionId){
+    	if (local_threadId!==conversion_sessionId){
     		console.log("The conversion process for file:"+filename+" has been canceled!");
             ontologyMenu.conversionFinished(local_threadId);
     		return;
@@ -519,8 +519,12 @@ module.exports = function (graph) {
 	}
 
     ontologyMenu.showLoadingStatus=function (visible){
-		if (visible===true){ displayLoadingIndicators(); }
-		else {hideLoadingInformations()}
+		if (visible===true){
+			displayLoadingIndicators();
+		}
+		else {
+			hideLoadingInformations();
+		}
 	};
 
 	function displayLoadingIndicators() {

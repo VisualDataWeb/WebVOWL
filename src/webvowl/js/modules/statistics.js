@@ -105,7 +105,7 @@ module.exports = function () {
             var result=false;
             if (property.attributes){
                 attr=property.attributes();
-                if (attr && attr.indexOf("datatype")!=-1){
+                if (attr && attr.indexOf("datatype")!==-1){
                     result=true;
                 }
             }
