@@ -91,7 +91,6 @@ module.exports = (function () {
 		this.focused = function (p) {
 			if (!arguments.length) return focused;
 			focused = p;
-
 			return this;
 		};
 

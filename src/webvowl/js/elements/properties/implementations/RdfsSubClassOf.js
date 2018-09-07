@@ -20,9 +20,6 @@ module.exports = (function () {
 			return this;
 		};
 
-
-
-
 		this.linkType("dotted")
 			.markerType("white")
 			.styleClass("subclass")

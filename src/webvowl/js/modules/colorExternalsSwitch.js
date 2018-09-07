@@ -35,10 +35,10 @@ module.exports = function () {
 
 	function filterExternalElements(elements) {
 		return elements.filter(function (element) {
-			// if (element.visualAttributes().indexOf("deprecated") >= 0) {
-			// 	// deprecated is the only attribute which has preference over external
-			// 	return false;
-			// }
+			if (element.visualAttributes().indexOf("deprecated") >= 0) {
+				// deprecated is the only attribute which has preference over external
+				return false;
+			}
 
 			return element.attributes().indexOf("external") >= 0;
 		});

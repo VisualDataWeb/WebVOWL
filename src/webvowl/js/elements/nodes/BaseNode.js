@@ -65,9 +65,9 @@ module.exports = (function () {
 		};
 
         this.removePropertyElement=function(property){
-            console.log("Calling removing old property!"+ property.iri());
+            // console.log("Calling removing old property!"+ property.iri());
             if (assignedProperties.indexOf(property)!==-1){
-                console.log("Found it!");
+                // console.log("Found it!");
                 assignedProperties.splice(assignedProperties.indexOf(property),1);
             }
         };
@@ -86,7 +86,7 @@ module.exports = (function () {
             that.baseIri(other.baseIri());
             if (other.type()==="owl:Class"){
             	that.backupLabel(other.label());
-            	console.log("copied backup label"+that.backupLabel());
+            	// console.log("copied backup label"+that.backupLabel());
 			}
 			if (other.backupLabel()!==undefined){
             	that.backupLabel(other.backupLabel());
@@ -206,7 +206,7 @@ module.exports = (function () {
                     that.frozen(graph.paused());
                     that.locked(graph.paused());
                     graph.ignoreOtherHoverEvents(false);
-                    console.log("Calling blur on Node!");
+                    // console.log("Calling blur on Node!");
                     if (backupFullIri) {
                         var sanityCheckResult = graph.checkIfIriClassAlreadyExist(backupFullIri);
                         if (sanityCheckResult === false) {

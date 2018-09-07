@@ -740,8 +740,8 @@ module.exports = function (graph) {
     var div_width = d3.select("#generalDetailsEdit").node().getBoundingClientRect().width ;
     div_width+=10;
     // title :
-        //TODO layout bug<< bounding rect returns wrong value oO
-        console.log("Div WIDTH="+d3.select("#generalDetailsEdit").node().getBoundingClientRect());
+    //     //TODO layout bug<< bounding rect returns wrong value oO
+    //     console.log("Div WIDTH="+d3.select("#generalDetailsEdit").node().getBoundingClientRect());
 
     var title_labelWidth   = d3.select("#titleEditor-label"  ).node().getBoundingClientRect().width + 20;
     var iri_labelWidth     = d3.select("#iriEditor-label"    ).node().getBoundingClientRect().width + 20;

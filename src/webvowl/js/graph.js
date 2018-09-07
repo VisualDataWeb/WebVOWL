@@ -333,7 +333,7 @@ module.exports = function (graphContainerSelector) {
                     var targetRangeNode = graph.getTargetNode(rangeDraggerEndPos);
                     if (elementTools.isDatatype(targetRangeNode)===true) {
                         targetRangeNode = null;
-                        console.log("---------------TARGET NODE IS A DATATYPE/ LITERAL ------------");
+                        console.log("---------------TARGET NODE IS A DATATYPE / LITERAL ------------");
                     }
 
                     if (targetRangeNode===null){
@@ -363,7 +363,7 @@ module.exports = function (graphContainerSelector) {
                     var targetDomainNode = graph.getTargetNode(domainDraggerEndPos);
                     if (elementTools.isDatatype(targetDomainNode)===true) {
                         targetDomainNode = null;
-                        console.log("---------------TARGET NODE IS A DATATYPE/ LITERAL ------------");
+                        console.log("---------------TARGET NODE IS A DATATYPE / LITERAL ------------");
                     }
                     shadowClone.hideClone(true);
                     if (targetDomainNode===null){
@@ -1994,12 +1994,12 @@ module.exports = function (graphContainerSelector) {
         // updates the property domain and range
         for (var i = 0; i < unfilteredData.properties.length; i++) {
             if (unfilteredData.properties[i].domain() === element) {
-                unfilteredData.properties[i].toString();
-                unfilteredData.properties[i].domain(aNode);
+              //  unfilteredData.properties[i].toString();
+                unfilteredData.properties[i].domain( aNode );
             }
             if (unfilteredData.properties[i].range()  === element) {
-                unfilteredData.properties[i].range( aNode);
-                unfilteredData.properties[i].toString();
+                unfilteredData.properties[i].range( aNode );
+              //  unfilteredData.properties[i].toString();
             }
         }
         unfilteredData.nodes.splice(unfilteredData.nodes.indexOf(element), 1);
@@ -2011,10 +2011,6 @@ module.exports = function (graphContainerSelector) {
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
         element=null;
-
-
-
-
 
     };
 
@@ -2379,7 +2375,7 @@ module.exports = function (graphContainerSelector) {
                             "Element not created!",1,false);
                         return false;
                     }
-                    if (allProps[i].domain()===range && allProps[i].range()===domain){
+                    if (allProps[i].domain()===range && allProps[i].range()===domain && allProps[i].type()=== property.type()){
                     graph.options().warningModule().showWarning("Warning",
                         "Inverse assignment already exist! ",
                         "Element not created!",1,false);

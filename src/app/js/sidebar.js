@@ -603,7 +603,7 @@ module.exports = function (graph) {
                 d3.select("#description").node().innerHTML = generalMetaObj.description;
         }
 
-        console.log(generalMetaObj.description);
+        // console.log(generalMetaObj.description);
 
     };
 
