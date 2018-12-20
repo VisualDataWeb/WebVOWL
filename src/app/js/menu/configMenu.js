@@ -9,6 +9,7 @@ module.exports = function (graph) {
             var searchMenu=graph.options().searchMenu();
             searchMenu.hideSearchEntries();
         });
+
         addCheckBox("showZoomSlider","Zoom controls","#zoomSliderOption",graph.options().zoomSlider().showSlider,0);
         addLabelWidthSlider("#maxLabelWidthSliderOption","maxLabelWidth","Max label width", graph.options().maxLabelWidth);
     };
@@ -32,10 +33,12 @@ module.exports = function (graph) {
         sliderContainer.append("label")
             .classed("description", true)
             .attr("for", identifier + "Slider")
+            .attr("id", identifier + "DescriptionLabel")
             .text(label);
         sliderValueLabel = sliderContainer.append("label")
             .classed("value", true)
             .attr("for", identifier + "Slider")
+            .attr("id", identifier + "valueLabel")
             .text(onChangeFunction());
 
         slider.on("input", function () {
@@ -48,6 +51,7 @@ module.exports = function (graph) {
 
         // add wheel event to the slider
         slider.on("wheel",function(){
+            if (slider.node().disabled===true) return;
             var wheelEvent=d3.event;
             var offset;
             if (wheelEvent.deltaY<0) offset=10;
@@ -81,9 +85,14 @@ module.exports = function (graph) {
                 // updating graph when silent is false or the parameter is not given.
                 if (updateLvl===1) {
                     graph.lazyRefresh();
+                    //graph.redrawWithoutForce
                 }
                 if (updateLvl===2){
                     graph.update();
+                }
+
+                if (updateLvl===3){
+                    graph.updateDraggerElements();
                 }
             }
 

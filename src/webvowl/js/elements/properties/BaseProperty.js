@@ -8,9 +8,9 @@ var math= require("../../util/math")();
 module.exports = (function () {
 
 	// Static variables
-	var labelHeight = 28,
-		labelWidth = 80,
-		smallestRadius = labelHeight / 2;
+    var labelHeight = 28,
+        labelWidth = 80,
+        smallestRadius = labelHeight / 2;
 
 
 	// Constructor, private variables and privileged methods
@@ -38,13 +38,23 @@ module.exports = (function () {
 			linkGroup,
 			markerElement,
 		// Other
+            ignoreLocalHoverEvents,
+            fobj,
 			pinGroupElement,
 			haloGroupElement,
 			myWidth=80,
             defaultWidth=80,
             shapeElement,
             textElement,
-			redundantProperties = [];
+            parent_labelObject,
+			backupFullIri,
+
+        redundantProperties = [];
+
+
+		this.existingPropertyIRI=function(url){
+			return graph.options().editSidebar().checkForExistingURL(url);
+		};
 
 		this.getHalos=function(){
 			return haloGroupElement;
@@ -52,6 +62,24 @@ module.exports = (function () {
 
 		this.getPin=function(){
 			return pinGroupElement;
+		};
+        this.labelObject=function (lo,once){
+            if (!arguments.length){
+                return parent_labelObject;
+            }
+            else {
+                parent_labelObject = lo;
+            	if (that.inverse() && once!==true){
+            		that.inverse().labelObject(lo,true);
+				}
+
+            }
+        };
+        this.hide=function(val){
+        	that.labelElement().classed("hidden",val);
+        	that.linkGroup().classed("hidden",val);
+        	if (that.cardinalityElement())
+        		that.cardinalityElement().classed("hidden",val);
 		};
 
 		// Properties
@@ -181,13 +209,30 @@ module.exports = (function () {
 			return shapeElement;
 		};
 
+		this.textBlock=function(){
+			return textElement;
+		};
+
 		this.redrawElement=function(){
-		// 	console.log("redrawing element !");
-		// 	shapeElement.remove();
-         //    textElement.remove();
-        //
-         //    that.drawLabel(that.labelElement());
-         //    that.animateDynamicLabelWidth(graph.options().dynamicLabelWidth());
+			shapeElement.remove();
+            textElement.remove();
+
+            that.drawLabel(that.labelElement());
+            that.animateDynamicLabelWidth(graph.options().dynamicLabelWidth());
+
+
+
+
+            // shapeElement=this.addRect(that.labelElement());
+            //
+            // var equivalentsString = that.equivalentsString();
+            // var suffixForFollowingEquivalents = equivalentsString ? "," : "";
+            //
+            // textElement = new CenteringTextElement(labelContainer, this.backgroundColor());
+            // textElement.addText(this.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
+            // textElement.addEquivalents(equivalentsString);
+            // textElement.addSubText(this.indicationString());
+
 		};
 
 		// Reused functions TODO refactor
@@ -205,22 +250,21 @@ module.exports = (function () {
 			if (!that.labelVisible()) {
 				return undefined;
 			}
+            if (graph.options().dynamicLabelWidth()===true) myWidth=Math.min(that.getMyWidth(),graph.options().maxLabelWidth());
+            else                							myWidth=defaultWidth;
 
 			that.labelElement(attachLabel(that));
-
 			// Draw an inverse label and reposition both labels if necessary
 			if (that.inverse()) {
 				var yTransformation = (that.height() / 2) + 1 /* additional space */;
 				that.inverse()
 					.labelElement(attachLabel(that.inverse()));
 
-
 				that.labelElement()
 					.attr("transform", "translate(" + 0 + ",-" + yTransformation + ")");
 				that.inverse()
 					.labelElement()
 					.attr("transform", "translate(" + 0 + "," + yTransformation + ")");
-
 			}
 
 			if (that.pinned()) {
@@ -230,7 +274,7 @@ module.exports = (function () {
 			}
 
 			if (that.halo())
-				that.drawHalo();
+				that.drawHalo(false);
 
 			return that.labelElement();
 		};
@@ -256,20 +300,30 @@ module.exports = (function () {
 			if (that.visualAttributes()) {
 				rect.classed(that.visualAttributes(), true);
 			}
-			if (that.backgroundColor()) {
-				rect.style("fill", that.backgroundColor());
-			}
+
+			var bgColor=that.backgroundColor();
+
+			if (that.attributes().indexOf("deprecated")>-1){
+				bgColor=undefined;
+                rect.classed("deprecatedproperty", true);
+			}else {
+                rect.classed("deprecatedproperty", false);
+            }
+			rect.style("fill", bgColor);
+
 			return rect;
 		};
 		this.drawLabel = function (labelContainer) {
-            if (graph.options().dynamicLabelWidth()===true) myWidth=Math.min(that.getMyWidth(),graph.options().maxLabelWidth());
-            else                							myWidth=defaultWidth;
+			shapeElement=this.addRect(labelContainer);
 
-            shapeElement=this.addRect(labelContainer);
 			var equivalentsString = that.equivalentsString();
 			var suffixForFollowingEquivalents = equivalentsString ? "," : "";
 
-			textElement = new CenteringTextElement(labelContainer, this.backgroundColor());
+            var bgColor=that.backgroundColor();
+            if (that.attributes().indexOf("deprecated")>-1){
+                bgColor=undefined;
+            }
+			textElement = new CenteringTextElement(labelContainer, bgColor);
 			textElement.addText(this.labelForCurrentLanguage(), "", suffixForFollowingEquivalents);
 			textElement.addEquivalents(equivalentsString);
 			textElement.addSubText(this.indicationString());
@@ -361,6 +415,28 @@ module.exports = (function () {
 				}
 
 			});
+            var inversed=false;
+
+			if (graph.ignoreOtherHoverEvents()===false) {
+				if (that.inverse()){
+					inversed=true;
+				}
+
+				if (graph.isTouchDevice()===false) {
+					graph.activateHoverElementsForProperties(enable, that, inversed);
+				}
+					else{
+						that.labelElement().select("rect").classed("hovered", false);
+               		     that.linkGroup().selectAll("path, text").classed("hovered", false);
+                    if (that.markerElement()) {
+                        that.markerElement().select("path").classed("hovered", false);
+                        if (that.cardinalityElement()) {
+                            that.cardinalityElement().classed("hovered", false);
+                        }
+                    }
+					graph.activateHoverElementsForProperties(enable, that, inversed,true);
+					}
+			}
 		};
 
 		/**
@@ -414,7 +490,7 @@ module.exports = (function () {
 		}
 
 		function onMouseOver() {
-			if (that.mouseEntered()) {
+			if (that.mouseEntered()  || ignoreLocalHoverEvents===true) {
 				return;
 			}
 			that.mouseEntered(true);
@@ -442,13 +518,16 @@ module.exports = (function () {
                 var invY= /translate\(\s*([^\s,)]+)[ ,]([^\s,)]+)/.exec(tr_inv)[2];
 
                 if (thatY<invY)
-                    pinGroupElement = drawTools.drawPin(that.labelElement(), 0.5*that.width()-10, -25, this.removePin);
+                    pinGroupElement = drawTools.drawPin(that.labelElement(), -0.5*that.width()+10, -25, this.removePin, graph.options().showDraggerObject,graph.options().useAccuracyHelper());
 				else
-                    pinGroupElement = drawTools.drawPin(that.inverse().labelElement(), 0.5*that.inverse().width()-10, -25, this.removePin);
+                    pinGroupElement = drawTools.drawPin(that.inverse().labelElement(), -0.5*that.inverse().width()+10, -25, this.removePin, graph.options().showDraggerObject,graph.options().useAccuracyHelper());
 
 			}
-			else
-				pinGroupElement = drawTools.drawPin(that.labelElement(), 0.5*that.width()-10, -25, this.removePin);
+			else {
+                pinGroupElement = drawTools.drawPin(that.labelElement(), -0.5 * that.width() + 10, -25, this.removePin, graph.options().showDraggerObject,graph.options().useAccuracyHelper());
+            }
+
+
 		};
 
 		/**
@@ -489,7 +568,7 @@ module.exports = (function () {
             return animRuns;
         };
 
-		this.drawHalo= function(){
+		this.drawHalo= function(pulseAnimation){
 			that.halo(true);
 			var offset=0;
             if (that.labelElement() && that.labelElement().node()){
@@ -519,12 +598,17 @@ module.exports = (function () {
                 	nodeContainer.appendChild(selectedNode);
             	}
             }
+            if (pulseAnimation===false){
+                var pulseItem=haloGroupElement.selectAll(".searchResultA");
+                pulseItem.classed("searchResultA", false);
+                pulseItem.classed("searchResultB", true);
+                pulseItem.attr("animationRunning",false);
+            }
 		};
 
 		this.getMyWidth=function(){
             var text = that.labelForCurrentLanguage();
             myWidth =measureTextWidth(text,"text")+20;
-
             // check for sub names;
 			var indicatorText=that.indicationString();
             var indicatorWidth=measureTextWidth(indicatorText,"subtext")+20;
@@ -557,10 +641,8 @@ module.exports = (function () {
         };
 
         this.animateDynamicLabelWidth=function(dynamic) {
-
             that.removeHalo();
             if (shapeElement===undefined){// this handles setOperatorProperties which dont have a shapeElement!
-				//console.log("no shapeElement found for "+that.labelForCurrentLanguage());
             	return;
 			}
 
@@ -584,7 +666,7 @@ module.exports = (function () {
                     .attr({x: -myWidth / 2, y: -h/ 2, width: myWidth, height: h});
             }
             if (that.pinned() === true  && pinGroupElement){
-                var dx=0.5*myWidth-10,
+                var dx=-0.5*myWidth+10,
 					dy=-25;
                 pinGroupElement.transition()
                     .tween("attr.translate", function () {})
@@ -595,16 +677,15 @@ module.exports = (function () {
         };
 
         this.redrawLabelText=function(){
-            // console.log("calling redraw Label! ");
-            // textElement.remove();
-            // that.addTextLabelElement();
-            // console.log("text element should be added "+ textElement);
-            // that.animateDynamicLabelWidth(graph.options().dynamicLabelWidth());
-            // shapeElement.select("title").text(that.labelForCurrentLanguage());
+            textElement.remove();
+            that.addTextLabelElement();
+            that.animateDynamicLabelWidth(graph.options().dynamicLabelWidth());
+            shapeElement.select("title").text(that.labelForCurrentLanguage());
         };
 
         this.addTextLabelElement=function(){
         	var labelContainer=that.labelElement();
+
             var equivalentsString = that.equivalentsString();
             var suffixForFollowingEquivalents = equivalentsString ? "," : "";
 
@@ -615,11 +696,172 @@ module.exports = (function () {
 		};
 
         this.updateTextElement=function(){
-        	if (!textElement){
-        		console.log("could not find text element for "+ that.labelForCurrentLanguage());
-			}
-			else {
-                textElement.updateAllTextElements();
+        	textElement.updateAllTextElements();
+		};
+        this.enableEditing=function(autoEditing){
+            if (autoEditing===false)
+                return;
+            that.raiseDoubleClickEdit(true);
+        };
+
+        this.raiseDoubleClickEdit=function(forceIRISync){
+            d3.selectAll(".foreignelements").remove();
+            if (that.labelElement()===undefined || this.type()==="owl:disjointWith" || this.type()==="rdfs:subClassOf") {
+                console.log("No Container found");
+                return;
+            }
+            if (fobj!==undefined){
+                that.labelElement().selectAll(".foreignelements").remove();
+            }
+            backupFullIri=undefined;
+            graph.options().focuserModule().handle(undefined);
+            graph.options().focuserModule().handle(that);
+            that.editingTextElement=true;
+            ignoreLocalHoverEvents=true;
+            that.labelElement().selectAll("rect").classed("hoveredForEditing", true);
+            that.frozen(true);
+            graph.killDelayedTimer();
+            graph.ignoreOtherHoverEvents(false);
+            fobj= that.labelElement().append("foreignObject")
+                .attr("x",-0.5*that.textWidth())
+                .attr("y",-13)
+                .attr("height", 25)
+                .attr("class","foreignelements")
+                .on("dragstart",function(){return false;}) // remove drag operations of text element)
+                .attr("width", that.textWidth()-2);
+            // adding a Style to the fObject
+            //
+            //
+            //
+            var editText=fobj.append("xhtml:input")
+                .attr("class","nodeEditSpan")
+                .attr("id", that.id())
+                .attr("align","center")
+                .attr("contentEditable", "true")
+                .on("dragstart",function(){
+                    return false;
+                }); // remove drag operations of text element)
+
+            var bgColor='#f00';
+            var txtWidth=that.textWidth()-2;
+            editText.style({
+                // 'line-height': '30px',
+                'align': 'center',
+                'color': 'black',
+                'width': txtWidth+"px",
+                'background-color': bgColor,
+                'border-bottom': '2px solid black'
+            });
+            var  txtNode=editText.node();
+            txtNode.value=that.labelForCurrentLanguage();
+            txtNode.focus();
+            txtNode.select();
+            if (d3.event.stopPropagation) d3.event.stopPropagation();
+            if (d3.event.sourceEvent && d3.event.sourceEvent.stopPropagation) d3.event.sourceEvent.stopPropagation();
+
+            // add some events that relate to this object
+            editText.on("click", function(){
+                if (d3.event.stopPropagation) d3.event.stopPropagation();
+                if (d3.event.sourceEvent && d3.event.sourceEvent.stopPropagation) d3.event.sourceEvent.stopPropagation();
+
+            });
+            // // remove hover Events for now;
+            editText.on("mouseout",function(){
+                if (d3.event.stopPropagation)d3.event.stopPropagation();
+                if (d3.event.sourceEvent && d3.event.sourceEvent.stopPropagation) d3.event.sourceEvent.stopPropagation();
+            });
+            editText.on("mousedown", function(){
+                if (d3.event.stopPropagation)d3.event.stopPropagation();
+                if (d3.event.sourceEvent && d3.event.sourceEvent.stopPropagation) d3.event.sourceEvent.stopPropagation();
+            })
+			.on("keydown", function(){
+
+                    if (d3.event.keyCode ===13){
+                        this.blur();
+                        that.frozen(false); // << releases the not after selection
+                        that.locked(false);
+                    }
+                })
+                .on("keyup",function(){
+                    if (forceIRISync){
+                        var labelName=editText.node().value;
+                        var resourceName=labelName.replaceAll(" ","_");
+                        var syncedIRI=that.baseIri()+resourceName;
+                        backupFullIri=syncedIRI;
+
+                        d3.select("#element_iriEditor").node().title=syncedIRI;
+                        d3.select("#element_iriEditor").node().value=graph.options().prefixModule().getPrefixRepresentationForFullURI(syncedIRI);
+                    }
+                    d3.select("#element_labelEditor").node().value=editText.node().value;
+
+                })
+                .on("blur", function(){
+
+
+                    that.editingTextElement=false;
+                    ignoreLocalHoverEvents=false;
+                    that.labelElement().selectAll("rect").classed("hoveredForEditing", false);
+                    var newLabel=editText.node().value;
+                    that.labelElement().selectAll(".foreignelements").remove();
+                    // that.setLabelForCurrentLanguage(classNameConvention(editText.node().value));
+                    that.label(newLabel);
+                    that.backupLabel(newLabel);
+                    that.redrawLabelText();
+                    updateHoverElements(true);
+                    graph.showHoverElementsAfterAnimation(that,false);
+                    graph.ignoreOtherHoverEvents(false);
+
+
+
+                    that.frozen(graph.paused());
+                    that.locked(graph.paused());
+                    that.domain().frozen(graph.paused());
+                    that.domain().locked(graph.paused());
+                    that.range().frozen(graph.paused());
+                    that.range().locked(graph.paused());
+                    graph.removeEditElements();
+					if (backupFullIri) {
+                        // console.log("Checking if element is Identical ?");
+                        var sanityCheckResult=graph.options().editSidebar().checkProperIriChange(that,backupFullIri);
+                        if (sanityCheckResult!== false) {
+                            graph.options().warningModule().showWarning("Already seen this property",
+                                "Input IRI: " + backupFullIri + " for element: " + that.labelForCurrentLanguage() + " already been set",
+                                "Continuing with duplicate property!", 1, false, sanityCheckResult);
+                        }
+                        that.iri(backupFullIri);
+                    }
+                    graph.options().focuserModule().handle(undefined);
+                    graph.options().focuserModule().handle(that);
+                    graph.updatePropertyDraggerElements(that);
+
+
+                });	// add a foreiner element to this thing;
+
+        };
+
+        // update hover elements
+		function updateHoverElements(enable) {
+            if (graph.ignoreOtherHoverEvents() === false) {
+                var inversed = false;
+                if (that.inverse()) {
+                    inversed = true;
+                }
+                if (enable===true) {
+                    graph.activateHoverElementsForProperties(enable, that, inversed);
+                }
+            }
+        }
+		that.copyInformation=function(other){
+            that.label(other.label());
+            that.iri(other.iri());
+            that.baseIri(other.baseIri());
+            if (other.type()==="owl:ObjectProperty" ||
+				other.type()==="owl:DatatypeProperty"){
+                that.backupLabel(other.label());
+                // console.log("copied backup label"+that.backupLabel());
+            }
+            if (other.backupLabel()!==undefined){
+                that.backupLabel(other.backupLabel());
             }
 		};
 

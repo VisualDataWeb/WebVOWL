@@ -13,7 +13,7 @@ webvowl.util = {};
 webvowl.util.constants = require("./util/constants");
 webvowl.util.languageTools = require("./util/languageTools");
 webvowl.util.elementTools = require("./util/elementTools");
-
+webvowl.util.prefixTools = require("./util/prefixRepresentationModule");
 webvowl.modules = {};
 webvowl.modules.colorExternalsSwitch = require("./modules/colorExternalsSwitch");
 webvowl.modules.compactNotationSwitch = require("./modules/compactNotationSwitch");

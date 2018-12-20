@@ -11,12 +11,15 @@ module.exports = function (menu) {
 		filteredProperties,
 		maxDegreeSetter,
 		degreeGetter,
+		lastFiltedDegree,
 		degreeSetter;
+
 
 	var NODE_COUNT_LIMIT_FOR_AUTO_ENABLING = 50;
 
 
 	filter.initialize = function (nodes, properties) {
+        lastFiltedDegree=-1;
 		var maxLinkCount = findMaxLinkCount(nodes);
 		if (maxDegreeSetter instanceof Function) {
 			maxDegreeSetter(maxLinkCount);
@@ -45,8 +48,13 @@ module.exports = function (menu) {
 
 	function findDefaultDegree(maxDegree) {
         var globalDegOfFilter=menu.getGraphObject().getGlobalDOF();
-        if (globalDegOfFilter>=0 && globalDegOfFilter < maxDegree){
-        	return globalDegOfFilter;
+        if (globalDegOfFilter>=0 ){
+        	if ( globalDegOfFilter <= maxDegree) {
+                return globalDegOfFilter;
+            }else{
+                menu.getGraphObject().setGlobalDOF(maxDegree);
+                return maxDegree;
+			}
 		}
 		return menu.getDefaultDegreeValue();
 	}
@@ -57,19 +65,30 @@ module.exports = function (menu) {
 	 * @param untouchedProperties
 	 */
 	filter.filter = function (untouchedNodes, untouchedProperties) {
-		nodes = untouchedNodes;
-		properties = untouchedProperties;
+        if (lastFiltedDegree!==degreeGetter()) {
+            nodes = untouchedNodes;
+            properties = untouchedProperties;
 
-		if (this.enabled()) {
-			if (degreeGetter instanceof Function) {
-				filterByNodeDegreeAndApply(degreeGetter());
-			} else {
-				console.error("No degree query function set.");
-			}
-		}
+            if (this.enabled()) {
+                if (degreeGetter instanceof Function) {
+                    filterByNodeDegreeAndApply(degreeGetter());
+                } else {
+                    console.error("No degree query function set.");
+                }
+            }
 
-		filteredNodes = nodes;
-		filteredProperties = properties;
+            filteredNodes = nodes;
+            filteredProperties = properties;
+
+            if (filteredNodes.length === 0) {
+                // console.log("Error : filtered nodes are 0");
+                degreeSetter(0);
+                filteredNodes = untouchedNodes;
+                filteredProperties = untouchedProperties;
+            }
+            lastFiltedDegree=degreeGetter();
+        }
+
 	};
 
 	function findMaxLinkCount(nodes) {
@@ -88,9 +107,9 @@ module.exports = function (menu) {
 		});
 	}
 
-	function filterByNodeDegreeAndApply(minDegree) {
+	function filterByNodeDegreeAndApply(minDegree)
+	{
 		var filteredData = filterByNodeDegree(nodes, properties, minDegree);
-
 		nodes = filteredData.nodes;
 		properties = filteredData.properties;
 	}

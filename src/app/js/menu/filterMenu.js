@@ -99,7 +99,7 @@ module.exports = function (graph) {
 		});
 
 		nodeDegreeFilter.setDegreeGetter(function () {
-			return +degreeSlider.property("value");
+			return degreeSlider.property("value");
 		});
 
 		nodeDegreeFilter.setDegreeSetter(function (value) {
@@ -159,10 +159,10 @@ module.exports = function (graph) {
 		var offset;
 		if (wheelEvent.deltaY<0) offset=1;
 		if (wheelEvent.deltaY>0) offset=-1;
-
+		var maxDeg=parseInt(degreeSlider.attr("max"));
 		var oldVal=parseInt(degreeSlider.property("value"));
 		var newSliderValue=oldVal+offset;
-		if (oldVal!==newSliderValue) {
+		if (oldVal!==newSliderValue && (newSliderValue>=0 && newSliderValue<=maxDeg)) {
 			// only update when they are different [reducing redundant updates]
 			// set the new value and emit an update signal
 			degreeSlider.property("value", newSliderValue);
@@ -264,7 +264,6 @@ module.exports = function (graph) {
 
 	// update the gui without invoking graph update (calling silent onclick function)
 	filterMenu.updateSettings = function () {
-
 		var silent = true;
 		var sliderValue = degreeSlider.property("value");
 		if (sliderValue > 0) {
@@ -272,14 +271,13 @@ module.exports = function (graph) {
 		} else{
 			filterMenu.highlightForDegreeSlider(false);
 		}
-
 		checkboxData.forEach(function (checkboxData) {
 			var checkbox = checkboxData.checkbox;
 			checkbox.on("click")(silent);
 		});
 
 		degreeSlider.on("input")();
-		degreeSlider.on("change")(silent);
+		degreeSlider.on("change")();
 
 	};
 

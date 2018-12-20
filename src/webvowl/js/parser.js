@@ -16,7 +16,8 @@ module.exports = function (graph) {
 		classMap,
 		settingsData,
 		settingsImported = false,
-		dictionary=[],
+        settingsImportGraphZoomAndTranslation=false,
+    	dictionary=[],
 		propertyMap;
 
 	parser.getDictionary=function(){
@@ -30,11 +31,15 @@ module.exports = function (graph) {
 	parser.settingsImported = function () {
 		return settingsImported;
 	};
+	parser.settingsImportGraphZoomAndTranslation = function () {
+		return settingsImportGraphZoomAndTranslation;
+    };
 
 	parser.parseSettings = function () {
 		settingsImported = true;
+        settingsImportGraphZoomAndTranslation=false;
 
-		if (!settingsData) {
+        if (!settingsData) {
 			settingsImported = false;
 			return;
 		}
@@ -43,12 +48,14 @@ module.exports = function (graph) {
 			if (settingsData.global.zoom) {
 				var zoomFactor = settingsData.global.zoom;
 				graph.setZoom(zoomFactor);
-			}
+                settingsImportGraphZoomAndTranslation=true;
+            }
 
 			if (settingsData.global.translation) {
 				var translation = settingsData.global.translation;
 				graph.setTranslation(translation);
-			}
+                settingsImportGraphZoomAndTranslation=true;
+            }
 
 			if (settingsData.global.paused) {
 				var paused = settingsData.global.paused;
@@ -698,7 +705,6 @@ module.exports = function (graph) {
 		if (separatorIndex === -1) {
 			return address;
 		}
-
 		var namespaceName = address.substring(0, separatorIndex);
 
 		for (var i = 0, length = namespaces.length; i < length; ++i) {

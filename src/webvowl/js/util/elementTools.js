@@ -38,7 +38,6 @@ tools.isObjectProperty = function (element) {
 };
 
 tools.isDatatypeProperty = function (element) {
-
 	return element instanceof DatatypeProperty;
 };
 

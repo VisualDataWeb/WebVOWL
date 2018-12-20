@@ -5,12 +5,25 @@
 module.exports = function () {
 
 	var filter = {},
+		enabled=true,
 		filteredNodes,
 		removedNodes,
 		filteredProperties;
 
+	filter.enabled=function(val){
+		if (!arguments.length){
+            return enabled;
+		}
+        enabled=val;
+	};
 
 	filter.filter = function (nodes, properties) {
+		if (enabled===false){
+			filteredNodes=nodes;
+			filteredProperties=properties;
+            removedNodes=[];
+			return;
+		}
 		var literalUsageMap = [];
 		var thingUsageMap = [];
 		var node;
@@ -54,12 +67,12 @@ module.exports = function () {
 				}
 			// check for node type == OWL:THING
 			} else if (nodes[i].type() === "owl:Thing"){
-				if (thingUsageMap[nodeId] === undefined) {
-					nodesToRemove.push(nodeId);
-				}
-				else {
+				 if (thingUsageMap[nodeId] === undefined) {
+				 	 nodesToRemove.push(nodeId);
+				 }
+				 else {
 					newNodes.push(nodes[i]);
-				}
+				  }
 			}else{
 				newNodes.push(nodes[i]);
 			}

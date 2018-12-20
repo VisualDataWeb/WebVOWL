@@ -71,13 +71,13 @@ module.exports = (function () {
 		return rectangle;
 	};
 
-	tools.drawPin = function(container, dx, dy, onClick) {
+	tools.drawPin = function(container, dx, dy, onClick, accuraciesHelperFunction, useAccuracyHelper) {
 		var pinGroupElement = container
 			.append("g")
 			.classed("hidden-in-export", true)
 			.attr("transform", "translate(" + dx + "," + dy + ")");
 
-		pinGroupElement.append("circle")
+		var base=pinGroupElement.append("circle")
 			.classed("class pin feature", true)
 			.attr("r", 12)
 			.on("click", function () {
@@ -92,6 +92,31 @@ module.exports = (function () {
 			.attr("x2", 0)
 			.attr("y1", 12)
 			.attr("y2", 16);
+
+		if (useAccuracyHelper===true) {
+            pinGroupElement.append("circle")
+                .attr("r", 15)
+                .attr("cx", -7)
+                .attr("cy", -7)
+                .classed("superHiddenElement ", true)
+                .classed("superOpacityElement", !accuraciesHelperFunction())
+                .on("click", function () {
+                    if (onClick) {
+                        onClick();
+                    }
+                    d3.event.stopPropagation();
+                })
+				.on("mouseover",function(){
+                    base.classed("feature_hover",true);
+				})
+                .on("mouseout",function(){
+                    base.classed("feature_hover",false);
+                })
+			;
+
+        }
+
+
 
 		return pinGroupElement;
 	};

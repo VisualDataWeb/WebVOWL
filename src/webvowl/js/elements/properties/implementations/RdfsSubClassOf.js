@@ -24,7 +24,11 @@ module.exports = (function () {
 			.markerType("white")
 			.styleClass("subclass")
 			.type("rdfs:subClassOf");
-	};
+
+        that.baseIri("http://www.w3.org/2000/01/rdf-schema#");
+        that.iri("http://www.w3.org/2000/01/rdf-schema#subClassOf");
+
+    };
 	o.prototype = Object.create(BaseProperty.prototype);
 	o.prototype.constructor = o;
 

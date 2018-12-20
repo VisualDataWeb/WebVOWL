@@ -22,6 +22,7 @@ module.exports = function () {
 
 	statistics.filter = function (classesAndDatatypes, properties) {
 		resetStoredData();
+
 		storeTotalCounts(classesAndDatatypes, properties);
 		storeClassAndDatatypeCount(classesAndDatatypes);
 		storePropertyCount(properties);

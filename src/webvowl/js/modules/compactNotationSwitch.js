@@ -25,9 +25,7 @@ module.exports = function (graph) {
 	filter.filter = function (untouchedNodes, untouchedProperties) {
 		nodes = untouchedNodes;
 		properties = untouchedProperties;
-
 		graph.options().compactNotation(enabled);
-
 		filteredNodes = nodes;
 		filteredProperties = properties;
 	};

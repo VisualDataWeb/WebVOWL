@@ -43,14 +43,15 @@ module.exports = function (graph) {
 			var searchMenu=graph.options().searchMenu();
 			searchMenu.hideSearchEntries();
 		});
-        addCheckBox("labelWidth","Dynamic label width","#dynamicLabelWidth",graph.options().dynamicLabelWidth,1);
+        addCheckBoxD("labelWidth","Dynamic label width","#dynamicLabelWidth",graph.options().dynamicLabelWidth,1);
+        addCheckBox("editorMode","Editing ","#editMode",graph.editorMode);
 		addModeItem(pickAndPin, "pickandpin", "Pick & pin", "#pickAndPinOption", false);
 		addModeItem(nodeScaling, "nodescaling", "Node scaling", "#nodeScalingOption", true);
 		addModeItem(compactNotation, "compactnotation", "Compact notation", "#compactNotationOption", true);
 		var container = addModeItem(colorExternals, "colorexternals", "Color externals", "#colorExternalsOption", true);
 		colorModeSwitch = addExternalModeSelection(container, colorExternals);
 	};
-    function addCheckBox(identifier, modeName, selector,onChangeFunc,updateLvl) {
+    function addCheckBoxD(identifier, modeName, selector,onChangeFunc,updateLvl) {
         var moduleOptionContainer = d3.select(selector)
             .append("div")
             .classed("checkboxContainer", true);
@@ -64,15 +65,50 @@ module.exports = function (graph) {
         moduleCheckbox.on("click", function (d) {
             var isEnabled = moduleCheckbox.property("checked");
             onChangeFunc(isEnabled);
-            d3.select("#maxLabelWidthSliderOption").classed("hidden",!isEnabled);
+            d3.select("#maxLabelWidthSlider").node().disabled=!isEnabled;
+            d3.select("#maxLabelWidthvalueLabel").classed("disabledLabelForSlider", !isEnabled);
+            d3.select("#maxLabelWidthDescriptionLabel").classed("disabledLabelForSlider", !isEnabled);
+
             if (updateLvl>0){
-                graph.lazyRefresh(); // maybe to much of an update
+					graph.animateDynamicLabelWidth();
+                // graph.lazyRefresh();
             }
         });
         moduleOptionContainer.append("label")
             .attr("for", identifier + "ModuleCheckbox")
             .text(modeName);
+        if (identifier==="editorMode"){
+            moduleOptionContainer.append("label")
+				.attr("style","font-size:10px;padding-top:3px")
+				.text("(experimental)");
+		}
+
         dynamicLabelWidthCheckBox=moduleCheckbox;
+    }
+
+    function addCheckBox(identifier, modeName, selector,onChangeFunc) {
+        var moduleOptionContainer = d3.select(selector)
+            .append("div")
+            .classed("checkboxContainer", true);
+
+        var moduleCheckbox = moduleOptionContainer.append("input")
+            .classed("moduleCheckbox", true)
+            .attr("id", identifier + "ModuleCheckbox")
+            .attr("type", "checkbox")
+            .property("checked", onChangeFunc());
+
+        moduleCheckbox.on("click", function (d) {
+            var isEnabled = moduleCheckbox.property("checked");
+            onChangeFunc(isEnabled);
+        });
+        moduleOptionContainer.append("label")
+            .attr("for", identifier + "ModuleCheckbox")
+            .text(modeName);
+        if (identifier==="editorMode"){
+            moduleOptionContainer.append("label")
+                .attr("style","font-size:10px;padding-top:3px")
+                .text(" (experimental)");
+        }
     }
 
 	function addModeItem(module, identifier, modeName, selector, updateGraphOnClick) {
@@ -97,7 +133,9 @@ module.exports = function (graph) {
 			var isEnabled = moduleCheckbox.property("checked");
 			d.module.enabled(isEnabled);
 			if (updateGraphOnClick && silent !== true) {
-				graph.update();
+				graph.executeColorExternalsModule();
+				graph.executeCompactNotationModule();
+				graph.lazyRefresh();
 			}
 		});
 
@@ -117,8 +155,9 @@ module.exports = function (graph) {
 			data.active = !data.active;
 			applyColorModeSwitchState(button, colorExternalsMode);
 			if (colorExternalsMode.enabled() && silent !== true) {
-				graph.update();
-			}
+                graph.executeColorExternalsModule();
+                graph.lazyRefresh();
+            }
 		});
 
 		return button;

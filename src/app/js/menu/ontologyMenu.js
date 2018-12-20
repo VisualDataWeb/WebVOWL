@@ -15,6 +15,7 @@ module.exports = function (graph) {
 		cachedConversions = {},
 		loadingModule,
 		loadOntologyFromText;
+	    var currentLoadedOntologyName="";
 
 	String.prototype.beginsWith = function (string) {
 		return(this.indexOf(string) === 0);
@@ -24,11 +25,43 @@ module.exports = function (graph) {
 		return loadOntologyFromText;
 	};
 
+	ontologyMenu.clearCachedVersion=function(){
+        if (cachedConversions[currentLoadedOntologyName]) {
+            cachedConversions[currentLoadedOntologyName]=undefined;
+        }
+    };
+
+
+	ontologyMenu.reloadCachedOntology=function(){
+	    ontologyMenu.clearCachedVersion();
+        graph.clearGraphData();
+        loadingModule.parseUrlAndLoadOntology(false);
+    };
+
 	ontologyMenu.cachedOntology=function(ontoName){
+        currentLoadedOntologyName=ontoName;
+        if (cachedConversions[ontoName]){
+            var locStr=String(location.hash);
+            d3.select("#reloadSvgIcon").node().disabled=false;
+            graph.showReloadButtonAfterLayoutOptimization(true);
+            if (locStr.indexOf("#file")>-1){
+                d3.select("#reloadSvgIcon").node().disabled=true;
+                d3.select("#reloadCachedOntology").node().title="reloading original version not possible, please reload the file";
+                d3.select("#reloadSvgIcon").classed("disabledReloadElement",true);
+            }
+            else{
+                d3.select("#reloadCachedOntology").node().title="generate new visualization and overwrite cached ontology";
+                d3.select("#reloadSvgIcon").classed("disabledReloadElement",false);
+            }
+        }else {
+            graph.showReloadButtonAfterLayoutOptimization(false);
+
+        }
 		return cachedConversions[ontoName];
 	};
     ontologyMenu.setCachedOntology=function(ontoName, ontoContent){
         cachedConversions[ontoName]=ontoContent;
+        currentLoadedOntologyName=ontoName;
     };
 
     ontologyMenu.getErrorStatus=function(){
@@ -46,9 +79,27 @@ module.exports = function (graph) {
 
 		setupConverterButtons();
 		setupUploadButton();
+
+		var descriptionButton = d3.select("#error-description-button").datum({open: false});
+		descriptionButton.on("click", function (data) {
+			var errorContainer = d3.select("#error-description-container");
+			var errorDetailsButton = d3.select(this);
+
+			// toggle the state
+			data.open = !data.open;
+			var descriptionVisible = data.open;
+			if (descriptionVisible) {
+				errorDetailsButton.text("Hide error details");
+			} else {
+				errorDetailsButton.text("Show error details");
+			}
+			errorContainer.classed("hidden", !descriptionVisible);
+		});
+
 		setupUriListener();
 	    loadingModule.setOntologyMenu(ontologyMenu);
 	};
+
 
 	function setupUriListener() {
 		// reload ontology when hash parameter gets changed manually
@@ -327,6 +378,28 @@ module.exports = function (graph) {
         });
 	};
 
+
+    ontologyMenu.callbackLoad_Ontology_From_DirectInput=function(text,parameter){
+        var input=text;
+        var sessionId=parameter[1];
+        stopTimer=false;
+        timedLoadingStatusLogger();
+
+        var formData = new FormData();
+        formData.append("input" , input);
+        formData.append("sessionId", sessionId);
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("POST", "directInput", true);
+        xhr.onload = function () {
+            clearTimeout(loadingStatusTimer);
+            stopTimer=true;
+            getLoadingStatusOnceCallBacked(callbackForConvert,[xhr, input,sessionId]);
+        };
+        timedLoadingStatusLogger();
+        xhr.send(formData);
+
+    };
 	function callbackFromIRI_Success(parameter){
         var local_conversionId=parameter[2];
         if (local_conversionId!==conversion_sessionId){
@@ -335,6 +408,17 @@ module.exports = function (graph) {
             return;
         }
         loadingModule.loadFromOWL2VOWL(parameter[0],parameter[1]);
+        ontologyMenu.conversionFinished();
+
+    }
+    function callbackFromDirectInput_Success(parameter){
+        var local_conversionId=parameter[1];
+        if (local_conversionId!==conversion_sessionId){
+            console.log("The conversion process for file:"+parameter[1]+" has been canceled!");
+            ontologyMenu.conversionFinished(local_conversionId);
+            return;
+        }
+        loadingModule.loadFromOWL2VOWL(parameter[0],"DirectInputConversionID"+local_conversionId);
         ontologyMenu.conversionFinished();
 
     }
@@ -398,20 +482,44 @@ module.exports = function (graph) {
         graph.handleOnLoadingError();
         ontologyMenu.conversionFinished();
     }
-	function callbackFromJSON_URL_ERROR(parameter){
+
+    function callbackFromIRI_URL_ERROR(parameter){
+        var error=parameter[0];
+        var request=parameter[1];
+        var local_conversionId=parameter[2];
+        if (local_conversionId!==conversion_sessionId){
+            console.log("This thread has been canceled!!");
+            ontologyMenu.conversionFinished(local_conversionId);
+            return;
+        }
+        callbackUpdateLoadingMessage("<br><span style='color:red'> Failed to convert the file.</span> "+
+            " Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
+            "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
+
+        if (error!==null && error.status === 500){
+            append_message("<span style='color:red'>Could not find ontology  at the URL</span>");
+        }
+        if (request && request.responseText.length===0){
+            append_message("<span style='color:red'>Received empty graph</span>");
+        }
+        graph.handleOnLoadingError();
+        ontologyMenu.conversionFinished();
+    }
+
+	function callbackFromDirectInput_ERROR(parameter){
 
 		var error=parameter[0];
 		var request=parameter[1];
 		var local_conversionId=parameter[2];
 		if (local_conversionId!==conversion_sessionId){
-            console.log("The loading process of JSON_URL has been canceled!");
+            console.log("The loading process for direct input has been canceled!");
 			return;
 		}
         // callbackUpdateLoadingMessage("<br> <span style='color:red'> Failed to convert the file.</span> "+
         //     "Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
         //     "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
         if (error!==null && error.status === 500){
-            append_message("<span style='color:red'>Could not find json at the URL</span>");
+            append_message("<span style='color:red'>Could not convert direct input</span>");
         }
         if (request && request.responseText.length===0){
             append_message("<span style='color:red'>Received empty graph</span>");

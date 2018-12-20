@@ -81,6 +81,7 @@ module.exports = function () {
 	}
 
 	function resetBackgroundColors(elements) {
+		console.log("Resetting color");
 		elements.forEach(function (element) {
 			element.backgroundColor(null);
 		});

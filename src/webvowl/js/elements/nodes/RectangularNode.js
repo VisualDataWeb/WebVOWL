@@ -20,6 +20,7 @@ module.exports = (function () {
             textBlock,
 			smallestRadius = height / 2;
 
+        that.renderType("rect");
 		// Properties
 		this.height = function (p) {
 			if (!arguments.length) return height;
@@ -59,6 +60,10 @@ module.exports = (function () {
 
 		};
 
+
+		// overwrite the labelWith;
+
+
         this.textWidth = function () {
             return labelWidth;
         };
@@ -67,6 +72,7 @@ module.exports = (function () {
         };
 
         this.getMyWidth=function(){
+            // use a simple heuristic
             var text = that.labelForCurrentLanguage();
             myWidth =measureTextWidth(text,"text")+20;
 
@@ -112,12 +118,15 @@ module.exports = (function () {
 		 */
 		this.draw = function (parentElement, additionalCssClasses) {
 			var cssClasses = that.collectCssClasses();
+
 			that.nodeElement(parentElement);
 
 			if (additionalCssClasses instanceof Array) {
 				cssClasses = cssClasses.concat(additionalCssClasses);
 			}
 
+			// set the value for that.width()
+            // update labelWidth Value;
             if (graph.options().dynamicLabelWidth()===true) labelWidth=Math.min(that.getMyWidth(),graph.options().maxLabelWidth());
             else                							labelWidth=defaultWidth;
 
@@ -133,17 +142,21 @@ module.exports = (function () {
 				that.drawPin();
 			}
 			if (that.halo()) {
-				that.drawHalo();
+				that.drawHalo(false);
 			}
 		};
 
 		this.drawPin = function () {
 			that.pinned(true);
-
-			var dx = 0.25 * width,
+            // if (graph.options().dynamicLabelWidth()===true) labelWidth=that.getMyWidth();
+            // else                							labelWidth=defaultWidth;
+            // width=labelWidth;
+            // console.log("this element label Width is "+labelWidth);
+			var dx = -0.5 * labelWidth+5,
 				dy = -1.1 * height;
 
-			pinGroupElement = drawTools.drawPin(that.nodeElement(), dx, dy, this.removePin);
+			pinGroupElement = drawTools.drawPin(that.nodeElement(), dx, dy, this.removePin, graph.options().showDraggerObject,graph.options().useAccuracyHelper());
+
 		};
 
 		this.removePin = function () {
@@ -162,11 +175,18 @@ module.exports = (function () {
 			}
 		};
 
-		this.drawHalo = function () {
+		this.drawHalo = function (pulseAnimation) {
 			that.halo(true);
 
 			var offset = 0;
 			haloGroupElement = drawTools.drawRectHalo(that, this.width(), this.height(), offset);
+
+            if (pulseAnimation===false){
+                var pulseItem=haloGroupElement.selectAll(".searchResultA");
+                pulseItem.classed("searchResultA", false);
+                pulseItem.classed("searchResultB", true);
+                pulseItem.attr("animationRunning",false);
+            }
 
             if (that.pinned()){
                 var selectedNode = pinGroupElement.node();
@@ -178,7 +198,12 @@ module.exports = (function () {
 
         this.updateTextElement=function(){
             textBlock.updateAllTextElements();
+
         };
+
+        this.textBlock=function(){
+        	return textBlock;
+		};
 
         this.redrawLabelText=function(){
             textBlock.remove();
@@ -211,7 +236,9 @@ module.exports = (function () {
 
             }
 
+            // for the pin we dont need to differ between different widths -- they are already set
             if (that.pinned() === true  && pinGroupElement){
+
                 var dx=0.5*labelWidth-10,
                     dy = -1.1 * height;
 

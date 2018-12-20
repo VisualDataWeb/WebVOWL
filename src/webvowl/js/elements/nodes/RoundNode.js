@@ -14,6 +14,7 @@ module.exports = (function () {
 			pinGroupElement,
 			haloGroupElement = null,
 			rectangularRepresentation=false,
+            renderingElement,
 			textBlock;
 
 		this.setRectangularRepresentation=function(val){
@@ -77,7 +78,8 @@ module.exports = (function () {
 
 		this.toggleFocus = function () {
 			that.focused(!that.focused());
-			that.nodeElement().select("circle").classed("focused", that.focused());
+			if (that.nodeElement())
+				that.nodeElement().select("circle").classed("focused", that.focused());
 			graph.resetSearchHighlight();
 			graph.options().searchMenu().clearText();
 
@@ -108,13 +110,19 @@ module.exports = (function () {
 			}
 		};
 
-		this.drawHalo = function () {
+		this.drawHalo = function (pulseAnimation) {
 			that.halo(true);
 			if (rectangularRepresentation===true) {
                 haloGroupElement = drawTools.drawRectHalo(that.nodeElement(), 80, 80, 5);
             }else{
             	haloGroupElement = drawTools.drawHalo(that.nodeElement(), that.actualRadius(), this.removeHalo);
         	}
+        	if (pulseAnimation===false){
+                var pulseItem=haloGroupElement.selectAll(".searchResultA");
+                pulseItem.classed("searchResultA", false);
+                pulseItem.classed("searchResultB", true);
+                pulseItem.attr("animationRunning",false);
+			}
 		};
 
 		/**
@@ -122,11 +130,11 @@ module.exports = (function () {
 		 */
 		this.drawPin = function () {
 			that.pinned(true);
+            var dx = (-3.5 / 5) * that.actualRadius(),
+                dy = (-7 / 10) * that.actualRadius();
+            pinGroupElement = drawTools.drawPin(that.nodeElement(), dx, dy, this.removePin , graph.options().showDraggerObject, graph.options().useAccuracyHelper());
 
-			var dx = (2 / 5) * that.actualRadius(),
-				dy = (-7 / 10) * that.actualRadius();
 
-			pinGroupElement = drawTools.drawPin(that.nodeElement(), dx, dy, this.removePin);
 		};
 
 		/**
@@ -178,21 +186,41 @@ module.exports = (function () {
 		 */
 		this.draw = function (parentElement, additionalCssClasses) {
 			var cssClasses = that.collectCssClasses();
-
 			that.nodeElement(parentElement);
 
+			var bgColor=that.backgroundColor();
+			if (bgColor===null) bgColor=undefined;
+			if (that.attributes().indexOf("deprecated")>-1){
+				bgColor=undefined;
+			}
 			if (additionalCssClasses instanceof Array) {
 				cssClasses = cssClasses.concat(additionalCssClasses);
 			}
             if (rectangularRepresentation===true) {
-                drawTools.appendRectangularClass(parentElement, 80,80, cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
+               	renderingElement = drawTools.appendRectangularClass(parentElement, 80,80, cssClasses, that.labelForCurrentLanguage(), bgColor);
             }else {
-                drawTools.appendCircularClass(parentElement, that.actualRadius(), cssClasses, that.labelForCurrentLanguage(), that.backgroundColor());
+				renderingElement = drawTools.appendCircularClass(parentElement, that.actualRadius(), cssClasses, that.labelForCurrentLanguage(), bgColor);
             }
-
 			that.postDrawActions(parentElement);
 		};
 
+		this.redrawElement=function(){
+			renderingElement.remove();
+			textBlock.remove();
+            var bgColor=that.backgroundColor();
+            if (that.attributes().indexOf("deprecated")>-1){
+                bgColor=undefined;
+            }
+
+            var cssClasses = that.collectCssClasses();
+
+            if (rectangularRepresentation===true) {
+                renderingElement = drawTools.appendRectangularClass(that.nodeElement(), 80,80, cssClasses, that.labelForCurrentLanguage(), bgColor);
+            }else {
+                renderingElement = drawTools.appendCircularClass(that.nodeElement(), that.actualRadius(), cssClasses, that.labelForCurrentLanguage(), bgColor);
+            }
+            that.postDrawActions(that.nodeElement());
+		};
 		/**
 		 * Common actions that should be invoked after drawing a node.
 		 */
@@ -204,15 +232,24 @@ module.exports = (function () {
 				that.drawPin();
 			}
 			if (that.halo()) {
-				that.drawHalo();
+				that.drawHalo(false);
 			}
 			if (that.collapsible()) {
 				that.drawCollapsingButton();
 			}
 		};
 
+        this.redrawLabelText=function(){
+            that.textBlock().remove();
+            that.textBlock(createTextBlock());
+            renderingElement.select("title").text(that.labelForCurrentLanguage());
+        };
 		function createTextBlock() {
-			var textBlock = new CenteringTextElement(that.nodeElement(), that.backgroundColor());
+			var bgColor=that.backgroundColor();
+			if (that.attributes().indexOf("deprecated")>-1)
+				bgColor=undefined;
+
+			var textBlock = new CenteringTextElement(that.nodeElement(), bgColor);
 
 			var equivalentsString = that.equivalentsString();
 			var suffixForFollowingEquivalents = equivalentsString ? "," : "";

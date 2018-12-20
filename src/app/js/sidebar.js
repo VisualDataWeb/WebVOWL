@@ -461,15 +461,24 @@ module.exports = function (graph) {
                 detailArea.classed("hidden",!visibleSidebar);
                 graphArea.style("width","78%");
                 graphArea.style("-webkit-animation-name","none");
-                 menuArea.style("width","78%");
-                 menuArea.style("-webkit-animation-name","none");
+
+                menuArea.style("width","78%");
+                menuArea.style("-webkit-animation-name","none");
+
+                d3.select("#WarningErrorMessages").style("width","78%");
+                d3.select("#WarningErrorMessages").style("-webkit-animation-name","none");
             } else {
                 graphArea.style("width","78%");
                 graphArea.style("-webkit-animation-name","sbCollapseAnimation");
                 graphArea.style("-webkit-animation-duration","0.5s");
-                 menuArea.style("width","78%");
-                 menuArea.style("-webkit-animation-name","sbCollapseAnimation");
-                 menuArea.style("-webkit-animation-duration","0.5s");
+
+                menuArea.style("width","78%");
+                menuArea.style("-webkit-animation-name","sbCollapseAnimation");
+                menuArea.style("-webkit-animation-duration","0.5s");
+
+                d3.select("#WarningErrorMessages").style("width","78%");
+                d3.select("#WarningErrorMessages").style("-webkit-animation-name","warn_ExpandRightBarAnimation");
+                d3.select("#WarningErrorMessages").style("-webkit-animation-duration","0.5s");
             }
             graph.options().width(window.innerWidth - (window.innerWidth * 0.22));
             graph.options().navigationMenu().updateScrollButtonVisibility();
@@ -483,24 +492,30 @@ module.exports = function (graph) {
             if (init===true) {
                 graphArea.style("width","100%");
                 graphArea.style("-webkit-animation-name","none");
-                 menuArea.style("width","100%");
-                 menuArea.style("-webkit-animation-name","none");
+
+                menuArea.style("width","100%");
+                menuArea.style("-webkit-animation-name","none");
+
+                d3.select("#WarningErrorMessages").style("width","100%");
+                d3.select("#WarningErrorMessages").style("-webkit-animation-name","none");
             }else {
                 graphArea.style("width","100%");
                 graphArea.style("-webkit-animation-name","sbExpandAnimation");
                 graphArea.style("-webkit-animation-duration","0.5s");
 
-                 menuArea.style("width","100%");
-                 menuArea.style("-webkit-animation-name","sbExpandAnimation");
-                 menuArea.style("-webkit-animation-duration","0.5s");
+				menuArea.style("width","100%");
+                menuArea.style("-webkit-animation-name","sbExpandAnimation");
+                menuArea.style("-webkit-animation-duration","0.5s");
+
+                d3.select("#WarningErrorMessages").style("width","100%");
+                d3.select("#WarningErrorMessages").style("-webkit-animation-name","warn_CollapseRightBarAnimation");
+                d3.select("#WarningErrorMessages").style("-webkit-animation-duration","0.5s");
+
             }
             graph.options().width(window.innerWidth);
             graph.updateCanvasContainerSize();
             graph.options().navigationMenu().updateScrollButtonVisibility();
         }
-        // finalize steps
-        // graph.updateCanvasContainerSize();
-        // graph.options().navigationMenu().updateScrollButtonVisibility();
     };
 
     sidebar.isSidebarVisible=function(){return visibleSidebar;};
@@ -519,12 +534,6 @@ module.exports = function (graph) {
     sidebar.initSideBarAnimation=function(){
         graphArea.node().addEventListener("animationend", function() {
             detailArea.classed("hidden", !visibleSidebar);
-            // if (visibleSidebar === true){
-             //    graph.options().width(window.innerWidth - (window.innerWidth * 0.22));
-            // }
-            // else{
-             //    graph.options().width(window.innerWidth);
-			// }
             graph.updateCanvasContainerSize();
             graph.options().navigationMenu().updateScrollButtonVisibility();
         });
@@ -542,5 +551,50 @@ module.exports = function (graph) {
         });
     };
 
-	return sidebar;
+
+    sidebar.updateShowedInformation=function(){
+		var editMode=graph.editorMode();
+        d3.select("#generalDetails").classed("hidden",editMode);
+        d3.select("#generalDetailsEdit").classed("hidden",!editMode);
+
+        // store the meta information in graph.options()
+
+		// todo: update edit meta info
+        graph.options().editSidebar().updateGeneralOntologyInfo();
+
+		// todo: update showed meta info;
+        graph.options().sidebar().updateGeneralOntologyInfo();
+
+	};
+
+    sidebar.updateGeneralOntologyInfo=function() {
+        // get it from graph.options
+        var generalMetaObj = graph.options().getGeneralMetaObject();
+        var preferredLanguage = graph && graph.language ? graph.language() : null;
+        if (generalMetaObj.hasOwnProperty("title")) {
+            // title has language to it -.-
+            if (typeof generalMetaObj.title === "object") {
+                d3.select("#title").node().value = languageTools.textInLanguage(generalMetaObj.title, preferredLanguage);
+            } else{
+                d3.select("#title").node().innerHTML = generalMetaObj.title;
+            }
+
+        }
+        if (generalMetaObj.hasOwnProperty("iri")) d3.select("#about").node().innerHTML= generalMetaObj.iri;
+        if (generalMetaObj.hasOwnProperty("iri")) d3.select("#about").node().href= generalMetaObj.iri;
+        if (generalMetaObj.hasOwnProperty("version")) d3.select("#version").node().innerHTML = generalMetaObj.version;
+        if (generalMetaObj.hasOwnProperty("author")) d3.select("#authors").node().innerHTML = generalMetaObj.author;
+ 		// this could also be an object >>
+        if (generalMetaObj.hasOwnProperty("description")) {
+            if (typeof generalMetaObj.description === "object") {
+                d3.select("#description").node().innerHTML = languageTools.textInLanguage(generalMetaObj.description, preferredLanguage);
+            }
+            else {
+                d3.select("#description").node().innerHTML = generalMetaObj.description;
+            }
+        }
+    };
+
+
+        return sidebar;
 };

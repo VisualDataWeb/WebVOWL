@@ -15,6 +15,7 @@ function PlainLink(domain, range, property) {
 		layerIndex,
 		loops,
 		loopIndex,
+        pathEl,
 		label = new Label(property, this);
 
 	var backPart = require("./linkPart")(domain, label, this),
@@ -61,7 +62,10 @@ function PlainLink(domain, range, property) {
 	this.range = function () {
 		return range;
 	};
-
+    this.pathObj=function(pE){
+        if (!arguments.length){return pathEl;}
+        pathEl=pE;
+    };
 }
 
 
@@ -74,12 +78,15 @@ PlainLink.prototype.draw = function (linkGroup) {
 		inverse.linkGroup(linkGroup);
 	}
 
-	linkGroup.append("path")
-		.classed("link-path", true)
+	var pathElement=linkGroup.append("path");
+    pathElement.classed("link-path", true)
 		.classed(this.domain().cssClassOfNode(), true)
 		.classed(this.range().cssClassOfNode(), true)
 		.classed(property.linkType(), true);
+  	this.pathObj(pathElement);
+
 };
+
 
 PlainLink.prototype.inverse = function () {
 	return this.label().inverse();

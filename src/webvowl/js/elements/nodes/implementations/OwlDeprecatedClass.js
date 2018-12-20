@@ -6,7 +6,9 @@ module.exports = (function () {
 		RoundNode.apply(this, arguments);
 
 		this.attributes(["deprecated"])
-			.type("owl:DeprecatedClass");
+			.type("owl:DeprecatedClass")
+            .styleClass("deprecated")
+            .indications(["deprecated"]);
 	};
 	o.prototype = Object.create(RoundNode.prototype);
 	o.prototype.constructor = o;

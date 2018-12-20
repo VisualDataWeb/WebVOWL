@@ -40,7 +40,7 @@
     fill: #ccc;
 }
 .external, .externalproperty {
-    fill: #36c;
+    /*fill: #36c;*/
 }
 path, .nofill {
 	fill: none;
@@ -58,6 +58,12 @@ marker path {
     fill: #f00 !important;
     cursor: pointer;
 }
+
+.hoveredForEditing{
+    fill: #f00 !important;
+    cursor: pointer;
+}
+
 .feature{
     fill: #f00;
     cursor: pointer;
@@ -122,6 +128,7 @@ marker path {
     animation-duration: 0.8s;
 
     -webkit-transform: translateZ(0);
+    -o-transform: translateZ(0);
     -webkit-animation-iteration-count: 3;
     -moz-animation-iteration-count: 3;
     -o-animation-iteration-count: 3;
@@ -149,6 +156,10 @@ marker path {
 	stroke: #f00 !important;
 }
 .indirect-highlighting, .feature:hover {
+    fill: #f90;
+    cursor: pointer;
+}
+.feature_hover{
     fill: #f90;
     cursor: pointer;
 }
@@ -182,6 +193,62 @@ rect.focused, circle.focused {
 /*-----------------------------------------------------------------
  Additional elements for the WebVOWL demo (NOT part of spec)
 -----------------------------------------------------------------*/
+
+.addDataPropertyElement{
+    fill: #9c6 !important;
+    cursor: pointer;
+    stroke-width: 2;
+    stroke: black;
+}
+.addDataPropertyElement:hover{
+    fill: #f90 !important;
+    cursor: pointer;
+    stroke-width: 2;
+    stroke: black;
+}
+.superHiddenElement{
+    fill: rgba(255, 153, 0, 0.4);
+    cursor: pointer;
+    stroke-width: 0;
+    stroke: black;
+    /*opacity:0;*/
+}
+.superOpacityElement{
+    opacity:0;
+}
+
+.deleteParentElement:hover{
+    fill: #f90;
+    cursor: pointer;
+    stroke-width: 2;
+    stroke: black;
+}
+
+.deleteParentElement{
+    fill: #f00;
+    cursor: pointer;
+    stroke-width: 2;
+    stroke: black;
+}
+
+.classNodeDragPath{
+    stroke: black;
+    stroke-width: 2px;
+}
+
+
+.classDraggerNodeHovered{
+    fill: #f90;
+    stroke: black;
+    stroke-width: 2px;
+    cursor: pointer;
+}
+.classDraggerNode{
+    fill: #acf;
+    stroke: black;
+    stroke-width: 2px;
+}
+
 
 marker path {
     /* Safari and Chrome workaround for inheriting the style of its link.

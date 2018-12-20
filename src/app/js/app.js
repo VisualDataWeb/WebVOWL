@@ -1,5 +1,9 @@
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
 module.exports = function () {
-
+    var newOntologyCounter=1;
 	var app = {},
 		graph = webvowl.graph(),
 		options = graph.graphOptions(),
@@ -10,6 +14,7 @@ module.exports = function () {
 		filterMenu     = require("./menu/filterMenu")     (graph),
 		gravityMenu    = require("./menu/gravityMenu")    (graph),
 		modeMenu       = require("./menu/modeMenu")       (graph),
+        debugMenu      = require("./menu/debugMenu")      (graph),
 		ontologyMenu   = require("./menu/ontologyMenu")   (graph),
 		pauseMenu      = require("./menu/pauseMenu")      (graph),
 		resetMenu      = require("./menu/resetMenu")      (graph),
@@ -17,8 +22,12 @@ module.exports = function () {
 		navigationMenu = require("./menu/navigationMenu") (graph),
         zoomSlider     = require("./menu/zoomSlider")     (graph),
 		sidebar        = require("./sidebar")             (graph),
+		leftSidebar    = require("./leftSidebar")         (graph),
+        editSidebar    = require("./editSidebar")         (graph),
         configMenu     = require("./menu/configMenu")     (graph),
 		loadingModule  = require("./loadingModule")       (graph),
+        warningModule  = require("./warningModule")       (graph),
+        directInputMod = require("./directInputModule")   (graph),
 
 
 	// Graph modules
@@ -26,7 +35,7 @@ module.exports = function () {
 		compactNotationSwitch 	 = webvowl.modules.compactNotationSwitch(graph),
 		datatypeFilter 			 = webvowl.modules.datatypeFilter(),
 		disjointFilter 			 = webvowl.modules.disjointFilter(),
-		focuser 				 = webvowl.modules.focuser(),
+		focuser 				 = webvowl.modules.focuser(graph),
 		emptyLiteralFilter		 = webvowl.modules.emptyLiteralFilter(),
 		nodeDegreeFilter 		 = webvowl.modules.nodeDegreeFilter(filterMenu),
 		nodeScalingSwitch 		 = webvowl.modules.nodeScalingSwitch(graph),
@@ -36,6 +45,18 @@ module.exports = function () {
 		statistics 				 = webvowl.modules.statistics(),
 		subclassFilter 			 = webvowl.modules.subclassFilter(),
 		setOperatorFilter 		 = webvowl.modules.setOperatorFilter();
+
+
+	app.getOptions=function(){
+	    return webvowl.opts;
+    };
+	app.getGraph=function(){
+	    return webvowl.gr;
+    };
+	// app.afterInitializationCallback=undefined;
+
+
+
 
 	app.initialize = function () {
         window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function(f){return setTimeout(f, 1000/60);}; // simulate calling code 60
@@ -47,17 +68,17 @@ module.exports = function () {
 		options.selectionModules().push(pickAndPin);
 
 		options.filterModules().push(emptyLiteralFilter);
-		options.filterModules().push(statistics);
+        options.filterModules().push(statistics);
+
+        options.filterModules().push(nodeDegreeFilter);
 		options.filterModules().push(datatypeFilter);
 		options.filterModules().push(objectPropertyFilter);
 		options.filterModules().push(subclassFilter);
 		options.filterModules().push(disjointFilter);
 		options.filterModules().push(setOperatorFilter);
 		options.filterModules().push(nodeScalingSwitch);
-		options.filterModules().push(nodeDegreeFilter);
 		options.filterModules().push(compactNotationSwitch);
 		options.filterModules().push(colorExternalsSwitch);
-
 
 		d3.select(window).on("resize", adjustSize);
 
@@ -68,7 +89,9 @@ module.exports = function () {
 		pauseMenu.setup();
 		sidebar.setup();
 		loadingModule.setup();
-
+		leftSidebar.setup();
+		editSidebar.setup();
+		debugMenu.setup();
         var agentVersion=getInternetExplorerVersion();
        	if (agentVersion> 0 && agentVersion<= 11) {
             console.log("Agent version "+agentVersion);
@@ -105,19 +128,46 @@ module.exports = function () {
 			options.ontologyMenu(ontologyMenu);
 			options.navigationMenu(navigationMenu);
 			options.sidebar(sidebar);
+            options.leftSidebar(leftSidebar);
+            options.editSidebar(editSidebar);
 			options.exportMenu(exportMenu);
 			options.graphObject(graph);
 			options.zoomSlider(zoomSlider);
+			options.warningModule(warningModule);
+			options.directInputModule(directInputMod);
+            options.datatypeFilter(datatypeFilter);
+            options.objectPropertyFilter(objectPropertyFilter);
+            options.subclassFilter(subclassFilter);
+            options.setOperatorFilter(setOperatorFilter);
+            options.disjointPropertyFilter(disjointFilter);
+            options.focuserModule(focuser);
+            options.colorExternalsModule(colorExternalsSwitch);
+            options.compactNotationModule(compactNotationSwitch);
+
             ontologyMenu.setup(loadOntologyFromText);
             configMenu.setup();
-			graph.start();
-			adjustSize();
 
+            leftSidebar.showSidebar(0);
+            leftSidebar.hideCollapseButton(true);
+            warningModule.hideEditorHint();
+
+            graph.start();
+
+            var modeOp = d3.select("#modeOfOperationString");
+            modeOp.style("font-size","0.6em");
+            modeOp.style("font-style","italic");
+
+			adjustSize();
 			var defZoom;
 			var w = graph.options().width();
 			var h = graph.options().height();
 			defZoom = Math.min(w, h) / 1000;
+
+			var hideDebugOptions=true;
+            if (hideDebugOptions===false) {graph.setForceTickFunctionWithFPS();}
+
 			graph.setDefaultZoom(defZoom);
+            d3.selectAll(".debugOption").classed("hidden",hideDebugOptions);
 
 			// prevent backspace reloading event
             var htmlBody=d3.select("body");
@@ -126,12 +176,64 @@ module.exports = function () {
                 	// we could add here an alert
                     d3.event.preventDefault();
                 }
+                // using ctrl+Shift+d as debug option
+                if (d3.event.ctrlKey && d3.event.shiftKey && d3.event.keyCode===68) {
+                    graph.options().executeHiddenDebugFeatuers();
+                    d3.event.preventDefault();
+                }
             });
+            if (d3.select("#maxLabelWidthSliderOption")) {
+                var setValue=!graph.options().dynamicLabelWidth();
+                d3.select("#maxLabelWidthSlider").node().disabled=setValue;
+                d3.select("#maxLabelWidthvalueLabel").classed("disabledLabelForSlider", setValue);
+                d3.select("#maxLabelWidthDescriptionLabel").classed("disabledLabelForSlider", setValue);
+            }
+
+            d3.select("#blockGraphInteractions").style("position","absolute")
+                .style("top","0")
+                .style("background-color","#bdbdbd")
+                .style("opacity","0.5")
+                .style("pointer-events","auto")
+                .style("width",graph.options().width()+"px")
+                .style("height",graph.options().height()+"px")
+                .on("click",function(){
+                    d3.event.preventDefault();
+                    d3.event.stopPropagation();
+                })
+                .on("dblclick",function(){
+                    d3.event.preventDefault();
+                    d3.event.stopPropagation();
+                });
+
+            d3.select("#direct-text-input").on("click",function (){directInputMod.setDirectInputMode()});
+            d3.select("#blockGraphInteractions").node().draggable=false;
+            options.prefixModule(webvowl.util.prefixTools(graph));
+            adjustSize();
+            sidebar.updateOntologyInformation(undefined, statistics);
 			loadingModule.parseUrlAndLoadOntology(); // loads automatically the ontology provided by the parameters
+            options.debugMenu(debugMenu);
+            debugMenu.updateSettings();
+
+            // connect the reloadCachedVersionButton
+            d3.select("#reloadSvgIcon").on("click",function(){
+                if(d3.select("#reloadSvgIcon").node().disabled===true){
+                  graph.options().ontologyMenu().clearCachedVersion();
+                  return;
+                }
+                d3.select("#reloadCachedOntology").classed("hidden",true);
+                graph.options().ontologyMenu().reloadCachedOntology();
+
+            });
+            // add the initialized objects
+            webvowl.opts=options;
+            webvowl.gr=graph;
+
         }
 	};
 
+
 	function loadOntologyFromText(jsonText, filename, alternativeFilename) {
+        d3.select("#reloadCachedOntology").classed("hidden",true);
 		pauseMenu.reset();
 		graph.options().navigationMenu().hideAllMenus();
 
@@ -139,7 +241,7 @@ module.exports = function () {
             loadingModule.notValidJsonFile();
 			return;
 		}
-
+		graph.editorMode(); // updates the checkbox
 		var data;
 		if (jsonText) {
 			// validate JSON FILE
@@ -176,7 +278,13 @@ module.exports = function () {
 			classCount=data.class.length;
 		}
 
-		if (classCount === 0 ){
+		var loadEmptyOntologyForEditing=false;
+        if (location.hash.indexOf("#new_ontology")!==-1){
+            loadEmptyOntologyForEditing=true;
+            newOntologyCounter++;
+            d3.select("#empty").node().href="#opts=editorMode=true;#new_ontology"+newOntologyCounter;
+        }
+		if (classCount === 0 && graph.editorMode()===false && loadEmptyOntologyForEditing===false){
 			// generate message for the user;
 			loadingModule.emptyGraphContentError();
 		}else {
@@ -185,11 +293,19 @@ module.exports = function () {
             exportMenu.setJsonText(jsonText);
             options.data(data);
             graph.options().loadingModule().setPercentMode();
+            if (loadEmptyOntologyForEditing===true){
+                graph.editorMode(true);
+
+            }
             graph.load();
             sidebar.updateOntologyInformation(data, statistics);
             exportMenu.setFilename(filename);
             graph.updateZoomSliderValueFromOutside();
             adjustSize();
+
+            var flagOfCheckBox=d3.select("#editorModeModuleCheckbox").node().checked;
+            graph.editorMode(flagOfCheckBox);// update gui
+
         }
 	}
 
@@ -204,8 +320,12 @@ module.exports = function () {
             width = window.innerWidth;
         }
 
-        graph.adjustingGraphSize(true);
-		graphContainer.style("height", height + "px");
+        directInputMod.updateLayout();
+        d3.select("#blockGraphInteractions").style("width",window.innerWidth+"px");
+        d3.select("#blockGraphInteractions").style("height",window.innerHeight+"px");
+
+        d3.select("#WarningErrorMessages").style("width",width+"px");
+        graphContainer.style("height", height + "px");
 		svg.attr("width", width)
 			.attr("height", height);
 
@@ -213,11 +333,22 @@ module.exports = function () {
 			   .height( height );
 
 		graph.updateStyle();
-        adjustSliderSize();
+        
+        if (isTouchDevice()===true){
+            if (graph.isEditorMode()===true )
+                d3.select("#modeOfOperationString").node().innerHTML="touch able device detected";
+            graph.setTouchDevice(true);
+
+        }else{
+            if (graph.isEditorMode()===true )
+                d3.select("#modeOfOperationString").node().innerHTML="point & click device detected";
+            graph.setTouchDevice(false);
+        }
 
         d3.select("#loadingInfo-container").style("height",0.5*(height-80)+"px");
         loadingModule.checkForScreenSize();
-
+		
+		adjustSliderSize();
 		// update also the padding options of loading and the logo positions;
 		var warningDiv=d3.select("#browserCheck");
 		if (warningDiv.classed("hidden")===false ) {
@@ -244,6 +375,8 @@ module.exports = function () {
             leftButton.classed("hidden",true);
 		}
 
+		// adjust height of the leftSidebar element;
+        editSidebar.updateElementWidth();
 	}
 
     function adjustSliderSize(){
@@ -252,6 +385,9 @@ module.exports = function () {
         var fullHeight=height;
         var zoomOutPos=height-30;
         var sliderHeight=150;
+
+        // assuming DOM elements are generated in the index.html
+        // todo: refactor for independent usage of graph and app
         if (fullHeight<150) {
             // hide the slider button;
             d3.select("#zoomSliderParagraph").classed("hidden", true);
@@ -269,7 +405,7 @@ module.exports = function () {
         var centerPos=zoomInPos-20;
         if (fullHeight<280){
             // hide the slider button;
-            d3.select("#zoomSliderParagraph").classed("hidden",true);
+            d3.select("#zoomSliderParagraph").classed("hidden",true);//var sliderPos=zoomOutPos-sliderHeight;
             d3.select("#zoomOutButton").style("top",zoomOutPos+"px");
             d3.select("#zoomInButton").style("top",zoomInPos+"px");
             d3.select("#centerGraphButton").style("top",centerPos+"px");
@@ -285,6 +421,16 @@ module.exports = function () {
         d3.select("#centerGraphButton").style("top",centerPos+"px");
         d3.select("#zoomSliderParagraph").style("top",sliderPos+"px");
     }
+
+    function isTouchDevice() {
+        try {
+            document.createEvent("TouchEvent");
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
 
 	function getInternetExplorerVersion(){
         var ua,
