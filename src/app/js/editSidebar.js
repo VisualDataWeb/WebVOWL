@@ -424,10 +424,32 @@ module.exports = function (graph) {
                 deletePath.attr("transform", "matrix(0.45,0,0,0.45,0,5)");
 
                 deleteButton.selectAll("g").on("mouseover",function(){
-                    highlightDeleteButton(true,this.selectorName);
+                    var selector=this;
+                    var enable=true;
+                    var f_deletePath= d3.select("#del_pathFor_" + selector.selectorName);
+                    var f_deleteRect= d3.select("#del_rectFor_" + selector.selectorName);
+
+                    if (enable===false){
+                        f_deletePath.node().style="stroke: #f00;";
+                        f_deleteRect.style("cursor","auto");
+                    }else{
+                        f_deletePath.node().style="stroke: #ff972d;";
+                        f_deleteRect.style("cursor","pointer");
+                    }
                 });
                 deleteButton.selectAll("g").on("mouseout",function(){
-                    highlightDeleteButton(false,this.selectorName);
+                    var selector=this;
+                    var enable=false;
+                    var f_deletePath= d3.select("#del_pathFor_" + selector.selectorName);
+                    var f_deleteRect= d3.select("#del_rectFor_" + selector.selectorName);
+
+                    if (enable===false){
+                        f_deletePath.node().style="stroke: #f00;";
+                        f_deleteRect.style("cursor","auto");
+                    }else{
+                        f_deletePath.node().style="stroke: #ff972d;";
+                        f_deleteRect.style("cursor","pointer");
+                    }
                 });
 
 
