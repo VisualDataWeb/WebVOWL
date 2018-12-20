@@ -131,7 +131,7 @@ module.exports = function (graph) {
         checkboxes.forEach(function (checkbox) {
             checkbox.on("click")(silent);
         });
-        if (graph.editorMode()==false){
+        if (graph.editorMode()===false){
 
             d3.select("#useAccuracyHelper").style("color", "#979797");
             d3.select("#useAccuracyHelper").style("pointer-events", "none");

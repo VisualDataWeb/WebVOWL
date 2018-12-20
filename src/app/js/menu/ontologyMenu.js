@@ -460,7 +460,7 @@ module.exports = function (graph) {
         loadingModule.loadFromOWL2VOWL(parameter[0],parameter[1]);
 	}
 
-	function callbackFromIRI_URL_ERROR(parameter){
+	function callbackFromJSON_URL_ERROR(parameter){
         var error=parameter[0];
         var request=parameter[1];
         var local_conversionId=parameter[2];
@@ -483,29 +483,29 @@ module.exports = function (graph) {
         ontologyMenu.conversionFinished();
     }
 
-    // Duplicated function definition ? Thanks Travis CI
-    // function callbackFromIRI_URL_ERROR(parameter){
-    //     var error=parameter[0];
-    //     var request=parameter[1];
-    //     var local_conversionId=parameter[2];
-    //     if (local_conversionId!==conversion_sessionId){
-    //         console.log("This thread has been canceled!!");
-    //         ontologyMenu.conversionFinished(local_conversionId);
-    //         return;
-    //     }
-    //     callbackUpdateLoadingMessage("<br><span style='color:red'> Failed to convert the file.</span> "+
-    //         " Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
-    //         "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
-    //
-    //     if (error!==null && error.status === 500){
-    //         append_message("<span style='color:red'>Could not find ontology  at the URL</span>");
-    //     }
-    //     if (request && request.responseText.length===0){
-    //         append_message("<span style='color:red'>Received empty graph</span>");
-    //     }
-    //     graph.handleOnLoadingError();
-    //     ontologyMenu.conversionFinished();
-    // }
+
+    function callbackFromIRI_URL_ERROR(parameter){
+        var error=parameter[0];
+        var request=parameter[1];
+        var local_conversionId=parameter[2];
+        if (local_conversionId!==conversion_sessionId){
+            console.log("This thread has been canceled!!");
+            ontologyMenu.conversionFinished(local_conversionId);
+            return;
+        }
+        callbackUpdateLoadingMessage("<br><span style='color:red'> Failed to convert the file.</span> "+
+            " Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
+            "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
+
+        if (error!==null && error.status === 500){
+            append_message("<span style='color:red'>Could not find ontology  at the URL</span>");
+        }
+        if (request && request.responseText.length===0){
+            append_message("<span style='color:red'>Received empty graph</span>");
+        }
+        graph.handleOnLoadingError();
+        ontologyMenu.conversionFinished();
+    }
 
 	function callbackFromDirectInput_ERROR(parameter){
 

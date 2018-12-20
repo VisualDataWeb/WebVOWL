@@ -1133,9 +1133,9 @@ module.exports = function (graph) {
                     }
                 }
             }
-            if (node.type()==="rdfs:Literal")				{ qType = "Literal"        ;}
-            if (node.type()==="rdfs:Datatype")				{ qType = "Datatype"       ;}
-            if (node.attributes().indexOf("anonymous")!=-1)	{ qType = "anonymousClass" ;}
+            if (node.type()==="rdfs:Literal")				    { qType = "Literal"        ;}
+            if (node.type()==="rdfs:Datatype")				    { qType = "Datatype"       ;}
+            if (node.attributes().indexOf("anonymous")!==-1)	{ qType = "anonymousClass" ;}
 
 
             if (node.type()==="owl:unionOf" || node.type()==="owl:complementOf" || node.type()==="owl:disjointUnionOf" ||  node.type()==="owl:intersectionOf" )
