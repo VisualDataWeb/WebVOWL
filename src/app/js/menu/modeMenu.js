@@ -100,6 +100,8 @@ module.exports = function (graph) {
         moduleCheckbox.on("click", function (d) {
             var isEnabled = moduleCheckbox.property("checked");
             onChangeFunc(isEnabled);
+            if (isEnabled===true)
+                graph.showEditorHintIfNeeded();
         });
         moduleOptionContainer.append("label")
             .attr("for", identifier + "ModuleCheckbox")
