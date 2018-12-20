@@ -192,7 +192,7 @@ module.exports = function (graph) {
                     duNode_prefRepresentation = "<" + duIri + ">";
                 else
                     duNode_prefRepresentation = duIri;
-                objectDef +=indent+indent+ duNode_prefRepresentation + " \n"
+                objectDef +=indent+indent+ duNode_prefRepresentation + " \n";
             }
             objectDef += ") ;\r\n";
         }
@@ -211,7 +211,7 @@ module.exports = function (graph) {
                         uNode_prefRepresentation = "<" + uIri + ">";
                     else
                         uNode_prefRepresentation = uIri;
-                    objectDef += indent + indent + indent + uNode_prefRepresentation + " \n"
+                    objectDef += indent + indent + indent + uNode_prefRepresentation + " \n";
                 }
             }
             objectDef+= ") ;\r\n";

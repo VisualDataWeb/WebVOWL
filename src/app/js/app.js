@@ -205,7 +205,7 @@ module.exports = function () {
                     d3.event.stopPropagation();
                 });
 
-            d3.select("#direct-text-input").on("click",function (){directInputMod.setDirectInputMode()});
+            d3.select("#direct-text-input").on("click",function (){directInputMod.setDirectInputMode();});
             d3.select("#blockGraphInteractions").node().draggable=false;
             options.prefixModule(webvowl.util.prefixTools(graph));
             adjustSize();

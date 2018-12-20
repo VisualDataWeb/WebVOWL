@@ -534,9 +534,9 @@ module.exports = function (graphContainerSelector) {
         var diff = now - then;
         var fps = (1000 / (diff)).toFixed(2);
 
-        debugContainer.node().innerHTML = "FPS: " + fps
-            + "<br>Nodes: " + force.nodes().length
-            + "<br>Links: " + force.links().length;
+        debugContainer.node().innerHTML = "FPS: " + fps+ "<br>"
+            + "Nodes: " + force.nodes().length+ "<br>"
+            + "Links: " + force.links().length;
         then = Date.now();
 
     }
@@ -1413,7 +1413,7 @@ module.exports = function (graphContainerSelector) {
     };
     graph.getCachedJsonObj=function(){
         return cachedJsonOBJ;
-    }
+    };
 
     // removes data when data could not be loaded
     graph.clearGraphData = function () {

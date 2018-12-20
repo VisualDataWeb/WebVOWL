@@ -210,7 +210,7 @@ module.exports =  function (graph) {
     loadingModule.parseUrlAndLoadOntology=function(storeCache) {
         var autoStore=true;
         if (storeCache===false){
-            autoStore=false
+            autoStore=false;
         }
 
         graph.clearAllGraphData();
@@ -464,7 +464,7 @@ module.exports =  function (graph) {
 
     function loadPresetOntology(ontology){
         // check if already cached in ontology menu?
-        var f2r=undefined;
+        var f2r;
         if (ontology.indexOf("new_ontology")!==-1){
             loadingModule.hideLoadingIndicator();
             graph.showEditorHintIfNeeded();

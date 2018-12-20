@@ -13,7 +13,7 @@ module.exports = function (graph) {
                 var searchMenu = graph.options().searchMenu();
                 searchMenu.hideSearchEntries();
                 specialCbx.on("click")(true);
-                if (graph.editorMode()==false){
+                if (graph.editorMode()===false){
                     d3.select("#useAccuracyHelper").style("color", "#979797");
                     d3.select("#useAccuracyHelper").style("pointer-events", "none");
 
@@ -58,9 +58,9 @@ module.exports = function (graph) {
             function (enabled, silent){
 
                 if (graph.options().getHideDebugFeatures()===false) {
-                    d3.select("#FPS_Statistics").classed("hidden", !enabled)
+                    d3.select("#FPS_Statistics").classed("hidden", !enabled);
                 }else{
-                    d3.select("#FPS_Statistics").classed("hidden", true)
+                    d3.select("#FPS_Statistics").classed("hidden", true);
                 }
 
 
@@ -68,9 +68,9 @@ module.exports = function (graph) {
         addCheckBox("showModeOfOperation","Show input modality","#showModeOfOperation",graph.options().showInputModality,
             function (enabled){
                 if (graph.options().getHideDebugFeatures()===false) {
-                    d3.select("#modeOfOperationString").classed("hidden", !enabled)
+                    d3.select("#modeOfOperationString").classed("hidden", !enabled);
                 }else{
-                    d3.select("#modeOfOperationString").classed("hidden", true)
+                    d3.select("#modeOfOperationString").classed("hidden", true);
                 }
             });
 

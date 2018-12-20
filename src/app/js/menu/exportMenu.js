@@ -435,7 +435,7 @@ module.exports = function (graph) {
                     if (nIndividuals[j].comment()              ) { indObj.comment     = nIndividuals[j].comment();     }
                     classIndividualElements.push(indObj);
                 }
-                classAttr.individuals = classIndividualElements
+                classAttr.individuals = classIndividualElements;
             }
 
             var equalsForAttributes=undefined;
@@ -470,12 +470,12 @@ module.exports = function (graph) {
                             e_indObj.baseIri= e_nIndividuals[k].baseIri();
                             e_indObj.labels = e_nIndividuals[k].label();
 
-                            if (e_nIndividuals[k].annotations()          ) { e_indObj.annotations = nIndividuals[k].annotations(); }
-                            if (e_nIndividuals[k].description()          ) { e_indObj.description = nIndividuals[k].description(); }
-                            if (e_nIndividuals[k].comment()              ) { e_indObj.comment     = nIndividuals[k].comment();     }
+                            if (e_nIndividuals[k].annotations()          ) { e_indObj.annotations = e_nIndividuals[k].annotations(); }
+                            if (e_nIndividuals[k].description()          ) { e_indObj.description = e_nIndividuals[k].description(); }
+                            if (e_nIndividuals[k].comment()              ) { e_indObj.comment     = e_nIndividuals[k].comment();     }
                             e_classIndividualElements.push(e_indObj);
                         }
-                        eqAttr.individuals = e_classIndividualElements
+                        eqAttr.individuals = e_classIndividualElements;
                     }
 
                     classAttributeObjects.push(eqAttr);
@@ -581,9 +581,9 @@ module.exports = function (graph) {
         var propAttribute = exportText.propertyAttribute;
         /**  remove previously stored variables **/
         for (i = 0; i < classAttribute.length; i++) {
-            var classObj = classAttribute[i];
-            delete classObj.pos;
-            delete classObj.pinned;
+            var classObj_del = classAttribute[i];
+            delete classObj_del.pos;
+            delete classObj_del.pinned;
         }
         var propertyObj;
         for (i = 0; i < propAttribute.length; i++) {
@@ -1060,13 +1060,13 @@ module.exports = function (graph) {
             if (link.property().inverse()){
                 lg=link.pathObj();
                 pathLen=Math.floor( lg.node().getTotalLength() );
-                var p1=lg.node().getPointAtLength(4);
-                var p2=lg.node().getPointAtLength(0 );
-                var markerCenter=lg.node().getPointAtLength(6);
-                startX=p1.x;
-                startY=p1.y;
-                endX=p2.x;
-                endY=p2.y;
+                var p1_inv=lg.node().getPointAtLength(4);
+                var p2_inv=lg.node().getPointAtLength(0 );
+                var markerCenter_inv=lg.node().getPointAtLength(6);
+                startX=p1_inv.x;
+                startY=p1_inv.y;
+                endX=p2_inv.x;
+                endY=p2_inv.y;
                 normX=endX-startX;
                 normY=endY-startY;
                 len=Math.sqrt(normX*normX+normY*normY);
@@ -1076,8 +1076,8 @@ module.exports = function (graph) {
                 ahAngle=-1.0*Math.atan2(normY,normX)* (180 / Math.PI);
                 ahAngle-=90;
              //   console.log("INV>>\n "+link.property().inverse().labelForCurrentLanguage()+ ": "+normX+ " "+normY +"  "+ahAngle);
-                rx=markerCenter.x;
-                ry=markerCenter.y;
+                rx=markerCenter_inv.x;
+                ry=markerCenter_inv.y;
                 if (link.layers().length === 1 && !link.loops()) {
                     // markerOffset=-1*m
                     ry=-1*ry;
@@ -1093,7 +1093,6 @@ module.exports = function (graph) {
         }
 
 
-		var numberOfNodes=nodeElements.length;
 
         nodeElements.each(function (node) {
 
@@ -1220,8 +1219,8 @@ module.exports = function (graph) {
         });
         for (i=0;i<propElements.length;i++){
             var correspondingProp = propElements[i].property();
-            px = propElements[i].x;
-            py = -propElements[i].y;
+            var p_px = propElements[i].x;
+            var p_py = -propElements[i].y;
             identifier = correspondingProp.labelForCurrentLanguage();
             if (identifier===undefined) identifier="";
             var textColorStr="";
@@ -1286,13 +1285,13 @@ module.exports = function (graph) {
 
             // OWL INTERSECTION OF
             if (correspondingProp.type()==="owl:disjointWith"){
-            	var leftPos=px-12;
-                var rightPos=px+12;
-				var txtOffset=py-20;
-                texString += "\\node[" + qType + " " + widthString + " " + bgColorStr + " " + textColorStr + "] at (" + px + "pt, " + py + "pt)   (Node" + i + ") {};\n";
-                texString += "\\node[disjointWith , text=black] at ("+leftPos+ "pt, " + py + "pt)   (SymbolNode"+i+ ") {};\n";
-                texString += "\\node[disjointWith , text=black] at ("+rightPos+ "pt, " + py + "pt)   (SymbolNode"+i+ ") {};\n";
-                texString += "\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }" + textColorStr + "] at (" + px + "pt, " + txtOffset + "pt)   (Node_text" + i + ") {";
+            	var leftPos=p_px-12;
+                var rightPos=p_px+12;
+				var txtOffset=p_py-20;
+                texString += "\\node[" + qType + " " + widthString + " " + bgColorStr + " " + textColorStr + "] at (" + p_px + "pt, " + p_py + "pt)   (Node" + i + ") {};\n";
+                texString += "\\node[disjointWith , text=black] at ("+leftPos+ "pt, " + p_py + "pt)   (SymbolNode"+i+ ") {};\n";
+                texString += "\\node[disjointWith , text=black] at ("+rightPos+ "pt, " + p_py + "pt)   (SymbolNode"+i+ ") {};\n";
+                texString += "\\node[font={\\fontsize{12pt}{12}\\selectfont \\sffamily }" + textColorStr + "] at (" + p_px + "pt, " + txtOffset + "pt)   (Node_text" + i + ") {";
 				if (graph.options().compactNotation()===false){
                     texString += "(disjoint)";
 				}
@@ -1358,20 +1357,20 @@ module.exports = function (graph) {
                 var inv_widthString="";
                 var inv_width=inv_correspondingProp.textWidth();
 
-                var pOY1=py-14;
-                var pOY2=py+14;
+                var pOY1=p_py-14;
+                var pOY2=p_py+14;
                 inv_widthString=",minimum width="+inv_width+"pt";
                 texString += "% Createing Inverse Property \n";
-                texString += "\\node["+inv_qType+" "+inv_widthString+" "+inv_bgColorStr+" " +inv_textColorStr+"] at (" + px + "pt, " + pOY1 + "pt)   (property" + i + ") {" + inv_identifier.replaceAll("_","\\_ ") + "};\n";
+                texString += "\\node["+inv_qType+" "+inv_widthString+" "+inv_bgColorStr+" " +inv_textColorStr+"] at (" + p_px + "pt, " + pOY1 + "pt)   (property" + i + ") {" + inv_identifier.replaceAll("_","\\_ ") + "};\n";
                 texString += "% "+ inv_qType+ " vs "+ qType+ "\n";
                 texString += "% "+ inv_widthString+ " vs "+ widthString+ "\n";
                 texString += "% "+ inv_bgColorStr+ " vs "+ bgColorStr+ "\n";
                 texString += "% "+ inv_textColorStr+ " vs "+ textColorStr+ "\n";
 
-                texString += "\\node["+qType+" "+widthString+" "+bgColorStr+" " +textColorStr+"] at (" + px + "pt, " + pOY2 + "pt)   (property" + i + ") {" + identifier.replaceAll("_","\\_ ") + "};\n";
+                texString += "\\node["+qType+" "+widthString+" "+bgColorStr+" " +textColorStr+"] at (" + p_px + "pt, " + pOY2 + "pt)   (property" + i + ") {" + identifier.replaceAll("_","\\_ ") + "};\n";
 
             }else{
-                texString += "\\node["+qType+" "+widthString+" "+bgColorStr+" " +textColorStr+"] at (" + px + "pt, " + py + "pt)   (property" + i + ") {" + identifier.replaceAll("_","\\_ ") + "};\n";
+                texString += "\\node["+qType+" "+widthString+" "+bgColorStr+" " +textColorStr+"] at (" + p_px + "pt, " + p_py + "pt)   (property" + i + ") {" + identifier.replaceAll("_","\\_ ") + "};\n";
             }
         }
 
