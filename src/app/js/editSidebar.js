@@ -326,11 +326,47 @@ module.exports = function (graph) {
 
                 editButton.selectAll("g").on("mouseover",function(){
                     var sender=this;
-                    highlightEditButton(true,sender.selectorName,false);
+                    var fill =false;
+                    var enable=true;
+                    var f_editPath= d3.select("#pathFor_" + sender.selectorName);
+                    var f_editRect= d3.select("#rectFor_" + sender.selectorName);
+
+                    if (enable===false){
+                        if (fill)
+                            f_editPath.node().style="fill: #fff; stroke : #fff; stroke-width : 1px";
+                        else
+                            f_editPath.node().style=" stroke : #fff; stroke-width : 1px";
+
+                        f_editRect.style("cursor","auto");
+                    }else{
+                        if (fill)
+                            f_editPath.node().style="fill: #ff972d; stroke : #ff972d; stroke-width : 1px";
+                        else
+                            f_editPath.node().style="stroke : #ff972d; stroke-width : 1px";
+                        f_editRect.style("cursor","pointer");
+                    }
                 });
                 editButton.selectAll("g").on("mouseout",function(){
                     var sender=this;
-                    highlightEditButton(false,sender.selectorName,false);
+                    var fill =false;
+                    var enable=false;
+                    var f_editPath= d3.select("#pathFor_" + sender.selectorName);
+                    var f_editRect= d3.select("#rectFor_" + sender.selectorName);
+
+                    if (enable===false){
+                        if (fill)
+                            f_editPath.node().style="fill: #fff; stroke : #fff; stroke-width : 1px";
+                        else
+                            f_editPath.node().style=" stroke : #fff; stroke-width : 1px";
+
+                        f_editRect.style("cursor","auto");
+                    }else{
+                        if (fill)
+                            f_editPath.node().style="fill: #ff972d; stroke : #ff972d; stroke-width : 1px";
+                        else
+                            f_editPath.node().style="stroke : #ff972d; stroke-width : 1px";
+                        f_editRect.style("cursor","pointer");
+                    }
                 });
 
                 editPath.attr("d","M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z");
