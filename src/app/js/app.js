@@ -117,6 +117,7 @@ module.exports = function () {
 
 			// give the options the pointer to the some menus for import and export
 			options.literalFilter(emptyLiteralFilter);
+			options.nodeDegreeFilter(nodeDegreeFilter);
 			options.loadingModule(loadingModule);
 			options.filterMenu(filterMenu);
 			options.modeMenu(modeMenu);

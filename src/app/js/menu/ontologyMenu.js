@@ -48,10 +48,14 @@ module.exports = function (graph) {
                 d3.select("#reloadSvgIcon").node().disabled=true;
                 d3.select("#reloadCachedOntology").node().title="reloading original version not possible, please reload the file";
                 d3.select("#reloadSvgIcon").classed("disabledReloadElement",true);
+                d3.select("#svgStringText").style("fill","gray");
+                d3.select("#svgStringText").classed("noselect",true);
             }
             else{
                 d3.select("#reloadCachedOntology").node().title="generate new visualization and overwrite cached ontology";
                 d3.select("#reloadSvgIcon").classed("disabledReloadElement",false);
+                d3.select("#svgStringText").style("fill","black");
+                d3.select("#svgStringText").classed("noselect",true);
             }
         }else {
             graph.showReloadButtonAfterLayoutOptimization(false);

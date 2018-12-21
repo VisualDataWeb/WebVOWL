@@ -1226,6 +1226,7 @@ module.exports = function (graphContainerSelector) {
 
     graph.fastUpdate = function () {
         // fast update function for editor calls;
+        // -- experimental ;
         quick_refreshGraphData();
         updateNodeMap();
         force.start();
@@ -1233,7 +1234,6 @@ module.exports = function (graphContainerSelector) {
         graph.updatePulseIds(nodeArrayForPulse);
         refreshGraphStyle();
         updateHaloStyles();
-
 
     };
     function updateNodeMap(){
@@ -2525,9 +2525,9 @@ module.exports = function (graphContainerSelector) {
                 aNode.label(identifier);
             }
         }
-
+        var i;
         // updates the property domain and range
-        for (var i = 0; i < unfilteredData.properties.length; i++) {
+        for (i = 0; i < unfilteredData.properties.length; i++) {
             if (unfilteredData.properties[i].domain() === element) {
               //  unfilteredData.properties[i].toString();
                 unfilteredData.properties[i].domain( aNode );
@@ -2537,8 +2537,25 @@ module.exports = function (graphContainerSelector) {
               //  unfilteredData.properties[i].toString();
             }
         }
-        unfilteredData.nodes.splice(unfilteredData.nodes.indexOf(element), 1);
 
+        // update for fastUpdate:
+        for (i = 0; i < properties.length; i++) {
+            if (properties[i].domain() === element) {
+                //  unfilteredData.properties[i].toString();
+                properties[i].domain( aNode );
+            }
+            if (properties[i].range()  === element) {
+                properties[i].range( aNode );
+                //  unfilteredData.properties[i].toString();
+            }
+        }
+
+        var remId=unfilteredData.nodes.indexOf(element);
+        if (remId!==-1)
+            unfilteredData.nodes.splice(remId, 1);
+        remId=classNodes.indexOf(element);
+        if (remId!==-1)
+            classNodes.splice(remId, 1);
         // very important thing for selection!;
         addNewNodeElement(aNode);
         // handle focuser!
@@ -2601,10 +2618,16 @@ module.exports = function (graphContainerSelector) {
 
         // add this to the data;
         unfilteredData.properties.push(aProp);
-        unfilteredData.properties.splice(unfilteredData.properties.indexOf(element), 1);
-        properties.push(aProp);
-        properties.splice(properties.indexOf(element), 1);
-
+        if (properties.indexOf(aProp)===-1)
+            properties.push(aProp);
+        var remId=unfilteredData.properties.indexOf(element);
+        if (remId!==-1)
+            unfilteredData.properties.splice(remId, 1);
+        if (properties.indexOf(aProp)===-1)
+            properties.push(aProp);
+        remId=properties.indexOf(element);
+        if (remId!==-1)
+            properties.splice(remId, 1);
         graph.fastUpdate();
         aProp.domain().addProperty(aProp);
         aProp.range().addProperty(aProp);
@@ -2803,7 +2826,10 @@ module.exports = function (graphContainerSelector) {
 
 
     function addNewNodeElement(element){
-        classNodes.push(element);
+        unfilteredData.nodes.push(element);
+        if (classNodes.indexOf(element)===-1)
+             classNodes.push(element);
+
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
         graph.fastUpdate();
@@ -3118,7 +3144,8 @@ module.exports = function (graphContainerSelector) {
 
         // add this to the data;
         unfilteredData.properties.push(aProp);
-        properties.push(aProp);
+        if (properties.indexOf(aProp)===-1)
+            properties.push(aProp);
         graph.fastUpdate();
         aProp.labelObject().x =pX;
         aProp.labelObject().px=pX;
@@ -3197,6 +3224,8 @@ module.exports = function (graphContainerSelector) {
         aNode.id("NodeId" + eN++);
         // add this property to the nodes;
         unfilteredData.nodes.push(aNode);
+        if (classNodes.indexOf(aNode)===-1)
+            classNodes.push(aNode);
 
 
         // add also the datatype Property to it
@@ -3216,8 +3245,8 @@ module.exports = function (graphContainerSelector) {
         aProp.iri(ontoIri + aProp.id());
         // add this to the data;
         unfilteredData.properties.push(aProp);
-        properties.push(aProp);
-
+        if (properties.indexOf(aProp)===-1)
+            properties.push(aProp);
         graph.fastUpdate();
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
@@ -3236,17 +3265,28 @@ module.exports = function (graphContainerSelector) {
     };
 
     graph.removeNodesViaResponse=function(nodesToRemove,propsToRemove){
-        var i;
+        var i, remId;
         // splice them;
         for (i = 0; i < propsToRemove.length; i++) {
-            unfilteredData.properties.splice(unfilteredData.properties.indexOf(propsToRemove[i]), 1);
+            remId=unfilteredData.properties.indexOf(propsToRemove[i]);
+            if (remId!==-1)
+                unfilteredData.properties.splice(remId, 1);
+            remId=properties.indexOf(propsToRemove[i]);
+            if (remId!==-1)
+                properties.splice(remId, 1);
             propsToRemove[i]=null;
         }
         for (i = 0; i < nodesToRemove.length; i++) {
-            unfilteredData.nodes.splice(unfilteredData.nodes.indexOf(nodesToRemove[i]), 1);
+            remId=unfilteredData.nodes.indexOf(nodesToRemove[i]);
+            if (remId!==-1) {
+                unfilteredData.nodes.splice(remId, 1);
+            }
+            remId=classNodes.indexOf(nodesToRemove[i]);
+            if (remId!==-1)
+                classNodes.splice(remId, 1);
             nodesToRemove[i]=null;
         }
-        graph.update();
+        graph.fastUpdate();
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
         options.focuserModule().handle(undefined);
@@ -3259,6 +3299,9 @@ module.exports = function (graphContainerSelector) {
         var propsToRemove = [];
         var nodesToRemove = [];
         var datatypes=0;
+
+        var remId;
+
         nodesToRemove.push(node);
         for (var i = 0; i < unfilteredData.properties.length; i++) {
             if (unfilteredData.properties[i].domain() === node || unfilteredData.properties[i].range() === node) {
@@ -3294,14 +3337,24 @@ module.exports = function (graphContainerSelector) {
         }else{
             // splice them;
             for (i = 0; i < propsToRemove.length; i++) {
-                unfilteredData.properties.splice(unfilteredData.properties.indexOf(propsToRemove[i]), 1);
+                remId=unfilteredData.properties.indexOf(propsToRemove[i]);
+                if (remId!==-1)
+                    unfilteredData.properties.splice(remId, 1);
+                remId=properties.indexOf(propsToRemove[i]);
+                if (remId!==-1)
+                    properties.splice(remId, 1);
                 propsToRemove[i]=null;
             }
             for (i = 0; i < nodesToRemove.length; i++) {
-                unfilteredData.nodes.splice(unfilteredData.nodes.indexOf(nodesToRemove[i]), 1);
+                remId=unfilteredData.nodes.indexOf(nodesToRemove[i]);
+                if (remId!==-1)
+                    unfilteredData.nodes.splice(remId, 1);
+                remId=classNodes.indexOf(nodesToRemove[i]);
+                if (remId!==-1)
+                    classNodes.splice(remId, 1);
                 nodesToRemove[i]=null;
             }
-            graph.update();
+            graph.fastUpdate();
             generateDictionary(unfilteredData);
             graph.getUpdateDictionary();
             options.focuserModule().handle(undefined);
@@ -3313,13 +3366,24 @@ module.exports = function (graphContainerSelector) {
     graph.removePropertyViaEditor = function (property) {
         property.domain().removePropertyElement(property);
         property.range().removePropertyElement(property);
+        var remId;
 
         if (property.type().toLocaleLowerCase() === "owl:datatypeproperty") {
             var datatype=property.range();
-            unfilteredData.nodes.splice(unfilteredData.nodes.indexOf(property.range()), 1);
+            remId=unfilteredData.nodes.indexOf(property.range());
+            if (remId!==-1)
+                unfilteredData.nodes.splice(remId, 1);
+            if (remId!==-1)
+                remId=classNodes.indexOf(property.range());
+            classNodes.splice(remId, 1);
             datatype=null;
         }
-        unfilteredData.properties.splice(unfilteredData.properties.indexOf(property), 1);
+        remId=unfilteredData.properties.indexOf(property);
+        if (remId!==-1)
+            unfilteredData.properties.splice(remId, 1);
+        remId=properties.indexOf(property);
+        if (remId!==-1)
+            properties.splice(remId, 1);
         if (property.inverse()){
             // so we have inverse
             property.inverse().inverse(0);
@@ -3328,7 +3392,7 @@ module.exports = function (graphContainerSelector) {
 
 
         hoveredPropertyElement = undefined;
-        graph.update();
+        graph.fastUpdate();
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
         options.focuserModule().handle(undefined);

@@ -65,7 +65,6 @@ module.exports = function (menu) {
 	 * @param untouchedProperties
 	 */
 	filter.filter = function (untouchedNodes, untouchedProperties) {
-        if (lastFiltedDegree!==degreeGetter()) {
             nodes = untouchedNodes;
             properties = untouchedProperties;
 
@@ -81,14 +80,11 @@ module.exports = function (menu) {
             filteredProperties = properties;
 
             if (filteredNodes.length === 0) {
-                // console.log("Error : filtered nodes are 0");
                 degreeSetter(0);
                 filteredNodes = untouchedNodes;
                 filteredProperties = untouchedProperties;
             }
             lastFiltedDegree=degreeGetter();
-        }
-
 	};
 
 	function findMaxLinkCount(nodes) {

@@ -57,6 +57,7 @@ module.exports = function () {
 		showRenderingStatistic=true,
 		showInputModality=false,
         hideDebugOptions=true,
+        nodeDegreeFilter,
         debugMenu,
 
         supportedDatatypes=["rdfs:Literal", "xsd:boolean", "xsd:double", "xsd:integer", "xsd:string","undefined"],
@@ -571,6 +572,11 @@ module.exports = function () {
 		literalFilter=p;
 		return options;
 	};
+    options.nodeDegreeFilter=function (p) {
+        if (!arguments.length) return nodeDegreeFilter;
+        nodeDegreeFilter=p;
+        return options;
+    };
 
     options.loadingModule=function (p) {
         if (!arguments.length) return loadingModule;

@@ -80,7 +80,7 @@ module.exports = function (graph) {
 			graph.options().warningModule().showExporterWarning();
             console.log("Stay on the page! "+window.location.href);
             exportTurtleButton.attr("href", window.location.href);
-
+            d3.event.preventDefault(); // prevent the href to be called ( reloads the page otherwise )
 
 
         }

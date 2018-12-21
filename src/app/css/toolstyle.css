@@ -1457,8 +1457,11 @@ main {
 	cursor:pointer;
 }
 .reloadCachedOntologyIcon:disabled{
-	background: #ccc;
+	background: #f4f4f4;
 	cursor: auto;
+	border: solid 1px darkgray;
+
+
 }
 
 
@@ -1472,12 +1475,14 @@ main {
 
 .disabledReloadElement{
 	cursor:auto;
-	background: #cccccc;
+	background: #F4F4F4;
 	pointer-events: auto;
+	border: solid 1px darkgray;
+	color : #bbbbbb;
 }
 .disabledReloadElement:hover{
 	cursor:auto;
-	background: #dddddd;
+	background: #EEEEEE;
 	pointer-events: auto;
 }
 
