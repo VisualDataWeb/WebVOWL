@@ -1506,6 +1506,11 @@ module.exports = function (graphContainerSelector) {
             properties: parser.properties()
         };
 
+        // fixing class and property id counter for the editor
+        eN=unfilteredData.nodes.length+1;
+        eP=unfilteredData.properties.length+1;
+
+
         initialLoad = true;
         // loading handler
         updateRenderingDuringSimulation = true;

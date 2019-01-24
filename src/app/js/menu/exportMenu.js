@@ -234,6 +234,8 @@ module.exports = function (graph) {
 		//btoa(); Creates a base-64 encoded ASCII string from a "string" of binary data.
 		dataURI = "data:image/svg+xml;base64," + btoa(escapedGraphSvgCode);
 
+
+
 		exportSvgButton.attr("href", dataURI)
 			.attr("download", exportFilename + ".svg");
 
@@ -709,8 +711,12 @@ module.exports = function (graph) {
 		var exportText = JSON.stringify(exportObj, null, '  ');
 		// write the data
 		var dataURI = "data:text/json;charset=utf-8," + encodeURIComponent(exportText);
+		var jsonExportFileName=exportFilename;
+
+		if (!jsonExportFileName.endsWith(".json"))
+		    jsonExportFileName+=".json";
 		exportJsonButton.attr("href", dataURI)
-			.attr("download", exportFilename + ".json");
+			.attr("download", jsonExportFileName );
 	}
 
     var curveFunction = d3.svg.line()
