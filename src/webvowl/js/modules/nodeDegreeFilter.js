@@ -29,7 +29,11 @@ module.exports = function (menu) {
 		var defaultDegree = findDefaultDegree(maxLinkCount);
 		if (degreeSetter instanceof Function) {
 			degreeSetter(defaultDegree);
-			menu.highlightForDegreeSlider(defaultDegree > 0);
+			if(defaultDegree > 0) {
+                menu.highlightForDegreeSlider(true);
+                menu.getGraphObject().setFilterWarning(true);
+
+            }
 		} else {
 			console.error("No degree setter function set.");
 		}

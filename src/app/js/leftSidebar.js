@@ -30,6 +30,9 @@ module.exports = function (graph) {
         });
 
         setupSelectionContainers();
+        d3.select("#WarningErrorMessages").node().addEventListener("animationend", function () {
+            d3.select("#WarningErrorMessages").style("-webkit-animation-name","none");
+        });
 
 	};
 
@@ -244,11 +247,10 @@ module.exports = function (graph) {
             sideBarContainer .style("-webkit-animation-duration","0.5s");
             d3.select("#WarningErrorMessages").style("-webkit-animation-name","warn_CollapseLeftBarAnimation");
             d3.select("#WarningErrorMessages").style("-webkit-animation-duration","0.5s");
-
+            d3.select("#WarningErrorMessages").style("left","0");
         }
 
     };
-
 
     leftSidebar.getSidebarVisibility=function(){
         var isHidden=sideBarContent.classed("hidden");

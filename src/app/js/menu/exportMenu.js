@@ -531,32 +531,33 @@ module.exports = function (graph) {
 
             pAttr.domain=properties[i].domain().id();
             pAttr.range=properties[i].range().id();
-
-
             // sub properties;
             if (properties[i].subproperties()){
                 var subProps=properties[i].subproperties();
                 var subPropsIdArray=[];
-                for (j=0;j<subProps.length;j++){
-                    subPropsIdArray.push(subProps[j].id());
+                for (j=0;j<subProps.length;j++) {
+                    if (subProps[j].id)
+                        subPropsIdArray.push(subProps[j].id());
                 }
                 pAttr.subproperty=subPropsIdArray;
             }
+
             // super properties
             if (properties[i].superproperties()){
                 var superProps=properties[i].superproperties();
                 var superPropsIdArray=[];
                 for (j=0;j<superProps.length;j++){
-                    superPropsIdArray.push(superProps[j].id());
+                    if (superProps[j].id)
+                        superPropsIdArray.push(superProps[j].id());
                 }
                 pAttr.superproperty=superPropsIdArray;
             }
 
             // check for inverse element
             if (properties[i].inverse()){
-                pAttr.inverse=properties[i].inverse().id();
+                if (properties[i].inverse().id)
+                    pAttr.inverse=properties[i].inverse().id();
             }
-
             propertyAttributeObjects.push(pAttr);
         }
 

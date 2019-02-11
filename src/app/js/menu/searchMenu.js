@@ -17,7 +17,8 @@ module.exports = function (graph) {
 		inputText,
 		viewStatusOfSearchEntries = false;
 
-
+		var results = [];
+		var resultID = [];
 		var c_locate=d3.select("#locateSearchResult");
 		var c_search=d3.select("#c_search");
 		var m_search=d3.select("#m_search"); // << dropdown container;
@@ -103,25 +104,7 @@ module.exports = function (graph) {
 			idListResult = idListResult.substring(0, idListResult.length - 2);
 			idListResult = idListResult + " ]";
 
-			var firstVal=correspondingIdList[0];
-
-			if (correspondingIdList.length > 1 ){
-				// we have several ids for a search entry;
-				// we check if they are allSame meaning that we are searching for an equivalent property;
-				var allSame=true;
-				// using simple for-loop since id list should be small
-				for (var x=0;x<correspondingIdList.length;x++){
-					if (correspondingIdList[x]!==firstVal){
-						allSame=false;
-					}
-				}
-				if (allSame===true)
-                    dictionary.push(aString);
-				else
-                dictionary.push(aString + " (" + correspondingIdList.length + ")");
-            }
-			else
-				dictionary.push(aString);
+			dictionary.push(aString);
 			entryNames.push(aString);
 		}
 	}
@@ -146,6 +129,7 @@ module.exports = function (graph) {
     };
 
 	function hoverSearchEntryView() {
+		updateSelectionStatusFlags();
 		searchMenu.showSearchEntries();
 	}
 
@@ -173,6 +157,14 @@ module.exports = function (graph) {
 
 	}
 
+
+	function updateSelectionStatusFlags() {
+		if (searchLineEdit.node().value.length===0){
+			createSearchEntries();
+			return;
+		}
+        handleAutoCompletion();
+    }
 
 	function userNavigation() {
 		if (dictionaryUpdateRequired) {
@@ -250,91 +242,220 @@ module.exports = function (graph) {
 			}
 		}
 	}
+
 	searchMenu.getSearchString=function (){return searchLineEdit.node().value;};
+
+
+
+    function clearSearchEntries(){
+        var htmlCollection = m_search.node().children;
+        var numEntries = htmlCollection.length;
+        for (var i = 0; i < numEntries; i++) {
+            htmlCollection[0].remove();
+        }
+        results=[];
+        resultID=[];
+
+    }
+	function createSearchEntries(){
+        inputText = searchLineEdit.node().value;
+        var i;
+        var lc_text = inputText.toLowerCase();
+        var token;
+
+        for (i = 0; i < dictionary.length; i++) {
+            var tokenElement = dictionary[i];
+            if (tokenElement === undefined){
+                //@WORKAROUND : nodes with undefined labels are skipped
+                //@FIX: these nodes are now not added to the dictionary
+                continue;
+            }
+            token = dictionary[i].toLowerCase();
+            if (token.indexOf(lc_text) > -1) {
+                results.push(dictionary[i]);
+                resultID.push(i);
+            }
+        }
+	}
+
+    function measureTextWidth(text, textStyle) {
+        // Set a default value
+        if (!textStyle) {
+            textStyle = "text";
+        }
+        var d = d3.select("body")
+                .append("div")
+                .attr("class", textStyle)
+                .attr("id", "width-test") // tag this element to identify it
+                .attr("style", "position:absolute; float:left; white-space:nowrap; visibility:hidden;")
+                .text(text),
+            w = document.getElementById("width-test").offsetWidth;
+        d.remove();
+        return w;
+    }
+
+	function cropText(input) {
+		var maxWidth=250;
+        var textStyle="dbEntry";
+        var truncatedText=input;
+        var textWidth;
+        var ratio;
+        var newTruncatedTextLength;
+        while (true) {
+            textWidth = measureTextWidth(truncatedText, textStyle);
+            if (textWidth <= maxWidth) {
+                break;
+            }
+
+            ratio = textWidth / maxWidth;
+            newTruncatedTextLength = Math.floor(truncatedText.length / ratio);
+
+            // detect if nothing changes
+            if (truncatedText.length === newTruncatedTextLength) {
+                break;
+            }
+
+            truncatedText = truncatedText.substring(0, newTruncatedTextLength);
+        }
+
+        if (input.length > truncatedText.length) {
+            return input.substring(0, truncatedText.length - 6);
+        }
+		return input;
+    }
+
+	function createDropDownElements(){
+        var numEntries;
+        var copyRes = results;
+        var i;
+        var token;
+        var newResults = [];
+        var newResultsIds = [];
+
+        var lc_text=searchLineEdit.node().value.toLowerCase();
+        // set the number of shown results to be maxEntries or less;
+        numEntries = results.length;
+        if (numEntries > maxEntries)
+            numEntries = maxEntries;
+
+
+
+        for (i = 0; i < numEntries; i++) {
+            // search for the best entry
+            var indexElement  = 1000000;
+            var lengthElement = 1000000;
+            var bestElement = -1;
+            for (var j = 0; j < copyRes.length; j++) {
+                token = copyRes[j].toLowerCase();
+                var tIe = token.indexOf(lc_text);
+                var tLe = token.length;
+                if (tIe > -1 && tIe <= indexElement && tLe <= lengthElement) {
+                    bestElement = j;
+                    indexElement = tIe;
+                    lengthElement = tLe;
+                }
+            }
+            newResults.push(copyRes[bestElement]);
+            newResultsIds.push(resultID[bestElement]);
+            copyRes[bestElement] = "";
+        }
+
+        // add the results to the entry menu
+        //******************************************
+        numEntries = results.length;
+        if (numEntries > maxEntries)
+            numEntries = maxEntries;
+
+        var filteredOutElements=0;
+        for (i = 0; i < numEntries; i++) {
+            //add results to the dropdown menu
+            var testEntry = document.createElement('li');
+            testEntry.setAttribute('elementID', newResultsIds[i]);
+            testEntry.onclick= handleClick (newResultsIds[i]);
+            testEntry.setAttribute('class', "dbEntry");
+
+            var entries=mergedIdList[newResultsIds[i]];
+            var eLen=entries.length;
+
+            var croppedText=cropText(newResults[i]);
+
+            var el0=entries[0];
+            var allSame=true;
+            var nodeMap=graph.getNodeMapForSearch();
+            var visible=eLen;
+            if (eLen>1){
+				for (var q=0;q<eLen;q++){
+					if (nodeMap[entries[q]]===undefined){
+						visible--;
+					}
+				}
+            }
+
+            for (var a=0;a<eLen;a++) {
+                if (el0 !== entries[a]) {
+                    allSame = false;
+                }
+            }
+			if (croppedText!==newResults[i]) {
+                // append ...(#numElements) if needed
+                if (eLen > 1 && allSame===false) {
+                	if (eLen!==visible)
+                    	croppedText += "... (" +visible+"/"+ eLen + ")";
+                }
+                else {
+                    croppedText += "...";
+                }
+                testEntry.title=newResults[i];
+            }
+            else{
+                if (eLen > 1 && allSame===false) {
+                    if (eLen!==visible)
+                        croppedText += " (" +visible+"/"+ eLen + ")";
+                    else
+                    	croppedText += " (" + eLen + ")";
+                }
+			}
+
+            var searchEntryNode=d3.select(testEntry);
+            if (eLen===1 || allSame===true) {
+                if( nodeMap[entries[0]]===undefined ){
+                    searchEntryNode.style("color","#979797");
+                    testEntry.title=newResults[i]+"\nElement is filtered out.";
+                    testEntry.onclick=function(){};
+                    d3.select(testEntry).style("cursor","default");
+                    filteredOutElements++;
+                }
+            }else{
+                if (visible<1) {
+                    searchEntryNode.style("color", "#979797");
+                    testEntry.onclick=function(){};
+                    testEntry.title=newResults[i]+"\nAll elements are filtered out.";
+                    d3.select(testEntry).style("cursor","default");
+                    filteredOutElements++;
+                }else{
+                    searchEntryNode.style("color", "");
+                }
+                if (visible<eLen && visible>1){
+                    testEntry.title=newResults[i]+"\n"+visible+"/"+eLen+ " elements are visible.";
+                }
+            }
+            searchEntryNode.node().innerHTML=croppedText;
+            m_search.node().appendChild(testEntry);
+        }
+	}
+
+
+
 	function handleAutoCompletion() {
 		/**  pre condition: autoCompletion has already a valid text**/
-		var htmlCollection;
-		var numEntries;
-		inputText = searchLineEdit.node().value;
-
-		var results = [];
-		var resultID = [];
-		var i;
-		var lc_text = inputText.toLowerCase();
-		var token;
-
-		for (i = 0; i < dictionary.length; i++) {
-			var tokenElement = dictionary[i];
-			if (tokenElement === undefined){
-				//@WORKAROUND : nodes with undefined labels are skipped
-				//@FIX: these nodes are now not added to the dictionary
-				continue;
-			}
-			token = dictionary[i].toLowerCase();
-			if (token.indexOf(lc_text) > -1) {
-				results.push(dictionary[i]);
-				resultID.push(i);
-			}
-		}
-
-		// update the entries in the gui
-		htmlCollection = m_search.node().children;
-		numEntries = htmlCollection.length;
-		for (i = 0; i < numEntries; i++)
-			htmlCollection[0].remove();
-
-
-		// reorder the results and its ids
-		//******************************************
-		// create a copy of results;;
-		var copyRes = results;
-		numEntries = results.length;
-		if (numEntries > maxEntries)
-			numEntries = maxEntries;
-
-
-		var newResults = [];
-		var newResultsIds = [];
-
-		for (i = 0; i < numEntries; i++) {
-			// search for the best entry
-			var indexElement  = 1000000;
-			var lengthElement = 1000000;
-			var bestElement = -1;
-			for (var j = 0; j < copyRes.length; j++) {
-				token = copyRes[j].toLowerCase();
-				var tIe = token.indexOf(lc_text);
-				var tLe = token.length;
-				if (tIe > -1 && tIe <= indexElement && tLe <= lengthElement) {
-					bestElement = j;
-					indexElement = tIe;
-					lengthElement = tLe;
-				}
-			}
-			newResults.push(copyRes[bestElement]);
-			newResultsIds.push(resultID[bestElement]);
-			copyRes[bestElement] = "";
-		}
-
-		// add the results to the entry menu
-		//******************************************
-		numEntries = results.length;
-		if (numEntries > maxEntries)
-			numEntries = maxEntries;
-
-		for (i = 0; i < numEntries; i++) {
-			//add results to the dropdown menu
-			var testEntry = document.createElement('li');
-			testEntry.setAttribute('elementID', newResultsIds[i]);
-			testEntry.onclick= handleClick (newResultsIds[i]);
-			testEntry.setAttribute('class', "dbEntry");
-			var createAText = document.createTextNode(newResults[i]);
-			testEntry.appendChild(createAText);
-            m_search.node().appendChild(testEntry);
-		}
+		clearSearchEntries();
+		createSearchEntries();
+		createDropDownElements();
 	}
 
 	function userInput() {
+        c_locate.classed("highlighted", false);
+        c_locate.node().title="Nothing to locate";
 
 		if (dictionaryUpdateRequired) {
 			updateSearchDictionary();
@@ -345,91 +466,15 @@ module.exports = function (graph) {
 			console.log("dictionary is empty");
 			return;
 		}
-		var i;
-		var htmlCollection = m_search.node().children;
-		var numEntries = htmlCollection.length;
-		inputText = searchLineEdit.node().value;
-		c_locate.classed("highlighted", false);
-        c_locate.node().title="Nothing to locate, enter search term.";
-		if (inputText.length === 0) {
-			for (i = 0; i < numEntries; i++)
-				htmlCollection[0].remove();
+        inputText = searchLineEdit.node().value;
 
-			return;
-		}
-		// search in list
-		var results = [];
-		var resultID = [];
+		clearSearchEntries();
+		if (inputText.length!==0) {
+            createSearchEntries();
+            createDropDownElements();
+        }
 
-		var lc_text = inputText.toLowerCase();
-		var token;
-
-		for (i = 0; i < dictionary.length; i++) {
-			var tokenElement = dictionary[i];
-			if (tokenElement === undefined){
-				//@WORKAROUND : nodes with undefined labels are skipped
-				//@FIX: these nodes are now not added to the dictionary
-				continue;
-			}
-			token = dictionary[i].toLowerCase();
-			if (token.indexOf(lc_text) > -1) {
-				results.push(dictionary[i]);
-				resultID.push(i);
-			}
-		}
-
-		//clear the list;
-		htmlCollection = m_search.node().children;
-		numEntries = htmlCollection.length;
-		for (i = 0; i < numEntries; i++)
-			htmlCollection[0].remove();
-
-		// reorder the results and its ids
-		//******************************************
-		// create a copy of results;;
-		var copyRes = results;
-		numEntries = results.length;
-		if (numEntries > maxEntries)
-			numEntries = maxEntries;
-
-
-		var newResults = [];
-		var newResultsIds = [];
-
-		for (i = 0; i < numEntries; i++) {
-			// search for the best entry
-			var indexElement  = 100000000;
-			var lengthElement = 100000000;
-			var bestElement = -1;
-			for (var j = 0; j < copyRes.length; j++) {
-				token = copyRes[j].toLowerCase();
-				var tIe = token.indexOf(lc_text);
-				var tLe = token.length;
-				if (tIe > -1 && tIe <= indexElement && tLe <= lengthElement) {
-					bestElement = j;
-					indexElement = tIe;
-					lengthElement = tLe;
-				}
-			}
-			newResults.push(copyRes[bestElement]);
-			newResultsIds.push(resultID[bestElement]);
-			copyRes[bestElement] = "";
-		}
-
-		// add the results to the entry menu
-		//******************************************
-		for (i = 0; i < numEntries; i++) {
-			//add results to the dropdown menu
-			var testEntry;
-			testEntry= document.createElement('li');
-			testEntry.setAttribute('elementID', newResultsIds[i]);
-			testEntry.setAttribute('class', "dbEntry");
-			testEntry.onclick= handleClick (newResultsIds[i]);
-			var createAText = document.createTextNode(newResults[i]);
-			testEntry.appendChild(createAText);
-            m_search.node().appendChild(testEntry);
-		}
-		searchMenu.showSearchEntries();
+        searchMenu.showSearchEntries();
 	}
 
 	function handleClick(elementId){
@@ -455,7 +500,7 @@ module.exports = function (graph) {
 	searchMenu.clearText=function(){
 		searchLineEdit.node().value="";
         c_locate.classed("highlighted", false);
-        c_locate.node().title="Nothing to locate, enter search term.";
+        c_locate.node().title="Nothing to locate";
 		var htmlCollection = m_search.node().children;
 		var numEntries = htmlCollection.length;
 		for (var i = 0; i < numEntries; i++){

@@ -89,6 +89,8 @@ module.exports = function (graphContainerSelector) {
         now, then, // used for fps computation
         showFPS = false,
         seenEditorHint = false,
+        seenFilterWarning = false,
+        showFilterWarning=false,
 
         keepDetailsCollapsedOnLoading = true,
         adjustingGraphSize = false,
@@ -464,6 +466,10 @@ module.exports = function (graphContainerSelector) {
                     d3.select("#progressBarValue").node().innerHTML = percent;
                     graph.options().ontologyMenu().append_message_toLastBulletPoint("done");
                     d3.select("#reloadCachedOntology").classed("hidden",!showReloadButtonAfterLayoutOptimization);
+                    if (showFilterWarning===true && seenFilterWarning===false){
+                        graph.options().warningModule().showFilterHint();
+                        seenFilterWarning=true
+                    }
                 }
 
                 if (initialLoad) {
@@ -1236,6 +1242,10 @@ module.exports = function (graphContainerSelector) {
         updateHaloStyles();
 
     };
+
+    graph.getNodeMapForSearch=function(){
+        return nodeMap;
+    };
     function updateNodeMap(){
         nodeMap = [];
         var node;
@@ -1481,6 +1491,9 @@ module.exports = function (graphContainerSelector) {
         }
     };
 
+    graph.setFilterWarning=function(val){
+        showFilterWarning=val;
+    };
     function loadGraphData(init) {
         // reset the locate button and previously selected locations and other variables
 
@@ -1493,25 +1506,27 @@ module.exports = function (graphContainerSelector) {
         pulseNodeIds = [];
         locationId = 0;
         d3.select("#locateSearchResult").classed("highlighted", false);
-        d3.select("#locateSearchResult").node().title = "Nothing to locate, enter search term.";
+        d3.select("#locateSearchResult").node().title = "Nothing to locate";
         graph.clearGraphData();
 
         if (init){
             force.stop();
             return;
         }
+
+        showFilterWarning=false;
         parser.parse(options.data());
         unfilteredData = {
             nodes: parser.nodes(),
             properties: parser.properties()
         };
-
         // fixing class and property id counter for the editor
         eN=unfilteredData.nodes.length+1;
         eP=unfilteredData.properties.length+1;
 
-
         initialLoad = true;
+        graph.options().warningModule().closeFilterHint();
+
         // loading handler
         updateRenderingDuringSimulation = true;
         var validOntology=graph.options().loadingModule().successfullyLoadedOntology();
@@ -1537,10 +1552,6 @@ module.exports = function (graphContainerSelector) {
             loadingModule.setErrorMode();
         }
         // update prefixList(
-
-
-
-
         // update general MetaOBJECT
         graph.options().clearMetaObject();
         graph.options().clearGeneralMetaObject();
@@ -1589,7 +1600,6 @@ module.exports = function (graphContainerSelector) {
         // update more meta OBJECT
         // Initialize filters with data to replicate consecutive filtering
         var initializationData = _.clone(unfilteredData);
-        var indexModule=0;
         options.filterModules().forEach(function (module) {
             initializationData = filterFunction(module, initializationData, true);
         });
@@ -1606,8 +1616,6 @@ module.exports = function (graphContainerSelector) {
         graph.options().editSidebar().updateGeneralOntologyInfo();
         graph.options().editSidebar().updatePrefixUi();
         graph.options().editSidebar().updateElementWidth();
-
-
     }
 
     graph.handleOnLoadingError=function(){
@@ -1618,7 +1626,6 @@ module.exports = function (graphContainerSelector) {
         d3.select("#progressBarValue").classed("busyProgressBar",false);
         graph.options().loadingModule().setErrorMode();
         graph.options().loadingModule().showErrorDetailsMessage();
-
     };
 
     function quick_refreshGraphData() {
@@ -1629,7 +1636,6 @@ module.exports = function (graphContainerSelector) {
 
         storeLinksOnNodes(classNodes, links);
         setForceLayoutData(classNodes, labelNodes, links);
-
     }
 
     //Applies the data of the graph options object and parses it. The graph is not redrawn.
@@ -2168,7 +2174,7 @@ module.exports = function (graphContainerSelector) {
         }
         else {
             d3.select("#locateSearchResult").classed("highlighted", false);
-            d3.select("#locateSearchResult").node().title = "Nothing to locate, enter search term.";
+            d3.select("#locateSearchResult").node().title = "Nothing to locate";
         }
 
     };
@@ -2568,17 +2574,11 @@ module.exports = function (graphContainerSelector) {
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
         element=null;
-
-
-
-
-
     };
 
 
     graph.changePropertyType=function(element){
         var typeString=d3.select("#typeEditor").node().value;
-
 
         // create warning
         if (graph.sanityCheckProperty(element.domain(),element.range(),typeString)===false) return false;
@@ -2592,8 +2592,6 @@ module.exports = function (graphContainerSelector) {
         element.range().removePropertyElement(element);
         aProp.domain(element.domain());
         aProp.range(element.range());
-
-
 
         if (element.backupLabel()!==undefined){
             aProp.label(element.backupLabel());
@@ -2758,10 +2756,6 @@ module.exports = function (graphContainerSelector) {
             }
         }
 
-
-
-
-
         if (modeOfOpString) {
             if (touchDevice === true) {
                 modeOfOpString.innerHTML = "touch able device detected";
@@ -2782,7 +2776,6 @@ module.exports = function (graphContainerSelector) {
             svgGraph.on("dblclick.zoom",originalD3_dblClickFunction);
             options.leftSidebar().showSidebar(0);
             options.leftSidebar().hideCollapseButton(true);
-            graph.options().warningModule().hideEditorHint();
             // hide hovered edit elements
             removeEditElements();
         }
@@ -2838,8 +2831,6 @@ module.exports = function (graphContainerSelector) {
         generateDictionary(unfilteredData);
         graph.getUpdateDictionary();
         graph.fastUpdate();
-
-
     }
 
     graph.getTargetNode = function (position) {
@@ -2936,9 +2927,6 @@ module.exports = function (graphContainerSelector) {
             }
         }
         return false;
-
-
-
     };
 
     graph.classesSanityCheck=function(classElement,targetType){
@@ -2974,7 +2962,6 @@ module.exports = function (graphContainerSelector) {
 
         }
         return true;
-
     };
 
     graph.propertyCheckExistenceChecker=function(property,domain,range){
@@ -3000,7 +2987,6 @@ module.exports = function (graphContainerSelector) {
             return true;
         }
         return true;
-
     };
 
     // graph.checkForTripleDuplicate=function(property){
@@ -3080,8 +3066,6 @@ module.exports = function (graphContainerSelector) {
                 "Element not created!",1,false);
             return false;
         }
-
-
         return true; // we can create a property
     };
 
@@ -3138,8 +3122,6 @@ module.exports = function (graphContainerSelector) {
             var offset=2*domain.actualRadius()+50;
             pX=domain.x+offset*nx;
             pY=domain.y+offset*ny;
-
-
         }
 
         // add this property to domain and range;
@@ -3172,7 +3154,6 @@ module.exports = function (graphContainerSelector) {
         graph.activateHoverElementsForProperties(true,aProp,false,touchDevice);
         aProp.labelObject().increasedLoopAngle=true;
         aProp.enableEditing(autoEditElement);
-
     }
 
     graph.createDataTypeProperty = function (node) {

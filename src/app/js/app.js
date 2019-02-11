@@ -150,7 +150,7 @@ module.exports = function () {
 
             leftSidebar.showSidebar(0);
             leftSidebar.hideCollapseButton(true);
-            warningModule.hideEditorHint();
+
 
             graph.start();
 
@@ -325,7 +325,11 @@ module.exports = function () {
         d3.select("#blockGraphInteractions").style("width",window.innerWidth+"px");
         d3.select("#blockGraphInteractions").style("height",window.innerHeight+"px");
 
-        d3.select("#WarningErrorMessages").style("width",width+"px");
+        d3.select("#WarningErrorMessagesContainer").style("width",width+"px");
+        d3.select("#WarningErrorMessagesContainer").style("height",height+"px");
+
+        d3.select("#WarningErrorMessages").style("max-height",(height-12)+"px");
+
         graphContainer.style("height", height + "px");
 		svg.attr("width", width)
 			.attr("height", height);

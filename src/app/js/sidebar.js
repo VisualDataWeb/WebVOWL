@@ -465,8 +465,8 @@ module.exports = function (graph) {
                 menuArea.style("width","78%");
                 menuArea.style("-webkit-animation-name","none");
 
-                d3.select("#WarningErrorMessages").style("width","78%");
-                d3.select("#WarningErrorMessages").style("-webkit-animation-name","none");
+                d3.select("#WarningErrorMessagesContainer").style("width","78%");
+                d3.select("#WarningErrorMessagesContainer").style("-webkit-animation-name","none");
             } else {
                 graphArea.style("width","78%");
                 graphArea.style("-webkit-animation-name","sbCollapseAnimation");
@@ -476,9 +476,9 @@ module.exports = function (graph) {
                 menuArea.style("-webkit-animation-name","sbCollapseAnimation");
                 menuArea.style("-webkit-animation-duration","0.5s");
 
-                d3.select("#WarningErrorMessages").style("width","78%");
-                d3.select("#WarningErrorMessages").style("-webkit-animation-name","warn_ExpandRightBarAnimation");
-                d3.select("#WarningErrorMessages").style("-webkit-animation-duration","0.5s");
+                d3.select("#WarningErrorMessagesContainer").style("width","78%");
+                d3.select("#WarningErrorMessagesContainer").style("-webkit-animation-name","warn_ExpandRightBarAnimation");
+                d3.select("#WarningErrorMessagesContainer").style("-webkit-animation-duration","0.5s");
             }
             graph.options().width(window.innerWidth - (window.innerWidth * 0.22));
             graph.options().navigationMenu().updateScrollButtonVisibility();
@@ -496,8 +496,8 @@ module.exports = function (graph) {
                 menuArea.style("width","100%");
                 menuArea.style("-webkit-animation-name","none");
 
-                d3.select("#WarningErrorMessages").style("width","100%");
-                d3.select("#WarningErrorMessages").style("-webkit-animation-name","none");
+                d3.select("#WarningErrorMessagesContainer").style("width","100%");
+                d3.select("#WarningErrorMessagesContainer").style("-webkit-animation-name","none");
             }else {
                 graphArea.style("width","100%");
                 graphArea.style("-webkit-animation-name","sbExpandAnimation");
@@ -507,9 +507,9 @@ module.exports = function (graph) {
                 menuArea.style("-webkit-animation-name","sbExpandAnimation");
                 menuArea.style("-webkit-animation-duration","0.5s");
 
-                d3.select("#WarningErrorMessages").style("width","100%");
-                d3.select("#WarningErrorMessages").style("-webkit-animation-name","warn_CollapseRightBarAnimation");
-                d3.select("#WarningErrorMessages").style("-webkit-animation-duration","0.5s");
+                d3.select("#WarningErrorMessagesContainer").style("width","100%");
+                d3.select("#WarningErrorMessagesContainer").style("-webkit-animation-name","warn_CollapseRightBarAnimation");
+                d3.select("#WarningErrorMessagesContainer").style("-webkit-animation-duration","0.5s");
 
             }
             graph.options().width(window.innerWidth);

@@ -99,6 +99,9 @@ html{
 	border: none;
 	cursor: pointer;
 }
+
+
+
 .debugOption{
 
 
@@ -291,21 +294,25 @@ a:hover {
 /*Collapse Animation*/
 @-webkit-keyframes warn_CollapseAnimation {
 	0%   { top: 0;}
-	100% { top: -500px;}
+	100% { top: -400px;}
 }
 @-moz-keyframes warn_CollapseAnimation  {
 	0%   { top: 0;}
-	100% { top: -500px;}
+	100% { top: -400px;}
 }
 @-o-keyframes warn_CollapseAnimation  {
 	0%   { top: 0;}
-	100% { top: -500px;}
+	100% { top: -400px;}
 }
 @keyframes warn_CollapseAnimation  {
 	0%   { top: 0;}
-	100% { top: -500px;}
+	100% { top: -400px;}
 }
 
+@keyframes msg_CollapseAnimation  {
+	0%   { top: 0;}
+	100% { top: -400px;}
+}
 
 
 
@@ -1970,14 +1977,23 @@ a#locateSearchResult{
 
 }
 
-/*Editor hints*/
-#WarningErrorMessages {
-
+#WarningErrorMessagesContainer{
 	position: absolute;
 	text-align: center;
-	width:  100%;
+	top:0;
 	pointer-events: none;
+}
+
+/*Editor hints*/
+#WarningErrorMessages {
+	position: relative;
+	/*text-align: center;*/
+	width:  50%;
+	pointer-events: auto;
 	margin: 10px 0;
+	padding-right: 12px;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 #WarningErrorMessages label {
