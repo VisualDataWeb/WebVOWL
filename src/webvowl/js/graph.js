@@ -468,7 +468,7 @@ module.exports = function (graphContainerSelector) {
                     d3.select("#reloadCachedOntology").classed("hidden",!showReloadButtonAfterLayoutOptimization);
                     if (showFilterWarning===true && seenFilterWarning===false){
                         graph.options().warningModule().showFilterHint();
-                        seenFilterWarning=true
+                        seenFilterWarning=true;
                     }
                 }
 
