@@ -7,18 +7,23 @@
     font-family: Helvetica, Arial, sans-serif;
     font-size: 12px;
 }
+
 .subtext {
     font-size: 9px;
 }
+
 .text.instance-count {
     fill: #666;
 }
+
 .external + text .instance-count {
     fill: #aaa;
 }
+
 .cardinality {
     font-size: 10px;
 }
+
 .text, .embedded {
     pointer-events: none;
 }
@@ -27,44 +32,54 @@
 .class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .allvaluesfromproperty, .somevaluesfromproperty {
     fill: #acf;
 }
+
 .label .datatype, .datatypeproperty {
     fill: #9c6;
 }
+
 .rdf, .rdfproperty {
     fill: #c9c;
 }
+
 .literal, .node .datatype {
     fill: #fc3;
 }
+
 .deprecated, .deprecatedproperty {
     fill: #ccc;
 }
+
 .external, .externalproperty {
     /*fill: #36c;*/
 }
+
 path, .nofill {
-	fill: none;
+    fill: none;
 }
+
 marker path {
-	fill: #000;
+    fill: #000;
 }
+
 .class, path, line, .fineline {
-	stroke: #000;
+    stroke: #000;
 }
+
 .white, .subclass, .subclassproperty, .external + text {
     fill: #fff;
 }
+
 .class.hovered, .property.hovered, .cardinality.hovered, .cardinality.focused, .filled.hovered, .filled.focused, .values-from.filled.hovered {
     fill: #f00 !important;
     cursor: pointer;
 }
 
-.hoveredForEditing{
+.hoveredForEditing {
     fill: #f00 !important;
     cursor: pointer;
 }
 
-.feature{
+.feature {
     fill: #f00;
     cursor: pointer;
 }
@@ -74,45 +89,57 @@ marker path {
         -webkit-transform: scale(1.5);
         stroke-width: 3.33;
     }
-    50%{ stroke-width: 4;}
+    50% {
+        stroke-width: 4;
+    }
     100% {
         -webkit-transform: scale(1.0);
         stroke-width: 5;
     }
 }
+
 @-moz-keyframes pulseAnimation {
     0% {
         -webkit-transform: scale(1.5);
         stroke-width: 3.33;
     }
-    50%{ stroke-width: 4;}
+    50% {
+        stroke-width: 4;
+    }
     100% {
         -webkit-transform: scale(1.0);
         stroke-width: 5;
     }
 }
+
 @-o-keyframes pulseAnimation {
     0% {
         -webkit-transform: scale(1.5);
         stroke-width: 3.33;
     }
-    50%{ stroke-width: 4;}
+    50% {
+        stroke-width: 4;
+    }
     100% {
         -webkit-transform: scale(1.0);
         stroke-width: 5;
     }
 }
+
 @keyframes pulseAnimation {
     0% {
         -webkit-transform: scale(1.5);
         stroke-width: 3.33;
     }
-    50%{ stroke-width: 4;}
+    50% {
+        stroke-width: 4;
+    }
     100% {
         -webkit-transform: scale(1.0);
         stroke-width: 5;
     }
 }
+
 .searchResultA {
     fill: none;
     stroke-width: 5;
@@ -140,6 +167,7 @@ marker path {
     animation-timing-function: linear;
 
 }
+
 /* a class for not animated search results (hovered over node)*/
 .searchResultB {
     fill: none;
@@ -147,108 +175,119 @@ marker path {
     stroke: #f00;
 }
 
-.hovered-MathSymbol{
-    fill:none;
+.hovered-MathSymbol {
+    fill: none;
     stroke: #f00 !important;
 }
 
 .focused, path.hovered {
-	stroke: #f00 !important;
+    stroke: #f00 !important;
 }
+
 .indirect-highlighting, .feature:hover {
     fill: #f90;
     cursor: pointer;
 }
-.feature_hover{
+
+.feature_hover {
     fill: #f90;
     cursor: pointer;
 }
+
 .values-from {
     stroke: #69c;
 }
+
 .symbol, .values-from.filled {
     fill: #69c;
 }
 
 /*------- Strokes ------*/
 .class, path, line {
-	stroke-width: 2;
+    stroke-width: 2;
 }
+
 .fineline {
-	stroke-width: 1;
+    stroke-width: 1;
 }
+
 .dashed, .anonymous {
-	stroke-dasharray: 8;
+    stroke-dasharray: 8;
 }
+
 .dotted {
-	stroke-dasharray: 3;
+    stroke-dasharray: 3;
 }
+
 rect.focused, circle.focused {
-	stroke-width: 4px;
+    stroke-width: 4px;
 }
+
 .nostroke {
-	stroke: none;
+    stroke: none;
 }
 
 /*-----------------------------------------------------------------
  Additional elements for the WebVOWL demo (NOT part of spec)
 -----------------------------------------------------------------*/
 
-.addDataPropertyElement{
+.addDataPropertyElement {
     fill: #9c6 !important;
     cursor: pointer;
     stroke-width: 2;
     stroke: black;
 }
-.addDataPropertyElement:hover{
+
+.addDataPropertyElement:hover {
     fill: #f90 !important;
     cursor: pointer;
     stroke-width: 2;
     stroke: black;
 }
-.superHiddenElement{
+
+.superHiddenElement {
     fill: rgba(255, 153, 0, 0.4);
     cursor: pointer;
     stroke-width: 0;
     stroke: black;
     /*opacity:0;*/
 }
-.superOpacityElement{
-    opacity:0;
+
+.superOpacityElement {
+    opacity: 0;
 }
 
-.deleteParentElement:hover{
+.deleteParentElement:hover {
     fill: #f90;
     cursor: pointer;
     stroke-width: 2;
     stroke: black;
 }
 
-.deleteParentElement{
+.deleteParentElement {
     fill: #f00;
     cursor: pointer;
     stroke-width: 2;
     stroke: black;
 }
 
-.classNodeDragPath{
+.classNodeDragPath {
     stroke: black;
     stroke-width: 2px;
 }
 
-
-.classDraggerNodeHovered{
+.classDraggerNodeHovered {
     fill: #f90;
     stroke: black;
     stroke-width: 2px;
     cursor: pointer;
 }
-.classDraggerNode{
+
+.classDraggerNode {
     fill: #acf;
     stroke: black;
     stroke-width: 2px;
 }
-
 
 marker path {
     /* Safari and Chrome workaround for inheriting the style of its link.

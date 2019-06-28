@@ -1,1502 +1,2013 @@
 {
-  "_comment" : "Created with OWL2VOWL (version 0.3.4), http://vowl.visualdataweb.org",
-  "header" : {
-    "languages" : [ "de", "zh-hans", "en", "fr", "es", "undefined" ],
-    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://ontovibe.visualdataweb.org", "http://www.w3.org/2002/07/owl", "http://www.w3.org/2000/01/rdf-schema", "http://ontovibe.visualdataweb.org/imported", "http://www.w3.org/2001/XMLSchema" ],
-    "title" : {
-      "undefined" : "Ontology Visualization Benchmark (OntoViBe)"
+  "_comment": "Created with OWL2VOWL (version 0.3.4), http://vowl.visualdataweb.org",
+  "header": {
+    "languages": [
+      "de",
+      "zh-hans",
+      "en",
+      "fr",
+      "es",
+      "undefined"
+    ],
+    "baseIris": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns",
+      "http://ontovibe.visualdataweb.org",
+      "http://www.w3.org/2002/07/owl",
+      "http://www.w3.org/2000/01/rdf-schema",
+      "http://ontovibe.visualdataweb.org/imported",
+      "http://www.w3.org/2001/XMLSchema"
+    ],
+    "title": {
+      "undefined": "Ontology Visualization Benchmark (OntoViBe)"
     },
-    "iri" : "http://ontovibe.visualdataweb.org",
-    "version" : "2.2",
-    "author" : [ "Florian Haag", "Steffen Lohmann" ],
-    "description" : {
-      "undefined" : "OntoViBe is a benchmark for testing ontology visualizations. It incorporates a comprehensive set of OWL 2 language constructs and systematic combinations thereof."
+    "iri": "http://ontovibe.visualdataweb.org",
+    "version": "2.2",
+    "author": [
+      "Florian Haag",
+      "Steffen Lohmann"
+    ],
+    "description": {
+      "undefined": "OntoViBe is a benchmark for testing ontology visualizations. It incorporates a comprehensive set of OWL 2 language constructs and systematic combinations thereof."
     },
-    "labels" : {
-      "undefined" : "Ontology Visualization Benchmark (OntoViBe)"
+    "labels": {
+      "undefined": "Ontology Visualization Benchmark (OntoViBe)"
     },
-    "comments" : {
-      "undefined" : "OntoViBe is a benchmark for testing ontology visualizations. It incorporates a comprehensive set of OWL 2 language constructs and systematic combinations thereof."
+    "comments": {
+      "undefined": "OntoViBe is a benchmark for testing ontology visualizations. It incorporates a comprehensive set of OWL 2 language constructs and systematic combinations thereof."
     },
-    "other" : {
-      "date" : [ {
-        "identifier" : "date",
-        "language" : "undefined",
-        "value" : "2015-08-27",
-        "type" : "label"
-      } ],
-      "priorVersion" : [ {
-        "identifier" : "priorVersion",
-        "language" : "undefined",
-        "value" : "http://ontovibe.visualdataweb.org/2.1",
-        "type" : "iri"
-      } ],
-      "creator" : [ {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "Steffen Lohmann",
-        "type" : "label"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "Florian Haag",
-        "type" : "label"
-      } ],
-      "contributor" : [ {
-        "identifier" : "contributor",
-        "language" : "undefined",
-        "value" : "Stefan Negru",
-        "type" : "label"
-      } ],
-      "incompatibleWith" : [ {
-        "identifier" : "incompatibleWith",
-        "language" : "undefined",
-        "value" : "http://ontovibe.visualdataweb.org/minimal",
-        "type" : "iri"
-      } ],
-      "rights" : [ {
-        "identifier" : "rights",
-        "language" : "undefined",
-        "value" : "http://creativecommons.org/licenses/by/4.0/",
-        "type" : "iri"
-      } ],
-      "versionInfo" : [ {
-        "identifier" : "versionInfo",
-        "language" : "undefined",
-        "value" : "2.2",
-        "type" : "label"
-      } ],
-      "title" : [ {
-        "identifier" : "title",
-        "language" : "undefined",
-        "value" : "Ontology Visualization Benchmark (OntoViBe)",
-        "type" : "label"
-      } ],
-      "backwardCompatibleWith" : [ {
-        "identifier" : "backwardCompatibleWith",
-        "language" : "undefined",
-        "value" : "http://ontovibe.visualdataweb.org/2.1",
-        "type" : "iri"
-      } ]
+    "other": {
+      "date": [
+        {
+          "identifier": "date",
+          "language": "undefined",
+          "value": "2015-08-27",
+          "type": "label"
+        }
+      ],
+      "priorVersion": [
+        {
+          "identifier": "priorVersion",
+          "language": "undefined",
+          "value": "http://ontovibe.visualdataweb.org/2.1",
+          "type": "iri"
+        }
+      ],
+      "creator": [
+        {
+          "identifier": "creator",
+          "language": "undefined",
+          "value": "Steffen Lohmann",
+          "type": "label"
+        },
+        {
+          "identifier": "creator",
+          "language": "undefined",
+          "value": "Florian Haag",
+          "type": "label"
+        }
+      ],
+      "contributor": [
+        {
+          "identifier": "contributor",
+          "language": "undefined",
+          "value": "Stefan Negru",
+          "type": "label"
+        }
+      ],
+      "incompatibleWith": [
+        {
+          "identifier": "incompatibleWith",
+          "language": "undefined",
+          "value": "http://ontovibe.visualdataweb.org/minimal",
+          "type": "iri"
+        }
+      ],
+      "rights": [
+        {
+          "identifier": "rights",
+          "language": "undefined",
+          "value": "http://creativecommons.org/licenses/by/4.0/",
+          "type": "iri"
+        }
+      ],
+      "versionInfo": [
+        {
+          "identifier": "versionInfo",
+          "language": "undefined",
+          "value": "2.2",
+          "type": "label"
+        }
+      ],
+      "title": [
+        {
+          "identifier": "title",
+          "language": "undefined",
+          "value": "Ontology Visualization Benchmark (OntoViBe)",
+          "type": "label"
+        }
+      ],
+      "backwardCompatibleWith": [
+        {
+          "identifier": "backwardCompatibleWith",
+          "language": "undefined",
+          "value": "http://ontovibe.visualdataweb.org/2.1",
+          "type": "iri"
+        }
+      ]
     }
   },
-  "namespace" : [ ],
-  "metrics" : {
-    "classCount" : 35,
-    "objectPropertyCount" : 22,
-    "datatypePropertyCount" : 13,
-    "individualCount" : 8
+  "namespace": [],
+  "metrics": {
+    "classCount": 35,
+    "objectPropertyCount": 22,
+    "datatypePropertyCount": 13,
+    "individualCount": 8
   },
-  "class" : [ {
-    "id" : "8",
-    "type" : "owl:complementOf"
-  }, {
-    "id" : "14",
-    "type" : "owl:Class"
-  }, {
-    "id" : "19",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "20",
-    "type" : "owl:Thing"
-  }, {
-    "id" : "21",
-    "type" : "owl:Thing"
-  }, {
-    "id" : "22",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "23",
-    "type" : "owl:unionOf"
-  }, {
-    "id" : "13",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "27",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "28",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "7",
-    "type" : "owl:Thing"
-  }, {
-    "id" : "31",
-    "type" : "owl:Class"
-  }, {
-    "id" : "32",
-    "type" : "owl:Class"
-  }, {
-    "id" : "34",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "35",
-    "type" : "owl:disjointUnionOf"
-  }, {
-    "id" : "37",
-    "type" : "owl:Class"
-  }, {
-    "id" : "39",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "40",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "24",
-    "type" : "owl:unionOf"
-  }, {
-    "id" : "42",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "44",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "18",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "47",
-    "type" : "owl:Class"
-  }, {
-    "id" : "48",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "49",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "4",
-    "type" : "owl:Class"
-  }, {
-    "id" : "50",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "46",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "52",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "54",
-    "type" : "owl:Class"
-  }, {
-    "id" : "57",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "26",
-    "type" : "owl:Class"
-  }, {
-    "id" : "58",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "1",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "60",
-    "type" : "owl:Class"
-  }, {
-    "id" : "30",
-    "type" : "owl:Class"
-  }, {
-    "id" : "6",
-    "type" : "owl:Class"
-  }, {
-    "id" : "63",
-    "type" : "owl:intersectionOf"
-  }, {
-    "id" : "71",
-    "type" : "owl:Class"
-  }, {
-    "id" : "73",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "70",
-    "type" : "owl:Class"
-  }, {
-    "id" : "16",
-    "type" : "owl:Class"
-  }, {
-    "id" : "84",
-    "type" : "owl:intersectionOf"
-  }, {
-    "id" : "87",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "41",
-    "type" : "owl:Class"
-  }, {
-    "id" : "91",
-    "type" : "owl:Class"
-  }, {
-    "id" : "68",
-    "type" : "owl:complementOf"
-  }, {
-    "id" : "79",
-    "type" : "owl:Class"
-  }, {
-    "id" : "90",
-    "type" : "owl:unionOf"
-  }, {
-    "id" : "77",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "88",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "3",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "59",
-    "type" : "owl:equivalentClass"
-  }, {
-    "id" : "9",
-    "type" : "owl:Class"
-  }, {
-    "id" : "105",
-    "type" : "owl:disjointUnionOf"
-  } ],
-  "classAttribute" : [ {
-    "iri" : "http://ontovibe.visualdataweb.org#ComplementClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "ComplementClass"
+  "class": [
+    {
+      "id": "8",
+      "type": "owl:complementOf"
     },
-    "attributes" : [ "complement" ],
-    "id" : "8",
-    "complement" : [ "9" ]
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#HasSelfClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "HasSelfClass"
+    {
+      "id": "14",
+      "type": "owl:Class"
     },
-    "id" : "14"
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "19",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2002/07/owl#Thing",
-    "baseIri" : "http://owl2vowl.de",
-    "id" : "20",
-    "label" : {
-      "undefined" : "Thing"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2002/07/owl#Thing",
-    "baseIri" : "http://owl2vowl.de",
-    "id" : "21",
-    "label" : {
-      "undefined" : "Thing"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "22",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#LargeUnionClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "LargeUnionClass"
+    {
+      "id": "19",
+      "type": "rdfs:Literal"
     },
-    "union" : [ "6", "24", "1" ],
-    "attributes" : [ "union" ],
-    "id" : "23"
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "13",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#EquivalentToPropertyOwner",
-    "equivalent" : [ "1" ],
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "EquivalentToPropertyOwner"
+    {
+      "id": "20",
+      "type": "owl:Thing"
     },
-    "attributes" : [ "equivalent" ],
-    "id" : "27"
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "28",
-    "label" : {
-      "IRI-based" : "integer"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2002/07/owl#Thing",
-    "baseIri" : "http://owl2vowl.de",
-    "id" : "7",
-    "label" : {
-      "undefined" : "Thing"
-    }
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#FunctionalAnchor",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "FunctionalAnchor"
+    {
+      "id": "21",
+      "type": "owl:Thing"
     },
-    "id" : "31"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#HasValueClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "HasValueClass"
+    {
+      "id": "22",
+      "type": "rdfs:Literal"
     },
-    "id" : "32"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#EquivalentDeprecatedClassInLargeGroup",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "EquivalentDeprecatedClassInLargeGroup"
+    {
+      "id": "23",
+      "type": "owl:unionOf"
     },
-    "attributes" : [ "equivalent", "deprecated" ],
-    "id" : "34"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#DisjointUnionClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "disjointUnion" : [ "24", "9" ],
-    "label" : {
-      "IRI-based" : "DisjointUnionClass"
+    {
+      "id": "13",
+      "type": "rdfs:Literal"
     },
-    "attributes" : [ "disjointUnion" ],
-    "id" : "35"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#AnonymousClassAnchor",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "AnonymousClassAnchor"
+    {
+      "id": "27",
+      "type": "owl:equivalentClass"
     },
-    "id" : "37"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#UnionDatatype",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "id" : "39",
-    "label" : {
-      "IRI-based" : "UnionDatatype"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "40",
-    "label" : {
-      "IRI-based" : "integer"
-    }
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#UnionClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "UnionClass"
+    {
+      "id": "28",
+      "type": "rdfs:Datatype"
     },
-    "union" : [ "9", "41" ],
-    "comment" : {
-      "en" : "This is an English comment on a class expression."
+    {
+      "id": "7",
+      "type": "owl:Thing"
     },
-    "attributes" : [ "union" ],
-    "id" : "24"
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#date",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "42",
-    "label" : {
-      "IRI-based" : "date"
-    }
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#IntersectionDatatype",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "id" : "44",
-    "label" : {
-      "IRI-based" : "IntersectionDatatype"
-    }
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org/imported#DivisibleByThreeEnumeration",
-    "baseIri" : "http://ontovibe.visualdataweb.org/imported",
-    "id" : "18",
-    "label" : {
-      "IRI-based" : "DivisibleByThreeEnumeration"
-    }
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#PlainClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "PlainClass"
+    {
+      "id": "31",
+      "type": "owl:Class"
     },
-    "id" : "47"
-  }, {
-    "iri" : "http://www.w3.org/2002/07/owl#real",
-    "baseIri" : "http://www.w3.org/2002/07/owl",
-    "id" : "48",
-    "label" : {
-      "IRI-based" : "real"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2002/07/owl#rational",
-    "baseIri" : "http://www.w3.org/2002/07/owl",
-    "id" : "49",
-    "label" : {
-      "IRI-based" : "rational"
-    }
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#DisjointClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "de" : "disjunkte Klasse",
-      "IRI-based" : "DisjointClass",
-      "en" : "disjoint class"
+    {
+      "id": "32",
+      "type": "owl:Class"
     },
-    "subClasses" : [ "16", "3" ],
-    "id" : "4"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#DivisibleByFiveEnumeration",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "id" : "50",
-    "label" : {
-      "IRI-based" : "DivisibleByFiveEnumeration"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#hexBinary",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "46",
-    "label" : {
-      "IRI-based" : "hexBinary"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#date",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "52",
-    "label" : {
-      "IRI-based" : "date"
-    }
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#EnumerationClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "EnumerationClass"
+    {
+      "id": "34",
+      "type": "owl:equivalentClass"
     },
-    "individuals" : [ {
-      "iri" : "http://ontovibe.visualdataweb.org#MultiSubclassIndividual3",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "description" : {
-        "undefined" : "This is a description without a language on an individual."
+    {
+      "id": "35",
+      "type": "owl:disjointUnionOf"
+    },
+    {
+      "id": "37",
+      "type": "owl:Class"
+    },
+    {
+      "id": "39",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "40",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "24",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "42",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "44",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "18",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "47",
+      "type": "owl:Class"
+    },
+    {
+      "id": "48",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "49",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "4",
+      "type": "owl:Class"
+    },
+    {
+      "id": "50",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "46",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "52",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "54",
+      "type": "owl:Class"
+    },
+    {
+      "id": "57",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "26",
+      "type": "owl:Class"
+    },
+    {
+      "id": "58",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "1",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "60",
+      "type": "owl:Class"
+    },
+    {
+      "id": "30",
+      "type": "owl:Class"
+    },
+    {
+      "id": "6",
+      "type": "owl:Class"
+    },
+    {
+      "id": "63",
+      "type": "owl:intersectionOf"
+    },
+    {
+      "id": "71",
+      "type": "owl:Class"
+    },
+    {
+      "id": "73",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "70",
+      "type": "owl:Class"
+    },
+    {
+      "id": "16",
+      "type": "owl:Class"
+    },
+    {
+      "id": "84",
+      "type": "owl:intersectionOf"
+    },
+    {
+      "id": "87",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "41",
+      "type": "owl:Class"
+    },
+    {
+      "id": "91",
+      "type": "owl:Class"
+    },
+    {
+      "id": "68",
+      "type": "owl:complementOf"
+    },
+    {
+      "id": "79",
+      "type": "owl:Class"
+    },
+    {
+      "id": "90",
+      "type": "owl:unionOf"
+    },
+    {
+      "id": "77",
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": "88",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "3",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "59",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "9",
+      "type": "owl:Class"
+    },
+    {
+      "id": "105",
+      "type": "owl:disjointUnionOf"
+    }
+  ],
+  "classAttribute": [
+    {
+      "iri": "http://ontovibe.visualdataweb.org#ComplementClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "ComplementClass"
       },
-      "labels" : {
-        "IRI-based" : "MultiSubclassIndividual3"
-      }
-    }, {
-      "iri" : "http://ontovibe.visualdataweb.org#MultiSubclassIndividual2",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "labels" : {
-        "IRI-based" : "MultiSubclassIndividual2"
-      }
-    } ],
-    "id" : "54"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#EquivalentToSubclass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "EquivalentToSubclass"
+      "attributes": [
+        "complement"
+      ],
+      "id": "8",
+      "complement": [
+        "9"
+      ]
     },
-    "attributes" : [ "equivalent" ],
-    "id" : "57"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#PropertyOwnerType",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 2,
-    "label" : {
-      "IRI-based" : "PropertyOwnerType"
-    },
-    "id" : "26"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#EquivalentToDeprecatedClass",
-    "equivalent" : [ "59" ],
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "EquivalentToDeprecatedClass"
-    },
-    "attributes" : [ "equivalent" ],
-    "id" : "58"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#PropertyOwner",
-    "equivalent" : [ "27" ],
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "PropertyOwner"
-    },
-    "attributes" : [ "equivalent" ],
-    "id" : "1"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#SomeValuesFromClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "SomeValuesFromClass"
-    },
-    "id" : "60"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#MultiPropertyOwner",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "MultiPropertyOwner",
-      "undefined" : "multi-property owner"
-    },
-    "comment" : {
-      "undefined" : "This is a comment without a language-tag on a class that also has a label."
-    },
-    "id" : "30"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org/imported#ImportedClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org/imported",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "ImportedClass"
-    },
-    "attributes" : [ "external" ],
-    "id" : "6"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#IntersectionClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "IntersectionClass"
-    },
-    "intersection" : [ "9", "41" ],
-    "attributes" : [ "intersection" ],
-    "id" : "63"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#LargeEnumerationClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "LargeEnumerationClass"
-    },
-    "individuals" : [ {
-      "iri" : "http://ontovibe.visualdataweb.org#MultiSubclassIndividual3",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "description" : {
-        "undefined" : "This is a description without a language on an individual."
+    {
+      "iri": "http://ontovibe.visualdataweb.org#HasSelfClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "HasSelfClass"
       },
-      "labels" : {
-        "IRI-based" : "MultiSubclassIndividual3"
-      }
-    }, {
-      "iri" : "http://ontovibe.visualdataweb.org#AnotherIndividual",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "description" : {
-        "en" : "This is an English description on an individual that also has a comment."
-      },
-      "comment" : {
-        "en" : "This is an English comment on an individual that also has a description."
-      },
-      "labels" : {
-        "IRI-based" : "AnotherIndividual"
-      }
-    }, {
-      "iri" : "http://ontovibe.visualdataweb.org#MultiSubclassIndividual2",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "labels" : {
-        "IRI-based" : "MultiSubclassIndividual2"
-      }
-    } ],
-    "id" : "71"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#AlsoEquivalentToSubclass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "AlsoEquivalentToSubclass"
+      "id": "14"
     },
-    "attributes" : [ "equivalent" ],
-    "id" : "73"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org/imported#DeprecatedImportedClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org/imported",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "DeprecatedImportedClass"
-    },
-    "subClasses" : [ "16" ],
-    "attributes" : [ "external", "deprecated" ],
-    "id" : "70"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#MultiSubclass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "description" : {
-      "en" : "This is an English description on a class that also has a comment."
-    },
-    "label" : {
-      "IRI-based" : "MultiSubclass"
-    },
-    "individuals" : [ {
-      "iri" : "http://ontovibe.visualdataweb.org#MultiSubclassIndividual3",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "description" : {
-        "undefined" : "This is a description without a language on an individual."
-      },
-      "labels" : {
-        "IRI-based" : "MultiSubclassIndividual3"
+    {
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "id": "19",
+      "label": {
+        "IRI-based": "Literal",
+        "undefined": "Literal"
       }
-    }, {
-      "iri" : "http://ontovibe.visualdataweb.org#SameAsMultiSubclassIndividual2",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "labels" : {
-        "IRI-based" : "SameAsMultiSubclassIndividual2"
-      }
-    }, {
-      "iri" : "http://ontovibe.visualdataweb.org#MultiSubclassIndividual2",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "labels" : {
-        "IRI-based" : "MultiSubclassIndividual2"
-      }
-    }, {
-      "iri" : "http://ontovibe.visualdataweb.org#MultiSubclassIndividual1",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "comment" : {
-        "en" : "This ia an English comment on an individual."
-      },
-      "labels" : {
-        "IRI-based" : "MultiSubclassIndividual1"
-      }
-    } ],
-    "comment" : {
-      "en" : "This is an English comment on a class that also has a description."
     },
-    "id" : "16",
-    "superClasses" : [ "70", "4" ]
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#LargeIntersectionClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "LargeIntersectionClass"
-    },
-    "intersection" : [ "6", "24", "1" ],
-    "attributes" : [ "intersection" ],
-    "id" : "84"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#EquivalentClassInLargeGroup",
-    "equivalent" : [ "88", "34" ],
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "EquivalentClassInLargeGroup"
-    },
-    "attributes" : [ "equivalent" ],
-    "id" : "87"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#DeprecatedClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "DeprecatedClass"
-    },
-    "individuals" : [ {
-      "iri" : "http://ontovibe.visualdataweb.org#AnotherIndividual",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "description" : {
-        "en" : "This is an English description on an individual that also has a comment."
-      },
-      "comment" : {
-        "en" : "This is an English comment on an individual that also has a description."
-      },
-      "labels" : {
-        "IRI-based" : "AnotherIndividual"
+    {
+      "iri": "http://www.w3.org/2002/07/owl#Thing",
+      "baseIri": "http://owl2vowl.de",
+      "id": "20",
+      "label": {
+        "undefined": "Thing"
       }
-    } ],
-    "attributes" : [ "deprecated" ],
-    "id" : "41"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#AllValuesFromClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "AllValuesFromClass"
     },
-    "id" : "91"
-  }, {
-    "instances" : 0,
-    "attributes" : [ "complement", "anonymous" ],
-    "id" : "68",
-    "complement" : [ "41" ]
-  }, {
-    "instances" : 0,
-    "individuals" : [ {
-      "iri" : "http://ontovibe.visualdataweb.org#MultiSubclassIndividual3",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "description" : {
-        "undefined" : "This is a description without a language on an individual."
-      },
-      "labels" : {
-        "IRI-based" : "MultiSubclassIndividual3"
+    {
+      "iri": "http://www.w3.org/2002/07/owl#Thing",
+      "baseIri": "http://owl2vowl.de",
+      "id": "21",
+      "label": {
+        "undefined": "Thing"
       }
-    }, {
-      "iri" : "http://ontovibe.visualdataweb.org#AnotherIndividual",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "description" : {
-        "en" : "This is an English description on an individual that also has a comment."
-      },
-      "comment" : {
-        "en" : "This is an English comment on an individual that also has a description."
-      },
-      "labels" : {
-        "IRI-based" : "AnotherIndividual"
+    },
+    {
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "id": "22",
+      "label": {
+        "IRI-based": "Literal",
+        "undefined": "Literal"
       }
-    } ],
-    "attributes" : [ "anonymous" ],
-    "id" : "79"
-  }, {
-    "instances" : 0,
-    "union" : [ "9", "41" ],
-    "attributes" : [ "anonymous", "union" ],
-    "id" : "90"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#ComplementDatatype",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "id" : "77",
-    "label" : {
-      "IRI-based" : "ComplementDatatype"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#LargeUnionClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "LargeUnionClass"
+      },
+      "union": [
+        "6",
+        "24",
+        "1"
+      ],
+      "attributes": [
+        "union"
+      ],
+      "id": "23"
+    },
+    {
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "id": "13",
+      "label": {
+        "IRI-based": "Literal",
+        "undefined": "Literal"
+      }
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#EquivalentToPropertyOwner",
+      "equivalent": [
+        "1"
+      ],
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "EquivalentToPropertyOwner"
+      },
+      "attributes": [
+        "equivalent"
+      ],
+      "id": "27"
+    },
+    {
+      "iri": "http://www.w3.org/2001/XMLSchema#integer",
+      "baseIri": "http://www.w3.org/2001/XMLSchema",
+      "id": "28",
+      "label": {
+        "IRI-based": "integer"
+      }
+    },
+    {
+      "iri": "http://www.w3.org/2002/07/owl#Thing",
+      "baseIri": "http://owl2vowl.de",
+      "id": "7",
+      "label": {
+        "undefined": "Thing"
+      }
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#FunctionalAnchor",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "FunctionalAnchor"
+      },
+      "id": "31"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#HasValueClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "HasValueClass"
+      },
+      "id": "32"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#EquivalentDeprecatedClassInLargeGroup",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "EquivalentDeprecatedClassInLargeGroup"
+      },
+      "attributes": [
+        "equivalent",
+        "deprecated"
+      ],
+      "id": "34"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#DisjointUnionClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "disjointUnion": [
+        "24",
+        "9"
+      ],
+      "label": {
+        "IRI-based": "DisjointUnionClass"
+      },
+      "attributes": [
+        "disjointUnion"
+      ],
+      "id": "35"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#AnonymousClassAnchor",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "AnonymousClassAnchor"
+      },
+      "id": "37"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#UnionDatatype",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "id": "39",
+      "label": {
+        "IRI-based": "UnionDatatype"
+      }
+    },
+    {
+      "iri": "http://www.w3.org/2001/XMLSchema#integer",
+      "baseIri": "http://www.w3.org/2001/XMLSchema",
+      "id": "40",
+      "label": {
+        "IRI-based": "integer"
+      }
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#UnionClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "UnionClass"
+      },
+      "union": [
+        "9",
+        "41"
+      ],
+      "comment": {
+        "en": "This is an English comment on a class expression."
+      },
+      "attributes": [
+        "union"
+      ],
+      "id": "24"
+    },
+    {
+      "iri": "http://www.w3.org/2001/XMLSchema#date",
+      "baseIri": "http://www.w3.org/2001/XMLSchema",
+      "id": "42",
+      "label": {
+        "IRI-based": "date"
+      }
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#IntersectionDatatype",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "id": "44",
+      "label": {
+        "IRI-based": "IntersectionDatatype"
+      }
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org/imported#DivisibleByThreeEnumeration",
+      "baseIri": "http://ontovibe.visualdataweb.org/imported",
+      "id": "18",
+      "label": {
+        "IRI-based": "DivisibleByThreeEnumeration"
+      }
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#PlainClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "PlainClass"
+      },
+      "id": "47"
+    },
+    {
+      "iri": "http://www.w3.org/2002/07/owl#real",
+      "baseIri": "http://www.w3.org/2002/07/owl",
+      "id": "48",
+      "label": {
+        "IRI-based": "real"
+      }
+    },
+    {
+      "iri": "http://www.w3.org/2002/07/owl#rational",
+      "baseIri": "http://www.w3.org/2002/07/owl",
+      "id": "49",
+      "label": {
+        "IRI-based": "rational"
+      }
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#DisjointClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "de": "disjunkte Klasse",
+        "IRI-based": "DisjointClass",
+        "en": "disjoint class"
+      },
+      "subClasses": [
+        "16",
+        "3"
+      ],
+      "id": "4"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#DivisibleByFiveEnumeration",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "id": "50",
+      "label": {
+        "IRI-based": "DivisibleByFiveEnumeration"
+      }
+    },
+    {
+      "iri": "http://www.w3.org/2001/XMLSchema#hexBinary",
+      "baseIri": "http://www.w3.org/2001/XMLSchema",
+      "id": "46",
+      "label": {
+        "IRI-based": "hexBinary"
+      }
+    },
+    {
+      "iri": "http://www.w3.org/2001/XMLSchema#date",
+      "baseIri": "http://www.w3.org/2001/XMLSchema",
+      "id": "52",
+      "label": {
+        "IRI-based": "date"
+      }
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#EnumerationClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "EnumerationClass"
+      },
+      "individuals": [
+        {
+          "iri": "http://ontovibe.visualdataweb.org#MultiSubclassIndividual3",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "description": {
+            "undefined": "This is a description without a language on an individual."
+          },
+          "labels": {
+            "IRI-based": "MultiSubclassIndividual3"
+          }
+        },
+        {
+          "iri": "http://ontovibe.visualdataweb.org#MultiSubclassIndividual2",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "labels": {
+            "IRI-based": "MultiSubclassIndividual2"
+          }
+        }
+      ],
+      "id": "54"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#EquivalentToSubclass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "EquivalentToSubclass"
+      },
+      "attributes": [
+        "equivalent"
+      ],
+      "id": "57"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#PropertyOwnerType",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 2,
+      "label": {
+        "IRI-based": "PropertyOwnerType"
+      },
+      "id": "26"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#EquivalentToDeprecatedClass",
+      "equivalent": [
+        "59"
+      ],
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "EquivalentToDeprecatedClass"
+      },
+      "attributes": [
+        "equivalent"
+      ],
+      "id": "58"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#PropertyOwner",
+      "equivalent": [
+        "27"
+      ],
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "PropertyOwner"
+      },
+      "attributes": [
+        "equivalent"
+      ],
+      "id": "1"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#SomeValuesFromClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "SomeValuesFromClass"
+      },
+      "id": "60"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#MultiPropertyOwner",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "MultiPropertyOwner",
+        "undefined": "multi-property owner"
+      },
+      "comment": {
+        "undefined": "This is a comment without a language-tag on a class that also has a label."
+      },
+      "id": "30"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org/imported#ImportedClass",
+      "baseIri": "http://ontovibe.visualdataweb.org/imported",
+      "instances": 0,
+      "label": {
+        "IRI-based": "ImportedClass"
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "6"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#IntersectionClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "IntersectionClass"
+      },
+      "intersection": [
+        "9",
+        "41"
+      ],
+      "attributes": [
+        "intersection"
+      ],
+      "id": "63"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#LargeEnumerationClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "LargeEnumerationClass"
+      },
+      "individuals": [
+        {
+          "iri": "http://ontovibe.visualdataweb.org#MultiSubclassIndividual3",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "description": {
+            "undefined": "This is a description without a language on an individual."
+          },
+          "labels": {
+            "IRI-based": "MultiSubclassIndividual3"
+          }
+        },
+        {
+          "iri": "http://ontovibe.visualdataweb.org#AnotherIndividual",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "description": {
+            "en": "This is an English description on an individual that also has a comment."
+          },
+          "comment": {
+            "en": "This is an English comment on an individual that also has a description."
+          },
+          "labels": {
+            "IRI-based": "AnotherIndividual"
+          }
+        },
+        {
+          "iri": "http://ontovibe.visualdataweb.org#MultiSubclassIndividual2",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "labels": {
+            "IRI-based": "MultiSubclassIndividual2"
+          }
+        }
+      ],
+      "id": "71"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#AlsoEquivalentToSubclass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "AlsoEquivalentToSubclass"
+      },
+      "attributes": [
+        "equivalent"
+      ],
+      "id": "73"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org/imported#DeprecatedImportedClass",
+      "baseIri": "http://ontovibe.visualdataweb.org/imported",
+      "instances": 0,
+      "label": {
+        "IRI-based": "DeprecatedImportedClass"
+      },
+      "subClasses": [
+        "16"
+      ],
+      "attributes": [
+        "external",
+        "deprecated"
+      ],
+      "id": "70"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#MultiSubclass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "description": {
+        "en": "This is an English description on a class that also has a comment."
+      },
+      "label": {
+        "IRI-based": "MultiSubclass"
+      },
+      "individuals": [
+        {
+          "iri": "http://ontovibe.visualdataweb.org#MultiSubclassIndividual3",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "description": {
+            "undefined": "This is a description without a language on an individual."
+          },
+          "labels": {
+            "IRI-based": "MultiSubclassIndividual3"
+          }
+        },
+        {
+          "iri": "http://ontovibe.visualdataweb.org#SameAsMultiSubclassIndividual2",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "labels": {
+            "IRI-based": "SameAsMultiSubclassIndividual2"
+          }
+        },
+        {
+          "iri": "http://ontovibe.visualdataweb.org#MultiSubclassIndividual2",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "labels": {
+            "IRI-based": "MultiSubclassIndividual2"
+          }
+        },
+        {
+          "iri": "http://ontovibe.visualdataweb.org#MultiSubclassIndividual1",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "comment": {
+            "en": "This ia an English comment on an individual."
+          },
+          "labels": {
+            "IRI-based": "MultiSubclassIndividual1"
+          }
+        }
+      ],
+      "comment": {
+        "en": "This is an English comment on a class that also has a description."
+      },
+      "id": "16",
+      "superClasses": [
+        "70",
+        "4"
+      ]
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#LargeIntersectionClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "LargeIntersectionClass"
+      },
+      "intersection": [
+        "6",
+        "24",
+        "1"
+      ],
+      "attributes": [
+        "intersection"
+      ],
+      "id": "84"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#EquivalentClassInLargeGroup",
+      "equivalent": [
+        "88",
+        "34"
+      ],
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "EquivalentClassInLargeGroup"
+      },
+      "attributes": [
+        "equivalent"
+      ],
+      "id": "87"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#DeprecatedClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "DeprecatedClass"
+      },
+      "individuals": [
+        {
+          "iri": "http://ontovibe.visualdataweb.org#AnotherIndividual",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "description": {
+            "en": "This is an English description on an individual that also has a comment."
+          },
+          "comment": {
+            "en": "This is an English comment on an individual that also has a description."
+          },
+          "labels": {
+            "IRI-based": "AnotherIndividual"
+          }
+        }
+      ],
+      "attributes": [
+        "deprecated"
+      ],
+      "id": "41"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#AllValuesFromClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "AllValuesFromClass"
+      },
+      "id": "91"
+    },
+    {
+      "instances": 0,
+      "attributes": [
+        "complement",
+        "anonymous"
+      ],
+      "id": "68",
+      "complement": [
+        "41"
+      ]
+    },
+    {
+      "instances": 0,
+      "individuals": [
+        {
+          "iri": "http://ontovibe.visualdataweb.org#MultiSubclassIndividual3",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "description": {
+            "undefined": "This is a description without a language on an individual."
+          },
+          "labels": {
+            "IRI-based": "MultiSubclassIndividual3"
+          }
+        },
+        {
+          "iri": "http://ontovibe.visualdataweb.org#AnotherIndividual",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "description": {
+            "en": "This is an English description on an individual that also has a comment."
+          },
+          "comment": {
+            "en": "This is an English comment on an individual that also has a description."
+          },
+          "labels": {
+            "IRI-based": "AnotherIndividual"
+          }
+        }
+      ],
+      "attributes": [
+        "anonymous"
+      ],
+      "id": "79"
+    },
+    {
+      "instances": 0,
+      "union": [
+        "9",
+        "41"
+      ],
+      "attributes": [
+        "anonymous",
+        "union"
+      ],
+      "id": "90"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#ComplementDatatype",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "id": "77",
+      "label": {
+        "IRI-based": "ComplementDatatype"
+      }
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org/imported#EquivalentImportedClassInLargeGroup",
+      "baseIri": "http://ontovibe.visualdataweb.org/imported",
+      "instances": 0,
+      "label": {
+        "IRI-based": "EquivalentImportedClassInLargeGroup"
+      },
+      "attributes": [
+        "equivalent",
+        "external"
+      ],
+      "id": "88"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#Subclass",
+      "equivalent": [
+        "73",
+        "57"
+      ],
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Subclass"
+      },
+      "attributes": [
+        "equivalent"
+      ],
+      "id": "3",
+      "superClasses": [
+        "4"
+      ]
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#EquivalentDeprecatedClass",
+      "equivalent": [
+        "58"
+      ],
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "description": {
+        "en": "This is an English description in a class that is part of an equivalent class group."
+      },
+      "label": {
+        "IRI-based": "EquivalentDeprecatedClass"
+      },
+      "attributes": [
+        "equivalent",
+        "deprecated"
+      ],
+      "id": "59"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#Class1",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Class1"
+      },
+      "individuals": [
+        {
+          "iri": "http://ontovibe.visualdataweb.org#Class1Individual",
+          "baseIri": "http://ontovibe.visualdataweb.org",
+          "labels": {
+            "IRI-based": "Class1Individual"
+          }
+        }
+      ],
+      "id": "9"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#LargeDisjointUnionClass",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "instances": 0,
+      "disjointUnion": [
+        "70",
+        "63",
+        "8"
+      ],
+      "label": {
+        "IRI-based": "LargeDisjointUnionClass"
+      },
+      "attributes": [
+        "disjointUnion"
+      ],
+      "id": "105"
     }
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org/imported#EquivalentImportedClassInLargeGroup",
-    "baseIri" : "http://ontovibe.visualdataweb.org/imported",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "EquivalentImportedClassInLargeGroup"
+  ],
+  "property": [
+    {
+      "id": "0",
+      "type": "owl:objectProperty"
     },
-    "attributes" : [ "equivalent", "external" ],
-    "id" : "88"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#Subclass",
-    "equivalent" : [ "73", "57" ],
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Subclass"
+    {
+      "id": "2",
+      "type": "rdfs:SubClassOf"
     },
-    "attributes" : [ "equivalent" ],
-    "id" : "3",
-    "superClasses" : [ "4" ]
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#EquivalentDeprecatedClass",
-    "equivalent" : [ "58" ],
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "description" : {
-      "en" : "This is an English description in a class that is part of an equivalent class group."
+    {
+      "id": "5",
+      "type": "owl:objectProperty"
     },
-    "label" : {
-      "IRI-based" : "EquivalentDeprecatedClass"
+    {
+      "id": "10",
+      "type": "owl:objectProperty"
     },
-    "attributes" : [ "equivalent", "deprecated" ],
-    "id" : "59"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#Class1",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Class1"
+    {
+      "id": "12",
+      "type": "owl:datatypeProperty"
     },
-    "individuals" : [ {
-      "iri" : "http://ontovibe.visualdataweb.org#Class1Individual",
-      "baseIri" : "http://ontovibe.visualdataweb.org",
-      "labels" : {
-        "IRI-based" : "Class1Individual"
+    {
+      "id": "15",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "17",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "25",
+      "type": "rdf:Property"
+    },
+    {
+      "id": "29",
+      "type": "rdf:Property"
+    },
+    {
+      "id": "33",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "36",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "38",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "43",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "45",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "51",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "53",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "55",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "56",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "61",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "64",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "65",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "66",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "11",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "67",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "69",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "72",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "74",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "75",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "76",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "78",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "80",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "81",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "82",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "83",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "85",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "86",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "89",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "92",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "93",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "94",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "96",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "97",
+      "type": "owl:someValuesFrom"
+    },
+    {
+      "id": "98",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "95",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "99",
+      "type": "owl:allValuesFrom"
+    },
+    {
+      "id": "100",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "62",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "101",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "102",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "103",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "104",
+      "type": "owl:objectProperty"
+    }
+  ],
+  "propertyAttribute": [
+    {
+      "iri": "http://ontovibe.visualdataweb.org#cyclicProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "1",
+      "label": {
+        "IRI-based": "cyclicProperty"
+      },
+      "domain": "1",
+      "attributes": [
+        "object"
+      ],
+      "id": "0"
+    },
+    {
+      "range": "4",
+      "domain": "3",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "id": "2"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org/imported#importedObjectPropertyWithDomain",
+      "baseIri": "http://ontovibe.visualdataweb.org/imported",
+      "range": "7",
+      "label": {
+        "IRI-based": "importedObjectPropertyWithDomain"
+      },
+      "domain": "6",
+      "attributes": [
+        "transitive",
+        "object",
+        "external"
+      ],
+      "id": "5"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#dummyProperty",
+      "equivalent": [
+        "11"
+      ],
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "4",
+      "label": {
+        "IRI-based": "dummyProperty"
+      },
+      "domain": "1",
+      "attributes": [
+        "object"
+      ],
+      "id": "10"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#untypedDatatypeProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "13",
+      "label": {
+        "IRI-based": "untypedDatatypeProperty"
+      },
+      "domain": "1",
+      "attributes": [
+        "datatype"
+      ],
+      "id": "12"
+    },
+    {
+      "range": "4",
+      "domain": "16",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "id": "15"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#importedTypeDatatypeProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "18",
+      "label": {
+        "IRI-based": "importedTypeDatatypeProperty",
+        "zh-hans": "一种导入类型的数据类型性质",
+        "en": "imported type datatype property",
+        "fr": "propriété d'un type de données importé"
+      },
+      "domain": "1",
+      "attributes": [
+        "datatype"
+      ],
+      "id": "17"
+    },
+    {
+      "domain": "26",
+      "range": "1",
+      "id": "25",
+      "label": {
+        "IRI-based": "21",
+        "undefined": "is a"
       }
-    } ],
-    "id" : "9"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#LargeDisjointUnionClass",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "instances" : 0,
-    "disjointUnion" : [ "70", "63", "8" ],
-    "label" : {
-      "IRI-based" : "LargeDisjointUnionClass"
     },
-    "attributes" : [ "disjointUnion" ],
-    "id" : "105"
-  } ],
-  "property" : [ {
-    "id" : "0",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "2",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "5",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "10",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "12",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "15",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "17",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "25",
-    "type" : "rdf:Property"
-  }, {
-    "id" : "29",
-    "type" : "rdf:Property"
-  }, {
-    "id" : "33",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "36",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "38",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "43",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "45",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "51",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "53",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "55",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "56",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "61",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "64",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "65",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "66",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "11",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "67",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "69",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "72",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "74",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "75",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "76",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "78",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "80",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "81",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "82",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "83",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "85",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "86",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "89",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "92",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "93",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "94",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "96",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "97",
-    "type" : "owl:someValuesFrom"
-  }, {
-    "id" : "98",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "95",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "99",
-    "type" : "owl:allValuesFrom"
-  }, {
-    "id" : "100",
-    "type" : "owl:disjointWith"
-  }, {
-    "id" : "62",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "101",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "102",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "103",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "104",
-    "type" : "owl:objectProperty"
-  } ],
-  "propertyAttribute" : [ {
-    "iri" : "http://ontovibe.visualdataweb.org#cyclicProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "1",
-    "label" : {
-      "IRI-based" : "cyclicProperty"
+    {
+      "domain": "26",
+      "range": "30",
+      "id": "29",
+      "label": {
+        "IRI-based": "22",
+        "undefined": "is a"
+      }
     },
-    "domain" : "1",
-    "attributes" : [ "object" ],
-    "id" : "0"
-  }, {
-    "range" : "4",
-    "domain" : "3",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "2"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org/imported#importedObjectPropertyWithDomain",
-    "baseIri" : "http://ontovibe.visualdataweb.org/imported",
-    "range" : "7",
-    "label" : {
-      "IRI-based" : "importedObjectPropertyWithDomain"
+    {
+      "iri": "http://ontovibe.visualdataweb.org#cyclicProperty3",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "30",
+      "label": {
+        "IRI-based": "cyclicProperty3"
+      },
+      "domain": "30",
+      "attributes": [
+        "object"
+      ],
+      "id": "33"
     },
-    "domain" : "6",
-    "attributes" : [ "transitive", "object", "external" ],
-    "id" : "5"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#dummyProperty",
-    "equivalent" : [ "11" ],
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "4",
-    "label" : {
-      "IRI-based" : "dummyProperty"
+    {
+      "iri": "http://ontovibe.visualdataweb.org#cyclicProperty2",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "30",
+      "description": {
+        "de": "Dies ist eine deutsche Beschreibung einer Eigenschaft, die auch einen nicht in Deutsch verfassten Kommentar enthält."
+      },
+      "label": {
+        "IRI-based": "cyclicProperty2"
+      },
+      "domain": "30",
+      "comment": {
+        "en": "This is an English comment on a property that also has a non-English description."
+      },
+      "attributes": [
+        "object",
+        "reflexive"
+      ],
+      "id": "36"
     },
-    "domain" : "1",
-    "attributes" : [ "object" ],
-    "id" : "10"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#untypedDatatypeProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "13",
-    "label" : {
-      "IRI-based" : "untypedDatatypeProperty"
+    {
+      "iri": "http://ontovibe.visualdataweb.org#cyclicProperty1",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "30",
+      "label": {
+        "IRI-based": "cyclicProperty1"
+      },
+      "domain": "30",
+      "attributes": [
+        "object"
+      ],
+      "id": "38"
     },
-    "domain" : "1",
-    "attributes" : [ "datatype" ],
-    "id" : "12"
-  }, {
-    "range" : "4",
-    "domain" : "16",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "15"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#importedTypeDatatypeProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "18",
-    "label" : {
-      "IRI-based" : "importedTypeDatatypeProperty",
-      "zh-hans" : "一种导入类型的数据类型性质",
-      "en" : "imported type datatype property",
-      "fr" : "propriété d'un type de données importé"
+    {
+      "iri": "http://ontovibe.visualdataweb.org#oppositeDummyProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "1",
+      "label": {
+        "IRI-based": "oppositeDummyProperty"
+      },
+      "maxCardinality": "15",
+      "minCardinality": "5",
+      "domain": "4",
+      "attributes": [
+        "object"
+      ],
+      "id": "43"
     },
-    "domain" : "1",
-    "attributes" : [ "datatype" ],
-    "id" : "17"
-  }, {
-    "domain" : "26",
-    "range" : "1",
-    "id" : "25",
-    "label" : {
-      "IRI-based" : "21",
-      "undefined" : "is a"
+    {
+      "iri": "http://ontovibe.visualdataweb.org#functionalDatatypeProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "46",
+      "label": {
+        "IRI-based": "functionalDatatypeProperty"
+      },
+      "domain": "31",
+      "attributes": [
+        "functional",
+        "datatype"
+      ],
+      "id": "45"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#anotherEquivalentDataProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "19",
+      "label": {
+        "IRI-based": "anotherEquivalentDataProperty"
+      },
+      "domain": "20",
+      "attributes": [
+        "datatype"
+      ],
+      "id": "51"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#disjointProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "31",
+      "label": {
+        "IRI-based": "disjointProperty"
+      },
+      "domain": "1",
+      "attributes": [
+        "object"
+      ],
+      "id": "53"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#classToClassProperty2",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "30",
+      "label": {
+        "IRI-based": "classToClassProperty2"
+      },
+      "domain": "1",
+      "attributes": [
+        "irreflexive",
+        "object"
+      ],
+      "id": "55"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#classToClassProperty1",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "30",
+      "label": {
+        "IRI-based": "classToClassProperty1"
+      },
+      "domain": "1",
+      "attributes": [
+        "object"
+      ],
+      "id": "56"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#functionalPropertyAsInverse",
+      "inverse": "62",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "31",
+      "label": {
+        "IRI-based": "functionalPropertyAsInverse"
+      },
+      "domain": "1",
+      "attributes": [
+        "functional",
+        "object"
+      ],
+      "id": "61"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#anonymousIntersectionClassProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "63",
+      "label": {
+        "IRI-based": "anonymousIntersectionClassProperty"
+      },
+      "domain": "37",
+      "attributes": [
+        "object"
+      ],
+      "id": "64"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org/imported#deprecatedImportedObjectProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org/imported",
+      "range": "6",
+      "label": {
+        "IRI-based": "deprecatedImportedObjectProperty"
+      },
+      "domain": "7",
+      "attributes": [
+        "object",
+        "external",
+        "deprecated"
+      ],
+      "id": "65"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#standardTypeDatatypeProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "40",
+      "label": {
+        "IRI-based": "standardTypeDatatypeProperty"
+      },
+      "domain": "1",
+      "attributes": [
+        "datatype"
+      ],
+      "id": "66"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#equivalentObjectProperty",
+      "equivalent": [
+        "10"
+      ],
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "20",
+      "label": {
+        "IRI-based": "equivalentObjectProperty"
+      },
+      "domain": "20",
+      "attributes": [
+        "object"
+      ],
+      "id": "11"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#anonymousComplementClassProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "68",
+      "label": {
+        "IRI-based": "anonymousComplementClassProperty"
+      },
+      "domain": "37",
+      "attributes": [
+        "object"
+      ],
+      "id": "67"
+    },
+    {
+      "range": "70",
+      "domain": "16",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "id": "69"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org/imported#importedDatatypeProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org/imported",
+      "range": "28",
+      "label": {
+        "IRI-based": "importedDatatypeProperty"
+      },
+      "domain": "6",
+      "attributes": [
+        "datatype",
+        "external"
+      ],
+      "id": "72"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#classToClassProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "9",
+      "description": {
+        "en": "This is an English description of a property with descriptions in several languages.",
+        "es": "Esto es una descripción en español de una propiedad con descripciones en varias lenguas."
+      },
+      "label": {
+        "IRI-based": "classToClassProperty"
+      },
+      "cardinality": "3",
+      "domain": "1",
+      "attributes": [
+        "object"
+      ],
+      "id": "74"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#untypedClassToClassProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "1",
+      "label": {
+        "IRI-based": "untypedClassToClassProperty"
+      },
+      "domain": "21",
+      "attributes": [
+        "asymmetric",
+        "object"
+      ],
+      "id": "75"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#complementTypeDatatypeProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "77",
+      "label": {
+        "IRI-based": "complementTypeDatatypeProperty",
+        "undefined": "complement-type datatype property"
+      },
+      "domain": "1",
+      "attributes": [
+        "datatype"
+      ],
+      "id": "76"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#anonymousEnumerationClassProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "79",
+      "label": {
+        "IRI-based": "anonymousEnumerationClassProperty"
+      },
+      "domain": "37",
+      "attributes": [
+        "object"
+      ],
+      "id": "78"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org/imported#importedObjectPropertyWithRange",
+      "baseIri": "http://ontovibe.visualdataweb.org/imported",
+      "range": "6",
+      "label": {
+        "IRI-based": "importedObjectPropertyWithRange"
+      },
+      "domain": "7",
+      "attributes": [
+        "object",
+        "external"
+      ],
+      "id": "80"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#intersectionTypeDatatypeProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "44",
+      "label": {
+        "IRI-based": "intersectionTypeDatatypeProperty"
+      },
+      "domain": "1",
+      "attributes": [
+        "datatype"
+      ],
+      "id": "81"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#rationalProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "49",
+      "label": {
+        "IRI-based": "rationalProperty"
+      },
+      "domain": "1",
+      "attributes": [
+        "datatype"
+      ],
+      "id": "82"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#deprecatedDatatypeProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "52",
+      "label": {
+        "IRI-based": "deprecatedDatatypeProperty"
+      },
+      "domain": "1",
+      "attributes": [
+        "datatype",
+        "deprecated"
+      ],
+      "id": "83"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#customTypeDatatypeProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "50",
+      "label": {
+        "IRI-based": "customTypeDatatypeProperty"
+      },
+      "cardinality": "2",
+      "domain": "1",
+      "attributes": [
+        "datatype"
+      ],
+      "id": "85"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org/imported#deprecatedImportedDatatypeProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org/imported",
+      "range": "42",
+      "label": {
+        "IRI-based": "deprecatedImportedDatatypeProperty"
+      },
+      "domain": "20",
+      "attributes": [
+        "datatype",
+        "external",
+        "deprecated"
+      ],
+      "id": "86"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#anonymousUnionClassProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "90",
+      "label": {
+        "IRI-based": "anonymousUnionClassProperty"
+      },
+      "domain": "37",
+      "attributes": [
+        "object"
+      ],
+      "id": "89"
+    },
+    {
+      "range": "30",
+      "domain": "9",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "id": "92"
+    },
+    {
+      "range": "30",
+      "domain": "23",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "id": "93"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#deprecatedObjectProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "21",
+      "label": {
+        "IRI-based": "deprecatedObjectProperty"
+      },
+      "domain": "1",
+      "subproperty": [
+        "95"
+      ],
+      "attributes": [
+        "object",
+        "deprecated"
+      ],
+      "id": "94"
+    },
+    {
+      "range": "23",
+      "domain": "4",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "id": "96"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#classToClassProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "41",
+      "description": {
+        "en": "This is an English description of a property with descriptions in several languages.",
+        "es": "Esto es una descripción en español de una propiedad con descripciones en varias lenguas."
+      },
+      "label": {
+        "IRI-based": "classToClassProperty"
+      },
+      "domain": "60",
+      "attributes": [
+        "someValues",
+        "object"
+      ],
+      "id": "97"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#functionalProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "31",
+      "label": {
+        "IRI-based": "functionalProperty"
+      },
+      "domain": "1",
+      "attributes": [
+        "functional",
+        "object"
+      ],
+      "id": "98"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#subproperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "20",
+      "label": {
+        "IRI-based": "subproperty"
+      },
+      "superproperty": [
+        "94"
+      ],
+      "domain": "20",
+      "attributes": [
+        "object"
+      ],
+      "id": "95"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#classToClassProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "41",
+      "description": {
+        "en": "This is an English description of a property with descriptions in several languages.",
+        "es": "Esto es una descripción en español de una propiedad con descripciones en varias lenguas."
+      },
+      "label": {
+        "IRI-based": "classToClassProperty"
+      },
+      "domain": "91",
+      "attributes": [
+        "allValues",
+        "object"
+      ],
+      "id": "99"
+    },
+    {
+      "range": "23",
+      "domain": "9",
+      "attributes": [
+        "object",
+        "anonymous"
+      ],
+      "id": "100"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#inverseFunctionalProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "1",
+      "label": {
+        "IRI-based": "inverseFunctionalProperty"
+      },
+      "domain": "31",
+      "attributes": [
+        "object",
+        "inverse functional"
+      ],
+      "id": "62"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#realProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "48",
+      "label": {
+        "IRI-based": "realProperty"
+      },
+      "domain": "1",
+      "attributes": [
+        "datatype"
+      ],
+      "id": "101"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#equivalentDataProperty",
+      "equivalent": [
+        "101",
+        "51"
+      ],
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "22",
+      "label": {
+        "IRI-based": "equivalentDataProperty"
+      },
+      "domain": "20",
+      "attributes": [
+        "datatype"
+      ],
+      "id": "102"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#unionTypeDatatypeProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "39",
+      "label": {
+        "IRI-based": "unionTypeDatatypeProperty"
+      },
+      "domain": "1",
+      "comment": {
+        "en": "This is an English comment on a property."
+      },
+      "attributes": [
+        "datatype"
+      ],
+      "id": "103"
+    },
+    {
+      "iri": "http://ontovibe.visualdataweb.org#classToUntypedClassProperty",
+      "baseIri": "http://ontovibe.visualdataweb.org",
+      "range": "21",
+      "label": {
+        "IRI-based": "classToUntypedClassProperty"
+      },
+      "domain": "1",
+      "attributes": [
+        "object",
+        "symmetric"
+      ],
+      "id": "104"
     }
-  }, {
-    "domain" : "26",
-    "range" : "30",
-    "id" : "29",
-    "label" : {
-      "IRI-based" : "22",
-      "undefined" : "is a"
-    }
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#cyclicProperty3",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "30",
-    "label" : {
-      "IRI-based" : "cyclicProperty3"
-    },
-    "domain" : "30",
-    "attributes" : [ "object" ],
-    "id" : "33"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#cyclicProperty2",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "30",
-    "description" : {
-      "de" : "Dies ist eine deutsche Beschreibung einer Eigenschaft, die auch einen nicht in Deutsch verfassten Kommentar enthält."
-    },
-    "label" : {
-      "IRI-based" : "cyclicProperty2"
-    },
-    "domain" : "30",
-    "comment" : {
-      "en" : "This is an English comment on a property that also has a non-English description."
-    },
-    "attributes" : [ "object", "reflexive" ],
-    "id" : "36"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#cyclicProperty1",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "30",
-    "label" : {
-      "IRI-based" : "cyclicProperty1"
-    },
-    "domain" : "30",
-    "attributes" : [ "object" ],
-    "id" : "38"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#oppositeDummyProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "1",
-    "label" : {
-      "IRI-based" : "oppositeDummyProperty"
-    },
-    "maxCardinality" : "15",
-    "minCardinality" : "5",
-    "domain" : "4",
-    "attributes" : [ "object" ],
-    "id" : "43"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#functionalDatatypeProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "46",
-    "label" : {
-      "IRI-based" : "functionalDatatypeProperty"
-    },
-    "domain" : "31",
-    "attributes" : [ "functional", "datatype" ],
-    "id" : "45"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#anotherEquivalentDataProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "19",
-    "label" : {
-      "IRI-based" : "anotherEquivalentDataProperty"
-    },
-    "domain" : "20",
-    "attributes" : [ "datatype" ],
-    "id" : "51"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#disjointProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "31",
-    "label" : {
-      "IRI-based" : "disjointProperty"
-    },
-    "domain" : "1",
-    "attributes" : [ "object" ],
-    "id" : "53"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#classToClassProperty2",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "30",
-    "label" : {
-      "IRI-based" : "classToClassProperty2"
-    },
-    "domain" : "1",
-    "attributes" : [ "irreflexive", "object" ],
-    "id" : "55"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#classToClassProperty1",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "30",
-    "label" : {
-      "IRI-based" : "classToClassProperty1"
-    },
-    "domain" : "1",
-    "attributes" : [ "object" ],
-    "id" : "56"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#functionalPropertyAsInverse",
-    "inverse" : "62",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "31",
-    "label" : {
-      "IRI-based" : "functionalPropertyAsInverse"
-    },
-    "domain" : "1",
-    "attributes" : [ "functional", "object" ],
-    "id" : "61"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#anonymousIntersectionClassProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "63",
-    "label" : {
-      "IRI-based" : "anonymousIntersectionClassProperty"
-    },
-    "domain" : "37",
-    "attributes" : [ "object" ],
-    "id" : "64"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org/imported#deprecatedImportedObjectProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org/imported",
-    "range" : "6",
-    "label" : {
-      "IRI-based" : "deprecatedImportedObjectProperty"
-    },
-    "domain" : "7",
-    "attributes" : [ "object", "external", "deprecated" ],
-    "id" : "65"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#standardTypeDatatypeProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "40",
-    "label" : {
-      "IRI-based" : "standardTypeDatatypeProperty"
-    },
-    "domain" : "1",
-    "attributes" : [ "datatype" ],
-    "id" : "66"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#equivalentObjectProperty",
-    "equivalent" : [ "10" ],
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "20",
-    "label" : {
-      "IRI-based" : "equivalentObjectProperty"
-    },
-    "domain" : "20",
-    "attributes" : [ "object" ],
-    "id" : "11"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#anonymousComplementClassProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "68",
-    "label" : {
-      "IRI-based" : "anonymousComplementClassProperty"
-    },
-    "domain" : "37",
-    "attributes" : [ "object" ],
-    "id" : "67"
-  }, {
-    "range" : "70",
-    "domain" : "16",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "69"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org/imported#importedDatatypeProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org/imported",
-    "range" : "28",
-    "label" : {
-      "IRI-based" : "importedDatatypeProperty"
-    },
-    "domain" : "6",
-    "attributes" : [ "datatype", "external" ],
-    "id" : "72"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#classToClassProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "9",
-    "description" : {
-      "en" : "This is an English description of a property with descriptions in several languages.",
-      "es" : "Esto es una descripción en español de una propiedad con descripciones en varias lenguas."
-    },
-    "label" : {
-      "IRI-based" : "classToClassProperty"
-    },
-    "cardinality" : "3",
-    "domain" : "1",
-    "attributes" : [ "object" ],
-    "id" : "74"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#untypedClassToClassProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "1",
-    "label" : {
-      "IRI-based" : "untypedClassToClassProperty"
-    },
-    "domain" : "21",
-    "attributes" : [ "asymmetric", "object" ],
-    "id" : "75"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#complementTypeDatatypeProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "77",
-    "label" : {
-      "IRI-based" : "complementTypeDatatypeProperty",
-      "undefined" : "complement-type datatype property"
-    },
-    "domain" : "1",
-    "attributes" : [ "datatype" ],
-    "id" : "76"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#anonymousEnumerationClassProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "79",
-    "label" : {
-      "IRI-based" : "anonymousEnumerationClassProperty"
-    },
-    "domain" : "37",
-    "attributes" : [ "object" ],
-    "id" : "78"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org/imported#importedObjectPropertyWithRange",
-    "baseIri" : "http://ontovibe.visualdataweb.org/imported",
-    "range" : "6",
-    "label" : {
-      "IRI-based" : "importedObjectPropertyWithRange"
-    },
-    "domain" : "7",
-    "attributes" : [ "object", "external" ],
-    "id" : "80"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#intersectionTypeDatatypeProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "44",
-    "label" : {
-      "IRI-based" : "intersectionTypeDatatypeProperty"
-    },
-    "domain" : "1",
-    "attributes" : [ "datatype" ],
-    "id" : "81"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#rationalProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "49",
-    "label" : {
-      "IRI-based" : "rationalProperty"
-    },
-    "domain" : "1",
-    "attributes" : [ "datatype" ],
-    "id" : "82"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#deprecatedDatatypeProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "52",
-    "label" : {
-      "IRI-based" : "deprecatedDatatypeProperty"
-    },
-    "domain" : "1",
-    "attributes" : [ "datatype", "deprecated" ],
-    "id" : "83"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#customTypeDatatypeProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "50",
-    "label" : {
-      "IRI-based" : "customTypeDatatypeProperty"
-    },
-    "cardinality" : "2",
-    "domain" : "1",
-    "attributes" : [ "datatype" ],
-    "id" : "85"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org/imported#deprecatedImportedDatatypeProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org/imported",
-    "range" : "42",
-    "label" : {
-      "IRI-based" : "deprecatedImportedDatatypeProperty"
-    },
-    "domain" : "20",
-    "attributes" : [ "datatype", "external", "deprecated" ],
-    "id" : "86"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#anonymousUnionClassProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "90",
-    "label" : {
-      "IRI-based" : "anonymousUnionClassProperty"
-    },
-    "domain" : "37",
-    "attributes" : [ "object" ],
-    "id" : "89"
-  }, {
-    "range" : "30",
-    "domain" : "9",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "92"
-  }, {
-    "range" : "30",
-    "domain" : "23",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "93"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#deprecatedObjectProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "21",
-    "label" : {
-      "IRI-based" : "deprecatedObjectProperty"
-    },
-    "domain" : "1",
-    "subproperty" : [ "95" ],
-    "attributes" : [ "object", "deprecated" ],
-    "id" : "94"
-  }, {
-    "range" : "23",
-    "domain" : "4",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "96"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#classToClassProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "41",
-    "description" : {
-      "en" : "This is an English description of a property with descriptions in several languages.",
-      "es" : "Esto es una descripción en español de una propiedad con descripciones en varias lenguas."
-    },
-    "label" : {
-      "IRI-based" : "classToClassProperty"
-    },
-    "domain" : "60",
-    "attributes" : [ "someValues", "object" ],
-    "id" : "97"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#functionalProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "31",
-    "label" : {
-      "IRI-based" : "functionalProperty"
-    },
-    "domain" : "1",
-    "attributes" : [ "functional", "object" ],
-    "id" : "98"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#subproperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "20",
-    "label" : {
-      "IRI-based" : "subproperty"
-    },
-    "superproperty" : [ "94" ],
-    "domain" : "20",
-    "attributes" : [ "object" ],
-    "id" : "95"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#classToClassProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "41",
-    "description" : {
-      "en" : "This is an English description of a property with descriptions in several languages.",
-      "es" : "Esto es una descripción en español de una propiedad con descripciones en varias lenguas."
-    },
-    "label" : {
-      "IRI-based" : "classToClassProperty"
-    },
-    "domain" : "91",
-    "attributes" : [ "allValues", "object" ],
-    "id" : "99"
-  }, {
-    "range" : "23",
-    "domain" : "9",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "100"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#inverseFunctionalProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "1",
-    "label" : {
-      "IRI-based" : "inverseFunctionalProperty"
-    },
-    "domain" : "31",
-    "attributes" : [ "object", "inverse functional" ],
-    "id" : "62"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#realProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "48",
-    "label" : {
-      "IRI-based" : "realProperty"
-    },
-    "domain" : "1",
-    "attributes" : [ "datatype" ],
-    "id" : "101"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#equivalentDataProperty",
-    "equivalent" : [ "101", "51" ],
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "22",
-    "label" : {
-      "IRI-based" : "equivalentDataProperty"
-    },
-    "domain" : "20",
-    "attributes" : [ "datatype" ],
-    "id" : "102"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#unionTypeDatatypeProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "39",
-    "label" : {
-      "IRI-based" : "unionTypeDatatypeProperty"
-    },
-    "domain" : "1",
-    "comment" : {
-      "en" : "This is an English comment on a property."
-    },
-    "attributes" : [ "datatype" ],
-    "id" : "103"
-  }, {
-    "iri" : "http://ontovibe.visualdataweb.org#classToUntypedClassProperty",
-    "baseIri" : "http://ontovibe.visualdataweb.org",
-    "range" : "21",
-    "label" : {
-      "IRI-based" : "classToUntypedClassProperty"
-    },
-    "domain" : "1",
-    "attributes" : [ "object", "symmetric" ],
-    "id" : "104"
-  } ]
+  ]
 }

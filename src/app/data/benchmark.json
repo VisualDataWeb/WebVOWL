@@ -1,1166 +1,1917 @@
 {
-	"namespace": [
-		{
-			"name": "owl",
-			"iri": "http://www.w3.org/2002/07/owl#"
-		},
-		{
-			"name": "rdf",
-			"iri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-		},
-		{
-			"name": "rdfs",
-			"iri": "http://www.w3.org/2000/01/rdf-schema#"
-		}
-	],
-	"header": {
-        "title": {
-          "iriBased": "Benchmark Graph",
-          "en": "Benchmark Graph",
-		  "de": "Benchmark Graph (DE)",
-		  "undefined": "Benchmark Graph (UNDEFINED)"
+  "namespace": [
+    {
+      "name": "owl",
+      "iri": "http://www.w3.org/2002/07/owl#"
+    },
+    {
+      "name": "rdf",
+      "iri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    },
+    {
+      "name": "rdfs",
+      "iri": "http://www.w3.org/2000/01/rdf-schema#"
+    }
+  ],
+  "header": {
+    "title": {
+      "iriBased": "Benchmark Graph",
+      "en": "Benchmark Graph",
+      "de": "Benchmark Graph (DE)",
+      "undefined": "Benchmark Graph (UNDEFINED)"
+    },
+    "iri": "#",
+    "version": "0.1",
+    "author": [
+      "Vincent Link",
+      "Eduard Marbach"
+    ],
+    "description": {
+      "iriBased": "The benchmark graph contains all visual elements of VOWL to test WebVOWL conformance with the specification and special cases.",
+      "en": "The benchmark graph contains all visual elements of VOWL to test WebVOWL conformance with the specification and special cases.",
+      "de": "Deutsche Beschreibung"
+    },
+    "languages": [
+      "en",
+      "de",
+      "unset",
+      "iriBased"
+    ]
+  },
+  "class": [
+    {
+      "id": "MultiLink2",
+      "type": "owl:Class",
+      "label": "MultiLink2"
+    },
+    {
+      "id": "MultiLink3",
+      "type": "owl:Class",
+      "label": "MultiLink3"
+    },
+    {
+      "id": "MultiLink4",
+      "type": "owl:Class",
+      "label": "MultiLink4"
+    },
+    {
+      "id": "MultiLink5",
+      "type": "owl:Class",
+      "label": "MultiLink5"
+    },
+    {
+      "id": "MultiLinkEnd",
+      "type": "owl:Class",
+      "label": "MultiLinkEnd"
+    },
+    {
+      "id": "DisjointTest0",
+      "type": "owl:Class",
+      "label": "DisjointTest0"
+    },
+    {
+      "id": "DisjointTestUri",
+      "type": "owl:Class",
+      "label": "DisjointTestUri"
+    },
+    {
+      "id": "DisjointTest2",
+      "type": "owl:Class",
+      "label": "DisjointTest2"
+    },
+    {
+      "id": "SetOperatorTest",
+      "type": "owl:Class",
+      "intersection": [
+        "IntersectionTest"
+      ],
+      "union": [
+        "UnionTest"
+      ],
+      "disjointUnion": [
+        "DisjointUnionTest"
+      ],
+      "complement": [
+        "ComplementTest"
+      ],
+      "label": "SetOperatorTest"
+    },
+    {
+      "id": "IntersectionTest",
+      "type": "owl:intersectionOf",
+      "label": "Intersection",
+      "individuals": [
+        {
+          "a": "b"
         },
-		"iri": "#",
-		"version": "0.1",
-		"author": ["Vincent Link", "Eduard Marbach"],
-		"description": {
-          "iriBased": "The benchmark graph contains all visual elements of VOWL to test WebVOWL conformance with the specification and special cases.",
-          "en": "The benchmark graph contains all visual elements of VOWL to test WebVOWL conformance with the specification and special cases.",
-          "de": "Deutsche Beschreibung"
+        {
+          "a": "b"
         },
-        "languages": [
-          "en", "de", "unset", "iriBased"
-        ]
-	},
-	"class": [
-		{
-			"id": "MultiLink2",
-			"type": "owl:Class",
-			"label": "MultiLink2"
-		},
-		{
-			"id": "MultiLink3",
-			"type": "owl:Class",
-			"label": "MultiLink3"
-		},
-		{
-			"id": "MultiLink4",
-			"type": "owl:Class",
-			"label": "MultiLink4"
-		},
-		{
-			"id": "MultiLink5",
-			"type": "owl:Class",
-			"label": "MultiLink5"
-		},
-		{
-			"id": "MultiLinkEnd",
-			"type": "owl:Class",
-			"label": "MultiLinkEnd"
-		},
-		{
-			"id": "DisjointTest0",
-			"type": "owl:Class",
-			"label": "DisjointTest0"
-		},
-		{
-			"id": "DisjointTestUri",
-			"type": "owl:Class",
-			"label": "DisjointTestUri"
-		},
-		{
-			"id": "DisjointTest2",
-			"type": "owl:Class",
-			"label": "DisjointTest2"
-		}   ,
-		{
-			"id": "SetOperatorTest",
-			"type": "owl:Class",
-			"intersection": [
-				"IntersectionTest"
-			],
-			"union": [
-				"UnionTest"
-			],
-			"disjointUnion": [
-				"DisjointUnionTest"
-			],
-			"complement": [
-				"ComplementTest"
-			],
-			"label": "SetOperatorTest"
-		},
-		{
-			"id": "IntersectionTest",
-			"type": "owl:intersectionOf",
-			"label": "Intersection",
-			"individuals": [{"a": "b"},{"a": "b"},{"a": "b"}]
-		},
-		{
-			"id": "UnionTest",
-			"type": "owl:unionOf",
-			"label": "Union",
-			"individuals": [{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"}]
-		},
-		{
-			"id": "DisjointUnionTest",
-			"type": "owl:disjointUnionOf",
-			"label": "DisjointUnion"
-		},
-		{
-			"id": "ComplementTest",
-			"type": "owl:complementOf",
-			"label": "Complement"
-		},
-		{
-			"id": "NodeTest",
-			"type": "owl:Class",
-			"label": {"de": "KnotenTest", "en": "NodeTest", "unset": "NodeTest", "iriBased": "NodeTest"}
-		},
-		{
-			"id": "ExternalClass",
-			"type": "ExternalClass",
-			"label": "ExternalClass"
-		},
-		{
-			"id": "OwlClass",
-			"type": "owl:Class",
-			"label": "OwlClass"
-		},
-		{
-			"id": "OwlEquivalentClass",
-			"type": "owl:equivalentClass",
-			"equivalent": [
-				"EquivalentClassA",
-				"EquivalentClassB"
-			],
-			"label": "EquivalentClass"
-		},
-		{
-			"id": "EquivalentClassA",
-			"type": "owl:Class",
-			"label": "EC A"
-		},
-		{
-			"id": "EquivalentClassB",
-			"type": "owl:Class",
-			"label": "EC B"
-		},
-		{
-			"id": "OwlThing",
-			"type": "owl:Thing",
-			"label": "OwlThing"
-		},
-		{
-			"id": "OwlNothing",
-			"type": "owl:Nothing",
-			"label": "OwlNothing"
-		},
-		{
-			"id": "RdfsResource",
-			"type": "rdfs:Resource",
-			"label": "RdfsResource"
-		},
-		{
-			"id": "RdfsClass",
-			"type": "rdfs:Class",
-			"label": "RdfsClass"
-		},
-		{
-			"id": "OwlDeprecatedClass",
-			"type": "owl:DeprecatedClass",
-			"label": "OwlDeprecatedClass"
-		},
-		{
-			"id": "PropertyTest",
-			"type": "owl:Class",
-			"label": "PropertyTest"
-		},
-		{
-			"id": "ExternalPropertyTest",
-			"type": "owl:Class",
-			"label": "ExternalProperty"
-		},
-		{
-			"id": "DatatypePropertyTest",
-			"type": "owl:Class",
-			"label": "DatatypeProperty"
-		},
-		{
-			"id": "RdfPropertyTest",
-			"type": "owl:Class",
-			"label": "RdfProperty"
-		},
-		{
-			"id": "ObjectPropertyTest",
-			"type": "owl:Class",
-			"label": "ObjectProperty"
-		},
-		{
-			"id": "InverseObjectPropertyTest",
-			"type": "owl:Class",
-			"label": "InverseObjectProperty"
-		},
-		{
-			"id": "DeprecatedPropertyTest",
-			"type": "owl:Class",
-			"label": "DeprecatedProperty"
-		},
-		{
-			"id": "SubClassOfPropertyTest",
-			"type": "owl:Class",
-			"label": "SubClassOfProperty"
-		},
-		{
-			"id": "SomeValuesFromPropertyTest",
-			"type": "owl:Class",
-			"label": "SomeValuesFromProperty"
-		},
-		{
-			"id": "AllValuesFromPropertyTest",
-			"type": "owl:Class",
-			"label": "AllValuesFromProperty"
-		},
-		{
-			"id": "HoverTest1",
-			"type": "owl:Class",
-			"label": "HoverTest1"
-		},
-		{
-			"id": "HoverTest2",
-			"type": "owl:Class",
-			"label": "HoverTest2"
-		},
-		{
-			"id": "EightSymmetric",
-			"type": "owl:Class"
-		},
-		{
-			"id": "FiveSymmetric",
-			"type": "owl:Class"
-		},
-		{
-			"id": "UriPropertyTest1",
-			"type": "owl:Class"
-		},
-		{
-			"id": "UriPropertyTest2",
-			"type": "owl:Class"
-		},
-		{
-			"id": "DatatypeTest",
-			"type": "owl:Class"
-		},
-		{
-			"id": "IndicationTest1",
-			"type": "owl:Class"
-		},
-		{
-			"id": "IndicationTest2",
-			"type": "owl:Class"
-		},
-		{
-			"id": "ClassFeatureTest",
-			"type": "owl:Class"
-		},
-		{
-			"id": "cardinalityTest1",
-			"type": "owl:Class"
-		}  ,
-		{
-			"id": "cardinalityTest2",
-			"type": "owl:Class"
-		},
-		{
-			"id": "cardinalityTest3",
-			"type": "owl:Class"
-		},
-		{
-			"id": "equivalentPropertyTest",
-			"type": "owl:Class"
-		},
-		{
-			"id": "AnonymousClass",
-			"type": "owl:Class"
-		}
-	],
-	"classAttribute": [
-		{
-			"id": "ClassFeatureTest",
-			"label": "Class Feature Test",
-			"individuals": [{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"}],
-			"comment": "Class Feature Test comment"
-		},
-		{
-			"id": "UriPropertyTest1",
-			"iri": "http://vowl.visualdataweb.org/v2/",
-			"label": "VOWL-Spec URL"
-		},
-		{
-			"id": "equivalentPropertyTest",
-			"label": "VISIBLE OR NOT?"
-		},
-		{
-			"id": "AnonymousClass",
-			"label": "Anonymous Class",
-			"attributes": ["anonymous"]
-		}
-	],
-	"datatype": [
-		{
-			"id": "DatatypeDatatype",
-			"type": "rdfs:Datatype",
-			"label": "e.g. String"
-		},
-		{
-			"id": "LiteralDatatype",
-			"type": "rdfs:Literal"
-		},
-		{
-			"id": "DatatypeFeatureTest",
-			"type": "rdfs:Datatype"
-		}
-	],
-	"datatypeAttribute": [
-		{
-			"id": "DatatypeFeatureTest",
-			"label": "Datatype Feature Test",
-			"individuals": [{"a": "b"},{"a": "b"},{"a": "b"},{"a": "b"}],
-			"comment": "Datatype Feature Test comment"
-		}
-	],
-	"property": [
-		{
-			"id": "21to"
-		},
-		{
-			"id": "21from"
-		},
-		{
-			"id": "22to"
-		},
-		{
-			"id": "22from"
-		},
-		{
-			"id": "31to"
-		},
-		{
-			"id": "31from"
-		},
-		{
-			"id": "32to"
-		},
-		{
-			"id": "32from"
-		},
-		{
-			"id": "33to"
-		},
-		{
-			"id": "33from"
-		},
-		{
-			"id": "41to"
-		},
-		{
-			"id": "41from"
-		},
-		{
-			"id": "42to"
-		},
-		{
-			"id": "42from"
-		},
-		{
-			"id": "43to"
-		},
-		{
-			"id": "43from"
-		},
-		{
-			"id": "44to"
-		},
-		{
-			"id": "44from"
-		},
-		{
-			"id": "51to"
-		},
-		{
-			"id": "51from"
-		},
-		{
-			"id": "52to"
-		},
-		{
-			"id": "52from"
-		},
-		{
-			"id": "53to"
-		},
-		{
-			"id": "53from"
-		},
-		{
-			"id": "54to"
-		},
-		{
-			"id": "54from"
-		},
-		{
-			"id": "55to"
-		},
-		{
-			"id": "55from"
-		},
-		{
-			"id": "disjoint0Uri"
-		},
-		{
-			"id": "disjoint02"
-		},
-		{
-			"id": "disjointBridge1"
-		},
-		{
-			"id": "disjointBridge2"
-		},
-		{
-			"id": "testOwlClass"
-		},
-		{
-			"id": "testOwlEquivalentClass"
-		},
-		{
-			"id": "testOwlThing"
-		},
-		{
-			"id": "testOwlNothing"
-		},
-		{
-			"id": "testRdfsResource"
-		},
-		{
-			"id": "testOwlDeprecatedClass"
-		},
-		{
-			"id": "testRdfsClass"
-		},
-		{
-			"id": "testExternalClass"
-		},
-		{
-			"id": "testObjectProperty",
-			"attributes": [
-				"object"
-			]
-		},
-		{
-			"id": "testInverseObjectProperty",
-			"attributes": [
-				"object"
-			]
-		},
-		{
-			"id": "testInverseObjectPropertyInverse",
-			"attributes": [
-				"object"
-			]
-		},
-		{
-			"id": "testExternalProperty",
-			"attributes": [
-				"external"
-			]
-		},
-		{
-			"id": "testDatatypeProperty",
-			"attributes": [
-				"datatype"
-			]
-		},
-		{
-			"id": "testRdfProperty"
-		},
-		{
-			"id": "testDeprecatedProperty",
-			"attributes": [
-				"deprecated"
-			]
-		},
-		{
-			"id": "testSubClassOfProperty"
-		},
-		{
-			"id": "testSomeValuesFromProperty"
-		},
-		{
-			"id": "testAllValuesFromProperty"
-		},
-		{
-			"id": "hoverMeProperty",
-			"subproperty": [
-				"highlightedProperty"
-			]
-		},
-		{
-			"id": "highlightedProperty"
-		},
-		{
-			"id": "SymmetricFiveEight"
-		},
-		{
-			"id": "EightSymmetric1"
-		},
-		{
-			"id": "EightSymmetric2"
-		},
-		{
-			"id": "EightSymmetric3"
-		},
-		{
-			"id": "EightSymmetric4"
-		},
-		{
-			"id": "EightSymmetric5"
-		},
-		{
-			"id": "EightSymmetric6"
-		},
-		{
-			"id": "EightSymmetric7"
-		},
-		{
-			"id": "EightSymmetric8"
-		},
-		{
-			"id": "FiveSymmetric1"
-		},
-		{
-			"id": "FiveSymmetric2"
-		},
-		{
-			"id": "FiveSymmetric3"
-		},
-		{
-			"id": "FiveSymmetric4"
-		},
-		{
-			"id": "FiveSymmetric5"
-		},
-		{
-			"id": "UriProperty"
-		},
-		{
-			"id": "DatatypeTestProperty"
-		},
-		{
-			"id": "LiteralTestProperty"
-		},
-		{
-			"id": "FunctionalProperty"
-		},
-		{
-			"id": "InverseFunctionalProperty"
-		},
-		{
-			"id": "KeyProperty"
-		},
-		{
-			"id": "TransitiveProperty"
-		},
-		{
-			"id": "SymmetricProperty"
-		},
-		{
-			"id": "EquivalentBaseProperty"
-		},
-		{
-			"id": "EquivalentProperty"
-		},
-		{
-			"id": "PropertyFeatureTest",
-			"attributes": [
-				"object",
-				"datatype",
-				"deprecated",
-				"rdf"
-			]
-		},
-		{
-			"id": "cardinalityLink1",
-			"label": "card1",
-			"minCardinality": "1",
-			"maxCardinality": "5"
-		},
-		{
-			"id": "cardinalityLink2",
-			"label": "card2",
-			"cardinality": "8888"
-		},
-		{
-			"id": "cardinalityLink3",
-			"label": "card3",
-			"minCardinality": "77"
-		},
-		{
-			"id": "cardinalityLink4",
-			"label": "card4",
-			"maxCardinality": "13"
-		},
-		{
-			"id": "anonymousClassProperty",
-			"domain": "NodeTest",
-			"range": "AnonymousClass",
-			"type": "owl:ObjectProperty"
-		}
-	],
-	"propertyAttribute": [
-		{
-			"id": "21to",
-			"domain": "MultiLink2",
-			"range": "MultiLink3",
-			"inverse": "21from",
-			"type": "owl:ObjectProperty",
-			"label": "21to"
-		},
-		{
-			"id": "21from",
-			"type": "owl:ObjectProperty",
-			"label": "21from"
-		},
-		{
-			"id": "22to",
-			"domain": "MultiLink2",
-			"range": "MultiLink3",
-			"inverse": "22from",
-			"type": "owl:ObjectProperty",
-			"label": "22to"
-		},
-		{
-			"id": "22from",
-			"type": "owl:ObjectProperty",
-			"label": "22from"
-		},
-		{
-			"id": "31to",
-			"domain": "MultiLink3",
-			"range": "MultiLink4",
-			"inverse": "31from",
-			"type": "owl:ObjectProperty",
-			"label": "31to"
-		},
-		{
-			"id": "31from",
-			"type": "owl:ObjectProperty",
-			"label": "31from"
-		},
-		{
-			"id": "32to",
-			"domain": "MultiLink3",
-			"range": "MultiLink4",
-			"inverse": "32from",
-			"type": "owl:ObjectProperty",
-			"label": "32to"
-		},
-		{
-			"id": "32from",
-			"type": "owl:ObjectProperty",
-			"label": "32from"
-		},
-		{
-			"id": "33to",
-			"domain": "MultiLink3",
-			"range": "MultiLink4",
-			"inverse": "33from",
-			"type": "owl:ObjectProperty",
-			"label": "33to"
-		},
-		{
-			"id": "33from",
-			"type": "owl:ObjectProperty",
-			"label": "33from"
-		},
-		{
-			"id": "41to",
-			"domain": "MultiLink4",
-			"range": "MultiLink5",
-			"inverse": "41from",
-			"type": "owl:ObjectProperty",
-			"label": "41to"
-		},
-		{
-			"id": "41from",
-			"type": "owl:ObjectProperty",
-			"label": "41from"
-		},
-		{
-			"id": "42to",
-			"domain": "MultiLink4",
-			"range": "MultiLink5",
-			"inverse": "42from",
-			"type": "owl:ObjectProperty",
-			"label": "42to"
-		},
-		{
-			"id": "42from",
-			"type": "owl:ObjectProperty",
-			"label": "42from"
-		},
-		{
-			"id": "43to",
-			"domain": "MultiLink4",
-			"range": "MultiLink5",
-			"inverse": "43from",
-			"type": "owl:ObjectProperty",
-			"label": "43to"
-		},
-		{
-			"id": "43from",
-			"type": "owl:ObjectProperty",
-			"label": "43from"
-		},
-		{
-			"id": "44to",
-			"domain": "MultiLink4",
-			"range": "MultiLink5",
-			"inverse": "44from",
-			"type": "owl:ObjectProperty",
-			"label": "44to"
-		},
-		{
-			"id": "44from",
-			"type": "owl:ObjectProperty",
-			"label": "44from"
-		},
-		{
-			"id": "51to",
-			"domain": "MultiLink5",
-			"range": "MultiLinkEnd",
-			"inverse": "51from",
-			"type": "owl:ObjectProperty",
-			"label": "51to"
-		},
-		{
-			"id": "51from",
-			"type": "owl:ObjectProperty",
-			"label": "51from"
-		},
-		{
-			"id": "52to",
-			"domain": "MultiLink5",
-			"range": "MultiLinkEnd",
-			"inverse": "52from",
-			"type": "owl:ObjectProperty",
-			"label": "52to"
-		},
-		{
-			"id": "52from",
-			"type": "owl:ObjectProperty",
-			"label": "52from"
-		},
-		{
-			"id": "53to",
-			"domain": "MultiLink5",
-			"range": "MultiLinkEnd",
-			"inverse": "53from",
-			"type": "owl:ObjectProperty",
-			"label": "53to"
-		},
-		{
-			"id": "53from",
-			"type": "owl:ObjectProperty",
-			"label": "53from"
-		},
-		{
-			"id": "54to",
-			"domain": "MultiLink5",
-			"range": "MultiLinkEnd",
-			"inverse": "54from",
-			"type": "owl:ObjectProperty",
-			"label": "54to"
-		},
-		{
-			"id": "54from",
-			"type": "owl:ObjectProperty",
-			"label": "54from"
-		},
-		{
-			"id": "55to",
-			"domain": "MultiLink5",
-			"range": "MultiLinkEnd",
-			"inverse": "55from",
-			"type": "owl:ObjectProperty",
-			"label": "55to"
-		},
-		{
-			"id": "55from",
-			"type": "owl:ObjectProperty",
-			"label": "55from"
-		},
-		{
-			"id": "disjoint0Uri",
-			"domain": "DisjointTest0",
-			"range": "DisjointTestUri",
-			"type": "owl:disjointWith"
-		},
-		{
-			"id": "disjoint02",
-			"domain": "DisjointTest0",
-			"range": "DisjointTest2",
-			"type": "owl:disjointWith"
-		},
-		{
-			"id": "disjointBridge1",
-			"domain": "DisjointTest0",
-			"range": "DisjointTestUri",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "disjointBridge2",
-			"domain": "DisjointTestUri",
-			"range": "DisjointTest2",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "testOwlClass",
-			"domain": "NodeTest",
-			"range": "OwlClass",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "testOwlEquivalentClass",
-			"domain": "NodeTest",
-			"range": "OwlEquivalentClass",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "testOwlThing",
-			"domain": "NodeTest",
-			"range": "OwlThing",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "testOwlNothing",
-			"domain": "NodeTest",
-			"range": "OwlNothing",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "testRdfsResource",
-			"domain": "NodeTest",
-			"range": "RdfsResource",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "testOwlDeprecatedClass",
-			"domain": "NodeTest",
-			"range": "OwlDeprecatedClass",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "testRdfsClass",
-			"domain": "NodeTest",
-			"range": "RdfsClass",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "testExternalClass",
-			"domain": "NodeTest",
-			"range": "ExternalClass",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "testObjectProperty",
-			"domain": "PropertyTest",
-			"range": "ObjectPropertyTest",
-			"type": "owl:ObjectProperty",
-			"label": "Object"
-		},
-		{
-			"id": "testInverseObjectProperty",
-			"inverse": "testInverseObjectPropertyInverse",
-			"domain": "PropertyTest",
-			"range": "InverseObjectPropertyTest",
-			"type": "owl:ObjectProperty",
-			"label": "Object to"
-		},
-		{
-			"id": "testInverseObjectPropertyInverse",
-			"type": "owl:ObjectProperty",
-			"label": "Object from"
-		},
-		{
-			"id": "testExternalProperty",
-			"domain": "PropertyTest",
-			"range": "ExternalPropertyTest",
-			"type": "owl:ObjectProperty",
-			"label": "External"
-		},
-		{
-			"id": "testDatatypeProperty",
-			"domain": "PropertyTest",
-			"range": "DatatypePropertyTest",
-			"type": "owl:DatatypeProperty",
-			"label": "Datatype"
-		},
-		{
-			"id": "testRdfProperty",
-			"domain": "PropertyTest",
-			"range": "RdfPropertyTest",
-			"type": "rdf:Property",
-			"label": "Rdf"
-		},
-		{
-			"id": "testDeprecatedProperty",
-			"domain": "PropertyTest",
-			"range": "DeprecatedPropertyTest",
-			"type": "owl:ObjectProperty",
-			"label": "Deprecated"
-		},
-		{
-			"id": "testSubClassOfProperty",
-			"domain": "SubClassOfPropertyTest",
-			"range": "PropertyTest",
-			"type": "rdfs:SubClassOf",
-			"label": "SubClassOf"
-		},
-		{
-			"id": "testSomeValuesFromProperty",
-			"domain": "PropertyTest",
-			"range": "SomeValuesFromPropertyTest",
-			"type": "owl:someValuesFrom",
-			"label": "someValuesFrom",
-			"attributes": [
-				"datatype"
-			]
-		},
-		{
-			"id": "testAllValuesFromProperty",
-			"domain": "PropertyTest",
-			"range": "AllValuesFromPropertyTest",
-			"type": "owl:allValuesFrom",
-			"label": "allValuesFrom"
-		},
-		{
-			"id": "hoverMeProperty",
-			"domain": "HoverTest1",
-			"range": "HoverTest2",
-			"type": "owl:ObjectProperty",
-			"label": "Hover me"
-		},
-		{
-			"id": "highlightedProperty",
-			"domain": "HoverTest2",
-			"range": "HoverTest1",
-			"type": "owl:ObjectProperty",
-			"label": "Highlighted"
-		},
-		{
-			"id": "SymmetricFiveEight",
-			"type": "owl:ObjectProperty",
-			"domain": "EightSymmetric",
-			"range": "FiveSymmetric"
-		},
-		{
-			"id": "EightSymmetric1",
-			"domain": "EightSymmetric",
-			"range": "EightSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "1"
-		},
-		{
-			"id": "EightSymmetric2",
-			"domain": "EightSymmetric",
-			"range": "EightSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "2"
-		},
-		{
-			"id": "EightSymmetric3",
-			"domain": "EightSymmetric",
-			"range": "EightSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "3"
-		},
-		{
-			"id": "EightSymmetric4",
-			"domain": "EightSymmetric",
-			"range": "EightSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "4"
-		},
-		{
-			"id": "EightSymmetric5",
-			"domain": "EightSymmetric",
-			"range": "EightSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "5"
-		},
-		{
-			"id": "EightSymmetric6",
-			"domain": "EightSymmetric",
-			"range": "EightSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "6"
-		},
-		{
-			"id": "EightSymmetric7",
-			"domain": "EightSymmetric",
-			"range": "EightSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "7"
-		},
-		{
-			"id": "EightSymmetric8",
-			"domain": "EightSymmetric",
-			"range": "EightSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "8"
-		},
-		{
-			"id": "FiveSymmetric1",
-			"domain": "FiveSymmetric",
-			"range": "FiveSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "1"
-		},
-		{
-			"id": "FiveSymmetric2",
-			"domain": "FiveSymmetric",
-			"range": "FiveSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "2"
-		},
-		{
-			"id": "FiveSymmetric3",
-			"domain": "FiveSymmetric",
-			"range": "FiveSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "3"
-		},
-		{
-			"id": "FiveSymmetric4",
-			"domain": "FiveSymmetric",
-			"range": "FiveSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "4"
-		},
-		{
-			"id": "FiveSymmetric5",
-			"domain": "FiveSymmetric",
-			"range": "FiveSymmetric",
-			"type": "owl:ObjectProperty",
-			"label": "5"
-		},
-		{
-			"id": "UriProperty",
-			"domain": "UriPropertyTest1",
-			"range": "UriPropertyTest2",
-			"type": "owl:ObjectProperty",
-			"label": "Uri Property",
-			"iri": "rdf:Group"
-		},
-		{
-			"id": "DatatypeTestProperty",
-			"domain": "DatatypeTest",
-			"range": "DatatypeDatatype",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "LiteralTestProperty",
-			"domain": "DatatypeTest",
-			"range": "LiteralDatatype",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "FunctionalProperty",
-			"type": "owl:FunctionalProperty",
-			"domain": "IndicationTest1",
-			"range": "IndicationTest2",
-			"label": "Functional"
-		},
-		{
-			"id": "InverseFunctionalProperty",
-			"type": "owl:InverseFunctionalProperty",
-			"domain": "IndicationTest1",
-			"range": "IndicationTest2",
-			"label": "InverseFunctional"
-		},
-		{
-			"id": "KeyProperty",
-			"type": "owl:ObjectProperty",
-			"domain": "IndicationTest1",
-			"range": "IndicationTest2",
-			"label": "hasKey",
-			"attributes": ["key"]
-		},
-		{
-			"id": "TransitiveProperty",
-			"type": "owl:TransitiveProperty",
-			"domain": "IndicationTest1",
-			"range": "IndicationTest2",
-			"label": "Transitive"
-		},
-		{
-			"id": "SymmetricProperty",
-			"type": "owl:SymmetricProperty",
-			"domain": "IndicationTest1",
-			"range": "IndicationTest1",
-			"label": "Symmetric"
-		},
-		{
-			"id": "EquivalentBaseProperty",
-			"type": "owl:equivalentProperty",
-			"equivalent": [
-				"EquivalentProperty"
-			],
-			"domain": "IndicationTest1",
-			"range": "IndicationTest2",
-			"label": "EquivalentBase"
-		},
-		{
-			"id": "EquivalentProperty",
-			"type": "owl:equivalentProperty",
-			"domain": "IndicationTest1",
-			"range": "equivalentPropertyTest",
-			"label": "AnEquivalentProperty"
-		},
-		{
-			"id": "PropertyFeatureTest",
-			"type": "owl:ObjectProperty",
-			"domain": "ClassFeatureTest",
-			"range": "DatatypeFeatureTest",
-			"label": "Property Feature Test",
-			"comment": "Property Feature Test comment"
-		},
-		{
-			"id": "cardinalityLink1",
-			"domain": "cardinalityTest1",
-			"range": "cardinalityTest2",
-			"inverse": "cardinalityLink2",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "cardinalityLink2",
-			"domain": "cardinalityTest2",
-			"range": "cardinalityTest1",
-			"inverse": "cardinalityLink1",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "cardinalityLink3",
-			"domain": "cardinalityTest1",
-			"range": "cardinalityTest3",
-			"type": "owl:ObjectProperty"
-		},
-		{
-			"id": "cardinalityLink4",
-			"domain": "cardinalityTest3",
-			"range": "cardinalityTest1",
-			"inverse": "cardinalityLink3",
-			"type": "owl:ObjectProperty"
-		}
-	]
+        {
+          "a": "b"
+        }
+      ]
+    },
+    {
+      "id": "UnionTest",
+      "type": "owl:unionOf",
+      "label": "Union",
+      "individuals": [
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        }
+      ]
+    },
+    {
+      "id": "DisjointUnionTest",
+      "type": "owl:disjointUnionOf",
+      "label": "DisjointUnion"
+    },
+    {
+      "id": "ComplementTest",
+      "type": "owl:complementOf",
+      "label": "Complement"
+    },
+    {
+      "id": "NodeTest",
+      "type": "owl:Class",
+      "label": {
+        "de": "KnotenTest",
+        "en": "NodeTest",
+        "unset": "NodeTest",
+        "iriBased": "NodeTest"
+      }
+    },
+    {
+      "id": "ExternalClass",
+      "type": "ExternalClass",
+      "label": "ExternalClass"
+    },
+    {
+      "id": "OwlClass",
+      "type": "owl:Class",
+      "label": "OwlClass"
+    },
+    {
+      "id": "OwlEquivalentClass",
+      "type": "owl:equivalentClass",
+      "equivalent": [
+        "EquivalentClassA",
+        "EquivalentClassB"
+      ],
+      "label": "EquivalentClass"
+    },
+    {
+      "id": "EquivalentClassA",
+      "type": "owl:Class",
+      "label": "EC A"
+    },
+    {
+      "id": "EquivalentClassB",
+      "type": "owl:Class",
+      "label": "EC B"
+    },
+    {
+      "id": "OwlThing",
+      "type": "owl:Thing",
+      "label": "OwlThing"
+    },
+    {
+      "id": "OwlNothing",
+      "type": "owl:Nothing",
+      "label": "OwlNothing"
+    },
+    {
+      "id": "RdfsResource",
+      "type": "rdfs:Resource",
+      "label": "RdfsResource"
+    },
+    {
+      "id": "RdfsClass",
+      "type": "rdfs:Class",
+      "label": "RdfsClass"
+    },
+    {
+      "id": "OwlDeprecatedClass",
+      "type": "owl:DeprecatedClass",
+      "label": "OwlDeprecatedClass"
+    },
+    {
+      "id": "PropertyTest",
+      "type": "owl:Class",
+      "label": "PropertyTest"
+    },
+    {
+      "id": "ExternalPropertyTest",
+      "type": "owl:Class",
+      "label": "ExternalProperty"
+    },
+    {
+      "id": "DatatypePropertyTest",
+      "type": "owl:Class",
+      "label": "DatatypeProperty"
+    },
+    {
+      "id": "RdfPropertyTest",
+      "type": "owl:Class",
+      "label": "RdfProperty"
+    },
+    {
+      "id": "ObjectPropertyTest",
+      "type": "owl:Class",
+      "label": "ObjectProperty"
+    },
+    {
+      "id": "InverseObjectPropertyTest",
+      "type": "owl:Class",
+      "label": "InverseObjectProperty"
+    },
+    {
+      "id": "DeprecatedPropertyTest",
+      "type": "owl:Class",
+      "label": "DeprecatedProperty"
+    },
+    {
+      "id": "SubClassOfPropertyTest",
+      "type": "owl:Class",
+      "label": "SubClassOfProperty"
+    },
+    {
+      "id": "SomeValuesFromPropertyTest",
+      "type": "owl:Class",
+      "label": "SomeValuesFromProperty"
+    },
+    {
+      "id": "AllValuesFromPropertyTest",
+      "type": "owl:Class",
+      "label": "AllValuesFromProperty"
+    },
+    {
+      "id": "HoverTest1",
+      "type": "owl:Class",
+      "label": "HoverTest1"
+    },
+    {
+      "id": "HoverTest2",
+      "type": "owl:Class",
+      "label": "HoverTest2"
+    },
+    {
+      "id": "EightSymmetric",
+      "type": "owl:Class"
+    },
+    {
+      "id": "FiveSymmetric",
+      "type": "owl:Class"
+    },
+    {
+      "id": "UriPropertyTest1",
+      "type": "owl:Class"
+    },
+    {
+      "id": "UriPropertyTest2",
+      "type": "owl:Class"
+    },
+    {
+      "id": "DatatypeTest",
+      "type": "owl:Class"
+    },
+    {
+      "id": "IndicationTest1",
+      "type": "owl:Class"
+    },
+    {
+      "id": "IndicationTest2",
+      "type": "owl:Class"
+    },
+    {
+      "id": "ClassFeatureTest",
+      "type": "owl:Class"
+    },
+    {
+      "id": "cardinalityTest1",
+      "type": "owl:Class"
+    },
+    {
+      "id": "cardinalityTest2",
+      "type": "owl:Class"
+    },
+    {
+      "id": "cardinalityTest3",
+      "type": "owl:Class"
+    },
+    {
+      "id": "equivalentPropertyTest",
+      "type": "owl:Class"
+    },
+    {
+      "id": "AnonymousClass",
+      "type": "owl:Class"
+    }
+  ],
+  "classAttribute": [
+    {
+      "id": "ClassFeatureTest",
+      "label": "Class Feature Test",
+      "individuals": [
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        }
+      ],
+      "comment": "Class Feature Test comment"
+    },
+    {
+      "id": "UriPropertyTest1",
+      "iri": "http://vowl.visualdataweb.org/v2/",
+      "label": "VOWL-Spec URL"
+    },
+    {
+      "id": "equivalentPropertyTest",
+      "label": "VISIBLE OR NOT?"
+    },
+    {
+      "id": "AnonymousClass",
+      "label": "Anonymous Class",
+      "attributes": [
+        "anonymous"
+      ]
+    }
+  ],
+  "datatype": [
+    {
+      "id": "DatatypeDatatype",
+      "type": "rdfs:Datatype",
+      "label": "e.g. String"
+    },
+    {
+      "id": "LiteralDatatype",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "DatatypeFeatureTest",
+      "type": "rdfs:Datatype"
+    }
+  ],
+  "datatypeAttribute": [
+    {
+      "id": "DatatypeFeatureTest",
+      "label": "Datatype Feature Test",
+      "individuals": [
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        },
+        {
+          "a": "b"
+        }
+      ],
+      "comment": "Datatype Feature Test comment"
+    }
+  ],
+  "property": [
+    {
+      "id": "21to"
+    },
+    {
+      "id": "21from"
+    },
+    {
+      "id": "22to"
+    },
+    {
+      "id": "22from"
+    },
+    {
+      "id": "31to"
+    },
+    {
+      "id": "31from"
+    },
+    {
+      "id": "32to"
+    },
+    {
+      "id": "32from"
+    },
+    {
+      "id": "33to"
+    },
+    {
+      "id": "33from"
+    },
+    {
+      "id": "41to"
+    },
+    {
+      "id": "41from"
+    },
+    {
+      "id": "42to"
+    },
+    {
+      "id": "42from"
+    },
+    {
+      "id": "43to"
+    },
+    {
+      "id": "43from"
+    },
+    {
+      "id": "44to"
+    },
+    {
+      "id": "44from"
+    },
+    {
+      "id": "51to"
+    },
+    {
+      "id": "51from"
+    },
+    {
+      "id": "52to"
+    },
+    {
+      "id": "52from"
+    },
+    {
+      "id": "53to"
+    },
+    {
+      "id": "53from"
+    },
+    {
+      "id": "54to"
+    },
+    {
+      "id": "54from"
+    },
+    {
+      "id": "55to"
+    },
+    {
+      "id": "55from"
+    },
+    {
+      "id": "disjoint0Uri"
+    },
+    {
+      "id": "disjoint02"
+    },
+    {
+      "id": "disjointBridge1"
+    },
+    {
+      "id": "disjointBridge2"
+    },
+    {
+      "id": "testOwlClass"
+    },
+    {
+      "id": "testOwlEquivalentClass"
+    },
+    {
+      "id": "testOwlThing"
+    },
+    {
+      "id": "testOwlNothing"
+    },
+    {
+      "id": "testRdfsResource"
+    },
+    {
+      "id": "testOwlDeprecatedClass"
+    },
+    {
+      "id": "testRdfsClass"
+    },
+    {
+      "id": "testExternalClass"
+    },
+    {
+      "id": "testObjectProperty",
+      "attributes": [
+        "object"
+      ]
+    },
+    {
+      "id": "testInverseObjectProperty",
+      "attributes": [
+        "object"
+      ]
+    },
+    {
+      "id": "testInverseObjectPropertyInverse",
+      "attributes": [
+        "object"
+      ]
+    },
+    {
+      "id": "testExternalProperty",
+      "attributes": [
+        "external"
+      ]
+    },
+    {
+      "id": "testDatatypeProperty",
+      "attributes": [
+        "datatype"
+      ]
+    },
+    {
+      "id": "testRdfProperty"
+    },
+    {
+      "id": "testDeprecatedProperty",
+      "attributes": [
+        "deprecated"
+      ]
+    },
+    {
+      "id": "testSubClassOfProperty"
+    },
+    {
+      "id": "testSomeValuesFromProperty"
+    },
+    {
+      "id": "testAllValuesFromProperty"
+    },
+    {
+      "id": "hoverMeProperty",
+      "subproperty": [
+        "highlightedProperty"
+      ]
+    },
+    {
+      "id": "highlightedProperty"
+    },
+    {
+      "id": "SymmetricFiveEight"
+    },
+    {
+      "id": "EightSymmetric1"
+    },
+    {
+      "id": "EightSymmetric2"
+    },
+    {
+      "id": "EightSymmetric3"
+    },
+    {
+      "id": "EightSymmetric4"
+    },
+    {
+      "id": "EightSymmetric5"
+    },
+    {
+      "id": "EightSymmetric6"
+    },
+    {
+      "id": "EightSymmetric7"
+    },
+    {
+      "id": "EightSymmetric8"
+    },
+    {
+      "id": "FiveSymmetric1"
+    },
+    {
+      "id": "FiveSymmetric2"
+    },
+    {
+      "id": "FiveSymmetric3"
+    },
+    {
+      "id": "FiveSymmetric4"
+    },
+    {
+      "id": "FiveSymmetric5"
+    },
+    {
+      "id": "UriProperty"
+    },
+    {
+      "id": "DatatypeTestProperty"
+    },
+    {
+      "id": "LiteralTestProperty"
+    },
+    {
+      "id": "FunctionalProperty"
+    },
+    {
+      "id": "InverseFunctionalProperty"
+    },
+    {
+      "id": "KeyProperty"
+    },
+    {
+      "id": "TransitiveProperty"
+    },
+    {
+      "id": "SymmetricProperty"
+    },
+    {
+      "id": "EquivalentBaseProperty"
+    },
+    {
+      "id": "EquivalentProperty"
+    },
+    {
+      "id": "PropertyFeatureTest",
+      "attributes": [
+        "object",
+        "datatype",
+        "deprecated",
+        "rdf"
+      ]
+    },
+    {
+      "id": "cardinalityLink1",
+      "label": "card1",
+      "minCardinality": "1",
+      "maxCardinality": "5"
+    },
+    {
+      "id": "cardinalityLink2",
+      "label": "card2",
+      "cardinality": "8888"
+    },
+    {
+      "id": "cardinalityLink3",
+      "label": "card3",
+      "minCardinality": "77"
+    },
+    {
+      "id": "cardinalityLink4",
+      "label": "card4",
+      "maxCardinality": "13"
+    },
+    {
+      "id": "anonymousClassProperty",
+      "domain": "NodeTest",
+      "range": "AnonymousClass",
+      "type": "owl:ObjectProperty"
+    }
+  ],
+  "propertyAttribute": [
+    {
+      "id": "21to",
+      "domain": "MultiLink2",
+      "range": "MultiLink3",
+      "inverse": "21from",
+      "type": "owl:ObjectProperty",
+      "label": "21to"
+    },
+    {
+      "id": "21from",
+      "type": "owl:ObjectProperty",
+      "label": "21from"
+    },
+    {
+      "id": "22to",
+      "domain": "MultiLink2",
+      "range": "MultiLink3",
+      "inverse": "22from",
+      "type": "owl:ObjectProperty",
+      "label": "22to"
+    },
+    {
+      "id": "22from",
+      "type": "owl:ObjectProperty",
+      "label": "22from"
+    },
+    {
+      "id": "31to",
+      "domain": "MultiLink3",
+      "range": "MultiLink4",
+      "inverse": "31from",
+      "type": "owl:ObjectProperty",
+      "label": "31to"
+    },
+    {
+      "id": "31from",
+      "type": "owl:ObjectProperty",
+      "label": "31from"
+    },
+    {
+      "id": "32to",
+      "domain": "MultiLink3",
+      "range": "MultiLink4",
+      "inverse": "32from",
+      "type": "owl:ObjectProperty",
+      "label": "32to"
+    },
+    {
+      "id": "32from",
+      "type": "owl:ObjectProperty",
+      "label": "32from"
+    },
+    {
+      "id": "33to",
+      "domain": "MultiLink3",
+      "range": "MultiLink4",
+      "inverse": "33from",
+      "type": "owl:ObjectProperty",
+      "label": "33to"
+    },
+    {
+      "id": "33from",
+      "type": "owl:ObjectProperty",
+      "label": "33from"
+    },
+    {
+      "id": "41to",
+      "domain": "MultiLink4",
+      "range": "MultiLink5",
+      "inverse": "41from",
+      "type": "owl:ObjectProperty",
+      "label": "41to"
+    },
+    {
+      "id": "41from",
+      "type": "owl:ObjectProperty",
+      "label": "41from"
+    },
+    {
+      "id": "42to",
+      "domain": "MultiLink4",
+      "range": "MultiLink5",
+      "inverse": "42from",
+      "type": "owl:ObjectProperty",
+      "label": "42to"
+    },
+    {
+      "id": "42from",
+      "type": "owl:ObjectProperty",
+      "label": "42from"
+    },
+    {
+      "id": "43to",
+      "domain": "MultiLink4",
+      "range": "MultiLink5",
+      "inverse": "43from",
+      "type": "owl:ObjectProperty",
+      "label": "43to"
+    },
+    {
+      "id": "43from",
+      "type": "owl:ObjectProperty",
+      "label": "43from"
+    },
+    {
+      "id": "44to",
+      "domain": "MultiLink4",
+      "range": "MultiLink5",
+      "inverse": "44from",
+      "type": "owl:ObjectProperty",
+      "label": "44to"
+    },
+    {
+      "id": "44from",
+      "type": "owl:ObjectProperty",
+      "label": "44from"
+    },
+    {
+      "id": "51to",
+      "domain": "MultiLink5",
+      "range": "MultiLinkEnd",
+      "inverse": "51from",
+      "type": "owl:ObjectProperty",
+      "label": "51to"
+    },
+    {
+      "id": "51from",
+      "type": "owl:ObjectProperty",
+      "label": "51from"
+    },
+    {
+      "id": "52to",
+      "domain": "MultiLink5",
+      "range": "MultiLinkEnd",
+      "inverse": "52from",
+      "type": "owl:ObjectProperty",
+      "label": "52to"
+    },
+    {
+      "id": "52from",
+      "type": "owl:ObjectProperty",
+      "label": "52from"
+    },
+    {
+      "id": "53to",
+      "domain": "MultiLink5",
+      "range": "MultiLinkEnd",
+      "inverse": "53from",
+      "type": "owl:ObjectProperty",
+      "label": "53to"
+    },
+    {
+      "id": "53from",
+      "type": "owl:ObjectProperty",
+      "label": "53from"
+    },
+    {
+      "id": "54to",
+      "domain": "MultiLink5",
+      "range": "MultiLinkEnd",
+      "inverse": "54from",
+      "type": "owl:ObjectProperty",
+      "label": "54to"
+    },
+    {
+      "id": "54from",
+      "type": "owl:ObjectProperty",
+      "label": "54from"
+    },
+    {
+      "id": "55to",
+      "domain": "MultiLink5",
+      "range": "MultiLinkEnd",
+      "inverse": "55from",
+      "type": "owl:ObjectProperty",
+      "label": "55to"
+    },
+    {
+      "id": "55from",
+      "type": "owl:ObjectProperty",
+      "label": "55from"
+    },
+    {
+      "id": "disjoint0Uri",
+      "domain": "DisjointTest0",
+      "range": "DisjointTestUri",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "disjoint02",
+      "domain": "DisjointTest0",
+      "range": "DisjointTest2",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "disjointBridge1",
+      "domain": "DisjointTest0",
+      "range": "DisjointTestUri",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "disjointBridge2",
+      "domain": "DisjointTestUri",
+      "range": "DisjointTest2",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "testOwlClass",
+      "domain": "NodeTest",
+      "range": "OwlClass",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "testOwlEquivalentClass",
+      "domain": "NodeTest",
+      "range": "OwlEquivalentClass",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "testOwlThing",
+      "domain": "NodeTest",
+      "range": "OwlThing",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "testOwlNothing",
+      "domain": "NodeTest",
+      "range": "OwlNothing",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "testRdfsResource",
+      "domain": "NodeTest",
+      "range": "RdfsResource",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "testOwlDeprecatedClass",
+      "domain": "NodeTest",
+      "range": "OwlDeprecatedClass",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "testRdfsClass",
+      "domain": "NodeTest",
+      "range": "RdfsClass",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "testExternalClass",
+      "domain": "NodeTest",
+      "range": "ExternalClass",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "testObjectProperty",
+      "domain": "PropertyTest",
+      "range": "ObjectPropertyTest",
+      "type": "owl:ObjectProperty",
+      "label": "Object"
+    },
+    {
+      "id": "testInverseObjectProperty",
+      "inverse": "testInverseObjectPropertyInverse",
+      "domain": "PropertyTest",
+      "range": "InverseObjectPropertyTest",
+      "type": "owl:ObjectProperty",
+      "label": "Object to"
+    },
+    {
+      "id": "testInverseObjectPropertyInverse",
+      "type": "owl:ObjectProperty",
+      "label": "Object from"
+    },
+    {
+      "id": "testExternalProperty",
+      "domain": "PropertyTest",
+      "range": "ExternalPropertyTest",
+      "type": "owl:ObjectProperty",
+      "label": "External"
+    },
+    {
+      "id": "testDatatypeProperty",
+      "domain": "PropertyTest",
+      "range": "DatatypePropertyTest",
+      "type": "owl:DatatypeProperty",
+      "label": "Datatype"
+    },
+    {
+      "id": "testRdfProperty",
+      "domain": "PropertyTest",
+      "range": "RdfPropertyTest",
+      "type": "rdf:Property",
+      "label": "Rdf"
+    },
+    {
+      "id": "testDeprecatedProperty",
+      "domain": "PropertyTest",
+      "range": "DeprecatedPropertyTest",
+      "type": "owl:ObjectProperty",
+      "label": "Deprecated"
+    },
+    {
+      "id": "testSubClassOfProperty",
+      "domain": "SubClassOfPropertyTest",
+      "range": "PropertyTest",
+      "type": "rdfs:SubClassOf",
+      "label": "SubClassOf"
+    },
+    {
+      "id": "testSomeValuesFromProperty",
+      "domain": "PropertyTest",
+      "range": "SomeValuesFromPropertyTest",
+      "type": "owl:someValuesFrom",
+      "label": "someValuesFrom",
+      "attributes": [
+        "datatype"
+      ]
+    },
+    {
+      "id": "testAllValuesFromProperty",
+      "domain": "PropertyTest",
+      "range": "AllValuesFromPropertyTest",
+      "type": "owl:allValuesFrom",
+      "label": "allValuesFrom"
+    },
+    {
+      "id": "hoverMeProperty",
+      "domain": "HoverTest1",
+      "range": "HoverTest2",
+      "type": "owl:ObjectProperty",
+      "label": "Hover me"
+    },
+    {
+      "id": "highlightedProperty",
+      "domain": "HoverTest2",
+      "range": "HoverTest1",
+      "type": "owl:ObjectProperty",
+      "label": "Highlighted"
+    },
+    {
+      "id": "SymmetricFiveEight",
+      "type": "owl:ObjectProperty",
+      "domain": "EightSymmetric",
+      "range": "FiveSymmetric"
+    },
+    {
+      "id": "EightSymmetric1",
+      "domain": "EightSymmetric",
+      "range": "EightSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "1"
+    },
+    {
+      "id": "EightSymmetric2",
+      "domain": "EightSymmetric",
+      "range": "EightSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "2"
+    },
+    {
+      "id": "EightSymmetric3",
+      "domain": "EightSymmetric",
+      "range": "EightSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "3"
+    },
+    {
+      "id": "EightSymmetric4",
+      "domain": "EightSymmetric",
+      "range": "EightSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "4"
+    },
+    {
+      "id": "EightSymmetric5",
+      "domain": "EightSymmetric",
+      "range": "EightSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "5"
+    },
+    {
+      "id": "EightSymmetric6",
+      "domain": "EightSymmetric",
+      "range": "EightSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "6"
+    },
+    {
+      "id": "EightSymmetric7",
+      "domain": "EightSymmetric",
+      "range": "EightSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "7"
+    },
+    {
+      "id": "EightSymmetric8",
+      "domain": "EightSymmetric",
+      "range": "EightSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "8"
+    },
+    {
+      "id": "FiveSymmetric1",
+      "domain": "FiveSymmetric",
+      "range": "FiveSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "1"
+    },
+    {
+      "id": "FiveSymmetric2",
+      "domain": "FiveSymmetric",
+      "range": "FiveSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "2"
+    },
+    {
+      "id": "FiveSymmetric3",
+      "domain": "FiveSymmetric",
+      "range": "FiveSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "3"
+    },
+    {
+      "id": "FiveSymmetric4",
+      "domain": "FiveSymmetric",
+      "range": "FiveSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "4"
+    },
+    {
+      "id": "FiveSymmetric5",
+      "domain": "FiveSymmetric",
+      "range": "FiveSymmetric",
+      "type": "owl:ObjectProperty",
+      "label": "5"
+    },
+    {
+      "id": "UriProperty",
+      "domain": "UriPropertyTest1",
+      "range": "UriPropertyTest2",
+      "type": "owl:ObjectProperty",
+      "label": "Uri Property",
+      "iri": "rdf:Group"
+    },
+    {
+      "id": "DatatypeTestProperty",
+      "domain": "DatatypeTest",
+      "range": "DatatypeDatatype",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "LiteralTestProperty",
+      "domain": "DatatypeTest",
+      "range": "LiteralDatatype",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "FunctionalProperty",
+      "type": "owl:FunctionalProperty",
+      "domain": "IndicationTest1",
+      "range": "IndicationTest2",
+      "label": "Functional"
+    },
+    {
+      "id": "InverseFunctionalProperty",
+      "type": "owl:InverseFunctionalProperty",
+      "domain": "IndicationTest1",
+      "range": "IndicationTest2",
+      "label": "InverseFunctional"
+    },
+    {
+      "id": "KeyProperty",
+      "type": "owl:ObjectProperty",
+      "domain": "IndicationTest1",
+      "range": "IndicationTest2",
+      "label": "hasKey",
+      "attributes": [
+        "key"
+      ]
+    },
+    {
+      "id": "TransitiveProperty",
+      "type": "owl:TransitiveProperty",
+      "domain": "IndicationTest1",
+      "range": "IndicationTest2",
+      "label": "Transitive"
+    },
+    {
+      "id": "SymmetricProperty",
+      "type": "owl:SymmetricProperty",
+      "domain": "IndicationTest1",
+      "range": "IndicationTest1",
+      "label": "Symmetric"
+    },
+    {
+      "id": "EquivalentBaseProperty",
+      "type": "owl:equivalentProperty",
+      "equivalent": [
+        "EquivalentProperty"
+      ],
+      "domain": "IndicationTest1",
+      "range": "IndicationTest2",
+      "label": "EquivalentBase"
+    },
+    {
+      "id": "EquivalentProperty",
+      "type": "owl:equivalentProperty",
+      "domain": "IndicationTest1",
+      "range": "equivalentPropertyTest",
+      "label": "AnEquivalentProperty"
+    },
+    {
+      "id": "PropertyFeatureTest",
+      "type": "owl:ObjectProperty",
+      "domain": "ClassFeatureTest",
+      "range": "DatatypeFeatureTest",
+      "label": "Property Feature Test",
+      "comment": "Property Feature Test comment"
+    },
+    {
+      "id": "cardinalityLink1",
+      "domain": "cardinalityTest1",
+      "range": "cardinalityTest2",
+      "inverse": "cardinalityLink2",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "cardinalityLink2",
+      "domain": "cardinalityTest2",
+      "range": "cardinalityTest1",
+      "inverse": "cardinalityLink1",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "cardinalityLink3",
+      "domain": "cardinalityTest1",
+      "range": "cardinalityTest3",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "cardinalityLink4",
+      "domain": "cardinalityTest3",
+      "range": "cardinalityTest1",
+      "inverse": "cardinalityLink3",
+      "type": "owl:ObjectProperty"
+    }
+  ]
 }
