@@ -11,9 +11,9 @@ module.exports = function ( graph ){
   var _messageId = -1;
   superContainer.style("display", "inline-block");
   var cssStyleIndex = 0;
-  var styleSelectorIndex = 1;
+  var styleSelectorIndex = 2;
   
-  
+
   // helper for standalone webvowl in chrome
   function createCSSSelector( name, rules ){
     var style = document.createElement('style');
@@ -27,24 +27,8 @@ module.exports = function ( graph ){
   
   
   function findCSS_Index(){
-    var css = document.styleSheets[styleSelectorIndex].cssRules;
-    
-    if ( css === null ) {
-      styleSelectorIndex = 2;
-      // using chrome local css >> create own internal style for animation end
-      createCSSSelector("@keyframes msg_CollapseAnimation", " 0% { top: 0; } 100% { top: -400px;}");
-      css = document.styleSheets[styleSelectorIndex].cssRules;
-    }
-    
-    if ( css ) {
-      for ( var i = 0; i < css.length; i++ ) {
-        var entry = css[i];
-        if ( entry.name === "msg_CollapseAnimation" ) {
-          cssStyleIndex = i;
-        }
-      }
-    }
-    
+    createCSSSelector("@keyframes msg_CollapseAnimation", " 0% { top: 0; } 100% { top: -400px;}");
+    console.log(document.styleSheets );
   }
   
   findCSS_Index();
