@@ -3369,9 +3369,9 @@ module.exports = function ( graphContainerSelector ){
       remId = unfilteredData.nodes.indexOf(property.range());
       if ( remId !== -1 )
         unfilteredData.nodes.splice(remId, 1);
+      remId = classNodes.indexOf(property.range());
       if ( remId !== -1 )
-        remId = classNodes.indexOf(property.range());
-      classNodes.splice(remId, 1);
+        classNodes.splice(remId, 1);
       datatype = null;
     }
     remId = unfilteredData.properties.indexOf(property);

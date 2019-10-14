@@ -189,6 +189,11 @@ module.exports = function ( graph ){
     var id = warningModule.addMessageBox();
     warningModule.createMessageContext(id);
   };
+
+  warningModule.showExporterWarning=function (){
+    warningModule.showWarning("Can not export ontology", "Detected unsupported ontology axioms, (e.g. owl:Union)", "Ontology is not exported", 1, false);
+  };
+
   
   
   warningModule.responseWarning = function ( header, reason, action, callback, parameterArray, forcedWarning ){

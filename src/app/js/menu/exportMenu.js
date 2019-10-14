@@ -50,10 +50,10 @@ module.exports = function ( graph ){
   function exportTurtle(){
     var success = exportTTLModule.requestExport();
     var result = exportTTLModule.resultingTTL_Content();
+    var ontoTitle = "NewOntology";
     console.log("Exporter was successful: " + success);
     if ( success ) {
       // console.log("The result is : " + result);
-      var ontoTitle = "NewOntology";
       // var ontoTitle=graph.options().getGeneralMetaObjectProperty('title');
       // if (ontoTitle===undefined || ontoTitle.length===0)
       // 	ontoTitle="NewOntology";
@@ -79,8 +79,6 @@ module.exports = function ( graph ){
       console.log("Stay on the page! " + window.location.href);
       exportTurtleButton.attr("href", window.location.href);
       d3.event.preventDefault(); // prevent the href to be called ( reloads the page otherwise )
-      
-      
     }
   }
   
@@ -387,7 +385,7 @@ module.exports = function ( graph ){
     var i, j, k; // an index variable for the for-loops
     
     /** get data for exporter **/
-      
+      if (!graph.options().data()) {return {};} // return an empty json object
       // extract onotology information;
     var unfilteredData = graph.getUnfilteredData();
     var ontologyComment = graph.options().data()._comment;

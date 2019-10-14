@@ -502,11 +502,12 @@ module.exports = function ( graph ){
   function loadPresetOntology( ontology ){
     // check if already cached in ontology menu?
     var f2r;
+    var loadingNewOntologyForEditor=false;
     if ( ontology.indexOf("new_ontology") !== -1 ) {
       loadingModule.hideLoadingIndicator();
       graph.showEditorHintIfNeeded();
       f2r = "./data/new_ontology.json";
-      
+      loadingNewOntologyForEditor=true;
     }
     
     loadingWasSuccessFul = false;
@@ -532,11 +533,58 @@ module.exports = function ( graph ){
           ontologyContent = request.responseText;
           parseOntologyContent(ontologyContent);
         } else {
+
+          if (loadingNewOntologyForEditor){
+            ontologyContent = '{\n' +
+              '  "_comment": "Empty ontology for WebVOWL Editor",\n' +
+              '  "header": {\n' +
+              '    "languages": [\n' +
+              '      "en"\n' +
+              '    ],\n' +
+              '    "baseIris": [\n' +
+              '      "http://www.w3.org/2000/01/rdf-schema"\n' +
+              '    ],\n' +
+              '    "iri": "http://visualdataweb.org/newOntology/",\n' +
+              '    "title": {\n' +
+              '      "en": "New ontology"\n' +
+              '    },\n' +
+              '    "description": {\n' +
+              '      "en": "New ontology description"\n' +
+              '    }\n' +
+              '  },\n' +
+              '  "namespace": [],\n' +
+              '  "metrics": {\n' +
+              '    "classCount": 0,\n' +
+              '    "datatypeCount": 0,\n' +
+              '    "objectPropertyCount": 0,\n' +
+              '    "datatypePropertyCount": 0,\n' +
+              '    "propertyCount": 0,\n' +
+              '    "nodeCount": 0,\n' +
+              '    "individualCount": 0\n' +
+              '  }\n' +
+              '}\n';
+            parseOntologyContent(ontologyContent);
+          }else{
           // some error occurred
           ontologyMenu.append_bulletPoint("Failed to load: " + ontology);
-          ontologyMenu.append_message_toLastBulletPoint(" <span style='color: red'>ERROR STATUS:</span> " + error.status);
+          if (error.status===0){ // assumption this is CORS error when running locally (error status == 0)
+            ontologyMenu.append_message_toLastBulletPoint(" <span style='color: red'>ERROR STATUS:</span> " + error.status);
+            if (window.location.toString().startsWith("file:/")){
+              ontologyMenu.append_message_toLastBulletPoint("<br><p>WebVOWL runs in a local instance.</p>");
+              ontologyMenu.append_message_toLastBulletPoint("<p>CORS prevents to automatically load files on host system.</p>");
+              ontologyMenu.append_message_toLastBulletPoint("<p>You can load preprocessed ontologies (i.e. VOWL-JSON files) using the upload feature in the ontology menu or by dragging the files and dropping them on the canvas.</p>");
+              ontologyMenu.append_message_toLastBulletPoint("<p><i>Hint: </i>Note that the conversion of ontologies into the VOWL-JSON format is not part of WebVOWL but requires an additional converter such as OWL2VOWL.</p>");
+              ontologyMenu.append_message_toLastBulletPoint("<p>Ontologies can be created using the editor mode (i.e. activate editing mode in <b>Modes</b> menu and create a new ontology using the <b>Ontology</b> menu.</p>");
+            }
+          }else {
+            ontologyMenu.append_message_toLastBulletPoint(" <span style='color: red'>ERROR STATUS:</span> " + error.status);
+          }
+
+
+
           graph.handleOnLoadingError();
           loadingModule.setErrorMode();
+          }
         }
       });
     }
