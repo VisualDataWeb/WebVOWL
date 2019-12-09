@@ -1532,6 +1532,36 @@ module.exports = function ( graphContainerSelector ){
     eN = unfilteredData.nodes.length + 1;
     eP = unfilteredData.properties.length + 1;
     
+    
+    // using the ids of elements if to ensure that loaded elements will not get the same id;
+    for ( var p = 0; p < unfilteredData.properties.length; p++ ) {
+      var currentId = unfilteredData.properties[p].id();
+      if ( currentId.indexOf('objectProperty') !== -1 ) {
+        // could be ours;
+        var idStr = currentId.split('objectProperty');
+        if ( idStr[0].length === 0 ) {
+          var idInt = parseInt(idStr[1]);
+          if ( eP < idInt ) {
+            eP = idInt + 1;
+          }
+        }
+      }
+    }
+    // using the ids of elements if to ensure that loaded elements will not get the same id;
+    for ( var n = 0; n < unfilteredData.nodes.length; n++ ) {
+      var currentId_Nodes = unfilteredData.nodes[n].id();
+      if ( currentId_Nodes.indexOf('Class') !== -1 ) {
+        // could be ours;
+        var idStr_Nodes = currentId_Nodes.split('Class');
+        if ( idStr_Nodes[0].length === 0 ) {
+          var idInt_Nodes = parseInt(idStr_Nodes[1]);
+          if ( eN < idInt_Nodes ) {
+            eN = idInt_Nodes + 1;
+          }
+        }
+      }
+    }
+    
     initialLoad = true;
     graph.options().warningModule().closeFilterHint();
     
