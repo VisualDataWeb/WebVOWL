@@ -3,6 +3,17 @@ WebVOWL [![Build Status](https://travis-ci.org/VisualDataWeb/WebVOWL.svg?branch=
 
 This repository was ported from an internal SVN repository to Github after the release of WebVOWL 0.4.0. Due to cleanups with `git filter-branch`, the commit history might show some strange effects.
 
+Run Using Docker
+------------
+Make sure you are inside `WebVOWL` directory and you have docker installed. Run the following command to build the docker image:
+
+`docker build . -t webvowl:v1`
+
+Run the following command to run WebVOWL at port 8080. 
+
+`docker-compose up -d` 
+
+Visit [http://localhost:8080](http://localhost:8080) to use WebVOWL.
 
 Requirements
 ------------
