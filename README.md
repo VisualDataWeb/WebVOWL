@@ -30,6 +30,9 @@ Development setup
 3. Run `npm install` to install the dependencies and build the project
 4. Edit the code
 5. Run `npm run-script release` to (re-)build all necessary files into the deploy directory
+6. Run `serve deploy` to run the server locally, by installing serve by using `npm install serve -g`.
+
+Visit [http://localhost:3000](http://localhost:3000) to use WebVOWL.
 
 ### Advanced ###
 Instead of the last step of the simple setup, install the npm package `grunt-cli` globally with

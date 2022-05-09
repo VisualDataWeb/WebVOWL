@@ -386,7 +386,7 @@ module.exports = (function (){
       if ( that.cardinality() ) {
         return that.cardinality();
       } else if ( that.minCardinality() || that.maxCardinality() ) {
-        var minBoundary = that.minCardinality() || "*";
+        var minBoundary = that.minCardinality() || "0";
         var maxBoundary = that.maxCardinality() || "*";
         return minBoundary + ".." + maxBoundary;
       }
