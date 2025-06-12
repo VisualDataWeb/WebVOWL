@@ -6,6 +6,10 @@
     "lodash": "^4.1.0",
     "rdflib": "^2.2.37"
   },
+  "scripts": {
+     "release": "./esbuild.js release",
+     "debug": "./esbuild.js debug"
+   },
   "license": "MIT",
   "private": true
 }
