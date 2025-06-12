@@ -21,7 +21,7 @@ const static_files = {'./src/index.html' : '',
 const options = {
   bundle: true,
   outdir: outdir,
-  external: ['d3', 'window'],
+  external: ['d3'],
   minify: false,
   sourcemap: true,
   // target: 'es2015',
@@ -32,7 +32,6 @@ const options = {
     name: 'watch',
     setup({ onEnd }) {
       onEnd((ret) => {
-        copy_static();
       })
     }
   }]
@@ -68,6 +67,7 @@ function watch_static() {
   console.log('watching...');
 }
 
+copy_static();
 watch_static();
 
 esbuild.context(Object.assign({
