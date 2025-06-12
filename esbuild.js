@@ -67,38 +67,34 @@ function watch_static() {
   console.log('watching...');
 }
 
+function build(opt) {
+  esbuild.context(Object.assign(opt, options))
+  .then((r) => {
+    r.watch();
+    console.log('watching...');
+  }).catch(() => process.exit(1));
+}
+
 copy_static();
 watch_static();
 
-esbuild.context(Object.assign({
+build({
   entryPoints: {
 		'js/webvowl': './src/webvowl/js/entry.js'
   },
   globalName: 'webvowl'
-}, options))
-.then((r) => {
-  r.watch();
-  console.log('watching...');
-}).catch(() => process.exit(1));
+});
 
-esbuild.context(Object.assign({
+build({
   entryPoints: {
 		'js/webvowl.app': './src/app/js/entry.js'
   },
   globalName: 'webvowl.app'
-}, options))
-.then((r) => {
-  r.watch();
-  console.log('watching...');
-}).catch(() => process.exit(1));
+});
 
-esbuild.context(Object.assign({
+build({
   entryPoints: {
         'js/d3.min' : './node_modules/d3/d3.min.js'
   },
   globalName: 'd3'
-}, options))
-.then((r) => {
-  r.watch();
-  console.log('watching...');
-}).catch(() => process.exit(1));
+});
