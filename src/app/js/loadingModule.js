@@ -1,3 +1,5 @@
+var rdflib = require("rdflib");
+console.log(rdflib);
 module.exports = function ( graph ){
   /** some constants **/
   var PREDEFINED = 0,
