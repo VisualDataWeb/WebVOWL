@@ -1,0 +1,111 @@
+/*-----------------------------------------------------------------
+ VOWL graphical elements (part of spec) - mixed CSS and SVG styles
+-----------------------------------------------------------------*/
+
+/*-------- Text --------*/
+text {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+.subtext {
+    font-size: 9px;
+}
+.cardinality {
+    font-size: 10px;
+}
+.text, .resulttext, .embedded {
+    pointer-events: none;
+}
+
+/*------- Strokes ------*/
+.class, path {
+	stroke-width: 2;
+}
+.fineline {
+    stroke-width: 1;
+}
+.special {
+    stroke-dasharray: 8;
+}
+.dotted {
+    stroke-dasharray: 3;
+}
+rect.focused, circle.focused {
+    stroke-width: 4px;
+}
+.nostroke {
+	stroke: none;
+}
+
+/*------- Colors ------*/
+.class, .object, .disjoint {
+    fill: #acf;
+}
+.label .datatype {
+    fill: #9c6;
+}
+.rdf {
+    fill: #c9c;
+}
+.literal, .node .datatype {
+    fill: #fc3;
+}
+.deprecated {
+    fill: #ccc;
+}
+.external {
+    fill: #36c;
+}
+.symbol {
+    fill: #69c;
+}
+.arrowhead, marker path {
+	fill: #000;
+}
+.class, path, .fineline {
+	stroke: #000;
+}
+.white, .subclass, .dottedMarker path {
+    fill: #fff;
+}
+path, .nofill {
+	fill: none;
+}
+.class:hover, .property:hover, path.arrowhead.hovered, .cardinality.hovered, .normalMarker path.hovered, .cardinality.focused, .normalMarker path.focused {
+    fill: #f00;
+    cursor: pointer;
+}
+.focused, path.hovered {
+	stroke: #f00;
+}
+.label .indirectHighlighting {
+    fill: #f90;
+}
+
+/*--- "resulttext" is required for QueryVOWL (added on May 29, 2015) ------*/
+.resulttext {
+    fill: #696969;
+}
+
+
+/*-----------------------------------------------------------------
+ Additional elements for the WebVOWL demo (NOT part of spec)
+-----------------------------------------------------------------*/
+
+#width-test {
+    position: absolute;
+    float: left;
+    white-space: nowrap;
+    visibility: hidden;
+}
+
+.svgGraph .text tspan:only-child, .svgGraph .text:empty { /* labels with one line and nodes */
+    dominant-baseline: central; /* not supported by IE 11 */
+}
+
+marker path {
+    /* Safari and Chrome workaround for inheriting the style of its link.
+       Use any value that is larger than the length of the marker path. */
+    stroke-dasharray: 50;
+}
+
