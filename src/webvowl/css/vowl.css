@@ -16,7 +16,7 @@
     fill: #666;
 }
 
-.external + text .instance-count {
+.external+text .instance-count {
     fill: #aaa;
 }
 
@@ -24,36 +24,54 @@
     font-size: 10px;
 }
 
-.text, .embedded {
+.text,
+.embedded {
     pointer-events: none;
 }
 
 /*------- Colors ------*/
-.class, .object, .disjoint, .objectproperty, .disjointwith, .equivalentproperty, .transitiveproperty, .functionalproperty, .inversefunctionalproperty, .symmetricproperty, .allvaluesfromproperty, .somevaluesfromproperty {
+.class,
+.object,
+.disjoint,
+.objectproperty,
+.disjointwith,
+.equivalentproperty,
+.transitiveproperty,
+.functionalproperty,
+.inversefunctionalproperty,
+.symmetricproperty,
+.allvaluesfromproperty,
+.somevaluesfromproperty {
     fill: #acf;
 }
 
-.label .datatype, .datatypeproperty {
+.label .datatype,
+.datatypeproperty {
     fill: #9c6;
 }
 
-.rdf, .rdfproperty {
+.rdf,
+.rdfproperty {
     fill: #c9c;
 }
 
-.literal, .node .datatype {
+.literal,
+.node .datatype {
     fill: #fc3;
 }
 
-.deprecated, .deprecatedproperty {
+.deprecated,
+.deprecatedproperty {
     fill: #ccc;
 }
 
-.external, .externalproperty {
+.external,
+.externalproperty {
     /*fill: #36c;*/
 }
 
-path, .nofill {
+path,
+.nofill {
     fill: none;
 }
 
@@ -61,15 +79,27 @@ marker path {
     fill: #000;
 }
 
-.class, path, line, .fineline {
+.class,
+path,
+line,
+.fineline {
     stroke: #000;
 }
 
-.white, .subclass, .subclassproperty, .external + text {
+.white,
+.subclass,
+.subclassproperty,
+.external+text {
     fill: #fff;
 }
 
-.class.hovered, .property.hovered, .cardinality.hovered, .cardinality.focused, .filled.hovered, .filled.focused, .values-from.filled.hovered {
+.class.hovered,
+.property.hovered,
+.cardinality.hovered,
+.cardinality.focused,
+.filled.hovered,
+.filled.focused,
+.values-from.filled.hovered {
     fill: #f00 !important;
     cursor: pointer;
 }
@@ -89,9 +119,11 @@ marker path {
         -webkit-transform: scale(1.5);
         stroke-width: 3.33;
     }
+
     50% {
         stroke-width: 4;
     }
+
     100% {
         -webkit-transform: scale(1.0);
         stroke-width: 5;
@@ -103,9 +135,11 @@ marker path {
         -webkit-transform: scale(1.5);
         stroke-width: 3.33;
     }
+
     50% {
         stroke-width: 4;
     }
+
     100% {
         -webkit-transform: scale(1.0);
         stroke-width: 5;
@@ -117,9 +151,11 @@ marker path {
         -webkit-transform: scale(1.5);
         stroke-width: 3.33;
     }
+
     50% {
         stroke-width: 4;
     }
+
     100% {
         -webkit-transform: scale(1.0);
         stroke-width: 5;
@@ -131,9 +167,11 @@ marker path {
         -webkit-transform: scale(1.5);
         stroke-width: 3.33;
     }
+
     50% {
         stroke-width: 4;
     }
+
     100% {
         -webkit-transform: scale(1.0);
         stroke-width: 5;
@@ -180,11 +218,13 @@ marker path {
     stroke: #f00 !important;
 }
 
-.focused, path.hovered {
+.focused,
+path.hovered {
     stroke: #f00 !important;
 }
 
-.indirect-highlighting, .feature:hover {
+.indirect-highlighting,
+.feature:hover {
     fill: #f90;
     cursor: pointer;
 }
@@ -198,12 +238,15 @@ marker path {
     stroke: #69c;
 }
 
-.symbol, .values-from.filled {
+.symbol,
+.values-from.filled {
     fill: #69c;
 }
 
 /*------- Strokes ------*/
-.class, path, line {
+.class,
+path,
+line {
     stroke-width: 2;
 }
 
@@ -211,7 +254,8 @@ marker path {
     stroke-width: 1;
 }
 
-.dashed, .anonymous {
+.dashed,
+.anonymous {
     stroke-dasharray: 8;
 }
 
@@ -219,7 +263,8 @@ marker path {
     stroke-dasharray: 3;
 }
 
-rect.focused, circle.focused {
+rect.focused,
+circle.focused {
     stroke-width: 4px;
 }
 
