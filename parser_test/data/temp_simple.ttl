@@ -1,0 +1,164 @@
+@prefix :      <http://simon.yl.lee#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl:  <http://www.w3.org/2003/11/swrl#> .
+@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix s:     <http://simon.yl.lee#> .
+@prefix xsp:   <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+
+s:hasFather  a                    owl:ObjectProperty ;
+        rdfs:domain               s:Person ;
+        rdfs:range                s:Man ;
+        rdfs:subPropertyOf        s:hasFather , owl:topObjectProperty ;
+        owl:equivalentProperty    s:hasFather ;
+        owl:inverseOf             s:fatherOf ;
+        owl:propertyDisjointWith  owl:bottomObjectProperty .
+
+owl:topDataProperty  a            owl:DatatypeProperty ;
+        rdfs:subPropertyOf        owl:topDataProperty ;
+        owl:equivalentProperty    owl:topDataProperty ;
+        owl:propertyDisjointWith  owl:bottomDataProperty .
+
+s:hasChildren  a                  owl:ObjectProperty ;
+        rdfs:domain               s:Person ;
+        rdfs:range                s:Person ;
+        rdfs:subPropertyOf        s:hasChildren , owl:topObjectProperty ;
+        owl:equivalentProperty    s:hasChildren ;
+        owl:propertyDisjointWith  owl:bottomObjectProperty .
+
+s:name  a                         owl:DatatypeProperty ;
+        rdfs:subPropertyOf        s:name , owl:topDataProperty ;
+        owl:equivalentProperty    s:name ;
+        owl:propertyDisjointWith  owl:bottomDataProperty .
+
+s:Jack  a              owl:Thing , s:Person , s:Man , owl:NamedIndividual ;
+        s:fatherOf     s:Bob ;
+        s:hasChildren  s:Bob ;
+        s:hasMarried   s:Alice ;
+        s:name         "Jack"^^xsd:string ;
+        owl:sameAs     s:Jack .
+
+owl:Nothing  a               owl:Class ;
+        rdfs:subClassOf      s:Woman , owl:Thing , s:Person , s:Man ;
+        owl:complementOf     owl:Thing ;
+        owl:disjointWith     s:Woman , owl:Nothing , owl:Thing , s:Person , s:Man ;
+        owl:equivalentClass  owl:Nothing .
+
+owl:bottomObjectProperty
+        a                         owl:ObjectProperty , owl:SymmetricProperty , owl:AsymmetricProperty , owl:IrreflexiveProperty ;
+        rdfs:domain               s:Woman , s:Person , s:Man ;
+        rdfs:range                s:Woman , s:Person , s:Man ;
+        rdfs:subPropertyOf        s:motherOf , s:fatherOf , s:hasFather , s:hasChildren , owl:topObjectProperty , s:hasMonther , s:hasMarried , owl:bottomObjectProperty ;
+        owl:equivalentProperty    owl:bottomObjectProperty ;
+        owl:propertyDisjointWith  s:fatherOf , s:motherOf , s:hasFather , s:hasChildren , owl:topObjectProperty , s:hasMonther , s:hasMarried , owl:bottomObjectProperty .
+
+owl:bottomDataProperty
+        a                         owl:DatatypeProperty ;
+        rdfs:subPropertyOf        s:name , owl:topDataProperty , owl:bottomDataProperty ;
+        owl:equivalentProperty    owl:bottomDataProperty ;
+        owl:propertyDisjointWith  s:name , owl:topDataProperty , owl:bottomDataProperty .
+
+s:Person  a                  owl:Class ;
+        rdfs:subClassOf      owl:Thing ;
+        owl:disjointWith     owl:Nothing ;
+        owl:equivalentClass  s:Person .
+
+s:fatherOf  a                     owl:ObjectProperty ;
+        rdfs:domain               s:Man ;
+        rdfs:range                s:Person ;
+        rdfs:subPropertyOf        s:fatherOf , owl:topObjectProperty ;
+        owl:equivalentProperty    s:fatherOf ;
+        owl:inverseOf             s:hasFather ;
+        owl:propertyDisjointWith  owl:bottomObjectProperty .
+
+s:Woman  a                   owl:Class ;
+        rdfs:subClassOf      owl:Thing , s:Person ;
+        owl:disjointWith     owl:Nothing ;
+        owl:equivalentClass  s:Woman .
+
+owl:Thing  a                 owl:Class ;
+        owl:complementOf     owl:Nothing ;
+        owl:disjointWith     owl:Nothing ;
+        owl:equivalentClass  owl:Thing .
+
+owl:topObjectProperty
+        a                         owl:ObjectProperty , owl:TransitiveProperty , owl:SymmetricProperty , owl:ReflexiveProperty ;
+        rdfs:subPropertyOf        owl:topObjectProperty ;
+        owl:equivalentProperty    owl:topObjectProperty ;
+        owl:propertyDisjointWith  owl:bottomObjectProperty .
+
+s:motherOf  a                     owl:ObjectProperty ;
+        rdfs:domain               s:Person ;
+        rdfs:range                s:Woman ;
+        rdfs:subPropertyOf        s:motherOf , owl:topObjectProperty ;
+        owl:equivalentProperty    s:motherOf ;
+        owl:inverseOf             s:hasMonther ;
+        owl:propertyDisjointWith  owl:bottomObjectProperty .
+
+s:Alice  a            s:Woman , owl:Thing , s:Person , owl:NamedIndividual ;
+        s:hasMarried  s:Jack ;
+        s:name        "Alice"^^xsd:string ;
+        owl:sameAs    s:Alice .
+
+s:hasMarried  a                   owl:ObjectProperty , owl:SymmetricProperty ;
+        rdfs:domain               s:Person ;
+        rdfs:range                s:Person ;
+        rdfs:subPropertyOf        owl:topObjectProperty , s:hasMarried ;
+        owl:equivalentProperty    s:hasMarried ;
+        owl:inverseOf             s:hasMarried ;
+        owl:propertyDisjointWith  owl:bottomObjectProperty .
+
+s:Man   a                    owl:Class ;
+        rdfs:subClassOf      owl:Thing , s:Person ;
+        owl:disjointWith     owl:Nothing ;
+        owl:equivalentClass  s:Man .
+
+s:Bob   a            owl:Thing , s:Person , s:Man , owl:NamedIndividual ;
+        s:hasFather  s:Jack ;
+        s:name       "Bob"^^xsd:string ;
+        owl:sameAs   s:Bob .
+
+s:hasMonther  a                   owl:ObjectProperty ;
+        rdfs:domain               s:Woman ;
+        rdfs:range                s:Person ;
+        rdfs:subPropertyOf        owl:topObjectProperty , s:hasMonther ;
+        owl:equivalentProperty    s:hasMonther ;
+        owl:inverseOf             s:motherOf ;
+        owl:propertyDisjointWith  owl:bottomObjectProperty .
+
+<child>  a      swrl:Variable .
+
+<http://simon.yl.lee>
+        a       owl:Ontology .
+
+<nullRule-1>  a    swrl:Imp ;
+        swrl:body  [ a          swrl:AtomList ;
+                     rdf:first  [ a                       swrl:IndividualPropertyAtom ;
+                                  swrl:argument1          <person> ;
+                                  swrl:argument2          <child> ;
+                                  swrl:propertyPredicate  s:hasChildren
+                                ] ;
+                     rdf:rest   [ a          swrl:AtomList ;
+                                  rdf:first  [ a                    swrl:ClassAtom ;
+                                               swrl:argument1       <person> ;
+                                               swrl:classPredicate  s:Man
+                                             ] ;
+                                  rdf:rest   ()
+                                
+                                ]
+                   ] ;
+        swrl:head  [ a          swrl:AtomList ;
+                     rdf:first  [ a                       swrl:IndividualPropertyAtom ;
+                                  swrl:argument1          <person> ;
+                                  swrl:argument2          <child> ;
+                                  swrl:propertyPredicate  s:fatherOf
+                                ] ;
+                     rdf:rest   ()
+                   
+                   ] .
+
+<person>  a     swrl:Variable .
