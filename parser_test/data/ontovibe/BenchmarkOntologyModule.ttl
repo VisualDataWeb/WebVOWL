@@ -1,0 +1,43 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix this: <http://ontovibe.visualdataweb.org/imported#> .
+
+<http://ontovibe.visualdataweb.org/imported> a owl:Ontology ;
+	owl:versionInfo "2.0" ;
+	owl:versionIRI <http://ontovibe.visualdataweb.org/2.0/imported> ;
+	owl:priorVersion <http://ontovibe.visualdataweb.org/1.0/imported> ;
+	owl:backwardCompatibleWith <http://ontovibe.visualdataweb.org/1.0/imported> .
+
+this:ImportedClass a owl:Class .
+
+this:DeprecatedImportedClass a owl:Class ;
+	owl:deprecated true .
+
+this:EquivalentImportedClassInLargeGroup a owl:Class .
+
+this:DivisibleByThreeEnumeration a rdfs:Datatype ;
+	owl:equivalentClass [
+		a rdfs:Datatype ;
+		owl:oneOf ( 3 6 9 12 15 18 )
+	].
+
+this:importedObjectPropertyWithRange a owl:ObjectProperty ;
+	rdfs:range this:ImportedClass .
+
+this:importedObjectPropertyWithDomain a owl:TransitiveProperty ;
+	rdfs:domain this:ImportedClass .
+
+this:importedDatatypeProperty a owl:DatatypeProperty ;
+	rdfs:domain this:ImportedClass ;
+	rdfs:range xsd:integer .
+
+this:deprecatedImportedObjectProperty a owl:ObjectProperty ;
+	rdfs:range this:ImportedClass ;
+	owl:deprecated true .
+
+this:deprecatedImportedDatatypeProperty a owl:DatatypeProperty ;
+	rdfs:range xsd:date ;
+	owl:deprecated true .
