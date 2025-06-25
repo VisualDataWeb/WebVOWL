@@ -1,0 +1,810 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix this: <http://ontovibe.visualdataweb.org/cardinalities#> .
+
+<http://ontovibe.visualdataweb.org/cardinalities> a owl:Ontology ;
+	owl:versionIRI <http://ontovibe.visualdataweb.org/2.0/cardinalities> .
+
+# -- Unqualified Cardinalities
+
+this:Class1a a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:cardinalityAtDomain ] ;
+		owl:cardinality 1
+	] .
+this:Class2a a owl:Class .
+this:Class3a a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtRange ;
+		owl:cardinality 15
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:cardinalityAtDomainAndRange ] ;
+		owl:minCardinality 0
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:singleDatatypeProperty ;
+		owl:cardinality 3
+	] .
+this:Class4a a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtDomainAndRange ;
+		owl:minCardinality 1
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:cardinalityAtSameEnd1 ] ;
+		owl:minCardinality 13
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtSameEnd2 ;
+		owl:maxCardinality 1
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:doubleDatatypeProperty1 ;
+		owl:minCardinality 2
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:doubleDatatypeProperty2 ;
+		owl:cardinality 1
+	] .
+this:Class5a a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:cardinalityAtBothEnds1 ] ;
+		owl:maxCardinality 28
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtBothEnds2 ;
+		owl:minCardinality 0
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtBothEnds2 ;
+		owl:maxCardinality 1
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:parallelDatatypeProperty1 ;
+		owl:minCardinality 15
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:parallelDatatypeProperty1 ;
+		owl:maxCardinality 20
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:parallelDatatypeProperty2 ;
+		owl:minCardinality 15
+	] .
+this:Class6a a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtBothEnds1 ;
+		owl:minCardinality 0
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtBothEnds1 ;
+		owl:maxCardinality 19
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:cardinalityAtBothEnds2 ] ;
+		owl:minCardinality 1
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:cardinalityAtBothEnds2 ] ;
+		owl:maxCardinality 1
+	] .
+this:Class7a a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithCardinality ;
+		owl:minCardinality 1
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithCardinality ;
+		owl:maxCardinality 16
+	] .
+this:Class8a a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithSameCardinality1 ;
+		owl:minCardinality 8
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithSameCardinality1 ;
+		owl:maxCardinality 8
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:inverseWithSameCardinality2 ] ;
+		owl:minCardinality 8
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:inverseWithSameCardinality2 ] ;
+		owl:maxCardinality 8
+	] .
+this:Class9a a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithDifferentCardinality1 ;
+		owl:minCardinality 6
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithDifferentCardinality1 ;
+		owl:maxCardinality 7
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:inverseWithDifferentCardinality2 ] ;
+		owl:minCardinality 8
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:inverseWithDifferentCardinality2 ] ;
+		owl:maxCardinality 9
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:inverseWithBothCardinalities1 ] ;
+		owl:cardinality 7
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithBothCardinalities2 ;
+		owl:minCardinality 18
+	] .
+this:Class10a a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithBothCardinalities1 ;
+		owl:minCardinality 23
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithBothCardinalities1 ;
+		owl:maxCardinality 27
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:inverseWithBothCardinalities2 ] ;
+		owl:cardinality 2
+	] .
+this:Class11a a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:parallel1 ;
+		owl:cardinality 6
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:parallel2 ;
+		owl:maxCardinality 5
+	] .
+this:Class12a a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:propertyFromMultiSubClass ;
+		owl:maxCardinality 100
+	] .
+this:Class12aSub1 a owl:Class ;
+	rdfs:subClassOf this:Class12a ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:propertyFromMultiSubClass ;
+		owl:cardinality 80
+	] .
+this:Class12aSub2 a owl:Class ;
+	rdfs:subClassOf this:Class12a ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:propertyFromMultiSubClass ;
+		owl:cardinality 70
+	] .
+this:Class13a a owl:Class .
+this:Class13aSub a owl:Class ;
+	rdfs:subClassOf this:Class13a ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:propertyFromSubClass ;
+		owl:cardinality 99
+	] .
+this:Class14a a owl:Class .
+
+this:cardinalityAtDomain a owl:ObjectProperty ;
+	rdfs:domain this:Class1a ;
+	rdfs:range this:Class2a .
+
+this:cardinalityAtRange a owl:ObjectProperty ;
+	rdfs:domain this:Class2a ;
+	rdfs:range this:Class3a .
+
+this:cardinalityAtDomainAndRange a owl:ObjectProperty ;
+	rdfs:domain this:Class3a ;
+	rdfs:range this:Class4a .
+
+this:cardinalityAtSameEnd1 a owl:ObjectProperty ;
+	rdfs:domain this:Class4a ;
+	rdfs:range this:Class5a .
+
+this:cardinalityAtSameEnd2 a owl:ObjectProperty ;
+	rdfs:domain this:Class5a ;
+	rdfs:range this:Class4a .
+
+this:cardinalityAtBothEnds1 a owl:ObjectProperty ;
+	rdfs:domain this:Class5a ;
+	rdfs:range this:Class6a .
+
+this:cardinalityAtBothEnds2 a owl:ObjectProperty ;
+	rdfs:domain this:Class6a ;
+	rdfs:range this:Class5a .
+
+this:inverseWithCardinality a owl:ObjectProperty ;
+	rdfs:domain this:Class6a ;
+	rdfs:range this:Class7a .
+
+this:inverseWithoutCardinality a owl:ObjectProperty ;
+	rdfs:domain this:Class7a ;
+	rdfs:range this:Class6a ;
+	owl:inverseOf this:inverseWithCardinality .
+
+this:inverseWithSameCardinality1 a owl:ObjectProperty ;
+	rdfs:domain this:Class7a ;
+	rdfs:range this:Class8a .
+
+this:inverseWithSameCardinality2 a owl:ObjectProperty ;
+	rdfs:domain this:Class8a ;
+	rdfs:range this:Class7a ;
+	owl:inverseOf this:inverseWithSameCardinality1 .
+
+this:inverseWithDifferentCardinality1 a owl:ObjectProperty ;
+	rdfs:domain this:Class8a ;
+	rdfs:range this:Class9a .
+
+this:inverseWithDifferentCardinality2 a owl:ObjectProperty ;
+	rdfs:domain this:Class9a ;
+	rdfs:range this:Class8a ;
+	owl:inverseOf this:inverseWithDifferentCardinality1 .
+
+this:inverseWithBothCardinalities1 a owl:ObjectProperty ;
+	rdfs:domain this:Class9a ;
+	rdfs:range this:Class10a .
+
+this:inverseWithBothCardinalities2 a owl:ObjectProperty ;
+	rdfs:domain this:Class10a ;
+	rdfs:range this:Class9a ;
+	owl:inverseOf this:inverseWithBothCardinalities1 .
+
+this:parallel1 a owl:ObjectProperty ;
+	rdfs:domain this:Class10a ;
+	rdfs:range this:Class11a .
+
+this:parallel2 a owl:ObjectProperty ;
+	rdfs:domain this:Class10a ;
+	rdfs:range this:Class11a .
+
+this:propertyFromMultiSubClass a owl:ObjectProperty ;
+	rdfs:domain this:Class12a ;
+	rdfs:range this:Class13a .
+
+this:propertyFromSubClass a owl:ObjectProperty ;
+	rdfs:domain this:Class13a ;
+	rdfs:range this:Class14a .
+
+this:singleDatatypeProperty a owl:DatatypeProperty ;
+	rdfs:domain this:Class3a ;
+	rdfs:range rdfs:Literal .
+
+this:doubleDatatypeProperty1 a owl:DatatypeProperty ;
+	rdfs:domain this:Class4a ;
+	rdfs:range rdfs:Literal .
+
+this:doubleDatatypeProperty2 a owl:DatatypeProperty ;
+	rdfs:domain this:Class4a ;
+	rdfs:range rdfs:Literal .
+
+this:parallelDatatypeProperty1 a owl:DatatypeProperty ;
+	rdfs:domain this:Class5a ;
+	rdfs:range rdfs:Literal .
+
+this:parallelDatatypeProperty2 a owl:DatatypeProperty ;
+	rdfs:domain this:Class5a ;
+	rdfs:range rdfs:Literal .
+
+# -- Qualified Cardinalities
+
+this:Class1b a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:cardinalityAtDomain_qualified ] ;
+		owl:qualifiedCardinality 1 ;
+		owl:onClass this:Class2bSub
+	] .
+this:Class2b a owl:Class .
+this:Class2bSub a owl:Class ;
+	rdfs:subClassOf this:Class2b .
+this:Class3b a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtRange_qualified ;
+		owl:qualifiedCardinality 15 ;
+		owl:onClass this:Class2bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:cardinalityAtDomainAndRange_qualified ] ;
+		owl:minQualifiedCardinality 0 ;
+		owl:onClass this:Class4bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:singleDatatypeProperty_qualified ;
+		owl:qualifiedCardinality 10 ;
+		owl:onDataRange xsd:positiveInteger
+	] .
+this:Class3bSub a owl:Class ;
+	rdfs:subClassOf this:Class3b .
+this:Class4b a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtDomainAndRange_qualified ;
+		owl:minQualifiedCardinality 1 ;
+		owl:onClass this:Class3bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:cardinalityAtSameEnd1_qualified ] ;
+		owl:minQualifiedCardinality 13 ;
+		owl:onClass this:Class5bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtSameEnd2_qualified ;
+		owl:maxQualifiedCardinality 1 ;
+		owl:onClass this:Class5bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:doubleDatatypeProperty1_qualified ;
+		owl:minQualifiedCardinality 1 ;
+		owl:onDataRange xsd:short
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:doubleDatatypeProperty1_qualified ;
+		owl:maxQualifiedCardinality 4 ;
+		owl:onDataRange xsd:short
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:doubleDatatypeProperty2_qualified ;
+		owl:maxQualifiedCardinality 16 ;
+		owl:onDataRange xsd:negativeInteger
+	] .
+this:Class4bSub a owl:Class ;
+	rdfs:subClassOf this:Class4b .
+this:Class5b a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:cardinalityAtBothEnds1_qualified ] ;
+		owl:maxQualifiedCardinality 28 ;
+		owl:onClass this:Class6bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtBothEnds2_qualified ;
+		owl:minQualifiedCardinality 0 ;
+		owl:onClass this:Class6bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtBothEnds2_qualified ;
+		owl:maxQualifiedCardinality 1 ;
+		owl:onClass this:Class6bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:parallelDatatypeProperty1_qualified ;
+		owl:minQualifiedCardinality 1 ;
+		owl:onDataRange xsd:float
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:parallelDatatypeProperty1_qualified ;
+		owl:maxQualifiedCardinality 21 ;
+		owl:onDataRange xsd:float
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:parallelDatatypeProperty2_qualified ;
+		owl:minQualifiedCardinality 3 ;
+		owl:onDataRange xsd:float
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:parallelDatatypeProperty2_qualified ;
+		owl:maxQualifiedCardinality 6 ;
+		owl:onDataRange xsd:float
+	] .
+this:Class5bSub a owl:Class ;
+	rdfs:subClassOf this:Class5b .
+this:Class6b a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtBothEnds1_qualified ;
+		owl:minQualifiedCardinality 0 ;
+		owl:onClass this:Class5bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:cardinalityAtBothEnds1_qualified ;
+		owl:maxQualifiedCardinality 19 ;
+		owl:onClass this:Class5bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:cardinalityAtBothEnds2_qualified ] ;
+		owl:minQualifiedCardinality 1 ;
+		owl:onClass this:Class5bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:cardinalityAtBothEnds2_qualified ] ;
+		owl:maxQualifiedCardinality 1 ;
+		owl:onClass this:Class5bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:differentlyQualifiedDatatypeProperty_qualified ;
+		owl:qualifiedCardinality 4 ;
+		owl:onDataRange xsd:positiveInteger
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:differentlyQualifiedDatatypeProperty_qualified ;
+		owl:qualifiedCardinality 7 ;
+		owl:onDataRange xsd:negativeInteger
+	] .
+this:Class6bSub a owl:Class ;
+	rdfs:subClassOf this:Class6b .
+this:Class7b a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithCardinality_qualified ;
+		owl:minQualifiedCardinality 1 ;
+		owl:onClass this:Class6bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithCardinality_qualified ;
+		owl:maxQualifiedCardinality 16 ;
+		owl:onClass this:Class6bSub
+	] .
+this:Class7bSub a owl:Class ;
+	rdfs:subClassOf this:Class7b .
+this:Class8b a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithSameCardinality1_qualified ;
+		owl:minQualifiedCardinality 8 ;
+		owl:onClass this:Class7bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithSameCardinality1_qualified ;
+		owl:maxQualifiedCardinality 8 ;
+		owl:onClass this:Class7bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:inverseWithSameCardinality2_qualified ] ;
+		owl:minQualifiedCardinality 8 ;
+		owl:onClass this:Class7bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:inverseWithSameCardinality2_qualified ] ;
+		owl:maxQualifiedCardinality 8 ;
+		owl:onClass this:Class7bSub
+	] .
+this:Class8bSub a owl:Class ;
+	rdfs:subClassOf this:Class8b .
+this:Class9b a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithDifferentCardinality1_qualified ;
+		owl:minQualifiedCardinality 6 ;
+		owl:onClass this:Class8bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithDifferentCardinality1_qualified ;
+		owl:maxQualifiedCardinality 7 ;
+		owl:onClass this:Class8bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:inverseWithDifferentCardinality2_qualified ] ;
+		owl:minQualifiedCardinality 8 ;
+		owl:onClass this:Class8bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:inverseWithDifferentCardinality2_qualified ] ;
+		owl:maxQualifiedCardinality 9 ;
+		owl:onClass this:Class8bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:inverseWithBothCardinalities1_qualified ] ;
+		owl:qualifiedCardinality 7 ;
+		owl:onClass this:Class10bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithBothCardinalities2_qualified ;
+		owl:minQualifiedCardinality 18 ;
+		owl:onClass this:Class10bSub
+	] .
+this:Class9bSub a owl:Class ;
+	rdfs:subClassOf this:Class9b .
+this:Class10b a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithBothCardinalities1_qualified ;
+		owl:minQualifiedCardinality 23 ;
+		owl:onClass this:Class9bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:inverseWithBothCardinalities1_qualified ;
+		owl:maxQualifiedCardinality 27 ;
+		owl:onClass this:Class9bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:inverseWithBothCardinalities2_qualified ] ;
+		owl:qualifiedCardinality 2 ;
+		owl:onClass this:Class9bSub
+	] .
+this:Class10bSub a owl:Class ;
+	rdfs:subClassOf this:Class10b .
+this:Class11b a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:parallel1_qualified ;
+		owl:qualifiedCardinality 6 ;
+		owl:onClass this:Class10bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:parallel2_qualified ;
+		owl:maxQualifiedCardinality 5 ;
+		owl:onClass this:Class10bSub
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:differentlyQualifiedObjectProperty_qualified ] ;
+		owl:qualifiedCardinality 8 ;
+		owl:onClass this:Class12bSub1
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:differentlyQualifiedObjectProperty_qualified ] ;
+		owl:qualifiedCardinality 9 ;
+		owl:onClass this:Class12bSub2
+	] .
+this:Class12b a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:propertyFromMultiSubClass_qualified ;
+		owl:maxQualifiedCardinality 101 ;
+		owl:onClass this:Class13bSub
+	] .
+this:Class12bSub1 a owl:Class ;
+	rdfs:subClassOf this:Class12b ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:propertyFromMultiSubClass_qualified ;
+		owl:qualifiedCardinality 81 ;
+		owl:onClass this:Class13bSub
+	] .
+this:Class12bSub2 a owl:Class ;
+	rdfs:subClassOf this:Class12b ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:propertyFromMultiSubClass_qualified ;
+		owl:cardinality 71
+	] .
+this:Class13b a owl:Class .
+this:Class13bSub a owl:Class ;
+	rdfs:subClassOf this:Class13b ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:propertyFromSubClass_qualified ;
+		owl:qualifiedCardinality 98 ;
+		owl:onClass this:Class14bSub
+	] .
+this:Class14b a owl:Class .
+this:Class14bSub a owl:Class ;
+	owl:subClassOf this:Class14b .
+
+this:cardinalityAtDomain_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class1b ;
+	rdfs:range this:Class2b .
+
+this:cardinalityAtRange_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class2b ;
+	rdfs:range this:Class3b .
+
+this:cardinalityAtDomainAndRange_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class3b ;
+	rdfs:range this:Class4b .
+
+this:cardinalityAtSameEnd1_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class4b ;
+	rdfs:range this:Class5b .
+
+this:cardinalityAtSameEnd2_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class5b ;
+	rdfs:range this:Class4b .
+
+this:cardinalityAtBothEnds1_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class5b ;
+	rdfs:range this:Class6b .
+
+this:cardinalityAtBothEnds2_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class6b ;
+	rdfs:range this:Class5b .
+
+this:inverseWithCardinality_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class6b ;
+	rdfs:range this:Class7b .
+
+this:inverseWithoutCardinality_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class7b ;
+	rdfs:range this:Class6b ;
+	owl:inverseOf this:inverseWithCardinality .
+
+this:inverseWithSameCardinality1_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class7b ;
+	rdfs:range this:Class8b .
+
+this:inverseWithSameCardinality2_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class8b ;
+	rdfs:range this:Class7b ;
+	owl:inverseOf this:inverseWithSameCardinality1 .
+
+this:inverseWithDifferentCardinality1_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class8b ;
+	rdfs:range this:Class9b .
+
+this:inverseWithDifferentCardinality2_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class9b ;
+	rdfs:range this:Class8b ;
+	owl:inverseOf this:inverseWithDifferentCardinality1 .
+
+this:inverseWithBothCardinalities1_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class9b ;
+	rdfs:range this:Class10b .
+
+this:inverseWithBothCardinalities2_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class10b ;
+	rdfs:range this:Class9b ;
+	owl:inverseOf this:inverseWithBothCardinalities1 .
+
+this:parallel1_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class10b ;
+	rdfs:range this:Class11b .
+
+this:parallel2_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class10b ;
+	rdfs:range this:Class11b .
+
+this:propertyFromMultiSubClass_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class12b ;
+	rdfs:range this:Class13b .
+
+this:propertyFromSubClass_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class13b ;
+	rdfs:range this:Class14b .
+
+this:differentlyQualifiedObjectProperty_qualified a owl:ObjectProperty ;
+	rdfs:domain this:Class11b ;
+	rdfs:range this:Class12b .
+
+this:singleDatatypeProperty_qualified a owl:DatatypeProperty ;
+	rdfs:domain this:Class3b ;
+	rdfs:range rdfs:Literal .
+
+this:doubleDatatypeProperty1_qualified a owl:DatatypeProperty ;
+	rdfs:domain this:Class4b ;
+	rdfs:range rdfs:Literal .
+
+this:doubleDatatypeProperty2_qualified a owl:DatatypeProperty ;
+	rdfs:domain this:Class4b ;
+	rdfs:range rdfs:Literal .
+
+this:parallelDatatypeProperty1_qualified a owl:DatatypeProperty ;
+	rdfs:domain this:Class5b ;
+	rdfs:range rdfs:Literal .
+
+this:parallelDatatypeProperty2_qualified a owl:DatatypeProperty ;
+	rdfs:domain this:Class5b ;
+	rdfs:range rdfs:Literal .
+
+this:differentlyQualifiedDatatypeProperty_qualified a owl:DatatypeProperty ;
+	rdfs:domain this:Class6b ;
+	rdfs:range rdfs:Literal .
+
+# -- Mixed Cardinalities
+
+this:singleLinkMixedAnchor a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:singleLinkUnqualifiedProperty ] ;
+		owl:minCardinality 14
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:singleLinkQualifiedProperty ] ;
+		owl:maxQualifiedCardinality 16 ;
+		owl:onClass this:Class12bSub1
+	] .
+this:multiLinkMixedAnchor a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:multiLinkUnqualifiedProperty ] ;
+		owl:minCardinality 2
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:multiLinkQualifiedProperty ] ;
+		owl:minCardinality 4
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:multiLinkQualifiedProperty ] ;
+		owl:minQualifiedCardinality 2 ;
+		owl:onClass this:Class12bSub1
+	] ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty [ owl:inverseOf this:multiLinkQualifiedProperty ] ;
+		owl:maxQualifiedCardinality 3 ;
+		owl:onClass this:Class12bSub2
+	] .
+
+this:singleLinkUnqualifiedProperty a owl:ObjectProperty ;
+	rdfs:domain this:singleLinkMixedAnchor ;
+	rdfs:range this:Class10a .
+this:multiLinkUnqualifiedProperty a owl:ObjectProperty ;
+	rdfs:domain this:multiLinkMixedAnchor ;
+	rdfs:range this:Class10a .
+
+this:singleLinkQualifiedProperty a owl:ObjectProperty ;
+	rdfs:domain this:singleLinkMixedAnchor ;
+	rdfs:range this:Class12b .
+this:multiLinkQualifiedProperty a owl:ObjectProperty ;
+	rdfs:domain this:multiLinkMixedAnchor ;
+	rdfs:range this:Class12b .

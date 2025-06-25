@@ -1,0 +1,427 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+@prefix this: <http://ontovibe.visualdataweb.org#> .
+@prefix other: <http://ontovibe.visualdataweb.org/imported#> .
+
+<http://ontovibe.visualdataweb.org> a owl:Ontology ;
+
+# -- OWL Annotations
+
+	owl:versionInfo "2.2" ;
+	owl:versionIRI <http://ontovibe.visualdataweb.org/2.2> ;
+	owl:imports <http://ontovibe.visualdataweb.org/2.0/imported> ;
+	owl:priorVersion <http://ontovibe.visualdataweb.org/2.1> ;
+	owl:backwardCompatibleWith <http://ontovibe.visualdataweb.org/2.1> ;
+	owl:incompatibleWith <http://ontovibe.visualdataweb.org/minimal> ;
+
+# -- RDFS Annotations
+
+	rdfs:label "Ontology Visualization Benchmark (OntoViBe)" ;
+	rdfs:comment "OntoViBe is a benchmark for testing ontology visualizations. It incorporates a comprehensive set of OWL 2 language constructs and systematic combinations thereof." ;
+
+# -- DC Annotations
+	
+	dc:title "Ontology Visualization Benchmark (OntoViBe)" ;
+	dc:description "OntoViBe is a benchmark for testing ontology visualizations. It incorporates a comprehensive set of OWL 2 language constructs and systematic combinations thereof." ; 
+	dc:creator "Florian Haag" ;
+	dc:creator "Steffen Lohmann" ;
+	dc:contributor "Stefan Negru" ;	
+	dc:date "2015-08-27" ;
+	dc:rights <http://creativecommons.org/licenses/by/4.0/> .
+	
+# -- Classes
+
+this:PlainClass a owl:Class .
+
+this:DeprecatedClass a owl:Class ;
+	owl:deprecated true .
+
+this:Class1 a owl:Class.
+
+this:ComplementClass a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:complementOf this:Class1
+	] .
+
+this:UnionClass a owl:Class ;
+	rdfs:comment "This is an English comment on a class expression."@en ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:unionOf ( this:Class1 this:DeprecatedClass )
+	] .
+
+this:LargeUnionClass a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:unionOf ( this:UnionClass other:ImportedClass this:PropertyOwner )
+	] .
+
+this:IntersectionClass a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf ( this:Class1 this:DeprecatedClass )
+	] .
+
+this:LargeIntersectionClass a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf ( this:UnionClass other:ImportedClass this:PropertyOwner )
+	] .
+
+this:DisjointUnionClass a owl:Class ;
+	owl:disjointUnionOf ( this:Class1 this:UnionClass ).
+
+this:LargeDisjointUnionClass a owl:Class ;
+	owl:disjointUnionOf ( this:ComplementClass this:IntersectionClass other:DeprecatedImportedClass ).
+
+this:EnumerationClass a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:oneOf ( this:MultiSubclassIndividual2 this:MultiSubclassIndividual3 )
+	] .
+
+this:LargeEnumerationClass a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:oneOf ( this:MultiSubclassIndividual2 this:MultiSubclassIndividual3 this:AnotherIndividual )
+	] .
+
+this:AnonymousClassAnchor a owl:Class .
+
+this:anonymousComplementClassProperty a owl:ObjectProperty ;
+	rdfs:domain this:AnonymousClassAnchor ;
+	rdfs:range [
+		a owl:Class ;
+		owl:complementOf this:DeprecatedClass
+	].
+
+this:anonymousUnionClassProperty a owl:ObjectProperty ;
+	rdfs:domain this:AnonymousClassAnchor ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf ( this:Class1 this:DeprecatedClass )
+	].
+
+this:anonymousIntersectionClassProperty a owl:ObjectProperty ;
+	rdfs:domain this:AnonymousClassAnchor ;
+	rdfs:range [
+		a owl:Class ;
+		owl:intersectionOf ( this:Class1 this:DeprecatedClass )
+	].
+
+this:anonymousEnumerationClassProperty a owl:ObjectProperty ;
+	rdfs:domain this:AnonymousClassAnchor ;
+	rdfs:range [
+		a owl:Class ;
+		owl:oneOf ( this:MultiSubclassIndividual3 this:AnotherIndividual )
+	].
+
+this:PropertyOwnerType a owl:Class .
+
+this:PropertyOwner a owl:Class ;
+	a this:PropertyOwnerType ;
+	rdfs:subClassOf [
+		owl:onProperty this:customTypeDatatypeProperty ;
+		owl:cardinality 2
+	];
+	rdfs:subClassOf [
+		owl:onProperty this:dummyProperty ;
+		owl:minQualifiedCardinality 3 ;
+		owl:onClass this:Subclass
+	] ;
+	rdfs:subClassOf [
+		owl:onProperty this:classToClassProperty ;
+		owl:cardinality 3
+	].
+
+this:MultiPropertyOwner a owl:Class ;
+	a this:PropertyOwnerType ;
+	rdfs:label "multi-property owner" ;
+	rdfs:comment "This is a comment without a language-tag on a class that also has a label." .
+
+this:DisjointClass a owl:Class ;
+	owl:disjointWith this:LargeUnionClass ;
+	rdfs:label "disjoint class"@en ;
+	rdfs:label "disjunkte Klasse"@de ;
+	rdfs:subClassOf [
+		owl:onProperty this:oppositeDummyProperty ;
+		owl:minCardinality 5
+	] ;
+	rdfs:subClassOf [
+		owl:onProperty this:oppositeDummyProperty ;
+		owl:maxCardinality 15
+	].
+
+_:DisjointClassGroup a owl:AllDisjointClasses ;
+	owl:members ( this:MultiPropertyOwner this:Class1 this:LargeUnionClass ) .
+
+this:Subclass a owl:Class ;
+	rdfs:subClassOf this:DisjointClass .
+
+this:MultiSubclass a owl:Class ;
+	rdfs:subClassOf this:DisjointClass ;
+	rdfs:subClassOf other:DeprecatedImportedClass ;
+	rdfs:comment "This is an English comment on a class that also has a description."@en ;
+	dc:description "This is an English description on a class that also has a comment."@en .
+
+this:SomeValuesFromClass a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:classToClassProperty ;
+		owl:someValuesFrom this:DeprecatedClass
+	].
+
+this:AllValuesFromClass a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:classToClassProperty ;
+		owl:allValuesFrom this:DeprecatedClass
+	].
+
+this:HasValueClass a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:classToClassProperty ;
+		owl:hasValue this:Class1Individual
+	].
+
+this:HasSelfClass a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty this:classToClassProperty ;
+		owl:hasSelf true
+	].
+
+this:EquivalentDeprecatedClass a owl:Class ;
+	owl:deprecated true ;
+	dc:description "This is an English description in a class that is part of an equivalent class group."@en .
+
+this:EquivalentToDeprecatedClass a owl:Class ;
+	owl:equivalentClass this:EquivalentDeprecatedClass .
+
+this:EquivalentDeprecatedClassInLargeGroup a owl:Class ;
+	owl:deprecated true .
+
+this:EquivalentClassInLargeGroup a owl:Class ;
+	owl:equivalentClass this:EquivalentDeprecatedClassInLargeGroup ;
+	owl:equivalentClass other:EquivalentImportedClassInLargeGroup .
+
+# -- Individuals
+
+this:Class1Individual a this:Class1 .
+
+this:MultiSubclassIndividual1 a this:MultiSubclass ;
+	rdfs:comment "This ia an English comment on an individual."@en .
+this:MultiSubclassIndividual2 a this:MultiSubclass .
+this:MultiSubclassIndividual3 a this:MultiSubclass ;
+	owl:differentFrom this:MultiSubclassIndividual2 ;
+	this:dummyProperty this:MultiSubclassIndividual1 ;
+	this:complementTypeDatatypeProperty 19 ;
+	dc:description "This is a description without a language on an individual." .
+
+this:AnotherIndividual a this:DeprecatedClass ;
+	rdfs:comment "This is an English comment on an individual that also has a description."@en ;
+	dc:description "This is an English description on an individual that also has a comment."@en .
+
+_:DifferentIndividualsGroup a owl:AllDifferent ;
+	owl:members ( this:AnotherIndividual this:MultiSubclassIndividual1 this:MultiSubclassIndividual2 ).
+
+this:SameAsMultiSubclassIndividual2 a this:MultiSubclass ;
+	owl:sameAs this:MultiSubclassIndividual2 .
+
+_:NegativeObjectPropertyAssertion a owl:NegativePropertyAssertion ;
+	owl:sourceIndividual this:MultiSubclassIndividual2 ;
+	owl:assertionProperty this:dummyProperty ;
+	owl:targetIndividual this:AnotherIndividual .
+
+_:NegativeDataPropertyAssertion a owl:NegativePropertyAssertion ;
+	owl:sourceIndividual this:MultiSubclassIndividual2 ;
+	owl:assertionProperty this:complementTypeDatatypeProperty ;
+	owl:targetValue 18 .
+
+# -- Datatypes
+
+this:DivisibleByTwoEnumeration a rdfs:Datatype ;
+	owl:equivalentClass [
+		a rdfs:Datatype ;
+		owl:oneOf ( 2 4 6 8 10 12 14 16 18 20 )
+	].
+
+this:DivisibleByFiveEnumeration a rdfs:Datatype ;
+	owl:equivalentClass [
+		a rdfs:Datatype ;
+		owl:oneOf ( 5 10 15 20 )
+	].
+
+this:UnionDatatype a rdfs:Datatype ;
+	owl:equivalentClass [
+		a rdfs:Datatype ;
+		owl:unionOf ( this:DivisibleByTwoEnumeration this:DivisibleByFiveEnumeration )
+	] .
+
+this:IntersectionDatatype a rdfs:Datatype ;
+	owl:equivalentClass [
+		a rdfs:Datatype ;
+		owl:intersectionOf ( this:DivisibleByTwoEnumeration this:DivisibleByFiveEnumeration )
+	] .
+
+this:ComplementDatatype a rdfs:Datatype ;
+	owl:equivalentClass [
+		a rdfs:Datatype ;
+		owl:datatypeComplementOf this:DivisibleByTwoEnumeration
+	] .
+
+# -- Properties
+
+this:untypedDatatypeProperty a owl:DatatypeProperty ;
+	rdfs:domain this:PropertyOwner .
+
+this:standardTypeDatatypeProperty a owl:DatatypeProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range xsd:integer .
+
+this:customTypeDatatypeProperty a owl:DatatypeProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range this:DivisibleByFiveEnumeration .
+
+this:unionTypeDatatypeProperty a owl:DatatypeProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range this:UnionDatatype ;
+	rdfs:comment "This is an English comment on a property."@en .
+
+this:intersectionTypeDatatypeProperty a owl:DatatypeProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range this:IntersectionDatatype .
+
+this:complementTypeDatatypeProperty a owl:DatatypeProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range this:ComplementDatatype ;
+	rdfs:label "complement-type datatype property" .
+	
+this:importedTypeDatatypeProperty a owl:DatatypeProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range other:DivisibleByThreeEnumeration ;
+	rdfs:label "imported type datatype property"@en ;
+	rdfs:label "propri\u00E9t\u00E9 d'un type de donn\u00E9es import\u00E9"@fr ;
+	rdfs:label "\u4E00\u79CD\u5BFC\u5165\u7C7B\u578B\u7684\u6570\u636E\u7C7B\u578B\u6027\u8D28"@zh-Hans .
+
+this:classToClassProperty a owl:ObjectProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range this:Class1 ;
+	dc:description "Esto es una descripci\u00F3n en espa\u00F1ol de una propiedad con descripciones en varias lenguas."@es ;
+	dc:description "This is an English description of a property with descriptions in several languages."@en .
+
+this:classToUntypedClassProperty a owl:SymmetricProperty ;
+	rdfs:domain this:PropertyOwner .
+
+this:untypedClassToClassProperty a owl:AsymmetricProperty ;
+	rdfs:range this:PropertyOwner .
+
+this:EquivalentToPropertyOwner a owl:Class ;
+	owl:equivalentClass this:PropertyOwner .
+
+this:EquivalentToSubclass a owl:Class ;
+	owl:equivalentClass this:Subclass .
+
+this:AlsoEquivalentToSubclass a owl:Class ;
+	owl:equivalentClass this:Subclass .
+
+this:cyclicProperty a owl:ObjectProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range this:PropertyOwner .
+
+this:cyclicProperty1 a owl:ObjectProperty ;
+	rdfs:domain this:MultiPropertyOwner ;
+	rdfs:range this:MultiPropertyOwner .
+
+_:HasSelfRestriction a owl:Restriction ;
+	owl:onProperty this:cyclicProperty1 ;
+	owl:hasSelf true .
+
+this:cyclicProperty2 a owl:ReflexiveProperty ;
+	rdfs:domain this:MultiPropertyOwner ;
+	rdfs:range this:MultiPropertyOwner ;
+	rdfs:comment "This is an English comment on a property that also has a non-English description."@en ;
+	dc:description "Dies ist eine deutsche Beschreibung einer Eigenschaft, die auch einen nicht in Deutsch verfassten Kommentar enth\u00E4lt."@de.
+
+this:cyclicProperty3 a owl:ObjectProperty ;
+	rdfs:domain this:MultiPropertyOwner ;
+	rdfs:range this:MultiPropertyOwner .
+
+this:classToClassProperty1 a owl:ObjectProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range this:MultiPropertyOwner .
+
+this:classToClassProperty2 a owl:IrreflexiveProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range this:MultiPropertyOwner .
+
+this:deprecatedDatatypeProperty a owl:DatatypeProperty ;
+	owl:deprecated true ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range xsd:date .
+
+this:deprecatedObjectProperty a owl:ObjectProperty ;
+	owl:deprecated true ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range owl:Thing .
+
+this:dummyProperty a owl:ObjectProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range this:DisjointClass .
+
+this:oppositeDummyProperty a owl:ObjectProperty ;
+	rdfs:domain this:DisjointClass ;
+	rdfs:range this:PropertyOwner .
+
+this:equivalentObjectProperty a owl:ObjectProperty ;
+	owl:equivalentProperty this:dummyProperty .
+
+this:subproperty a owl:ObjectProperty ;
+	rdfs:subPropertyOf this:deprecatedObjectProperty .
+
+this:realProperty a owl:DatatypeProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range owl:real .
+
+this:equivalentDataProperty a owl:DatatypeProperty ;
+	owl:equivalentProperty this:realProperty .
+
+this:anotherEquivalentDataProperty a owl:DatatypeProperty ;
+	owl:equivalentProperty this:equivalentDataProperty .
+
+this:rationalProperty a owl:DatatypeProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range owl:rational .
+
+this:FunctionalAnchor a owl:Class .
+
+this:functionalProperty a owl:FunctionalProperty , owl:ObjectProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range this:FunctionalAnchor .
+
+this:inverseFunctionalProperty a owl:InverseFunctionalProperty ;
+	rdfs:domain this:FunctionalAnchor ;
+	rdfs:range this:PropertyOwner .
+
+this:functionalPropertyAsInverse a owl:FunctionalProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range this:FunctionalAnchor ;
+	owl:inverseOf this:inverseFunctionalProperty .
+
+this:functionalDatatypeProperty a owl:FunctionalProperty , owl:DatatypeProperty ;
+	rdfs:domain this:FunctionalAnchor ;
+	rdfs:range xsd:hexBinary .
+
+this:disjointProperty a owl:ObjectProperty ;
+	owl:propertyDisjointWith this:functionalProperty ;
+	rdfs:domain this:PropertyOwner ;
+	rdfs:range this:FunctionalAnchor .
+
+_:DisjointPropertyGroup a owl:AllDisjointProperties ;
+	owl:members ( this:rationalProperty this:realProperty this:deprecatedDatatypeProperty ).

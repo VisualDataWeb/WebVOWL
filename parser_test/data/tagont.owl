@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:dcmitype="http://purl.org/dc/dcmitype/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:wordnet="http://xmlns.com/wordnet/1.6/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://bubb.ghb.fh-furtwangen.de/TagOnt/tagont.owl#"
+    xmlns:j.0="http://purl.org/dc/terms/"
+    xmlns:contact="http://www.w3.org/2000/10/swap/pim/contact#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://bubb.ghb.fh-furtwangen.de/TagOnt/tagont.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://purl.org/dc/dcmitype/"/>
+    <owl:imports rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    <owl:imports rdf:resource="http://www.mindswap.org/2003/owl/foaf"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An ontology describing the concept of a tagging</rdfs:comment>
+    <owl:imports rdf:resource="http://purl.org/dc/terms"/>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="VisibilityEnum">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Tagging"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Denotes the visibility of a Tagging. Can be one of {Private Public Protected}. The application using this ontology has to take care of handling the authentication etc.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visibility</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Tagger"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ServiceDomain"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <VisibilityEnum rdf:ID="Private"/>
+          <VisibilityEnum rdf:ID="Public"/>
+          <VisibilityEnum rdf:ID="Protected"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Tag"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Tagger">
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ServiceDomain"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Tagging"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >any foaf:Person or foaf:Group who has at least one tagging is a Tagger.</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:about="#Tagging"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:ID="hasTagging"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Group"/>
+              <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tagger</rdfs:label>
+    <owl:disjointWith rdf:resource="#VisibilityEnum"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Tag"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Tag">
+    <owl:disjointWith rdf:resource="#VisibilityEnum"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tag</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >represents a single tag or keyword. Each tag has a unique URI. Equal tags (e.g. "san francisco" and "san fran") can be semantically related via the sameTag property. Semantic relations, such as broader and narrower terms (e.g. "blue" is kind of "color"), can be expressed with the SKOS core ontology (e.g. http://www.w3.org/2004/02/skos/core#broader). Therefore Tag is a subclass of SKOS core Concept.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ServiceDomain"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Tagging"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Tagger"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Tagging">
+    <owl:disjointWith rdf:resource="#Tagger"/>
+    <owl:disjointWith rdf:resource="#Tag"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Denotes the concept of a tagging: a Tagging consists of at least the basic tuple {tagger, resource, tags}. All other properties are optional. Furthermore Tagging follows the ValuePartition pattern, which means that it can only have values from either PublicTagging, PrivateTagging or ProtectedTagging.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ServiceDomain"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VisibilityEnum"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tagging</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#ServiceDomain">
+    <owl:disjointWith rdf:resource="#VisibilityEnum"/>
+    <owl:disjointWith rdf:resource="#Tag"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >the domain (or even community) in which the tagging occured (e.g. delicious, flickr). specifiying a domain allows for cross-application tagging without losing the context in which the tagging has been done.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Tagging"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Service Domain</rdfs:label>
+    <owl:disjointWith rdf:resource="#Tagger"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasTaggedResource">
+    <rdfs:domain rdf:resource="#Tagging"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >taggedResource</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >specifies the resource being tagged</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasType">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >type of the resource, e.g. image, text, ... this should be decided from the system (e.g. based on the MIME type), not from the user. thus, a tagged resource can have only one type.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >type</rdfs:label>
+    <rdfs:range rdf:resource="http://purl.org/dc/terms/DCMIType"/>
+    <owl:equivalentProperty rdf:resource="http://purl.org/dc/elements/1.1/type"/>
+    <rdfs:domain rdf:resource="#Tagging"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasTag">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >specifies the tag that belongs to the tagging. Each tagging can have multiple tags</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >tag</rdfs:label>
+    <rdfs:domain rdf:resource="#Tagging"/>
+    <rdfs:range rdf:resource="#Tag"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasServiceDomain">
+    <rdfs:range rdf:resource="#ServiceDomain"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >domain</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >specifies that a tagging happens in the context of a specific domain (i.e. flickr, delicious). a tagging can also belong to multiple domains (e.g. multiple social bookmarking tools), which allows for cross-application tagging.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Tagging"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasVisibility">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >denotes the visibility of the tagging (Private, Public or Protected)</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visibility</rdfs:label>
+    <rdfs:range rdf:resource="#VisibilityEnum"/>
+    <rdfs:domain rdf:resource="#Tagging"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasServiceHomepage">
+    <rdfs:domain rdf:resource="#ServiceDomain"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >the homepage URI of a ServiceDomain (i.e. a service which allows for tagging resources).</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/homepage"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >service homepage</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasTagLabel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >tag name</rdfs:label>
+    <rdfs:domain rdf:resource="#Tag"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >denotes the name (displayname) of a tag. A Tag can have multiple tag names which include variations of the same name (i.e. "c++", "cplusplus", "c_plus_plus",...). Thus one can infer that they all denote the same tag.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/name"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasNote">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >additional notes to be added to a tagging (e.g. "picture of my cat mauzi")</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Notes</rdfs:label>
+    <rdfs:domain rdf:resource="#Tagging"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="isTaggedOn">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >date</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >specifies the date and time of the tagging</rdfs:comment>
+    <rdfs:domain rdf:resource="#Tagging"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/created"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasServiceName">
+    <rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/name"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ServiceDomain"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Service Name</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >denotes the name of a tagging service provider, e.g. flickR</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:SymmetricProperty rdf:ID="sameTag">
+    <rdfs:domain rdf:resource="#Tag"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#sameAs"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >denotes equality between two tags with different URIs.</rdfs:comment>
+  </owl:SymmetricProperty>
+  <owl:FunctionalProperty rdf:ID="prefTagLabel">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Tag"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >if a tag has multiple name, then you should provide a preferred name, which will be displayed. If a Tag has only one tagName, then prefTagName should have the same value.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="#hasTagLabel"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasTagging">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >has Tagging</rdfs:label>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >relates a Tagger to his Taggings.</rdfs:comment>
+    <rdfs:range rdf:resource="#Tagging"/>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <j.0:DCMIType rdf:ID="BlogEntry">
+    <rdfs:subClassOf rdf:resource="http://purl.org/dc/dcmitype/Text"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </j.0:DCMIType>
+  <j.0:DCMIType rdf:ID="NewsEntry">
+    <rdfs:subClassOf rdf:resource="http://purl.org/dc/dcmitype/Text"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </j.0:DCMIType>
+</rdf:RDF>
+
+<!-- Created with TopBraid Composer 1.1.1 -->

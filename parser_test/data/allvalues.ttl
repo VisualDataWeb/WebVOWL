@@ -1,0 +1,201 @@
+@prefix : <http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/> .
+
+<http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/objectAllValuesFromProperty
+
+:objectAllValuesFromProperty rdf:type owl:ObjectProperty .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/objectSomeValuesFromProperty
+
+:objectSomeValuesFromProperty rdf:type owl:ObjectProperty .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/objectSomeValuesFromProperty_RL
+
+:objectSomeValuesFromProperty_RL rdf:type owl:ObjectProperty .
+
+
+:objectAllValuesFromPropertyWithDomainAndRange rdf:type owl:ObjectProperty ;
+
+                           rdfs:domain :Class1 ;
+
+                           rdfs:range :ObjectAllValuesFromRange .
+
+
+:objectAllValuesFromPropertyWithDomainAndNoRange rdf:type owl:ObjectProperty ;
+
+                           rdfs:domain :Class1 .
+
+
+:objectAllValuesFromPropertyWithRangeAndNoDomain rdf:type owl:ObjectProperty ;
+
+                           rdfs:range :ObjectAllValuesFromRange .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/dataAllValuesFromProperty
+
+:dataAllValuesFromProperty rdf:type owl:DatatypeProperty ;
+                           
+                           rdfs:domain :Class1 ;
+                           
+                           rdfs:range xsd:integer .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/dataSomeValuesFromProperty
+
+:dataSomeValuesFromProperty rdf:type owl:DatatypeProperty .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/dataSomeValuesFromProperty_RL
+
+:dataSomeValuesFromProperty_RL rdf:type owl:DatatypeProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/Class1
+
+:Class1 rdf:type owl:Class .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/DataAllValuesFrom
+
+:DataAllValuesFrom rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty :dataAllValuesFromProperty ;
+                                     owl:allValuesFrom xsd:integer
+                                   ] .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/DataSomeValuesFrom
+
+:DataSomeValuesFrom rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                      owl:onProperty :dataSomeValuesFromProperty ;
+                                      owl:someValuesFrom xsd:dateTime
+                                    ] .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/DataSomeValuesFrom_RL
+
+:DataSomeValuesFrom_RL rdf:type owl:Class .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/ObjectAllValuesFrom
+
+:ObjectAllValuesFrom rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty :objectAllValuesFromProperty ;
+                                       owl:allValuesFrom :ObjectAllValuesFromRange
+                                     ] .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/ObjectAllValuesFromRange
+
+:ObjectAllValuesFromRange rdf:type owl:Class .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/ObjectSomeValuesFrom
+
+:ObjectSomeValuesFrom rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty :objectSomeValuesFromProperty ;
+                                        owl:someValuesFrom :ObjectSomeValuesFromRange
+                                      ] .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/ObjectSomeValuesFromRange
+
+:ObjectSomeValuesFromRange rdf:type owl:Class .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/ObjectSomeValuesFromRange_RL
+
+:ObjectSomeValuesFromRange_RL rdf:type owl:Class .
+
+
+
+###  http://webvowl.steffen-lohmann.de/ontobench-1.1.0-SNAPSHOT/ontology/39/ObjectSomeValuesFrom_RL
+
+:ObjectSomeValuesFrom_RL rdf:type owl:Class .
+
+
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :objectSomeValuesFromProperty_RL ;
+  owl:someValuesFrom :ObjectSomeValuesFromRange_RL ;
+  rdfs:subClassOf :ObjectSomeValuesFrom_RL
+] .
+
+
+
+[ rdf:type owl:Restriction ;
+  owl:onProperty :dataSomeValuesFromProperty_RL ;
+  owl:someValuesFrom xsd:dateTime ;
+  rdfs:subClassOf :DataSomeValuesFrom_RL
+] .
+
+
+
+
+###  Generated by the OWL API (version 4.1.0) https://github.com/owlcs/owlapi
+
