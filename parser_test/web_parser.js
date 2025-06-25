@@ -23,6 +23,20 @@ export function init() {
         return {stmts:stmts, ns:store.namespaces};
     }
 
+    function getLoader(iriMap) {
+        return async (iri) => {
+            const response = await fetch(iriMap[iri] || iri);
+            if (!response.ok)
+                throw new Error("cannot fetch iri: " + iri);
+
+            return {
+                data: await response.text(),
+                contentType: response.headers.get("Content-Type")
+            }
+        };
+    }
+
+    window.getLoader = getLoader;
     window.parser = new OWLParser(parse);
     window.sorter = new VOWLSorter();
 }

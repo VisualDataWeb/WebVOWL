@@ -1594,11 +1594,8 @@ export class OWLParser {
         let baseIri = this.cleanIri(iri);
         if(!tmp.loaded[baseIri]) {
             tmp.loaded[baseIri] = 1;
-            const req = await fetch(tmp.iriMap[baseIri] || baseIri);
-            if(!req.ok)
-                throw "failed to load";
-            const rData = await req.text();
-            await this.parseData(rData, baseIri, req.headers.get("Content-Type"), tmp);
+            const r = await tmp.load(baseIri);
+            await this.parseData(r.data, baseIri, r.contentType, tmp);
         }
     }
 
@@ -1619,14 +1616,14 @@ export class OWLParser {
     }
   }
 
-  async transform(rdfData, baseIri, contentType, iriMap) {
+  async transform(rdfData, baseIri, contentType, load) {
     let result = {};
     let preds = [...Array(this.PredCount)].map(_=>[]);
     let tmp = {
       preds:preds,
       ns:{},
       loaded:{},
-      iriMap:iriMap,
+      load:load,
       annoMap:{}
     }
     await this.parseData(rdfData, baseIri, contentType, tmp, true);

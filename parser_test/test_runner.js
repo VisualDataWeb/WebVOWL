@@ -55,7 +55,7 @@ fs.readdir(testPath, (err, files) => {
             const ext = test.file.substr(test.file.lastIndexOf(".") + 1);
             const data = await getData(test.file);
             const compare = await getData(test.compare);
-            var result = await parser.transform(data, test.baseIri, parser.MimeExtMap[ext], test.iriMap);
+            var result = await parser.transform(data, test.baseIri, parser.MimeExtMap[ext], getLoader(test.iriMap));
             result._comment = "Created with OWL2VOWL (version 0.3.7), http://vowl.visualdataweb.org";
             const diff = Diff.structuredPatch("parsed", "orig", JSON.stringify(sorter.sort(result), null, 2).trim(), compare.trim());
             if(diff.hunks.length)
