@@ -15,13 +15,20 @@ const static_files = {'./src/index.html' : '',
                       './src/app/data/ontovibe.json' : 'data',
                       './src/app/data/personasonto.json' : 'data',
                       './src/app/data/sioc.json' : 'data',
-                      './src/app/data/template.json' : 'data'
+                      './src/app/data/template.json' : 'data',
+
+                      './parser_test/web_parser.js' : 'js',
+                      './parser_test/parser.js' : 'js',
+                      './parser_test/sorter.js' : 'js',
+
+                      './node_modules/d3/d3.min.js' : 'js',
+                      './node_modules/rdflib/dist/rdflib.min.js' : 'js'
 };
 
 const options = {
   bundle: true,
   outdir: outdir,
-  external: ['d3'],
+  external: ['d3', './web_parser.js'],
   minify: false,
   sourcemap: true,
   // target: 'es2015',
@@ -90,11 +97,4 @@ build({
 		'js/webvowl.app': './src/app/js/entry.js'
   },
   globalName: 'webvowl.app'
-});
-
-build({
-  entryPoints: {
-        'js/d3.min' : './node_modules/d3/d3.min.js'
-  },
-  globalName: 'd3'
 });
