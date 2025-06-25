@@ -11,12 +11,20 @@ window.onload = () => {
     web.init();
 
     let test = {
-                  "file":"data/sioc.rdf",
-                  "compare":"sorted_data/sioc_sorted.json",
-                  "baseIri": "http://rdfs.org/sioc/ns#",
-                  "iriMap": {
-                  }
-                };
+  "file":"data/marinetloimarine.owl",
+  "compare":"sorted_data/marinetloimarine_sorted.json",
+  "baseIri": "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetloimarine.owl#",
+  "iriMap": {
+    "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl": "data/marinetlo.owl"
+  }
+}
+
+
+
+
+
+;
+
 
     async function getData(file) {
       const response = await fetch(file);
@@ -28,16 +36,33 @@ window.onload = () => {
     try {
         const ext = test.file.substr(test.file.lastIndexOf(".") + 1);
         const data = await getData(test.file);
-        const compare = await getData(test.compare);
-        var result = await parser.transform(data, test.baseIri, parser.MimeExtMap[test], test.iriMap);
+        var compare = (await getData(test.compare)).trim();
+        var result = await parser.transform(data, test.baseIri, parser.MimeExtMap[ext], test.iriMap);
         result._comment = "Created with OWL2VOWL (version 0.3.7), http://vowl.visualdataweb.org";
-        const diff = Diff.structuredPatch("parsed", "orig", JSON.stringify(sorter.sort(result), null, 2).trim(), compare.trim());
+        result = JSON.stringify(sorter.sort(result), null, 2).trim();
+        const diff = Diff.structuredPatch("parsed", "orig", result, compare);
         if(diff.hunks.length)
           throw new Error(Diff.formatPatch(diff));
         console.log(test.file + ": ok");
     } catch(err){
         console.log("test for " + test.file + " failed with:");
-        console.log(err.message);
+        if(!result)
+          console.log(err);
+
+        console.log(result);
+
+        /*
+        let other = JSON.parse(compare);
+        result = JSON.parse(result);
+
+        for(let prop of result.property) {
+          console.log(prop.type, result.propertyAttribute[prop.id].iri)
+        }
+
+        for(let prop of other.property) {
+          console.log(prop.type, other.propertyAttribute[prop.id].iri)
+        }
+        */
     }
   })();
 

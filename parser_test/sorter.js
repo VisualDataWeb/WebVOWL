@@ -121,9 +121,9 @@ export class VOWLSorter {
             let target = data.classAttribute[value[idx]];
             if(parent.iri.localeCompare(target.iri) > 0) {
               if(!target.equivalent) target.equivalent = [];
-              target.equivalent.push(parent.id);
+              if(target.equivalent.indexOf(parent.id) == -1) target.equivalent.push(parent.id);
             } else {
-              a.push(value[idx]);
+              if(a.indexOf(value[idx]) == -1) a.push(value[idx]);
             }
           });
           parent[key] = a;

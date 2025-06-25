@@ -20,7 +20,7 @@ export class OWLParser {
   MimeMap = Object.freeze({
     "application/trig"         :  this.Mime.TRIG,
     "application/n-quads"      :  this.Mime.N_QUADS,
-    "application/text/turtle"  :  this.Mime.TURTLE,
+    "text/turtle"              :  this.Mime.TURTLE,
     "application/n-triples"    :  this.Mime.N_TRIPLES,
     "text/n3"                  :  this.Mime.N3,
     "application/json"         :  this.Mime.JSON,
@@ -37,9 +37,7 @@ export class OWLParser {
   MimeType = (() => {
     var keys = [];
     keys.push("");
-    for(var key in this.MimeMap) {
-      keys.push(key);
-    }
+    for(var key in this.MimeMap) keys.push(key);
     return keys;
   })();
 
@@ -174,18 +172,14 @@ export class OWLParser {
 
   NamespaceKey = (() => {
     var keys = [];
-    for(const key in this.Namespace) {
-      keys.push(key.toLowerCase());
-    }
+    for(const key in this.Namespace) keys.push(key.toLowerCase());
     return keys;
   })();
 
   NamespaceType = (() => {
     var keys = [];
     keys.push("");
-    for(const key in this.NamespaceMap) {
-      keys.push(key);
-    }
+    for(const key in this.NamespaceMap) keys.push(key);
     return keys;
   })();
 
@@ -208,30 +202,38 @@ export class OWLParser {
 
   Pred = Object.freeze({
     UNKNOWN               : 0,
-    DC_TERMS              : 1,
-    VERSION_INFO          : 2,
-    VERSION_IRI           : 3,
-    IMPORTS               : 4,
-    TYPE                  : 5,
-    DESCRIPTION           : 6,
-    TITLE                 : 7,
-    VALUE                 : 8,
-    TERM_STATUS           : 9,
-    LABEL                 : 10,
-    COMMENT               : 11,
-    IS_DEFINED_BY         : 12,
-    EQUIVALENT_CLASS      : 13,
-    SUB_CLASS_OF          : 14,
-    DISJOINT_WITH         : 15,
-    DOMAIN                : 16,
-    RANGE                 : 17,
-    SUB_PROPERTY_OF       : 18,
-    INVERSE_OF            : 19,
-    EQUIVALENT_PROPERTY   : 20
+    ANNOTATION_DATA       : 1,
+    DC_TERMS              : 2,
+    DC_ELEM               : 3,
+    OWL                   : 4,
+    RDFS                  : 5,
+    VERSION_INFO          : 6,
+    VERSION_IRI           : 7,
+    IMPORTS               : 8,
+    TYPE                  : 9,
+    DESCRIPTION           : 10,
+    TITLE                 : 11,
+    VALUE                 : 12,
+    TERM_STATUS           : 13,
+    LABEL                 : 14,
+    COMMENT               : 15,
+    IS_DEFINED_BY         : 16,
+    EQUIVALENT_CLASS      : 17,
+    SUB_CLASS_OF          : 18,
+    DISJOINT_WITH         : 19,
+    DOMAIN                : 20,
+    RANGE                 : 21,
+    SUB_PROPERTY_OF       : 22,
+    INVERSE_OF            : 23,
+    UNION_OF              : 24,
+    EQUIVALENT_PROPERTY   : 25
   });
 
   PredMap = Object.freeze({
     "http://purl.org/dc/terms/"                                 : this.Pred.DC_TERMS,
+    "http://purl.org/dc/elements/1.1/"                          : this.Pred.DC_ELEM,
+    "http://www.w3.org/2002/07/owl#"                            : this.Pred.OWL,
+    "http://www.w3.org/2000/01/rdf-schema"                      : this.Pred.RDFS,
     "http://www.w3.org/2002/07/owl#versionInfo"                 : this.Pred.VERSION_INFO,
     "http://www.w3.org/2002/07/owl#versionIRI"                  : this.Pred.VERSION_IRI,
     "http://www.w3.org/2002/07/owl#imports"                     : this.Pred.IMPORTS,
@@ -250,6 +252,7 @@ export class OWLParser {
     "http://www.w3.org/2000/01/rdf-schema#range"                : this.Pred.RANGE,
     "http://www.w3.org/2000/01/rdf-schema#subPropertyOf"        : this.Pred.SUB_PROPERTY_OF,
     "http://www.w3.org/2002/07/owl#inverseOf"                   : this.Pred.INVERSE_OF,
+    "http://www.w3.org/2002/07/owl#unionOf"                     : this.Pred.UNION_OF,
     "http://www.w3.org/2002/07/owl#equivalentProperty"          : this.Pred.EQUIVALENT_PROPERTY
   });
 
@@ -257,10 +260,9 @@ export class OWLParser {
 
   PredKey = (() => {
     var keys = [];
-    keys.push("")
-    for(const key in this.PredMap) {
-      keys.push(key);
-    }
+    keys.push("");
+    keys.push("");
+    for(const key in this.PredMap) keys.push(key);
     return keys;
   })();
 
@@ -272,16 +274,20 @@ export class OWLParser {
     OWL_NAMED_INDIVIDUAL       : 2,
     OWL_THING                  : 3,
     OWL_CLASS                  : 4,
-    RDF_DATATYPE               : 5,
-    RDF_CLASS                  : 6,
-    RDF_LABEL                  : 7,
-    RDF_LITERAL                : 8,
-    RDF_PROPERTY               : 9,
-    OBJECT_PROPERTY            : 10,
-    DATATYPE_PROPERTY          : 11,
-    FUNCTIONAL_PROPERTY        : 12,
-    INVERSE_FUNCTION_PROPERTY  : 13,
-    ANNOTATION_PROPERTY        : 14
+    OWL_DEPRECATED_CLASS       : 5,
+    RDF_DATATYPE               : 6,
+    RDF_CLASS                  : 7,
+    RDF_LABEL                  : 8,
+    RDF_LITERAL                : 9,
+    RDF_PROPERTY               : 10,
+    OBJECT_PROPERTY            : 11,
+    DATATYPE_PROPERTY          : 12,
+    FUNCTIONAL_PROPERTY        : 13,
+    INVERSE_FUNCTION_PROPERTY  : 14,
+    ANNOTATION_PROPERTY        : 15,
+    SYMMETRIC_PROPERTY         : 16,
+    TRANSITIVE_PROPERTY        : 17,
+    DEPRECATED_PROPERTY        : 18
   });
 
   ObjMap = Object.freeze({
@@ -289,6 +295,7 @@ export class OWLParser {
     "http://www.w3.org/2002/07/owl#NamedIndividual"                 : this.Obj.OWL_NAMED_INDIVIDUAL,
     "http://www.w3.org/2002/07/owl#Thing"                           : this.Obj.OWL_THING,
     "http://www.w3.org/2002/07/owl#Class"                           : this.Obj.OWL_CLASS,
+    "http://www.w3.org/2002/07/owl#DeprecatedClass"                 : this.Obj.OWL_DEPRECATED_CLASS,
     "http://www.w3.org/2000/01/rdf-schema#Datatype"                 : this.Obj.RDF_DATATYPE,
     "http://www.w3.org/2000/01/rdf-schema#Class"                    : this.Obj.RDF_CLASS,
     "http://www.w3.org/2000/01/rdf-schema#label"                    : this.Obj.RDF_LABEL,
@@ -298,15 +305,18 @@ export class OWLParser {
     "http://www.w3.org/2002/07/owl#DatatypeProperty"                : this.Obj.DATATYPE_PROPERTY,
     "http://www.w3.org/2002/07/owl#FunctionalProperty"              : this.Obj.FUNCTIONAL_PROPERTY,
     "http://www.w3.org/2002/07/owl#InverseFunctionalProperty"       : this.Obj.INVERSE_FUNCTION_PROPERTY,
-    "http://www.w3.org/2002/07/owl#AnnotationProperty"              : this.Obj.ANNOTATION_PROPERTY
+    "http://www.w3.org/2002/07/owl#AnnotationProperty"              : this.Obj.ANNOTATION_PROPERTY,
+    "http://www.w3.org/2002/07/owl#SymmetricProperty"               : this.Obj.SYMMETRIC_PROPERTY,
+    "http://www.w3.org/2002/07/owl#TransitiveProperty"              : this.Obj.TRANSITIVE_PROPERTY,
+    "http://www.w3.org/2002/07/owl#DeprecatedProperty"              : this.Obj.DEPRECATED_PROPERTY
+
+
   });
 
   ObjKey = (() => {
     var keys = [];
     keys.push("")
-    for(const key in this.ObjMap) {
-      keys.push(key);
-    }
+    for(const key in this.ObjMap) keys.push(key);
     return keys;
   })();
 
@@ -315,9 +325,13 @@ export class OWLParser {
   ObjClassType = (() => {
     var keys = [];
     keys.push("");
-    for(const key in this.ObjMap) {
-      keys.push(this.extractType(key));
-    }
+    for(const key in this.ObjMap)
+      keys.push((this.isSymmetric(key)  ||
+                 this.isTransitive(key) ||
+                 this.isAnnotation(key)) ? (this.isClass(key) ? keys[this.Obj.OWL_CLASS] :
+                                                                keys[this.Obj.OBJECT_PROPERTY]) :
+                                           (this.isInvFunc(key) ? keys[this.Obj.DATATYPE_PROPERTY] :
+                                                                   this.extractType(key)));
     return keys;
   })();
 
@@ -330,14 +344,15 @@ export class OWLParser {
     EQUIVALENT         : 4,
     FUNCTIONAL         : 5,
     INVERSE_FUNCTIONAL : 6,
-    UNION              : 7
+    UNION              : 7,
+    SYMMETRIC          : 8,
+    TRANSITIVE         : 9,
+    DEPRECATED         : 10
   });
 
   AttrNames = (() => {
     var keys = [];
-    for(var key in this.Attr) {
-      keys.push(key.toLowerCase().replace("_", " "));
-    }
+    for(var key in this.Attr) keys.push(key.toLowerCase().replace("_", " "));
     return keys;
   })();
 
@@ -347,12 +362,16 @@ export class OWLParser {
     r[this.Obj.DATATYPE_PROPERTY]         = this.AttrNames[this.Attr.DATATYPE];
     r[this.Obj.FUNCTIONAL_PROPERTY]       = this.AttrNames[this.Attr.FUNCTIONAL];
     r[this.Obj.INVERSE_FUNCTION_PROPERTY] = this.AttrNames[this.Attr.INVERSE_FUNCTIONAL];
+    r[this.Obj.SYMMETRIC_PROPERTY]        = this.AttrNames[this.Attr.SYMMETRIC];
+    r[this.Obj.TRANSITIVE_PROPERTY]       = this.AttrNames[this.Attr.TRANSITIVE];
+    r[this.Obj.DEPRECATED_PROPERTY]       = this.AttrNames[this.Attr.DEPRECATED];
     return r;
   })());
 
   isClass(obj_val) {
     const obj_kind = this.ObjMap[obj_val];
     return obj_kind == this.Obj.OWL_CLASS ||
+           obj_kind == this.Obj.OWL_DEPRECATED_CLASS ||
            obj_kind == this.Obj.OWL_THING ||
            obj_kind == this.Obj.RDF_LITERAL;
   }
@@ -364,6 +383,10 @@ export class OWLParser {
 
   isLiteral(obj_val) {
     return this.ObjMap[obj_val] == this.Obj.RDF_LITERAL;
+  }
+
+  isOntology(obj_val) {
+    return this.ObjMap[obj_val] == this.Obj.ONTOLOGY;
   }
 
   isLabel(obj_val) {
@@ -382,7 +405,37 @@ export class OWLParser {
     return obj_kind == this.Obj.OBJECT_PROPERTY ||
            obj_kind == this.Obj.DATATYPE_PROPERTY ||
            obj_kind == this.Obj.FUNCTIONAL_PROPERTY ||
-           obj_kind == this.Obj.INVERSE_FUNCTION_PROPERTY;
+           obj_kind == this.Obj.INVERSE_FUNCTION_PROPERTY ||
+           obj_kind == this.Obj.ANNOTATION_PROPERTY ||
+           obj_kind == this.Obj.SYMMETRIC_PROPERTY ||
+           obj_kind == this.Obj.TRANSITIVE_PROPERTY ||
+           obj_kind == this.Obj.DEPRECATED_PROPERTY;
+  }
+
+  isIgnoredProperty(obj_kind) {
+    return obj_kind == this.Obj.ANNOTATION_PROPERTY;
+  }
+
+  isDeprecated(obj_val) {
+    const obj_kind = this.ObjMap[obj_val];
+    return obj_kind == this.Obj.OWL_DEPRECATED_CLASS ||
+           obj_kind == this.Obj.DEPRECATED_PROPERTY;
+  }
+
+  isSymmetric(obj_val) {
+    return this.ObjMap[obj_val] == this.Obj.SYMMETRIC_PROPERTY;
+  }
+
+  isTransitive(obj_val) {
+    return this.ObjMap[obj_val] == this.Obj.TRANSITIVE_PROPERTY;
+  }
+
+  isAnnotation(obj_val) {
+    return this.ObjMap[obj_val] == this.Obj.ANNOTATION_PROPERTY;
+  }
+
+  isInvFunc(obj_val) {
+    return this.ObjMap[obj_val] == this.Obj.INVERSE_FUNCTION_PROPERTY;
   }
 
   splitNS(v) {
@@ -400,9 +453,14 @@ export class OWLParser {
 
   extractType(v) {
     var e = this.splitNS(v);
-    if(this.isProperty(this.ObjMap[v]))
-      e.v = e.v[0].toLowerCase() + e.v.slice(1)
+    if(this.isProperty(this.ObjMap[v])) {
+      e.v = e.v[0].toLowerCase() + e.v.slice(1);
+    }
     return this.NamespaceKey[this.NamespaceMap[e.ns]] + ":" + e.v;
+  }
+
+  getPropType(iri) {
+    return this.ObjClassType[this.ObjMap[iri]] || this.extractType(iri);
   }
 
   getObjType(iri) {
@@ -410,7 +468,7 @@ export class OWLParser {
     return this.ObjClassType[ty];
   }
 
-  getPropType(iri, result) {
+  getSubPropertyOfType(iri) {
     switch(iri) {
         case "http://www.w3.org/2002/07/owl#topObjectProperty":
             return this.Obj.OBJECT_PROPERTY;
@@ -418,6 +476,12 @@ export class OWLParser {
             return this.Obj.DATATYPE_PROPERTY;
     }
     return this.Obj.OBJECT_PROPERTY;
+  }
+
+  getValue(item) {
+    if(item.termType == "BlankNode")
+      return "";
+    return item.value;
   }
 
   cleanIri(iri) {
@@ -440,47 +504,36 @@ export class OWLParser {
 
   addComment(attr, triple, result) {
     let comment = attr.comment || (attr.comment = {});
-    comment[this.addLang(triple.object, result)] = triple.object.value;
+    comment[this.addLang(triple.object, result)] = this.getValue(triple.object);
+  }
+
+  addLabels(attr, triple, result) {
+    let labels = attr.labels || (attr.labels = {});
+    labels[this.addLang(triple.object, result)] = this.getValue(triple.object);
   }
 
   addLabel(attr, triple, result) {
-    attr.label[this.addLang(triple.object, result)] = triple.object.value;
+    attr.label[this.addLang(triple.object, result)] = this.getValue(triple.object);
   }
 
   addDescription(attr, triple, result) {
     let description = attr.description || (attr.description = {});
-    description[this.addLang(triple.object, result)] = triple.object.value;
+    description[this.addLang(triple.object, result)] = this.getValue(triple.object);
   }
 
   addTitle(attr, triple, result) {
     let title = attr.title || (attr.title = {});
-    title[this.addLang(triple.object, result)] = triple.object.value;
-  }
-
-  addOther(attr, type, triple, result) {
-    let other = attr.other || (attr.other = {});
-    let ot = other[type] || (other[type] = []);
-    let obj  = triple.object;
-    let e = obj.termType == "Literal" ? "label" : "iri";
-    let item = {
-      identifier:type,
-      language:obj.language || "undefined",
-      type:e,
-      value:obj.value
-    };
-
-    this.addLang(obj, result);
-    ot.push(item);
+    title[this.addLang(triple.object, result)] = this.getValue(triple.object);
   }
 
   addAuthor(attr, triple, result) {
     let au = attr.author || (attr.author = []);
-    au.push(triple.object.value);
+    au.push(this.getValue(triple.object));
   }
 
 
   addDomain(attr, triple, result) {
-    const domain = result.tmp.classMap[triple.object.value];
+    const domain = result.tmp.classMap[this.getValue(triple.object)];
     if(attr.domain === undefined) {
         attr.domain = domain;
     } else {
@@ -491,7 +544,7 @@ export class OWLParser {
   }
 
   addRange(attr, triple, result) {
-    const range = result.tmp.classMap[triple.object.value];
+    const range = result.tmp.classMap[this.getValue(triple.object)];
     if(attr.range === undefined) {
         attr.range = range;
     } else {
@@ -502,7 +555,7 @@ export class OWLParser {
   }
 
   addPropInverse(attr, triple, result) {
-    var propId = result.tmp.propMap[triple.object.value];
+    var propId = result.tmp.propMap[this.getValue(triple.object)];
     var objAttr = result.propertyAttribute[propId];
     if(objAttr.inverse === undefined)
       attr.inverse = propId;
@@ -527,33 +580,36 @@ export class OWLParser {
   }
 
   addSubProperty(attr, triple, result) {
-    const obj_propId = result.tmp.propMap[triple.object.value] ?? -1;
-    const subj_propId = result.tmp.propMap[triple.subject.value] ?? -1;
+    const obj_propId = result.tmp.propMap[this.getValue(triple.object)] ?? -1;
+    const subj_propId = result.tmp.propMap[this.getValue(triple.subject)] ?? -1;
     if(obj_propId == -1 || subj_propId == -1)
       return;
-    const tattr = result.propertyAttribute[obj_propId];
-    let sp = tattr.subproperty || (tattr.subproperty = []);
-    if(sp.indexOf(subj_propId) == -1) sp.push(subj_propId);
+    this.insertSubProperty(result.propertyAttribute[obj_propId], subj_propId, result);
     this.addSuperProperty(attr, triple, result);
+  }
+
+  insertSubProperty(attr, propId, result) {
+    let sp = attr.subproperty || (attr.subproperty = []);
+    if(sp.indexOf(propId) == -1) sp.push(propId);
   }
 
   addSuperProperty(attr, triple, result) {
     let sp = attr.superproperty || (attr.superproperty = []);
-    let propId = result.tmp.propMap[triple.object.value];
+    let propId = result.tmp.propMap[this.getValue(triple.object)];
     if(sp.indexOf(propId) == -1) sp.push(propId);
   }
 
   addSuperClass(attr, triple, result) {
     let sc = attr.superClasses || (attr.superClasses = []);
-    let clsId = result.tmp.classMap[triple.object.value];
+    let clsId = result.tmp.classMap[this.getValue(triple.object)];
     if(sc.indexOf(clsId) == -1) sc.push(clsId);
   }
 
   addSubClass(attr, triple, result) {
-    const obj_clsId = result.tmp.classMap[triple.object.value] ?? -1;
-    const subj_clsId = result.tmp.classMap[triple.subject.value] ?? -1;
+    const obj_clsId = result.tmp.classMap[this.getValue(triple.object)] ?? -1;
+    const subj_clsId = result.tmp.classMap[this.getValue(triple.subject)] ?? -1;
     if(obj_clsId < 0) {
-      if(this.PredMap[triple.predicate.value] != this.Pred.SUB_CLASS_OF || triple.object.value != this.OWLThing)
+      if(this.PredMap[this.getValue(triple.predicate)] != this.Pred.SUB_CLASS_OF || this.getValue(triple.object) != this.OWLThing)
         console.log("addSubClass error", triple)
       return;
     }
@@ -568,21 +624,37 @@ export class OWLParser {
   handleClassAttribute(preds, kind, result) {
     if(!preds[kind]) return;
     for(const t of preds[kind]) {
-      const clsId = result.tmp.classMap[t.subject.value] ?? -1;
-      if(clsId < 0) continue;
-      var attr = result.classAttribute[clsId];
-      switch(kind) {
-        case this.Pred.COMMENT:
-          this.addComment(attr, t, result);
-          break;
-        case this.Pred.LABEL:
-          this.addLabel(attr, t, result);
-          break;
-        case this.Pred.SUB_CLASS_OF:
-          this.addSubClass(attr, t, result);
-          break;
-        default:
-          break;
+      const target = this.getValue(t.subject);
+      var attr = this.getClassAttr(target, result);
+      if(!attr)
+        continue;
+
+      if(attr._hdr) {
+        attr = attr._hdr;
+        switch(kind) {
+          case this.Pred.COMMENT:
+            this.addComment(attr, t, result);
+            break;
+          case this.Pred.LABEL:
+            this.addLabels(attr, t, result);
+            break;
+          default:
+            break;
+        }
+      } else {
+        switch(kind) {
+          case this.Pred.COMMENT:
+            this.addComment(attr, t, result);
+            break;
+          case this.Pred.LABEL:
+            this.addLabel(attr, t, result);
+            break;
+          case this.Pred.SUB_CLASS_OF:
+            this.addSubClass(attr, t, result);
+            break;
+          default:
+            break;
+        }
       }
     }
   }
@@ -605,13 +677,27 @@ export class OWLParser {
            ns == this.Namespace.XML;
   }
 
+  updateClass(orig, other, attr) {
+    if(other.deprecated) {
+      delete orig.deprecated;
+      this.addAttr(attr, this.Attr.DEPRECATED);
+    }
+    if(this.ObjClassType.indexOf(orig.type) > this.ObjClassType.indexOf(other.type)) {
+      orig.type = other.type;
+    }
+  }
+
   insertClass(cls, iri, result) {
+      if(!iri) return;
       const e = this.splitNS(iri);
       const isLiteral = this.isLiteral(iri);
       const isThing = this.isThing(iri);
       const internalNS = this.isInternalNS(this.NamespaceMap[e.ns]);
-      if(result.tmp.classMap[iri] !== undefined)
-          return;
+      const clsId = result.tmp.classMap[iri];
+      if(clsId !== undefined) {
+        this.updateClass(result.class[clsId], cls, result.classAttribute[clsId]);
+        return;
+      }
       let base = this.cleanIri(e.ns);
       let attr = {
         iri:iri,
@@ -621,8 +707,10 @@ export class OWLParser {
       if(e.v) attr.label["IRI-based"] = e.v;
       if(!isLiteral && !isThing) {
         if(!internalNS || e.v == "Class") {
-            if(base != result.tmp.cleanBaseIri)
+            if(base != result.tmp.cleanBaseIri) {
+              result.tmp.baseIris[this.NamespaceType[this.Namespace.RDFS]] = 1;
               this.addAttr(attr, this.Attr.EXTERNAL);
+            }
             attr.instances = 0;
         }
       } else {
@@ -633,8 +721,11 @@ export class OWLParser {
       if(!isThing && !isLiteral)
         attr.baseIri = base;
 
-      if(attr.baseIri)
+      if(attr.baseIri) {
         result.tmp.baseIris[attr.baseIri] = 1;
+      }
+
+      this.updateClass(cls, cls, attr);
 
       result.class.push(cls);
       result.classAttribute.push(attr);
@@ -663,14 +754,13 @@ export class OWLParser {
   addClassFromType(preds, result) {
     if(!preds) return;
     for(const triple of preds) {
-      const iri = triple.object.value;
-      if(!this.isClass(iri))
+      const iri = this.getValue(triple.object);
+      const targetIri = this.getValue(triple.subject);
+
+      if(!this.isClass(iri) || targetIri == result.header.iri)
         continue;
-      let cls = {
-        id:result.class.length,
-        type:this.getObjType(iri)
-      };
-      this.insertClass(cls, triple.subject.value, result);
+
+      this.addClassFromIri(iri, targetIri, result, this.isDeprecated(iri));
     }
   }
 
@@ -681,7 +771,7 @@ export class OWLParser {
         id:result.class.length,
         type:"owl:equivalentClass"
       };
-      let attrA = this.insertClass(cls, triple.subject.value, result);
+      let attrA = this.insertClass(cls, this.getValue(triple.subject), result);
       if(attrA)
         this.addAttr(attrA, this.Attr.EQUIVALENT);
 
@@ -689,38 +779,33 @@ export class OWLParser {
         id:result.class.length,
         type:"owl:equivalentClass"
       };
-      let attrB = this.insertClass(cls, triple.object.value, result);
+      let attrB = this.insertClass(cls, this.getValue(triple.object), result);
       if(attrB)
         this.addAttr(attrB, this.Attr.EQUIVALENT);
 
       if(attrA)
-        this.addPropEquivalent(attrA, triple.object.value, result);
+        this.addPropEquivalent(attrA, this.getValue(triple.object), result);
       if(attrB)
-        this.addPropEquivalent(attrB, triple.subject.value, result);
+        this.addPropEquivalent(attrB, this.getValue(triple.subject), result);
     }
   }
 
-  addClassFromDomain(preds, result) {
-    if(!preds) return;
-    for(const triple of preds) {
-      const iri = triple.object.value;
-      let cls = {
-        id:result.class.length,
-        type:this.getObjType(iri)
-      };
-      this.insertClass(cls, iri, result);
-    }
+  addClassFromIri(typeIri, iri, result, deprecated) {
+    let cls = {
+      id:result.class.length,
+      type:typeIri ? this.getObjType(typeIri) : "owl:Thing"
+    };
+    if(deprecated)
+        cls.deprecated = true;
+    return this.insertClass(cls, iri, result);
   }
 
-  addClassFromRange(preds, result) {
+  addClassFromObject(preds, result) {
     if(!preds) return;
     for(const triple of preds) {
-      const iri = triple.object.value;
-      let cls = {
-        id:result.class.length,
-        type:this.getObjType(iri)
-      };
-      this.insertClass(cls, iri, result);
+      const iri = this.getValue(triple.object);
+      if(!iri) continue;
+      this.addClassFromIri(iri, iri, result);
     }
   }
 
@@ -731,7 +816,7 @@ export class OWLParser {
         id:result.class.length,
         type:"owl:Class"
       };
-      var iri = triple.subject.value;
+      var iri = this.getValue(triple.subject);
       if(!this.isThing(iri))
         this.insertClass(cls, iri, result);
 
@@ -739,14 +824,54 @@ export class OWLParser {
         id:result.class.length,
         type:"owl:Class"
       };
-      var iri = triple.object.value;
+      var iri = this.getValue(triple.object);
       if(!this.isThing(iri))
         this.insertClass(cls, iri, result);
     }
   }
 
+  addClassFromUnionOf(preds, result) {
+    if(!preds) return;
+    for(const triple of preds) {
+      const el = triple.object.elements;
+      let union = [];
+      for(const e of el) {
+        const iri = this.getValue(e);
+        var clsId = result.tmp.classMap[iri] ?? -1;
+        if(clsId == -1) {
+          clsId = this.addClassFromIri(iri, iri, result).id;
+        }
+        if(union.indexOf(clsId) == -1) union.push(clsId);
+      }
+      let cls = {
+        id:result.class.length,
+        type:"owl:unionOf"
+      };
+      let attr = {
+        id:cls.id,
+        instances:0,
+        union:union
+      };
+
+      let key = "";
+      union.sort();
+      for(const id of union)
+        key += id + "_";
+
+      if(result.tmp.unionMap[key])
+        continue;
+      result.tmp.unionMap[key] = 1;
+
+      this.addAttr(attr, this.Attr.ANONYMOUS);
+      this.addAttr(attr, this.Attr.UNION);
+      result.class.push(cls);
+      result.classAttribute.push(attr);
+    }
+  }
+
   addAttrStr(attr, vstr) {
     let a = attr.attributes || (attr.attributes = []);
+    if(!vstr) return;
     if(a.indexOf(vstr) == -1) a.push(vstr);
   }
 
@@ -754,17 +879,22 @@ export class OWLParser {
     this.addAttrStr(attr, this.AttrNames[v]);
   }
 
-  updateProp(orig, other) {
+  updateProp(orig, other, attr) {
+    if(other.deprecated) {
+        delete orig.deprecated;
+        this.addAttr(attr, this.Attr.DEPRECATED);
+    }
     if(this.ObjClassType.indexOf(orig.type) > this.ObjClassType.indexOf(other.type)) {
       orig.type = other.type;
     }
   }
 
-  addPropType(attr, type) {
-    this.addAttrStr(attr, this.AttrMap[type] ?? "undefined");
+  addPropType(attr, realType) {
+    let ty = this.AttrMap[realType];
+    this.addAttrStr(attr, ty);
   }
 
-  insertProp(prop, type, iri, result) {
+  insertProp(prop, realType, iri, result) {
       const e = this.splitNS(iri);
       const base = this.cleanIri(e.ns);
       let propAttr = {
@@ -776,13 +906,20 @@ export class OWLParser {
       if(e.v) propAttr.label["IRI-based"] = e.v;
       let propId = result.tmp.propMap[iri];
       if(propId !== undefined) {
-        this.updateProp(result.property[propId], prop);
-        this.addPropType(result.propertyAttribute[propId], type);
+        let attr = result.propertyAttribute[propId];
+        this.updateProp(result.property[propId], prop, attr);
+        this.addPropType(attr, realType);
         return;
       }
       if(base != result.tmp.cleanBaseIri)
           this.addAttr(propAttr, this.Attr.EXTERNAL);
-      this.addPropType(propAttr, type);
+      this.addPropType(propAttr, realType);
+
+      if(prop.deprecated) {
+        delete prop.deprecated;
+        this.addAttr(propAttr, this.Attr.DEPRECATED);
+      }
+
       result.property.push(prop);
       result.propertyAttribute.push(propAttr);
       result.tmp.propMap[iri] = prop.id;
@@ -801,8 +938,8 @@ export class OWLParser {
         domain: 0
       };
 
-      let objId = result.tmp.classMap[t.object.value];
-      let subjId = result.tmp.classMap[t.subject.value];
+      let objId = result.tmp.classMap[this.getValue(t.object)];
+      let subjId = result.tmp.classMap[this.getValue(t.subject)];
       let a = objId;
       let b = subjId;
       if(a < b) {
@@ -836,10 +973,10 @@ export class OWLParser {
         id : prop.id,
         domain: 0
       };
-      if(this.isThing(t.object.value))
+      if(this.isThing(this.getValue(t.object)))
         continue;
-      const objId = result.tmp.classMap[t.object.value];
-      const subjId = result.tmp.classMap[t.subject.value];
+      const objId = result.tmp.classMap[this.getValue(t.object)];
+      const subjId = result.tmp.classMap[this.getValue(t.subject)];
 
       const a = propAttr.range = objId;
       const b = propAttr.domain = subjId;
@@ -859,7 +996,7 @@ export class OWLParser {
   addPropFromSubPropertyOf(preds, result) {
     if(!preds) return;
     for(const t of preds) {
-        const iri = t.object.value;
+        const iri = this.getValue(t.object);
         let prop = {
             id:result.property.length,
         };
@@ -871,7 +1008,7 @@ export class OWLParser {
 
         const propId = result.tmp.propMap[iri] ?? -1;
         if(propId == -1) {
-            let propType = this.getPropType(iri, result);
+            let propType = this.getSubPropertyOfType(iri);
             this.insertProp(prop, propType, iri, result);
             result.tmp.propMap[iri] = prop.id;
             prop.type = this.ObjClassType[propType];
@@ -882,14 +1019,18 @@ export class OWLParser {
   addPropFromType(preds, result) {
     if(!preds) return;
     for(const t of preds) {
-      const propType = this.ObjMap[t.object.value] ?? 0;
-      if(this.isProperty(propType)) {
-        let v = t.object.value;
+      const propType = this.ObjMap[this.getValue(t.object)] ?? 0;
+      if(this.isProperty(propType) && !this.isIgnoredProperty(propType)) {
+        let v = this.getValue(t.object);
         let prop = {
           id:result.property.length,
-          type:this.extractType(v)
+          type:this.getPropType(v)
         };
-        this.insertProp(prop, propType, t.subject.value, result);
+
+        if(this.isDeprecated(v))
+          prop.deprecated = true;
+
+        this.insertProp(prop, propType, this.getValue(t.subject), result);
       }
     }
   }
@@ -897,7 +1038,7 @@ export class OWLParser {
   handlePropAttribute(preds, kind, result, by_pred) {
     if(!preds[kind]) return;
     for(const t of preds[kind]) {
-      const propId = result.tmp.propMap[t.subject.value] ?? -1;
+      const propId = result.tmp.propMap[this.getValue(t.subject)] ?? -1;
       if(propId < 0) continue;
       var attr = result.propertyAttribute[propId];
       switch(kind) {
@@ -931,19 +1072,38 @@ export class OWLParser {
   handleDescription(preds, result) {
     if(!preds) return;
     for(const t of preds) {
-      const iri = this.cleanIri(t.subject.value);
+      const iri = this.cleanIri(this.getValue(t.subject));
       if(iri == result.tmp.cleanBaseIri) {
         this.addDescription(result.header, t, result);
       }
     }
   }
 
+  getAttr(iri, result) {
+      var id = result.tmp.classMap[iri] ?? -1;
+      if(id != -1) return result.classAttribute[id];
+      id = result.tmp.propMap[iri] ?? -1;
+      if(id != -1) return result.propertyAttribute[id];
+      if(result.header.iri == iri) return { _hdr:result.header };
+      return null;
+  }
+
+  getClassAttr(iri, result) {
+      var id = result.tmp.classMap[iri] ?? -1;
+      if(id != -1) return result.classAttribute[id];
+      if(result.header.iri == iri) return { _hdr:result.header };
+      return null;
+  }
+
   handleDCTerms(preds, result) {
     if(!preds) return;
     const base = result.tmp.cleanBaseIri;
     for(const t of preds) {
-      const type = t.predicate.value.substr(t.predicate.value.lastIndexOf("/") + 1);
-      const iri = this.cleanIri(t.subject.value);
+      const predicate = this.getValue(t.predicate);
+      const type = predicate.substr(predicate.lastIndexOf("/") + 1);
+      const iri = this.cleanIri(this.getValue(t.subject));
+      if(result.tmp.propMap[predicate] ?? 0)
+        continue;
       if(iri == base) {
         switch(type) {
           case "creator":
@@ -959,6 +1119,18 @@ export class OWLParser {
             this.addOther(result.header, type, t, result);
             break;
         }
+      } else {
+        const target = this.getValue(t.subject);
+        var id = result.tmp.classMap[target] ?? -1;
+        var attrs = result.classAttribute;
+        if(id == -1) {
+          id = result.tmp.propMap[target] ?? -1;
+          attrs = result.propertyAttribute;
+        }
+        if(id == -1)
+          continue;
+        this.addOther(attrs[id], type, t, result);
+
       }
     }
   }
@@ -967,16 +1139,27 @@ export class OWLParser {
     if(!preds) return;
     const base = result.tmp.cleanBaseIri;
     for(const t of preds) {
-      const type = t.predicate.value.substr(t.predicate.value.lastIndexOf("#") + 1);
-      const iri = this.cleanIri(t.subject.value);
-      if(iri == base) {
+      const type = this.getValue(t.predicate).substr(this.getValue(t.predicate).lastIndexOf("#") + 1);
+      const target = this.getValue(t.subject);
+      var attr = this.getAttr(target, result);
+      if(!attr)
+        continue;
+      if(attr._hdr) {
         switch(type) {
           case "imports":
             break;
           case "versionInfo":
-            result.header.version = t.object.value;
+            result.header.version = this.getValue(t.object);
             break;
           case "versionIRI":
+            break;
+          default:
+            break;
+        }
+      } else {
+        switch(type) {
+          case "versionInfo":
+            this.addAnnotation(attr, type, t, result);
             break;
           default:
             break;
@@ -985,74 +1168,94 @@ export class OWLParser {
     }
   }
 
+  handleRDFS(preds, result) {
+    if(!preds) return;
+    for(const t of preds) {
+      const type = this.getValue(t.predicate).substr(this.getValue(t.predicate).lastIndexOf("#") + 1);
+      const target = this.getValue(t.subject);
+      var attr = this.getAttr(target, result);
+      if(!attr)
+        continue;
+      switch(type) {
+        case "seeAlso":
+          if(attr._hdr)
+            this.addOther(result.header, type, t, result);
+          else
+            this.addAnnotation(attr, type, t, result);
+          break;
+        case "label":
+          console.log("label")
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
   handleTitle(preds, result) {
     if(!preds) return;
     const base = result.tmp.cleanBaseIri;
     for(const t of preds) {
-      const iri = this.cleanIri(t.subject.value);
+      const iri = this.cleanIri(this.getValue(t.subject));
       if(iri == base) {
         this.addTitle(result.header, t, result);
       }
     }
   }
 
-  addDefinedBy(target, triple, result) {
-    let at = target.annotations || (target.annotations = {});
-    let db = at.isDefinedBy || (at.isDefinedBy = []);
-    let definedBy = {
-        identifier: "isDefinedBy",
-        language: "undefined",
-        type: "iri",
-        value: triple.object.value
-    }
-    this.addLang(definedBy, result);
-    db.push(definedBy);
+  addOther(attr, type, triple, result) {
+    let other = attr.other || (attr.other = {});
+    let ot = other[type] || (other[type] = []);
+    let obj  = triple.object;
+    let e = obj.termType == "Literal" ? "label" : "iri";
+    let item = {
+      identifier:type,
+      language:obj.language || "undefined",
+      type:e,
+      value:obj.value
+    };
+
+    this.addLang(obj, result);
+    ot.push(item);
   }
 
-  addTermStatus(target, triple, result) {
-    let at = target.annotations || (target.annotations = {});
-    let ts = at.term_status || (at.term_status = []);
-    const isLiteral = this.isLiteralTerm(triple.object) || this.isLiteral(triple.object.value);
-    let term_status = {
-        identifier: "term_status",
-        value: triple.object.value
-    }
-    if(isLiteral) {
-      term_status.type = "label"
-      term_status.language = this.addLang(triple.object, result);
-    }
-    ts.push(term_status);
+  addAnnotation(attr, type, triple, result) {
+    let anno = attr.annotations || (attr.annotations = {});
+    let at = anno[type] || (anno[type] = []);
+    let obj  = triple.object;
+    let e = obj.termType == "Literal" ? "label" : "iri";
+    let item = {
+      identifier:type,
+      language:obj.language || "undefined",
+      type:e,
+      value:obj.value
+    };
+
+    this.addLang(obj, result);
+    at.push(item);
   }
 
   handleDefinedBy(preds, result) {
     if(!preds) return;
     for(const t of preds) {
-      var id = result.tmp.classMap[t.subject.value] ?? -1;
-      if(id >= 0) {
-        this.addDefinedBy(result.classAttribute[id], t, result);
+      const target = this.getValue(t.subject);
+      var attr = this.getAttr(target, result);
+      if(!attr)
         continue;
-      }
-      id = result.tmp.propMap[t.subject.value] ?? -1;
-      if(id >= 0) {
-        this.addDefinedBy(result.propertyAttribute[id], t, result);
-        continue;
-      }
+
+      this.addAnnotation(attr, "isDefinedBy", t, result);
     }
   }
 
   handleTermStatus(preds, result) {
     if(!preds) return;
     for(const t of preds) {
-      var id = result.tmp.classMap[t.subject.value] ?? -1;
-      if(id >= 0) {
-        this.addTermStatus(result.classAttribute[id], t, result);
+      const target = this.getValue(t.subject);
+      var attr = this.getAttr(target, result);
+      if(!attr)
         continue;
-      }
-      id = result.tmp.propMap[t.subject.value] ?? -1;
-      if(id >= 0) {
-        this.addTermStatus(result.propertyAttribute[id], t, result);
-        continue;
-      }
+
+      this.addAnnotation(attr, "term_status", t, result);
     }
   }
 
@@ -1072,9 +1275,9 @@ export class OWLParser {
   addIndivFromType(preds, result) {
     if(!preds) return;
     for(const triple of preds) {
-      if(!this.isIndiv(triple.object.value))
+      if(!this.isIndiv(this.getValue(triple.object)))
         continue;
-      let iri = triple.subject.value;
+      let iri = this.getValue(triple.subject);
       let e = this.splitNS(iri);
       const base = this.cleanIri(e.ns);
       let indiv = {
@@ -1090,8 +1293,8 @@ export class OWLParser {
   addIndivToClass(preds, result) {
     if(!preds) return;
     for(const triple of preds) {
-      const indiv = result.tmp.indivMap[triple.subject.value];
-      const targetId = result.tmp.classMap[triple.object.value] || -1;
+      const indiv = result.tmp.indivMap[this.getValue(triple.subject)];
+      const targetId = result.tmp.classMap[this.getValue(triple.object)] || -1;
       if(targetId == -1 || !indiv)
         continue;
       this.insertIndiv(result.classAttribute[targetId], indiv);
@@ -1123,6 +1326,7 @@ export class OWLParser {
         if(it.domain == undefined)
           it.domain = thingClsId, addedThing = 0;
       } else {
+
         if(hasInvFunct) {
           const propId = result.tmp.propMap[it.iri];
           if(hasDataType) {
@@ -1135,6 +1339,11 @@ export class OWLParser {
           }
         }
 
+        if(!hasObj && result.property[it.id].type == this.ObjClassType[this.Obj.OBJECT_PROPERTY]) {
+            attrs.push(this.AttrNames[this.Attr.OBJECT]);
+            hasObj = true;
+        }
+
         if(!hasObj && it.subproperty) {
           for(const propId of it.subproperty) {
             let target = result.propertyAttribute[propId];
@@ -1145,6 +1354,7 @@ export class OWLParser {
           }
           delete it.subproperty;
         }
+
       }
       if(hasDataType) {
         if(Array.isArray(it.domain))
@@ -1221,13 +1431,49 @@ export class OWLParser {
     }
   }
 
+  handleAnnotations(preds, result) {
+    if(!preds) return;
+    let tmpPreds = [];
+    const base = result.tmp.cleanBaseIri;
+    for(const t of preds) {
+      const iri = this.cleanIri(this.getValue(t.subject));
+      var kind = this.PredMap[t.predicate.value] ?? 0;
+      let e = this.splitNS(t.predicate.value);
+      if(kind == 0) {
+        kind = this.PredMap[e.ns] ?? 0;
+      }
+
+      switch(kind) {
+        case this.Pred.DESCRIPTION:
+        case this.Pred.TITLE:
+        case this.Pred.DC_TERMS:
+        case this.Pred.DC_ELEM:
+          tmpPreds[0] = t;
+          this.handleDCTerms(tmpPreds, result);
+          break;
+        default:
+          const type = e.v;
+          const target = this.getValue(t.subject);
+          var attr = this.getAttr(target, result);
+          if(!attr)
+            continue;
+          if(attr._hdr)
+            this.addOther(result.header, type, t, result);
+          else
+            this.addAnnotation(attr, type, t, result);
+          break;
+      }
+    }
+  }
+
   handlePreds(preds, result) {
     this.addClassFromEquivalentClass(preds[this.Pred.EQUIVALENT_CLASS],result);
     this.addClassFromType(preds[this.Pred.TYPE],result);
-    this.addClassFromDomain(preds[this.Pred.DOMAIN],result);
-    this.addClassFromRange(preds[this.Pred.RANGE],result);
+    this.addClassFromObject(preds[this.Pred.DOMAIN],result);
+    this.addClassFromObject(preds[this.Pred.RANGE],result);
     this.addClassFromSubClassOf(preds[this.Pred.SUB_CLASS_OF],result);
     this.addIndivFromType(preds[this.Pred.TYPE], result);
+    this.addClassFromUnionOf(preds[this.Pred.UNION_OF], result);
 
     this.addIndivToClass(preds[this.Pred.TYPE], result);
 
@@ -1247,10 +1493,12 @@ export class OWLParser {
     this.handlePropAttribute(preds, this.Pred.INVERSE_OF, result);
     this.handlePropAttribute(preds, this.Pred.SUB_PROPERTY_OF, result);
 
+    this.handleAnnotations(preds[this.Pred.ANNOTATION_DATA], result);
+    this.handleRDFS(preds[this.Pred.RDFS], result);
+    this.handleDCTerms(preds[this.Pred.DC_TERMS], result);
     this.handleOWL(preds[this.Pred.IMPORTS], result);
     this.handleOWL(preds[this.Pred.VERSION_INFO], result);
     this.handleOWL(preds[this.Pred.VERSION_IRI], result);
-    this.handleDCTerms(preds[this.Pred.DC_TERMS], result);
     this.handleDescription(preds[this.Pred.DESCRIPTION], result);
     this.handleTitle(preds[this.Pred.TITLE], result);
     this.handleDefinedBy(preds[this.Pred.IS_DEFINED_BY], result);
@@ -1293,10 +1541,10 @@ export class OWLParser {
     }
   }
 
-  initResult(result, baseIri) {
+  initResult(result, annoMap, baseIri) {
     result._comment = "Created with WebVOWL";
     result.header = {
-      iri:this.cleanBaseIri(baseIri)
+      iri:baseIri
     };
     result.namespace = [];
     result.class = [];
@@ -1310,6 +1558,8 @@ export class OWLParser {
       disjointMap:{},
       subclassMap:{},
       indivMap:{},
+      unionMap:{},
+      annoMap:annoMap,
       baseIris:{},
       cleanBaseIri:this.cleanIri(result.header.iri)
     };
@@ -1319,29 +1569,36 @@ export class OWLParser {
     delete result.tmp;
   }
 
-  async parseData(rdfData, baseIri, contentType, preds, iriMap) {
+  async parseData(rdfData, baseIri, contentType, tmp, initial) {
     if(!contentType || !this.MimeMap[contentType]) {
         contentType = this.MimeExtMap["owl"];
     }
     let data = this.parse(rdfData, baseIri, contentType);
+    let preds = tmp.preds;
 
     let imports = [];
     for(const s of data.stmts) {
         var kind = this.PredMap[s.predicate.value] ?? 0;
         if(kind == this.Pred.IMPORTS)
           imports.push(s);
+        if(initial && kind == this.Pred.TYPE && this.isOntology(s.object.value)) {
+          initial = false;
+          tmp.iri = s.subject.value;
+        }
+        if(kind == this.Pred.TYPE && this.isAnnotation(s.object.value))
+          tmp.annoMap[s.subject.value] = 1;
     }
 
     for(const toImport of imports) {
-        let iri = toImport.object.value;
+        let iri = this.getValue(toImport.object);
         let baseIri = this.cleanIri(iri);
-        if(!preds.loaded[baseIri]) {
-            preds.loaded[baseIri] = 1;
-            const req = await fetch(iriMap[baseIri] || baseIri);
+        if(!tmp.loaded[baseIri]) {
+            tmp.loaded[baseIri] = 1;
+            const req = await fetch(tmp.iriMap[baseIri] || baseIri);
             if(!req.ok)
                 throw "failed to load";
             const rData = await req.text();
-            await this.parseData(rData, baseIri, req.headers.get("Content-Type"), preds, iriMap);
+            await this.parseData(rData, baseIri, req.headers.get("Content-Type"), tmp);
         }
     }
 
@@ -1349,32 +1606,40 @@ export class OWLParser {
         var kind = this.PredMap[s.predicate.value] ?? 0;
         if(kind == 0) {
           let pe = this.splitNS(s.predicate.value);
-          if(pe.ns == this.PredKey[this.Pred.DC_TERMS]) {
-            kind = this.Pred.DC_TERMS;
-          }
+          kind = this.PredMap[pe.ns] ?? 0;
+        }
+        if(tmp.annoMap[s.predicate.value]) {
+          kind = this.Pred.ANNOTATION_DATA;
         }
         preds[kind].push(s);
     }
 
     for(const ns in data.ns) {
-        preds.ns[ns] = data.ns[ns];
+        tmp.ns[ns] = data.ns[ns];
     }
   }
 
   async transform(rdfData, baseIri, contentType, iriMap) {
     let result = {};
     let preds = [...Array(this.PredCount)].map(_=>[]);
-    preds.ns = {};
-    preds.loaded = {};
-    await this.parseData(rdfData, baseIri, contentType, preds, iriMap);
+    let tmp = {
+      preds:preds,
+      ns:{},
+      loaded:{},
+      iriMap:iriMap,
+      annoMap:{}
+    }
+    await this.parseData(rdfData, baseIri, contentType, tmp, true);
 
-    this.initResult(result, baseIri);
+    if(tmp.iri)
+      baseIri = tmp.iri;
+    this.initResult(result, tmp.annoMap, baseIri);
     this.handlePreds(preds, result);
     this.sanatizeResult(result);
     this.applySplitRules(result);
     this.handleLanguages(result);
     this.handleBaseIris(result);
-    this.handlePrefixList(preds.ns, result);
+    this.handlePrefixList(tmp.ns, result);
     this.finiResult(result);
     return result;
   }
