@@ -29,7 +29,7 @@ try {
     var rdfData = fs.readFileSync(file).toString();
     const baseIri = "http://xmlns.com/foaf/0.1/";
     let iriMap = { "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl": "marinetlo.owl"};
-    parser.transform(rdfData, baseIri, parser.MimeExtMap["owl"], iriMap).then((result) => {
+    parser.transform(rdfData, baseIri, parser.getMime("owl"), iriMap).then((result) => {
         result = (new VOWLSorter()).sort(result);
         console.log(JSON.stringify(result, null, 2));
     });

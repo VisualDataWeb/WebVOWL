@@ -45,10 +45,15 @@ export class VOWLSorter {
       if(can_cmp(attrMap[a.id].iri, attrMap[b.id].iri))
         return cmp(attrMap[a.id].iri, attrMap[b.id].iri);
       if(attrMap[a.id].union && attrMap[b.id].union) {
-        let unionA = attrMap[a.id].union.sort();
-        let unionB = attrMap[b.id].union.sort();
+        let unionA = attrMap[a.id].union;
+        let unionB = attrMap[b.id].union;
         if(unionA.length != unionB.length)
           return unionA.length - unionB.length;
+        let sorter = (a, b) => {
+            return cmp(attrMap[a].iri, attrMap[b].iri);
+        };
+        unionA.sort(sorter);
+        unionB.sort(sorter);
         for(let idx = 0; idx < unionA.length; idx += 1) {
           if(unionA[idx] != unionB[idx])
             return cmp(attrMap[unionA[idx]].iri, attrMap[unionB[idx]].iri);
