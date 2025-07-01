@@ -180,6 +180,24 @@ export class VOWLSorter {
     }
     function fixPropAttr(key, value, parent) {
       switch(key) {
+        case "equivalent":
+          var a = [];
+          value.forEach((it, idx) => {
+            value[idx] = propIdMap[it];
+
+            let target = data.propertyAttribute[value[idx]];
+            if(parent.iri.localeCompare(target.iri) > 0) {
+              if(!target.equivalent) target.equivalent = [];
+              if(target.equivalent.indexOf(parent.id) == -1) target.equivalent.push(parent.id);
+            } else {
+              if(a.indexOf(value[idx]) == -1) a.push(value[idx]);
+            }
+          });
+          parent[key] = a;
+          if(a.length == 0)
+            delete parent[key];
+          a.sort();
+          break;
         case "inverse":
           parent.inverse = propIdMap[value];
           let target = data.propertyAttribute[parent.inverse];

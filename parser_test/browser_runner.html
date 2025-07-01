@@ -11,16 +11,12 @@ window.onload = () => {
     web.init();
 
     let test ={
-  "file":"data/StackExchange.ttl",
-  "compare":"sorted_data/StackExchange_sorted.json",
-  "baseIri": "http://rdf.vis.uni-stuttgart.de/stackexchange",
+  "file":"data/sioc.rdf",
+  "compare":"sorted_data/sioc_sorted.json",
+  "baseIri": "http://rdfs.org/sioc/ns#",
   "iriMap": {
-    "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl": "data/marinetlo.owl"
   }
 }
-
-
-
 
 
 ;
@@ -46,7 +42,7 @@ window.onload = () => {
         console.log(test.file + ": ok");
     } catch(err){
         console.log("test for " + test.file + " failed with:");
-        if(!result)
+        //if(!result)
           console.log(err);
 
         console.log(result);

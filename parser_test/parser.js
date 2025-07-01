@@ -464,12 +464,32 @@ const Attr = Object.freeze({
   DEPRECATED         : 10,
   KEY                : 11,
   DISJOINT_UNION     : 12,
-  REFLEXIVE          : 12
+  REFLEXIVE          : 13,
+  ALL_VALUES         : 14,
+  SOME_VALUES        : 15,
+  INTERSECTION       : 16,
+  RDF                : 17,
+  COMPLEMENT         : 18,
+  IRREFLEXIVE        : 19,
+  ASYMMETRIC         : 20,
+  IMPORTED           : 21
 });
 
 const AttrNames = (() => {
   var keys = [];
-  for(var key in Attr) keys.push(key.toLowerCase().replace("_", " "));
+  for(var key in Attr) {
+    let parts = key.toLowerCase().split("_");
+    var v = parts[0];
+    if(parts.length != 1) {
+      if(Attr[key] == Attr.INVERSE_FUNCTIONAL) {
+        v = parts.join(" ");
+      } else {
+        parts[1] = String(parts[1][0]).toUpperCase() + String(parts[1]).slice(1);
+        v = parts.join("");
+      }
+    }
+    keys.push(v);
+  }
   return Object.freeze(keys);
 })();
 
@@ -688,6 +708,7 @@ const InternalNS = Object.freeze({
 });
 
 const InvalidEntity = Object.freeze({_invalid:true});
+const HandledData = Object.freeze({_handled:true});
 
 function isPropertyType(ty) {
   const type = TypeMap[ty];
@@ -853,6 +874,8 @@ var Materializer = null;
         if(entity._type === undefined)
           entity._type = BigInt(0);
         entity._type |= TypeMap[knownType];
+      } else {
+        entity._individual = true;
       }
 
       if(knownType == Obj.OWL_AnnotationProperty)
@@ -878,8 +901,9 @@ var Materializer = null;
               this.makeAnnotation(pred);
               if(pred._type === undefined) {
                 let e = splitNS(pred.iri);
-                if(NamespaceMap[e.ns] == Namespace.DCTERMS || NamespaceMap[e.ns] == Namespace.DC)
-                  this.setType(pred, ObjKey[Obj.OWL_AnnotationProperty]);
+                let knownType = this.getDCType(e.ns, e.v);
+                if(knownType !== undefined)
+                  this.setType(pred, ObjKey[knownType]);
               }
               continue;
             }
@@ -889,7 +913,7 @@ var Materializer = null;
               let obj = this.addEntity(s.object);
               this.setType(obj, ObjKey[Obj.RDFS_Class]);
             }
-            if(kind == Pred.SUB_PROPERTY_OF) {
+            if(kind == Pred.SUB_PROPERTY_OF || kind == Pred.EQUIVALENT_PROPERTY) {
               let obj = this.addEntity(s.object);
               this.setType(obj, ObjKey[Obj.RDF_Property]);
             }
@@ -904,9 +928,9 @@ var Materializer = null;
 
             if(kind == Pred.TYPE) {
               const iri = this.getValue(s.object);
+              this.setType(subj, iri);
               if(subj._individual && !ObjMap[iri])
                 subj._indiv_target = s.object;
-              this.setType(subj, iri);
             } else {
               this.addProp(subj, kind, s.object);
             }
@@ -918,6 +942,8 @@ var Materializer = null;
       }
 
       for(let a of this.tmp.annot) {
+        if(!a._annotation)
+          continue;
         if(a._type == TypeMap[Obj.OWL_AnnotationProperty]) {
           if(a._annotate) {
             for(let s of a._annotate) {
@@ -956,6 +982,9 @@ var Materializer = null;
       }
       if(list.length > 1)
         this.tmp.baseIris[NamespaceType[Namespace.RDF]] = 1;
+
+      if(list.length == 0)
+        delete this.header.languages;
     }
 
     handleBaseIris() {
@@ -1030,6 +1059,25 @@ var Materializer = null;
       this.addAttrStr(attr, AttrNames[v]);
     }
 
+    removeAttr(attr, v) {
+      let a = attr.attributes;
+      if(!a)
+        return;
+      let key = AttrNames[v];
+      let idx = a.indexOf(key);
+      if(idx == -1)
+        return;
+      a.splice(idx, 1);
+    }
+
+    containsAttr(attrs, v) {
+      return attrs.indexOf(AttrNames[v]) != -1;
+    }
+
+    hasAttr(attrs, v) {
+      return attrs && attrs.indexOf(AttrNames[v]) != -1;
+    }
+
     insertAnnotation(entity, t) {
       let a = entity._annotate || (entity._annotate = []);
       a.push(t);
@@ -1065,6 +1113,22 @@ var Materializer = null;
     addSubClass(entity, targetEntity) {
       if(this.isThing(entity.iri))
         return;
+      if(this.hasType(targetEntity._type, Obj.OWL_Restriction)) {
+        var target = targetEntity._restricted_property;
+        if(target.domain !== undefined) {
+          let orig = target;
+          target = this.propertyAttribute[this.cloneProp(target.id)];
+          this.removeAttr(orig, Attr.SOME_VALUES);
+          this.removeAttr(orig, Attr.ALL_VALUES);
+          delete target.domain;
+        }
+        this.addDomain(target, entity);
+        return;
+      }
+      if(entity._restricted_property) {
+        this.addDomain(entity._restricted_property, targetEntity);
+        return;
+      }
       let sc = targetEntity.subClasses || (targetEntity.subClasses = []);
       if(sc.indexOf(entity.id) != -1)
         return;
@@ -1098,8 +1162,7 @@ var Materializer = null;
         entity.domain = targetEntity.range;
     }
 
-    addPropEquivalent(entity, target) {
-      this.addAttr(entity, Attr.EQUIVALENT);
+    addEquivalent(entity, target) {
       if(!target.equivalent ||
         target.equivalent.indexOf(entity.id) == -1) {
         let eq = entity.equivalent || (entity.equivalent = []);
@@ -1107,12 +1170,28 @@ var Materializer = null;
       }
     }
 
+    addPropEquivalent(entity, target) {
+      this.addAttr(entity, Attr.EQUIVALENT);
+      this.addEquivalent(entity, target);
+    }
+
     addEquivalentClass(entity, targetEntity) {
+      if(this.hasAttr(targetEntity.attributes, Attr.ANONYMOUS)) {
+        if(targetEntity.id != this.class.length - 1)
+          throw new Error("internal error");
+        this.class.pop();
+        this.classAttribute.pop();
+        if(this.hasAttr(targetEntity.attributes, Attr.UNION)) {
+          entity.union = targetEntity.union;
+          this.addAttr(entity, Attr.UNION);
+        } else {
+          throw new Error("unhandled anonymous entity");
+        }
+
+        return;
+      }
       this.addPropEquivalent(entity, targetEntity);
       this.addPropEquivalent(targetEntity, entity);
-
-      entity._equiv = true;
-      targetEntity._equiv = true;
     }
 
     addDomain(entity, target) {
@@ -1191,19 +1270,26 @@ var Materializer = null;
       return this.tmp.entityMap[iri];
     }
 
-    materializeUnion(entity) {
-      var data = entity._property[Pred.UNION_OF];
-      if(data) {
-        if(Array.isArray(data))
-          throw new Error("multiple union");
-        return this.addUnionOf(entity, data);
+    materializeBlank(entity) {
+      if(!entity._pending)
+        throw new Error("materialized?");
+      delete entity._pending;
+      if(!this.materializeProps(entity) || !this.verifyProps(entity)) {
+          entity._invalid = true;
+          return InvalidEntity;
       }
-      data = entity._property[Pred.DISJOINT_UNION_OF];
-      if(data) {
-        if(Array.isArray(data))
-          throw new Error("multiple union");
-        return this.addDisjointUnionOf(entity, data);
+
+      if(entity._assigned) {
+        let n = entity._assigned;
+        delete this.tmp.entityMap[entity.iri];
+        delete entity._assigned;
+        delete entity._blank;
+        delete entity.iri;
+        delete entity._property;
+        delete entity._assigned;
+        return n;
       }
+
       return InvalidEntity;
     }
 
@@ -1211,6 +1297,9 @@ var Materializer = null;
       const el = data.elements;
       let union = [];
       for(const e of el) {
+        let target = this.getValue(e);
+        if(this.isThing(target))
+          continue;
         let cls = this.materializeTarget(e);
         if(cls._invalid)
           throw new Error("fail");
@@ -1232,15 +1321,14 @@ var Materializer = null;
         key += id + "_";
 
       let orig = this.tmp.unionMap[key];
+      if(entity._blank)
+        entity._assigned = orig;
+
       if(orig)
         return orig;
 
       if(entity._blank) {
-        delete this.tmp.entityMap[entity.iri];
-        delete entity._blank;
-        delete entity.iri;
-        delete entity._property;
-        delete entity._pending;
+        entity._assigned = entity;
         attr = Object.assign(entity, attr);
       }
 
@@ -1299,6 +1387,32 @@ var Materializer = null;
       return attr;
     }
 
+    addAllValuesFrom(entity, data) {
+      if(!entity._restricted_property)
+        return false
+      this.addAttr(entity._restricted_property, Attr.ALL_VALUES);
+      this.addRange(entity._restricted_property, data);
+      if(entity._blank)
+        entity._assigned = entity;
+      return true;
+    }
+
+    addSomeValuesFrom(entity, data) {
+      if(!entity._restricted_property)
+        return false
+      this.addAttr(entity._restricted_property, Attr.SOME_VALUES);
+      this.addRange(entity._restricted_property, data);
+      if(entity._blank)
+        entity._assigned = entity;
+      return true;
+    }
+
+    addOnProperty(entity, data) {
+      entity._restricted_property = data;
+      entity._property[Pred.ON_PROPERTY] = HandledData;
+      return true
+    }
+
     addTypeAttr(entity, type) {
       switch(type) {
         case Obj.OWL_ObjectProperty:
@@ -1346,7 +1460,7 @@ var Materializer = null;
         return InvalidEntity;
       let entity = this.addEntity(target);
       if(entity._blank)
-        return this.materializeUnion(entity);
+        return this.materializeBlank(entity);
       if(entity.iri === undefined)
         return InvalidEntity;
       let materialized = this.materializeEntity(entity);
@@ -1354,7 +1468,8 @@ var Materializer = null;
     }
 
     materializeDeprecated(entity, data) {
-      this.addAttr(entity, Attr.DEPRECATED);
+      if(!entity._individual)
+        this.addAttr(entity, Attr.DEPRECATED);
       return true;
     }
     materializeVersionInfo(entity, data) {
@@ -1366,7 +1481,7 @@ var Materializer = null;
       return true;
     }
     materializeLabel(entity, data) {
-      this.addLangData(entity, "label", data);
+      this.addLangData(entity, entity._individual ? "labels" : "label", data);
       return true;
     }
     materializeSeeAlso(entity, data) {
@@ -1497,7 +1612,10 @@ var Materializer = null;
       return true;
     }
     materializeAllValuesFrom(entity, data) {
-      throw new Error("AllValuesFrom not implemented");
+      let targetEntity = this.materializeTarget(data);
+      if(targetEntity._invalid)
+        return false;
+      return this.addAllValuesFrom(entity, targetEntity);
     }
     materializeCardinality(entity, data) {
       throw new Error("Cardinality not implemented");
@@ -1530,13 +1648,19 @@ var Materializer = null;
       throw new Error("OnProperties not implemented");
     }
     materializeOnProperty(entity, data) {
-      throw new Error("OnProperty not implemented");
+      let targetEntity = this.materializeTarget(data);
+      if(targetEntity._invalid)
+        return false;
+      return this.addOnProperty(entity, targetEntity);
     }
     materializeQualifiedCardinality(entity, data) {
       throw new Error("QualifiedCardinality not implemented");
     }
     materializeSomeValuesFrom(entity, data) {
-      throw new Error("SomeValuesFrom not implemented");
+      let targetEntity = this.materializeTarget(data);
+      if(targetEntity._invalid)
+        return false;
+      return this.addSomeValuesFrom(entity, targetEntity);
     }
     materializeBottomDataProperty(entity, data) {
       throw new Error("BottomDataProperty not implemented");
@@ -1580,16 +1704,10 @@ var Materializer = null;
       return true;
     }
     materializeEquivalentProperty(entity, data) {
-      let target = data;
-      let iri = this.getValue(target);
-      let e = splitNS(iri);
-      let base = this.cleanIri(e.ns);
-      if(this.isExternal(base))
-        return true;
-      let targetEntity = this.materializeTarget(target);
+      let targetEntity = this.materializeTarget(data);
       if(targetEntity._invalid)
         return false;
-      this.addPropEquivalent(entity, targetEntity);
+      this.addEquivalent(targetEntity, entity);
       return true;
     }
     materializePropertyDisjointWith(entity, data) {
@@ -1604,11 +1722,10 @@ var Materializer = null;
       return true;
     }
 
-    materializeProps(entity) {
-      if(!entity._property)
-        return true;
-      for(const idx in entity._property) {
-        let data = entity._property[idx];
+    materializePropIdx(entity, idx) {
+        let data = entity._property[idx] || HandledData;
+        if(data === HandledData)
+          return true;
         if(Array.isArray(data)) {
           for(const it of data) {
             if(!Materializer[idx].call(this, entity, it))
@@ -1618,23 +1735,48 @@ var Materializer = null;
           if(!Materializer[idx].call(this, entity, data))
             return false;
         }
+        return true;
+    }
+
+    materializeProps(entity) {
+      if(!entity._property)
+        return true;
+      if(!this.materializePropIdx(entity, Pred.ON_PROPERTY))
+        return false;
+      for(const idx in entity._property) {
+        if(!this.materializePropIdx(entity, idx))
+          return false;
       }
       return true;
     }
 
-    fillType(entity, base, name) {
+    getDCType(ns, name) {
+        if(NamespaceMap[ns] == Namespace.DCTERMS || NamespaceMap[ns] == Namespace.DC) {
+          if(name[0] === name[0].toUpperCase()) {
+            return Obj.RDFS_Class;
+          }
+
+          return Obj.OWL_AnnotationProperty;
+        }
+        return undefined;
+    }
+
+    fillType(entity, base, ns, name) {
       if(entity._type === undefined)
         entity._type = BigInt(0);
-      const knownType = ObjMap[entity.iri];
+      var knownType = ObjMap[entity.iri];
       const ins = InternalNS[base];
       if(ins && ins[name]) {
         entity._type |= TypeMap[ins[name]];
       }
+      if(knownType === undefined)
+        knownType = this.getDCType(ns, name);
       const ty = TypeMap[knownType];
       if(ty !== undefined) {
         entity._type |= ty;
         this.addTypeAttr(entity, knownType);
       }
+
     }
 
     materializeEntity(entity, collected) {
@@ -1652,7 +1794,10 @@ var Materializer = null;
       delete orig._pending;
 
       if(!entity._individual) {
-        this.fillType(entity, base, e.v);
+        this.fillType(entity, base, e.ns, e.v);
+
+        if(entity._type == TypeMap[Obj.OWL_AnnotationProperty])
+          return entity;
 
         if(!this.hasClassType(entity._type))
           throw new Error("type error");
@@ -1664,6 +1809,7 @@ var Materializer = null;
         const isThing = this.isThing(entity.iri);
         let item = {};
         entity.label = {};
+
         if(this.hasPropertyType(entity._type)) {
 
           if(PredMap[entity.iri] && !this.isNeededInternal(entity.iri)) {
@@ -1706,39 +1852,51 @@ var Materializer = null;
           }
         }
 
+        item.type = this.getType(entity);
+        item.id = entity.id;
+
         if(!this.materializeProps(entity) || !this.verifyProps(entity)) {
           entity._invalid = true;
           return null;
         }
 
-        item.type = this.getType(entity);
-        item.id = entity.id;
+        if(entity._annotate) {
+          // FIX?
+        }
+
         delete entity._property;
         return entity;
       } else {
+        if(entity._blank)
+          return null;
         const isOntology = entity._ontology;
 
         if(isOntology) {
           if(entity.iri == this.header.iri)
             this.tmp.ontology = entity;
-          if(!this.materializeProps(entity) || !this.verifyProps(entity)) {
-            entity._invalid = true;
-            return null;
-          }
         } else {
           if(entity._indiv_target) {
             let targetEntity = this.materializeTarget(entity._indiv_target);
             if(targetEntity._invalid)
               return null;
-            let indiv = {
-              iri:entity.iri,
-              baseIri:base,
-              labels: {}
-            };
-            if(e.v) indiv.labels["IRI-based"] = e.v;
-  -         this.addIndiv(targetEntity, indiv);
+            delete entity._indiv_target;
+            entity.baseIri = base;
+            entity.labels = {};
+            entity._type = targetEntity._type;
+            if(e.v) entity.labels["IRI-based"] = e.v;
+  -         this.addIndiv(targetEntity, entity);
           }
         }
+
+        if(!this.materializeProps(entity) || !this.verifyProps(entity)) {
+          entity._invalid = true;
+          return null;
+        }
+
+        delete entity._individual;
+        delete entity._property;
+        delete entity._type;
+        return entity;
       }
       return null;
     }
@@ -1750,14 +1908,28 @@ var Materializer = null;
 
         if((!entity._blank && entity._type && !entity._annotation) || entity._individual) {
           this.materializeEntity(entity, true);
+        } else if(this.hasType(entity._type, Obj.OWL_Restriction)) {
+          this.materializeBlank(entity);
         }
       }
     }
 
-    updateProp(orig, other, attr) {
-      //if(ObjClassType.indexOf(orig.type) > ObjClassType.indexOf(other.type)) {
-        orig.type = other.type;
-      //}
+    updateType(orig, type) {
+      orig.type = type;
+    }
+
+    cloneProp(propId) {
+      let prop = Object.assign({}, this.property[propId]);
+      let attr = Object.assign({}, this.propertyAttribute[propId]);
+      prop.id = this.property.length;
+      attr.id = prop.id;
+      this.property.push(prop);
+      this.propertyAttribute.push(attr);
+      for(const key in attr) {
+        if(Array.isArray(attr[key]))
+          attr[key] = attr[key].flat();
+      }
+      return prop.id;
     }
 
     cloneClass(clsId) {
@@ -1821,20 +1993,34 @@ var Materializer = null;
 
       for(let it of this.classAttribute) {
         delete it._type;
-        if(it._equiv) {
-          this.class[it.id].type = "owl:equivalentClass";
-          delete it._equiv;
+        let cls = this.class[it.id];
+        let attrs = it.attributes;
+        if(attrs) {
+          if(this.containsAttr(attrs, Attr.EQUIVALENT)) {
+            this.updateType(cls, "owl:equivalentClass");
+          }
+          if(this.containsAttr(attrs, Attr.UNION)) {
+            this.updateType(cls, "owl:unionOf");
+          }
         }
       }
 
       for(let it of this.propertyAttribute) {
         delete it._type;
+
         var attrs = it.attributes;
         if(!attrs)
           continue;
-        var hasObj = attrs.indexOf(AttrNames[Attr.OBJECT]) != -1;
-        var hasInvFunct = attrs.indexOf(AttrNames[Attr.INVERSE_FUNCTIONAL]) != -1;
-        const hasDataType = attrs.indexOf(AttrNames[Attr.DATATYPE]) != -1;
+        let prop = this.property[it.id];
+        var hasObj = this.containsAttr(attrs, Attr.OBJECT);
+        var hasInvFunct =  this.containsAttr(attrs, Attr.INVERSE_FUNCTIONAL);
+        const hasDataType = this.containsAttr(attrs, Attr.DATATYPE);
+
+        if(this.containsAttr(attrs, Attr.SOME_VALUES))
+            this.updateType(prop, "owl:someValuesFrom");
+        if(this.containsAttr(attrs, Attr.ALL_VALUES))
+            this.updateType(prop, "owl:allValuesFrom");
+
         if(hasObj) {
           if(Array.isArray(it.range))
               it.range = this.insertUnionClass(it.range).id;
@@ -1852,12 +2038,12 @@ var Materializer = null;
               hasInvFunct = false;
             } else {
               attrs.push(AttrNames[Attr.OBJECT]);
-              this.updateProp(this.property[it.id], {type:ObjClassType[Obj.OWL_ObjectProperty]});
+              this.updateType(prop, ObjClassType[Obj.OWL_ObjectProperty]);
               hasObj = true;
             }
           }
 
-          if(!hasObj && this.property[it.id].type == ObjClassType[Obj.OWL_ObjectProperty]) {
+          if(!hasObj && prop.type == ObjClassType[Obj.OWL_ObjectProperty]) {
               attrs.push(AttrNames[Attr.OBJECT]);
               hasObj = true;
           }
@@ -1918,9 +2104,10 @@ var Materializer = null;
           Object.assign(other, a);
         }
       }
-      if(o && o.label) {
-        for(const l in o.label) {
-          this.addLangData(this.header, "labels", {language:l, value:o.label[l]});
+      this.header.labels = o.labels;
+      if(o && o.comment) {
+        for(const l in o.comment) {
+          this.addLangData(this.header, "comments", {language:l, value:o.comment[l]});
         }
       }
       if(o && o.versionIRI) {
@@ -1928,9 +2115,14 @@ var Materializer = null;
       }
     }
 
-    isDataType(clsId) {
+    isClassDataType(clsId) {
       const cls = this.class[clsId];
       return cls.type == ObjClassType[Obj.RDFS_Datatype];
+    }
+
+    isClassLiteral(clsId) {
+      const cls = this.class[clsId];
+      return cls.type == ObjClassType[Obj.RDFS_Literal];
     }
 
     isUnionType(clsId) {
@@ -1948,9 +2140,13 @@ var Materializer = null;
       let unionMap = {};
 
       const splitUnion = ((union) => {
-        if(this.isUnionType(union)) {
+        let cls = this.classAttribute[union];
+        let attrs = cls.attributes;
+        if(!attrs)
+          return union;
+        if(this.isUnionType(cls.id) && this.containsAttr(attrs, Attr.ANONYMOUS)) {
           let key = "";
-          for(const id of this.classAttribute[union].union)
+          for(const id of cls.union)
             key += id + "_";
           if(unionMap[key])
             return this.cloneClass(union);
@@ -1960,6 +2156,7 @@ var Materializer = null;
       }).bind(this);
 
       var notFirst = {};
+      var firstThing = true;
       var id = {};
       function add(clsId) {
           if(!notFirst[clsId]) {
@@ -1973,15 +2170,31 @@ var Materializer = null;
       }
       const addLiteral = (() => add.call(this, literalClsId)).bind(this);
       const addThing = ((linkClsId) => {
+        if(this.isClassDataType(linkClsId) || this.isClassLiteral(linkClsId))
+          linkClsId = literalClsId;
         if(thingMap[linkClsId] === undefined) {
-          thingMap[linkClsId] = this.cloneClass(thingClsId);
+          var clone;
+          if(firstThing) {
+            firstThing = false;
+            clone = thingClsId;
+          } else {
+            clone = this.cloneClass(thingClsId);
+          }
+          thingMap[linkClsId] = clone;
         }
         return thingMap[linkClsId];
       }).bind(this);
+
+      if(literalClsId != -1) {
+        firstThing = false;
+        thingMap[literalClsId] = thingClsId;
+      }
+
       const addDataType = ((clsId) => { id[clsId] = -1; return add.call(this, clsId)}).bind(this);
       for(const it of this.propertyAttribute) {
-        var hasObj = it.attributes.indexOf(AttrNames[Attr.OBJECT]) != -1;
-        var hasDataType = it.attributes.indexOf(AttrNames[Attr.DATATYPE]) != -1;
+        let attrs = it.attributes;
+        var hasObj = this.containsAttr(attrs, Attr.OBJECT);
+        var hasDataType = this.containsAttr(attrs, Attr.DATATYPE);
         id[literalClsId] = -1;
 
         if(it.range === literalClsId)
@@ -1990,19 +2203,17 @@ var Materializer = null;
           it.domain = addLiteral();
 
         if(hasDataType) {
-          if(this.isDataType(it.range))
+          if(this.isClassDataType(it.range))
               it.range = addDataType(it.range);
         }
 
         it.range = splitUnion(it.range);
         it.domain = splitUnion(it.domain);
 
-        if(!hasObj) continue;
-
         if(it.range != thingClsId || it.domain != thingClsId) {
-          if(it.range === thingClsId && !this.isLiteral(this.classAttribute[it.domain].iri))
+          if(it.range === thingClsId)
             it.range = addThing(it.domain);
-          if(it.domain === thingClsId && !this.isLiteral(this.classAttribute[it.range].iri))
+          if(it.domain === thingClsId)
             it.domain = addThing(it.range);
         }
       }
