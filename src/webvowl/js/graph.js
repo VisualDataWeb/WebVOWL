@@ -1536,7 +1536,7 @@ module.exports = function ( graphContainerSelector ){
     // using the ids of elements if to ensure that loaded elements will not get the same id;
     for ( var p = 0; p < unfilteredData.properties.length; p++ ) {
       var currentId = unfilteredData.properties[p].id();
-      if ( currentId.indexOf('objectProperty') !== -1 ) {
+      if ( typeof currentId === "string" && currentId.indexOf('objectProperty') !== -1 ) {
         // could be ours;
         var idStr = currentId.split('objectProperty');
         if ( idStr[0].length === 0 ) {
@@ -1550,7 +1550,7 @@ module.exports = function ( graphContainerSelector ){
     // using the ids of elements if to ensure that loaded elements will not get the same id;
     for ( var n = 0; n < unfilteredData.nodes.length; n++ ) {
       var currentId_Nodes = unfilteredData.nodes[n].id();
-      if ( currentId_Nodes.indexOf('Class') !== -1 ) {
+      if ( typeof currentId_Nodes === "string" && currentId_Nodes.indexOf('Class') !== -1 ) {
         // could be ours;
         var idStr_Nodes = currentId_Nodes.split('Class');
         if ( idStr_Nodes[0].length === 0 ) {

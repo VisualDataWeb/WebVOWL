@@ -1,0 +1,20 @@
+# Node.js dependencies
+node_modules
+
+# IntelliJ  files
+*.iml
+.idea/
+
+# Eclipse files
+.project
+.classpath
+
+# Build files
+deploy/**
+!deploy/.htaccess
+webvowl*.zip
+
+# NetBeans files
+**/nbproject/**
+
+package-lock.json

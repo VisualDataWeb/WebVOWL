@@ -1,0 +1,15 @@
+{
+  "name": "vowl_tests",
+  "version": "1.0.0",
+  "type":"module",
+  "dependencies": {
+    "rdflib": "^2.2.37",
+    "puppeteer":"^24.10.2",
+    "diff":"^8.0.2"
+  },
+  "scripts": {
+     "tests": "./test_runner.js"
+   },
+  "license": "MIT",
+  "private": true
+}

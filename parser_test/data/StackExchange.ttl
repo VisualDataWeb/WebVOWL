@@ -1,0 +1,207 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+@prefix se-type: <http://rdf.vis.uni-stuttgart.de/stackexchange/t/> .
+@prefix se-prop: <http://rdf.vis.uni-stuttgart.de/stackexchange/p/> .
+
+<http://rdf.vis.uni-stuttgart.de/stackexchange> a owl:Ontology ;
+	owl:versionInfo "1.0" ;
+	dc:title "StackExchange Data Ontology" .
+	
+se-type:Comment a owl:Class .
+se-type:Closure a owl:Class .
+se-type:Locking a owl:Class .
+se-type:Reopening a owl:Class .
+se-type:Unlocking a owl:Class .
+se-type:Question a owl:Class .
+se-type:Answer a owl:Class .
+se-type:TagDescription a owl:Class .
+se-type:TagExcerpt a owl:Class .
+se-type:Tag a owl:Class .
+se-type:User a owl:Class .
+se-type:Deletion a owl:Class .
+se-type:Undeletion a owl:Class .
+se-type:Protection a owl:Class .
+se-type:Unprotection a owl:Class .
+se-type:SiteInfo a owl:Class .
+se-type:StartOfBounty a owl:Class .
+se-type:EndOfBounty a owl:Class .
+se-type:Badge a owl:Class .
+se-type:CloseReason a owl:Class .
+se-type:Account a owl:Class .
+
+se-prop:site a owl:ObjectProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:Comment se-type:Question se-type:Answer se-type:TagDescription se-type:TagExcerpt se-type:Tag se-type:User foaf:Person se-type:SiteInfo se-type:Badge )
+	] ;
+	rdfs:range se-type:SiteInfo .
+
+se-prop:score a owl:DatatypeProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:Comment se-type:Question se-type:Answer se-type:TagDescription se-type:TagExcerpt se-type:SiteInfo )
+	] ;
+	rdfs:range xsd:integer .
+
+se-prop:owner a owl:ObjectProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:Comment se-type:Question se-type:Answer se-type:TagDescription se-type:TagExcerpt se-type:SiteInfo )
+	] ;
+	rdfs:range se-type:User . # TODO: verify!
+
+se-prop:reason a owl:ObjectProperty ;
+	rdfs:domain se-type:Closure ;
+	rdfs:range se-type:CloseReason .
+
+se-prop:participant a owl:ObjectProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:Closure se-type:Locking se-type:Reopening se-type:Unlocking se-type:Deletion se-type:Undeletion se-type:Protection se-type:Unprotection )
+	] ;
+	rdfs:range se-type:User .
+
+se-prop:comment a owl:ObjectProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:Question se-type:Answer )
+	] ;
+	rdfs:range se-type:Comment .
+
+se-prop:viewCount a owl:DatatypeProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:Question se-type:User foaf:Person )
+	] ;
+	rdfs:range xsd:integer .
+
+se-prop:tag a owl:ObjectProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:Question se-type:Answer )
+	] ;
+	rdfs:range se-type:Tag . # TODO: verify!
+
+se-prop:answer a owl:ObjectProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:Question se-type:EndOfBounty )
+	] ;
+	rdfs:range se-type:Answer .
+
+se-prop:accepted a owl:ObjectProperty ;
+	rdfs:domain se-type:Question ;
+	rdfs:range se-type:Answer . # TODO: verify!
+
+se-prop:last-edited a owl:DatatypeProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:Question se-type:Answer se-type:TagDescription se-type:TagExcerpt se-type:SiteInfo )
+	] ;
+	rdfs:range xsd:dateTime . # TODO: verify!
+
+se-prop:duplicate a owl:ObjectProperty ;
+	rdfs:domain se-type:Question ;
+	rdfs:range se-type:Question . # TODO: verify!
+
+se-prop:event a owl:ObjectProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:Question se-type:Answer )
+	] ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf ( se-type:Closure se-type:Locking se-type:Reopening se-type:Unlocking se-type:Deletion se-type:Undeletion se-type:Protection se-type:Unprotection )
+	] .
+
+se-prop:tag-excerpt a owl:ObjectProperty ;
+	rdfs:domain se-type:Tag ;
+	rdfs:range se-type:TagExcerpt .
+
+se-prop:tag-description a owl:ObjectProperty ;
+	rdfs:domain se-type:Tag ;
+	rdfs:range se-type:TagDescription .
+
+se-prop:badge a owl:ObjectProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:User foaf:Person )
+	] ;
+	rdfs:range se-type:Badge .
+
+se-prop:reputation a owl:DatatypeProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:User foaf:Person )
+	] ;
+	rdfs:range xsd:integer .
+
+se-prop:reputation a owl:DatatypeProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:User foaf:Person )
+	] . # TODO: find out range!
+
+se-prop:up-votes a owl:DatatypeProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:User foaf:Person )
+	] ;
+	rdfs:range xsd:integer .
+
+se-prop:down-votes a owl:DatatypeProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:User foaf:Person )
+	] ;
+	rdfs:range xsd:integer .
+
+se-prop:account a owl:ObjectProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:User foaf:Person )
+	] ;
+	rdfs:range se-type:Account .
+
+se-prop:last-seen a owl:DatatypeProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:User foaf:Person )
+	] ;
+	rdfs:range xsd:dateTime .
+
+se-prop:favorite a owl:ObjectProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf ( se-type:User foaf:Person )
+	] ;
+	rdfs:range se-type:Question . # TODO: verify!
+
+se-prop:is-meta a owl:DatatypeProperty ;
+	rdfs:domain se-type:SiteInfo ;
+	rdfs:range xsd:boolean .
+
+se-prop:parent a owl:ObjectProperty ;
+	rdfs:domain se-type:SiteInfo ;
+	rdfs:range se-type:SiteInfo .
+
+se-prop:post a owl:ObjectProperty ;
+	rdfs:domain se-type:StartOfBounty ;
+	rdfs:range se-type:Question . # TODO: verify!
+
+se-prop:donor a owl:ObjectProperty ;
+	rdfs:domain se-type:StartOfBounty ;
+	rdfs:range se-type:User . # TODO: verify!
+
+se-prop:offered-amount a owl:DatatypeProperty ;
+	rdfs:domain se-type:StartOfBounty ;
+	rdfs:range xsd:integer .
+
+se-prop:transferred-bounty a owl:DatatypeProperty ;
+	rdfs:domain se-type:EndOfBounty ;
+	rdfs:range xsd:integer .
