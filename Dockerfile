@@ -1,16 +1,19 @@
-###########
-# WebVOWL #
-###########
+# Build stage
+FROM node:22-alpine AS builder
 
-# Use tomcat java 8 alpine as base image
-FROM tomcat:9-jre8-alpine
+WORKDIR /app
+COPY . .
 
-# Build time arguments (WebVOWL version)
-ARG version=1.1.7
+# Install dependencies and build
+RUN npm install
+RUN npm run-script release
 
-# Download WebVOWL to tomcat webapps directory as root app
-RUN rm -rf /usr/local/tomcat/webapps/* && \
-    wget -O /usr/local/tomcat/webapps/ROOT.war http://vowl.visualdataweb.org/downloads/webvowl_1.1.7.war
+# Production stage
+FROM nginx:alpine
+COPY --from=builder /app/deploy /usr/share/nginx/html
 
-# Run default server
-CMD ["catalina.sh", "run"]
+# Optional: Custom nginx configuration if needed
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
