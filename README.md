@@ -8,15 +8,53 @@ This repository was ported from an internal SVN repository to Github after the r
 
 Run Using Docker
 ------------
-Make sure you are inside `WebVOWL` directory and you have docker installed. Run the following command to build the docker image:
 
-`docker build . -t webvowl:v1`
+### Quick Start (Recommended - All-in-One Container)
 
-Run the following command to run WebVOWL at port 8080. 
+Build and run WebVOWL with integrated OWL2VOWL converter in a single container:
 
-`docker-compose up -d` 
+```bash
+# Build combined image (WebVOWL + OWL2VOWL + nginx)
+docker build -t webvowl:combined -f Dockerfile.combined .
 
-Visit [http://localhost:8080](http://localhost:8080) to use WebVOWL.
+# Run container
+docker run -d --name webvowl -p 8080:80 webvowl:combined
+
+# Access WebVOWL
+# Visit http://localhost:8080
+```
+
+This image includes:
+- **WebVOWL** frontend visualization
+- **OWL2VOWL** converter service (for loading ontologies from IRIs)
+- **Nginx** reverse proxy (routing requests between services)
+
+All services are built from source using multi-stage builds, eliminating dependency on external WAR file downloads.
+
+### Alternative: Separate Services
+
+Run WebVOWL and OWL2VOWL as separate containers:
+
+```bash
+docker-compose up -d
+```
+
+This starts:
+- WebVOWL on port 8080
+- OWL2VOWL on port 8081
+
+**Note:** See [PODMAN_SETUP.md](PODMAN_SETUP.md) for detailed instructions on connecting separate services.
+
+### Podman Support
+
+All Docker commands work with Podman. Simply replace `docker` with `podman`:
+
+```bash
+podman build -t webvowl:combined -f Dockerfile.combined .
+podman run -d --name webvowl -p 8080:80 webvowl:combined
+```
+
+For detailed Podman instructions, see [PODMAN_SETUP.md](PODMAN_SETUP.md).
 
 Requirements
 ------------

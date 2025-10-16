@@ -1,9 +1,29 @@
 version: '3'
 
 services:
-    
-    server:
-        build: .
-        command: catalina.sh run
+
+    # WebVOWL visualization service
+    webvowl:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: webvowl
         ports:
-            - 8080:8080
+            - "8080:8080"
+        networks:
+            - webvowl-network
+
+    # OWL2VOWL converter service
+    owl2vowl:
+        build:
+            context: .
+            dockerfile: Dockerfile.owl2vowl
+        container_name: owl2vowl
+        ports:
+            - "8081:8080"
+        networks:
+            - webvowl-network
+
+networks:
+    webvowl-network:
+        driver: bridge

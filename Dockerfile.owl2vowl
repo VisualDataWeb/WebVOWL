@@ -1,0 +1,53 @@
+###############
+# OWL2VOWL    #
+###############
+
+# Build stage: Build OWL2VOWL from source
+# Using Java 11 as OWL2VOWL has compatibility issues with Java 17+
+FROM docker.io/library/maven:3.9-eclipse-temurin-11 AS builder
+
+# Build time arguments
+ARG VERSION=master
+
+# Install git
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+
+# Clone OWL2VOWL repository
+WORKDIR /build
+RUN git clone --depth 1 --branch ${VERSION} https://github.com/VisualDataWeb/OWL2VOWL.git . || \
+    git clone --depth 1 https://github.com/VisualDataWeb/OWL2VOWL.git .
+
+# Build the WAR file
+RUN mvn clean package -P war-release -DskipTests
+
+# Runtime stage: Tomcat server
+# Using Java 11 runtime for compatibility
+FROM docker.io/library/tomcat:9-jre11-temurin-noble
+
+# Re-declare ARG for this stage
+ARG VERSION=master
+
+# Add metadata labels
+LABEL maintainer="OWL2VOWL"
+LABEL description="OWL2VOWL - Converting ontologies for WebVOWL"
+LABEL version="${VERSION}"
+
+# Set working directory
+WORKDIR /usr/local/tomcat
+
+# Copy built WAR file from builder stage
+RUN rm -rf webapps/*
+COPY --from=builder /build/target/*.war webapps/ROOT.war
+
+# Expose tomcat default port
+EXPOSE 8080
+
+# Add healthcheck
+HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
+    CMD curl -f http://localhost:8080/ || exit 1
+
+# Run as non-root user for security
+USER nobody
+
+# Run default server
+CMD ["catalina.sh", "run"]

@@ -1,0 +1,56 @@
+#####################
+# WebVOWL Combined  #
+#####################
+# This Dockerfile builds both WebVOWL and OWL2VOWL into a single image with nginx
+
+# Stage 1: Build WebVOWL
+FROM docker.io/library/node:18-alpine AS webvowl-builder
+ARG WEBVOWL_VERSION=master
+RUN apk add --no-cache git
+WORKDIR /build/webvowl
+RUN git clone --depth 1 --branch ${WEBVOWL_VERSION} https://github.com/VisualDataWeb/WebVOWL.git . || \
+    git clone --depth 1 https://github.com/VisualDataWeb/WebVOWL.git .
+RUN npm install && npm run release
+
+# Stage 2: Build OWL2VOWL
+FROM docker.io/library/maven:3.9-eclipse-temurin-11 AS owl2vowl-builder
+ARG OWL2VOWL_VERSION=master
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+WORKDIR /build/owl2vowl
+RUN git clone --depth 1 --branch ${OWL2VOWL_VERSION} https://github.com/VisualDataWeb/OWL2VOWL.git . || \
+    git clone --depth 1 https://github.com/VisualDataWeb/OWL2VOWL.git .
+RUN mvn clean package -P war-release -DskipTests
+
+# Stage 3: Runtime with Tomcat and Nginx
+FROM docker.io/library/tomcat:9-jre11-temurin-noble
+
+# Install nginx and supervisor
+RUN apt-get update && \
+    apt-get install -y nginx supervisor && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy WebVOWL files
+RUN rm -rf /usr/local/tomcat/webapps/*
+COPY --from=webvowl-builder /build/webvowl/deploy/ /var/www/webvowl/
+
+# Copy OWL2VOWL WAR
+COPY --from=owl2vowl-builder /build/owl2vowl/target/*.war /usr/local/tomcat/webapps/ROOT.war
+
+# Copy nginx configuration
+RUN mkdir -p /etc/nginx/sites-enabled /etc/nginx/sites-available
+COPY nginx-combined.conf /etc/nginx/sites-available/webvowl
+RUN ln -s /etc/nginx/sites-available/webvowl /etc/nginx/sites-enabled/ && \
+    rm -f /etc/nginx/sites-enabled/default
+
+# Copy supervisor configuration
+COPY supervisord.conf /etc/supervisor/conf.d/services.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Add metadata
+LABEL maintainer="WebVOWL Combined"
+LABEL description="WebVOWL with integrated OWL2VOWL converter"
+
+# Run supervisor to manage both services
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
