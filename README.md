@@ -9,15 +9,23 @@ This repository was ported from an internal SVN repository to Github after the r
 
 Run Using Docker
 ------------
-Make sure you are inside `WebVOWL` directory and you have docker installed. Run the following command to build the docker image:
+The legacy root `Dockerfile` downloaded a WAR from `vowl.visualdataweb.org` (broken; see issue #212).
 
-`docker build . -t webvowl:v1`
+**WebVOWL + OWL2VOWL (recommended):** clone [OWL2VOWL](https://github.com/VisualDataWeb/OWL2VOWL) as a **sibling** directory, then from **this** repository:
 
-Run the following command to run WebVOWL at port 8080. 
+```bash
+docker compose build && docker compose up -d
+```
 
-`docker-compose up -d` 
+See [docker/README.md](docker/README.md) and [docs/adr/0001-docker-local-development.md](docs/adr/0001-docker-local-development.md).
 
-Visit [http://localhost:8080](http://localhost:8080) to use WebVOWL.
+**Frontend only** (no file/IRI conversion):
+
+```bash
+docker compose -f docker-compose.frontend.yml up -d --build
+```
+
+Visit [http://localhost:8080](http://localhost:8080).
 
 Requirements
 ------------

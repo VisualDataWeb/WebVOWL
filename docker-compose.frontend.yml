@@ -1,0 +1,16 @@
+services:
+  webvowl-frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    image: ${WEBVOWL_IMAGE:-webvowl:frontend-only}
+    ports:
+      - "${WEBVOWL_PORT:-8080}:8080"
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8080/"]
+      interval: 30s
+      timeout: 5s
+      start_period: 60s
+      retries: 3

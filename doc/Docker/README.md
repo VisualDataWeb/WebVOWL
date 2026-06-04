@@ -1,3 +1,5 @@
+> **Superseded** for local development by [docker/README.md](../../docker/README.md) and [docs/adr/0001-docker-local-development.md](../../docs/adr/0001-docker-local-development.md).
+
 ## What does the image contain and how does it work?
 
 This image contents packed webvowl `*.war` file launched within Tomcat in *Linux 

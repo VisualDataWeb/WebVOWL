@@ -1,7 +1,7 @@
-# Frontend-only. Merged stack: docker compose → docker/Dockerfile
-# See docker/README.md
+# WebVOWL frontend only (no OWL2VOWL /convert). Build context: WebVOWL repo root.
 
 ARG TOMCAT_IMAGE=9.0.118
+ARG WEBVOWL_VERSION=1.1.7
 ARG NODE_IMAGE=12-alpine
 
 FROM node:${NODE_IMAGE} AS builder
@@ -15,6 +15,11 @@ COPY .jshintrc .jshintignore ./
 RUN npm install --ignore-scripts && npm run release
 
 FROM tomcat:${TOMCAT_IMAGE}-jre8-temurin-noble
+
+ARG WEBVOWL_VERSION=1.1.7
+
+LABEL org.opencontainers.image.title="WebVOWL (frontend only)" \
+      org.opencontainers.image.version="${WEBVOWL_VERSION}"
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends curl \
