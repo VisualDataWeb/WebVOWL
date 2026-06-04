@@ -1,17 +1,28 @@
 # syntax=docker/dockerfile:1.4
 # Combined WebVOWL + OWL2VOWL (Java 8 / Node 12 — application deps unchanged).
-# Build: compose additional_context owl2vowl → ../OWL2VOWL or ./OWL2VOWL (CI)
+# OWL2VOWL is fetched at build time; only the WebVOWL repo must be cloned locally.
 
 ARG TOMCAT_IMAGE=9.0.118
 ARG WEBVOWL_VERSION=1.1.7
 ARG MAVEN_IMAGE=3.9.16-eclipse-temurin-8-noble
 ARG NODE_IMAGE=12-alpine
+ARG OWL2VOWL_GIT_URL=https://github.com/VisualDataWeb/OWL2VOWL.git
+ARG OWL2VOWL_GIT_REF=master
 
-# --- OWL2VOWL (Maven WAR) ---
+# --- OWL2VOWL (Maven WAR, cloned in image build) ---
 FROM maven:${MAVEN_IMAGE} AS owl2vowl-builder
 
+ARG OWL2VOWL_GIT_URL
+ARG OWL2VOWL_GIT_REF
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /build/owl2vowl
-COPY --from=owl2vowl . .
+RUN git clone --depth 1 --branch "${OWL2VOWL_GIT_REF}" "${OWL2VOWL_GIT_URL}" . \
+    || git clone --depth 1 "${OWL2VOWL_GIT_URL}" .
+
 RUN mvn -B package -P war-release -DskipTests
 
 # --- WebVOWL (Grunt/Webpack → deploy/) ---

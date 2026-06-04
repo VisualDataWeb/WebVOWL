@@ -11,19 +11,21 @@ Run Using Docker
 ------------
 The legacy root `Dockerfile` downloaded a WAR from `vowl.visualdataweb.org` (broken; see issue #212).
 
-**WebVOWL + OWL2VOWL (recommended):** clone [OWL2VOWL](https://github.com/VisualDataWeb/OWL2VOWL) as a **sibling** directory, then from **this** repository:
+Clone **WebVOWL** only. The image build fetches [OWL2VOWL](https://github.com/VisualDataWeb/OWL2VOWL) from GitHub (no second local clone):
 
 ```bash
 docker compose build && docker compose up -d
 ```
 
-See [docker/README.md](docker/README.md) and [docs/adr/0001-docker-local-development.md](docs/adr/0001-docker-local-development.md).
-
-**Frontend only** (no file/IRI conversion):
+**Frontend only** (no `/convert`; faster build):
 
 ```bash
 docker compose -f docker-compose.frontend.yml up -d --build
 ```
+
+Pin converter source: `OWL2VOWL_GIT_REF=v0.3.7 docker compose build` (branch or tag on `VisualDataWeb/OWL2VOWL`).
+
+See [docker/README.md](docker/README.md) and [docs/adr/0001-docker-local-development.md](docs/adr/0001-docker-local-development.md).
 
 Visit [http://localhost:8080](http://localhost:8080).
 

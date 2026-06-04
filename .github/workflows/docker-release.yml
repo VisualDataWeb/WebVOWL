@@ -12,21 +12,12 @@ permissions:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  OWL2VOWL_CONTEXT: ${{ github.workspace }}/OWL2VOWL
 
 jobs:
   publish-merged:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout WebVOWL
-        uses: actions/checkout@v6.0.3
-
-      - name: Checkout OWL2VOWL
-        uses: actions/checkout@v6.0.3
-        with:
-          repository: VisualDataWeb/OWL2VOWL
-          path: OWL2VOWL
-          ref: master
+      - uses: actions/checkout@v6.0.3
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4.1.0
@@ -54,8 +45,8 @@ jobs:
         with:
           context: .
           file: docker/Dockerfile
-          build-contexts: |
-            owl2vowl=${{ env.OWL2VOWL_CONTEXT }}
+          build-args: |
+            OWL2VOWL_GIT_REF=master
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

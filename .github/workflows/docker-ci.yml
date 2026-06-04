@@ -29,35 +29,23 @@ concurrency:
   group: docker-ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  OWL2VOWL_CONTEXT: ${{ github.workspace }}/OWL2VOWL
-
 jobs:
   build-merged:
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
-      - name: Checkout WebVOWL
-        uses: actions/checkout@v6.0.3
+      - uses: actions/checkout@v6.0.3
 
-      - name: Checkout OWL2VOWL
-        uses: actions/checkout@v6.0.3
-        with:
-          repository: VisualDataWeb/OWL2VOWL
-          path: OWL2VOWL
-          ref: master
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v4.1.0
+      - uses: docker/setup-buildx-action@v4.1.0
 
       - name: Build merged image
         uses: docker/build-push-action@v7.2.0
         with:
           context: .
           file: docker/Dockerfile
-          build-contexts: |
-            owl2vowl=${{ env.OWL2VOWL_CONTEXT }}
+          build-args: |
+            OWL2VOWL_GIT_REF=master
           tags: webvowl:ci
           load: true
           cache-from: type=gha
@@ -74,8 +62,10 @@ jobs:
             sleep 3
           done
           curl -sf http://127.0.0.1:8080/serverTimeStamp
+          curl -sfL -o /tmp/foaf.rdf \
+            https://raw.githubusercontent.com/VisualDataWeb/OWL2VOWL/master/ontologies/foaf.rdf
           curl -sf -X POST \
-            -F "ontology=@${OWL2VOWL_CONTEXT}/ontologies/foaf.rdf" \
+            -F "ontology=@/tmp/foaf.rdf" \
             -F "sessionId=ci" \
             http://127.0.0.1:8080/convert | head -c 80
           docker logs webvowl-ci 2>&1 | tail -20

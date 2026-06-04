@@ -1,13 +1,13 @@
-# Sibling checkout (default): ../OWL2VOWL
-# CI / nested checkout: OWL2VOWL_CONTEXT=./OWL2VOWL
+# Full stack: WebVOWL UI + OWL2VOWL (converter cloned inside docker build).
+# Frontend only: docker compose -f docker-compose.frontend.yml
 
 services:
   webvowl:
     build:
       context: .
       dockerfile: docker/Dockerfile
-      additional_contexts:
-        owl2vowl: ${OWL2VOWL_CONTEXT:-../OWL2VOWL}
+      args:
+        OWL2VOWL_GIT_REF: ${OWL2VOWL_GIT_REF:-master}
     image: ${WEBVOWL_IMAGE:-webvowl:local}
     container_name: webvowl-local
     ports:

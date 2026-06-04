@@ -19,18 +19,12 @@ Constraints:
 - **Bump only container base image tags** (Tomcat **9.0.118**, Maven **3.9.16**, Temurin **8** on Noble, Node **12** Alpine — see `docker/Dockerfile` `ARG`s).
 - **All deliverables live inside Git repositories** (WebVOWL + OWL2VOWL), not in a parent folder outside clones.
 
-**Checkout layout** (sibling directories on disk only — not a third repo):
-
-```text
-parent/
-  WebVOWL/     ← docker-compose, ADR, merged Dockerfile
-  OWL2VOWL/    ← sources; referenced via compose additional_context
-```
+**Local checkout:** WebVOWL repository only. OWL2VOWL is **not** cloned on the host.
 
 ## Decision
 
-1. **Canonical stack in WebVOWL**: `docker-compose.yml` + `docker/Dockerfile`.
-2. **Build context** = WebVOWL repo root (`.`); **OWL2VOWL** supplied via Compose `additional_contexts.owl2vowl: ../OWL2VOWL` and `COPY --from=owl2vowl` (BuildKit / Dockerfile 1.4).
+1. **Default**: `docker-compose.yml` + `docker/Dockerfile` (full stack).
+2. **OWL2VOWL at image build time**: `git clone` in the Maven stage (`OWL2VOWL_GIT_URL` / `OWL2VOWL_GIT_REF`, default `master`). No Compose `additional_contexts` and no sibling directory.
 3. **Multi-stage build**:
    - Maven `3.9-eclipse-temurin-8` → `owl2vowl.war`
    - Node `12-alpine` → `npm install --ignore-scripts` + `npm run release`
@@ -47,7 +41,7 @@ parent/
 | Approach | Why chosen / rejected |
 |----------|----------------------|
 | wget WAR | Broken ([#212](https://github.com/VisualDataWeb/WebVOWL/issues/212)). |
-| Parent-folder `docker-compose` outside repos | Violates “files in repos”; replaced by WebVOWL-owned compose + additional_context. |
+| Sibling `../OWL2VOWL` checkout | Replaced by `git clone` inside `docker/Dockerfile` (network at build time). |
 | PR #215 | Correct merge model; arm64 fix: `--ignore-scripts`. |
 | PR #214 | Java 17 + nginx rejected. |
 | Two services, two ports, no proxy | Breaks relative `/convert` ([#195](https://github.com/VisualDataWeb/WebVOWL/issues/195)). |
@@ -63,7 +57,7 @@ parent/
 
 ### Negative / follow-ups
 
-- Requires **sibling** `OWL2VOWL` clone at `../OWL2VOWL` for merged build.
+- Merged build needs **network** to clone OWL2VOWL; pin `OWL2VOWL_GIT_REF` for reproducible releases.
 - Node 12 / Java 8 EOL.
 - [#111](https://github.com/VisualDataWeb/WebVOWL/issues/111) Docker Hub not addressed.
 - Align upstream [PR #215](https://github.com/VisualDataWeb/WebVOWL/pull/215) with this layout.
@@ -74,21 +68,16 @@ Environment: Docker 29.4, macOS arm64.
 
 ```bash
 cd WebVOWL
-docker compose build
-docker compose up -d
-curl -sf http://localhost:8080/
+docker compose build && docker compose up -d
 curl -sf http://localhost:8080/serverTimeStamp
-curl -sf -X POST \
-  -F "ontology=@../OWL2VOWL/ontologies/foaf.rdf" \
-  -F "sessionId=verify-local" \
-  http://localhost:8080/convert | head -c 80
+# POST foaf.rdf to /convert (any local OWL file)
 ```
 
 ## Implementation map (WebVOWL)
 
 | Path | Role |
 |------|------|
-| `docker-compose.yml` | Merged stack |
+| `docker-compose.yml` | Full stack (OWL2VOWL cloned in build) |
 | `docker-compose.frontend.yml` | UI only |
 | `docker/Dockerfile` | Merged image |
 | `docker/Dockerfile.frontend` | Frontend-only image |
