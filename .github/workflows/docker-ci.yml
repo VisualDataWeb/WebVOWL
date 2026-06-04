@@ -1,0 +1,106 @@
+name: Docker CI
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/docker-ci.yml"
+      - "docker/**"
+      - "docker-compose*.yml"
+      - "Dockerfile"
+      - "package.json"
+      - "src/**"
+      - "util/**"
+      - "Gruntfile.js"
+      - "webpack.config.js"
+  push:
+    branches: [master, main]
+    paths:
+      - ".github/workflows/docker-ci.yml"
+      - "docker/**"
+      - "docker-compose*.yml"
+      - "Dockerfile"
+      - "package.json"
+      - "src/**"
+      - "util/**"
+      - "Gruntfile.js"
+      - "webpack.config.js"
+
+concurrency:
+  group: docker-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-merged:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6.0.3
+
+      - uses: docker/setup-buildx-action@v4.1.0
+
+      - name: Build merged image
+        uses: docker/build-push-action@v7.2.0
+        with:
+          context: .
+          file: docker/Dockerfile
+          build-args: |
+            OWL2VOWL_GIT_REF=master
+          tags: webvowl:ci
+          load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke test (healthcheck + convert)
+        run: |
+          docker run -d --name webvowl-ci -p 8080:8080 webvowl:ci
+          for i in $(seq 1 40); do
+            if curl -sf http://127.0.0.1:8080/serverTimeStamp; then
+              echo "serverTimeStamp OK"
+              break
+            fi
+            sleep 3
+          done
+          curl -sf http://127.0.0.1:8080/serverTimeStamp
+          curl -sfL -o /tmp/foaf.rdf \
+            https://raw.githubusercontent.com/VisualDataWeb/OWL2VOWL/master/ontologies/foaf.rdf
+          curl -sf -X POST \
+            -F "ontology=@/tmp/foaf.rdf" \
+            -F "sessionId=ci" \
+            http://127.0.0.1:8080/convert | head -c 80
+          docker logs webvowl-ci 2>&1 | tail -20
+          docker rm -f webvowl-ci
+
+  build-frontend:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6.0.3
+
+      - uses: docker/setup-buildx-action@v4.1.0
+
+      - name: Build frontend-only image
+        uses: docker/build-push-action@v7.2.0
+        with:
+          context: .
+          file: docker/Dockerfile.frontend
+          tags: webvowl:frontend-ci
+          load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke test
+        run: |
+          docker run -d --name webvowl-fe-ci -p 8080:8080 webvowl:frontend-ci
+          for i in $(seq 1 30); do
+            if curl -sf -o /dev/null http://127.0.0.1:8080/; then
+              echo "frontend OK"
+              docker rm -f webvowl-fe-ci
+              exit 0
+            fi
+            sleep 3
+          done
+          docker logs webvowl-fe-ci
+          docker rm -f webvowl-fe-ci
+          exit 1

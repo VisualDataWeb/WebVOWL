@@ -1,9 +1,26 @@
-version: '3'
+# Full stack: WebVOWL UI + OWL2VOWL (converter cloned inside docker build).
+# Frontend only: docker compose -f docker-compose.frontend.yml
 
 services:
-    
-    server:
-        build: .
-        command: catalina.sh run
-        ports:
-            - 8080:8080
+  webvowl:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        OWL2VOWL_GIT_REF: ${OWL2VOWL_GIT_REF:-master}
+    image: ${WEBVOWL_IMAGE:-webvowl:local}
+    container_name: webvowl-local
+    ports:
+      - "${WEBVOWL_PORT:-8080}:8080"
+    volumes:
+      - ./data:/data
+      # - ./deploy:/usr/local/tomcat/webapps/ROOT:ro
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8080/serverTimeStamp"]
+      interval: 30s
+      timeout: 5s
+      start_period: 90s
+      retries: 3
+    restart: unless-stopped
