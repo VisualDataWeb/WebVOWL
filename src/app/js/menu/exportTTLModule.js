@@ -271,6 +271,8 @@ module.exports = function ( graph ){
     
     
     objectDef += general_Label_languageExtractor(indent, node.label(), "rdfs:label", true);
+    if not node."rdfs:label"
+      objectDef += general_Label_languageExtractor(indent, node.label(), "skos:prefLabel", true);
     return objectDef;
     
   }
