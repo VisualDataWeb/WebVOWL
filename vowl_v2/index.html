@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="author" content="Stefan Negru, Steffen Lohmann, Florian Haag">
+<meta name="keywords" content="owl, vowl, visual notation, web ontology language, ontology visualization, ontologies, semantic web, linked data">
+<meta name="description" content="The Visual Notation for OWL Ontologies (VOWL) defines a visual language for the user-oriented representation of ontologies.">
+<link rel="icon" href="data/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="data/vowl.css">
+<link rel="stylesheet" type="text/css" href="data/pagestyle.css">
+<title>VOWL: Visual Notation for OWL Ontologies</title>
+</head>
+<body>
+
+<div id="wrapper">
+  <header>
+    <h1>VOWL: Visual Notation for OWL Ontologies</h1>
+    <h2>Specification of Version 2.0 – 7 April 2014</h2>
+    <hr>
+    <dl>
+      <dt>This version:</dt>
+      <dd><a href="#">http://purl.org/vowl/spec/v2/</a></dd>
+      <dt>Latest version</dt>
+      <dd><a href="#">http://purl.org/vowl/spec/</a></dd>
+      <dt>Previous version:</dt>
+      <dd><a href="#">http://purl.org/vowl/spec/v1/</a></dd>
+      <dt>Authors:</dt>
+      <dd><a href="http://www.blankdots.com/">Stefan Negru</a>, Alexandru Ioan Cuza University<br>
+        <a href="http://steffen-lohmann.de/">Steffen Lohmann</a>, University of Stuttgart<br>
+        <a href="http://www.vis.uni-stuttgart.de/en/institute/people/florian-haag.html">Florian Haag</a>, University of Stuttgart<br>
+      </dd>
+    </dl>
+    <span id="visualHome"><a href="#">visualdataweb.org »</a></span></header>
+  <hr>
+  <section>
+    <h2>Abstract</h2>
+    <p>The Visual Notation for OWL Ontologies (VOWL) defines a visual 
+language for the user-oriented representation of ontologies. It provides
+ graphical depictions for elements of the Web Ontology Language (OWL) 
+that are combined to a force-directed graph layout visualizing the 
+ontology. </p>
+    <p>This specification focuses on the visualization of the ontology 
+schema (i.e. the classes, properties and datatypes, sometimes called 
+TBox), while it also includes recommendations on how to depict 
+individuals and data values (the ABox). Familiarity with <a href="http://www.w3.org/2004/OWL/">OWL</a> and other <a href="http://www.w3.org/standards/semanticweb/">Semantic Web</a> technologies is required to understand this specification. </p>
+  </section>
+  <hr>
+  <section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#buildingBlocks">Basic Building Blocks</a></li>
+      <li><a href="#notation">Visual Notation</a></li>
+      <li><a href="#example">Example</a></li>
+      <li><a href="#acknowledgments">Acknowledgments</a></li>
+      <li><a href="#references">References</a></li>
+    </ol>
+  </section>
+  <hr>
+  <section id="overview">
+    <h2>Overview <a href="#toc">[back to top]</a></h2>
+    <p>The Visual Notation for OWL Ontologies (VOWL) is based on only a handful of <a href="#graphicalPrimitives">graphical primitives</a>
+ forming the alphabet of the visual language: Classes are depicted as 
+circles that are connected by lines and arrows representing the property
+ relations. Property labels and datatypes are shown in rectangles. 
+Information on individuals and data values is either displayed in the 
+visualization itself or in another part of the user interface.</p>
+    <p>The second ingredient of VOWL is a <a href="#colorScheme">color scheme</a>
+ complementing the graphical primitives. It defines colors for the 
+visual elements to allow for an easy distinction of different types of 
+classes and properties. Although the color scheme is defined in an 
+abstract way leaving room for customization, a set of concrete color 
+recommendations provides guidance for developers.</p>
+    <p>Finally, the visual elements are combined to a graph that is 
+rendered in a force-directed layout and represents the ontology. VOWL 
+defines <a href="#splittingRules">splitting rules</a> to specify which elements are multiplied and thus displayed several times in the visualization to improve the overall layout.</p>
+    <p>VOWL can be used with any version of OWL (i.e. <a href="http://www.w3.org/TR/owl-ref/">OWL 1</a> and <a href="http://www.w3.org/TR/owl2-overview/">OWL 2</a>),
+ although not all language constructs (especially of OWL 2) are included
+ in this specification. Best results may be achieved with <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL DL</a> or the more restrictive profiles <a href="http://www.w3.org/TR/owl2-profiles/">OWL 2 EL/QL/RL</a>, as well as <a href="http://www.w3.org/TR/owl-ref/#Sublanguages">OWL Lite</a>. VOWL also provides graphical depictions for elements of RDF and RDFS that are reused in OWL, such as <em><a href="#rdfProperty">rdf:Property</a></em> or <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em>.</p>
+  </section>
+  <hr>
+  <section id="buildingBlocks">
+    <h2>Basic Building Blocks <a href="#toc">[back to top]</a></h2>
+    <p> This section introduces the <a href="#graphicalPrimitives">graphical primitives</a> and <a href="#colorScheme">color scheme </a> that form the basic building blocks of VOWL. It also defines <a href="#splittingRules">splitting rules</a> for elements in the graph visualization and gives some <a href="#generalGuidelines">general guidelines</a> for using the notation.</p>
+    <h3 id="graphicalPrimitives">Graphical Primitives</h3>
+    <p><a href="#primitivesTable">Table 1</a> lists all graphical primitives used in VOWL.</p>
+    <table id="primitivesTable">
+      <caption>
+      Table 1. Graphical primitives.
+      </caption>
+      <thead>	
+        <tr>
+          <th style="width: 5em">Name</th>
+          <th style="width: 40px">Primitive</th>
+          <th>Description</th>
+          <th>Application</th>
+        </tr>
+	  </thead>
+      <tbody>		
+        <tr>
+          <td id="primitiveCircle">Circle</td>
+          <td style="text-align: center;"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="50px" height="50px">
+              <circle class="class nofill embedded" r="20" transform="translate(25,25)"></circle>
+            </svg></td>
+          <td><p>Each circle represents a class of the ontology. The 
+color of the circle depends on the type of class. There is an 
+implementation-specific default size for circles.</p>
+            <p>If an ontology contains individuals and unless purely the
+ schema (i.e. the TBox) is considered, the circle can become larger than
+ the default size – in that case, its size corresponds to the number of 
+individuals that are instances of the class. VOWL does not specify a 
+particular function for mapping the number of individuals to the circle 
+size – good results may be achieved with a logarithmic or square-root 
+scaling in most cases. A maximum size may be imposed.
+              Individuals inferred from subclasses are counted as well 
+if reasoning is available and not deactivated. </p>
+            <p> The circles representing the special classes <em><a href="#owlThing">owl:Thing</a></em> and <em><a href="#rdfsResource">rdfs:Resource</a></em>
+ are exceptions. They are not scaled but have a fixed size that is 
+smaller than the default size of classes. In addition, the circles of 
+these two classes have a dashed border and are multiplied in the 
+visualization according to the <a href="#splittingRules">splitting rules</a>.</p></td>
+          <td><em><a href="#owlClass">owl:Class</a></em>, <em><a href="#rdfsClass">rdfs:Class</a></em>, <em><a href="#owlDeprecatedClass">owl:DeprecatedClass</a></em>, <em><a href="#owlThing">owl:Thing</a></em>, <em><a href="#rdfsResource">rdfs:Resource</a></em></td>
+        </tr>
+        <tr>
+          <td id="primitiveLine">Line</td>
+          <td style="text-align: center;"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="50px" height="50px">
+              <path d="M5,15 L44,15"></path>
+              <path d="M5,35 C15,25 34,25 44,35"></path>
+            </svg></td>
+          <td><p>Lines are used to represent property relations. They usually have an arrowhead indicating the direction of the relation. The <a href="#primitiveLineStyle">line style</a> and <a href="#primitiveArrowhead">arrowhead</a>
+ to use are determined by the type of the property. If the same two 
+classes are connected by multiple lines (i.e. if there are multi-edges 
+between circle nodes in the graph visualization), the lines may be 
+curved.</p></td>
+          <td><em><a href="#rdfsRange">rdfs:domain</a></em>, <em><a href="#rdfsRange">rdfs:range</a></em>, <em><a href="#owlDisjointWith">owl:disjointWith</a></em>, <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em>, <em><a href="#owlUnionOf">owl:unionOf</a></em>, <em><a href="#owlIntersectionOf">owl:intersectionOf</a></em>, <em><a href="#owlComplementOf">owl:complementOf</a></em></td>
+        </tr>
+        <tr>
+          <td id="primitiveArrowhead">Arrowhead</td>
+          <td style="text-align: center;"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="50px" height="50px">
+              <path class="arrowhead" d="m 20,25 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+              <path class="white" d="m 40,25 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+            </svg></td>
+          <td><p>Arrowheads indicate the direction of property relations
+ by pointing to the object of the property – i.e., a datatype, class, or
+ class instance that is defined as the range of that property.</p>
+            <p>Arrowheads representing <a href="#rdfsRange">range axioms</a> are filled with the <a href="#colorForeground">foreground color</a>; arrowheads representing <a href="#rdfsSubClassOf">subclass relations</a> are filled with the <a href="#colorNeutral">neutral color</a>.</p></td>
+          <td><p><em><a href="#rdfsRange">rdfs:range</a></em> (with <a href="#colorForeground">foreground color</a>), <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em> (with <a href="#colorNeutral">neutral color</a>)</p></td>
+        </tr>
+        <tr>
+          <td id="primitiveRectangle">Rectangle</td>
+          <td style="text-align: center;"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="50px" height="50px">
+              <rect class="class nofill embedded" x="5" y="15" width="38" height="20"></rect>
+            </svg></td>
+          <td><p>Property labels and datatypes are shown in rectangles. If representing datatypes, the rectangles have the <a href="#colorDatatype">datatype color</a> and a border. If representing property labels, they are borderless and colored according to the property type.</p></td>
+          <td><p><em><a href="#rdfsDatatype">rdfs:Datatype</a></em>, <em><a href="#rdfsLiteral">rdfs:Literal</a></em>, property labels</p></td>
+        </tr>
+        <tr>
+          <td id="primitiveLineStyle">Line style</td>
+          <td style="text-align: center;"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="50px" height="50px">
+              <path class="special" d="M5,20 L44,20"></path>
+              <path class="dotted" d="M5,35 L44,35"></path>
+            </svg></td>
+          <td><p>The lines and borders of some types of classes and 
+properties are dashed or dotted. A dashed line indicates set operators 
+and class disjointness (<a href="#owlDisjointWith">if visualized</a>). A dashed border indicates literals and special types of classes. A dotted line is reserved for subclass relations.</p></td>
+          <td><p>dotted line: <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em>;<br>
+              dashed line: <em><a href="#owlDisjointWith">owl:disjointWith</a></em>, <em><a href="#owlUnionOf">owl:unionOf</a></em>, <em><a href="#owlIntersectionOf">owl:intersectionOf</a></em>, <em><a href="#owlComplementOf">owl:ComplementOf</a></em>;<br>
+              dashed border: <em><a href="#owlThing">owl:Thing</a></em>, <em><a href="#rdfsResource">rdfs:Resource</a></em>, <em><a href="#rdfsLiteral">rdfs:Literal</a></em>, and <a href="#setOperatorTable">anonymous classes (as part of set operators)</a></p></td>
+        </tr>
+        <tr>
+          <td id="primitiveText">Text</td>
+          <td style="text-align: center;"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="50px" height="50px">
+              <text class="text">
+                <tspan x="0" y="15">text</tspan>
+                <tspan x="0" y="30">number</tspan>
+                <tspan x="0" y="45">symbol</tspan>
+              </text>
+            </svg></td>
+          <td><p>Text is used for labels and type information, numbers 
+represent cardinalities and symbols may complement schematic 
+illustrations. Moreover, an <a href="#metadata">infobox</a> with textual
+ information from the ontology header, such as the title and description
+ of the ontology, may be displayed in the visualization.</p></td>
+          <td><p><em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>, type of property ("Subclass of" for <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em>),
+ additional type information in brackets (e.g. "deprecated", 
+"functional", etc.), symbols in schematic illustrations (e.g. union 
+symbol ("∪") for <em><a href="#owlUnionOf">owl:unionOf</a></em>), <a href="#owlCardinality">cardinalities</a>, <a href="#metadata">infobox</a></p></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 id="colorScheme">Color Scheme</h3>
+    <p><a href="#colorTable">Table 2</a> lists the colors used in VOWL. 
+They are defined in an abstract way, along with a description and a 
+recommendation for a concrete color, including its hex code. Developers 
+may choose different colors, as long as they comply with the abstract 
+descriptions. All colors are defined relative to the <a href="#colorCanvas">canvas color</a>,
+ which is assumed to be very light. The colors (and color descriptions) 
+may be 'inverted' if the visualization is presented on a dark 
+background.</p>
+    <p>While the colors ease the reading of the visualization, they are 
+not required to understand it. The visualization is also understandable 
+if printed in black and white or read by color-blind people, though some
+ details may not be visible any longer (e.g. if a class is of type <em><a href="#owlClass">owl:Class</a></em> or <em><a href="#rdfsClass">rdfs:Class</a></em>).
+ If these details should also be available in black and white prints of 
+the visualization, they may be added as text (e.g. in the label of the 
+element).</p>
+    <p>There may be <a href="#conflicts">conflicts</a> in using this 
+color scheme, e.g. when a deprecated class belongs to an external 
+ontology. They should be resolved by giving one of the colors a higher 
+priority and adding all information in the label and/or another part of 
+the user interface (e.g. a sidebar). Recommendations are given in the <a href="#conflicts">general guidelines</a>.</p>
+    <table id="colorTable">
+      <caption>
+      Table 2. Color scheme.
+      </caption>
+      <thead>
+        <tr>
+          <th style="width: 7em;">Abstract color name</th>
+          <th colspan="2">Concrete color recommendation</th>
+          <th>Description</th>
+          <th style="width: 20em;">Application</th>
+        </tr>
+	  </thead>
+      <tbody>				
+        <tr>
+          <td id="colorCanvas">Canvas</td>
+          <td style="background: #fff; width: 2em">#fff</td>
+          <td>white</td>
+          <td><p>Very light color with a good contrast to all other colors.</p></td>
+          <td><p>background of the visualization</p></td>
+        </tr>
+        <tr>
+          <td id="colorNeutral">Neutral</td>
+          <td style="background: #fff; width: 2em">#fff</td>
+          <td>white</td>
+          <td><p>Light color with a good contrast to all other colors (usually similar or identical to the <a href="#colorCanvas">canvas color</a>).</p></td>
+          <td><p><em><a href="#owlThing">owl:Thing</a></em>, arrowhead of <em><a href="#rdfsSubClassOf">rdfs:subClassOf</a></em>, double border of <em><a href="#owlEquivalentClass">owl:equivalentClass</a></em></p></td>
+        </tr>
+        <tr>
+          <td id="colorForeground">Foreground</td>
+          <td style="background: #000; color: #fff">#000</td>
+          <td>black</td>
+          <td><p>Very dark color with a good contrast to all other colors, except the <a href="#colorExternal">external color</a>.</p></td>
+          <td><p>lines, borders, arrowheads, text, numbers, symbols</p></td>
+        </tr>
+        <tr>
+          <td id="colorGeneral">General</td>
+          <td style="background: #acf">#acf</td>
+          <td>light blue</td>
+          <td><p>Light color with a good contrast to the <a href="#colorForeground">foreground color</a>.</p></td>
+          <td><p><em><a href="#owlClass">owl:Class</a></em>, <em><a href="#owlObjectProperty">owl:ObjectProperty</a></em> (incl. subclasses), <em><a href="#owlDisjointWith">owl:disjointWith</a></em></p></td>
+        </tr>
+        <tr>
+          <td id="colorRdf">Rdf</td>
+          <td style="background: #c9c">#c9c</td>
+          <td>light purple</td>
+          <td><p>Color similar to the <a href="#colorGeneral">general color</a> with a good contrast to the <a href="#colorForeground">foreground color</a>.</p></td>
+          <td><p><em><a href="#rdfsClass">rdfs:Class</a></em>, <em><a href="#rdfsResource">rdfs:Resource</a></em>, <em><a href="#rdfProperty">rdf:Property</a></em></p></td>
+        </tr>
+        <tr>
+          <td id="colorDeprecated">Deprecated</td>
+          <td style="background: #ccc">#ccc</td>
+          <td>light gray</td>
+          <td><p>Color that is clearly different from the other colors and that is associated with being 'deactivated'.</p></td>
+          <td><p><em><a href="#owlDeprecatedClass">owl:DeprecatedClass</a></em>, <em><a href="#owlDeprecatedProperty">owl:DeprecatedProperty</a></em></p></td>
+        </tr>
+        <tr>
+          <td id="colorExternal">External</td>
+          <td style="background: #36c; color: white">#36c</td>
+          <td>dark blue</td>
+          <td><p>Dark version of the <a href="#colorGeneral">general color</a>, with the text in the <a href="#colorNeutral">neutral color</a> instead of the <a href="#colorForeground">foreground color</a>.</p></td>
+          <td><p>Classes and properties from other ontologies that are linked in the ontology being visualized.</p></td>
+        </tr>
+        <tr>
+          <td id="colorDatatype">Datatype</td>
+          <td style="background: #fc3">#fc3</td>
+          <td>yellow</td>
+          <td><p>Light color that is clearly different from the other colors.</p></td>
+          <td><p><em><a href="#rdfsDatatype">rdfs:Datatype</a></em>, <em><a href="#rdfsLiteral">rdfs:Literal</a></em></p></td>
+        </tr>
+        <tr>
+          <td id="colorDatatypeProperty">Datatype Property</td>
+          <td style="background: #9c6">#9c6</td>
+          <td>light green</td>
+          <td><p>Light color that is clearly different from the other colors.</p></td>
+          <td><p><em><a href="#owlDatatypeProperty">owl:DatatypeProperty</a></em></p></td>
+        </tr>
+        <tr>
+          <td id="colorGraphics">Graphics</td>
+          <td style="background: #69c">#69c</td>
+          <td>medium blue</td>
+          <td><p>Darkened version of the <a href="#colorGeneral">general color</a>.</p></td>
+          <td><p>Schematic illustrations in <em><a href="#owlDisjointWith">owl:disjointWith</a></em>, <em><a href="#owlUnionOf">owl:unionOf</a></em>, <em><a href="#owlIntersectionOf">owl:intersectionOf</a></em>, <em><a href="#owlComplementOf">owl:ComplementOf</a></em></p></td>
+        </tr>
+        <tr>
+          <td id="colorDirectHighlight">Highlighting</td>
+          <td style="background: #f00">#f00</td>
+          <td>red</td>
+          <td><p>Very visible color, clearly indicating that an element is hovered or selected.</p></td>
+          <td><p>circles, rectangles, lines, borders, arrowheads</p></td>
+        </tr>
+        <tr>
+          <td id="colorIndirectHighlight">Indirect Highlighting</td>
+          <td style="background: #f90">#f90</td>
+          <td>orange</td>
+          <td><p>Color similar to the <a href="#colorDirectHighlight">highlighting color</a>.</p></td>
+          <td><p>rectangles, circles</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 id="splittingRules">Splitting Rules</h3>
+    <p>While some generic elements do not carry important domain information (e.g. <a href="#owlThing">owl:Thing</a>, <a href="#rdfsLiteral">rdfs:Literal</a>),
+ they may be connected to a lot of other elements in the ontology. This 
+would result in many links in the graph visualization that could 
+negatively affect its layout and readability. In addition, these highly 
+connected elements would tend to stand out among the other elements, 
+giving them visual emphasis that does not adequately reflect their 
+importance in the ontology. Therefore, VOWL defines splitting rules for 
+some generic OWL elements.</p>
+    <p><a href="#splittingTable">Table 3</a> lists the two different splitting rules, along with the OWL elements they are applied to.</p>
+    <table id="splittingTable">
+      <caption>
+      Table 3. Splitting rules.
+      </caption>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Application</th>
+        </tr>
+	  </thead>
+      <tbody>				
+        <tr>
+          <td>Splitting by property</td>
+          <td><p>The element is visualized once for every property it is linked to, i.e. if an element is linked to <em>m</em> properties, it is represented <em>m</em> times.</p></td>
+          <td><p><em><a href="#rdfsDatatype">rdfs:Datatype</a></em>, <em><a href="#rdfsLiteral">rdfs:Literal</a></em></p></td>
+        </tr>
+        <tr>
+          <td>Splitting by class</td>
+          <td><p>The element is visualized once for every class it is linked to (via property relations), i.e. if an element is linked to <em>n</em> classes, it is represented <em>n</em> times – independently of how often the element is linked to each class.</p></td>
+          <td><p><em><a href="#owlThing">owl:Thing</a></em>, <em><a href="#rdfsResource">rdfs:Resource</a></em></p></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Note that each link of a splitted element is connected to only <em>one</em> of its representations in the graph visualization, <em>not</em> to all of them. Also note the <a href="#owlThingUse">other VOWL guidelines</a> for the visualization of <em><a href="#owlThing">owl:Thing</a></em>.</p>
+    <p>Elements that are defined to be equivalent (using <em><a href="#owlEquivalentProperty">owl:equivalentProperty</a></em> or <em><a href="#owlEquivalentClass">owl:equivalentClass</a></em>) are, on the contrary, represented by only one visual element in the graph.</p>
+    <hr>
+    <h3 id="generalGuidelines">General Guidelines</h3>
+    <p>Some general guidelines and recommendations for the usage and implementation of VOWL are listed in the following:</p>
+    <h4 id="labels">Labels</h4>
+    <p>If elements do not have an <em><a href="http://www.w3.org/TR/rdf-schema/#ch_label">rdfs:label</a></em>,
+ it is recommended to take the last part of the URI as label, i.e. the 
+part that follows the last slash (/) or hash (#) character. Labels may 
+be abbreviated if they do not fit in the available space (e.g. 
+"Winnie-the-Pooh" → "Winnie…"). The full label should be shown on demand
+ in these cases (e.g. in a tooltip or sidebar).</p>
+    <h4 id="graphLayout">Graph Layout</h4>
+    <p>The visual elements are combined to a graph that should be 
+rendered in an appealing and readable layout. The positions of the 
+circles should be roughly determined by the number of inbound and 
+outbound property relations, i.e. the more property relations a class 
+has, the more centric its circle representation in the layout. It is 
+recommended to use a force-directed graph layout (though other layouts 
+may be equally or even more appropriate in certain cases). The users 
+should be enabled to adapt the graph layout (e.g. by repositioning the 
+nodes that represent the classes and datatypes).</p>
+    <h4 id="missingDomainOrRange">Missing Domain and/or Range Information</h4>
+    <p>If no domain and/or range axiom is defined for a property, <em><a href="#owlThing">owl:Thing</a></em> should be used as domain and/or range. An exception are datatype properties without a defined range, where <em><a href="#rdfsLiteral">rdfs:Literal</a></em> is used as range instead.</p>
+    <h4 id="owlThingUse">Visualization of owl:Thing</h4>
+    <p>The visual representation of <em><a href="#owlThing">owl:Thing</a></em> should only be used if either no domain and/or range axiom is defined for a property, or if <em><a href="#owlThing">owl:Thing</a></em> is explicitly defined as domain and/or range. It is <em>not</em> recommended to visualize subclass relations of <em><a href="#owlThing">owl:Thing</a></em>, as every user-defined class is <a href="http://www.w3.org/TR/owl-guide/#DefiningSimpleClasses">implicitly a subclass</a> of <em><a href="#owlThing">owl:Thing</a></em> and the subclass relations would unnecessarily clutter the visualization.</p>
+    <h4 id="externalElements">External Elements</h4>
+    <p>Elements whose base URI differs from that of the visualized 
+ontology may be marked as external (this feature is optional). 
+Developers may define different colors to visually group external 
+elements by their base URI, as long as they use the representation with 
+'inverted coloring' (i.e. dark color with light font) defined for 
+external elements (i.e. <a href="#externalClass">external classes</a> and <a href="#externalClass">external properties</a>).</p>
+    <h4 id="interactiveHighlighting">Interactive Highlighting</h4>
+    <p>The interactive highlighting assists in the visual exploration of
+ the ontology by indicating hovered, selected, and related elements. 
+Three modes of interactive highlighting are distinguished, two of which 
+are direct:</p>
+    <ol>
+      <li id="highlightOnHover">Highlight on hover: changes the fill color of the hovered element (plus the color of the line and arrow if any) to the <a href="#colorDirectHighlight">highlighting color</a>. This highlighting mode is dependent on the interaction context (e.g., it may not be supported by many touch interfaces). </li>
+      <li id="highlightOnSelection">Highlight on selection: changes the border color of the selected element (plus the color of the line and arrow if any) to the <a href="#colorDirectHighlight">highlighting color</a>. Note that it should also be possible to deselect elements that have been selected. </li>
+      <li id="indirectHighlighting">The third highlighting mode is 
+indirect. It expresses some kind of relationship between elements 
+without connecting them by a line. It is used to interactively indicate 
+sub- and superproperties of a hovered property. Like the <a href="#highlightOnHover">highlight on hover</a>,
+ it changes the fill color of the element (though not necessarily the 
+color of the line and arrow if any), but this time to the <a href="#colorIndirectHighlight">indirect highlighting color</a>.</li>
+    </ol>
+    <h4 id="conflicts">Conflicts</h4>
+    <p>The <a href="#colorDeprecated">deprecated color</a> has priority over the <a href="#colorExternal">external color</a>, i.e. if a class or property from an external ontology is deprecated, it should be visualized in the <a href="#colorDeprecated">deprecated color</a>.
+ In such cases, the type information displayed in brackets will include 
+all information in a comma-separated form (e.g. "deprecated, external").
+ If a property is symmetric and functional, the type information should 
+be "symmetric, functional" accordingly.</p>
+  </section>
+  <hr>
+  <section id="notation">
+    <h2>Visual Notation <a href="#toc">[back to top]</a></h2>
+    <p>The following tables list the graphical representations for the 
+different OWL elements (and some RDF and RDFS elements reused by OWL). 
+They are provided as interactive <a href="http://www.w3.org/TR/SVG/">Scalable Vector Graphics (SVG)</a> and implement the <a href="#highlightOnHover">highlight on hover</a> effects. </p>
+    <table id="classTable">
+      <caption>
+      Table 4. Graphical representations of classes.
+      </caption>
+      <thead>
+        <tr>
+          <th>Ontology element</th>
+          <th>Graphical representation</th>
+          <th>Description</th>
+        </tr>
+	  </thead>
+      <tbody>				
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#Class-def">owl:Class</a></em></td>
+          <td class="tdCenter" id="owlClass"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="105px" height="105px">
+              <g transform="translate(52.5,52.5)">
+                <circle class="class" r="50"></circle>
+                <text class="text" text-anchor="middle">Class</text>
+              </g>
+            </svg></td>
+          <td><p>Circle in <a href="#colorGeneral">general color</a> showing the <a href="#labels">class label</a> in the selected language.</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></em></td>
+          <td class="tdCenter" id="rdfsClass"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="105px" height="105px">
+              <g transform="translate(52.5,52.5)">
+                <circle class="class rdf" r="50"></circle>
+                <text class="text" text-anchor="middle">Class</text>
+              </g>
+            </svg></td>
+          <td><p>Class representation in <a href="#colorRdf">rdf color</a>.</p></td>
+        </tr>
+        <tr>
+          <td>External class<br>
+            (<a href="#externalElements">different base URI</a>)</td>
+          <td class="tdCenter" id="externalClass"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="105px" height="105px">
+              <g transform="translate(52.5,52.5)">
+                <circle class="class external" r="50"></circle>
+                <text class="text white" text-anchor="middle">
+                  <tspan x="0" y="-7">Class</tspan>
+                  <tspan x="0" y="7" class="subtext">(external)</tspan>
+                </text>
+              </g>
+            </svg></td>
+          <td><p>Class representation in <a href="#colorExternal">external color</a> and with indication "external" in brackets (same representation for external <em><a href="#owlClass">owl:Class</a></em> and <em><a href="#rdfsClass">rdfs:Class</a></em>).</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#DeprecatedClass-def">owl:DeprecatedClass</a></em></td>
+          <td class="tdCenter" id="owlDeprecatedClass"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="105px" height="105px">
+              <g transform="translate(52.5,52.5)">
+                <circle class="class deprecated" r="50"></circle>
+                <text class="text" text-anchor="middle">
+                  <tspan x="0" y="-7">Class</tspan>
+                  <tspan x="0" y="7" class="subtext">(deprecated)</tspan>
+                </text>
+              </g>
+            </svg></td>
+          <td><p>Class representation in <a href="#colorDeprecated">deprecated color</a> and with indication "deprecated" in brackets (same representation for deprecated <em><a href="#owlClass">owl:Class</a></em> and <em><a href="#rdfsClass">rdfs:Class</a></em>).
+ This graphical representation is also used for deprecated external 
+classes, with indication "deprecated, external" in brackets.</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#Thing-def">owl:Thing</a></em><br>
+            (<em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em>) </td>
+          <td class="tdCenter" id="owlThing"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="65px" height="65px">
+              <g transform="translate(32.5,32.5)">
+                <circle class="class white special" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Thing</text>
+              </g>
+            </svg></td>
+          <td><p>Smaller circle in <a href="#colorNeutral">neutral color</a> with a dashed border and label "Thing". This graphical representation is multiplied in the visualization according to the <a href="#splittingRules">splitting rules</a>. The same representation with label "Nothing" may be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> (though it is generally not recommended to include <em><a href="http://www.w3.org/TR/owl-ref/#Nothing-def">owl:Nothing</a></em> in the visualization at all).</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></em></td>
+          <td class="tdCenter" id="rdfsResource"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="65px" height="65px">
+              <g transform="translate(32.5,32.5)">
+                <circle class="class rdf special" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Resource</text>
+              </g>
+            </svg></td>
+          <td><p>Smaller circle in <a href="#colorRdf">rdf color</a> with a dashed border and label "Resource". This graphical representation is multiplied in the visualization according to the <a href="#splittingRules">splitting rules</a>.</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Note that the text string "Class" is used as a placeholder for the actual <a href="#labels">class label</a>
+ in the graphical representations. In contrast, the text strings in 
+brackets (i.e. "external" and "deprecated") and the labels "Thing" and 
+"Resource" are not placeholders but literally shown in the 
+visualization.</p>
+    <hr>
+    <table id="propertyTable">
+      <caption>
+      Table 5. Graphical representations of properties.
+      </caption>
+      <thead>
+        <tr>
+          <th>Ontology element</th>
+          <th>Graphical representation</th>
+          <th>Description</th>
+        </tr>
+	  </thead>
+      <tbody>				
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#domain-def">rdfs:domain</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#range-def">rdfs:range</a></em></td>
+          <td class="tdCenter" id="rdfsRange"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link">
+                <path class="arrowhead" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M66,35 L180,35"></path>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>Solid line starting at the domain with an arrowhead in the <a href="#colorForeground">foreground color</a>
+ that points to the range. This graphical representation does never 
+occur on its own but always in combination with the property for which 
+the domain and range have been defined (<a href="#missingDomainOrRange">missing domain or range information is replaced</a>).</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#ObjectProperty-def">owl:ObjectProperty</a></em></td>
+          <td class="tdCenter" id="owlObjectProperty"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect1">
+                <path class="arrowhead" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M66,35 L180,35"></path>
+              </g>
+              <g transform="translate(80, 12)">
+                <rect class="property object" width="90" height="20" onmouseover="labelMouseOver('interactionEffect1')" onmouseout="labelMouseOut('interactionEffect1')"></rect>
+                <text class="text" x="5" y="14">ObjectProperty</text>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>Property representation showing the <a href="#labels">property label</a> in a rectangle having the <a href="#colorGeneral">general color</a>.</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#DatatypeProperty-def">owl:DatatypeProperty</a></em></td>
+          <td class="tdCenter" id="owlDatatypeProperty"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect2">
+                <path class="arrowhead" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M66,35 L180,35"></path>
+              </g>
+              <g class="label" transform="translate(75, 12)">
+                <rect class="property datatype" width="100" height="20" onmouseover="labelMouseOver('interactionEffect2')" onmouseout="labelMouseOut('interactionEffect2')"></rect>
+                <text class="text" x="4" y="14">DatatypeProperty</text>
+              </g>
+              <g transform="translate(225,35)">
+                <rect class="class literal" x="-30" y="-10" width="60" height="20"></rect>
+                <text class="text" text-anchor="middle" y="4">Datatype</text>
+              </g>
+            </svg></td>
+          <td><p>Property representation showing the <a href="#labels">property label</a> in a rectangle having the <a href="#colorDatatypeProperty">datatype property color</a> .</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></em></td>
+          <td class="tdCenter" id="rdfProperty"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect3">
+                <path class="arrowhead" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M66,35 L180,35"></path>
+              </g>
+              <g transform="translate(100, 12)">
+                <rect class="property rdf" width="55" height="20" onmouseover="labelMouseOver('interactionEffect3')" onmouseout="labelMouseOut('interactionEffect3')"></rect>
+                <text class="text" x="6" y="14">Property</text>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>Property representation showing the <a href="#labels">property label</a> in a rectangle having the <a href="#colorRdf">rdf color</a>.</p></td>
+        </tr>
+        <tr>
+          <td>External property <br>
+            (<a href="#externalElements">different base URI</a>)</td>
+          <td class="tdCenter" id="externalProperty"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect20">
+                <path class="arrowhead" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M66,35 L180,35"></path>
+              </g>
+              <g transform="translate(100, 12)">
+                <rect class="property external" width="55" height="20" onmouseover="labelMouseOver('interactionEffect20')" onmouseout="labelMouseOut('interactionEffect20')"></rect>
+                <text class="text white" x="6" y="14">Property</text>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>Property representation showing the <a href="#labels">property label</a> in a rectangle having the <a href="#colorExternal">external color </a>(same representation for external <em><a href="#owlObjectProperty">owl:ObjectProperty</a></em>, <em><a href="#owlDatatypeProperty">owl:DatatypeProperty</a></em>, and <em><a href="#rdfProperty">rdf:Property</a></em>).</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#DeprecatedProperty-def">owl:DeprecatedProperty</a></em></td>
+          <td class="tdCenter" id="owlDeprecatedProperty"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect4">
+                <path class="arrowhead" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M66,35 L180,35"></path>
+              </g>
+              <g transform="translate(67, 12)">
+                <rect class="property deprecated" width="112" height="20" onmouseover="labelMouseOver('interactionEffect4')" onmouseout="labelMouseOut('interactionEffect4')"></rect>
+                <text class="text" x="3" y="14">DeprecatedProperty</text>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>Property representation showing the <a href="#labels">property label</a> in a rectangle having the <a href="#colorDeprecated">deprecated color</a> (same representation for deprecated <em><a href="#owlObjectProperty">owl:ObjectProperty</a></em>, <em><a href="#owlDatatypeProperty">owl:DatatypeProperty</a></em>, <em><a href="#rdfProperty">rdf:Property</a></em>, and <a href="#externalProperty">external properties</a>.)</p></td>
+        </tr>
+        <tr>
+          <td id="functProp"><em><a href="http://www.w3.org/TR/owl-ref/#FunctionalProperty-def">owl:FunctionalProperty</a></em></td>
+          <td class="tdCenter" id="owlFunctionalProperty"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect10">
+                <path class="arrowhead" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M66,35 L180,35"></path>
+              </g>
+              <g transform="translate(96, 2)">
+                <rect class="property object" width="60" height="30" onmouseover="labelMouseOver('interactionEffect10')" onmouseout="labelMouseOut('interactionEffect10')"></rect>
+                <text class="text" text-anchor="middle" transform="translate(32,15)">
+                  <tspan>Property</tspan>
+                  <tspan x="0" y="10" class="subtext">(functional)</tspan>
+                </text>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p> Property representation with indication "functional" 
+in brackets. The color of the rectangle depends on the type of property,
+ i.e. <a href="#colorGeneral">general color</a> = <em><a href="#owlObjectProperty">owl:ObjectProperty</a></em>, <a href="#colorDatatypeProperty">datatype property color</a> = <em><a href="#owlDatatypeProperty">owl:DatatypeProperty</a></em>, and <a href="#colorRdf">rdf color</a> = <em><a href="#rdfProperty">rdf:Property</a></em>.</p>
+            <p>The global cardinality constraint of functional 
+properties is not made explicit in the visualization to avoid any 
+confusion with cardinality constraints defined with <em><a href="#owlCardinality">owl:cardinality</a></em>, <em><a href="#owlCardinality">owl:minCardinality</a></em>, and <em><a href="#owlCardinality">owl:maxCardinality</a></em> that are displayed in the visualization.</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#InverseFunctionalProperty-def">owl:InverseFunctionalProperty</a></em></td>
+          <td class="tdCenter" id="owlInverseFunctionalProperty"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect8">
+                <path class="arrowhead" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M66,35 L180,35"></path>
+              </g>
+              <g transform="translate(80, 2)">
+                <rect class="property object" width="90" height="30" onmouseover="labelMouseOver('interactionEffect8')" onmouseout="labelMouseOut('interactionEffect8')"></rect>
+                <text class="text" text-anchor="middle" transform="translate(46,15)">
+                  <tspan>ObjectProperty</tspan>
+                  <tspan class="subtext" x="0" y="10">(inverse functional)</tspan>
+                </text>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>Object property representation with indication "inverse
+ functional" in brackets. The global cardinality constraint of inverse 
+functional properties is not made explicit in the visualization for the 
+same reason as for <a href="#functProp">functional properties</a>.</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#TransitiveProperty-def">owl:TransitiveProperty</a></em></td>
+          <td class="tdCenter" id="owlTransitiveProperty"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect7">
+                <path class="arrowhead" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M66,35 L180,35"></path>
+              </g>
+              <g transform="translate(80, 2)">
+                <rect class="property object" width="90" height="30" onmouseover="labelMouseOver('interactionEffect7')" onmouseout="labelMouseOut('interactionEffect7')"></rect>
+                <text class="text" text-anchor="middle" transform="translate(46,15)">
+                  <tspan>ObjectProperty</tspan>
+                  <tspan class="subtext" x="0" y="10">(transitive)</tspan>
+                </text>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>Object property representation with indication "transitive" in brackets.</p></td>
+        </tr>
+        <tr>
+          <td>Properties with identical domain and range</td>
+          <td class="tdCenter" id="identicalDomainAndRange"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="175px" height="70px">
+              <g class="link interactionEffect9">
+                <path d="M58,55 Q130,30 65,15"></path>
+                <path class="arrowhead" d="m 58,14 12,-4.5 -2,12.5 -10,-8"></path>
+              </g>
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g transform="translate(80, 23)">
+                <rect class="property object" width="90" height="20" onmouseover="labelMouseOver('interactionEffect9')" onmouseout="labelMouseOut('interactionEffect9')"></rect>
+                <text class="text" text-anchor="middle" transform="translate(46,14)">ObjectProperty </text>
+              </g>
+            </svg></td>
+          <td><p>Object property representation with the line starting and ending at the same class representation (<em>reflexive property representation</em>).
+ If there are several of these properties, their representations should 
+be placed around the circle in a way that maintains readability.</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#SymmetricProperty-def">owl:SymmetricProperty</a></em></td>
+          <td class="tdCenter" id="owlSymmetricProperty"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="175px" height="70px">
+              <g class="link interactionEffect11">
+                <path d="M58,55 Q130,30 65,15"></path>
+                <path class="arrowhead" d="m 58,14 12,-4.5 -2,12.5 -10,-8"></path>
+              </g>
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g transform="translate(80, 15)">
+                <rect class="property object" width="90" height="30" onmouseover="labelMouseOver('interactionEffect11')" onmouseout="labelMouseOut('interactionEffect11')"></rect>
+                <text class="text" text-anchor="middle" transform="translate(46,15)">
+                  <tspan>ObjectProperty</tspan>
+                  <tspan class="subtext" x="0" y="10">(symmetric)</tspan>
+                </text>
+              </g>
+            </svg></td>
+          <td><p>Reflexive property representation with indication "symmetric" in brackets.</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Note that the text strings "Property", "ObjectProperty", 
+"DatatypeProperty", and "DeprecatedProperty" are used as placeholders 
+for the actual <a href="#labels">property labels</a> in the graphical 
+representations. In contrast, the text strings in brackets (i.e. 
+"functional", "inverse functional", "transitive", and "symmetric") are 
+not placeholders but literally shown in the visualization.</p>
+    <hr>
+    <table id="propertyTable2">
+      <caption>
+      Table 6. Graphical representations of further properties.
+      </caption>
+      <thead>
+        <tr>
+          <th>Ontology element</th>
+          <th>Graphical representation</th>
+          <th>Description</th>
+        </tr>
+	  </thead>
+      <tbody>				
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <br>
+            <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em></td>
+          <td class="tdCenter" id="owlCardinality"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect12">
+                <path class="arrowhead" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M66,35 L180,35"></path>
+              </g>
+              <g transform="translate(100, 12)">
+                <rect class="property object" width="55" height="20" onmouseover="labelMouseOver('interactionEffect12')" onmouseout="labelMouseOut('interactionEffect12')"></rect>
+                <text class="text" text-anchor="middle" transform="translate(27,15)">Property</text>
+              </g>
+              <g class="cardinality" transform="translate(80, 10)">
+                <g class="interactionEffect12 from" transform="translate(100,12)">
+                  <text class="cardinality" text-anchor="middle">x..y</text>
+                </g>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p> Exact, minimal, and maximal cardinality constraints 
+are written as numbers near the end of the property arrow. The 
+representation is similar to the <a href="http://www.uml.org/">UML notation for cardinalities</a>,
+ i.e. the letters "x" and "y" in the example represent the minimum and 
+maximum cardinality for that property. Exact cardinalities are 
+represented by only one number, while the asterisk (*) denotes an 
+unrestricted cardinality. Examples are "0..1" for a cardinality of 0 to 
+1, "1..*" for a minimum cardinality of 1, or "3" for a cardinality of 
+exactly 3. </p>
+            <p> The default cardinality of most properties is any number
+ (i.e. zero or more) and would be represented by a sole asterisk. 
+However, it is recommended to only depict cardinalities that are 
+explicitly specified with <em><a href="http://www.w3.org/TR/owl-ref/#cardinality-def">owl:cardinality</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#minCardinality-def">owl:minCardinality</a></em>, and <em><a href="http://www.w3.org/TR/owl-ref/#maxCardinality-def">owl:maxCardinality</a></em>. Default property cardinalities (incl. the global cardinality constraints of <a href="#owlFunctionalProperty">functional</a> and <a href="#owlInverseFunctionalProperty">inverse functional</a> properties) are better not shown in the visualization to avoid confusion and reduce visual clutter.</p>
+            <p> The color of the rectangle depends on the type of property, i.e. <a href="#colorGeneral">general color</a> = <em><a href="#owlObjectProperty">owl:ObjectProperty</a></em>, <a href="#colorDatatypeProperty">datatype property color</a> = <em><a href="#owlDatatypeProperty">owl:DatatypeProperty</a></em>, and <a href="#colorRdf">rdf color</a> = <em><a href="#rdfProperty">rdf:Property</a></em>.</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em></td>
+          <td class="tdCenter" id="owlDisjointWith"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="interactionEffect15 link">
+                <path class="special" d="M66,35 L110,35"></path>
+              </g>
+              <g class="link interactionEffect15">
+                <path class="special" d="M148,35 L193,35"></path>
+              </g>
+              <g transform="translate(118, 35)">
+                <rect class="property object" x="-15" y="-15" width="55" height="30" onmouseover="labelMouseOver('interactionEffect15')" onmouseout="labelMouseOut('interactionEffect15')"></rect>
+                <circle r="10" class="symbol fineline embedded"></circle>
+                <circle r="10" cx="25" class="symbol fineline embedded"></circle>
+                <text class="text" text-anchor="middle" transform="translate(14,15)">
+                  <tspan x="0" y="10" class="subtext">(disjoint)</tspan>
+                </text>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>Dashed line without arrowhead connecting the disjoint 
+classes, accompanied by a Venn diagram illustration of two disjoint 
+sets. The illustration has the <a href="#colorGraphics">graphics color</a> and is shown in a rectangle colored in the <a href="#colorGeneral">general color</a>, along with the indication "disjoint" in brackets.</p>
+            <p>If several classes are pairwise disjoint, this could be 
+visualized by connecting each two of them. As an alternative to showing 
+this element in the visualization, <em><a href="http://www.w3.org/TR/owl-ref/#disjointWith-def">owl:disjointWith</a></em>
+ statements may be presented as details on demand in another part of the
+ user interface, which is recommended since it usually results in a less
+ cluttered graph.</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#subClassOf-def">rdfs:subClassOf</a></em></td>
+          <td class="tdCenter" id="rdfsSubClassOf"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect14">
+                <path class="white" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path class="dotted" d="M66,35 L180,35"></path>
+              </g>
+              <g transform="translate(94, 13)">
+                <rect class="property white" width="70" height="20" onmouseover="labelMouseOver('interactionEffect14')" onmouseout="labelMouseOut('interactionEffect14')"></rect>
+                <text class="text" x="4" y="14">Subclass of</text>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>Dotted line starting at the subclass with an arrowhead filled with the <a href="#colorNeutral">neutral color</a> that points to the superclass. The representation is similar to the <a href="http://www.uml.org/">UML notation for generalizations</a>
+ but with a dashed line instead of a solid one to make it clearly 
+distinguishable from other property relations. In addition, it is 
+recommended to add the label "Subclass of" to the representation to 
+clarify the semantics of the relation. The label has either a 
+transparent background (unless highlighted) or is shown in a rectangle 
+that has the <a href="#colorNeutral">neutral color</a>, which is recommended.</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#subPropertyOf-def">rdfs:subPropertyOf</a></em></td>
+          <td class="tdCenter" id="rdfsSubPropertyOf"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g class="link interactionEffectX">
+                <path class="arrowhead" d="m 196,22 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M62,22 L184,22"></path>
+              </g>
+              <g class="link interactionEffectXY">
+                <path class="arrowhead" d="m 197,50 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M62,50 L185,50"></path>
+              </g>
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="interactionEffectZZ" transform="translate(100, 25)">
+                <g transform="translate(0, -26)">
+                  <rect class="property object" width="55" height="20" onmouseover="labelMouseOver('interactionEffectX');indirectHighlightOn('interactionEffectZ')" onmouseout="labelMouseOut('interactionEffectX');indirectHighlightOff('interactionEffectZ')"></rect>
+                  <text class="text" text-anchor="middle" x="27" y="14">Property</text>
+                </g>
+                <g class="interactionEffectZ" transform="translate(-7, 2)">
+                  <rect class="property object" width="70" height="20" onmouseover="labelMouseOver('interactionEffectXY');indirectHighlightOn('interactionEffectZZ')" onmouseout="labelMouseOut('interactionEffectXY');indirectHighlightOff('interactionEffectZZ')"></rect>
+                  <text class="text" text-anchor="middle" x="35" y="14">Subproperty</text>
+                </g>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>If a property is hovered, its sub- and superproperties (if any) may be dynamically highlighted using the <a href="#colorIndirectHighlight">indirect highligthing color</a> and <a href="#indirectHighlighting">mode</a>. 
+              The color of the rectangle depends on the type of property, i.e. <a href="#colorGeneral">general color</a> = <em><a href="#owlObjectProperty">owl:ObjectProperty</a></em>, <a href="#colorDatatypeProperty">datatype property color</a> = <em><a href="#owlDatatypeProperty">owl:DatatypeProperty</a></em>, and <a href="#colorRdf">rdf color</a> = <em><a href="#rdfProperty">rdf:Property</a></em>.</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#inverseOf-def">owl:inverseOf</a></em></td>
+          <td class="tdCenter" id="owlInverseOf"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect5">
+                <path class="arrowhead" d="m 192,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+              </g>
+              <g class="link interactionEffect5 interactionEffect6">
+                <path d="M80,35 L179.5,35"></path>
+              </g>
+              <g class="link interactionEffect6">
+                <path class="arrowhead" d="m 68,35 11.5,-6.5 0,13 -11.5,-6.5 z"></path>
+              </g>
+              <g class="label" transform="translate(85, 25)">
+                <g transform="translate(0, -13)">
+                  <rect class="property object" width="90" height="20" onmouseover="labelMouseOver('interactionEffect5')" onmouseout="labelMouseOut('interactionEffect5')"></rect>
+                  <text class="text" text-anchor="middle" x="44.5" y="14">ObjectProperty</text>
+                </g>
+                <g transform="translate(0, 13)">
+                  <rect class="property object" width="90" height="20" onmouseover="labelMouseOver('interactionEffect6')" onmouseout="labelMouseOut('interactionEffect6')"></rect>
+                  <text class="text" text-anchor="middle" x="45" y="14">InverseProperty</text>
+                </g>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>Object property representation with arrowheads at both 
+ends, annotated with the label of the property and its inverse 
+counterpart (interactive highlighting of direction). In order to 
+indicate which label denotes which direction in non-interactive 
+contexts, each label may be slightly displaced toward its respective 
+arrowhead (not shown in the example).</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#equivalentProperty-def">owl:equivalentProperty</a></em></td>
+          <td class="tdCenter" id="owlEquivalentProperty"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect13">
+                <path class="arrowhead" d="m 192.5,35 -11.5,6.5 0,-13 11.5,6.5 z"></path>
+                <path d="M66,35 L180,35"></path>
+              </g>
+              <g transform="translate(92, 2)">
+                <rect class="property object" width="70" height="30" onmouseover="labelMouseOver('interactionEffect13')" onmouseout="labelMouseOut('interactionEffect13')"></rect>
+                <text class="text" text-anchor="middle" transform="translate(36,15)">
+                  <tspan>Property A</tspan>
+                  <tspan x="0" y="10" class="subtext">[Property B]</tspan>
+                </text>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>This graphical representation is used for two or more properties that are defined to be equivalent. One of the <a href="#labels">property labels</a> is the main label, while the rest is listed in square brackets (<a href="#labels">abbreviated</a> if they do not all fit). The main label is taken from a property with the <a href="#externalElements">same base URI</a> as the ontology. If there is no such property (i.e. all properties are <a href="#externalProperty">external</a>), it is taken from any of the properties.</p>
+            <p>The color of the rectangle depends on the type of property from which the main label is taken, i.e. <a href="#colorGeneral">general color</a> = <em><a href="#owlObjectProperty">owl:ObjectProperty</a></em>, <a href="#colorDatatypeProperty">datatype property color</a> = <em><a href="#owlDatatypeProperty">owl:DatatypeProperty</a></em>, and <a href="#colorRdf">rdf color</a> = <em><a href="#rdfProperty">rdf:Property</a></em>.</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#equivalentClass-def">owl:equivalentClass</a></em></td>
+          <td class="tdCenter" id="owlEquivalentClass"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="105px" height="105px">
+              <g transform="translate(52.5,52.5)">
+                <circle class="class white embedded" r="50"></circle>
+                <circle class="class object" r="45"></circle>
+                <text class="text" text-anchor="middle">
+                  <tspan x="0" y="-7">Class A</tspan>
+                  <tspan x="0" y="7" class="subtext">[Class B]</tspan>
+                </text>
+              </g>
+            </svg></td>
+          <td><p>Class representation with a double border. The space between the two borders has the <a href="#colorNeutral">neutral color</a>. This graphical representation is used for two or more classes that are defined to be equivalent. One of the <a href="#labels">class labels</a> is the main label, while the rest is listed in square brackets (<a href="#labels">abbreviated</a> if they do not all fit). The main label is taken from a class with the <a href="#externalElements">same base URI</a> as the ontology. If there is no such class (i.e. all classes are <a href="#externalClass">external</a>),
+ it is taken from any of the classes. Note that the graphical 
+representation has always a double border, independently of how many 
+classes it represents.</p>
+            <p>The color of the circle depends on the type of class from which the main label is taken, i.e. <a href="#colorGeneral">general color</a> = <em><a href="#owlClass">owl:Class</a></em>, <a href="#colorDatatypeProperty">datatype property color</a> = <em><a href="#rdfsClass">rdfs:Class</a></em>, <a href="#colorExternal">external color</a> = <a href="#externalClass">external class</a>, and <a href="#colorDeprecated">deprecated color</a> = <em><a href="#owlDeprecatedClass">owl:deprecatedClass</a></em>. </p></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>The graphical representations of equivalent classes may also be used to represent <em><a href="http://www.w3.org/TR/owl-ref/#sameAs-def">owl:sameAs</a></em> relations that can be defined between classes in OWL Full.</p>
+    <hr>
+    <table id="setOperatorTable">
+      <caption>
+      Table 7. Graphical representations of set operators.
+      </caption>
+      <thead>
+        <tr>
+          <th>Ontology element</th>
+          <th>Graphical representation</th>
+          <th>Description</th>
+        </tr>
+	  </thead>
+      <tbody>				
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em></td>
+          <td class="tdCenter" id="owlUnionOf"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect16">
+                <path class="special" d="M66,35 L104,35"></path>
+              </g>
+              <g class="link interactionEffect16">
+                <path class="special" d="M164,35 L193,35"></path>
+              </g>
+              <g transform="translate(130, 35)">
+                <circle class="class special" r="25" onmouseover="labelMouseOver('interactionEffect16')" onmouseout="labelMouseOut('interactionEffect16')"></circle>
+                <g class="embedded" transform="translate(-5,0)">
+                  <circle class="symbol" r="14"></circle>
+                  <circle cx="10" class="symbol fineline" r="14"></circle>
+                  <circle class="nofill fineline" r="14"></circle>
+                  <path class="link" d="m 1,-3 c 0,2 0,4 0,6 0,0 0,0 0,0 0,2 2,3 4,3 2,0 4,-1 4,-3 0,-2 0,-4 0,-6"></path>
+                </g>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>Class representation with a dashed border and a Venn diagram of two united sets colored in the <a href="#colorGraphics">graphics color</a>. The circle represents the anonymous class of the <em><a href="http://www.w3.org/TR/owl-ref/#unionOf-def">owl:unionOf</a></em>
+ statement, which is additionally indicated by the union symbol ("∪") 
+used as a label. The anonymous class is connected to the classes it is 
+composed of by a dashed line (without arrowhead).</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em></td>
+          <td class="tdCenter" id="owlIntersectionOf"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class A</text>
+              </g>
+              <g class="link interactionEffect17">
+                <path class="special" d="M66,35 L104,35"></path>
+              </g>
+              <g class="link interactionEffect17">
+                <path class="special" d="M164,35 L193,35"></path>
+              </g>
+              <g transform="translate(130, 35)">
+                <circle class="class special" r="25" onmouseover="labelMouseOver('interactionEffect17')" onmouseout="labelMouseOut('interactionEffect17')"></circle>
+                <g class="embedded" transform="translate(-5,0)">
+                  <path class="nostroke symbol" d="m 5,-13 c 5,2.5 8.5,7.5 8.5,13 0,5 -3,10 -8.5,13 -5,-2.5 -8.5,-7.5 -8.5,-13 0,-5 3,-10 8.5,-13"></path>
+                  <circle class="nofill fineline" r="14"></circle>
+                  <circle cx="10" class="nofill fineline" r="14"></circle>
+                  <path class="nofill" d="m 9,5 c 0,-2 0,-4 0,-6 0,0 0,0 0,0 0,0 0,-1.8 -1,-2.3 -0.7,-0.6 -1.7,-0.8 -2.9,-0.8 -1.2,0 -2,0 -3,0.8 -0.7,0.5 -1,1.4 -1,2.3 0,2 0,4 0,6"></path>
+                </g>
+              </g>
+              <g transform="translate(225,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class B</text>
+              </g>
+            </svg></td>
+          <td><p>Class representation with a dashed border and a Venn diagram of two intersected sets colored in the <a href="#colorGraphics">graphics color</a>. The circle represents the anonymous class of the <em><a href="http://www.w3.org/TR/owl-ref/#intersectionOf-def">owl:intersectionOf</a></em>
+ statement, which is additionally indicated by the intersection symbol 
+("∩") used as a label. The anonymous class is connected to the classes 
+it is composed of by a dashed line (without arrowhead).</p></td>
+        </tr>
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:complementOf</a></em></td>
+          <td class="tdCenter" id="owlComplementOf"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="260px" height="70px">
+              <g transform="translate(35,35)">
+                <circle class="class" r="30"></circle>
+                <text class="text" text-anchor="middle" y="2">Class</text>
+              </g>
+              <g class="link interactionEffect18">
+                <path class="special" d="M66,35 L199,35"></path>
+              </g>
+              <g transform="translate(225, 35)">
+                <circle class="class special" r="25" onmouseover="labelMouseOver('interactionEffect18')" onmouseout="labelMouseOut('interactionEffect18')"></circle>
+                <g class="embedded" transform="translate(0,0)">
+                  <circle class="symbol fineline" r="14"></circle>
+                  <path class="nofill" d="m -7,-1.5 12,0 0,6"></path>
+                </g>
+              </g>
+            </svg></td>
+          <td><p>Class representation with a dashed border containing a smaller circle in the <a href="#colorGraphics">graphics color</a> as an illustration of the complement class. The outer circle represents the anonymous class of the <em><a href="http://www.w3.org/TR/owl-ref/#complementOf-def">owl:complementOf</a></em>
+ statement, which is additionally indicated by the negation symbol ("¬")
+ used as a label. The anonymous class is connected to the class it is 
+composed of by a dashed line (without arrowhead).</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Note that the set operators <em><a href="#owlUnionOf">owl:unionOf</a></em> and <em><a href="#owlIntersectionOf">owl:intersectionOf</a></em>
+ can also connect more than two classes, which is represented by 
+additional dashed lines from the anonymous class to those classes.</p>
+    <hr>
+    <table id="datatypeTable">
+      <caption>
+      Table 8. Graphical representations of datatypes.
+      </caption>
+      <thead>
+        <tr>
+          <th>Ontology element</th>
+          <th>Graphical representation</th>
+          <th>Description</th>
+        </tr>
+	  </thead>
+      <tbody>				
+        <tr>
+          <td><a href="http://www.w3.org/TR/owl-ref/#Datatype">rdfs:Datatype</a></td>
+          <td class="tdCenter" id="rdfsDatatype"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="105px" height="35px">
+              <g transform="translate(52,18)">
+                <rect class="class literal" x="-30" y="-10" width="60" height="20"></rect>
+                <text class="text" text-anchor="middle" y="4">Datatype</text>
+              </g>
+            </svg></td>
+          <td><p>Rectangle in <a href="#colorDatatype">datatype color</a> with solid border. The <a href="#labels">datatype label</a> is the last part of the URI reference to the datatype (e.g. "dateTime", "boolean", etc.)</p></td>
+        </tr>
+        <tr>
+          <td><a href="http://www.w3.org/TR/owl-ref/#Datatype">rdfs:Literal</a></td>
+          <td class="tdCenter" id="rdfsLiteral"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="105px" height="35px">
+              <g transform="translate(52,18)">
+                <rect class="class literal special" x="-30" y="-10" width="60" height="20"></rect>
+                <text class="text" text-anchor="middle" y="4">Literal</text>
+              </g>
+            </svg></td>
+          <td><p>Datatype representation with a dashed border and the label "Literal".</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Note that OWL makes use of <a href="http://www.w3.org/TR/xmlschema-2/#built-in-datatypes">XML Schema datatypes</a>.</p>
+    <hr>
+    <table id="otherTable">
+      <caption>
+      Table 9. Representation of header information and individuals.
+      </caption>
+      <thead>
+        <tr>
+          <th>Ontology element</th>
+          <th>Graphical representation</th>
+          <th>Description</th>
+        </tr>
+	  </thead>
+      <tbody>				
+        <tr>
+          <td><em><a href="http://www.w3.org/TR/owl-ref/#imports-def">owl:imports</a></em>, <br>
+            <em><a href="http://www.w3.org/TR/owl-ref/#versionInfo-def">owl:versionInfo</a></em>, <br>
+            <em><a href="http://www.w3.org/TR/owl-ref/#priorVersion-def">owl:priorVersion</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#backwardCompatibleWith-def">owl:BackwardCompatibleWith</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#incompatibleWith-def">owl:incompatibleWith</a></em></td>
+          <td class="tdCenter" id="metadata"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="240px" height="130px">
+              <rect x="2" y="2" width="236" height="126" class="class white text"></rect>
+              <text class="text" transform="translate(20, 25)">
+                <tspan x="0" y="0">Name of ontology</tspan>
+                <tspan x="0" y="25">Ontology URI</tspan>
+                <tspan x="0" y="50">Description: This is an example of how</tspan>
+                <tspan x="0" y="65">an infobox with information from the</tspan>
+                <tspan x="0" y="80">ontology header may look like.</tspan>
+              </text>
+            </svg></td>
+          <td><p>Text in an infobox complementing the visualization.</p></td>
+        </tr>
+        <tr>
+          <td><a href="http://www.w3.org/TR/owl-ref/#Individual">Individuals</a></td>
+          <td id="individuals"><p>No graphical representation (or alternatively the graphical representation of <a href="http://purl.org/vowl/spec/v1/#tfhover">VOWL 1.0</a>).</p></td>
+          <td><p>It is recommended to separate the depiction of the 
+individuals from the rest of the visualization (e.g. by listing the 
+individuals of interactively selected classes in a sidebar).</p>
+            <p>Alternatively, individuals may be depicted as sections of
+ the circle that represents the class they are instances of (as 
+specified by <a href="http://purl.org/vowl/spec/v1/#tfhover">VOWL 1.0</a>).</p></td>
+        </tr>
+        <tr>
+          <td><a href="http://www.w3.org/TR/owl-ref/#Datatype">Data values</a></td>
+          <td id="dataValues"><p>No graphical representation</p></td>
+          <td><p>It is recommended to separate the depiction of the data values from the rest of the visualization.</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>OWL elements such as <em><a href="http://www.w3.org/TR/owl-ref/#allValuesFrom-def">owl:allValuesFrom</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#someValuesFrom-def">owl:someValuesFrom</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#hasValue-def">owl:hasValue</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_comment">rdfs:comment</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_seealso">rdfs:seeAlso</a></em>, <em><a href="http://www.w3.org/TR/rdf-schema/#ch_isdefinedby">rdfs:isDefinedBy</a></em>, and <em><a href="http://www.w3.org/TR/owl-ref/#EnumeratedDatatype">owl:DataRange</a></em> (<em><a href="#rdfsDatatype">rdfs:datatype</a></em>
+ in OWL 2 which has a representation in the current specification) are 
+not part of the VOWL visualization but could be displayed in another way
+ (e.g. as text information in a tooltip or sidebar). This is also the 
+case for the OWL elements <em><a href="http://www.w3.org/TR/owl-ref/#Ontology-def">owl:Ontology</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#differentFrom-def">owl:differentFrom</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#AllDifferent-def">owl:AllDifferent</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#distinctMembers-def">owl:distinctMembers</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#Restriction-def">owl:Restriction</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#onProperty-def">owl:onProperty</a></em>, <em><a href="http://www.w3.org/TR/owl-ref/#AnnotationProperty-def">owl:AnnotationProperty</a></em>, and <em><a href="http://www.w3.org/TR/owl-ref/#OntologyProperty-def">owl:OntologyProperty</a></em> that serve as containers of other elements, link individuals, or define ontology metadata.</p>
+  </section>
+  <hr>
+  <section id="example">
+    <h2>Example <a href="#toc">[back to top]</a></h2>
+    <p>The following example visualizes the <a href="http://xmlns.com/foaf/spec/20140114.html">Friend of a Friend (FOAF) vocabulary</a> (version 0.99) using VOWL. It has been created with <a href="#">WebVOWL</a>, a web-based implementation of VOWL. Further examples are provided at <a href="#">vowl.visualdataweb.org</a>. There is also a <a href="#">VOWL plugin</a> for the popular ontology editor <a href="http://protege.stanford.edu/">Protégé</a> that implements the VOWL specification to a large extend.</p>
+    <div id="graph">
+      <div id="resetOption"><button id="reset" type="reset">Reset</button></div>
+      <div id="sliderOption"><div id="distanceSlider"><label for="distanceSlider">160</label><input type="range" min="10" max="600" value="160" step="10"></div></div>
+    <svg class="svgGraph" width="1000" height="600"><g transform="translate(297.38755559166947,316.45086794394604)scale(0.2620656188792321)"><defs><marker id="normal0" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal1" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal2" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal3" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal4" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal5" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal6" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal7" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="dotted8" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="dottedMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal9" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal10" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal11" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal12" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal13" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal14" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal15" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal15inverse" viewBox="0 -8 14 16" refX="0" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M12,-8L0,0L12,8Z"></path></marker><marker id="normal16" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal17" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal18" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal19" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="dotted20" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="dottedMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="dotted21" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="dottedMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal22" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="dotted23" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="dottedMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal24" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal25" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal26" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal27" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal28" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal29" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal29inverse" viewBox="0 -8 14 16" refX="0" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M12,-8L0,0L12,8Z"></path></marker><marker id="normal30" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal30inverse" viewBox="0 -8 14 16" refX="0" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M12,-8L0,0L12,8Z"></path></marker><marker id="normal31" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal32" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="dotted33" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="dottedMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="dotted34" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="dottedMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="dotted35" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="dottedMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal36" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal37" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="dotted38" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="dottedMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal39" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal40" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal41" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal42" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal43" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal44" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal45" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal46" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal47" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal48" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal48inverse" viewBox="0 -8 14 16" refX="0" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M12,-8L0,0L12,8Z"></path></marker><marker id="normal49" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal50" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="dotted51" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="dottedMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal52" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal53" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal54" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal55" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal56" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal57" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal58" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal59" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal60" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal61" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal62" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker><marker id="normal63" viewBox="0 -8 14 16" refX="12" refY="0" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto" class="normalMarker"><path d="M0,-8L12,0L0,8Z"></path></marker></defs><g class="normal0inverse normal0 link"><path class="link-path" marker-end="url(#normal0)" marker-start="" d="M-562.8638047477493,455.21358281049254Q-544.5729978161736,517.4921159714035,-540.0002960832796,533.0617492616311Q-535.4275943503857,548.6313825518588,-517.1367874188098,610.9099157127697"></path></g><g class="normal1inverse normal1 link"><path class="link-path" marker-end="url(#normal1)" marker-start="" d="M997.0396288676782,275.4124013888031Q950.9327233748318,194.5430321125137,939.4059970016201,174.32568979344137Q927.8792706284084,154.10834747436903,881.7723651355622,73.23897819807966"></path></g><g class="normal2inverse normal2 link"><path class="link-path" marker-end="url(#normal2)" marker-start="" d="M1068.3955903159774,341.5386228928252Q1153.6976157403396,381.9195976731106,1175.0231220964301,392.014841368182Q1196.3486284525206,402.11008506325334,1281.6506538768829,442.4910598435388"></path></g><g class="normal3inverse normal3 link"><path class="link-path" marker-end="url(#normal3)" marker-start="" d="M1072.5359223739513,310.92416670797076Q1159.0166667634983,295.7868436522569,1180.636852860885,292.0025128883284Q1202.2570389582718,288.2181821243999,1288.7377833478188,273.08085906868604"></path></g><g class="normal4inverse normal4 link"><path class="link-path" marker-end="url(#normal4)" marker-start="" d="M1031.0386025344592,269.47165397289615Q1047.607235098063,174.20784720251592,1051.749393238964,150.39189550992086Q1055.8915513798652,126.57594381732581,1072.460183943469,31.31213704694565"></path></g><g class="normal5inverse normal5 link"><path class="link-path" marker-end="url(#normal5)" marker-start="" d="M1050.0601554281695,362.5000255444164Q1102.4041012923785,443.169164335165,1115.4900877584307,463.33644903285216Q1128.576074224483,483.5037337305393,1180.920020088692,564.1728725212879"></path></g><g class="normal6inverse normal6 link"><path class="link-path" marker-end="url(#normal6)" marker-start="" d="M1046.4943402376073,274.82172213143116Q1092.32304710347,189.78190544373604,1103.7802238199356,168.52195127181227Q1115.2374005364013,147.2619970998885,1161.0661074022642,62.22218041219337"></path></g><g class="normal7inverse normal7 link"><path class="link-path" marker-end="url(#normal7)" marker-start="" d="M1058.7780876758839,284.07572981680397Q1126.7823274611796,217.63142566039016,1143.7833874075036,201.0203496212867Q1160.7844473538275,184.40927358218323,1228.7886871391233,117.96496942576945"></path></g><g class="dotted8inverse dotted8 link"><path class="dotted link-path" marker-end="url(#dotted8)" marker-start="" d="M1072.8603291746597,326.3972665853624Q1155.025443325734,337.25264665746136,1175.5667218635026,339.9664916754861Q1196.1080004012713,342.68033669351087,1278.2731145523455,353.53571676560983"></path></g><g class="normal9inverse normal9 link"><path class="link-path" marker-end="url(#normal9)" marker-start="" d="M1378.8337602222455,360.2156201663199Q1439.2504268889122,385.47469444336605,1422.5837602222455,414.34220790284735Q1405.9170935555787,443.20972136232865,1353.8337602222455,403.5168903555419"></path></g><g class="normal10inverse normal10 link"><path class="link-path" marker-end="url(#normal10)" marker-start="" d="M765.0707953587951,511.45793939719465Q677.0454981513698,477.5391382857782,655.0391738495134,469.05943800792414Q633.0328495476571,460.57973773007006,545.0075523402318,426.66093661865364"></path></g><g class="normal11inverse normal11 link"><path class="link-path" marker-end="url(#normal11)" marker-start="" d="M1065.7290101794886,346.4548571693116Q1126.5337756565716,380.71549582900246,1139.5312866069335,391.89161783595154Q1152.5287975572953,403.0677398429006,1195.704119683107,458.2160772388023"></path></g><g class="normal12inverse normal12 link"><path class="link-path" marker-end="url(#normal12)" marker-start="" d="M1056.2095202219186,357.8109712287274Q1100.5608117335266,411.699502544262,1113.8347088819478,422.54591432475985Q1127.108606030369,433.3923261052577,1188.9484917061309,466.27508903370597"></path></g><g class="normal13inverse normal13 link"><path class="link-path" marker-end="url(#normal13)" marker-start="" d="M1008.5431793495136,270.6077043238264Q987.537392954541,195.61866696966098,982.2859463557979,176.8714076311196Q977.0344997570548,158.12414829257824,956.0287133620823,83.13511093841286"></path></g><g class="normal14inverse normal14 link"><path class="link-path" marker-end="url(#normal14)" marker-start="" d="M992.2722092068362,34.02545207758695Q1052.6888758735029,59.28452635463307,1036.0222092068361,88.15203981411436Q1019.3555425401695,117.01955327359565,967.2722092068362,77.32672226680887"></path></g><g class="normal15inverse normal15 link"><path class="link-path" marker-end="url(#normal15)" marker-start="url(#normal15inverse)" d="M940.6651825057826,-16.949222665682413Q938.0630056811822,-99.48992791439768,937.412461475032,-120.12510422657651Q936.7619172688819,-140.76028053875535,934.1597404442815,-223.30098578747067"></path></g><g class="normal16inverse normal16 link"><path class="link-path" marker-end="url(#normal16)" marker-start="" d="M972.2336286172172,310.0019039573398Q907.4225226271463,297.4251259559991,891.2197461296287,294.2809314556639Q875.016969632111,291.13673695532873,810.2058636420401,278.55995895398803"></path></g><g class="normal17inverse normal17 link"><path class="link-path" marker-end="url(#normal17)" marker-start="" d="M976.3331848158169,297.6248079164309Q914.4172215827468,263.1295679907005,897.8872181483725,259.92187417989936Q881.3572147139982,256.71418036909824,811.0331504720745,265.5478698084198"></path></g><g class="normal18inverse normal18 link"><path class="link-path" marker-end="url(#normal18)" marker-start="" d="M971.4063417871828,323.013993102908Q901.0822775452591,331.84768254222956,884.5522741108848,328.63998873142845Q868.0222706765105,325.4322949206273,806.1063074434403,290.9370549948969"></path></g><g class="normal19inverse normal19 link"><path class="link-path" marker-end="url(#normal19)" marker-start="" d="M980.6144481301591,290.33469564468686Q919.732215161707,238.69460103877913,902.649698161761,235.37969041149614Q885.5671811618149,232.06477978421316,809.7892781306983,257.1855893718569"></path></g><g class="dotted20inverse dotted20 link"><path class="dotted link-path" marker-end="url(#dotted20)" marker-start="" d="M911.0152270786224,74.32434869072664Q863.167852600258,136.01285045985028,851.2060089806669,151.4349759021312Q839.2441653610757,166.85710134441214,791.3967908827113,228.54560311353583"></path></g><g class="dotted21inverse dotted21 link"><path class="dotted link-path" marker-end="url(#dotted21)" marker-start="" d="M541.8626748389104,121.59059007931916Q612.2620284472958,169.0833341405936,629.8618668493923,180.9565201559122Q647.4617052514888,192.82970617123078,717.8610588598743,240.32245023250522"></path></g><g class="normal22inverse normal22 link"><path class="link-path" marker-end="url(#normal22)" marker-start="" d="M1072.2996835047597,319.7173631846523Q1132.7163501714265,344.9764374616984,1116.0496835047597,373.8439509211797Q1099.383016838093,402.711464380661,1047.2996835047597,363.01863337387425"></path></g><g class="dotted23inverse dotted23 link"><path class="dotted link-path" marker-end="url(#dotted23)" marker-start="" d="M986.2749309015373,355.81746290579736Q931.2388656649385,410.9686381319928,917.4798493557888,424.75643193854165Q903.7208330466391,438.5442257450905,848.6847678100403,493.69540097128595"></path></g><g class="normal24inverse normal24 link"><path class="link-path" marker-end="url(#normal24)" marker-start="" d="M810.1388290661341,478.85785625882943Q809.26856651716,411.5804810125315,806.0067426618227,395.3738387024525Q802.7449188064854,379.16719639237346,777.5205905127607,316.79143315803924"></path></g><g class="normal25inverse normal25 link"><path class="link-path" marker-end="url(#normal25)" marker-start="" d="M795.2792334485547,481.8485672610673Q770.05490515483,419.47280402673306,766.7930812994925,403.26616171665404Q763.5312574441551,387.059519406575,762.6609948951811,319.7821441602771"></path></g><g class="normal26inverse normal26 link"><path class="link-path" marker-end="url(#normal26)" marker-start="" d="M819.1415817076052,479.2090470146343Q833.8607872753278,407.06356210571573,830.515281013279,390.4411368185765Q827.1697747512303,373.8187115314373,785.6865190871177,312.98479414324225"></path></g><g class="normal27inverse normal27 link"><path class="link-path" marker-end="url(#normal27)" marker-start="" d="M787.1133048741976,485.6552062758643Q745.630049210085,424.8212888876692,742.2845429480362,408.19886360053Q738.9390366859875,391.5764383133908,753.6582422537102,319.43095340447223"></path></g><g class="normal28inverse normal28 link"><path class="link-path" marker-end="url(#normal28)" marker-start="" d="M705.0863767862523,49.11246685365866Q722.1498164488628,117.21692738999928,726.4156763645154,134.24304252408444Q730.6815362801681,151.2691576581696,747.7449759427785,219.3736181945102"></path></g><g class="normal29inverse normal29 link"><path class="link-path" marker-end="url(#normal29)" marker-start="url(#normal29inverse)" d="M713.2796216126726,45.75616285275969Q755.672191718704,108.52794463849915,760.3662813375701,125.73678471212045Q765.0603709564361,142.94562478574176,760.220517801333,217.84456358897276"></path></g><g class="normal30inverse normal30 link"><path class="link-path" marker-end="url(#normal30)" marker-start="url(#normal30inverse)" d="M696.2785329805994,50.015752427179365Q688.4906986822831,125.36013659543214,692.4650713914608,142.74930033604844Q696.4394441006385,160.13846407666472,736.0222600723762,223.90738983334228"></path></g><g class="normal31inverse normal31 link"><path class="link-path" marker-end="url(#normal31)" marker-start="" d="M731.575218208696,226.59447999945277Q679.8419011893825,150.0754883788314,666.9085719345542,130.94574047367607Q653.9752426797259,111.81599256852073,602.2419256604124,35.29700094789938"></path></g><g class="normal32inverse normal32 link"><path class="link-path" marker-end="url(#normal32)" marker-start="" d="M573.3877421914215,493.29700416739627Q635.0408379704378,419.1977344308016,650.4541119151919,400.67291699665293Q665.867385859946,382.1480995625043,727.5204816389623,308.0488298259096"></path></g><g class="dotted33inverse dotted33 link"><path class="dotted link-path" marker-end="url(#dotted33)" marker-start="" d="M294.10098406547957,442.31297997593646Q373.60845148324466,471.38308303273885,393.48531833768595,478.6506087969394Q413.36218519212724,485.91813456114,492.86965260989234,514.9882376179423"></path></g><g class="dotted34inverse dotted34 link"><path class="dotted link-path" marker-end="url(#dotted34)" marker-start="" d="M276.7676999762342,553.0490224512051Q362.02949636641085,546.4129313117521,383.344945463955,544.7539085268888Q404.6603945614992,543.0948857420256,489.9221909516758,536.4587946025727"></path></g><g class="dotted35inverse dotted35 link"><path class="dotted link-path" marker-end="url(#dotted35)" marker-start="" d="M301.18386859503823,651.7664500433096Q378.7553277531261,613.1514008118482,398.1481925426481,603.4976385039829Q417.54105733217006,593.8438761961175,495.1125164902579,555.2288269646562"></path></g><g class="normal36inverse normal36 link"><path class="link-path" marker-end="url(#normal36)" marker-start="" d="M507.2191059358924,570.9128410872319Q440.0930444803118,647.767275158646,423.31152911641664,666.9808836764996Q406.5300137525215,686.1944921943532,339.4039522969409,763.0489262657672"></path></g><g class="normal37inverse normal37 link"><path class="link-path" marker-end="url(#normal37)" marker-start="" d="M591.1396556928901,499.23577515061436Q657.2165649531645,523.3980647184874,674.2702026909901,526.3262262563392Q691.3238404288157,529.254387794191,761.6760330711463,528.5173905291325"></path></g><g class="dotted38inverse dotted38 link"><path class="dotted link-path" marker-end="url(#dotted38)" marker-start="" d="M593.6334363780876,484.71197519859936Q663.9856290204181,483.97497793354086,681.0392667582437,486.9031394713927Q698.0929044960693,489.83130100924456,764.1698137563438,513.9935905771176"></path></g><g class="normal39inverse normal39 link"><path class="link-path" marker-end="url(#normal39)" marker-start="" d="M771.9337687184177,499.0974087815961Q699.0941039311126,444.19328878045684,680.8841877342863,430.467258780172Q662.6742715374601,416.7412287798872,589.834606750155,361.83710877874796"></path></g><g class="normal40inverse normal40 link"><path class="link-path" marker-end="url(#normal40)" marker-start="" d="M783.7503161887889,487.78086868539117Q731.9683798638565,412.52588253187776,719.0228957826234,393.7121359934994Q706.0774117013904,374.898389455121,654.2954753764581,299.6434033016076"></path></g><g class="normal41inverse normal41 link"><path class="link-path" marker-end="url(#normal41)" marker-start="" d="M777.855863026784,567.07379184196Q711.0084143364182,638.6732562389756,694.2965521638268,656.5731223382295Q677.5846899912355,674.4729884374834,610.7372413008696,746.0724528344991"></path></g><g class="normal42inverse normal42 link"><path class="link-path" marker-end="url(#normal42)" marker-start="" d="M789.5269003927647,575.2472223209879Q741.0610300349055,670.4724985407267,728.9445624454406,694.2788175956615Q716.8280948559758,718.0851366505963,668.3622244981166,813.3104128703352"></path></g><g class="normal43inverse normal43 link"><path class="link-path" marker-end="url(#normal43)" marker-start="" d="M827.7986047801951,578.4968672618492Q859.7300870995028,681.2215509584285,867.7129576793297,706.9027218825732Q875.6958282591567,732.583892806718,907.6273105784644,835.3085765032973"></path></g><g class="normal44inverse normal44 link"><path class="link-path" marker-end="url(#normal44)" marker-start="" d="M768.4533578538549,555.2272022807581Q687.9892805953573,601.5174789935946,667.8732612807329,613.0900481718038Q647.7572419661085,624.662617350013,567.2931647076109,670.9528940628494"></path></g><g class="normal45inverse normal45 link"><path class="link-path" marker-end="url(#normal45)" marker-start="" d="M829.7160675916582,481.7320938526575Q854.395272614336,412.1868881553867,860.5650738700054,394.800586731069Q866.7348751256749,377.4142853067513,891.4140801483527,307.86907960948054"></path></g><g class="normal46inverse normal46 link"><path class="link-path" marker-end="url(#normal46)" marker-start="" d="M855.61978194482,557.2811049575085Q924.6559776251995,601.4503753823137,941.9150265452944,612.492692988515Q959.1740754653893,623.5350105947164,1028.2102711457687,667.7042810195214"></path></g><g class="normal47inverse normal47 link"><path class="link-path" marker-end="url(#normal47)" marker-start="" d="M797.5536123986961,578.5068607042267Q773.0528901166246,657.5106790711889,766.9277095461066,677.2616336629294Q760.8025289755886,697.0125882546699,736.3018066935172,776.016406621632"></path></g><g class="normal48inverse normal48 link"><path class="link-path" marker-end="url(#normal48)" marker-start="url(#normal48inverse)" d="M825.7723055453444,579.081075073564Q842.8326263041852,643.2062344483015,847.0977064938954,659.2375242919859Q851.3627866836057,675.2688141356703,868.4231074424466,739.3939735104079"></path></g><g class="normal49inverse normal49 link"><path class="link-path" marker-end="url(#normal49)" marker-start="" d="M812.8862987657653,580.7949986875186Q808.5651032872803,652.0101768473405,813.2742730950787,668.2361549164648Q817.9834429028771,684.462132985589,859.9779968437497,743.0547793787615"></path></g><g class="normal50inverse normal50 link"><path class="link-path" marker-end="url(#normal50)" marker-start="" d="M837.8064081581763,574.165072715788Q876.9446937875243,633.8179764899886,880.9211398927122,650.238893667507Q884.8975859979,666.6598108450254,877.570869210055,738.374244490972"></path></g><g class="dotted51inverse dotted51 link"><path class="dotted link-path" marker-end="url(#dotted51)" marker-start="" d="M794.3776990927453,807.91848857346Q800.3525266384086,717.0253610996034,801.8462335248244,694.3020792311393Q803.3399404112401,671.5787973626751,809.3147679569034,580.6856698888184"></path></g><g class="normal52inverse normal52 link"><path class="link-path" marker-end="url(#normal52)" marker-start="" d="M762.2794372189978,537.7199793259554Q694.0115140782094,550.9772671481431,676.9132429590549,551.1474271532065Q659.8149718399003,551.3175871582699,591.2967260274518,539.4215793765893"></path></g><g class="normal53inverse normal53 link"><path class="link-path" marker-end="url(#normal53)" marker-start="" d="M-338.76858112779234,-195.7932084907506Q-302.51858112779234,-180.63776392452291,-312.51858112779234,-163.31725584883415Q-322.51858112779234,-145.9967477731454,-353.76858112779234,-169.81244637721744"></path></g><g class="normal54inverse normal54 link"><path class="link-path" marker-end="url(#normal54)" marker-start="" d="M-368.76858112779234,-165.7932084907506Q-383.92402569402,-129.5432084907506,-401.24453376970877,-139.5432084907506Q-418.56504184539756,-149.5432084907506,-394.7493432413255,-180.7932084907506"></path></g><g class="normal55inverse normal55 link"><path class="link-path" marker-end="url(#normal55)" marker-start="" d="M-398.76858112779234,-195.7932084907506Q-435.01858112779234,-210.94865305697826,-425.01858112779234,-228.26916113266702Q-415.01858112779234,-245.5896692083558,-383.76858112779234,-221.77397060428376"></path></g><g class="normal56inverse normal56 link"><path class="link-path" marker-end="url(#normal56)" marker-start="" d="M-368.76858112779234,-225.7932084907506Q-353.6131365615647,-262.0432084907506,-336.2926284858759,-252.0432084907506Q-318.97212041018713,-242.0432084907506,-342.7878190142592,-210.7932084907506"></path></g><g class="normal57inverse normal57 link"><path class="link-path" marker-end="url(#normal57)" marker-start="" d="M-379.1152028340003,-166.5708297499871Q-404.1456908002016,-95.87621848613966,-410.4033127917519,-78.2025656701778Q-416.6609347833022,-60.528912854215946,-441.69142274950354,10.165698409631474"></path></g><g class="normal58inverse normal58 link"><path class="link-path" marker-end="url(#normal58)" marker-start="" d="M-399.759782472085,-195.05466990847393Q-465.9490105065277,-193.47734161805099,-482.4963175151384,-193.08300954544526Q-499.0436245237491,-192.68867747283954,-565.2328525581918,-191.1113491824166"></path></g><g class="normal59inverse normal59 link"><path class="link-path" marker-end="url(#normal59)" marker-start="" d="M-337.80385229252806,-197.27157521066567Q-271.14900612402073,-200.45391557026727,-254.48529458189392,-201.24950066016768Q-237.8215830397671,-202.0450857500681,-171.16673687125981,-205.22742610966966"></path></g><g class="normal60inverse normal60 link"><path class="link-path" marker-end="url(#normal60)" marker-start="" d="M843.914835528352,570.0960739720832Q898.9190935612428,641.0196342019316,912.6701580694655,658.7505242593936Q926.4212225776882,676.4814143168556,981.4254806105789,747.404974546704"></path></g><g class="normal61inverse normal61 link"><path class="link-path" marker-end="url(#normal61)" marker-start="" d="M-371.15203804645074,-226.70144579275313Q-377.03143358180796,-302.94438141142615,-378.50128246564725,-322.0051153160944Q-379.97113134948654,-341.0658492207627,-385.85052688484376,-417.3087848394357"></path></g><g class="normal62inverse normal62 link"><path class="link-path" marker-end="url(#normal62)" marker-start="" d="M-348.8878840531127,-219.57887400224774Q-299.4964517914642,-278.6717761523235,-287.14859372605207,-293.44500168984246Q-274.80073566063993,-308.2182272273614,-225.4093033989914,-367.3111293774371"></path></g><g class="normal63inverse normal63 link"><path class="link-path" marker-end="url(#normal63)" marker-start="" d="M762.1317042552524,522.8752555824722Q693.6134584428038,510.9792478007915,676.5151873236492,511.1494078058549Q659.4169162044947,511.3195678109183,591.1489930637064,524.576855633106"></path></g><g class="special64inverse special64 link"><path class="special link-path" marker-end="" marker-start="" d="M972.6502141285589,331.3762735394709Q896.8723110974424,356.49708312711465,879.7897940974964,353.18217249983167Q862.7072770975503,349.8672618725487,801.8250441290982,298.2271672666409"></path></g><g class="special65inverse special65 link"><path class="special link-path" marker-end="" marker-start="" d="M1067.6657231029642,296.416666817931Q1139.0583901393397,259.74829390819036,1156.9065568984338,250.58120068075522Q1174.7547236575278,241.41410745332007,1246.1473906939036,204.74573454357943"></path></g><g class="label"><g id="label0to" class="to" transform="translate(-540.0002960832796,533.0617492616311)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">focus</tspan></text></g></g><g class="label"><g id="label1to" class="to" transform="translate(939.4059970016201,174.32568979344137)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">lastName</tspan></text></g></g><g class="label"><g id="label2to" class="to" transform="translate(1175.0231220964301,392.014841368182)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">geekcode</tspan></text></g></g><g class="label"><g id="label3to" class="to" transform="translate(1180.636852860885,292.0025128883284)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">familyName</tspan></text></g></g><g class="label"><g id="label4to" class="to" transform="translate(1051.749393238964,150.39189550992086)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">firstName</tspan></text></g></g><g class="label"><g id="label5to" class="to" transform="translate(1115.4900877584307,463.33644903285216)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">myersBr...</tspan></text></g></g><g class="label"><g id="label6to" class="to" transform="translate(1103.7802238199356,168.52195127181227)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">plan</tspan></text></g></g><g class="label"><g id="label7to" class="to" transform="translate(1143.7833874075036,201.0203496212867)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">Surname</tspan></text></g></g><g class="label"><g id="label8to" class="to" transform="translate(1175.5667218635026,339.9664916754861)"><rect class="subclass property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">Subclass of</tspan></text></g></g><g class="label"><g id="label9to" class="to" transform="translate(1422.5837602222455,414.34220790284735)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">basedNear</tspan></text></g></g><g class="label"><g id="label10to" class="to" transform="translate(655.0391738495134,469.05943800792414)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">jabber ID</tspan><tspan x="0" y="9" class="subtext">(inverse functional)</tspan></text></g></g><g class="label"><g id="label11to" class="to" transform="translate(1139.5312866069335,391.89161783595154)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">past project</tspan></text></g></g><g class="label"><g id="label12to" class="to" transform="translate(1113.8347088819478,422.54591432475985)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">current p...</tspan></text></g></g><g class="label"><g id="label13to" class="to" transform="translate(982.2859463557979,176.8714076311196)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">image</tspan></text></g></g><g class="label"><g id="label14to" class="to" transform="translate(1036.0222092068361,88.15203981411436)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">thumbnail</tspan></text></g></g><g class="label"><g id="label15to" class="to" transform="translate(937.412461475032,-105.12510422657651)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">depicts</tspan></text></g><g id="label15from" class="from" transform="translate(937.412461475032,-135.12510422657652)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">depiction</tspan></text></g></g><g class="label"><g id="label16to" class="to" transform="translate(891.2197461296287,294.2809314556639)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">workpla...</tspan></text></g></g><g class="label"><g id="label17to" class="to" transform="translate(897.8872181483725,259.92187417989936)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">work in...</tspan></text></g></g><g class="label"><g id="label18to" class="to" transform="translate(884.5522741108848,328.63998873142845)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">publications</tspan></text></g></g><g class="label"><g id="label19to" class="to" transform="translate(902.649698161761,235.37969041149614)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">school...</tspan></text></g></g><g class="label"><g id="label20to" class="to" transform="translate(851.2060089806669,151.4349759021312)"><rect class="subclass property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">Subclass of</tspan></text></g></g><g class="label"><g id="label21to" class="to" transform="translate(629.8618668493923,180.9565201559122)"><rect class="subclass property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">Subclass of</tspan></text></g></g><g class="label"><g id="label22to" class="to" transform="translate(1116.0496835047597,373.8439509211797)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">knows</tspan></text></g></g><g class="label"><g id="label23to" class="to" transform="translate(917.4798493557888,424.75643193854165)"><rect class="subclass property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">Subclass of</tspan></text></g></g><g class="label"><g id="label24to" class="to" transform="translate(806.0067426618227,395.3738387024525)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">interest</tspan></text></g></g><g class="label"><g id="label25to" class="to" transform="translate(766.7930812994925,403.26616171665404)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">tipjar</tspan></text></g></g><g class="label"><g id="label26to" class="to" transform="translate(830.515281013279,390.4411368185765)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">weblog</tspan><tspan x="0" y="9" class="subtext">(inverse functional)</tspan></text></g></g><g class="label"><g id="label27to" class="to" transform="translate(742.2845429480362,408.19886360053)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">openid</tspan></text></g></g><g class="label"><g id="label28to" class="to" transform="translate(726.4156763645154,134.24304252408444)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">homepage</tspan><tspan x="0" y="9" class="subtext">(inverse functional)</tspan></text></g></g><g class="label"><g id="label29to" class="to" transform="translate(760.3662813375701,140.73678471212045)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">page</tspan></text></g><g id="label29from" class="from" transform="translate(760.3662813375701,110.73678471212045)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">topic</tspan></text></g></g><g class="label"><g id="label30to" class="to" transform="translate(692.4650713914608,157.74930033604844)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">is primary...</tspan><tspan x="0" y="9" class="subtext">(functional)</tspan></text></g><g id="label30from" class="from" transform="translate(692.4650713914608,127.74930033604844)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">primary t...</tspan><tspan x="0" y="9" class="subtext">(inverse functional)</tspan></text></g></g><g class="label"><g id="label31to" class="to" transform="translate(666.9085719345542,130.94574047367607)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">sha1sum...</tspan></text></g></g><g class="label"><g id="label32to" class="to" transform="translate(650.4541119151919,400.67291699665293)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">account...</tspan></text></g></g><g class="label"><g id="label33to" class="to" transform="translate(393.48531833768595,478.6506087969394)"><rect class="subclass property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">Subclass of</tspan></text></g></g><g class="label"><g id="label34to" class="to" transform="translate(383.344945463955,544.7539085268888)"><rect class="subclass property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">Subclass of</tspan></text></g></g><g class="label"><g id="label35to" class="to" transform="translate(398.1481925426481,603.4976385039829)"><rect class="subclass property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">Subclass of</tspan></text></g></g><g class="label"><g id="label36to" class="to" transform="translate(423.31152911641664,666.9808836764996)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">account...</tspan></text></g></g><g class="label"><g id="label37to" class="to" transform="translate(674.2702026909901,526.3262262563392)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">member</tspan></text></g></g><g class="label"><g id="label38to" class="to" transform="translate(681.0392667582437,486.9031394713927)"><rect class="subclass property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">Subclass of</tspan></text></g></g><g class="label"><g id="label39to" class="to" transform="translate(680.8841877342863,430.467258780172)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">age</tspan><tspan x="0" y="9" class="subtext">(functional)</tspan></text></g></g><g class="label"><g id="label40to" class="to" transform="translate(719.0228957826234,393.7121359934994)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">birthday</tspan><tspan x="0" y="9" class="subtext">(functional)</tspan></text></g></g><g class="label"><g id="label41to" class="to" transform="translate(694.2965521638268,656.5731223382295)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">gender</tspan><tspan x="0" y="9" class="subtext">(functional)</tspan></text></g></g><g class="label"><g id="label42to" class="to" transform="translate(728.9445624454406,694.2788175956615)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">status</tspan></text></g></g><g class="label"><g id="label43to" class="to" transform="translate(867.7129576793297,706.9027218825732)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">sha1sun...</tspan><tspan x="0" y="9" class="subtext">(inverse functional)</tspan></text></g></g><g class="label"><g id="label44to" class="to" transform="translate(667.8732612807329,613.0900481718038)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">AIM chat ID</tspan><tspan x="0" y="9" class="subtext">(inverse functional)</tspan></text></g></g><g class="label"><g id="label45to" class="to" transform="translate(860.5650738700054,394.800586731069)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">ICQ chat ID</tspan><tspan x="0" y="9" class="subtext">(inverse functional)</tspan></text></g></g><g class="label"><g id="label46to" class="to" transform="translate(941.9150265452944,612.492692988515)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">Yahoo ch...</tspan><tspan x="0" y="9" class="subtext">(inverse functional)</tspan></text></g></g><g class="label"><g id="label47to" class="to" transform="translate(766.9277095461066,677.2616336629294)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">MSN cha...</tspan><tspan x="0" y="9" class="subtext">(inverse functional)</tspan></text></g></g><g class="label"><g id="label48to" class="to" transform="translate(847.0977064938954,674.2375242919859)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">made</tspan></text></g><g id="label48from" class="from" transform="translate(847.0977064938954,644.2375242919859)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">maker</tspan></text></g></g><g class="label"><g id="label49to" class="to" transform="translate(813.2742730950787,668.2361549164648)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">persona...</tspan><tspan x="0" y="9" class="subtext">(inverse functional)</tspan></text></g></g><g class="label"><g id="label50to" class="to" transform="translate(880.9211398927122,650.238893667507)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">topic_int...</tspan></text></g></g><g class="label"><g id="label51to" class="to" transform="translate(801.8462335248244,694.3020792311393)"><rect class="subclass property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">Subclass of</tspan></text></g></g><g class="label"><g id="label52to" class="to" transform="translate(676.9132429590549,551.1474271532065)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">account</tspan></text></g></g><g class="label"><g id="label53to" class="to" transform="translate(-312.51858112779234,-163.31725584883415)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">phone</tspan></text></g></g><g class="label"><g id="label54to" class="to" transform="translate(-401.24453376970877,-139.5432084907506)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">funded by</tspan></text></g></g><g class="label"><g id="label55to" class="to" transform="translate(-425.01858112779234,-228.26916113266702)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="mainText">logo</tspan><tspan x="0" y="9" class="subtext">(inverse functional)</tspan></text></g></g><g class="label"><g id="label56to" class="to" transform="translate(-336.2926284858759,-252.0432084907506)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">theme</tspan></text></g></g><g class="label"><g id="label57to" class="to" transform="translate(-410.4033127917519,-78.2025656701778)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">DNA ch...</tspan></text></g></g><g class="label"><g id="label58to" class="to" transform="translate(-482.4963175151384,-193.08300954544526)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">Given name</tspan></text></g></g><g class="label"><g id="label59to" class="to" transform="translate(-254.48529458189392,-201.24950066016768)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">nickname</tspan></text></g></g><g class="label"><g id="label60to" class="to" transform="translate(912.6701580694655,658.7505242593936)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">Skype ID</tspan></text></g></g><g class="label"><g id="label61to" class="to" transform="translate(-378.50128246564725,-322.0051153160944)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">title</tspan></text></g></g><g class="label"><g id="label62to" class="to" transform="translate(-287.14859372605207,-293.44500168984246)"><rect class="datatype property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">name</tspan></text></g></g><g class="label"><g id="label63to" class="to" transform="translate(676.5151873236492,511.1494078058549)"><rect class="object property" x="-40" y="-14" width="80" height="28"></rect><text class="text" text-anchor="middle"><tspan class="text">account</tspan></text></g></g><g class="label"><g id="label64to" class="to" transform="translate(879.7897940974964,353.18217249983167)"><rect class="disjoint property" x="-40" y="-14" width="80" height="28"></rect><circle class="symbol fineline" cx="-12.5" r="10"></circle><circle class="symbol fineline" cx="12.5" r="10"></circle><text class="text" text-anchor="middle" transform="translate(0,20)"><tspan class="subtext">(disjoint)</tspan></text></g></g><g class="label"><g id="label65to" class="to" transform="translate(1156.9065568984338,250.58120068075522)"><rect class="disjoint property" x="-40" y="-14" width="80" height="28"></rect><circle class="symbol fineline" cx="-12.5" r="10"></circle><circle class="symbol fineline" cx="12.5" r="10"></circle><text class="text" text-anchor="middle" transform="translate(0,20)"><tspan class="subtext">(disjoint)</tspan></text></g></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="cardinality"></g><g class="node" transform="translate(-577.2351884778878,406.2803289877483)"><circle class="external class" r="50"></circle><text class="text" text-anchor="middle" transform="translate(0,-6)"><tspan class="white text" x="0" y="0">Concept</tspan><tspan class="white text subtext" x="0" y="12">(external)</tspan></text></g><g class="node" transform="translate(-508.4012404455883,640.6536582324769)"><circle class="class white special" r="30"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Thing</tspan></text></g><g class="node" transform="translate(1022.2996835047597,319.7173631846523)"><circle class="class white embedded" r="50"></circle><circle class="class" r="46"></circle><text class="text" text-anchor="middle" transform="translate(0,-6)"><tspan class="text" x="0" y="0">Person</tspan><tspan class="text subtext" x="0" y="12">[Person, Pe...]</tspan></text></g><g class="node" transform="translate(875.5756645930694,62.37025345698457)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(1303.6788058031052,452.9189276809539)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(1319.7228076393715,267.6573358797822)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(1074.3707721724977,20.32692706240141)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(1187.9530631219745,575.0117482538323)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(1166.9296005894025,51.3418737248753)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(1239.7387233824336,107.26611386953712)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(1328.8337602222455,360.2156201663199)"><circle class="external class" r="50"></circle><text class="text" text-anchor="middle" transform="translate(0,-6)"><tspan class="white text" x="0" y="0">Spatial Thing</tspan><tspan class="white text subtext" x="0" y="12">(external)</tspan></text></g><g class="node" transform="translate(518.1226589980911,416.30137659325686)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(1215.7391637397172,481.8718801135662)"><circle class="class white special" r="30"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Thing</tspan></text></g><g class="node" transform="translate(942.2722092068362,34.02545207758695)"><circle class="class white embedded" r="50"></circle><circle class="class" r="46"></circle><text class="text" text-anchor="middle" transform="translate(0,-6)"><tspan class="text" x="0" y="0">Image</tspan><tspan class="text subtext" x="0" y="12">[ImageObject]</tspan></text></g><g class="node" transform="translate(933.1829202926607,-254.2855920039677)"><circle class="class white special" r="30"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Thing</tspan></text></g><g class="node" transform="translate(760.1398087544975,268.8444997266755)"><circle class="class white embedded" r="50"></circle><circle class="class" r="46"></circle><text class="text" text-anchor="middle" transform="translate(0,-6)"><tspan class="text" x="0" y="0">Document</tspan><tspan class="text subtext" x="0" y="12">[CreativeWork]</tspan></text></g><g class="node" transform="translate(499.5839249442872,93.06854058514882)"><circle class="class" r="50"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">PersonalPr...</tspan></text></g><g class="node" transform="translate(812.6600152068179,529.795500692431)"><circle class="class white embedded" r="50"></circle><circle class="class" r="46"></circle><text class="text" text-anchor="middle" transform="translate(0,-6)"><tspan class="text" x="0" y="0">Agent</tspan><tspan class="text subtext" x="0" y="12">[Agent]</tspan></text></g><g class="node" transform="translate(697.5522627242271,19.0419310203817)"><circle class="class white special" r="30"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Thing</tspan></text></g><g class="node" transform="translate(540.7684150758863,532.5013342666304)"><circle class="class" r="50"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Online Account</tspan></text></g><g class="node" transform="translate(246.20222159948563,424.7998833272484)"><circle class="class" r="50"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Online Chat...</tspan></text></g><g class="node" transform="translate(225.92147585202375,557.0064827871474)"><circle class="class" r="50"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Online E-c...</tspan></text></g><g class="node" transform="translate(255.52797000940987,674.4939427413354)"><circle class="class" r="50"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Online Gam...</tspan></text></g><g class="node" transform="translate(575.7693500005013,351.2351854079473)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(646.8477540252918,288.81958698774406)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(600.7185012536603,756.803399719784)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(662.8190325652005,824.2016230983461)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(911.0325983953938,846.2635052595605)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(549.0438666918255,681.4515548783068)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(876.3933231384137,769.3518716636456)"><circle class="class white special" r="30"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Thing</tspan></text></g><g class="node" transform="translate(542.649454242416,483.4338650353009)"><circle class="class" r="50"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Group</tspan></text></g><g class="node" transform="translate(1291.513430292108,181.44503817685813)"><circle class="class" r="50"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Project</tspan></text></g><g class="node" transform="translate(330.01194070766417,773.8020930661712)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(791.0324518428308,858.8086577698474)"><circle class="class" r="50"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Organization</tspan></text></g><g class="node" transform="translate(-538.8379311403504,935.6020811945942)"><circle class="class" r="50"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Label Property</tspan></text></g><g class="node" transform="translate(-368.76858112779234,-195.7932084907506)"><circle class="class white special" r="30"></circle><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Thing</tspan></text></g><g class="node" transform="translate(-445.5658348007194,21.108355788365785)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(-596.2325687305884,-190.37260768677086)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(-140.1678746507674,-206.70742247927515)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(-386.69855230309133,-428.3058247524035)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(-216.40972242854832,-378.07840891006606)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(989.7937484427453,758.1951818659129)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(594.9209889731356,24.468569188542055)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(895.2971691053609,296.9266598675242)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(1044.6825348403781,678.2432144364838)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g><g class="node" transform="translate(732.9043953590012,786.9715313277457)"><rect class="literal class special" x="-30" y="-10" width="60" height="20"></rect><text class="text" text-anchor="middle"><tspan class="text" x="0" y="0">Literal</tspan></text></g></g></svg></div>
+    <p id="browserCheck" class="hidden"></p>
+    <p id="controlDetails">Zooming is device-dependent: use mouse wheel, double click (+ shift key), or two fingers zooming gesture on the background.</p>
+  </section>
+  <hr>
+  <section id="acknowledgments">
+    <h2>Acknowledgments <a href="#toc">[back to top]</a></h2>
+    <p>The authors would like to thank David Bold, Thomas Ertl, Vincent 
+Link, and Eduard Marbach for their valuable feedback, suggestions, and 
+support.</p>
+  </section>
+  <hr>
+  <section id="references">
+    <h2>References <a href="#toc">[back to top]</a></h2>
+    <ul>
+      <li>
+	<p>Lohmann, S., Negru, S., Haag F., Ertl, T.: <a href="http://www.semantic-web-journal.net/content/visualizing-ontologies-vowl-0">Visualizing Ontologies with VOWL</a>. Semantic Web 7(4): 399-419 (2016) <a href="#">[BibTex]</a></p>
+      </li>	
+      <li>
+        <p>Lohmann, S., Negru, S., Haag F. and Ertl, T.: <a href="#">VOWL 2: User-Oriented Visualization of Ontologies</a>.
+ Proceedings of the 19th International Conference on Knowledge 
+Engineering and Knowledge Management (EKAW '14). Springer, 2014; pp. 
+266–281 <a href="#">[BibTex]</a></p>
+      </li>
+    </ul>
+    <p>Further information on a previous version of VOWL <a href="http://purl.org/vowl/v1/">(VOWL 1.0)</a> can be found in the following publications:</p>
+    <ul>
+      <li>
+        <p>Negru, S., Haag F. and Lohmann, S.: <a href="#">Towards a Unified Visual Notation for OWL Ontologies: Insights from a Comparative User Study</a>. Proceedings of the 9th International Conference on Semantic Systems (I-SEMANTICS '13). ACM 2013; pp. 73-80 <a href="#">[BibTex]</a></p>
+      </li>
+      <li>
+        <p>Negru, S. and Lohmann, S.: <a href="#">A Visual Notation for the Integrated Representation of OWL Ontologies</a>.
+ Proceedings of the 9th International Conference on Web Information 
+Systems and Technologies (WEBIST '13). SciTePress 2013; pp. 308-315 <a href="#">[BibTex]</a></p>
+      </li>	  
+    </ul>
+    <p><em>(References have last been updated on June 21, 2016)</em></p>
+  </section>
+  <hr>
+  <footer>
+    <p><span><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="data/88x31.png"></a></span><span>This work is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>
+ license. You are free to copy, distribute, transmit, remix, or adapt 
+the work, as long as you reference the work and its authors.</span></p>
+  </footer>
+</div>
+<script src="data/specBrowserWarning.js"></script>
+<script src="data/d3.v3.min.js"></script>
+<script src="data/webVOWLGraph.js"></script>
+<script src="data/specVOWL.js"></script>
+
+
+</body></html>
