@@ -1,0 +1,1784 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY vs "http://www.w3.org/2003/06/sw-vocab-status/ns#" >
+    <!ENTITY marinetlo "http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl" >
+]>
+
+
+<rdf:RDF xmlns="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"
+     xml:base="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:marinetlo="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl">
+        <dcterms:issued rdf:datatype="&xsd;date">2013-10-15</dcterms:issued>
+        <dcterms:modified rdf:datatype="&xsd;date">2014-04-22</dcterms:modified>
+        <owl:versionInfo rdf:datatype="&xsd;decimal">3.0</owl:versionInfo>
+        <dcterms:rights>Copyright © FORTH ICS</dcterms:rights>
+        <dcterms:creator> Chrysoula Bekiari </dcterms:creator>
+        <dcterms:contributor> Carlo Allocca </dcterms:contributor>
+        <dcterms:description>MarineTLO is a top-level ontology for the marine domain (also applicable to the terrestrial domain).</dcterms:description>
+        <dcterms:contributor> Chrysoula Bekiari </dcterms:contributor>
+        <dcterms:creator> Carlo Allocca </dcterms:creator>
+        <dcterms:contributor> Martin Doerr </dcterms:contributor>
+        <dcterms:contributor> Nikos Minadakis </dcterms:contributor>
+        <dcterms:creator> Martin Doerr </dcterms:creator>
+        <dcterms:creator> Nikos Minadakis </dcterms:creator>
+        <dcterms:contributor> Julien Barde </dcterms:contributor>
+        <dcterms:title>MarineTLO Ontology</dcterms:title>
+        <dcterms:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+        <dcterms:creator rdf:resource="http://users.ics.forth.gr/~fafalios/"/>
+        <dcterms:contributor rdf:resource="http://users.ics.forth.gr/~fafalios/"/>
+        <dcterms:contributor rdf:resource="http://users.ics.forth.gr/~marketak/pages/aboutme.html"/>
+        <dcterms:creator rdf:resource="http://users.ics.forth.gr/~marketak/pages/aboutme.html"/>
+        <dcterms:creator rdf:resource="http://users.ics.forth.gr/~tzitzik/"/>
+        <dcterms:contributor rdf:resource="http://users.ics.forth.gr/~tzitzik/"/>
+        <dcterms:publisher rdf:resource="http://www.ics.forth.gr/isl"/>
+        <owl:versionIRI rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&vs;term_status"/>
+    <owl:AnnotationProperty rdf:about="&dcterms;publisher"/>
+    <owl:AnnotationProperty rdf:about="&dcterms;modified"/>
+    <owl:AnnotationProperty rdf:about="&dcterms;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#L11HadOutput -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#L11HadOutput">
+        <rdfs:label>L11HadOutput</rdfs:label>
+        <rdfs:comment>This property associates an instance of BC56 Digital Measurement  Event with an instance of BC23 Digital Object which is the output of the activity.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#DigitalMeasurementEvent"/>
+        <rdfs:range rdf:resource="&marinetlo;#DigitalObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#L12FHappenedOnDevice -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#L12FHappenedOnDevice">
+        <rdfs:label>L12FHappenedOnDevice</rdfs:label>
+        <rdfs:comment>This property associates an instance of BC56 Digital Measurement  Event with the instance of BC58 Digital Device that had used.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#D10SoftwareExecution"/>
+        <rdfs:range rdf:resource="&marinetlo;#D8DigitalDevice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#L23UsedSoftware -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#L23UsedSoftware">
+        <rdfs:label>L23UsedSoftware</rdfs:label>
+        <rdfs:comment>This property associates an instance of BC56 Digital Measurement  Event with the instance of BC59 Software.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#D10SoftwareExecution"/>
+        <rdfs:range rdf:resource="&marinetlo;#Software"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC1isIdentifiedBy -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LC1isIdentifiedBy">
+        <rdfs:label>LC1isIdentifiedBy</rdfs:label>
+        <rdfs:comment>This property describes the naming or identification of any real world item by a name or any other identifier. 
+
+This property is intended for identifiers in general use, which form part of the world the model intends to describe, and not merely for internal database identifiers which are specific to a technical system, unless these latter also have a more general use outside the technical context. This property includes in particular identification by mathematical expressions such as coordinate systems used for the identification of instances of E53 Place. The property does not reveal anything about when, where and by whom this identifier was used. A more detailed representation can be made using the fully developed (i.e. indirect) path through E15 Identifier Assignment.
+[Scope Note for P1 is identified by (identifies)CIDOC CRM version 5.1.2]
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#Identifier"/>
+        <rdfs:domain rdf:resource="&marinetlo;#PersistentItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC2hasAppellation -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LC2hasAppellation">
+        <rdfs:label>LC2hasAppellation</rdfs:label>
+        <rdfs:comment>This property associates an instance of BC1 TLO Entity with an instance of BC30 Appellation
+This property is intended for names in general use. The property does not reveal anything about when, where and by whom this name was used. A more detailed representation can be made using the fully developed (i.e. indirect) path through BC46 Identifier Assignment.
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#Appellation"/>
+        <rdfs:domain rdf:resource="&marinetlo;#PersistentItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC4isReferredBy -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LC4isReferredBy">
+        <rdfs:label>LC4isReferredBy</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment>This property documents that a BC18 Proposition makes a statement about an instance of BC1 TLO Entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#ConceptualObject"/>
+        <owl:inverseOf rdf:resource="&marinetlo;#LC4refersTo"/>
+        <rdfs:domain rdf:resource="&marinetlo;#PersistentItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LC4refersTo -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LC4refersTo">
+        <rdfs:label>LC4refersTo</rdfs:label>
+        <rdfs:comment>This property documents that a BC18 Proposition makes a statement about an instance of BC1 TLO Entity.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#ConceptualObject"/>
+        <rdfs:range rdf:resource="&marinetlo;#PersistentItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LCproduces -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LCproduces">
+        <rdfs:label>LCproduces</rdfs:label>
+        <rdfs:comment>This property associates an instance of BC61 Capture Activity with the instance of BC57 Capture.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#Capture"/>
+        <rdfs:domain rdf:resource="&marinetlo;#Capture_Activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LT2usuallyConsistsOf -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LT2usuallyConsistsOf">
+        <rdfs:label>LT2usuallyConsistsOf</rdfs:label>
+        <rdfs:comment>This property describes the types of components   of an Temporal Phenomenon Type.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTbelongsTo -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LTbelongsTo">
+        <rdfs:label>LTbelongsTo</rdfs:label>
+        <rdfs:comment>This property associates a type of biotic element with the type of biotic element which is part of or member.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#BioticElementType"/>
+        <rdfs:domain rdf:resource="&marinetlo;#BioticElementType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTusuallyFeedingOn -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LTusuallyFeedingOn">
+        <rdfs:label>LTusuallyFeedingOn</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#BioticElementType"/>
+        <rdfs:domain rdf:resource="&marinetlo;#BioticElementType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTusuallyIsPredatorOf -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LTusuallyIsPredatorOf">
+        <rdfs:label>LTusuallyIsPredatorOf</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment>This property connects the types of predators with their prey type.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:subPropertyOf rdf:resource="&marinetlo;#LTusuallyFeedingOn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LTusuallyIsPreyOf -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LTusuallyIsPreyOf">
+        <rdfs:label>LTusuallyIsPreyOf</rdfs:label>
+        <rdfs:comment>This property connects the types of predators with their prey type.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:subPropertyOf rdf:resource="&marinetlo;#LTusuallyFeedingOn"/>
+        <owl:inverseOf rdf:resource="&marinetlo;#LTusuallyIsPredatorOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LX1isIdentifiedBy -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LX1isIdentifiedBy">
+        <rdfs:label>LX1isIdentifiedBy</rdfs:label>
+        <rdfs:comment>This property describes the types of identifiers, names or labels of any marineTLO item type.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#Identifier"/>
+        <rdfs:domain rdf:resource="&marinetlo;#PersistentItemType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LX2hasAppellation -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LX2hasAppellation">
+        <rdfs:label>LX2hasAppellation</rdfs:label>
+        <rdfs:comment>This property associates an instance of BT1 TLO Entity Type with an instance of BC7 Appellation.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#Appellation"/>
+        <rdfs:domain rdf:resource="&marinetlo;#MarineTLOEntityType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LX3isAboutConcept -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LX3isAboutConcept">
+        <rdfs:label>LX3isAboutConcept</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment>This property documents that an instance of BC17 Conceptual Object is a subject of an instance of BT1 TLO Entity Type.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#ConceptualObject"/>
+        <rdfs:range rdf:resource="&marinetlo;#MarineTLOEntityType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LXhasType -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LXhasType">
+        <rdfs:label>LXhasType</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment>This property allows sub typing of MarineTLO entities - a form of specialisation – through the use of a terminological hierarchy, or thesaurus.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#MarineTLOEntity"/>
+        <rdfs:range rdf:resource="&marinetlo;#MarineTLOEntityType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LXusuallyIsBioticComponentOf -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LXusuallyIsBioticComponentOf">
+        <rdfs:label>LXusuallyIsBioticComponentOf</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#BioticElementType"/>
+        <rdfs:range rdf:resource="&marinetlo;#Ecosystem"/>
+        <rdfs:subPropertyOf rdf:resource="&marinetlo;#LXusuallyIsComponentOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LXusuallyIsComponentOf -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#LXusuallyIsComponentOf">
+        <rdfs:label>LXusuallyIsComponentOf</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#PersistentItemType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#O21Triggers -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#O21Triggers">
+        <rdfs:label>O21Triggers</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#D10SoftwareExecution"/>
+        <rdfs:domain rdf:resource="&marinetlo;#DigitalMeasurementEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P102HasTitle -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P102HasTitle">
+        <rdfs:label>P102HasTitle</rdfs:label>
+        <rdfs:comment>This property describes the E35 Title applied to an instance of E71 Man-Made Thing. The E55 Type of Title is assigned in a sub property.
+
+The P102.1 has type property of the P102 has title (is title of) property enables the relationship between the Title and the thing to be further clarified, for example, if the Title was a given Title, a supplied Title etc.
+It allows any man-made material or immaterial thing to be given a Title. It is possible to imagine a Title being created without a specific object in mind.
+Examples:	
+1) the first book of the Old Testament (E33) has title “Genesis” (E35) has type translated (E55).
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#MarineTLOEntity"/>
+        <rdfs:range rdf:resource="&marinetlo;#Title"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P105RightHeldBy -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P105RightHeldBy">
+        <rdfs:label>P105RightHeldBy</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment>This property identifies the E39 Actor who holds the instances of E30 Right to an E72 Legal Object.
+It is a superproperty of P52 has current owner (is current owner of) because ownership is a right that is held on the owned object.
+
+P105 right held by (has right on) is a shortcut of the fully developed path from E72 Legal Object through P104 is subject to (applies to), E30 Right, P75 possesses (is possessed by) to E39 Actor.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#Actor"/>
+        <rdfs:domain rdf:resource="&marinetlo;#Software"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P125UsedObjectOfType -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P125UsedObjectOfType">
+        <rdfs:label>P125UsedObjectOfType</rdfs:label>
+        <rdfs:comment>This property defines the kind of objects used in an E7 Activity, when the specific instance is either unknown or not of interest, such as use of &quot;a hammer&quot;.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#HumanActivity"/>
+        <rdfs:range rdf:resource="&marinetlo;#PersistentItemType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P141Assigned -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P141Assigned">
+        <rdfs:label>P141Assigned</rdfs:label>
+        <rdfs:comment>This property indicates the attribute that was assigned or the item that was related to the item denoted by a property P140 assigned attribute to in an Attribute assignment action.
+Examples:	
+1)	February 1997 Current Ownership Assessment of Martin Doerr’s silver cup (E13) assigned Martin Doerr (E21)
+2)	01 June 1997 Identifier Assignment of the silver cup donated by Martin Doerr (E15) assigned object identifier 232
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#AttributeAssignment"/>
+        <rdfs:range rdf:resource="&marinetlo;#MarineTLOEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P14CarriedOutBy -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P14CarriedOutBy">
+        <rdfs:label>P14CarriedOutBy</rdfs:label>
+        <rdfs:comment>This property describes the active participation of an E39 Actor in an E7 Activity. 
+
+It implies causal or legal responsibility. The P14.1 in the role of property of the property allows the nature of an Actor’s participation to be specified.
+Examples:	
+1)the painting of the Sistine Chapel (E7)  carried out by Michaelangelo Buonaroti (E21) in the role of master craftsman (E55)
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#Actor"/>
+        <rdfs:domain rdf:resource="&marinetlo;#HumanActivity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P33UsedSpecificTechnique -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P33UsedSpecificTechnique">
+        <rdfs:label>P33UsedSpecificTechnique</rdfs:label>
+        <rdfs:comment>This property identifies a specific instance of E29 Design or Procedure in order to carry out an 		instance of E7 Activity or parts of it. 
+
+The property differs from P32 used general technique (was technique of) in that P33 refers to an instance of E29 Design or Procedure, which is a concrete information object in its own right rather than simply being a term or a method known by tradition. 
+
+Typical examples would include intervention plans for conservation or the construction plans of a building
+Examples:	
+1) Ornamentation of silver cup 232  (E11) used specific technique ‘Instructions for golden chase work by A N Other’ (E29)
+2) Rebuilding of Reichstag (E11) used specific technique Architectural plans by Foster and Partners (E29)
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#DesignAndProcedure"/>
+        <rdfs:domain rdf:resource="&marinetlo;#HumanActivity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P34Continued -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P34Continued">
+        <rdfs:label>P34Continued</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment>This property identifies the E18 Physical Thing that was assessed during an E14 Condition Assessment activity. 
+Conditions may be assessed either by direct observation or using recorded evidence. In the latter case the E18 Physical Thing does not need to be present or extant.
+Examples:	
+1) 1997 condition assessment of the silver collection (E14) concerned silver cup 232 (E22)
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#HumanActivity"/>
+        <rdfs:range rdf:resource="&marinetlo;#HumanActivity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P39Measured -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P39Measured">
+        <rdfs:label>P39Measured</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment>This property associates an instance of E16 Measurement with the instance of E1 CRM Entity to which it applied. An instance of E1 CRM Entity may be measured more than once. Material and immaterial things and processes may be measured, e.g. the number of words in a text, or the duration of an event.
+Examples:	
+1) 31 August 1997 measurement of height of silver cup 232 (E16) measured silver cup 232 (E22).
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#MarineTLOEntity"/>
+        <rdfs:domain rdf:resource="&marinetlo;#Measurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P39WasMeasuredBy -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P39WasMeasuredBy">
+        <rdfs:label>P39Measured</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <owl:inverseOf rdf:resource="&marinetlo;#P39Measured"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P40ObservedDimension -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P40ObservedDimension">
+        <rdfs:label>P40ObservedDimension</rdfs:label>
+        <rdfs:comment>This property records the dimension that was observed in an E16 Measurement Event.
+E54 Dimension can be any quantifiable aspect of E70 Thing. Weight, image colour depth and monetary value are dimensions in this sense. One measurement activity may determine more than one dimension of one object.
+Dimensions may be determined either by direct observation or using recorded evidence. In the latter case the measured Thing does not need to be present or extant.
+Even though knowledge of the value of a dimension requires measurement, the dimension may be an object of discourse prior to, or even without, any measurement being made.
+Examples:	
+1) 31 August 1997 measurement of height of silver cup 232 (E16) observed dimension silver cup 232 height (E54) has unit mm (E58), has value 224 (E60)
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#Dimension"/>
+        <rdfs:domain rdf:resource="&marinetlo;#Measurement"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P40WasObservedIn -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P40WasObservedIn">
+        <rdfs:label>P40WasObservedIn</rdfs:label>
+        <rdfs:comment>This property records the dimension that was observed in an E16 Measurement Event.
+E54 Dimension can be any quantifiable aspect of E70 Thing. Weight, image colour depth and monetary value are dimensions in this sense. One measurement activity may determine more than one dimension of one object.
+Dimensions may be determined either by direct observation or using recorded evidence. In the latter case the measured Thing does not need to be present or extant.
+Even though knowledge of the value of a dimension requires measurement, the dimension may be an object of discourse prior to, or even without, any measurement being made.
+Examples:	
+1) 31 August 1997 measurement of height of silver cup 232 (E16) observed dimension silver cup 232 height (E54) has unit mm (E58), has value 224 (E60)
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <owl:inverseOf rdf:resource="&marinetlo;#P40ObservedDimension"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P4HasTime-Span -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P4HasTime-Span">
+        <rdfs:label>P4HasTime-Span</rdfs:label>
+        <rdfs:comment>This property describes the temporal confinement of an instance of an E2 Temporal Entity.
+
+The related E52 Time-Span is understood as the real Time-Span during which the phenomena were active, which make up the temporal entity instance. It does not convey any other meaning than a positioning on the “time-line” of chronology. The Time-Span in turn is approximated by a set of dates (E61 Time Primitive). A temporal entity can have in reality only one Time-Span, but there may exist alternative opinions about it, which we would express by assigning multiple Time-Spans. Related temporal entities may share a Time-Span. Time-Spans may have completely unknown dates but other descriptions by which we can infer knowledge.
+Examples: 	
+1) the Yalta Conference (E7) has time-span Yalta Conference time-span (E52) 
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#TemporalPhenomenon"/>
+        <rdfs:range rdf:resource="&marinetlo;#Time-Span"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P7TookPlaceAt -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P7TookPlaceAt">
+        <rdfs:label>P7TookPlaceAt</rdfs:label>
+        <rdfs:comment>This property describes the spatial location of an instance of E4 Period. 
+
+The related E53 Place should be seen as an approximation of the geographical area within which the phenomena that characterise the period in question occurred. P7took place at (witnessed) does not convey any meaning other than spatial positioning (generally on the surface of the earth).  For example, the period “Révolution française” can be said to have taken place in “France”, the “Victorian” period, may be said to have taken place in “Britain” and its colonies, as well as other parts of Europe and north America.
+A period can take place at multiple locations.
+Examples: 	
+1) the period “Révolution française” (E4) took place at France (E53)
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#Place"/>
+        <rdfs:domain rdf:resource="&marinetlo;#TemporalPhenomenon"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P90hasValue -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P90hasValue">
+        <rdfs:label>P90hasValue</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment>This property allows an E54 Dimension to be approximated by an E60 Number primitive.
+
+Examples:	
+1) height of silver cup 232 (E54) has value 226 (E60)
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:range rdf:resource="&marinetlo;#BC60Value"/>
+        <rdfs:domain rdf:resource="&marinetlo;#Dimension"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P91HasUnit -->
+
+    <owl:ObjectProperty rdf:about="&marinetlo;#P91HasUnit">
+        <rdfs:label>P91HasUnit</rdfs:label>
+        <rdfs:comment>This property shows the type of unit an E54 Dimension was expressed in.
+
+Examples:	
+1) height of silver cup 232 (E54) has unit mm (E58)
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+        <rdfs:domain rdf:resource="&marinetlo;#Dimension"/>
+        <rdfs:range rdf:resource="&marinetlo;#MeasurementUnit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#P3HasNote -->
+
+    <owl:DatatypeProperty rdf:about="&marinetlo;#P3HasNote">
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This property associates an entity to MarineTLO Environment with  abstraction levels where it is defined.  </rdfs:comment>
+        <rdfs:domain rdf:resource="&marinetlo;#MarineTLOEntity"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#AbioticElement -->
+
+    <owl:Class rdf:about="&marinetlo;#AbioticElement">
+        <rdfs:label>Abiotic Element</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PhysicalThing"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class refers to the abiotic components of an ecosystem. This class comprises nonliving physical components of a system, for example: rocks, soil, etc. in an environment.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#AbioticElementType -->
+
+    <owl:Class rdf:about="&marinetlo;#AbioticElementType">
+        <rdfs:label>Abiotic Element Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PhysicalThingType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This metaclass comprises types of abiotic components of a type of  Ecosystem.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Actor -->
+
+    <owl:Class rdf:about="&marinetlo;#Actor">
+        <rdfs:label>Actor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PersistentItem"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises people, either individually or in groups, who have the potential to perform intentional actions for which they can be held responsible. </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ActorType -->
+
+    <owl:Class rdf:about="&marinetlo;#ActorType">
+        <rdfs:label>Actor Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PersistentItemType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises types of human agents either individually or in groups, who have the potential to perform intentional actions for which they can be held responsible.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Appellation -->
+
+    <owl:Class rdf:about="&marinetlo;#Appellation">
+        <rdfs:label>Appellation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObject"/>
+        <rdfs:comment xml:lang="en">This class comprises signs, either meaningful or not, or arrangements of signs following a specific syntax, that are used or can be used to refer to and identify a specific instance of some class or category within a certain context.
+Specific subclasses of BC7 Appellation should be used when instances of BC7 Appellation of a characteristic form or format are used for particular objects
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#AppellationType -->
+
+    <owl:Class rdf:about="&marinetlo;#AppellationType">
+        <rdfs:label>Appellation Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObjectType"/>
+        <rdfs:comment xml:lang="en">This class comprises types of Appellation that are used or can be used to identify a specific instance of some class within a certain context. </rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#AttributeAssignment -->
+
+    <owl:Class rdf:about="&marinetlo;#AttributeAssignment">
+        <rdfs:label>Attribute Assignment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#HumanActivity"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises the actions of making assertions about properties of an object or any relation between two items or concepts. 
+
+This class allows the documentation of how the respective assignment came about, and whose opinion it was. All the attributes or properties assigned in such an action can also be seen as directly attached to the respective item or concept, possibly as a collection of contradictory values. All cases of properties in this model that are also described indirectly through an action are characterised as &quot;short cuts&quot; of this action. This redundant modelling of two alternative views is preferred because many implementations may have good reasons to model either the action or the short cut, and the relation between both alternatives can be captured by simple rules. 
+
+In particular, the class describes the actions of people making propositions and statements during certain museum procedures, e.g. the person and date when a condition statement was made, an identifier was assigned, the museum object was measured, etc. Which kinds of such assignments and statements need to be documented explicitly in structures of a schema rather than free text, depends on if this information should be accessible by structured queries. 
+ 
+[Scope Note for E13 Attribute Assignment  CIDOC CRM version 5.1.2]
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#BC60Value -->
+
+    <owl:Class rdf:about="&marinetlo;#BC60Value">
+        <rdfs:label>BC60Value</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#MarineTLOEntity"/>
+        <rdfs:comment xml:lang="en">This class comprises primitive values used as documentation elements, which are not further elaborated upon within the model. 
+
+As such they are not considered as elements within our universe of discourse. No specific implementation recommendations are made. It is recommended that the primitive value system from the implementation platform be used to substitute for this class and its subclasses.
+Examples:	
+• ABCDEFG (E62)
+• 3.14 (E60)
+• 0 
+• 1921-01-01 (E61)
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#BiologicalPart -->
+
+    <owl:Class rdf:about="&marinetlo;#BiologicalPart">
+        <rdfs:label>Biological Part</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#BioticElement"/>
+        <rdfs:comment xml:lang="en"> This metaclass comprises biological parts of a biological object</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#BiologicalPartType -->
+
+    <owl:Class rdf:about="&marinetlo;#BiologicalPartType">
+        <rdfs:label>Biological Part Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#BioticElementType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This metaclass comprises types of biological parts of a biological object.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#BioticElement -->
+
+    <owl:Class rdf:about="&marinetlo;#BioticElement">
+        <rdfs:label>Biotic Element</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PhysicalThing"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class refers to the biotic components of an ecosystem. This class compromises individual living things that can react to stimuli, reproduce, grow, and maintain homeostasis. It can be a virus, bacterium, protist, fungus, plant, an animal or a human being. [http://www.biology-online.org/]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#BioticElementType -->
+
+    <owl:Class rdf:about="&marinetlo;#BioticElementType">
+        <rdfs:label>Biotic Element Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PhysicalThingType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This metaclass comprises types of material nature items which live, have lived or are natural products of or from living organisms. Such types of material nature items includes types of plants, types of fauna(animals), types of bacteria, fungi etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ByCatch -->
+
+    <owl:Class rdf:about="&marinetlo;#ByCatch">
+        <rdfs:subClassOf rdf:resource="&marinetlo;#Capture"/>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Capture -->
+
+    <owl:Class rdf:about="&marinetlo;#Capture">
+        <rdfs:label>Capture</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#Collection"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Capture_Activity -->
+
+    <owl:Class rdf:about="&marinetlo;#Capture_Activity">
+        <rdfs:label>Capture Activity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#HumanActivity"/>
+        <rdfs:comment xml:lang="en">This class compromises activities of BC45 Observation   where an BC8 Actor encounters an instance of BC35 Physical Thing of a kind relevant for the mission of the observation or a biological activity such as fishing, etc. This observation produces knowledge about the existence of the respective thing at a particular place in or on surrounding matter. This knowledge may be new to the group of people the actor belongs to. In that case we would talk about a discovery. The observer may recognize or assign an individual identity of the thing encountered or regard only the type as noteworthy in the associated documentation or report.
+Additional parameters may be recorded like the kind of ecosystem, if the biological individual survives the observation, what detection or catching devices have been used or if the capture activity have been supported the detection of a new biological kind (“taxon”).
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Catch -->
+
+    <owl:Class rdf:about="&marinetlo;#Catch">
+        <rdfs:subClassOf rdf:resource="&marinetlo;#Capture"/>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Collection -->
+
+    <owl:Class rdf:about="&marinetlo;#Collection">
+        <rdfs:label>Collection</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PhysicalThing"/>
+        <rdfs:comment xml:lang="en">
+This class comprises aggregations of instances of E18 Physical Thing that are assembled and maintained (“curated” and “preserved,” in museological terminology) by one or more instances of E39 Actor over time for a specific purpose and audience, and according to a particular collection development plan.  
+
+Items may be added or removed from an E78 Collection in pursuit of this plan. This class should not be confused with the E39 Actor maintaining the E78 Collection often referred to with the name of the E78 Collection (e.g. “The Wallace Collection decided…”).
+
+Collective objects in the general sense, like a tomb full of gifts, a folder with stamps or a set of chessmen, should be documented as instances of E19 Physical Object, and not as instances of E78 Collection. This is because they form wholes either because they are physically bound together or because they are kept together for their functionality.
+
+
+[Scope Note for E78 Collection  CIDOC CRM version 5.1.2]
+
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ConceptualObject -->
+
+    <owl:Class rdf:about="&marinetlo;#ConceptualObject">
+        <rdfs:label>ConceptualObject</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ManMadeThings"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises non-material products of our minds and other human produced data that have become objects of a discourse. The production of such information may have been supported by the use of    technical devices such as cameras or computers.
+
+Characteristically, instances of this class are created, invented or thought by someone, and then may be documented or communicated between persons. Instances of BC3 Conceptual Object have the ability to exist on more than one particular carrier at the same time, such as paper, book, electronic signals, marks, audio media, paintings, photos, human memories, etc.
+
+They cannot be destroyed. They exist as long as they can be found on at least one carrier or in at least one human memory. Their existence ends when the last carrier and the last memory are lost.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ConceptualObjectType -->
+
+    <owl:Class rdf:about="&marinetlo;#ConceptualObjectType">
+        <rdfs:label>Conceptual Object Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PersistentItemType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This metaclass comprises types of identifiable immaterial items, such as, types of data sets, images, texts, multimedia objects, procedural prescriptions, computer program code, algorithm or mathematical formulae, that have an objectively recognizable structure and are documented as single units.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#D10SoftwareExecution -->
+
+    <owl:Class rdf:about="&marinetlo;#D10SoftwareExecution">
+        <rdfs:label>D10 Software Execution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#D7DigitalMachineEvent"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#D15RepositoryObject -->
+
+    <owl:Class rdf:about="&marinetlo;#D15RepositoryObject">
+        <rdfs:label>D15RepositoryObject</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#DigitalObject"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises data repositories of a set of integrated objects in computer science sense. These objects are modeled using structures defined in database schemas. Digital store includes not only data repositories like databases, it is a more general concept that includes also flat files that can store data. 
+A digital store may contain binary datasets: raw data, normalized data, intermediate data of processing steps, scenes composed from several datasets, presentation objects, 3D models, 2D-Images and any kind of digital document (text, multimedia). It comprises a notion of complex objects, having datasets as parts. The content of a digital store  is responsible for holding information about where data-files and their replicas can be found
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#D7DigitalMachineEvent -->
+
+    <owl:Class rdf:about="&marinetlo;#D7DigitalMachineEvent">
+        <rdfs:label>D7 Digital Machine Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#E65Creation"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#D8DigitalDevice -->
+
+    <owl:Class rdf:about="&marinetlo;#D8DigitalDevice">
+        <rdfs:label>D8 Digital Device</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ManMadeThings"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises identifiable material items such as computers, scanners, cameras, etc. that have the capability to process or produce instances of  BC51 Digital Object.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Database -->
+
+    <owl:Class rdf:about="&marinetlo;#Database">
+        <rdfs:label>Database</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObject"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises organized collections of data.   The data are typically organized to model relevant aspects of reality  , in a way that supports processes requiring this information.  This organized collection maybe digitized or not.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Dataset -->
+
+    <owl:Class rdf:about="&marinetlo;#Dataset">
+        <rdfs:label>Dataset</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObject"/>
+        <rdfs:comment xml:lang="en">This class comprises   contents of a single database table, or a single statistical data matrix, where each column of the table represents a particular variable, and each row corresponds to a given member of the dataset in question. The dataset lists values for each of the variables, such as height and weight of an object, for each member of the dataset. Each value is known as a datum. The dataset may comprise data for one or more members, corresponding to the number of rows.
+The term dataset may also be used more loosely, to refer to the data in a collection of closely related tables, corresponding to a particular experiment or event.
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#DesignAndProcedure -->
+
+    <owl:Class rdf:about="&marinetlo;#DesignAndProcedure">
+        <rdfs:label>DesignAndProcedure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObject"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises documented plans for the execution of actions in order to achieve a result of a specific quality, form or contents. In particular it comprises plans for deliberate human activities that may result in the modification or production of instances of E24 Physical Thing.
+
+Instances of E29 Design or Procedure can be structured in parts and sequences or depend on others. This is modelled using P69 is associated with.
+
+Designs or procedures can be seen as one of the following:
+
+1. schema for the activities it describes
+2. A schema of the products that result from their application.
+3. An independent intellectual product that may have never been applied, such as Leonardo da Vinci&apos;s famous plans for flying machines.
+4. Because designs or procedures may never be applied or only partially executed, the CRM models a loose relationship between the plan and the respective product.
+ [Scope Note for E29 Design or Procedure (CIDOC CRM)]
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#DigitalMeasurementEvent -->
+
+    <owl:Class rdf:about="&marinetlo;#DigitalMeasurementEvent">
+        <rdfs:label>Digital Measurement Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#Measurement"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises actions measuring physical properties using a digital device, that are determined by a systematic procedure and creates an instance of BC23 Digital Object.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#DigitalObject -->
+
+    <owl:Class rdf:about="&marinetlo;#DigitalObject">
+        <rdfs:label>DigitalObject</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObject"/>
+        <rdfs:comment xml:lang="en">This class comprises identifiable immaterial items that can be represented as sets of bit sequences, such as data sets, e-texts, images, audio or video items, software, etc., and are documented as single units. 
+Any aggregation of instances of BC23 Digital Object into a whole treated as single unit is also regarded as an instance of BC23 Digital Object. 
+A BC23 Digital Object does not depend on a specific physical carrier, and it can exist on one or more carriers simultaneously.
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#DigitalObjectType -->
+
+    <owl:Class rdf:about="&marinetlo;#DigitalObjectType">
+        <rdfs:label>Digital Object Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObjectType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises types of file formats, physical medium, or dimensions of the resource of digital objects, corresponds to dc format of Dublin core.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Dimension -->
+
+    <owl:Class rdf:about="&marinetlo;#Dimension">
+        <rdfs:label>Dimension</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#MarineTLOEntity"/>
+        <rdfs:comment xml:lang="en">This class comprises quantifiable properties that can be measured by some calibrated means and can be approximated by values, i.e. points or regions in a mathematical or conceptual space, such as natural or real numbers, RGB values etc.
+
+An instance of BC35 Dimension represents the true quantity, independent from its numerical approximation, e.g. in inches or in cm. The properties of the class BC35 Dimension allow for expressing the numerical approximation of the values of an instance of E54 Dimension. If the true values belong to a non-discrete space, such as spatial distances, it is recommended to record them as approximations by intervals or regions of indeterminacy enclosing the assumed true values. For instance, a length of 5 cm may be recorded as 4.5-5.5 cm, according to the precision of the respective observation. Note, that interoperability of values described in different units depends critically on the representation as value regions.
+
+Numerical approximations in archaic instances of E58 Measurement Unit used in historical records should be preserved. Equivalents corresponding to current knowledge should be recorded as additional instances of E54 Dimension as appropriate.
+Examples: 	
+1) currency: £26.00
+2) length: 3.9-4.1 cm 
+3) diameter 26 mm
+4) weight 150 lbs
+5) density: 0.85 gm/cc
+6) luminescence: 56 ISO lumens
+7) tin content: 0.46 %
+8) taille au garot: 5 hands
+9) calibrated C14 date: 2460-2720 years, etc
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#E65Creation -->
+
+    <owl:Class rdf:about="&marinetlo;#E65Creation">
+        <rdfs:label>E65 Creation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#HumanActivity"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises events that result in the creation of conceptual items or immaterial products, such as legends, poems, texts, music, images, movies, laws, types etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#E70_Thing -->
+
+    <owl:Class rdf:about="&marinetlo;#E70_Thing">
+        <rdfs:label>E70_Thing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PersistentItem"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This general class comprises usable discrete, identifiable, instances of E77 Persistent Item that are documented as single units. 
+[Scope Note for E70 Thing CIDOC CRM version 5.1.2]
+
+They can be either intellectual products or physical things which are constellations of matter with a relative stability of any form sufficient to associate them with a persistent identity, such as being confined to certain extent, which (confinement) can have a relative stability of form or structure, or containing a fixed amount of matter.  It is an abstraction of products of intellectual,  physical nature.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Ecosystem -->
+
+    <owl:Class rdf:about="&marinetlo;#Ecosystem">
+        <rdfs:label>Ecosystem</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#Event"/>
+        <rdfs:comment xml:lang="en">This class comprises specific systems consisting of observable material items, biotic, abiotic elements and interactions, as well as their associated relations and qualities in space time volume. Its coherence can be defined by the types of species and the types and frequency of interactions which can be observed in a space time volume.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#EcosystemType -->
+
+    <owl:Class rdf:about="&marinetlo;#EcosystemType">
+        <rdfs:label>Ecosystem Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#EventsType"/>
+        <rdfs:comment xml:lang="en">This metaclass comprises types of  coherent ecological phenomena bounded in time and space. The  coherence of these phenomena is given by the type of interaction characteristic for biological systems. This coherence identifies the ecosystem and not the associated spatio-temporal bounds. These bounds are a mere approximation of the actual process of growth, spread and retreat. Consequently, different ecosystems can overlap and coexist in time and space.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Equipment -->
+
+    <owl:Class rdf:about="&marinetlo;#Equipment">
+        <rdfs:label>Equipment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PhysicalThing"/>
+        <rdfs:comment xml:lang="en">This class comprises physical objects purposely created by human activity.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#EquipmentType -->
+
+    <owl:Class rdf:about="&marinetlo;#EquipmentType">
+        <rdfs:label>Equipment Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PhysicalThingType"/>
+        <rdfs:comment xml:lang="en">This class comprises types of physical objects purposely created by human activity.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Event -->
+
+    <owl:Class rdf:about="&marinetlo;#Event">
+        <rdfs:label>Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#TemporalPhenomenon"/>
+        <rdfs:comment xml:lang="en">This class comprises changes of states in cultural, social or physical systems, regardless of scale, brought about by a series or group of coherent physical, cultural, technological or legal phenomena. Such changes of state will affect instances of E77 Persistent Item or its subclasses.
+
+The distinction between an E5 Event and an E4 Period is partly a question of the scale of observation. Viewed at a coarse level of detail, an E5 Event is an ‘instantaneous’ change of state. At a fine level, the E5 Event can be analysed into its component phenomena within a space and time frame, and as such can be seen as an E4 Period. The reverse is not necessarily the case: not all instances of E4 Period give rise to a noteworthy change of state.
+
+[Scope Note for E5 Event  CIDOC CRM version 5.1.2]
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#EventsType -->
+
+    <owl:Class rdf:about="&marinetlo;#EventsType">
+        <rdfs:label>Events Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#TemporalPhenomenonType"/>
+        <rdfs:comment xml:lang="en">This class comprises types of actions intentionally carried out by humans that result in changes of state in the scientific, social, or physical systems documented</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#HumanActivity -->
+
+    <owl:Class rdf:about="&marinetlo;#HumanActivity">
+        <rdfs:label>Human Activity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#Event"/>
+        <rdfs:comment xml:lang="en">This class comprises actions intentionally carried out by instances of E39 Actor that result in changes of state in the cultural, social, or physical systems documented. 
+
+This notion includes complex, composite and long-lasting actions such as the building of a settlement or a war, as well as simple, short-lived actions such as the opening of a door.
+
+[Scope Note for E7 Activity  CIDOC CRM version 5.1.2]
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#HumanActivityType -->
+
+    <owl:Class rdf:about="&marinetlo;#HumanActivityType">
+        <rdfs:label>Human Activity Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#EventsType"/>
+        <rdfs:comment xml:lang="en">This class comprises types of actions intentionally carried out by humans that result in changes of state in the scientific, social, or physical systems documented.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Identifier -->
+
+    <owl:Class rdf:about="&marinetlo;#Identifier">
+        <rdfs:label>Identifier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObject"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises strings or codes assigned to instances of BC10 Persistent Item in order to identify them uniquely and permanently within the context of one or more organisations. Such codes are often known as inventory numbers, registration codes, etc. and are typically composed of alphanumeric sequences. 
+Specific subclasses of BC4 Identifier should be used when instances of BC4 Identifier of a characteristic form or format are used for particular objects
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#IdentifierAssignment -->
+
+    <owl:Class rdf:about="&marinetlo;#IdentifierAssignment">
+        <rdfs:label>Identifier Assignment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#AttributeAssignment"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises activities that result in the allocation of an identifier to an instance of E1 CRM Entity. An E15 Identifier Assignment may include the creation of the identifier from multiple constituents, which themselves may be instances of E41 Appellation. The syntax and kinds of constituents to be used may be declared in a rule constituting an instance of E29 Design or Procedure.
+[Scope Note for E15 Identifier Assignment CIDOC CRM version 5.1.2]
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#IdentifierAssignmentType -->
+
+    <owl:Class rdf:about="&marinetlo;#IdentifierAssignmentType">
+        <rdfs:label>Identifier Assignment Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#HumanActivityType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Image -->
+
+    <owl:Class rdf:about="&marinetlo;#Image">
+        <rdfs:label>Image</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObject"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises distributions of form, tone and colour that may be found on surfaces such as photos, paintings, prints and sculptures or directly on electronic media. 
+The degree to which variations in the distribution of form and colour affect the identity of an instance of BC5 Image depends on a given purpose.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#IndustrialActivityType -->
+
+    <owl:Class rdf:about="&marinetlo;#IndustrialActivityType">
+        <rdfs:label>Industrial Activity Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#HumanActivityType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Language -->
+
+    <owl:Class rdf:about="&marinetlo;#Language">
+        <rdfs:label>Language</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObjectType"/>
+        <rdfs:comment xml:lang="en">This class comprises the natural languages in the sense of concepts, i.e. the Model does not foresee the description of instances of BT36 Language, e.g.: “instances of French”.
+
+It is recommended that internationally or nationally agreed codes and terminology are used to denote instances of BT36 Language, such as those defined in ISO 639:1988.  [CIDOC CRM].
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#LegislativeZoneType -->
+
+    <owl:Class rdf:about="&marinetlo;#LegislativeZoneType">
+        <rdfs:label>Legislative Zone Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#TemporalPhenomenonType"/>
+        <rdfs:comment xml:lang="en">This class comprises types of extents in space where real world phenomenon can be observed or measured.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ManMadeObject -->
+
+    <owl:Class rdf:about="&marinetlo;#ManMadeObject">
+        <rdfs:label>Man Made Object</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PhysicalManMadeThing"/>
+        <rdfs:comment xml:lang="en">This class comprises physical objects purposely created by human activity.
+
+No assumptions are made as to the extent of modification required to justify regarding an object as man-made. For example, an inscribed piece of rock or a preserved butterfly are both regarded as instances of E22 Man-Made Object.
+
+[Scope Note for E22 Man-Made Object  CIDOC CRM version 5.1.2]
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ManMadeThings -->
+
+    <owl:Class rdf:about="&marinetlo;#ManMadeThings">
+        <rdfs:label>ManMadeThings</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#E70_Thing"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises physical objects purposely created by human activity.
+
+No assumptions are made as to the extent of modification required to justify regarding an object as man-made. For example, an inscribed piece of rock or a preserved butterfly are both regarded as instances of BC31 Man-Made Object.
+Examples:	
+1) Mallard (the World’s fastest steam engine)
+2) the Portland Vase
+3) the Coliseum
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#MarineAnimal -->
+
+    <owl:Class rdf:about="&marinetlo;#MarineAnimal">
+        <rdfs:label>Marine Animal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#BioticElement"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises any living thing in a marine environment that can move independently and that has senses for recognizing and reacting to the environment around it.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#MarineAnimalType -->
+
+    <owl:Class rdf:about="&marinetlo;#MarineAnimalType">
+        <rdfs:label>Marine Animal Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#BioticElementType"/>
+        <rdfs:comment xml:lang="en">This class comprises types marine animals that have a persistent identity.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#MarineTLOEntity -->
+
+    <owl:Class rdf:about="&marinetlo;#MarineTLOEntity">
+        <rdfs:label>MarineTLOEntity</rdfs:label>
+        <rdfs:comment xml:lang="en">This class comprises all objects of the MarineTLO discourse. It is an abstract concept providing for :
+1) Identification   by a preferred identifier
+2) Appellation
+3) all classes within this level of the MarineTLO are directly or indirectly specialisations of BC20 TLO Entity
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#MarineTLOEntityType -->
+
+    <owl:Class rdf:about="&marinetlo;#MarineTLOEntityType">
+        <rdfs:label>MarineTLO Entity Type</rdfs:label>
+        <rdfs:comment xml:lang="en">This class comprises types of things in the universe of discourse of the MarineTLO.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Measurement -->
+
+    <owl:Class rdf:about="&marinetlo;#Measurement">
+        <rdfs:label>Measurement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#AttributeAssignment"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises actions measuring physical properties and other values that can be determined by a systematic procedure. 
+
+Examples include measuring the monetary value of a collection of coins or the running time of a specific video cassette. 
+
+The E16 Measurement may use simple counting or tools, such as yardsticks or radiation detection devices. The interest is in the method and care applied, so that the reliability of the result may be judged at a later stage, or research continued on the associated documents. The date of the event is important for dimensions, which may change value over time, such as the length of an object subject to shrinkage. Details of methods and devices are best handled as free text, whereas basic techniques such as &quot;carbon 14 dating&quot; should be encoded using P2 has type (is type of:) E55 Type.
+[Scope Note for E16 Measurement  CIDOC CRM version 5.1.2]
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#MeasurementUnit -->
+
+    <owl:Class rdf:about="&marinetlo;#MeasurementUnit">
+        <rdfs:label>MeasurementUnit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObject"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class is a specialization of E55 Type and comprises the types of measurement units: feet, inches, centimetres, litres, lumens, etc. 
+
+This type is used categorically in the model without reference to instances of it, i.e. the Model does not foresee the description of instances of instances of E58 Measurement Unit, e.g.: “instances of cm”.
+
+Système International (SI) units or internationally recognized non-SI terms should be used whenever possible. (ISO 1000:1992). Archaic Measurement Units used in historical records should be preserved.
+ [Scope Note for E58 Measurement Unit CIDOC CRM version 5.1.2]
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#NonTargetByCatch -->
+
+    <owl:Class rdf:about="&marinetlo;#NonTargetByCatch">
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ByCatch"/>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#NonTargetCatch -->
+
+    <owl:Class rdf:about="&marinetlo;#NonTargetCatch">
+        <rdfs:subClassOf rdf:resource="&marinetlo;#Catch"/>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#PersistentItem -->
+
+    <owl:Class rdf:about="&marinetlo;#PersistentItem">
+        <rdfs:label>PersistentItem</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#MarineTLOEntity"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises items that have a persistent identity, sometimes known as “endurants” in philosophy. They can be repeatedly recognized within the duration of their existence by identity criteria rather than by continuity or observation. Persistent Items can be either physical entities, such as people, animals or things, or conceptual entities such as ideas, concepts, products of the imagination or common names.
+
+The criteria that determine the identity of an item are often difficult to establish -; the decision depends largely on the judgement of the observer. For example, a building is regarded as no longer existing if it is dismantled and the materials reused in a different configuration. On the other hand, human beings or biotic elements go through radical and profound changes during their life-span, affecting both material composition and form, yet preserve their identity by other criteria. Similarly, inanimate objects may be subject to exchange of parts and matter. The class BC10 Persistent Item does not take any position about the nature of the applicable identity criteria and if actual knowledge about identity of an instance of this class exists. There may be cases, where the identity of an BC10 Persistent Item is not decidable by a certain state of knowledge.
+The main classes of objects that fall outside the scope the BC10 Persistent Item class are temporal objects such as periods, events and acts, and descriptive properties. 
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#PersistentItemType -->
+
+    <owl:Class rdf:about="&marinetlo;#PersistentItemType">
+        <rdfs:label>Persistent Item Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#MarineTLOEntityType"/>
+        <rdfs:comment xml:lang="en">This class comprises types items that have a persistent identity, sometimes known as “endurants” in philosophy. The items of this type  can be repeatedly recognized within the duration of their existence by identity criteria rather than by continuity or observation. These can be either types of  physical entities, such as people, animals or things, or conceptual entities such as ideas, concepts, products of the imagination or common names</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Person -->
+
+    <owl:Class rdf:about="&marinetlo;#Person">
+        <rdfs:label>Person</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#Actor"/>
+        <rdfs:comment xml:lang="en">This class comprises real persons who live or are assumed to have lived. </rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#PhysicalManMadeThing -->
+
+    <owl:Class rdf:about="&marinetlo;#PhysicalManMadeThing">
+        <rdfs:label>Physical Man Made Thing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ManMadeThings"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">
+This class comprises man-made objects, such as a swords, and man-made features, such as rock art. No assumptions are made as to the extent of modification required to justify regarding an object as man-made. For example, a “cup and ring” carving on bedrock is regarded as instance of E24 Physical Man-Made Thing. 
+
+[Scope Note for E24 Physical Man-Made Thing  CIDOC CRM version 5.1.2]
+
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#PhysicalThing -->
+
+    <owl:Class rdf:about="&marinetlo;#PhysicalThing">
+        <rdfs:label>Physical Thing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PersistentItem"/>
+        <rdfs:comment xml:lang="en">This class comprises constellations of matter with a relative stability of any form sufficient to associate them with a persistent identity, such as being confined to certain extent, which (confinement) can have a relative stability of form or structure, or containing a fixed amount of matter. In particular, it comprises physical things in the narrower sense and fluid bodies. It is an abstraction of physical substance for solid and non-solid things of matter.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#PhysicalThingType -->
+
+    <owl:Class rdf:about="&marinetlo;#PhysicalThingType">
+        <rdfs:label>Physical Thing Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PersistentItemType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises types of constellations of matter with a relative stability of any form sufficient to associate them with a persistent identity, such as being confined to certain extent, having a relative stability of form or structure, or containing a fixed amount of matter. In particular, it comprises physical things in the narrower sense and fluid bodies. It is an abstraction of physical substance for solid and non-solid things of matter.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Place -->
+
+    <owl:Class rdf:about="&marinetlo;#Place">
+        <rdfs:label>Place</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#MarineTLOEntity"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises extents in space, in particular on the surface of the earth, in the pure sense of physics: independent from temporal phenomena and matter. 
+
+The instances of E53 Place are usually determined by reference to the position of “immobile” objects such as buildings, cities, mountains, rivers, or dedicated geodetic marks. A Place can be determined by combining a frame of reference and a location with respect to this frame. It may be identified by one or more instances of E44 Place Appellation.
+
+ It is sometimes argued that instances of E53 Place are best identified by global coordinates or absolute reference systems. However, relative references are often more relevant in the context of cultural documentation and tend to be more precise. In particular, we are often interested in position in relation to large, mobile objects, such as ships. For example, the Place at which Nelson died is known with reference to a large mobile object – H.M.S Victory. A resolution of this Place in terms of absolute coordinates would require knowledge of the movements of the vessel and the precise time of death, either of which may be revised, and the result would lack historical and cultural relevance.
+
+Any object can serve as a frame of reference for E53 Place determination. The model foresees the notion of a &quot;section&quot; of an E19 Physical Object as a valid E53 Place determination.
+[Scope Note for E53 Place in CIDOC CRM version 5.1.2]
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Proposition -->
+
+    <owl:Class rdf:about="&marinetlo;#Proposition">
+        <rdfs:label>Proposition</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#Appellation"/>
+        <rdfs:comment xml:lang="en">This class comprises immaterial items, including but not limited to scientific papers, plots, procedural prescriptions, algorithms, laws of physics or images that are, or represent in some sense, sets of propositions about real or imaginary things and that are documented as single units or serve as topic of discourse. This class also comprises items that are “about” something in the sense of a subject.  
+Specific subclasses of BC8 Proposition should be used when instances of BC8 Proposition of a characteristic type such as publication, etc are used for particular objects.
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Publication -->
+
+    <owl:Class rdf:about="&marinetlo;#Publication">
+        <rdfs:label>Publication</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObject"/>
+        <rdfs:comment xml:lang="en">This class comprises publication work.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#RepositoryObject -->
+
+    <owl:Class rdf:about="&marinetlo;#RepositoryObject">
+        <rdfs:label>Repository Object</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObject"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises data repositories of a set of integrated objects in computer science sense. These objects are modeled using structures defined in database schemas. Digital store includes not only data repositories like databases, it is a more general concept that includes also flat files that can store data. 
+A digital store may contain binary datasets: raw data, normalized data, intermediate data of processing steps, scenes composed from several datasets, presentation objects, 3D models, 2D-Images and any kind of digital document (text, multimedia). It comprises a notion of complex objects, having datasets as parts. The content of a digital store  is responsible for holding information about where data-files and their replicas can be found.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ScientificActivityType -->
+
+    <owl:Class rdf:about="&marinetlo;#ScientificActivityType">
+        <rdfs:label>Scientific Activity Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#HumanActivityType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#ScientificDataType -->
+
+    <owl:Class rdf:about="&marinetlo;#ScientificDataType">
+        <rdfs:label>Scientific Data Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObjectType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises the types of Scientific data which are produced by Scientific Activity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Software -->
+
+    <owl:Class rdf:about="&marinetlo;#Software">
+        <rdfs:label>Software
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#DigitalObject"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises software codes, computer programs, procedures, and functions that are used to operate a system of digital objects.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#TargetByCatch -->
+
+    <owl:Class rdf:about="&marinetlo;#TargetByCatch">
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ByCatch"/>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#TargetCatch -->
+
+    <owl:Class rdf:about="&marinetlo;#TargetCatch">
+        <rdfs:subClassOf rdf:resource="&marinetlo;#Catch"/>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#TemporalPhenomenon -->
+
+    <owl:Class rdf:about="&marinetlo;#TemporalPhenomenon">
+        <rdfs:label>Temporal Phenomenon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#MarineTLOEntity"/>
+        <rdfs:comment xml:lang="en">This class comprises all sets of phenomena, such as   Periods, Events and states, Ecosystems,   bounded in time and space. 
+It is the social or physical coherence of these phenomena that identify a BC4 Temporal Phenomenon and not the associated spatio-temporal bounds. These bounds are   approximations of the actual process of growth, spread and retreat. Consequently, different ecosystems   can overlap and coexist in time and space, such as when a nomadic culture exists in the same area as a sedentary culture.
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#TemporalPhenomenonType -->
+
+    <owl:Class rdf:about="&marinetlo;#TemporalPhenomenonType">
+        <rdfs:label>Temporal Phenomenon Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#MarineTLOEntityType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises all types of phenomena, such as types of Periods, Events and states, which happen over a limited extent in time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Time-Span -->
+
+    <owl:Class rdf:about="&marinetlo;#Time-Span">
+        <rdfs:label>Time-Span</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#MarineTLOEntity"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This class comprises abstract temporal extents, in the sense of Galilean physics, having a beginning, an end and a duration. Time Span has no other semantic connotations. Time-Spans are used to define the temporal extent of   phenomena valid for a certain time.  
+[Scope Note for E52 Time Span in CIDOC CRM version 5.1.2]
+Instances of BC2 Time-Span can best be considered as approximations of the actual Time-Spans of temporal entities. The properties of BC2 Time-Span are intended to allow these approximations to be expressed precisely.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#Title -->
+
+    <owl:Class rdf:about="&marinetlo;#Title">
+        <rdfs:label>Title</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#Appellation"/>
+        <rdfs:comment xml:lang="en">This class comprises the names assigned to works, such as texts, artworks or pieces of music. 
+
+Titles are proper noun phrases or verbal phrases, and should not be confused with generic object names such as “chair”, “painting” or “book” (the latter are common nouns that stand for instances of E55 Type). Titles may be assigned by the creator of the work itself, or by a social group. 
+
+This class also comprises the translations of titles that are used as surrogates for the original titles in different social contexts.
+
+[Scope Note for E35 Title  CIDOC CRM version 5.1.2]
+</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#VisualType -->
+
+    <owl:Class rdf:about="&marinetlo;#VisualType">
+        <rdfs:label>Visual Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#ConceptualObjectType"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment xml:lang="en">This metaclass comprises types of intellectual or conceptual aspects of recognizable marks and images.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl#WaterArea -->
+
+    <owl:Class rdf:about="&marinetlo;#WaterArea">
+        <rdfs:label>Water Area</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#PhysicalThing"/>
+        <rdfs:subClassOf rdf:resource="&marinetlo;#Place"/>
+        <rdfs:comment xml:lang="en">This class comprises generic portions of the sea. A water area can be a statistical area, or an economic zone, or a geographic feature.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Class -->
+
+    <owl:Class rdf:about="&rdfs;Class"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="&foaf;Person"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://creativecommons.org/licenses/by/3.0/ -->
+
+    <owl:NamedIndividual rdf:about="http://creativecommons.org/licenses/by/3.0/"/>
+    
+
+
+    <!-- http://users.ics.forth.gr/~fafalios/ -->
+
+    <owl:NamedIndividual rdf:about="http://users.ics.forth.gr/~fafalios/">
+        <rdf:type rdf:resource="&foaf;Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://users.ics.forth.gr/~marketak/pages/aboutme.html -->
+
+    <owl:NamedIndividual rdf:about="http://users.ics.forth.gr/~marketak/pages/aboutme.html">
+        <rdf:type rdf:resource="&foaf;Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://users.ics.forth.gr/~tzitzik/ -->
+
+    <owl:NamedIndividual rdf:about="http://users.ics.forth.gr/~tzitzik/">
+        <rdf:type rdf:resource="&foaf;Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl -->
+
+    <owl:NamedIndividual rdf:about="http://www.ics.forth.gr/isl"/>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl -->
+
+    <owl:NamedIndividual rdf:about="http://www.ics.forth.gr/isl/MarineTLO/v3/marinetlo.owl"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

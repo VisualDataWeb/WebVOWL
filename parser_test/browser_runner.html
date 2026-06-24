@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="node_modules/diff/dist/diff.min.js"></script>
+<script src="node_modules/rdflib/dist/rdflib.min.js"></script>
+<script>
+window.onload = () => {
+  (async () => {
+    let web = await import("./web_parser.js");
+    web.init();
+
+    let test ={
+  "file":"data/sioc.rdf",
+  "compare":"sorted_data/sioc_sorted.json",
+  "baseIri": "http://rdfs.org/sioc/ns#",
+  "iriMap": {
+  }
+}
+
+
+;
+
+
+    async function getData(file) {
+      const response = await fetch(file);
+      if (!response.ok)
+        throw new Error("cannot fetch file: " + file);
+      return await response.text();
+    }
+
+    try {
+        const ext = test.file.substr(test.file.lastIndexOf(".") + 1);
+        const data = await getData(test.file);
+        var compare = (await getData(test.compare)).trim();
+        var result = await parser.transform(data, test.baseIri, parser.getMime(ext), getLoader(test.iriMap));
+        result._comment = "Created with OWL2VOWL (version 0.3.7), http://vowl.visualdataweb.org";
+        result = JSON.stringify(sorter.sort(result), null, 2).trim();
+        const diff = Diff.structuredPatch("parsed", "orig", result, compare);
+        if(diff.hunks.length)
+          throw new Error(Diff.formatPatch(diff));
+        console.log(test.file + ": ok");
+    } catch(err){
+        console.log("test for " + test.file + " failed with:");
+        //if(!result)
+          console.log(err);
+
+        console.log(result);
+
+        /*
+        let other = JSON.parse(compare);
+        result = JSON.parse(result);
+
+        for(let prop of result.property) {
+          console.log(prop.type, result.propertyAttribute[prop.id].iri)
+        }
+
+        for(let prop of other.property) {
+          console.log(prop.type, other.propertyAttribute[prop.id].iri)
+        }
+        */
+    }
+  })();
+
+
+
+
+}
+
+</script>
+</head>
+<body></body>
+</html>

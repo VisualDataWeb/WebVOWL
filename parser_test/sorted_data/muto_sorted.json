@@ -1,0 +1,1146 @@
+{
+  "_comment": "Created with OWL2VOWL (version 0.3.7), http://vowl.visualdataweb.org",
+  "class": [
+    {
+      "id": 0,
+      "type": "owl:Class"
+    },
+    {
+      "id": 1,
+      "type": "owl:Class"
+    },
+    {
+      "id": 2,
+      "type": "owl:Class"
+    },
+    {
+      "id": 3,
+      "type": "owl:Class"
+    },
+    {
+      "id": 4,
+      "type": "owl:Class"
+    },
+    {
+      "id": 5,
+      "type": "owl:Class"
+    },
+    {
+      "id": 6,
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": 7,
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": 8,
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": 9,
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": 10,
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": 11,
+      "type": "rdfs:Datatype"
+    },
+    {
+      "id": 12,
+      "type": "owl:Thing"
+    },
+    {
+      "id": 13,
+      "type": "owl:Thing"
+    },
+    {
+      "id": 14,
+      "type": "owl:Thing"
+    },
+    {
+      "id": 15,
+      "type": "owl:Class"
+    }
+  ],
+  "classAttribute": [
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ],
+        "versionInfo": [
+          {
+            "identifier": "versionInfo",
+            "language": "undefined",
+            "type": "label",
+            "value": "Version 1.0: muto:AutoTag was a subclass of muto:Tagging (called muto:autoTagging) in earlier versions. Defining it as a subclass of muto:Tag is more appropriate and allows for taggings that contain a combination of manually and automatically created tags."
+          }
+        ]
+      },
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "An automatic tag is a tag that is automatically associated with a resource (e.g. by a tagging system), i.e. it is not entered by a human being."
+      },
+      "id": 0,
+      "instances": 0,
+      "iri": "http://purl.org/muto/core#AutoTag",
+      "label": {
+        "en": "Automatic Tag",
+        "IRI-based": "AutoTag"
+      },
+      "superClasses": [
+        2
+      ]
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "A private tagging is a tagging that is only visible to its creator (unless the creator has not granted access to others via muto:grantAccess). Every tagging that is not an instance of muto:PrivateTagging is public by default."
+      },
+      "id": 1,
+      "instances": 0,
+      "iri": "http://purl.org/muto/core#PrivateTagging",
+      "label": {
+        "en": "Private Tagging",
+        "IRI-based": "PrivateTagging"
+      },
+      "superClasses": [
+        3
+      ]
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ],
+        "versionInfo": [
+          {
+            "identifier": "versionInfo",
+            "language": "undefined",
+            "type": "label",
+            "value": "Version 1.0: The owl:disjointWith statement was removed to make MUTO conform to OWL Lite (the statement is not essential in this case)."
+          }
+        ]
+      },
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "A Tag consists of an arbitrary text label. Note that tags with the same label are NOT merged in the ontology."
+      },
+      "id": 2,
+      "instances": 0,
+      "iri": "http://purl.org/muto/core#Tag",
+      "label": {
+        "en": "Tag",
+        "IRI-based": "Tag"
+      },
+      "subClasses": [
+        0
+      ],
+      "superClasses": [
+        15
+      ]
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "A tagging links a resource to a user account and one or more tags."
+      },
+      "id": 3,
+      "instances": 0,
+      "iri": "http://purl.org/muto/core#Tagging",
+      "label": {
+        "en": "Tagging",
+        "IRI-based": "Tagging"
+      },
+      "subClasses": [
+        1
+      ],
+      "superClasses": [
+        4
+      ]
+    },
+    {
+      "attributes": [
+        "external"
+      ],
+      "baseIri": "http://rdfs.org/sioc/ns",
+      "id": 4,
+      "instances": 0,
+      "iri": "http://rdfs.org/sioc/ns#Item",
+      "label": {
+        "IRI-based": "Item"
+      },
+      "subClasses": [
+        3
+      ]
+    },
+    {
+      "attributes": [
+        "external"
+      ],
+      "baseIri": "http://rdfs.org/sioc/ns",
+      "id": 5,
+      "instances": 0,
+      "iri": "http://rdfs.org/sioc/ns#UserAccount",
+      "label": {
+        "IRI-based": "UserAccount"
+      }
+    },
+    {
+      "id": 6,
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "label": {
+        "undefined": "Literal"
+      }
+    },
+    {
+      "id": 7,
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "label": {
+        "undefined": "Literal"
+      }
+    },
+    {
+      "id": 8,
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "label": {
+        "undefined": "Literal"
+      }
+    },
+    {
+      "baseIri": "http://www.w3.org/2001/XMLSchema",
+      "id": 9,
+      "iri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "label": {
+        "IRI-based": "dateTime"
+      }
+    },
+    {
+      "baseIri": "http://www.w3.org/2001/XMLSchema",
+      "id": 10,
+      "iri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "label": {
+        "IRI-based": "dateTime"
+      }
+    },
+    {
+      "baseIri": "http://www.w3.org/2001/XMLSchema",
+      "id": 11,
+      "iri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "label": {
+        "IRI-based": "dateTime"
+      }
+    },
+    {
+      "id": 12,
+      "iri": "http://www.w3.org/2002/07/owl#Thing",
+      "label": {
+        "undefined": "Thing"
+      }
+    },
+    {
+      "id": 13,
+      "iri": "http://www.w3.org/2002/07/owl#Thing",
+      "label": {
+        "undefined": "Thing"
+      }
+    },
+    {
+      "id": 14,
+      "iri": "http://www.w3.org/2002/07/owl#Thing",
+      "label": {
+        "undefined": "Thing"
+      }
+    },
+    {
+      "attributes": [
+        "external"
+      ],
+      "baseIri": "http://www.w3.org/2004/02/skos/core",
+      "id": 15,
+      "instances": 0,
+      "iri": "http://www.w3.org/2004/02/skos/core#Concept",
+      "label": {
+        "IRI-based": "Concept"
+      },
+      "subClasses": [
+        2
+      ]
+    }
+  ],
+  "header": {
+    "author": [
+      "Steffen Lohmann"
+    ],
+    "baseIris": [
+      "http://purl.org/dc/terms",
+      "http://purl.org/muto/core",
+      "http://rdfs.org/sioc/ns",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns",
+      "http://www.w3.org/2000/01/rdf-schema",
+      "http://www.w3.org/2001/XMLSchema",
+      "http://www.w3.org/2004/02/skos/core"
+    ],
+    "description": {
+      "undefined": "The Modular and Unified Tagging Ontology (MUTO) is an ontology for tagging and folksonomies. It is based on a thorough review of earlier tagging ontologies and unifies core concepts in one consistent schema. It supports different forms of tagging, such as common, semantic, group, private, and automatic tagging, and is easily extensible."
+    },
+    "iri": "http://purl.org/muto/core",
+    "labels": {
+      "en": "MUTO Core Ontology"
+    },
+    "languages": [
+      "en",
+      "undefined"
+    ],
+    "other": {
+      "depiction": [
+        {
+          "identifier": "depiction",
+          "language": "undefined",
+          "type": "label",
+          "value": "http://purl.org/muto/core/muto-compact.png"
+        },
+        {
+          "identifier": "depiction",
+          "language": "undefined",
+          "type": "label",
+          "value": "http://purl.org/muto/core/muto-UML.png"
+        }
+      ],
+      "homepage": [
+        {
+          "identifier": "homepage",
+          "language": "undefined",
+          "type": "label",
+          "value": "http://purl.org/muto"
+        }
+      ],
+      "issued": [
+        {
+          "identifier": "issued",
+          "language": "undefined",
+          "type": "label",
+          "value": "2011-11-16"
+        }
+      ],
+      "licence": [
+        {
+          "identifier": "licence",
+          "language": "undefined",
+          "type": "label",
+          "value": "http://creativecommons.org/licenses/by/3.0/"
+        }
+      ],
+      "seeAlso": [
+        {
+          "identifier": "seeAlso",
+          "language": "undefined",
+          "type": "label",
+          "value": "http://purl.org/muto/core#"
+        }
+      ]
+    },
+    "prefixList": {
+      "dc": "http://purl.org/dc/elements/1.1/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "sioc": "http://rdfs.org/sioc/ns#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "xml": "http://www.w3.org/XML/1998/namespace",
+      "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "title": {
+      "undefined": "Modular Unified Tagging Ontology (MUTO)"
+    },
+    "version": "Version 1.0 - Global changes (compared to earlier versions): Some properties have been renamed; cardinality constraints in class descriptions (owl:Restriction) have been replaced by global cardinality constraints (owl:FunctionalProperty)."
+  },
+  "namespace": [],
+  "property": [
+    {
+      "id": 0,
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": 1,
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": 2,
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": 3,
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": 4,
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": 5,
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": 6,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 7,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 8,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 9,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 10,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 11,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 12,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 13,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 14,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 15,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 16,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 17,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 18,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 19,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 20,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 21,
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": 22,
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": 23,
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": 24,
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": 25,
+      "type": "rdfs:SubClassOf"
+    }
+  ],
+  "propertyAttribute": [
+    {
+      "attributes": [
+        "datatype",
+        "external"
+      ],
+      "baseIri": "http://purl.org/dc/terms",
+      "domain": 14,
+      "id": 0,
+      "iri": "http://purl.org/dc/terms/created",
+      "label": {
+        "IRI-based": "created"
+      },
+      "range": 8
+    },
+    {
+      "attributes": [
+        "datatype",
+        "external"
+      ],
+      "baseIri": "http://purl.org/dc/terms",
+      "domain": 14,
+      "id": 1,
+      "iri": "http://purl.org/dc/terms/modified",
+      "label": {
+        "IRI-based": "modified"
+      },
+      "range": 7
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "attributes": [
+        "datatype",
+        "functional"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "The creation date and time of a tag. This property can be omitted if muto:taggingCreated = muto:tagCreated (i.e. in the common case that a tag has been created along with a tagging, not in a later edit of the tagging). The datatype of this property is xsd:dateTime (in contrast to it superproperty dcterms:created which has range rdfs:Literal)."
+      },
+      "domain": 2,
+      "id": 2,
+      "iri": "http://purl.org/muto/core#tagCreated",
+      "label": {
+        "en": "tag created",
+        "IRI-based": "tagCreated"
+      },
+      "range": 11
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "attributes": [
+        "datatype",
+        "functional"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "Every tagging has exactly one creation date and time. The datatype of this property is xsd:dateTime (in contrast to its superproperty dcterms:created which has range rdfs:Literal)."
+      },
+      "domain": 3,
+      "id": 3,
+      "iri": "http://purl.org/muto/core#taggingCreated",
+      "label": {
+        "en": "tagging created",
+        "IRI-based": "taggingCreated"
+      },
+      "range": 10
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "attributes": [
+        "datatype"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "A tagging can have multiple modification dates, as the number of times a tagging can be edited (e.g. to add or remove tags) is theoretically unlimited. The datatype of this property is xsd:dateTime (in contrast to it superproperty dcterms:created which has range rdfs:Literal)."
+      },
+      "domain": 3,
+      "id": 4,
+      "iri": "http://purl.org/muto/core#taggingModified",
+      "label": {
+        "en": "tagging modified",
+        "IRI-based": "taggingModified"
+      },
+      "range": 9
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ],
+        "versionInfo": [
+          {
+            "identifier": "versionInfo",
+            "language": "undefined",
+            "type": "label",
+            "value": "Version 1.0: The subproperty relation to rdfs:label has been removed for OWL DL conformance (rdfs:label is an annotation property and one cannot define subproperties for annotation properties in OWL DL)."
+          }
+        ]
+      },
+      "attributes": [
+        "datatype",
+        "functional"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "Every tag has exactly one label (usually the one given by the user) - otherwise it is not a tag. Additional labels can be defined in the resource that is linked via muto:tagMeaning."
+      },
+      "domain": 2,
+      "id": 5,
+      "iri": "http://purl.org/muto/core#tagLabel",
+      "label": {
+        "en": "tag label",
+        "IRI-based": "tagLabel"
+      },
+      "range": 6
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "attributes": [
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "This subproperty indicates that the meaning of a tag has been automatically defined (e.g. by a tagging system), i.e. it has not been defined by a human being. The default case is disambiguation by users via muto:tagMeaning."
+      },
+      "domain": 2,
+      "id": 6,
+      "iri": "http://purl.org/muto/core#autoMeaning",
+      "label": {
+        "en": "automatic tag meaning",
+        "IRI-based": "autoMeaning"
+      },
+      "range": 13,
+      "superproperty": [
+        17
+      ]
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "attributes": [
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "A user account can have a (theoretically unlimited) number of taggings. Use sioc:member_of to define groups for group tagging or link to foaf:Agent, foaf:Person, or foaf:Group via sioc:account_of."
+      },
+      "domain": 5,
+      "id": 7,
+      "inverse": 10,
+      "iri": "http://purl.org/muto/core#creatorOf",
+      "label": {
+        "en": "creator of",
+        "IRI-based": "creatorOf"
+      },
+      "range": 3,
+      "superproperty": [
+        20
+      ]
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ],
+        "versionInfo": [
+          {
+            "identifier": "versionInfo",
+            "language": "undefined",
+            "type": "label",
+            "value": "Version 1.0: The range information has been removed for greater flexibility and OWL Lite conformance (no longer owl:unionOf). Classes from different vocabularies can now be used here - such as sioc:UserAccount, sioc:Usergroup, foaf:OnlineAccount, foaf:Group, or dcterms:Agent -, though we recommend the use of sioc:UserAccount or sioc:Usergroup to remain in the SIOC namespace."
+          }
+        ]
+      },
+      "attributes": [
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "A (usually private) tagging can be linked to one or more user accounts or user groups that should have access to it (apart from the creator). This property can also be used in public tagging to link a user account or user group to a tagging (e.g. if the creator of a tagging wants to suggest the tagging to another user)."
+      },
+      "domain": 3,
+      "id": 8,
+      "inverse": 9,
+      "iri": "http://purl.org/muto/core#grantAccess",
+      "label": {
+        "en": "grant access",
+        "IRI-based": "grantAccess"
+      },
+      "range": 12
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ],
+        "versionInfo": [
+          {
+            "identifier": "versionInfo",
+            "language": "undefined",
+            "type": "label",
+            "value": "Version 1.0: see muto:grantAccess"
+          }
+        ]
+      },
+      "attributes": [
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "A user account or user group can have access to a private tagging from another user if the access is explicitly permitted by the creator of the tagging. This property can also be used in public tagging to link a user account or user group to a tagging (e.g. if the creator of a tagging has suggested the tagging to another user)."
+      },
+      "domain": 12,
+      "id": 9,
+      "iri": "http://purl.org/muto/core#hasAccess",
+      "label": {
+        "en": "has access",
+        "IRI-based": "hasAccess"
+      },
+      "range": 3
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "attributes": [
+        "functional",
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "Every tagging is linked to at most one user account. This property can be omitted for automatic taggings. In contrast to its superproperty sioc:has_creator, it is functional and with an explicit domain. Use sioc:member_of to define groups for group tagging or link to foaf:Agent, foaf:Person, or foaf:Group via sioc:account_of."
+      },
+      "domain": 3,
+      "id": 10,
+      "iri": "http://purl.org/muto/core#hasCreator",
+      "label": {
+        "en": "has creator",
+        "IRI-based": "hasCreator"
+      },
+      "range": 5,
+      "superproperty": [
+        21
+      ]
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "attributes": [
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "A tagging consists of a (theoretically unlimited) number of tags. A tagging may also consist of no tags, e.g. if the system allows its users to mark a resource first and add tags later."
+      },
+      "domain": 3,
+      "id": 11,
+      "inverse": 18,
+      "iri": "http://purl.org/muto/core#hasTag",
+      "label": {
+        "en": "has tag",
+        "IRI-based": "hasTag"
+      },
+      "range": 2
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "attributes": [
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "The number of tags that can be linked to one and the same meaning is theoretically unlimited."
+      },
+      "domain": 13,
+      "id": 12,
+      "inverse": 17,
+      "iri": "http://purl.org/muto/core#meaningOf",
+      "label": {
+        "en": "meaning of",
+        "IRI-based": "meaningOf"
+      },
+      "range": 2
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ],
+        "versionInfo": [
+          {
+            "identifier": "versionInfo",
+            "language": "undefined",
+            "type": "label",
+            "value": "Version 1.0: Earlier versions of MUTO defined a datatype property muto:tagPosition with integer values which has some drawbacks compared to this solution."
+          }
+        ]
+      },
+      "attributes": [
+        "functional",
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "This property indicates the tag that follows next in the list of tags. It can be used to describe the order in which the tags have been entered by the user."
+      },
+      "domain": 2,
+      "id": 13,
+      "inverse": 14,
+      "iri": "http://purl.org/muto/core#nextTag",
+      "label": {
+        "en": "next tag",
+        "IRI-based": "nextTag"
+      },
+      "range": 2
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ],
+        "versionInfo": [
+          {
+            "identifier": "versionInfo",
+            "language": "undefined",
+            "type": "label",
+            "value": "Version 1.0: see muto:nextTag"
+          }
+        ]
+      },
+      "attributes": [
+        "functional",
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "This property indicates the tag that is preceding in the list of tags. It can be used to describe the order in which the tags have been entered by the user."
+      },
+      "domain": 2,
+      "id": 14,
+      "iri": "http://purl.org/muto/core#previousTag",
+      "label": {
+        "en": "previous tag",
+        "IRI-based": "previousTag"
+      },
+      "range": 2
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "attributes": [
+        "functional",
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "Every tagging is linked to exactly one resource. This can be any kind of resource (i.e. all subclasses of rdfs:Resource), including tags and taggings."
+      },
+      "domain": 3,
+      "id": 15,
+      "inverse": 16,
+      "iri": "http://purl.org/muto/core#taggedResource",
+      "label": {
+        "en": "tagged resource",
+        "IRI-based": "taggedResource"
+      },
+      "range": 12,
+      "superproperty": [
+        19
+      ]
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "attributes": [
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "A resource can have several taggings from different users. Tags are never directly linked to resources but can be inferred from the taggings."
+      },
+      "domain": 12,
+      "id": 16,
+      "iri": "http://purl.org/muto/core#taggedWith",
+      "label": {
+        "en": "tagged with",
+        "IRI-based": "taggedWith"
+      },
+      "range": 3
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "attributes": [
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "The meaning of a tag can be expressed by a link to a well-defined resource. This can be any resource that clarifies the meaning of the tag (e.g. some DBpedia resource)."
+      },
+      "domain": 2,
+      "id": 17,
+      "iri": "http://purl.org/muto/core#tagMeaning",
+      "label": {
+        "en": "tag meaning",
+        "IRI-based": "tagMeaning"
+      },
+      "range": 13,
+      "subproperty": [
+        6
+      ]
+    },
+    {
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "type": "iri",
+            "value": "http://purl.org/muto/core#"
+          }
+        ]
+      },
+      "attributes": [
+        "functional",
+        "object"
+      ],
+      "baseIri": "http://purl.org/muto/core",
+      "comment": {
+        "en": "Every tag is linked to exactly one tagging. This results from the fact that tags with same labels are NOT merged in the ontology."
+      },
+      "domain": 2,
+      "id": 18,
+      "iri": "http://purl.org/muto/core#tagOf",
+      "label": {
+        "en": "tag of",
+        "IRI-based": "tagOf"
+      },
+      "range": 3
+    },
+    {
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "baseIri": "http://rdfs.org/sioc/ns",
+      "domain": 14,
+      "id": 19,
+      "iri": "http://rdfs.org/sioc/ns#about",
+      "label": {
+        "IRI-based": "about"
+      },
+      "range": 14,
+      "subproperty": [
+        15
+      ]
+    },
+    {
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "baseIri": "http://rdfs.org/sioc/ns",
+      "domain": 14,
+      "id": 20,
+      "iri": "http://rdfs.org/sioc/ns#creator_of",
+      "label": {
+        "IRI-based": "creator_of"
+      },
+      "range": 14,
+      "subproperty": [
+        7
+      ]
+    },
+    {
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "baseIri": "http://rdfs.org/sioc/ns",
+      "domain": 14,
+      "id": 21,
+      "iri": "http://rdfs.org/sioc/ns#has_creator",
+      "label": {
+        "IRI-based": "has_creator"
+      },
+      "range": 14,
+      "subproperty": [
+        10
+      ]
+    },
+    {
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "domain": 0,
+      "id": 22,
+      "range": 2
+    },
+    {
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "domain": 1,
+      "id": 23,
+      "range": 3
+    },
+    {
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "domain": 2,
+      "id": 24,
+      "range": 15
+    },
+    {
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "domain": 3,
+      "id": 25,
+      "range": 4
+    }
+  ]
+}

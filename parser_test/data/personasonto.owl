@@ -1,0 +1,1935 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://blankdots.com/open/personasonto.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://blankdots.com/open/personasonto.owl">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="foaf" IRI="http://xmlns.com/foaf/spec/index.rdf"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="foaf2" IRI="http://xmlns.com/foaf/0.1/"/>
+    <Import>http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">PersonasOnto ontology incorporates concepts and properties used to model personas.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The PersonasOnto is depicts the personas domain along with relating concept and properties. A persona is regarded as a user archetype which can be used to &quot;help guide decisions about product features, navigation, interactions, and even visual design&quot; (Goodwin, 2005).
+
+This ontology wants to address some of the issues regarding this methodology like how personas are reconciled with other information and who is responsible for interpreting and validating them.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&xsd;dateTime">1.5</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:rights"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This ontology is distributed under Attribution-ShareAlike 3.0 Unported - http://creativecommons.org/licenses/by-sa/3.0/</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
+        <Literal datatypeIRI="&xsd;dateTime">2014-02-28</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Stefan Negru</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://blankdots.com/open/schema</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:contributor"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Sabin Buraga</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">PersonasOnto</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#AffectiveState"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BusinessGoals"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Context"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Corporation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CustomerType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DevelopmentDisability"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Disability"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Document"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EducationalOrganization"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Emotion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EndGoals"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ExperienceGoals"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Feeling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Goals"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GovermentOrganization"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Group"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GustatoryImpairment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HearingImpairment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Image"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Intangible"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IntellectualImpairment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#InteractiveTask"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LifeGoals"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MediumBusiness"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MentalEmotionalDisorder"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mood"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NGO"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NegativeType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NonInteractiveTask"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Organization"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Participant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Persona"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PersonaType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Personality"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Place"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PrimaryType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Product"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Resource"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Scenario"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SecondaryType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ServedType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SmallBusiness"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SomatosensoryImpairment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportsTeam"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SupplementalType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tangible"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Task"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TechnicalGoals"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Time"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UsabilityTest"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VisualImpairment"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#dependsOn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#depiction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#depictsDocument"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#depictsImage"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#depictsProduct"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAffectiveState"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAffiliation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAward"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBusinessGoal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasContext"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDisability"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasEndGoal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasExperienceGoal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGoal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasInfluence"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasInterest"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasLifeGoal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPersonaType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPersonality"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPublications"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasReview"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTask"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTechnicalGoal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTopicOfInterest"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#includes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influencedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#influences"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#involvedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isContextOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isGoalOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMemberOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPartOfTest"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isTaskFor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#knows"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#performs"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#uses"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#age"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#birthday"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#details"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#experienceLevel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#familyName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#firstName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#frustrationPoint"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#gender"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#interactionCount"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#location"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#mainPoint"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#maxBustSize"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#maxFeetSize"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#maxHeight"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#maxWaistSize"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#maxWeight"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#minBustSize"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#minFeetSize"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#minHeight"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#minWaistSize"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#minWeight"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#myerBriggs"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#scenarioName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#sensorData"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#status"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tagline"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#taskName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#technicalLevel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#title"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#userRole"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#AffectiveState"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#influencedBy"/>
+            <Class IRI="#Personality"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Personality"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#influences"/>
+            <Class IRI="#AffectiveState"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#AffectiveState"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BusinessGoals"/>
+        <Class IRI="#Goals"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Context"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Corporation"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CustomerType"/>
+        <Class IRI="#PersonaType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DevelopmentDisability"/>
+        <Class IRI="#Disability"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Disability"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Document"/>
+        <Class IRI="#Resource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EducationalOrganization"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Emotion"/>
+        <Class IRI="#AffectiveState"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EndGoals"/>
+        <Class IRI="#Goals"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ExperienceGoals"/>
+        <Class IRI="#Goals"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Feeling"/>
+        <Class IRI="#AffectiveState"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Goals"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GovermentOrganization"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Group"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GustatoryImpairment"/>
+        <Class IRI="#Disability"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HearingImpairment"/>
+        <Class IRI="#Disability"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Image"/>
+        <Class IRI="#Resource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Intangible"/>
+        <Class IRI="#Context"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IntellectualImpairment"/>
+        <Class IRI="#Disability"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#InteractiveTask"/>
+        <Class IRI="#Task"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LifeGoals"/>
+        <Class IRI="#Goals"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MediumBusiness"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MentalEmotionalDisorder"/>
+        <Class IRI="#Disability"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mood"/>
+        <Class IRI="#AffectiveState"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NGO"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NegativeType"/>
+        <Class IRI="#PersonaType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NonInteractiveTask"/>
+        <Class IRI="#Task"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organization"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Participant"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Persona"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PersonaType"/>
+        <Class IRI="#Persona"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Personality"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Place"/>
+        <Class IRI="#Context"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PrimaryType"/>
+        <Class IRI="#PersonaType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Product"/>
+        <Class IRI="#Resource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Resource"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Scenario"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SecondaryType"/>
+        <Class IRI="#PersonaType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ServedType"/>
+        <Class IRI="#PersonaType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SmallBusiness"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SomatosensoryImpairment"/>
+        <Class IRI="#Disability"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SportsTeam"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SupplementalType"/>
+        <Class IRI="#PersonaType"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tangible"/>
+        <Class IRI="#Context"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Task"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TechnicalGoals"/>
+        <Class IRI="#Goals"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Time"/>
+        <Class IRI="#Context"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UsabilityTest"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VisualImpairment"/>
+        <Class IRI="#Disability"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#AffectiveState"/>
+        <Class IRI="#Context"/>
+        <Class IRI="#Disability"/>
+        <Class IRI="#Goals"/>
+        <Class IRI="#Organization"/>
+        <Class IRI="#Person"/>
+        <Class IRI="#Personality"/>
+        <Class IRI="#Resource"/>
+        <Class IRI="#Scenario"/>
+        <Class IRI="#Task"/>
+        <Class IRI="#UsabilityTest"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Corporation"/>
+        <Class IRI="#EducationalOrganization"/>
+        <Class IRI="#GovermentOrganization"/>
+        <Class IRI="#Group"/>
+        <Class IRI="#MediumBusiness"/>
+        <Class IRI="#NGO"/>
+        <Class IRI="#SmallBusiness"/>
+        <Class IRI="#SportsTeam"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#CustomerType"/>
+        <Class IRI="#NegativeType"/>
+        <Class IRI="#PrimaryType"/>
+        <Class IRI="#SecondaryType"/>
+        <Class IRI="#ServedType"/>
+        <Class IRI="#SupplementalType"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#DevelopmentDisability"/>
+        <Class IRI="#GustatoryImpairment"/>
+        <Class IRI="#HearingImpairment"/>
+        <Class IRI="#IntellectualImpairment"/>
+        <Class IRI="#MentalEmotionalDisorder"/>
+        <Class IRI="#SomatosensoryImpairment"/>
+        <Class IRI="#VisualImpairment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#InteractiveTask"/>
+        <Class IRI="#NonInteractiveTask"/>
+    </DisjointClasses>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#depictsDocument"/>
+        <ObjectProperty IRI="#depiction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#depictsImage"/>
+        <ObjectProperty IRI="#depiction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#depictsProduct"/>
+        <ObjectProperty IRI="#depiction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasBusinessGoal"/>
+        <ObjectProperty IRI="#hasGoal"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasEndGoal"/>
+        <ObjectProperty IRI="#hasGoal"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasExperienceGoal"/>
+        <ObjectProperty IRI="#hasGoal"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasLifeGoal"/>
+        <ObjectProperty IRI="#hasGoal"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasTechnicalGoal"/>
+        <ObjectProperty IRI="#hasGoal"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isContextOf"/>
+        <ObjectProperty IRI="#hasContext"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasGoal"/>
+        <ObjectProperty IRI="#isGoalOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isTaskFor"/>
+        <ObjectProperty IRI="#hasTask"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#influencedBy"/>
+        <ObjectProperty IRI="#influences"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#dependsOn"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#depiction"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#depictsDocument"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#depictsImage"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#depictsProduct"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAffectiveState"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAffiliation"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAward"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasContext"/>
+        <Class IRI="#Scenario"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDisability"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasGoal"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasInfluence"/>
+        <Class IRI="#Disability"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasInterest"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPersonaType"/>
+        <ObjectUnionOf>
+            <Class IRI="#Participant"/>
+            <Class IRI="#Person"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPersonality"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPublications"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasReview"/>
+        <ObjectUnionOf>
+            <Class IRI="#Resource"/>
+            <Class IRI="#Scenario"/>
+            <Class IRI="#UsabilityTest"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTask"/>
+        <Class IRI="#Scenario"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTopicOfInterest"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#includes"/>
+        <ObjectUnionOf>
+            <Class IRI="#Intangible"/>
+            <Class IRI="#Tangible"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#influencedBy"/>
+        <Class IRI="#AffectiveState"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#influences"/>
+        <Class IRI="#Personality"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#involvedIn"/>
+        <Class IRI="#Participant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isContextOf"/>
+        <Class IRI="#Context"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isGoalOf"/>
+        <Class IRI="#Goals"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMemberOf"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartOfTest"/>
+        <ObjectUnionOf>
+            <Class IRI="#Participant"/>
+            <Class IRI="#Scenario"/>
+            <Class IRI="#Task"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isTaskFor"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#knows"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#performs"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#uses"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#dependsOn"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#depiction"/>
+        <Class IRI="#Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#depictsDocument"/>
+        <Class IRI="#Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#depictsImage"/>
+        <Class IRI="#Image"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#depictsProduct"/>
+        <Class IRI="#Product"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAffectiveState"/>
+        <Class IRI="#AffectiveState"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAffiliation"/>
+        <Class IRI="#Organization"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAward"/>
+        <Class IRI="#Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBusinessGoal"/>
+        <Class IRI="#BusinessGoals"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasContext"/>
+        <Class IRI="#Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDisability"/>
+        <Class IRI="#Disability"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasEndGoal"/>
+        <Class IRI="#EndGoals"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasExperienceGoal"/>
+        <Class IRI="#ExperienceGoals"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGoal"/>
+        <Class IRI="#Goals"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasInfluence"/>
+        <ObjectUnionOf>
+            <Class IRI="#AffectiveState"/>
+            <Class IRI="#Personality"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasInterest"/>
+        <Class IRI="#Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasLifeGoal"/>
+        <Class IRI="#LifeGoals"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPersonaType"/>
+        <Class IRI="#PersonaType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPersonality"/>
+        <Class IRI="#Personality"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPublications"/>
+        <Class IRI="#Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasReview"/>
+        <Class IRI="#Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTask"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTechnicalGoal"/>
+        <Class IRI="#TechnicalGoals"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTopicOfInterest"/>
+        <Class IRI="#Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#includes"/>
+        <ObjectUnionOf>
+            <Class IRI="#Place"/>
+            <Class IRI="#Time"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#influencedBy"/>
+        <Class IRI="#Personality"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#influences"/>
+        <Class IRI="#AffectiveState"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#involvedIn"/>
+        <ObjectUnionOf>
+            <Class IRI="#Scenario"/>
+            <Class IRI="#UsabilityTest"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isContextOf"/>
+        <Class IRI="#Scenario"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isGoalOf"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMemberOf"/>
+        <Class IRI="#Organization"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPartOfTest"/>
+        <Class IRI="#UsabilityTest"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isTaskFor"/>
+        <Class IRI="#Scenario"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#knows"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#performs"/>
+        <Class IRI="#Task"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#uses"/>
+        <Class IRI="#Resource"/>
+    </ObjectPropertyRange>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#hasBusinessGoal"/>
+        <ObjectProperty IRI="#hasEndGoal"/>
+        <ObjectProperty IRI="#hasExperienceGoal"/>
+        <ObjectProperty IRI="#hasLifeGoal"/>
+        <ObjectProperty IRI="#hasTechnicalGoal"/>
+    </DisjointObjectProperties>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#age"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#details"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#experienceLevel"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#familyName"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#firstName"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#gender"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#maxBustSize"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#maxFeetSize"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#maxHeight"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#maxWaistSize"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#maxWeight"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#minBustSize"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#minFeetSize"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#minHeight"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#minWaistSize"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#minWeight"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#myerBriggs"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#scenarioName"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#status"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#tagline"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#technicalLevel"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#age"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#birthday"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#details"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#experienceLevel"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#familyName"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#firstName"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#frustrationPoint"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#gender"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#interactionCount"/>
+        <Class IRI="#InteractiveTask"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#location"/>
+        <ObjectUnionOf>
+            <Class IRI="#Organization"/>
+            <Class IRI="#Place"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#mainPoint"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#maxBustSize"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#maxFeetSize"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#maxHeight"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#maxWaistSize"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#maxWeight"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#minBustSize"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#minFeetSize"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#minHeight"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#minWaistSize"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#minWeight"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#myerBriggs"/>
+        <Class IRI="#Personality"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#scenarioName"/>
+        <Class IRI="#Scenario"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#sensorData"/>
+        <Class IRI="#Context"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#status"/>
+        <Class IRI="#AffectiveState"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tagline"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#taskName"/>
+        <Class IRI="#Task"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#technicalLevel"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#title"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#userRole"/>
+        <Class IRI="#Participant"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#age"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#birthday"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#details"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#experienceLevel"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#familyName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#firstName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#frustrationPoint"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#gender"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#interactionCount"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#location"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#mainPoint"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#maxBustSize"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#maxFeetSize"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#maxHeight"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#maxWaistSize"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#maxWeight"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#minBustSize"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#minFeetSize"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#minHeight"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#minWaistSize"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#minWeight"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#myerBriggs"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#scenarioName"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#sensorData"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#status"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tagline"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#taskName"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#technicalLevel"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#title"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#userRole"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DisjointDataProperties>
+        <DataProperty IRI="#experienceLevel"/>
+        <DataProperty IRI="#technicalLevel"/>
+    </DisjointDataProperties>
+    <DisjointDataProperties>
+        <DataProperty IRI="#familyName"/>
+        <DataProperty IRI="#firstName"/>
+    </DisjointDataProperties>
+    <DisjointDataProperties>
+        <DataProperty IRI="#maxBustSize"/>
+        <DataProperty IRI="#maxFeetSize"/>
+        <DataProperty IRI="#maxHeight"/>
+        <DataProperty IRI="#maxWaistSize"/>
+        <DataProperty IRI="#maxWeight"/>
+        <DataProperty IRI="#minBustSize"/>
+        <DataProperty IRI="#minFeetSize"/>
+        <DataProperty IRI="#minHeight"/>
+        <DataProperty IRI="#minWaistSize"/>
+        <DataProperty IRI="#minWeight"/>
+    </DisjointDataProperties>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#AffectiveState</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The affective state of a person at a certain moment and in a certain Context.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#BusinessGoals</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Business goals represent the goals of the organization the persons works for.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Context</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The Context in which a scenario takes place.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Corporation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A business corporation. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#CustomerType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Are not the end user but the customer of the product, but might be the person making, buying decisions.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#DevelopmentDisability</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Any disability that related to growth and development problems.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Disability</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person’s disabilities mental and/or physical.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Document</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A paper or digital document (web-page, text document etc.).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#EducationalOrganization</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">An educational organization. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Emotion</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Emotion encompasses physiological, affective, behavioral, andcognitive components.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#EndGoals</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">End goals represent the user’s motivation for performing the tasks associated with using a specific product.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#ExperienceGoals</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Experience goals are simple, universal, and personal.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Feeling</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Feelings relate more to a property associated to and object or being, than to a person’s state of mind.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Goals</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The goals of a Persona. The goals are divided accordingly, depending on each persona type.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#GovermentOrganization</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A governmental organization or agency. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Group</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Any kind of (small or large) group a person might be part of (book club).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#GustatoryImpairment</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Impairment of the sense of smell and taste.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#HearingImpairment</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Conditions in which persons are fully or partially unable to detect or perceive at least some frequencies of sound.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Image</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">An image, which might be used to describe a product or person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Intangible</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A context might be described by an Intangible enviroment (Operating System, Application etc. -- virtual world).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#IntellectualImpairment</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This type of impairment ranges from mental retardation to cognitive deficits too mild or too specific.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#InteractiveTask</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">InteractiveTask could be certain action performed by a person (not too often by a machine).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#LifeGoals</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Life goals represent personal aspirations of the user that typically go beyond the context of the product being designed.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#MediumBusiness</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A particular medium sized business or branch of an organization. ( restaurant, medical practice etc.)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#MentalEmotionalDisorder</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Any mental disorder/illness described as a psychological or behavioral pattern associated with distress or disability that occurs in an person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Mood</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Are not directed at any object in particular and are experienced as more diffuse, global, and general state.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#NGO</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A Non-Governamental Organization.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#NegativeType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Are used to remind and communicate, who is NOT the target of the design.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#NonInteractiveTask</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">NonInteractiveTask could be a machine response to that action.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Organization</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The type of Organization a Person belongs to.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Participant</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person that participates in the usability test. Usualy a participant has a diresct correspondent to a Persona type.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Person</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person represents an individual, most likely a human.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Persona</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">As a subclass of Person, the Persona class could be regarded of being a separate identity of a person, although it has the same usage.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#PersonaType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Each Persona is classified by a PersonaType and a Person might fit into several PersonaTypes.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Personality</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The MyersBriggs personality of a person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Place</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The appropriate Place which describes the Context. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Place</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A Context might only be described by a certain Place.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#PrimaryType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">&quot;The goal is to find a single persona from the set whose needs and goals can be completely and happily satisfied by a single interface without disenfranchising any of the other personas&quot;, About Face 2.0, Cooper, pg. 71. This is the Primary Persona Type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Product</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A physical product or a digital product (Software Application).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Resource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Type of resources available, physical or digital.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Scenario</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A series of tasks the user performs in a certain context.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#SecondaryType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The secondary persona&apos;s goals and needs can mostly be met by focusing on the primary persona. Still, there are a few goals specific to them that are not a priority for the primary persona.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#ServedType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Do not directly use the product you are designing but they are somehow affected by the system.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#SmallBusiness</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A particular small business like a local shop or market (usually under 5 employees).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#SomatosensoryImpairment</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Insensitivity to stimuli such as touch, heat, cold, and pain.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#SportsTeam</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A sports team (football, basketball, bowling etc.).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#SupplementalType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Needs are completely satisfied by one of the primary interfaces yet they are part of the set or personas to ensure comprehensive representation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Tangible</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A context might be described by an Tangible enviroment - real world.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Task</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Tasks performed by a Person in a Scenario.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#TechnicalGoals</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Technical goals reflect technical aspects regarding an application/product for example: run in a variety of browser, data privacy
+etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#Time</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The appropriate Time which describes the Context. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Time</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A Context might only be described at a certain Time.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#UsabilityTest</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A usability test evaluates the usability of a certain Product in a Scenario.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#VisualImpairment</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Visual impairment refers to vision loss to such a degree as a person needs an additional support to get through its surroundings.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#age</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Age of a person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#birthday</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Date of birth of a person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#dependsOn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The completion of a Task might depend on another Task, as several Tasks are part of a Scenario.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#depiction</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A certain resource might depict a/any thing.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#details</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Any kind of details.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#experienceLevel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Reflects the experience level of a persona with the application
+or product; proposed levels: Beginner, Intermediate, Advanced.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#experienceLevel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">It is different from technical level, because a person might be experienced in some product or application but does not have technical skills.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#familyName</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Family or Last name of a person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#firstName</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">First or Given name of a person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#frustrationPoint</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Elements of a UI/UX or certain characteristics that frustrate the user or (s)he sees as pain points.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#gender</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Gender of a person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasAffectiveState</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person might have a certain affective state on a given moment or in a given context.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasAffiliation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person might have a certain type of affiliation to an organization and might not be member of it.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasAward</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person might have been awarded with some sort of distinction (depicted usually by a trophy or document).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasContext</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A scenario is characterized by a certain context.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasDisability</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person might have a disability.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasGoal</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person might have one or more (short/long term) goals depending on the context.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasInfluence</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The disability of a person migh have an effect on the affective state or personality on the person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasInterest</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person might be interested in a certain resource (product, application, document).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasPersonaType</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The type of Persona: Primary, Secondary, Negative, Supplemental, Served or Customer.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasPersonality</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person has a certain personality corresponding to Myers Briggs personality classification.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasPublications</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person (of academic, journalistic profession) has published several documents.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasReview</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A resource, scenario or usability test is described, reviewed via a document.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasTask</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A scenario has a set of tasks (or just one). (inverseproperty isTaskfor)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#hasTopicOfInterest</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person might have a certain topic of interest which is correspondent to a cetain resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#includes</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">In order to describe context we consider the medium of interaction Tangible or Intangible which is included in a Place and/or Time.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#influencedBy</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The affective state of a person is influenced by the personality of that person. (inverse property influences)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#influences</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The personality influences the affective state o a person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#interactionCount</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A count of specific user actions (comments, facebook likes, tweets, etc.).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#involvedIn</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A participant (a certain user or observer) is involvedIn a scenario or Usability Test.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#isContextOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Inverse property of hasContext, isContextof represents the context belonging to a scenario.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#isGoalOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Inverse property of hasGoal, isGoalof represents the goal belonging to a person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#isMemberOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person might be memeber of an organization.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#isPartOfTest</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Usability tests have participants (observers and users), tasks and a scenario.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#isTaskFor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A certain task (or a series of tasks) is (are) part of a scenario.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#knows</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person knows another person (similar to FOAF ontology).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#location</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Geographic location (City/Country).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#mainPoint</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Main points are specific elements to each persona category.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#maxBustSize</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Maximum Bust Size.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#maxFeetSize</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Maximum Feet Size.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#maxHeight</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Maximum Height.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#maxWaistSize</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Maximum Waist Size.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#maxWeight</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Maximum Weight.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#minBustSize</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Minimum Bust Size.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#minFeetSize</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Minimum Feet Size.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#minHeight</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Minimum Height.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#minWaistSize</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Minimum Waist Size.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#minWeight</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Minimum Weight.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#myerBriggs</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Inspired by FOAF Myers Briggs personality classification which includes 16 4-letter textual codes.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#performs</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person performs a task in the usability test or when using a product/application.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#scenarioName</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The name of each scenario.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#sensorData</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Data recieved from a sensor (could be a number, temperature, etc.).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#status</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Marital status or a person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#tagline</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A tagline specific to a persona.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#taskName</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A generic (short) name for a task.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#technicalLevel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Reflects the technical level of a person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#technicalLevel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">If a person has technical or programming skills it&apos;s relevant.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#title</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Academic, professional or military prefix/suffix for a person. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#userRole</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The role of the user in the application/product.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>#uses</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person makes use of a resource (document, image, product).</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

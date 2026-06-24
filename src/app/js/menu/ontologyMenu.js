@@ -1,4 +1,7 @@
 var unescape = require("lodash/unescape");
+var web = import("./web_parser.js").then((web) => {
+  web.init();
+});
 
 module.exports = function ( graph ){
   
@@ -11,7 +14,6 @@ module.exports = function ( graph ){
     stopTimer = false,
     loadingError = false,
     loadingStatusTimer,
-    conversion_sessionId,
     cachedConversions = {},
     loadingModule,
     loadOntologyFromText;
@@ -301,309 +303,36 @@ module.exports = function ( graph ){
     loadingModule.scrollDownDetails();
   }
   
-  ontologyMenu.setLoadingStatusInfo = function ( message ){
-    // forward call
-    setLoadingStatusInfo(message);
-  };
-  
-  function getLoadingStatusOnceCallBacked( callback, parameter ){
-    d3.xhr("loadingStatus?sessionId=" + conversion_sessionId, "application/text", function ( error, request ){
-      if ( error ) {
-        console.log("ontologyMenu getLoadingStatusOnceCallBacked throws error");
-        console.log("---------Error -----------");
-        console.log(error);
-        console.log("---------Request -----------");
-        console.log(request);
-      }
-      setLoadingStatusInfo(request.responseText);
-      callback(parameter);
-    });
-  }
-  
-  function getLoadingStatusTimeLooped(){
-    d3.xhr("loadingStatus?sessionId=" + conversion_sessionId, "application/text", function ( error, request ){
-      if ( error ) {
-        console.log("ontologyMenu getLoadingStatusTimeLooped throws error");
-        console.log("---------Error -----------");
-        console.log(error);
-        console.log("---------Request -----------");
-        console.log(request);
-      }
-      if ( stopTimer === false ) {
-        setLoadingStatusInfo(request.responseText);
-        timedLoadingStatusLogger();
-      }
-    });
-  }
-  
-  function timedLoadingStatusLogger(){
-    clearTimeout(loadingStatusTimer);
-    if ( stopTimer === false ) {
-      loadingStatusTimer = setTimeout(function (){
-        getLoadingStatusTimeLooped();
-      }, 1000);
-    }
-  }
-  
-  function callbackUpdateLoadingMessage( msg ){
-    d3.xhr("loadingStatus", "application/text", function ( error, request ){
-      if ( request !== undefined ) {
-        setLoadingStatusInfo(request.responseText + "<br>" + msg);
-      } else {
-        append_message(msg);
-      }
-    });
-  }
-  
-  ontologyMenu.setConversionID = function ( id ){
-    conversion_sessionId = id;
-  };
-  
   ontologyMenu.callbackLoad_Ontology_FromIRI = function ( parameter ){
-    var relativePath = parameter[0];
-    var ontoName = parameter[1];
-    var localThreadId = parameter[2];
-    stopTimer = false;
-    timedLoadingStatusLogger();
-    d3.xhr(relativePath, "application/json", function ( error, request ){
-      var loadingSuccessful = !error;
-      // check if error occurred or responseText is empty
-      if ( (error !== null && error.status === 500) || (request && request.responseText.length === 0) ) {
-        clearTimeout(loadingStatusTimer);
-        stopTimer = true;
-        getLoadingStatusOnceCallBacked(callbackFromIRI_URL_ERROR, [error, request, localThreadId]);
-      }
-      var jsonText;
-      if ( loadingSuccessful ) {
-        clearTimeout(loadingStatusTimer);
-        stopTimer = true;
-        jsonText = request.responseText;
-        getLoadingStatusOnceCallBacked(callbackFromIRI_Success, [jsonText, ontoName, localThreadId]);
-      }
-    });
+    console.log(this.parameters)
   };
   
   
   ontologyMenu.callbackLoad_Ontology_From_DirectInput = function ( text, parameter ){
-    var input = text;
-    var sessionId = parameter[1];
-    stopTimer = false;
-    timedLoadingStatusLogger();
-    
-    var formData = new FormData();
-    formData.append("input", input);
-    formData.append("sessionId", sessionId);
-    var xhr = new XMLHttpRequest();
-    
-    xhr.open("POST", "directInput", true);
-    xhr.onload = function (){
-      clearTimeout(loadingStatusTimer);
-      stopTimer = true;
-      getLoadingStatusOnceCallBacked(callbackForConvert, [xhr, input, sessionId]);
-    };
-    timedLoadingStatusLogger();
-    xhr.send(formData);
-    
-  };
-  function callbackFromIRI_Success( parameter ){
-    var local_conversionId = parameter[2];
-    if ( local_conversionId !== conversion_sessionId ) {
-      console.log("The conversion process for file:" + parameter[1] + " has been canceled!");
-      ontologyMenu.conversionFinished(local_conversionId);
-      return;
-    }
-    loadingModule.loadFromOWL2VOWL(parameter[0], parameter[1]);
-    ontologyMenu.conversionFinished();
-    
-  }
-  
-  function callbackFromDirectInput_Success( parameter ){
-    var local_conversionId = parameter[1];
-    if ( local_conversionId !== conversion_sessionId ) {
-      console.log("The conversion process for file:" + parameter[1] + " has been canceled!");
-      ontologyMenu.conversionFinished(local_conversionId);
-      return;
-    }
-    loadingModule.loadFromOWL2VOWL(parameter[0], "DirectInputConversionID" + local_conversionId);
-    ontologyMenu.conversionFinished();
-    
-  }
-  
-  ontologyMenu.getConversionId = function (){
-    return conversion_sessionId;
+    console.log(this.arguments)
   };
   
   ontologyMenu.callbackLoad_JSON_FromURL = function ( parameter ){
-    var relativePath = parameter[0];
-    var ontoName = parameter[1];
-    var local_conversionId = parameter[2];
-    stopTimer = false;
-    timedLoadingStatusLogger();
-    d3.xhr(relativePath, "application/json", function ( error, request ){
-      var loadingSuccessful = !error;
-      // check if error occurred or responseText is empty
-      if ( (error !== null && error.status === 500) || (request && request.responseText.length === 0) ) {
-        clearTimeout(loadingStatusTimer);
-        stopTimer = true;
-        loadingSuccessful = false;
-        console.log(request);
-        console.log(request.responseText.length);
-        getLoadingStatusOnceCallBacked(callbackFromJSON_URL_ERROR, [error, request, local_conversionId]);
-      }
-      if ( loadingSuccessful ) {
-        clearTimeout(loadingStatusTimer);
-        stopTimer = true;
-        var jsonText = request.responseText;
-        getLoadingStatusOnceCallBacked(callbackFromJSON_Success, [jsonText, ontoName, local_conversionId]);
-      }
-    });
+    console.log(this.arguments)
   };
-  
-  function callbackFromJSON_Success( parameter ){
-    var local_conversionId = parameter[2];
-    if ( local_conversionId !== conversion_sessionId ) {
-      console.log("The conversion process for file:" + parameter[1] + " has been canceled!");
-      return;
-    }
-    loadingModule.loadFromOWL2VOWL(parameter[0], parameter[1]);
-  }
-  
-  function callbackFromJSON_URL_ERROR( parameter ){
-    var error = parameter[0];
-    var request = parameter[1];
-    var local_conversionId = parameter[2];
-    if ( local_conversionId !== conversion_sessionId ) {
-      console.log("This thread has been canceled!!");
-      ontologyMenu.conversionFinished(local_conversionId);
-      return;
-    }
-    callbackUpdateLoadingMessage("<br><span style='color:red'> Failed to convert the file.</span> " +
-      " Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
-      "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
-    
-    if ( error !== null && error.status === 500 ) {
-      append_message("<span style='color:red'>Could not find ontology  at the URL</span>");
-    }
-    if ( request && request.responseText.length === 0 ) {
-      append_message("<span style='color:red'>Received empty graph</span>");
-    }
-    graph.handleOnLoadingError();
-    ontologyMenu.conversionFinished();
-  }
-  
-  
-  function callbackFromIRI_URL_ERROR( parameter ){
-    var error = parameter[0];
-    var request = parameter[1];
-    var local_conversionId = parameter[2];
-    if ( local_conversionId !== conversion_sessionId ) {
-      console.log("This thread has been canceled!!");
-      ontologyMenu.conversionFinished(local_conversionId);
-      return;
-    }
-    callbackUpdateLoadingMessage("<br><span style='color:red'> Failed to convert the file.</span> " +
-      " Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
-      "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
-    
-    if ( error !== null && error.status === 500 ) {
-      append_message("<span style='color:red'>Could not find ontology  at the URL</span>");
-    }
-    if ( request && request.responseText.length === 0 ) {
-      append_message("<span style='color:red'>Received empty graph</span>");
-    }
-    graph.handleOnLoadingError();
-    ontologyMenu.conversionFinished();
-  }
-  
-  function callbackFromDirectInput_ERROR( parameter ){
-    
-    var error = parameter[0];
-    var request = parameter[1];
-    var local_conversionId = parameter[2];
-    if ( local_conversionId !== conversion_sessionId ) {
-      console.log("The loading process for direct input has been canceled!");
-      return;
-    }
-    // callbackUpdateLoadingMessage("<br> <span style='color:red'> Failed to convert the file.</span> "+
-    //     "Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
-    //     "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
-    if ( error !== null && error.status === 500 ) {
-      append_message("<span style='color:red'>Could not convert direct input</span>");
-    }
-    if ( request && request.responseText.length === 0 ) {
-      append_message("<span style='color:red'>Received empty graph</span>");
-    }
-    
-    graph.handleOnLoadingError();
-    ontologyMenu.conversionFinished();
-  }
   
   ontologyMenu.callbackLoadFromOntology = function ( selectedFile, filename, local_threadId ){
-    callbackLoadFromOntology(selectedFile, filename, local_threadId);
-  };
-  
-  function callbackLoadFromOntology( selectedFile, filename, local_threadId ){
-    stopTimer = false;
-    timedLoadingStatusLogger();
-    
-    var formData = new FormData();
-    formData.append("ontology", selectedFile);
-    formData.append("sessionId", local_threadId);
-    var xhr = new XMLHttpRequest();
-    
-    xhr.open("POST", "convert", true);
-    xhr.onload = function (){
-      clearTimeout(loadingStatusTimer);
-      stopTimer = true;
-      console.log(xhr);
-      getLoadingStatusOnceCallBacked(callbackForConvert, [xhr, filename, local_threadId]);
-    };
-    timedLoadingStatusLogger();
-    xhr.send(formData);
-  }
-  
-  function callbackForConvert( parameter ){
-    var xhr = parameter[0];
-    var filename = parameter[1];
-    var local_threadId = parameter[2];
-    if ( local_threadId !== conversion_sessionId ) {
-      console.log("The conversion process for file:" + filename + " has been canceled!");
-      ontologyMenu.conversionFinished(local_threadId);
-      return;
-    }
-    if ( xhr.status === 200 ) {
-      loadingModule.loadFromOWL2VOWL(xhr.responseText, filename);
-      ontologyMenu.conversionFinished();
-    } else {
-      var uglyJson=xhr.responseText;
-      var jsonResut=JSON.parse(uglyJson);
-      var niceJSON=JSON.stringify(jsonResut, 'null', '  ');
-      niceJSON= niceJSON.replace(new RegExp('\r?\n','g'), '<br />');
-      callbackUpdateLoadingMessage("Failed to convert the file. " +
-          "<br />Server answer: <br />"+
-          "<hr>"+niceJSON+ "<hr>"+
-        "Ontology could not be loaded.<br />Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
-        "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
-      
-      graph.handleOnLoadingError();
-      ontologyMenu.conversionFinished();
-    }
-  }
-  
-  ontologyMenu.conversionFinished = function ( id ){
-    var local_id = conversion_sessionId;
-    if ( id ) {
-      local_id = id;
-    }
-    d3.xhr("conversionDone?sessionId=" + local_id, "application/text", function ( error, request ){
-      if ( error ) {
-        console.log("ontologyMenu conversionFinished throws error");
-        console.log("---------Error -----------");
-        console.log(error);
-        console.log("---------Request -----------");
-        console.log(request);
+    let reader = new FileReader();
+    reader.onload = async (e) => {
+      try {
+        const ext = filename.substr(filename.lastIndexOf(".") + 1);
+        const data = reader.result
+        var result = await parser.transform(data, "http://unkown", parser.MimeExtMap[ext], getLoader({}));
+        loadingModule.loadFromOWL2VOWL(result, filename);
+      } catch (e) {
+        append_message("<br><span style='color:red'> Failed to convert the file.</span> " +
+          " Ontology could not be loaded.<br>Is it a valid OWL ontology? Please check with <a target=\"_blank\"" +
+          "href=\"http://visualdataweb.de/validator/\">OWL Validator</a>");
+
+        graph.handleOnLoadingError();
       }
-    });
+    };
+    reader.readAsText(selectedFile);
   };
   
   function keepOntologySelectionOpenShortly(){

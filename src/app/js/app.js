@@ -376,7 +376,7 @@ module.exports = function (){
       // validate JSON FILE
       var validJSON;
       try {
-        data = JSON.parse(jsonText);
+        data = jsonText.constructor === String ? JSON.parse(jsonText) : jsonText;
         validJSON = true;
       } catch ( e ) {
         validJSON = false;

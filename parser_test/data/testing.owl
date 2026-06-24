@@ -1,0 +1,792 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://purl.org/muto/core"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://purl.org/muto/core">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="foaf" IRI="http://xmlns.com/foaf/0.1/"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="sioc" IRI="http://rdfs.org/sioc/ns#"/>
+    <Prefix name="skos" IRI="http://www.w3.org/2004/02/skos/core#"/>
+    <Prefix name="dcterms" IRI="http://purl.org/dc/terms/"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Eduard Marbach</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="#contributor"/>
+        <IRI>http://test.link.me</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Fallback Title</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Test Ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Test ontology to find all different examples for the OWL Converter.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="#contributor"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://test.de</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="#contributor"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Test Contributor</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dcterms:issued"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">2015-01-06</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">TO</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#AutoTag"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PrivateTagging"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tag"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tagging"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TestClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TestClass2"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TestClass3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Testklasse4"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="sioc:Item"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="sioc:UserAccount"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="skos:Concept"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#autoMeaning"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#creatorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#grantAccess"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAccess"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCreator"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTag"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#meaningOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#multiRange"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#nextTag"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#previousTag"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#tagMeaning"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#tagOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#taggedResource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#taggedWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sioc:about"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sioc:creator_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="sioc:has_creator"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="dcterms:created"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="dcterms:modified"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tagCreated"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tagLabel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#taggingCreated"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#taggingModified"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Testklasse4"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="eduard#mytest"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dcterms:issued"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dcterms:licence"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#contributor"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="foaf:depiction"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="foaf:homepage"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#AutoTag"/>
+        <Class IRI="#Tag"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PrivateTagging"/>
+        <Class IRI="#Tagging"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tag"/>
+        <Class abbreviatedIRI="skos:Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tagging"/>
+        <Class abbreviatedIRI="sioc:Item"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#TestClass"/>
+        <NamedIndividual IRI="#Testklasse4"/>
+    </ClassAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#autoMeaning"/>
+        <ObjectProperty IRI="#tagMeaning"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#creatorOf"/>
+        <ObjectProperty abbreviatedIRI="sioc:creator_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasCreator"/>
+        <ObjectProperty abbreviatedIRI="sioc:has_creator"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#taggedResource"/>
+        <ObjectProperty abbreviatedIRI="sioc:about"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#creatorOf"/>
+        <ObjectProperty IRI="#hasCreator"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasAccess"/>
+        <ObjectProperty IRI="#grantAccess"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#tagOf"/>
+        <ObjectProperty IRI="#hasTag"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#tagMeaning"/>
+        <ObjectProperty IRI="#meaningOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#nextTag"/>
+        <ObjectProperty IRI="#previousTag"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#taggedWith"/>
+        <ObjectProperty IRI="#taggedResource"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasCreator"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#nextTag"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#previousTag"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#tagOf"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#taggedResource"/>
+    </FunctionalObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#autoMeaning"/>
+        <Class IRI="#Tag"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#creatorOf"/>
+        <Class abbreviatedIRI="sioc:UserAccount"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#grantAccess"/>
+        <Class IRI="#Tagging"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCreator"/>
+        <Class IRI="#Tagging"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTag"/>
+        <Class IRI="#Tagging"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#multiRange"/>
+        <Class IRI="#TestClass"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#multiRange"/>
+        <Class IRI="#Testklasse4"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#nextTag"/>
+        <Class IRI="#Tag"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#previousTag"/>
+        <Class IRI="#Tag"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tagMeaning"/>
+        <Class IRI="#Tag"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tagOf"/>
+        <Class IRI="#Tag"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#taggedResource"/>
+        <Class IRI="#Tagging"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#creatorOf"/>
+        <Class IRI="#Tagging"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAccess"/>
+        <Class IRI="#Tagging"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCreator"/>
+        <Class abbreviatedIRI="sioc:UserAccount"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTag"/>
+        <Class IRI="#Tag"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#meaningOf"/>
+        <Class IRI="#Tag"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#multiRange"/>
+        <Class IRI="#TestClass2"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#multiRange"/>
+        <Class IRI="#TestClass3"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#nextTag"/>
+        <Class IRI="#Tag"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#previousTag"/>
+        <Class IRI="#Tag"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#tagOf"/>
+        <Class IRI="#Tagging"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#taggedWith"/>
+        <Class IRI="#Tagging"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tagCreated"/>
+        <DataProperty abbreviatedIRI="dcterms:created"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#taggingCreated"/>
+        <DataProperty abbreviatedIRI="dcterms:created"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#taggingModified"/>
+        <DataProperty abbreviatedIRI="dcterms:modified"/>
+    </SubDataPropertyOf>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#tagCreated"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#tagLabel"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#taggingCreated"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tagCreated"/>
+        <Class IRI="#Tag"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tagLabel"/>
+        <Class IRI="#Tag"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#taggingCreated"/>
+        <Class IRI="#Tagging"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#taggingModified"/>
+        <Class IRI="#Tagging"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#tagCreated"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tagLabel"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#taggingCreated"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#taggingModified"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AutoTag</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An automatic tag is a tag that is automatically associated with a resource (e.g. by a tagging system), i.e. it is not entered by a human being.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#AutoTag</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AutoTag</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Automatic Tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <IRI>#AutoTag</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Version 1.0: muto:AutoTag was a subclass of muto:Tagging (called muto:autoTagging) in earlier versions. Defining it as a subclass of muto:Tag is more appropriate and allows for taggings that contain a combination of manually and automatically created tags.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PrivateTagging</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A private tagging is a tagging that is only visible to its creator (unless the creator has not granted access to others via muto:grantAccess). Every tagging that is not an instance of muto:PrivateTagging is public by default.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#PrivateTagging</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PrivateTagging</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Private Tagging</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Tag</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A Tag consists of an arbitrary text label. Note that tags with the same label are NOT merged in the ontology.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#Tag</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tag</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <IRI>#Tag</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Version 1.0: The owl:disjointWith statement was removed to make MUTO conform to OWL Lite (the statement is not essential in this case).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Tagging</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A tagging links a resource to a user account and one or more tags.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#Tagging</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Tagging</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Tagging</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TestClass</IRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Testklasse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#autoMeaning</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This subproperty indicates that the meaning of a tag has been automatically defined (e.g. by a tagging system), i.e. it has not been defined by a human being. The default case is disambiguation by users via muto:tagMeaning.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#autoMeaning</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#autoMeaning</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">automatic tag meaning</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#creatorOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A user account can have a (theoretically unlimited) number of taggings. Use sioc:member_of to define groups for group tagging or link to foaf:Agent, foaf:Person, or foaf:Group via sioc:account_of.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#creatorOf</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#creatorOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">creator of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#grantAccess</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A (usually private) tagging can be linked to one or more user accounts or user groups that should have access to it (apart from the creator). This property can also be used in public tagging to link a user account or user group to a tagging (e.g. if the creator of a tagging wants to suggest the tagging to another user).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#grantAccess</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#grantAccess</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">grant access</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <IRI>#grantAccess</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Version 1.0: The range information has been removed for greater flexibility and OWL Lite conformance (no longer owl:unionOf). Classes from different vocabularies can now be used here - such as sioc:UserAccount, sioc:Usergroup, foaf:OnlineAccount, foaf:Group, or dcterms:Agent -, though we recommend the use of sioc:UserAccount or sioc:Usergroup to remain in the SIOC namespace.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAccess</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A user account or user group can have access to a private tagging from another user if the access is explicitly permitted by the creator of the tagging. This property can also be used in public tagging to link a user account or user group to a tagging (e.g. if the creator of a tagging has suggested the tagging to another user).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#hasAccess</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasAccess</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has access</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <IRI>#hasAccess</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Version 1.0: see muto:grantAccess</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasCreator</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Every tagging is linked to at most one user account. This property can be omitted for automatic taggings. In contrast to its superproperty sioc:has_creator, it is functional and with an explicit domain. Use sioc:member_of to define groups for group tagging or link to foaf:Agent, foaf:Person, or foaf:Group via sioc:account_of.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#hasCreator</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasCreator</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has creator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasTag</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A tagging consists of a (theoretically unlimited) number of tags. A tagging may also consist of no tags, e.g. if the system allows its users to mark a resource first and add tags later.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#hasTag</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasTag</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#meaningOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The number of tags that can be linked to one and the same meaning is theoretically unlimited.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#meaningOf</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#meaningOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">meaning of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#nextTag</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property indicates the tag that follows next in the list of tags. It can be used to describe the order in which the tags have been entered by the user.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#nextTag</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nextTag</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">next tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <IRI>#nextTag</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Version 1.0: Earlier versions of MUTO defined a datatype property muto:tagPosition with integer values which has some drawbacks compared to this solution.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#previousTag</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property indicates the tag that is preceding in the list of tags. It can be used to describe the order in which the tags have been entered by the user.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#previousTag</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#previousTag</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">previous tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <IRI>#previousTag</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Version 1.0: see muto:nextTag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#tagCreated</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The creation date and time of a tag. This property can be omitted if muto:taggingCreated = muto:tagCreated (i.e. in the common case that a tag has been created along with a tagging, not in a later edit of the tagging). The datatype of this property is xsd:dateTime (in contrast to it superproperty dcterms:created which has range rdfs:Literal).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#tagCreated</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#tagCreated</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">tag created</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#tagLabel</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Every tag has exactly one label (usually the one given by the user) - otherwise it is not a tag. Additional labels can be defined in the resource that is linked via muto:tagMeaning.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#tagLabel</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#tagLabel</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">tag label</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <IRI>#tagLabel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Version 1.0: The subproperty relation to rdfs:label has been removed for OWL DL conformance (rdfs:label is an annotation property and one cannot define subproperties for annotation properties in OWL DL).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#tagMeaning</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The meaning of a tag can be expressed by a link to a well-defined resource. This can be any resource that clarifies the meaning of the tag (e.g. some DBpedia resource).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#tagMeaning</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#tagMeaning</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">tag meaning</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#tagOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Every tag is linked to exactly one tagging. This results from the fact that tags with same labels are NOT merged in the ontology.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#tagOf</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#tagOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">tag of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="eduard#mytest"/>
+        <IRI>#taggedResource</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">WTF</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#taggedResource</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Every tagging is linked to exactly one resource. This can be any kind of resource (i.e. all subclasses of rdfs:Resource), including tags and taggings.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#taggedResource</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#taggedResource</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">tagged resource</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#taggedWith</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A resource can have several taggings from different users. Tags are never directly linked to resources but can be inferred from the taggings.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#taggedWith</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#taggedWith</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">tagged with</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#taggingCreated</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Every tagging has exactly one creation date and time. The datatype of this property is xsd:dateTime (in contrast to its superproperty dcterms:created which has range rdfs:Literal).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#taggingCreated</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#taggingCreated</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">tagging created</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#taggingModified</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A tagging can have multiple modification dates, as the number of times a tagging can be edited (e.g. to add or remove tags) is theoretically unlimited. The datatype of this property is xsd:dateTime (in contrast to it superproperty dcterms:created which has range rdfs:Literal).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>#taggingModified</IRI>
+        <IRI>#</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#taggingModified</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">tagging modified</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnonymousIndividual nodeID="_:http://purl.org/muto/core#genid1818884576203567"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Fallback?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AnonymousIndividual nodeID="_:http://purl.org/muto/core#genid1818910758131297"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">What?</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

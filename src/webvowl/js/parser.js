@@ -430,7 +430,7 @@ module.exports = function ( graph ){
       
       /* Skip properties that have no information about their domain and range, like
        inverse properties with optional inverse and optional domain and range attributes */
-      if ( (property.domain() && property.range()) || property.inverse() ) {
+      if ( (property.domain() !== undefined && property.range() !== undefined) || property.inverse() ) {
         
         var inversePropertyId = findId(property.inverse());
         // Look if an inverse property exists
@@ -717,6 +717,10 @@ module.exports = function ( graph ){
     return address;
   }
   
+  function isRawId(id) {
+    return typeof id === "string" || typeof id === "number";
+  }
+
   /**
    * Looks whether the passed object is already the id or if it was replaced
    * with the object that belongs to the id.
@@ -724,9 +728,9 @@ module.exports = function ( graph ){
    * @returns {string} the id of the passed object or undefined
    */
   function findId( object ){
-    if ( !object ) {
+    if ( object === undefined ) {
       return undefined;
-    } else if ( typeof object === "string" ) {
+    } else if ( isRawId(object) ) {
       return object;
     } else if ( "id" in object ) {
       return object.id();
