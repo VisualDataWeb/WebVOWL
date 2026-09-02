@@ -6,8 +6,8 @@ ARG TOMCAT_IMAGE=9.0.118
 ARG WEBVOWL_VERSION=1.1.7
 ARG MAVEN_IMAGE=3.9.16-eclipse-temurin-8-noble
 ARG NODE_IMAGE=12-alpine
-ARG OWL2VOWL_GIT_URL=https://github.com/VisualDataWeb/OWL2VOWL.git
-ARG OWL2VOWL_GIT_REF=master
+ARG OWL2VOWL_GIT_URL=https://github.com/Artemis-IA/OWL2VOWL.git
+ARG OWL2VOWL_GIT_REF=fix-owlapi-1080
 
 # --- OWL2VOWL (Maven WAR, cloned in image build) ---
 FROM maven:${MAVEN_IMAGE} AS owl2vowl-builder
