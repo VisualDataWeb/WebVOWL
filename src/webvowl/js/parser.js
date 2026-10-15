@@ -154,6 +154,34 @@ module.exports = function ( graph ){
     // Process the graph data
     convertTypesToIris(combinedClassesAndDatatypes, ontologyData.namespace);
     convertTypesToIris(combinedProperties, ontologyData.namespace);
+    
+    // Collect all domain and range references from properties (fix #172)
+    // Ensure every referenced class has a node even if not declared in the ontology
+    var referencedClassIds = {};
+    combinedProperties.forEach(function ( property ) {
+      if ( property.domain() && typeof property.domain() === "string" ) {
+        referencedClassIds[property.domain()] = true;
+      }
+      if ( property.range() && typeof property.range() === "string" ) {
+        referencedClassIds[property.range()] = true;
+      }
+    });
+    
+    // Add missing referenced classes as placeholder nodes
+    var missingClasses = [];
+    for ( var cid in referencedClassIds ) {
+      if ( !classMap.hasOwnProperty(cid) ) {
+        var Placeholder = require("./elements/nodes/implementations/OwlClass");
+        var missingNode = new Placeholder(graph);
+        missingNode.id(cid).visible(true);
+        missingNode.label({ "default": cid });
+        missingClasses.push(missingNode);
+      }
+    }
+    if ( missingClasses.length > 0 ) {
+      combinedClassesAndDatatypes = combinedClassesAndDatatypes.concat(missingClasses);
+    }
+    
     nodes = createNodeStructure(combinedClassesAndDatatypes, classMap);
     properties = createPropertyStructure(combinedProperties, classMap, propertyMap);
   };
